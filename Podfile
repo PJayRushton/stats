@@ -11,7 +11,6 @@ target 'Stats' do
   pod 'Firebase/Crash'
   pod 'Firebase/Auth'
   pod 'Marshal'
-  pod 'Reactor'
   pod 'TabPageViewController'
   pod 'LTMorphingLabel'
   pod 'IGListKit'

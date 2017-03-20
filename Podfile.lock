@@ -63,7 +63,6 @@ PODS:
   - LTMorphingLabel (0.4.0)
   - Marshal (1.2.4)
   - Protobuf (3.2.0)
-  - Reactor (0.2.4)
   - TabPageViewController (0.2.5)
 
 DEPENDENCIES:
@@ -77,7 +76,6 @@ DEPENDENCIES:
   - IGListKit
   - LTMorphingLabel
   - Marshal
-  - Reactor
   - TabPageViewController
 
 SPEC CHECKSUMS:
@@ -96,9 +94,8 @@ SPEC CHECKSUMS:
   LTMorphingLabel: d9a85f16ac306f0e07321d6819964deb2dc69638
   Marshal: 8e04e6624e506921db7143b0bfd83caee03f32d6
   Protobuf: 745f59e122e5de98d4d7ef291e264a0eef80f58e
-  Reactor: 4f6f6436772a8be9e7f01f436ee435c51686ccf6
   TabPageViewController: 66aca4291518e66f6ef6800bfe3a98217f58a434
 
-PODFILE CHECKSUM: 22b79c1143f8947d2b9824a49fe7cb9743cc0f73
+PODFILE CHECKSUM: f0feeeeb61b72303df892301e96feb4fff01c021
 
 COCOAPODS: 1.1.1

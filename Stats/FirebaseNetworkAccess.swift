@@ -14,7 +14,6 @@ struct NoOp: Event { }
 
 protocol Identifiable: Equatable, Marshaling, Unmarshaling {
     var id: String { get set }
-    var ref: FIRDatabaseReference { get }
 }
 
 func ==<T: Identifiable>(lhs: T, rhs: T) -> Bool {

@@ -14,5 +14,7 @@ target 'Stats' do
   pod 'TabPageViewController'
   pod 'LTMorphingLabel'
   pod 'IGListKit'
+  pod 'Presentr'
+  pod 'Whisper'
 
 end

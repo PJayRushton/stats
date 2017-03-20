@@ -62,8 +62,10 @@ PODS:
   - IGListKit/Diffing (2.1.0)
   - LTMorphingLabel (0.4.0)
   - Marshal (1.2.4)
+  - Presentr (1.1.1)
   - Protobuf (3.2.0)
   - TabPageViewController (0.2.5)
+  - Whisper (4.0.0)
 
 DEPENDENCIES:
   - Firebase
@@ -76,7 +78,9 @@ DEPENDENCIES:
   - IGListKit
   - LTMorphingLabel
   - Marshal
+  - Presentr
   - TabPageViewController
+  - Whisper
 
 SPEC CHECKSUMS:
   Firebase: 2b1cdfba1cda8589f32904a697cc753322bff9d8
@@ -93,9 +97,11 @@ SPEC CHECKSUMS:
   IGListKit: b826c68ef7a4ae1626c09d4d3e1ea7a169e6c36e
   LTMorphingLabel: d9a85f16ac306f0e07321d6819964deb2dc69638
   Marshal: 8e04e6624e506921db7143b0bfd83caee03f32d6
+  Presentr: 389acebf4361e0913d942232d70211e279e38645
   Protobuf: 745f59e122e5de98d4d7ef291e264a0eef80f58e
   TabPageViewController: 66aca4291518e66f6ef6800bfe3a98217f58a434
+  Whisper: 08be92623311f8e53201e62e17f6d7b9599a4714
 
-PODFILE CHECKSUM: f0feeeeb61b72303df892301e96feb4fff01c021
+PODFILE CHECKSUM: 34083f2e0e8086255b9f004c2e53c9fea2d9da6d
 
 COCOAPODS: 1.1.1

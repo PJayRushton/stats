@@ -16,6 +16,6 @@ target 'Stats' do
   pod 'IGListKit'
   pod 'Presentr'
   pod 'Whisper'
-  pod 'UIColor_Hex_Swift'
+  pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
   
 end

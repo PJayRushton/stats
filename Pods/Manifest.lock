@@ -1,4 +1,7 @@
 PODS:
+  - ChameleonFramework/Default (2.1.0)
+  - ChameleonFramework/Swift (2.1.0):
+    - ChameleonFramework/Default
   - Firebase (3.15.0):
     - Firebase/Core (= 3.15.0)
   - Firebase/AdMob (3.15.0):
@@ -68,6 +71,7 @@ PODS:
   - Whisper (4.0.0)
 
 DEPENDENCIES:
+  - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
   - Firebase
   - Firebase/AdMob
   - Firebase/Auth
@@ -82,7 +86,17 @@ DEPENDENCIES:
   - TabPageViewController
   - Whisper
 
+EXTERNAL SOURCES:
+  ChameleonFramework:
+    :git: https://github.com/ViccAlexander/Chameleon.git
+
+CHECKOUT OPTIONS:
+  ChameleonFramework:
+    :commit: acc480fbe023c6e5fe40f68593f4a70a8c4c7ad5
+    :git: https://github.com/ViccAlexander/Chameleon.git
+
 SPEC CHECKSUMS:
+  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   Firebase: 2b1cdfba1cda8589f32904a697cc753322bff9d8
   FirebaseAnalytics: 0d1b7d81d5021155be37702a94ba1ec16d45365d
   FirebaseAuth: cc8a1824170adbd351edb7f994490a3fb5c18be6
@@ -102,6 +116,6 @@ SPEC CHECKSUMS:
   TabPageViewController: 66aca4291518e66f6ef6800bfe3a98217f58a434
   Whisper: 08be92623311f8e53201e62e17f6d7b9599a4714
 
-PODFILE CHECKSUM: 34083f2e0e8086255b9f004c2e53c9fea2d9da6d
+PODFILE CHECKSUM: 84f52bcbcc4f3477b7f12452fd0327c0bfc1e113
 
 COCOAPODS: 1.1.1

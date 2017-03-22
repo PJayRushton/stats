@@ -9,16 +9,67 @@
 import Foundation
 
 enum App {
-    static let core = Core(state: AppState(), middlewares: [])
+    static let core = Core(state: AppState(), middlewares: [/*UserMiddleware()*/])
 }
 
 
 struct AppState: State {
     
+    var currentUser: User?
+    
     mutating func react(to event: Event) {
         switch event {
+        case let event as Selected<User>:
+            currentUser = event.item
         default:
             break
         }
     }
+}
+
+extension Command {
+    
+    var networkAccess: FirebaseNetworkAccess {
+        return FirebaseNetworkAccess()
+    }
+}
+
+
+// MARK: - Events
+
+// GENERIC
+
+struct Selected<T>: Event {
+    var item: T?
+    
+    init(_ item: T?) {
+        self.item = item
+    }
+    
+}
+
+struct Updated<T>: Event {
+    var payload: T
+    
+    init(_ payload: T) {
+        self.payload = payload
+    }
+    
+}
+
+// AUTH
+
+struct ICloudUserIdentified: Event {
+    var icloudId: String?
+}
+
+struct ReachablilityChanged: Event {
+    var reachable: Bool
+}
+
+// ERROR
+
+struct ErrorEvent: Event {
+    var error: Error?
+    var message: String?
 }

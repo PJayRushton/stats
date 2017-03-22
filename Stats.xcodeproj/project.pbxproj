@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A179996C1E82B4EC0058A002 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A179996B1E82B4EC0058A002 /* NetworkHelper.swift */; };
+		A179996E1E82B64A0058A002 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A179996D1E82B64A0058A002 /* User.swift */; };
+		A17999701E82B67C0058A002 /* GetICloudUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A179996F1E82B67C0058A002 /* GetICloudUser.swift */; };
+		A17999721E82B6930058A002 /* SaveNewUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17999711E82B6930058A002 /* SaveNewUser.swift */; };
+		A17999741E82B69E0058A002 /* SubscribeToAllTheThings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17999731E82B69E0058A002 /* SubscribeToAllTheThings.swift */; };
+		A17999761E82B6B20058A002 /* SubscribeToUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17999751E82B6B20058A002 /* SubscribeToUsers.swift */; };
+		A179997D1E82B8BD0058A002 /* NSDate+ValueType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A179997C1E82B8BD0058A002 /* NSDate+ValueType.swift */; };
+		A17999801E82B95E0058A002 /* Arrays.swift in Sources */ = {isa = PBXBuildFile; fileRef = A179997F1E82B95E0058A002 /* Arrays.swift */; };
+		A17999821E82B9780058A002 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17999811E82B9780058A002 /* DateHelper.swift */; };
+		A17999841E82B9860058A002 /* SegueHandlerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17999831E82B9860058A002 /* SegueHandlerType.swift */; };
+		A17999861E82B98E0058A002 /* StoryboardInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17999851E82B98E0058A002 /* StoryboardInitializable.swift */; };
+		A17999881E82B9A60058A002 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17999871E82B9A60058A002 /* UIColorExtension.swift */; };
 		A1868F9A1E802C4E00C191EC /* FirebaseNetworkAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1868F991E802C4E00C191EC /* FirebaseNetworkAccess.swift */; };
 		A1868F9D1E802DDD00C191EC /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1868F9C1E802DDD00C191EC /* Result.swift */; };
 		A1868F9F1E802E1600C191EC /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1868F9E1E802E1600C191EC /* AppState.swift */; };
@@ -24,6 +36,19 @@
 		097AB2DA5C7A85576113EB29 /* Pods_Stats.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stats.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		23340C3D14A1D9E6B1878846 /* Pods-Stats.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stats.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Stats/Pods-Stats.debug.xcconfig"; sourceTree = "<group>"; };
 		3EB00BD85F52BB91F956360D /* Pods-Stats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stats.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stats/Pods-Stats.release.xcconfig"; sourceTree = "<group>"; };
+		A179996B1E82B4EC0058A002 /* NetworkHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
+		A179996D1E82B64A0058A002 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A179996F1E82B67C0058A002 /* GetICloudUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetICloudUser.swift; sourceTree = "<group>"; };
+		A17999711E82B6930058A002 /* SaveNewUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveNewUser.swift; sourceTree = "<group>"; };
+		A17999731E82B69E0058A002 /* SubscribeToAllTheThings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribeToAllTheThings.swift; sourceTree = "<group>"; };
+		A17999751E82B6B20058A002 /* SubscribeToUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribeToUsers.swift; sourceTree = "<group>"; };
+		A17999781E82B7750058A002 /* UserMiddleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMiddleware.swift; sourceTree = "<group>"; };
+		A179997C1E82B8BD0058A002 /* NSDate+ValueType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+ValueType.swift"; sourceTree = "<group>"; };
+		A179997F1E82B95E0058A002 /* Arrays.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Arrays.swift; sourceTree = "<group>"; };
+		A17999811E82B9780058A002 /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
+		A17999831E82B9860058A002 /* SegueHandlerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueHandlerType.swift; sourceTree = "<group>"; };
+		A17999851E82B98E0058A002 /* StoryboardInitializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardInitializable.swift; sourceTree = "<group>"; };
+		A17999871E82B9A60058A002 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		A1868F991E802C4E00C191EC /* FirebaseNetworkAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseNetworkAccess.swift; sourceTree = "<group>"; };
 		A1868F9C1E802DDD00C191EC /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		A1868F9E1E802E1600C191EC /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
@@ -59,6 +84,46 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		A17999771E82B7210058A002 /* Commands */ = {
+			isa = PBXGroup;
+			children = (
+				A179996F1E82B67C0058A002 /* GetICloudUser.swift */,
+				A17999711E82B6930058A002 /* SaveNewUser.swift */,
+				A17999731E82B69E0058A002 /* SubscribeToAllTheThings.swift */,
+				A17999751E82B6B20058A002 /* SubscribeToUsers.swift */,
+			);
+			name = Commands;
+			sourceTree = "<group>";
+		};
+		A179997A1E82B77B0058A002 /* Middleware */ = {
+			isa = PBXGroup;
+			children = (
+				A17999781E82B7750058A002 /* UserMiddleware.swift */,
+			);
+			name = Middleware;
+			sourceTree = "<group>";
+		};
+		A179997B1E82B8260058A002 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A179996D1E82B64A0058A002 /* User.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A179997E1E82B9540058A002 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A179997F1E82B95E0058A002 /* Arrays.swift */,
+				A17999811E82B9780058A002 /* DateHelper.swift */,
+				A179997C1E82B8BD0058A002 /* NSDate+ValueType.swift */,
+				A17999831E82B9860058A002 /* SegueHandlerType.swift */,
+				A17999851E82B98E0058A002 /* StoryboardInitializable.swift */,
+				A17999871E82B9A60058A002 /* UIColorExtension.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		A1868F971E802C1900C191EC /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -82,8 +147,9 @@
 		A1868F9B1E802C5200C191EC /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				A1868F9C1E802DDD00C191EC /* Result.swift */,
 				A1868F991E802C4E00C191EC /* FirebaseNetworkAccess.swift */,
+				A179996B1E82B4EC0058A002 /* NetworkHelper.swift */,
+				A1868F9C1E802DDD00C191EC /* Result.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -93,6 +159,8 @@
 			children = (
 				A1868FA11E802F5C00C191EC /* Reactor.swift */,
 				A1868F9E1E802E1600C191EC /* AppState.swift */,
+				A179997A1E82B77B0058A002 /* Middleware */,
+				A17999771E82B7210058A002 /* Commands */,
 			);
 			name = Reactor;
 			sourceTree = "<group>";
@@ -119,10 +187,12 @@
 			isa = PBXGroup;
 			children = (
 				A1DC99D21E7E3E4500C6FF8C /* AppDelegate.swift */,
-				A1868FA01E802E2500C191EC /* Reactor */,
-				A1868F9B1E802C5200C191EC /* Networking */,
-				A1868F971E802C1900C191EC /* UI */,
+				A179997E1E82B9540058A002 /* Helpers */,
 				A1868F981E802C1F00C191EC /* Misc */,
+				A179997B1E82B8260058A002 /* Model */,
+				A1868F9B1E802C5200C191EC /* Networking */,
+				A1868FA01E802E2500C191EC /* Reactor */,
+				A1868F971E802C1900C191EC /* UI */,
 			);
 			path = Stats;
 			sourceTree = "<group>";
@@ -260,12 +330,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A17999821E82B9780058A002 /* DateHelper.swift in Sources */,
+				A17999761E82B6B20058A002 /* SubscribeToUsers.swift in Sources */,
+				A179996C1E82B4EC0058A002 /* NetworkHelper.swift in Sources */,
 				A1868F9A1E802C4E00C191EC /* FirebaseNetworkAccess.swift in Sources */,
+				A17999861E82B98E0058A002 /* StoryboardInitializable.swift in Sources */,
+				A17999881E82B9A60058A002 /* UIColorExtension.swift in Sources */,
+				A17999741E82B69E0058A002 /* SubscribeToAllTheThings.swift in Sources */,
 				A1868F9F1E802E1600C191EC /* AppState.swift in Sources */,
 				A1DC99D51E7E3E4500C6FF8C /* ViewController.swift in Sources */,
+				A179996E1E82B64A0058A002 /* User.swift in Sources */,
 				A1868F9D1E802DDD00C191EC /* Result.swift in Sources */,
+				A17999721E82B6930058A002 /* SaveNewUser.swift in Sources */,
+				A17999841E82B9860058A002 /* SegueHandlerType.swift in Sources */,
+				A17999801E82B95E0058A002 /* Arrays.swift in Sources */,
 				A1868FA21E802F5C00C191EC /* Reactor.swift in Sources */,
+				A17999701E82B67C0058A002 /* GetICloudUser.swift in Sources */,
 				A1DC99D31E7E3E4500C6FF8C /* AppDelegate.swift in Sources */,
+				A179997D1E82B8BD0058A002 /* NSDate+ValueType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

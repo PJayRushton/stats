@@ -10,8 +10,6 @@ import Foundation
 import Firebase
 import Marshal
 
-struct NoOp: Event { }
-
 protocol Identifiable: Equatable, Marshaling, Unmarshaling {
     var id: String { get set }
 }
@@ -34,27 +32,7 @@ struct FirebaseNetworkAccess {
     // MARK: - Properties
     
     let rootRef = FIRDatabase.database().reference()
-    var core = App.core
-    
-    
-    /// **root/users**
-    var usersRef: FIRDatabaseReference {
-        return rootRef.child("users")
-    }
-    
-    /// **root/groups/{userId}**
-    func groupsRef(userId: String) -> FIRDatabaseReference {
-        return rootRef.child("groups").child(userId)
-    }
-    
-    /// **root/students/{userId}
-    func studentsRef(userId: String) -> FIRDatabaseReference {
-        return rootRef.child("students").child(userId)
-    }
-
-    var allThemesRef: FIRDatabaseReference {
-        return rootRef.child("allThemes")
-    }
+    let core = App.core
     
     func setValue(at ref: FIRDatabaseReference, parameters: JSONObject, completion: ResultCompletion?) {
         ref.setValue(parameters) { error, ref in
@@ -158,6 +136,5 @@ struct FirebaseNetworkAccess {
     func unsubscribe(from ref: FIRDatabaseReference) {
         ref.removeAllObservers()
     }
-    
     
 }

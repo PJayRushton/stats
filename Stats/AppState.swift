@@ -16,15 +16,19 @@ enum App {
 struct AppState: State {
     
     var currentUser: User?
+    var currentICloudId: String?
     
     mutating func react(to event: Event) {
         switch event {
         case let event as Selected<User>:
             currentUser = event.item
+        case let event as ICloudUserIdentified:
+            currentICloudId = event.iCloudId
         default:
             break
         }
     }
+    
 }
 
 extension Command {
@@ -55,12 +59,6 @@ struct Updated<T>: Event {
         self.payload = payload
     }
     
-}
-
-// AUTH
-
-struct ICloudUserIdentified: Event {
-    var icloudId: String?
 }
 
 struct ReachablilityChanged: Event {

@@ -8,37 +8,28 @@
 
 import Foundation
 import Firebase
+import Marshal
 
 struct SaveNewUser: Command {
     
     func execute(state: AppState, core: Core<AppState>) {
         let ref = networkAccess.usersRef.childByAutoId()
-        let user = newUser()
-        user.id = ref.key
-        var parameters: JSONObject = user.marshaled()
-        parameters["creationDate"] = Date().iso8601String
-        networkAccess.setValue(at: ref, parameters: parameters) { result in
+        let user = newUser(id: ref.key)
+        
+        networkAccess.setValue(at: ref, parameters: user.marshaled()) { result in
             switch result {
             case .success:
-                if let cloudKitId = user.cloudKitId {
-                    core.fire(event: ICloudUserIdentified(icloudId: cloudKitId))
-                } else {
-                    core.fire(event: Selected<User>(user))
-                }
-                let id = self.networkAccess.groupsRef(userId: user.id).childByAutoId().key
-                let newGroup = Group(id: id, name: "Your First Class!")
-                core.fire(command: CreateGroup(group: newGroup))
+                core.fire(event: Selected<User>(user))
             case let .failure(error):
                 core.fire(event: ErrorEvent(error: error, message: nil))
             }
         }
     }
     
-    private func newUser() -> User {
+    private func newUser(id: String) -> User {
         let cloudKitId = App.core.state.currentICloudId
         let deviceId = UIDevice.current.identifierForVendor!.uuidString
-        let firstName = "First Name"
-        return User(cloudKitId: cloudKitId, deviceId: deviceId, firstName: firstName)
+        return User(id: id, cloudKitId: cloudKitId, deviceId: deviceId)
     }
     
 }

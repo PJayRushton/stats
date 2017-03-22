@@ -9,18 +9,34 @@
 import Foundation
 import CloudKit
 
+struct ICloudUserIdentified: Event {
+    var iCloudId: String?
+}
+
+
 struct GetICloudUser: Command {
     
     func execute(state: AppState, core: Core<AppState>) {
         let container = CKContainer.default()
         container.fetchUserRecordID { recordID, error in
-            if let error = error {
-                core.fire(event: ErrorEvent(error: error, message: nil))
-                core.fire(event: ICloudUserIdentified(icloudId: nil))
+            if let recordID = recordID, error == nil {
+                core.fire(event: ICloudUserIdentified(iCloudId: recordID.recordName))
+                core.fire(command: GetCurrentUser(iCloudId: recordID.recordName))
+                currentUserCachedICloudId = recordID.recordName
             } else {
-                core.fire(event: ICloudUserIdentified(icloudId: recordID?.recordName))
+                core.fire(event: ErrorEvent(error: error, message: nil))
+                core.fire(event: ICloudUserIdentified(iCloudId: nil))
             }
         }
     }
     
+}
+
+var currentUserCachedICloudId: String? {
+    get {
+        return UserDefaults.standard.string(forKey: #function)
+    }
+    set {
+        UserDefaults.standard.set(newValue, forKey: #function)
+    }
 }

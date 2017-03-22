@@ -8,6 +8,8 @@
 
 import Firebase
 
+let iCloudKey = "iCloudId"
+
 extension FirebaseNetworkAccess {
     
     /// **/users**

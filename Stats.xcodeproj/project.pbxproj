@@ -19,6 +19,8 @@
 		A17999841E82B9860058A002 /* SegueHandlerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17999831E82B9860058A002 /* SegueHandlerType.swift */; };
 		A17999861E82B98E0058A002 /* StoryboardInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17999851E82B98E0058A002 /* StoryboardInitializable.swift */; };
 		A17999881E82B9A60058A002 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17999871E82B9A60058A002 /* UIColorExtension.swift */; };
+		A179998A1E82BA880058A002 /* GetCurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17999891E82BA880058A002 /* GetCurrentUser.swift */; };
+		A179998D1E82D1E60058A002 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A179998C1E82D1E60058A002 /* CloudKit.framework */; };
 		A1868F9A1E802C4E00C191EC /* FirebaseNetworkAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1868F991E802C4E00C191EC /* FirebaseNetworkAccess.swift */; };
 		A1868F9D1E802DDD00C191EC /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1868F9C1E802DDD00C191EC /* Result.swift */; };
 		A1868F9F1E802E1600C191EC /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1868F9E1E802E1600C191EC /* AppState.swift */; };
@@ -49,6 +51,9 @@
 		A17999831E82B9860058A002 /* SegueHandlerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueHandlerType.swift; sourceTree = "<group>"; };
 		A17999851E82B98E0058A002 /* StoryboardInitializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardInitializable.swift; sourceTree = "<group>"; };
 		A17999871E82B9A60058A002 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		A17999891E82BA880058A002 /* GetCurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCurrentUser.swift; sourceTree = "<group>"; };
+		A179998B1E82D1DA0058A002 /* Stats.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Stats.entitlements; sourceTree = "<group>"; };
+		A179998C1E82D1E60058A002 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		A1868F991E802C4E00C191EC /* FirebaseNetworkAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseNetworkAccess.swift; sourceTree = "<group>"; };
 		A1868F9C1E802DDD00C191EC /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		A1868F9E1E802E1600C191EC /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
@@ -69,6 +74,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E550D9575E4FFE68382F160D /* Pods_Stats.framework in Frameworks */,
+				A179998D1E82D1E60058A002 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				A179996F1E82B67C0058A002 /* GetICloudUser.swift */,
+				A17999891E82BA880058A002 /* GetCurrentUser.swift */,
 				A17999711E82B6930058A002 /* SaveNewUser.swift */,
 				A17999731E82B69E0058A002 /* SubscribeToAllTheThings.swift */,
 				A17999751E82B6B20058A002 /* SubscribeToUsers.swift */,
@@ -186,6 +193,7 @@
 		A1DC99D11E7E3E4500C6FF8C /* Stats */ = {
 			isa = PBXGroup;
 			children = (
+				A179998B1E82D1DA0058A002 /* Stats.entitlements */,
 				A1DC99D21E7E3E4500C6FF8C /* AppDelegate.swift */,
 				A179997E1E82B9540058A002 /* Helpers */,
 				A1868F981E802C1F00C191EC /* Misc */,
@@ -200,6 +208,7 @@
 		F0C11ABFFB339435C2FA8DA3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A179998C1E82D1E60058A002 /* CloudKit.framework */,
 				097AB2DA5C7A85576113EB29 /* Pods_Stats.framework */,
 			);
 			name = Frameworks;
@@ -242,6 +251,14 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = WK6LDT652Z;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -343,6 +360,7 @@
 				A1868F9D1E802DDD00C191EC /* Result.swift in Sources */,
 				A17999721E82B6930058A002 /* SaveNewUser.swift in Sources */,
 				A17999841E82B9860058A002 /* SegueHandlerType.swift in Sources */,
+				A179998A1E82BA880058A002 /* GetCurrentUser.swift in Sources */,
 				A17999801E82B95E0058A002 /* Arrays.swift in Sources */,
 				A1868FA21E802F5C00C191EC /* Reactor.swift in Sources */,
 				A17999701E82B67C0058A002 /* GetICloudUser.swift in Sources */,
@@ -469,6 +487,7 @@
 			baseConfigurationReference = 23340C3D14A1D9E6B1878846 /* Pods-Stats.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Stats/Stats.entitlements;
 				DEVELOPMENT_TEAM = WK6LDT652Z;
 				INFOPLIST_FILE = Stats/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -483,6 +502,7 @@
 			baseConfigurationReference = 3EB00BD85F52BB91F956360D /* Pods-Stats.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Stats/Stats.entitlements;
 				DEVELOPMENT_TEAM = WK6LDT652Z;
 				INFOPLIST_FILE = Stats/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

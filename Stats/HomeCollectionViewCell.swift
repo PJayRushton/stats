@@ -14,11 +14,6 @@ class HomeCollectionViewCell: UICollectionViewCell, AutoReuseIdentifiable {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        colorView.layer.cornerRadius = 5
-    }
-    
     func update(with menuItem: HomeMenuItem ) {
         colorView.backgroundColor = menuItem.backgroundColor
         imageView.image = menuItem.image

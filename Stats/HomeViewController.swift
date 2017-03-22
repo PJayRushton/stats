@@ -36,12 +36,16 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         flowLayout.minimumLineSpacing = 0
-        flowLayout.minimumInteritemSpacing = 8
+        flowLayout.minimumInteritemSpacing = 0
         collectionView.collectionViewLayout = flowLayout
         
         feedbackGenerator.prepare()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         collectionView.collectionViewLayout.invalidateLayout()

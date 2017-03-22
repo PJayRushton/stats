@@ -29,7 +29,7 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NF2-zB-c2T">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="250.5"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.78377914429999995" green="0.79996603730000004" blue="0.80824667220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="NF2-zB-c2T" secondAttribute="height" multiplier="1.5" id="3pq-Sv-8kx"/>
                                         </constraints>
@@ -86,11 +86,6 @@
                                                                 <constraint firstAttribute="trailingMargin" secondItem="LCM-ht-SLT" secondAttribute="trailing" constant="8" id="Y9T-TN-XWi"/>
                                                                 <constraint firstItem="LCM-ht-SLT" firstAttribute="centerY" secondItem="q5z-lF-WpD" secondAttribute="centerY" id="f5L-bZ-iY0"/>
                                                             </constraints>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                    <real key="value" value="5"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                            </userDefinedRuntimeAttributes>
                                                         </view>
                                                     </subviews>
                                                 </view>
@@ -140,7 +135,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PpE-LW-Ptc" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cch-rW-EQi">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="cch-rW-EQi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

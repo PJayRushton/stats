@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ChameleonFramework
 
 enum HomeMenuItem: Int {
     case newGame

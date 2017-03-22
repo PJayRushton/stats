@@ -16,5 +16,6 @@ target 'Stats' do
   pod 'IGListKit'
   pod 'Presentr'
   pod 'Whisper'
-
+  pod 'UIColor_Hex_Swift'
+  
 end

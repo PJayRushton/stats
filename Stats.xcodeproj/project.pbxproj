@@ -34,6 +34,7 @@
 		A1F959321E882F9C0087B040 /* CloudKitSyncable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F959311E882F9C0087B040 /* CloudKitSyncable.swift */; };
 		A1F959341E8953440087B040 /* Season.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F959331E8953440087B040 /* Season.swift */; };
 		A1F959371E89579F0087B040 /* NewUserViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1F959351E89579F0087B040 /* NewUserViewController.storyboard */; };
+		A1F959391E8959C60087B040 /* LemonMilk.otf in Resources */ = {isa = PBXBuildFile; fileRef = A1F959381E8959C60087B040 /* LemonMilk.otf */; };
 		E550D9575E4FFE68382F160D /* Pods_Stats.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 097AB2DA5C7A85576113EB29 /* Pods_Stats.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,7 @@
 		A1F959311E882F9C0087B040 /* CloudKitSyncable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitSyncable.swift; sourceTree = "<group>"; };
 		A1F959331E8953440087B040 /* Season.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Season.swift; sourceTree = "<group>"; };
 		A1F959361E89579F0087B040 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = NewUserViewController.storyboard; sourceTree = "<group>"; };
+		A1F959381E8959C60087B040 /* LemonMilk.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LemonMilk.otf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 			children = (
 				A1DC99D91E7E3E4500C6FF8C /* Assets.xcassets */,
 				A1DC99DB1E7E3E4500C6FF8C /* LaunchScreen.storyboard */,
+				A1F959381E8959C60087B040 /* LemonMilk.otf */,
 				A1DC99DE1E7E3E4500C6FF8C /* Info.plist */,
 			);
 			name = Misc;
@@ -310,6 +313,7 @@
 			files = (
 				A179999A1E82DFFF0058A002 /* HomeViewController.storyboard in Resources */,
 				A1DC99DD1E7E3E4500C6FF8C /* LaunchScreen.storyboard in Resources */,
+				A1F959391E8959C60087B040 /* LemonMilk.otf in Resources */,
 				A17999971E82DFF00058A002 /* LaunchScreen.storyboard in Resources */,
 				A1DC99DA1E7E3E4500C6FF8C /* Assets.xcassets in Resources */,
 				A1F959371E89579F0087B040 /* NewUserViewController.storyboard in Resources */,

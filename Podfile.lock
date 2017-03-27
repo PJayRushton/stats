@@ -11,6 +11,7 @@ PODS:
   - Marshal (1.2.4)
   - Presentr (1.1.1)
   - TabPageViewController (0.2.5)
+  - TextFieldEffects (1.3.1)
   - Whisper (4.0.0)
 
 DEPENDENCIES:
@@ -20,6 +21,7 @@ DEPENDENCIES:
   - Marshal
   - Presentr
   - TabPageViewController
+  - TextFieldEffects
   - Whisper
 
 EXTERNAL SOURCES:
@@ -38,8 +40,9 @@ SPEC CHECKSUMS:
   Marshal: 8e04e6624e506921db7143b0bfd83caee03f32d6
   Presentr: 389acebf4361e0913d942232d70211e279e38645
   TabPageViewController: 66aca4291518e66f6ef6800bfe3a98217f58a434
+  TextFieldEffects: faa47d428ee8eafb781a8413ac4345420d2328c4
   Whisper: 08be92623311f8e53201e62e17f6d7b9599a4714
 
-PODFILE CHECKSUM: 0eeb35bc2beed5eb5c0e52376ef46f0ba1cdaea9
+PODFILE CHECKSUM: 36312f221188928242a9e37f3799239e18f2d56c
 
 COCOAPODS: 1.1.1

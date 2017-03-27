@@ -16,8 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var core = App.core
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        core.fire(command: GetCurrentUser())
-        
+        core.fire(command: LoadICloudUser())
+
         return true
     }
 

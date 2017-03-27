@@ -1,5 +1,5 @@
 //
-//  GetCurrentUser.swift
+//  LoadICloudUser.swift
 //  Wasatch Transportation
 //
 //  Created by Parker Rushton on 10/18/16.
@@ -14,12 +14,13 @@ struct ICloudUserIdentified: Event {
 }
 
 
-struct GetCurrentUser: Command {
+struct LoadICloudUser: Command {
     
     func execute(state: AppState, core: Core<AppState>) {
         let container = CKContainer.default()
         container.fetchUserRecordID { recordID, error in
             if let recordID = recordID, error == nil {
+                
                 core.fire(event: ICloudUserIdentified(iCloudId: recordID.recordName))
             } else {
                 core.fire(event: ErrorEvent(error: error, message: nil))

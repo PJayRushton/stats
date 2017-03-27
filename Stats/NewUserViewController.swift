@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewUserViewController: XIBViewController {
+class NewUserViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

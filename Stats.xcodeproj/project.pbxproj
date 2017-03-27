@@ -28,13 +28,15 @@
 		A1B41C261E85A4C400FAC930 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B41C251E85A4C400FAC930 /* Player.swift */; };
 		A1B41C281E85A4CD00FAC930 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B41C271E85A4CD00FAC930 /* Game.swift */; };
 		A1B41C2A1E85A4E300FAC930 /* AtBat.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B41C291E85A4E300FAC930 /* AtBat.swift */; };
+		A1D8054A1E89853B0072AA49 /* UserCreationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1D805481E89853B0072AA49 /* UserCreationViewController.storyboard */; };
+		A1D8054C1E89870B0072AA49 /* UsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D8054B1E89870B0072AA49 /* UsernameViewController.swift */; };
+		A1D8054F1E8987540072AA49 /* UsernameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1D8054D1E8987540072AA49 /* UsernameViewController.xib */; };
 		A1DC99D31E7E3E4500C6FF8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DC99D21E7E3E4500C6FF8C /* AppDelegate.swift */; };
 		A1DC99DA1E7E3E4500C6FF8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1DC99D91E7E3E4500C6FF8C /* Assets.xcassets */; };
 		A1F959321E882F9C0087B040 /* CloudKitSyncable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F959311E882F9C0087B040 /* CloudKitSyncable.swift */; };
 		A1F959341E8953440087B040 /* Season.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F959331E8953440087B040 /* Season.swift */; };
 		A1F959391E8959C60087B040 /* LemonMilk.otf in Resources */ = {isa = PBXBuildFile; fileRef = A1F959381E8959C60087B040 /* LemonMilk.otf */; };
 		A1F959431E89683C0087B040 /* NewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F959411E89683C0087B040 /* NewUserViewController.swift */; };
-		A1F959441E89683C0087B040 /* NewUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1F959421E89683C0087B040 /* NewUserViewController.xib */; };
 		A1F959461E89691A0087B040 /* XIBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F959451E89691A0087B040 /* XIBViewController.swift */; };
 		E550D9575E4FFE68382F160D /* Pods_Stats.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 097AB2DA5C7A85576113EB29 /* Pods_Stats.framework */; };
 /* End PBXBuildFile section */
@@ -69,6 +71,9 @@
 		A1B41C251E85A4C400FAC930 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		A1B41C271E85A4CD00FAC930 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		A1B41C291E85A4E300FAC930 /* AtBat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtBat.swift; sourceTree = "<group>"; };
+		A1D805491E89853B0072AA49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = UserCreationViewController.storyboard; sourceTree = "<group>"; };
+		A1D8054B1E89870B0072AA49 /* UsernameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsernameViewController.swift; sourceTree = "<group>"; };
+		A1D8054E1E8987540072AA49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = UsernameViewController.xib; sourceTree = "<group>"; };
 		A1DC99CF1E7E3E4500C6FF8C /* Stats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1DC99D21E7E3E4500C6FF8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1DC99D91E7E3E4500C6FF8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -77,7 +82,6 @@
 		A1F959331E8953440087B040 /* Season.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Season.swift; sourceTree = "<group>"; };
 		A1F959381E8959C60087B040 /* LemonMilk.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LemonMilk.otf; sourceTree = "<group>"; };
 		A1F959411E89683C0087B040 /* NewUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserViewController.swift; sourceTree = "<group>"; };
-		A1F959421E89683C0087B040 /* NewUserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NewUserViewController.xib; path = ../NewUserViewController.xib; sourceTree = "<group>"; };
 		A1F959451E89691A0087B040 /* XIBViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XIBViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -152,7 +156,8 @@
 			children = (
 				A17999981E82DFFF0058A002 /* HomeViewController.storyboard */,
 				A17999951E82DFF00058A002 /* LaunchScreen.storyboard */,
-				A1F959421E89683C0087B040 /* NewUserViewController.xib */,
+				A1D805481E89853B0072AA49 /* UserCreationViewController.storyboard */,
+				A1D8054D1E8987540072AA49 /* UsernameViewController.xib */,
 			);
 			path = Base.lproj;
 			sourceTree = "<group>";
@@ -164,6 +169,7 @@
 				A179998E1E82DF300058A002 /* HomeCollectionViewCell.swift */,
 				A179998F1E82DF300058A002 /* HomeMenuItem.swift */,
 				A1F959411E89683C0087B040 /* NewUserViewController.swift */,
+				A1D8054B1E89870B0072AA49 /* UsernameViewController.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -314,9 +320,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1D8054F1E8987540072AA49 /* UsernameViewController.xib in Resources */,
 				A179999A1E82DFFF0058A002 /* HomeViewController.storyboard in Resources */,
 				A1F959391E8959C60087B040 /* LemonMilk.otf in Resources */,
-				A1F959441E89683C0087B040 /* NewUserViewController.xib in Resources */,
+				A1D8054A1E89853B0072AA49 /* UserCreationViewController.storyboard in Resources */,
 				A17999971E82DFF00058A002 /* LaunchScreen.storyboard in Resources */,
 				A1DC99DA1E7E3E4500C6FF8C /* Assets.xcassets in Resources */,
 			);
@@ -399,6 +406,7 @@
 				A17999701E82B67C0058A002 /* LoadICloudUser.swift in Sources */,
 				A1DC99D31E7E3E4500C6FF8C /* AppDelegate.swift in Sources */,
 				A1F959341E8953440087B040 /* Season.swift in Sources */,
+				A1D8054C1E89870B0072AA49 /* UsernameViewController.swift in Sources */,
 				A179997D1E82B8BD0058A002 /* NSDate+ValueType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -420,6 +428,22 @@
 				A17999991E82DFFF0058A002 /* Base */,
 			);
 			name = HomeViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		A1D805481E89853B0072AA49 /* UserCreationViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A1D805491E89853B0072AA49 /* Base */,
+			);
+			name = UserCreationViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		A1D8054D1E8987540072AA49 /* UsernameViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A1D8054E1E8987540072AA49 /* Base */,
+			);
+			name = UsernameViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

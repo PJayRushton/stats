@@ -41,7 +41,7 @@ extension UIColor {
         }
         self.init(red: CGFloat(r) / 255, green: CGFloat(g) / 255, blue: CGFloat(b) / 255, alpha: CGFloat(a) / 255)
     }
-    
+    /*
     var hexValue: String {
         var red: CGFloat = 0
         var green: CGFloat = 0
@@ -52,6 +52,7 @@ extension UIColor {
         
         return String(format:"#%06x", rgb)
     }
+ */
     
 }
 

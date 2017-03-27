@@ -31,13 +31,6 @@ struct AppState: State {
     
 }
 
-extension Command {
-    
-    var networkAccess: FirebaseNetworkAccess {
-        return FirebaseNetworkAccess()
-    }
-}
-
 
 // MARK: - Events
 

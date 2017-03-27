@@ -7,33 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A179996C1E82B4EC0058A002 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A179996B1E82B4EC0058A002 /* NetworkHelper.swift */; };
 		A179996E1E82B64A0058A002 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A179996D1E82B64A0058A002 /* User.swift */; };
-		A17999701E82B67C0058A002 /* GetICloudUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A179996F1E82B67C0058A002 /* GetICloudUser.swift */; };
-		A17999721E82B6930058A002 /* SaveNewUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17999711E82B6930058A002 /* SaveNewUser.swift */; };
-		A17999741E82B69E0058A002 /* SubscribeToAllTheThings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17999731E82B69E0058A002 /* SubscribeToAllTheThings.swift */; };
-		A17999761E82B6B20058A002 /* SubscribeToUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17999751E82B6B20058A002 /* SubscribeToUsers.swift */; };
+		A17999701E82B67C0058A002 /* GetCurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A179996F1E82B67C0058A002 /* GetCurrentUser.swift */; };
 		A179997D1E82B8BD0058A002 /* NSDate+ValueType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A179997C1E82B8BD0058A002 /* NSDate+ValueType.swift */; };
 		A17999801E82B95E0058A002 /* Arrays.swift in Sources */ = {isa = PBXBuildFile; fileRef = A179997F1E82B95E0058A002 /* Arrays.swift */; };
 		A17999821E82B9780058A002 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17999811E82B9780058A002 /* DateHelper.swift */; };
 		A17999841E82B9860058A002 /* SegueHandlerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17999831E82B9860058A002 /* SegueHandlerType.swift */; };
 		A17999861E82B98E0058A002 /* StoryboardInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17999851E82B98E0058A002 /* StoryboardInitializable.swift */; };
 		A17999881E82B9A60058A002 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17999871E82B9A60058A002 /* UIColorExtension.swift */; };
-		A179998A1E82BA880058A002 /* GetCurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17999891E82BA880058A002 /* GetCurrentUser.swift */; };
 		A179998D1E82D1E60058A002 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A179998C1E82D1E60058A002 /* CloudKit.framework */; };
 		A17999911E82DF300058A002 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A179998E1E82DF300058A002 /* HomeCollectionViewCell.swift */; };
 		A17999921E82DF300058A002 /* HomeMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A179998F1E82DF300058A002 /* HomeMenuItem.swift */; };
 		A17999931E82DF300058A002 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17999901E82DF300058A002 /* HomeViewController.swift */; };
 		A17999971E82DFF00058A002 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A17999951E82DFF00058A002 /* LaunchScreen.storyboard */; };
 		A179999A1E82DFFF0058A002 /* HomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A17999981E82DFFF0058A002 /* HomeViewController.storyboard */; };
-		A1868F9A1E802C4E00C191EC /* FirebaseNetworkAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1868F991E802C4E00C191EC /* FirebaseNetworkAccess.swift */; };
 		A1868F9D1E802DDD00C191EC /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1868F9C1E802DDD00C191EC /* Result.swift */; };
 		A1868F9F1E802E1600C191EC /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1868F9E1E802E1600C191EC /* AppState.swift */; };
 		A1868FA21E802F5C00C191EC /* Reactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1868FA11E802F5C00C191EC /* Reactor.swift */; };
+		A1B41C241E85A4B300FAC930 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B41C231E85A4B300FAC930 /* Team.swift */; };
+		A1B41C261E85A4C400FAC930 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B41C251E85A4C400FAC930 /* Player.swift */; };
+		A1B41C281E85A4CD00FAC930 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B41C271E85A4CD00FAC930 /* Game.swift */; };
+		A1B41C2A1E85A4E300FAC930 /* AtBat.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B41C291E85A4E300FAC930 /* AtBat.swift */; };
 		A1DC99D31E7E3E4500C6FF8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DC99D21E7E3E4500C6FF8C /* AppDelegate.swift */; };
 		A1DC99DA1E7E3E4500C6FF8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1DC99D91E7E3E4500C6FF8C /* Assets.xcassets */; };
 		A1DC99DD1E7E3E4500C6FF8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1DC99DB1E7E3E4500C6FF8C /* LaunchScreen.storyboard */; };
-		A1DC99E51E7E422D00C6FF8C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1DC99E41E7E422D00C6FF8C /* GoogleService-Info.plist */; };
+		A1F959321E882F9C0087B040 /* CloudKitSyncable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F959311E882F9C0087B040 /* CloudKitSyncable.swift */; };
+		A1F959341E8953440087B040 /* Season.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F959331E8953440087B040 /* Season.swift */; };
 		E550D9575E4FFE68382F160D /* Pods_Stats.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 097AB2DA5C7A85576113EB29 /* Pods_Stats.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,10 +42,8 @@
 		3EB00BD85F52BB91F956360D /* Pods-Stats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stats.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stats/Pods-Stats.release.xcconfig"; sourceTree = "<group>"; };
 		A179996B1E82B4EC0058A002 /* NetworkHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		A179996D1E82B64A0058A002 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		A179996F1E82B67C0058A002 /* GetICloudUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetICloudUser.swift; sourceTree = "<group>"; };
+		A179996F1E82B67C0058A002 /* GetCurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCurrentUser.swift; sourceTree = "<group>"; };
 		A17999711E82B6930058A002 /* SaveNewUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveNewUser.swift; sourceTree = "<group>"; };
-		A17999731E82B69E0058A002 /* SubscribeToAllTheThings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribeToAllTheThings.swift; sourceTree = "<group>"; };
-		A17999751E82B6B20058A002 /* SubscribeToUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribeToUsers.swift; sourceTree = "<group>"; };
 		A17999781E82B7750058A002 /* UserMiddleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMiddleware.swift; sourceTree = "<group>"; };
 		A179997C1E82B8BD0058A002 /* NSDate+ValueType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+ValueType.swift"; sourceTree = "<group>"; };
 		A179997F1E82B95E0058A002 /* Arrays.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Arrays.swift; sourceTree = "<group>"; };
@@ -54,7 +51,6 @@
 		A17999831E82B9860058A002 /* SegueHandlerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueHandlerType.swift; sourceTree = "<group>"; };
 		A17999851E82B98E0058A002 /* StoryboardInitializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardInitializable.swift; sourceTree = "<group>"; };
 		A17999871E82B9A60058A002 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
-		A17999891E82BA880058A002 /* GetCurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCurrentUser.swift; sourceTree = "<group>"; };
 		A179998B1E82D1DA0058A002 /* Stats.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Stats.entitlements; sourceTree = "<group>"; };
 		A179998C1E82D1E60058A002 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		A179998E1E82DF300058A002 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -66,12 +62,17 @@
 		A1868F9C1E802DDD00C191EC /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		A1868F9E1E802E1600C191EC /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		A1868FA11E802F5C00C191EC /* Reactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reactor.swift; sourceTree = "<group>"; };
+		A1B41C231E85A4B300FAC930 /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		A1B41C251E85A4C400FAC930 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		A1B41C271E85A4CD00FAC930 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		A1B41C291E85A4E300FAC930 /* AtBat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtBat.swift; sourceTree = "<group>"; };
 		A1DC99CF1E7E3E4500C6FF8C /* Stats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1DC99D21E7E3E4500C6FF8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1DC99D91E7E3E4500C6FF8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1DC99DC1E7E3E4500C6FF8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A1DC99DE1E7E3E4500C6FF8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A1DC99E41E7E422D00C6FF8C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A1F959311E882F9C0087B040 /* CloudKitSyncable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitSyncable.swift; sourceTree = "<group>"; };
+		A1F959331E8953440087B040 /* Season.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Season.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,11 +100,8 @@
 		A17999771E82B7210058A002 /* Commands */ = {
 			isa = PBXGroup;
 			children = (
-				A179996F1E82B67C0058A002 /* GetICloudUser.swift */,
-				A17999891E82BA880058A002 /* GetCurrentUser.swift */,
+				A179996F1E82B67C0058A002 /* GetCurrentUser.swift */,
 				A17999711E82B6930058A002 /* SaveNewUser.swift */,
-				A17999731E82B69E0058A002 /* SubscribeToAllTheThings.swift */,
-				A17999751E82B6B20058A002 /* SubscribeToUsers.swift */,
 			);
 			name = Commands;
 			sourceTree = "<group>";
@@ -119,6 +117,11 @@
 		A179997B1E82B8260058A002 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A1B41C291E85A4E300FAC930 /* AtBat.swift */,
+				A1B41C271E85A4CD00FAC930 /* Game.swift */,
+				A1B41C251E85A4C400FAC930 /* Player.swift */,
+				A1F959331E8953440087B040 /* Season.swift */,
+				A1B41C231E85A4B300FAC930 /* Team.swift */,
 				A179996D1E82B64A0058A002 /* User.swift */,
 			);
 			name = Model;
@@ -161,7 +164,6 @@
 			children = (
 				A1DC99D91E7E3E4500C6FF8C /* Assets.xcassets */,
 				A1DC99DB1E7E3E4500C6FF8C /* LaunchScreen.storyboard */,
-				A1DC99E41E7E422D00C6FF8C /* GoogleService-Info.plist */,
 				A1DC99DE1E7E3E4500C6FF8C /* Info.plist */,
 			);
 			name = Misc;
@@ -170,6 +172,7 @@
 		A1868F9B1E802C5200C191EC /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				A1F959311E882F9C0087B040 /* CloudKitSyncable.swift */,
 				A1868F991E802C4E00C191EC /* FirebaseNetworkAccess.swift */,
 				A179996B1E82B4EC0058A002 /* NetworkHelper.swift */,
 				A1868F9C1E802DDD00C191EC /* Result.swift */,
@@ -214,8 +217,8 @@
 				A17999941E82DFF00058A002 /* Base.lproj */,
 				A179997E1E82B9540058A002 /* Helpers */,
 				A1868F981E802C1F00C191EC /* Misc */,
-				A179997B1E82B8260058A002 /* Model */,
 				A1868F9B1E802C5200C191EC /* Networking */,
+				A179997B1E82B8260058A002 /* Model */,
 				A1868FA01E802E2500C191EC /* Reactor */,
 				A1868F971E802C1900C191EC /* UI */,
 			);
@@ -306,7 +309,6 @@
 				A1DC99DD1E7E3E4500C6FF8C /* LaunchScreen.storyboard in Resources */,
 				A17999971E82DFF00058A002 /* LaunchScreen.storyboard in Resources */,
 				A1DC99DA1E7E3E4500C6FF8C /* Assets.xcassets in Resources */,
-				A1DC99E51E7E422D00C6FF8C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,25 +368,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				A17999821E82B9780058A002 /* DateHelper.swift in Sources */,
-				A17999761E82B6B20058A002 /* SubscribeToUsers.swift in Sources */,
-				A179996C1E82B4EC0058A002 /* NetworkHelper.swift in Sources */,
+				A1F959321E882F9C0087B040 /* CloudKitSyncable.swift in Sources */,
 				A17999911E82DF300058A002 /* HomeCollectionViewCell.swift in Sources */,
-				A1868F9A1E802C4E00C191EC /* FirebaseNetworkAccess.swift in Sources */,
+				A1B41C2A1E85A4E300FAC930 /* AtBat.swift in Sources */,
+				A1B41C261E85A4C400FAC930 /* Player.swift in Sources */,
 				A17999931E82DF300058A002 /* HomeViewController.swift in Sources */,
 				A17999861E82B98E0058A002 /* StoryboardInitializable.swift in Sources */,
 				A17999881E82B9A60058A002 /* UIColorExtension.swift in Sources */,
-				A17999741E82B69E0058A002 /* SubscribeToAllTheThings.swift in Sources */,
 				A1868F9F1E802E1600C191EC /* AppState.swift in Sources */,
 				A179996E1E82B64A0058A002 /* User.swift in Sources */,
 				A17999921E82DF300058A002 /* HomeMenuItem.swift in Sources */,
 				A1868F9D1E802DDD00C191EC /* Result.swift in Sources */,
-				A17999721E82B6930058A002 /* SaveNewUser.swift in Sources */,
+				A1B41C281E85A4CD00FAC930 /* Game.swift in Sources */,
 				A17999841E82B9860058A002 /* SegueHandlerType.swift in Sources */,
-				A179998A1E82BA880058A002 /* GetCurrentUser.swift in Sources */,
 				A17999801E82B95E0058A002 /* Arrays.swift in Sources */,
+				A1B41C241E85A4B300FAC930 /* Team.swift in Sources */,
 				A1868FA21E802F5C00C191EC /* Reactor.swift in Sources */,
-				A17999701E82B67C0058A002 /* GetICloudUser.swift in Sources */,
+				A17999701E82B67C0058A002 /* GetCurrentUser.swift in Sources */,
 				A1DC99D31E7E3E4500C6FF8C /* AppDelegate.swift in Sources */,
+				A1F959341E8953440087B040 /* Season.swift in Sources */,
 				A179997D1E82B8BD0058A002 /* NSDate+ValueType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

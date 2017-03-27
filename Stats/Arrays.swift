@@ -9,41 +9,6 @@
 import UIKit
 import Marshal
 
-extension Collection where Self: ExpressibleByDictionaryLiteral, Self.Key == String, Self.Value == Any {
-    
-    func parsedObjects<T: Identifiable>() -> [T] {
-        guard let json = self as? JSONObject else { return [] }
-        let keys = Array(json.keys)
-        let objects: [JSONObject] = keys.flatMap { try? json.value(for: $0) }
-        return objects.flatMap { try? T(object: $0) }
-    }
-
-}
-
-extension Optional where Wrapped: MarshaledObject {
-    
-    func parsedObjects<T: Identifiable>() -> [T] {
-        guard let json = self as? JSONObject else { return [] }
-        let keys = Array(json.keys)
-        let objects: [JSONObject] = keys.flatMap { try? json.value(for: $0) }
-        return objects.flatMap { try? T(object: $0) }
-    }
-    
-}
-
-extension Collection where Iterator.Element: Identifiable {
-    
-    func marshaled() -> JSONObject {
-        var json = JSONObject()
-        for element in self {
-            json[element.id] = element.marshaled()
-        }
-        
-        return json
-    }
-    
-}
-
 extension Array {
     
     func step(from: Index, to:Index, interval: Int = 1) -> Array<Element> {

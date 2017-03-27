@@ -30,11 +30,12 @@
 		A1B41C2A1E85A4E300FAC930 /* AtBat.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B41C291E85A4E300FAC930 /* AtBat.swift */; };
 		A1DC99D31E7E3E4500C6FF8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DC99D21E7E3E4500C6FF8C /* AppDelegate.swift */; };
 		A1DC99DA1E7E3E4500C6FF8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1DC99D91E7E3E4500C6FF8C /* Assets.xcassets */; };
-		A1DC99DD1E7E3E4500C6FF8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1DC99DB1E7E3E4500C6FF8C /* LaunchScreen.storyboard */; };
 		A1F959321E882F9C0087B040 /* CloudKitSyncable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F959311E882F9C0087B040 /* CloudKitSyncable.swift */; };
 		A1F959341E8953440087B040 /* Season.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F959331E8953440087B040 /* Season.swift */; };
-		A1F959371E89579F0087B040 /* NewUserViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1F959351E89579F0087B040 /* NewUserViewController.storyboard */; };
 		A1F959391E8959C60087B040 /* LemonMilk.otf in Resources */ = {isa = PBXBuildFile; fileRef = A1F959381E8959C60087B040 /* LemonMilk.otf */; };
+		A1F959431E89683C0087B040 /* NewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F959411E89683C0087B040 /* NewUserViewController.swift */; };
+		A1F959441E89683C0087B040 /* NewUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1F959421E89683C0087B040 /* NewUserViewController.xib */; };
+		A1F959461E89691A0087B040 /* XIBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F959451E89691A0087B040 /* XIBViewController.swift */; };
 		E550D9575E4FFE68382F160D /* Pods_Stats.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 097AB2DA5C7A85576113EB29 /* Pods_Stats.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,12 +72,13 @@
 		A1DC99CF1E7E3E4500C6FF8C /* Stats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1DC99D21E7E3E4500C6FF8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1DC99D91E7E3E4500C6FF8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A1DC99DC1E7E3E4500C6FF8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A1DC99DE1E7E3E4500C6FF8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1F959311E882F9C0087B040 /* CloudKitSyncable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitSyncable.swift; sourceTree = "<group>"; };
 		A1F959331E8953440087B040 /* Season.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Season.swift; sourceTree = "<group>"; };
-		A1F959361E89579F0087B040 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = NewUserViewController.storyboard; sourceTree = "<group>"; };
 		A1F959381E8959C60087B040 /* LemonMilk.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LemonMilk.otf; sourceTree = "<group>"; };
+		A1F959411E89683C0087B040 /* NewUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserViewController.swift; sourceTree = "<group>"; };
+		A1F959421E89683C0087B040 /* NewUserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NewUserViewController.xib; path = ../NewUserViewController.xib; sourceTree = "<group>"; };
+		A1F959451E89691A0087B040 /* XIBViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XIBViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 				A17999831E82B9860058A002 /* SegueHandlerType.swift */,
 				A17999851E82B98E0058A002 /* StoryboardInitializable.swift */,
 				A17999871E82B9A60058A002 /* UIColorExtension.swift */,
+				A1F959451E89691A0087B040 /* XIBViewController.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -149,7 +152,7 @@
 			children = (
 				A17999981E82DFFF0058A002 /* HomeViewController.storyboard */,
 				A17999951E82DFF00058A002 /* LaunchScreen.storyboard */,
-				A1F959351E89579F0087B040 /* NewUserViewController.storyboard */,
+				A1F959421E89683C0087B040 /* NewUserViewController.xib */,
 			);
 			path = Base.lproj;
 			sourceTree = "<group>";
@@ -160,6 +163,7 @@
 				A17999901E82DF300058A002 /* HomeViewController.swift */,
 				A179998E1E82DF300058A002 /* HomeCollectionViewCell.swift */,
 				A179998F1E82DF300058A002 /* HomeMenuItem.swift */,
+				A1F959411E89683C0087B040 /* NewUserViewController.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -168,7 +172,6 @@
 			isa = PBXGroup;
 			children = (
 				A1DC99D91E7E3E4500C6FF8C /* Assets.xcassets */,
-				A1DC99DB1E7E3E4500C6FF8C /* LaunchScreen.storyboard */,
 				A1F959381E8959C60087B040 /* LemonMilk.otf */,
 				A1DC99DE1E7E3E4500C6FF8C /* Info.plist */,
 			);
@@ -312,11 +315,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A179999A1E82DFFF0058A002 /* HomeViewController.storyboard in Resources */,
-				A1DC99DD1E7E3E4500C6FF8C /* LaunchScreen.storyboard in Resources */,
 				A1F959391E8959C60087B040 /* LemonMilk.otf in Resources */,
+				A1F959441E89683C0087B040 /* NewUserViewController.xib in Resources */,
 				A17999971E82DFF00058A002 /* LaunchScreen.storyboard in Resources */,
 				A1DC99DA1E7E3E4500C6FF8C /* Assets.xcassets in Resources */,
-				A1F959371E89579F0087B040 /* NewUserViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,6 +385,7 @@
 				A17999931E82DF300058A002 /* HomeViewController.swift in Sources */,
 				A17999861E82B98E0058A002 /* StoryboardInitializable.swift in Sources */,
 				A17999881E82B9A60058A002 /* UIColorExtension.swift in Sources */,
+				A1F959431E89683C0087B040 /* NewUserViewController.swift in Sources */,
 				A1868F9F1E802E1600C191EC /* AppState.swift in Sources */,
 				A179996E1E82B64A0058A002 /* User.swift in Sources */,
 				A17999921E82DF300058A002 /* HomeMenuItem.swift in Sources */,
@@ -391,6 +394,7 @@
 				A17999841E82B9860058A002 /* SegueHandlerType.swift in Sources */,
 				A17999801E82B95E0058A002 /* Arrays.swift in Sources */,
 				A1B41C241E85A4B300FAC930 /* Team.swift in Sources */,
+				A1F959461E89691A0087B040 /* XIBViewController.swift in Sources */,
 				A1868FA21E802F5C00C191EC /* Reactor.swift in Sources */,
 				A17999701E82B67C0058A002 /* LoadICloudUser.swift in Sources */,
 				A1DC99D31E7E3E4500C6FF8C /* AppDelegate.swift in Sources */,
@@ -416,22 +420,6 @@
 				A17999991E82DFFF0058A002 /* Base */,
 			);
 			name = HomeViewController.storyboard;
-			sourceTree = "<group>";
-		};
-		A1DC99DB1E7E3E4500C6FF8C /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A1DC99DC1E7E3E4500C6FF8C /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		A1F959351E89579F0087B040 /* NewUserViewController.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A1F959361E89579F0087B040 /* Base */,
-			);
-			name = NewUserViewController.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -41,11 +41,11 @@ class Game: CloudKitSyncable {
         guard let date = record.value(forKey: dateKey) as? Date else { throw CloudKitError.keyNotFound(key: dateKey) }
         guard let inning = record.value(forKey: inningKey) as? Int else { throw CloudKitError.keyNotFound(key: inningKey) }
         guard let isCompletedInt = record.value(forKey: isCompletedKey) as? Int else { throw CloudKitError.keyNotFound(key: isCompletedKey) }
-        let isCompleted = NSNumber(integerLiteral: isCompletedInt).boolValue
+        let isCompleted = NSNumber(value: isCompletedInt).boolValue
         guard let isHomeInt = record.value(forKey: isHomeKey) as? Int else { throw CloudKitError.keyNotFound(key: isHomeKey) }
-        let isHome = NSNumber(integerLiteral: isHomeInt).boolValue
-        guard let isRegularSeasonInt = record.value(forKey: isRegularSeason) as? Int else { throw CloudKitError.keyNotFound(key: isRegularSeason) }
-        let isRegularSeason = NSNumber(integerLiteral: isRegularSeasonInt).boolValue
+        let isHome = NSNumber(value: isHomeInt).boolValue
+        guard let isRegularSeasonInt = record.value(forKey: isRegularSeasonKey) as? Int else { throw CloudKitError.keyNotFound(key: isRegularSeasonKey) }
+        let isRegularSeason = NSNumber(value: isRegularSeasonInt).boolValue
         guard let opponent = record.value(forKey: opponentKey) as? String else { throw CloudKitError.keyNotFound(key: opponentKey) }
         guard let opponentScore = record.value(forKey: opponentScoreKey) as? Int else { throw CloudKitError.keyNotFound(key: opponentScoreKey) }
         guard let score = record.value(forKey: scoreKey) as? Int else { throw CloudKitError.keyNotFound(key: scoreKey) }
@@ -65,7 +65,7 @@ extension CKRecord {
         
         self.init(recordType: game.recordType, recordID: recordId)
         self.setObject(game.date as CKRecordValue, forKey: dateKey)
-        self.setObject(NSNumber(integerLiteral: game.inning), forKey: inningKey)
+        self.setObject(NSNumber(value: game.inning), forKey: inningKey)
         let isCompletedNumber = NSNumber(booleanLiteral: game.isCompleted)
         self.setObject(isCompletedNumber, forKey: isCompletedKey)
         let isHomeNumber = NSNumber(booleanLiteral: game.isHome)

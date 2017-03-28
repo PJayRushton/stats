@@ -25,10 +25,10 @@
 		A1868FA21E802F5C00C191EC /* Reactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1868FA11E802F5C00C191EC /* Reactor.swift */; };
 		A1B41C241E85A4B300FAC930 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B41C231E85A4B300FAC930 /* Team.swift */; };
 		A1B41C261E85A4C400FAC930 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B41C251E85A4C400FAC930 /* Player.swift */; };
-		A1B41C281E85A4CD00FAC930 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B41C271E85A4CD00FAC930 /* Game.swift */; };
 		A1B41C2A1E85A4E300FAC930 /* AtBat.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B41C291E85A4E300FAC930 /* AtBat.swift */; };
+		A1BF9C3F1E8AC443007341EA /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B41C271E85A4CD00FAC930 /* Game.swift */; };
+		A1BF9C401E8AC449007341EA /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD9A0B1E89C30400D3C8F7 /* GameState.swift */; };
 		A1CD9A0A1E89C26200D3C8F7 /* TeamState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD9A091E89C26200D3C8F7 /* TeamState.swift */; };
-		A1CD9A0C1E89C30400D3C8F7 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD9A0B1E89C30400D3C8F7 /* GameState.swift */; };
 		A1CD9A0E1E89D05E00D3C8F7 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD9A0D1E89D05E00D3C8F7 /* Keys.swift */; };
 		A1CD9A101E8A9ABC00D3C8F7 /* SeasonState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD9A0F1E8A9ABC00D3C8F7 /* SeasonState.swift */; };
 		A1CD9A121E8A9C2400D3C8F7 /* AtBatState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD9A111E8A9C2400D3C8F7 /* AtBatState.swift */; };
@@ -406,6 +406,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1CD9A191E8AA83D00D3C8F7 /* NewUserState.swift in Sources */,
+				A1BF9C401E8AC449007341EA /* GameState.swift in Sources */,
+				A1BF9C3F1E8AC443007341EA /* Game.swift in Sources */,
 				A17999821E82B9780058A002 /* DateHelper.swift in Sources */,
 				A1F959321E882F9C0087B040 /* CloudKitSyncable.swift in Sources */,
 				A17999911E82DF300058A002 /* HomeCollectionViewCell.swift in Sources */,
@@ -421,8 +423,6 @@
 				A179996E1E82B64A0058A002 /* User.swift in Sources */,
 				A17999921E82DF300058A002 /* HomeMenuItem.swift in Sources */,
 				A1868F9D1E802DDD00C191EC /* Result.swift in Sources */,
-				A1B41C281E85A4CD00FAC930 /* Game.swift in Sources */,
-				A1CD9A0C1E89C30400D3C8F7 /* GameState.swift in Sources */,
 				A1CD9A1B1E8AACAB00D3C8F7 /* CheckUsernameAvailability.swift in Sources */,
 				A17999841E82B9860058A002 /* SegueHandlerType.swift in Sources */,
 				A1B41C241E85A4B300FAC930 /* Team.swift in Sources */,

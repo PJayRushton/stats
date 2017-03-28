@@ -39,7 +39,7 @@ class Player: CloudKitSyncable {
         guard let name = record.object(forKey: nameKey) as? String else { throw CloudKitError.keyNotFound(key: nameKey) }
         let jerseyNumber = record.object(forKey: jerseyNumberKey) as? String
         guard let subInt = record.object(forKey: isSubKey) as? Int else { throw CloudKitError.keyNotFound(key: isSubKey) }
-        let isSub = NSNumber(integerLiteral: subInt).boolValue
+        let isSub = NSNumber(value: subInt).boolValue
         let phone = record.object(forKey: phoneKey) as? String
         guard let genderInt = record.object(forKey: genderKey) as? String else { throw CloudKitError.keyNotFound(key: genderKey) }
         guard let gender = Gender(rawValue: genderInt) else { throw CloudKitError.parsingError(key: genderKey) }

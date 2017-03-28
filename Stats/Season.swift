@@ -25,7 +25,7 @@ class Season: CloudKitSyncable {
     
     required convenience init(record: CKRecord) throws {
         guard let isCompletedInt = record.value(forKey: isCompletedKey) as? Int else { throw CloudKitError.keyNotFound(key: isCompletedKey) }
-        let isCompleted = NSNumber(integerLiteral: isCompletedInt).boolValue
+        let isCompleted = NSNumber(value: isCompletedInt).boolValue
         guard let name = record.value(forKey: nameKey) as? String else { throw CloudKitError.keyNotFound(key: nameKey) }
         guard let team = record.value(forKey: teamRefKey) as? CKReference else { throw CloudKitError.keyNotFound(key: teamRefKey) }
         

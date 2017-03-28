@@ -58,7 +58,7 @@ extension CKRecord {
         self.init(recordType: team.recordType, recordID: recordId)
         self.setObject(team.image, forKey: imageKey)
         self.setObject(team.name as NSString, forKey: nameKey)
-        self.setObject(NSNumber(integerLiteral: team.type.rawValue), forKey: typeKey)
+        self.setObject(NSNumber(value: team.type.rawValue), forKey: typeKey)
         self.setObject(team.currentSeasonRef, forKey: currentSeasonRefKey)
     }
     

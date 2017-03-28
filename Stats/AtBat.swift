@@ -20,31 +20,46 @@ enum AtBatCode: String {
 
 class AtBat: CloudKitSyncable {
     
-    let game: CKReference
-    let player: CKReference
+    let gameRef: CKReference
+    let playerRef: CKReference
     let rbis: Int
     let resultCode: AtBatCode
-    let season: CKReference
+    let seasonRef: CKReference
     
     var cloudKitRecordId: CKRecordID?
     
-    init(game: CKReference, player: CKReference, rbis: Int = 0, resultCode: AtBatCode, season: CKReference) {
-        self.game = game
-        self.player = player
+    init(gameRef: CKReference, playerRef: CKReference, rbis: Int = 0, resultCode: AtBatCode, seasonRef: CKReference) {
+        self.gameRef = gameRef
+        self.playerRef = playerRef
         self.rbis = rbis
         self.resultCode = resultCode
-        self.season = season
+        self.seasonRef = seasonRef
     }
     
     required convenience init(record: CKRecord) throws {
-        guard let game = record.value(forKey: "game") as? CKReference else { throw CloudKitError.keyNotFound(key: "game") }
-        guard let player = record.value(forKey: "player") as? CKReference else { throw CloudKitError.keyNotFound(key: "player") }
-        guard let rbis = record.value(forKey: "rbis") as? Int else { throw CloudKitError.keyNotFound(key: "rbis") }
-        guard let resultCodeString = record.value(forKey: "resultCode") as? String else { throw CloudKitError.keyNotFound(key: "resultCode") }
-        guard let resultCode = AtBatCode(rawValue: resultCodeString) else { throw CloudKitError.parsingError(key: "resultCode") }
-        guard let season = record.value(forKey: "season") as? CKReference else { throw CloudKitError.keyNotFound(key: "season") }
+        guard let game = record.value(forKey: gameRefKey) as? CKReference else { throw CloudKitError.keyNotFound(key: gameRefKey) }
+        guard let player = record.value(forKey: playerRefKey) as? CKReference else { throw CloudKitError.keyNotFound(key: playerRefKey) }
+        guard let rbis = record.value(forKey: rbisKey) as? Int else { throw CloudKitError.keyNotFound(key: rbisKey) }
+        guard let resultCodeString = record.value(forKey: resultCodeKey) as? String else { throw CloudKitError.keyNotFound(key: resultCodeKey) }
+        guard let resultCode = AtBatCode(rawValue: resultCodeString) else { throw CloudKitError.parsingError(key: resultCodeKey) }
+        guard let season = record.value(forKey: seasonRefKey) as? CKReference else { throw CloudKitError.keyNotFound(key: seasonRefKey) }
         
-        self.init(game: game, player: player, rbis: rbis, resultCode: resultCode, season: season)
+        self.init(gameRef: game, playerRef: player, rbis: rbis, resultCode: resultCode, seasonRef: season)
         cloudKitRecordId = record.recordID
     }
+    
+}
+
+extension CKRecord {
+    
+    convenience init(_ atBat: AtBat) {
+        let recordID = CKRecordID(recordName: UUID().uuidString)
+        self.init(recordType: atBat.recordType, recordID: recordID)
+        self.setObject(atBat.gameRef, forKey: gameRefKey)
+        self.setObject(atBat.playerRef, forKey: playerRefKey)
+        self.setObject(atBat.rbis as NSNumber, forKey: rbisKey)
+        self.setObject(atBat.resultCode.rawValue as NSString, forKey: resultCodeKey)
+        self.setObject(atBat.seasonRef, forKey: seasonRefKey)
+    }
+    
 }

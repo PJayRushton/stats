@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CloudKit
 
 enum App {
     static let core = Core(state: AppState(), middlewares: [/*UserMiddleware()*/])
@@ -16,17 +17,24 @@ enum App {
 struct AppState: State {
     
     var currentUser: User?
-    var currentICloudId: String?
+    
+    var teamState = TeamState()
+    var gameState = GameState()
+    var allSeasons = [CKRecordID: Season]()
+    var allPlayers = [CKRecordID: Player]()
+    var allGames = [CKRecordID: Game]()
+    var allAtBats = [CKRecordID: AtBat]()
     
     mutating func react(to event: Event) {
         switch event {
         case let event as Selected<User>:
             currentUser = event.item
-        case let event as ICloudUserIdentified:
-            currentICloudId = event.iCloudId
         default:
             break
         }
+        
+        teamState.react(to: event)
+        gameState.react(to: event)
     }
     
 }

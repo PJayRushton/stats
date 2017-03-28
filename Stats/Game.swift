@@ -19,12 +19,12 @@ class Game: CloudKitSyncable {
     let opponent: String
     let opponentScore: Int
     let score: Int
-    let season: CKReference
-    let team: CKReference
+    let seasonRef: CKReference
+    let teamRef: CKReference
 
     var cloudKitRecordId: CKRecordID?
     
-    init(date: Date, inning: Int, isCompleted: Bool, isHome: Bool, isRegularSeason: Bool, opponent: String, opponentScore: Int, score: Int, season: CKReference, team: CKReference) {
+    init(date: Date, inning: Int, isCompleted: Bool, isHome: Bool, isRegularSeason: Bool, opponent: String, opponentScore: Int, score: Int, seasonRef: CKReference, teamRef: CKReference) {
         self.date = date
         self.inning = inning
         self.isCompleted = isCompleted
@@ -33,27 +33,50 @@ class Game: CloudKitSyncable {
         self.opponent = opponent
         self.opponentScore = opponentScore
         self.score = score
-        self.season = season
-        self.team = team
+        self.seasonRef = seasonRef
+        self.teamRef = teamRef
     }
     
     required convenience init(record: CKRecord) throws {
-        guard let date = record.value(forKey: "date") as? Date else { throw CloudKitError.keyNotFound(key: "date") }
-        guard let inning = record.value(forKey: "inning") as? Int else { throw CloudKitError.keyNotFound(key: "inning") }
-        guard let isCompletedInt = record.value(forKey: "isCompleted") as? Int else { throw CloudKitError.keyNotFound(key: "isCompleted") }
+        guard let date = record.value(forKey: dateKey) as? Date else { throw CloudKitError.keyNotFound(key: dateKey) }
+        guard let inning = record.value(forKey: inningKey) as? Int else { throw CloudKitError.keyNotFound(key: inningKey) }
+        guard let isCompletedInt = record.value(forKey: isCompletedKey) as? Int else { throw CloudKitError.keyNotFound(key: isCompletedKey) }
         let isCompleted = NSNumber(integerLiteral: isCompletedInt).boolValue
-        guard let isHomeInt = record.value(forKey: "isHome") as? Int else { throw CloudKitError.keyNotFound(key: "isHome") }
+        guard let isHomeInt = record.value(forKey: isHomeKey) as? Int else { throw CloudKitError.keyNotFound(key: isHomeKey) }
         let isHome = NSNumber(integerLiteral: isHomeInt).boolValue
-        guard let isRegularSeasonInt = record.value(forKey: "isRegularSeason") as? Int else { throw CloudKitError.keyNotFound(key: "isRegularSeason") }
+        guard let isRegularSeasonInt = record.value(forKey: isRegularSeason) as? Int else { throw CloudKitError.keyNotFound(key: isRegularSeason) }
         let isRegularSeason = NSNumber(integerLiteral: isRegularSeasonInt).boolValue
-        guard let opponent = record.value(forKey: "opponent") as? String else { throw CloudKitError.keyNotFound(key: "opponent") }
-        guard let opponentScore = record.value(forKey: "opponentScore") as? Int else { throw CloudKitError.keyNotFound(key: "opponentScore") }
-        guard let score = record.value(forKey: "score") as? Int else { throw CloudKitError.keyNotFound(key: "score") }
-        guard let season = record.value(forKey: "season") as? CKReference else { throw CloudKitError.keyNotFound(key: "season") }
-        guard let team = record.value(forKey: "team") as? CKReference else { throw CloudKitError.keyNotFound(key: "team") }
+        guard let opponent = record.value(forKey: opponentKey) as? String else { throw CloudKitError.keyNotFound(key: opponentKey) }
+        guard let opponentScore = record.value(forKey: opponentScoreKey) as? Int else { throw CloudKitError.keyNotFound(key: opponentScoreKey) }
+        guard let score = record.value(forKey: scoreKey) as? Int else { throw CloudKitError.keyNotFound(key: scoreKey) }
+        guard let season = record.value(forKey: seasonRefKey) as? CKReference else { throw CloudKitError.keyNotFound(key: seasonRefKey) }
+        guard let teamRef = record.value(forKey: teamRefKey) as? CKReference else { throw CloudKitError.keyNotFound(key: teamRefKey) }
         
-        self.init(date: date, inning: inning, isCompleted: isCompleted, isHome: isHome, isRegularSeason: isRegularSeason, opponent: opponent, opponentScore: opponentScore, score: score, season: season, team: team)
+        self.init(date: date, inning: inning, isCompleted: isCompleted, isHome: isHome, isRegularSeason: isRegularSeason, opponent: opponent, opponentScore: opponentScore, score: score, seasonRef: season, teamRef: teamRef)
         self.cloudKitRecordId = record.recordID
     }
 
+}
+
+extension CKRecord {
+    
+    convenience init(_ game: Game) {
+        let recordId = CKRecordID(recordName: UUID().uuidString)
+        
+        self.init(recordType: game.recordType, recordID: recordId)
+        self.setObject(game.date as CKRecordValue, forKey: dateKey)
+        self.setObject(NSNumber(integerLiteral: game.inning), forKey: inningKey)
+        let isCompletedNumber = NSNumber(booleanLiteral: game.isCompleted)
+        self.setObject(isCompletedNumber, forKey: isCompletedKey)
+        let isHomeNumber = NSNumber(booleanLiteral: game.isHome)
+        self.setObject(isHomeNumber, forKey: isHomeKey)
+        let isRegularSeasonNumber = NSNumber(booleanLiteral: game.isRegularSeason)
+        self.setObject(isRegularSeasonNumber, forKey: isRegularSeasonKey)
+        self.setObject(game.opponent as NSString, forKey: opponentKey)
+        self.setObject(game.opponentScore as NSNumber, forKey: opponentScoreKey)
+        self.setObject(game.score as NSNumber, forKey: scoreKey)
+        self.setObject(game.seasonRef, forKey: seasonRefKey)
+        self.setObject(game.teamRef, forKey: teamRefKey)
+    }
+    
 }

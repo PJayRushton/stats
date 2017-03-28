@@ -13,24 +13,38 @@ class Season: CloudKitSyncable {
     
     let isCompleted: Bool
     let name: String
-    let team: CKReference
+    let teamRef: CKReference
     
     var cloudKitRecordId: CKRecordID?
     
-    init(isCompleted: Bool, name: String, team: CKReference) {
+    init(isCompleted: Bool, name: String, teamRef: CKReference) {
         self.isCompleted = isCompleted
         self.name = name
-        self.team = team
+        self.teamRef = teamRef
     }
     
     required convenience init(record: CKRecord) throws {
-        guard let isCompletedInt = record.value(forKey: "isCompleted") as? Int else { throw CloudKitError.keyNotFound(key: "isCompleted") }
+        guard let isCompletedInt = record.value(forKey: isCompletedKey) as? Int else { throw CloudKitError.keyNotFound(key: isCompletedKey) }
         let isCompleted = NSNumber(integerLiteral: isCompletedInt).boolValue
-        guard let name = record.value(forKey: "name") as? String else { throw CloudKitError.keyNotFound(key: "name") }
-        guard let team = record.value(forKey: "team") as? CKReference else { throw CloudKitError.keyNotFound(key: "team") }
+        guard let name = record.value(forKey: nameKey) as? String else { throw CloudKitError.keyNotFound(key: nameKey) }
+        guard let team = record.value(forKey: teamRefKey) as? CKReference else { throw CloudKitError.keyNotFound(key: teamRefKey) }
         
-        self.init(isCompleted: isCompleted, name: name, team: team)
+        self.init(isCompleted: isCompleted, name: name, teamRef: team)
         cloudKitRecordId = record.recordID
+    }
+    
+}
+
+extension CKRecord {
+    
+    convenience init(_ season: Season) {
+        let recordId = CKRecordID(recordName: UUID().uuidString)
+        
+        self.init(recordType: season.recordType, recordID: recordId)
+        let isCompletedNumber = NSNumber(booleanLiteral: season.isCompleted)
+        self.setObject(isCompletedNumber, forKey: isCompletedKey)
+        self.setObject(season.name as NSString, forKey: nameKey)
+        self.setObject(season.teamRef, forKey: teamRefKey)
     }
     
 }

@@ -28,6 +28,9 @@
 		A1B41C261E85A4C400FAC930 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B41C251E85A4C400FAC930 /* Player.swift */; };
 		A1B41C281E85A4CD00FAC930 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B41C271E85A4CD00FAC930 /* Game.swift */; };
 		A1B41C2A1E85A4E300FAC930 /* AtBat.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B41C291E85A4E300FAC930 /* AtBat.swift */; };
+		A1CD9A0A1E89C26200D3C8F7 /* TeamState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD9A091E89C26200D3C8F7 /* TeamState.swift */; };
+		A1CD9A0C1E89C30400D3C8F7 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD9A0B1E89C30400D3C8F7 /* GameState.swift */; };
+		A1CD9A0E1E89D05E00D3C8F7 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD9A0D1E89D05E00D3C8F7 /* Keys.swift */; };
 		A1D8054A1E89853B0072AA49 /* UserCreationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1D805481E89853B0072AA49 /* UserCreationViewController.storyboard */; };
 		A1D8054C1E89870B0072AA49 /* UsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D8054B1E89870B0072AA49 /* UsernameViewController.swift */; };
 		A1D8054F1E8987540072AA49 /* UsernameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1D8054D1E8987540072AA49 /* UsernameViewController.xib */; };
@@ -71,6 +74,9 @@
 		A1B41C251E85A4C400FAC930 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		A1B41C271E85A4CD00FAC930 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		A1B41C291E85A4E300FAC930 /* AtBat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtBat.swift; sourceTree = "<group>"; };
+		A1CD9A091E89C26200D3C8F7 /* TeamState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamState.swift; sourceTree = "<group>"; };
+		A1CD9A0B1E89C30400D3C8F7 /* GameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
+		A1CD9A0D1E89D05E00D3C8F7 /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		A1D805491E89853B0072AA49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = UserCreationViewController.storyboard; sourceTree = "<group>"; };
 		A1D8054B1E89870B0072AA49 /* UsernameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsernameViewController.swift; sourceTree = "<group>"; };
 		A1D8054E1E8987540072AA49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = UsernameViewController.xib; sourceTree = "<group>"; };
@@ -142,6 +148,7 @@
 			children = (
 				A179997F1E82B95E0058A002 /* Arrays.swift */,
 				A17999811E82B9780058A002 /* DateHelper.swift */,
+				A1CD9A0D1E89D05E00D3C8F7 /* Keys.swift */,
 				A179997C1E82B8BD0058A002 /* NSDate+ValueType.swift */,
 				A17999831E82B9860058A002 /* SegueHandlerType.swift */,
 				A17999851E82B98E0058A002 /* StoryboardInitializable.swift */,
@@ -199,11 +206,20 @@
 			isa = PBXGroup;
 			children = (
 				A1868FA11E802F5C00C191EC /* Reactor.swift */,
-				A1868F9E1E802E1600C191EC /* AppState.swift */,
 				A179997A1E82B77B0058A002 /* Middleware */,
 				A17999771E82B7210058A002 /* Commands */,
 			);
 			name = Reactor;
+			sourceTree = "<group>";
+		};
+		A1CD9A081E89C25300D3C8F7 /* AppState */ = {
+			isa = PBXGroup;
+			children = (
+				A1868F9E1E802E1600C191EC /* AppState.swift */,
+				A1CD9A091E89C26200D3C8F7 /* TeamState.swift */,
+				A1CD9A0B1E89C30400D3C8F7 /* GameState.swift */,
+			);
+			name = AppState;
 			sourceTree = "<group>";
 		};
 		A1DC99C61E7E3E4500C6FF8C = {
@@ -229,6 +245,7 @@
 			children = (
 				A179998B1E82D1DA0058A002 /* Stats.entitlements */,
 				A1DC99D21E7E3E4500C6FF8C /* AppDelegate.swift */,
+				A1CD9A081E89C25300D3C8F7 /* AppState */,
 				A17999941E82DFF00058A002 /* Base.lproj */,
 				A179997E1E82B9540058A002 /* Helpers */,
 				A1868F981E802C1F00C191EC /* Misc */,
@@ -279,7 +296,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = AppsByPJ;
 				TargetAttributes = {
 					A1DC99CE1E7E3E4500C6FF8C = {
@@ -391,13 +408,16 @@
 				A1B41C261E85A4C400FAC930 /* Player.swift in Sources */,
 				A17999931E82DF300058A002 /* HomeViewController.swift in Sources */,
 				A17999861E82B98E0058A002 /* StoryboardInitializable.swift in Sources */,
+				A1CD9A0E1E89D05E00D3C8F7 /* Keys.swift in Sources */,
 				A17999881E82B9A60058A002 /* UIColorExtension.swift in Sources */,
 				A1F959431E89683C0087B040 /* NewUserViewController.swift in Sources */,
+				A1CD9A0A1E89C26200D3C8F7 /* TeamState.swift in Sources */,
 				A1868F9F1E802E1600C191EC /* AppState.swift in Sources */,
 				A179996E1E82B64A0058A002 /* User.swift in Sources */,
 				A17999921E82DF300058A002 /* HomeMenuItem.swift in Sources */,
 				A1868F9D1E802DDD00C191EC /* Result.swift in Sources */,
 				A1B41C281E85A4CD00FAC930 /* Game.swift in Sources */,
+				A1CD9A0C1E89C30400D3C8F7 /* GameState.swift in Sources */,
 				A17999841E82B9860058A002 /* SegueHandlerType.swift in Sources */,
 				A17999801E82B95E0058A002 /* Arrays.swift in Sources */,
 				A1B41C241E85A4B300FAC930 /* Team.swift in Sources */,
@@ -544,6 +564,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 23340C3D14A1D9E6B1878846 /* Pods-Stats.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Stats/Stats.entitlements;
 				DEVELOPMENT_TEAM = WK6LDT652Z;
@@ -559,6 +580,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3EB00BD85F52BB91F956360D /* Pods-Stats.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Stats/Stats.entitlements;
 				DEVELOPMENT_TEAM = WK6LDT652Z;

@@ -9,7 +9,7 @@
 import Foundation
 import CloudKit
 
-protocol CloudKitSyncable {
+protocol CloudKitSyncable: Equatable, Hashable {
 	
 	init(record: CKRecord) throws
 
@@ -32,6 +32,19 @@ extension CloudKitSyncable {
 	}
     
 }
+
+extension CloudKitSyncable {
+    
+    var hashValue: Int {
+        return cloudKitRecordId!.hashValue /*?? (gameRef.recordID.hashValue + playerRef.recordID.hashValue + resultCode.hashValue + rbis) */
+    }
+
+}
+
+func ==<T: CloudKitSyncable>(lhs: T, rhs: T) -> Bool {
+    return lhs.cloudKitRecordId == rhs.cloudKitRecordId
+}
+
 
 enum CloudKitError: Error {
     case keyNotFound(key: String)

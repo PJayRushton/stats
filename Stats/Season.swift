@@ -37,7 +37,7 @@ class Season: CloudKitSyncable {
 
 extension CKRecord {
     
-    convenience init(_ season: Season) {
+    convenience init(season: Season) {
         let recordId = CKRecordID(recordName: UUID().uuidString)
         
         self.init(recordType: season.recordType, recordID: recordId)

@@ -52,7 +52,7 @@ class Player: CloudKitSyncable {
 
 extension CKRecord {
     
-    convenience init(_ player: Player) {
+    convenience init(player: Player) {
         let recordID = CKRecordID(recordName: UUID().uuidString)
         
         self.init(recordType: player.recordType, recordID: recordID)

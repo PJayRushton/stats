@@ -12,7 +12,7 @@ import CloudKit
 struct GameState: State {
     
     var currentGame: Game?
-    var allGames = [Game]()
+    var allGames = Set<Game>()
     
     mutating func react(to event: Event) {
         switch event {

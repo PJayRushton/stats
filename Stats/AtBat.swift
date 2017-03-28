@@ -52,7 +52,7 @@ class AtBat: CloudKitSyncable {
 
 extension CKRecord {
     
-    convenience init(_ atBat: AtBat) {
+    convenience init(atBat: AtBat) {
         let recordID = CKRecordID(recordName: UUID().uuidString)
         self.init(recordType: atBat.recordType, recordID: recordID)
         self.setObject(atBat.gameRef, forKey: gameRefKey)

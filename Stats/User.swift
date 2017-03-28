@@ -9,7 +9,7 @@
 import UIKit
 import CloudKit
 
-final class User: CloudKitSyncable {
+class User: CloudKitSyncable {
     
     let cloudKitId: CKReference
     let username: String

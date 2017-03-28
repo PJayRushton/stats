@@ -18,12 +18,12 @@ struct AppState: State {
     
     var currentUser: User?
     
+    var newUserState = NewUserState()
     var teamState = TeamState()
     var gameState = GameState()
-    var allSeasons = [CKRecordID: Season]()
-    var allPlayers = [CKRecordID: Player]()
-    var allGames = [CKRecordID: Game]()
-    var allAtBats = [CKRecordID: AtBat]()
+    var seasonState = SeasonState()
+    var playerState = PlayerState()
+    var atBatState = AtBatState()
     
     mutating func react(to event: Event) {
         switch event {
@@ -33,8 +33,24 @@ struct AppState: State {
             break
         }
         
+        newUserState.react(to: event)
         teamState.react(to: event)
         gameState.react(to: event)
+        seasonState.react(to: event)
+        playerState.react(to: event)
+        atBatState.react(to: event)
+    }
+    
+}
+
+extension Command {
+    
+    var publicDatabase: CKDatabase {
+        return CKContainer.default().publicCloudDatabase
+    }
+    
+    var cloudManager: CloudKitManager {
+        return CloudKitManager()
     }
     
 }

@@ -37,7 +37,7 @@ class Game: CloudKitSyncable {
         self.teamRef = teamRef
     }
     
-    required convenience init(record: CKRecord) throws {
+    convenience required init(record: CKRecord) throws {
         guard let date = record.value(forKey: dateKey) as? Date else { throw CloudKitError.keyNotFound(key: dateKey) }
         guard let inning = record.value(forKey: inningKey) as? Int else { throw CloudKitError.keyNotFound(key: inningKey) }
         guard let isCompletedInt = record.value(forKey: isCompletedKey) as? Int else { throw CloudKitError.keyNotFound(key: isCompletedKey) }
@@ -60,7 +60,7 @@ class Game: CloudKitSyncable {
 
 extension CKRecord {
     
-    convenience init(_ game: Game) {
+    convenience init(game: Game) {
         let recordId = CKRecordID(recordName: UUID().uuidString)
         
         self.init(recordType: game.recordType, recordID: recordId)

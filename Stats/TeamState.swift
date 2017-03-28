@@ -12,7 +12,7 @@ import CloudKit
 struct TeamState: State {
     
     var currentTeam: Team?
-    var allTeams = [CKRecordID: Team]()
+    var allTeams = Set<Team>()
     
     mutating func react(to event: Event) {
         switch event {

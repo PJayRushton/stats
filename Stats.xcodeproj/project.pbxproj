@@ -31,15 +31,19 @@
 		A1CD9A0A1E89C26200D3C8F7 /* TeamState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD9A091E89C26200D3C8F7 /* TeamState.swift */; };
 		A1CD9A0C1E89C30400D3C8F7 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD9A0B1E89C30400D3C8F7 /* GameState.swift */; };
 		A1CD9A0E1E89D05E00D3C8F7 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD9A0D1E89D05E00D3C8F7 /* Keys.swift */; };
-		A1D8054A1E89853B0072AA49 /* UserCreationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1D805481E89853B0072AA49 /* UserCreationViewController.storyboard */; };
+		A1CD9A101E8A9ABC00D3C8F7 /* SeasonState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD9A0F1E8A9ABC00D3C8F7 /* SeasonState.swift */; };
+		A1CD9A121E8A9C2400D3C8F7 /* AtBatState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD9A111E8A9C2400D3C8F7 /* AtBatState.swift */; };
+		A1CD9A141E8A9C6000D3C8F7 /* PlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD9A131E8A9C6000D3C8F7 /* PlayerState.swift */; };
+		A1CD9A171E8AA2F000D3C8F7 /* UsernameViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1CD9A151E8AA2F000D3C8F7 /* UsernameViewController.storyboard */; };
+		A1CD9A191E8AA83D00D3C8F7 /* NewUserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD9A181E8AA83D00D3C8F7 /* NewUserState.swift */; };
+		A1CD9A1B1E8AACAB00D3C8F7 /* CheckUsernameAvailability.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD9A1A1E8AACAB00D3C8F7 /* CheckUsernameAvailability.swift */; };
+		A1CD9A1D1E8AAD4000D3C8F7 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD9A1C1E8AAD4000D3C8F7 /* CloudKitManager.swift */; };
 		A1D8054C1E89870B0072AA49 /* UsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D8054B1E89870B0072AA49 /* UsernameViewController.swift */; };
-		A1D8054F1E8987540072AA49 /* UsernameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1D8054D1E8987540072AA49 /* UsernameViewController.xib */; };
 		A1DC99D31E7E3E4500C6FF8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DC99D21E7E3E4500C6FF8C /* AppDelegate.swift */; };
 		A1DC99DA1E7E3E4500C6FF8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1DC99D91E7E3E4500C6FF8C /* Assets.xcassets */; };
 		A1F959321E882F9C0087B040 /* CloudKitSyncable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F959311E882F9C0087B040 /* CloudKitSyncable.swift */; };
 		A1F959341E8953440087B040 /* Season.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F959331E8953440087B040 /* Season.swift */; };
 		A1F959391E8959C60087B040 /* LemonMilk.otf in Resources */ = {isa = PBXBuildFile; fileRef = A1F959381E8959C60087B040 /* LemonMilk.otf */; };
-		A1F959431E89683C0087B040 /* NewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F959411E89683C0087B040 /* NewUserViewController.swift */; };
 		A1F959461E89691A0087B040 /* XIBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F959451E89691A0087B040 /* XIBViewController.swift */; };
 		E550D9575E4FFE68382F160D /* Pods_Stats.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 097AB2DA5C7A85576113EB29 /* Pods_Stats.framework */; };
 /* End PBXBuildFile section */
@@ -77,9 +81,14 @@
 		A1CD9A091E89C26200D3C8F7 /* TeamState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamState.swift; sourceTree = "<group>"; };
 		A1CD9A0B1E89C30400D3C8F7 /* GameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
 		A1CD9A0D1E89D05E00D3C8F7 /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
-		A1D805491E89853B0072AA49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = UserCreationViewController.storyboard; sourceTree = "<group>"; };
+		A1CD9A0F1E8A9ABC00D3C8F7 /* SeasonState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeasonState.swift; sourceTree = "<group>"; };
+		A1CD9A111E8A9C2400D3C8F7 /* AtBatState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtBatState.swift; sourceTree = "<group>"; };
+		A1CD9A131E8A9C6000D3C8F7 /* PlayerState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerState.swift; sourceTree = "<group>"; };
+		A1CD9A161E8AA2F000D3C8F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = UsernameViewController.storyboard; sourceTree = "<group>"; };
+		A1CD9A181E8AA83D00D3C8F7 /* NewUserState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserState.swift; sourceTree = "<group>"; };
+		A1CD9A1A1E8AACAB00D3C8F7 /* CheckUsernameAvailability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckUsernameAvailability.swift; sourceTree = "<group>"; };
+		A1CD9A1C1E8AAD4000D3C8F7 /* CloudKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
 		A1D8054B1E89870B0072AA49 /* UsernameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsernameViewController.swift; sourceTree = "<group>"; };
-		A1D8054E1E8987540072AA49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = UsernameViewController.xib; sourceTree = "<group>"; };
 		A1DC99CF1E7E3E4500C6FF8C /* Stats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1DC99D21E7E3E4500C6FF8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1DC99D91E7E3E4500C6FF8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -87,7 +96,6 @@
 		A1F959311E882F9C0087B040 /* CloudKitSyncable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitSyncable.swift; sourceTree = "<group>"; };
 		A1F959331E8953440087B040 /* Season.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Season.swift; sourceTree = "<group>"; };
 		A1F959381E8959C60087B040 /* LemonMilk.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LemonMilk.otf; sourceTree = "<group>"; };
-		A1F959411E89683C0087B040 /* NewUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserViewController.swift; sourceTree = "<group>"; };
 		A1F959451E89691A0087B040 /* XIBViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XIBViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -118,6 +126,7 @@
 			children = (
 				A179996F1E82B67C0058A002 /* LoadICloudUser.swift */,
 				A17999711E82B6930058A002 /* SaveNewUser.swift */,
+				A1CD9A1A1E8AACAB00D3C8F7 /* CheckUsernameAvailability.swift */,
 			);
 			name = Commands;
 			sourceTree = "<group>";
@@ -163,8 +172,7 @@
 			children = (
 				A17999981E82DFFF0058A002 /* HomeViewController.storyboard */,
 				A17999951E82DFF00058A002 /* LaunchScreen.storyboard */,
-				A1D805481E89853B0072AA49 /* UserCreationViewController.storyboard */,
-				A1D8054D1E8987540072AA49 /* UsernameViewController.xib */,
+				A1CD9A151E8AA2F000D3C8F7 /* UsernameViewController.storyboard */,
 			);
 			path = Base.lproj;
 			sourceTree = "<group>";
@@ -175,7 +183,6 @@
 				A17999901E82DF300058A002 /* HomeViewController.swift */,
 				A179998E1E82DF300058A002 /* HomeCollectionViewCell.swift */,
 				A179998F1E82DF300058A002 /* HomeMenuItem.swift */,
-				A1F959411E89683C0087B040 /* NewUserViewController.swift */,
 				A1D8054B1E89870B0072AA49 /* UsernameViewController.swift */,
 			);
 			name = UI;
@@ -194,6 +201,7 @@
 		A1868F9B1E802C5200C191EC /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				A1CD9A1C1E8AAD4000D3C8F7 /* CloudKitManager.swift */,
 				A1F959311E882F9C0087B040 /* CloudKitSyncable.swift */,
 				A1868F991E802C4E00C191EC /* FirebaseNetworkAccess.swift */,
 				A179996B1E82B4EC0058A002 /* NetworkHelper.swift */,
@@ -216,8 +224,12 @@
 			isa = PBXGroup;
 			children = (
 				A1868F9E1E802E1600C191EC /* AppState.swift */,
-				A1CD9A091E89C26200D3C8F7 /* TeamState.swift */,
+				A1CD9A111E8A9C2400D3C8F7 /* AtBatState.swift */,
 				A1CD9A0B1E89C30400D3C8F7 /* GameState.swift */,
+				A1CD9A181E8AA83D00D3C8F7 /* NewUserState.swift */,
+				A1CD9A131E8A9C6000D3C8F7 /* PlayerState.swift */,
+				A1CD9A0F1E8A9ABC00D3C8F7 /* SeasonState.swift */,
+				A1CD9A091E89C26200D3C8F7 /* TeamState.swift */,
 			);
 			name = AppState;
 			sourceTree = "<group>";
@@ -337,10 +349,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1D8054F1E8987540072AA49 /* UsernameViewController.xib in Resources */,
 				A179999A1E82DFFF0058A002 /* HomeViewController.storyboard in Resources */,
+				A1CD9A171E8AA2F000D3C8F7 /* UsernameViewController.storyboard in Resources */,
 				A1F959391E8959C60087B040 /* LemonMilk.otf in Resources */,
-				A1D8054A1E89853B0072AA49 /* UserCreationViewController.storyboard in Resources */,
 				A17999971E82DFF00058A002 /* LaunchScreen.storyboard in Resources */,
 				A1DC99DA1E7E3E4500C6FF8C /* Assets.xcassets in Resources */,
 			);
@@ -401,6 +412,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1CD9A191E8AA83D00D3C8F7 /* NewUserState.swift in Sources */,
 				A17999821E82B9780058A002 /* DateHelper.swift in Sources */,
 				A1F959321E882F9C0087B040 /* CloudKitSyncable.swift in Sources */,
 				A17999911E82DF300058A002 /* HomeCollectionViewCell.swift in Sources */,
@@ -410,7 +422,7 @@
 				A17999861E82B98E0058A002 /* StoryboardInitializable.swift in Sources */,
 				A1CD9A0E1E89D05E00D3C8F7 /* Keys.swift in Sources */,
 				A17999881E82B9A60058A002 /* UIColorExtension.swift in Sources */,
-				A1F959431E89683C0087B040 /* NewUserViewController.swift in Sources */,
+				A1CD9A141E8A9C6000D3C8F7 /* PlayerState.swift in Sources */,
 				A1CD9A0A1E89C26200D3C8F7 /* TeamState.swift in Sources */,
 				A1868F9F1E802E1600C191EC /* AppState.swift in Sources */,
 				A179996E1E82B64A0058A002 /* User.swift in Sources */,
@@ -418,12 +430,16 @@
 				A1868F9D1E802DDD00C191EC /* Result.swift in Sources */,
 				A1B41C281E85A4CD00FAC930 /* Game.swift in Sources */,
 				A1CD9A0C1E89C30400D3C8F7 /* GameState.swift in Sources */,
+				A1CD9A1B1E8AACAB00D3C8F7 /* CheckUsernameAvailability.swift in Sources */,
 				A17999841E82B9860058A002 /* SegueHandlerType.swift in Sources */,
 				A17999801E82B95E0058A002 /* Arrays.swift in Sources */,
 				A1B41C241E85A4B300FAC930 /* Team.swift in Sources */,
+				A1CD9A1D1E8AAD4000D3C8F7 /* CloudKitManager.swift in Sources */,
 				A1F959461E89691A0087B040 /* XIBViewController.swift in Sources */,
 				A1868FA21E802F5C00C191EC /* Reactor.swift in Sources */,
+				A1CD9A101E8A9ABC00D3C8F7 /* SeasonState.swift in Sources */,
 				A17999701E82B67C0058A002 /* LoadICloudUser.swift in Sources */,
+				A1CD9A121E8A9C2400D3C8F7 /* AtBatState.swift in Sources */,
 				A1DC99D31E7E3E4500C6FF8C /* AppDelegate.swift in Sources */,
 				A1F959341E8953440087B040 /* Season.swift in Sources */,
 				A1D8054C1E89870B0072AA49 /* UsernameViewController.swift in Sources */,
@@ -450,20 +466,12 @@
 			name = HomeViewController.storyboard;
 			sourceTree = "<group>";
 		};
-		A1D805481E89853B0072AA49 /* UserCreationViewController.storyboard */ = {
+		A1CD9A151E8AA2F000D3C8F7 /* UsernameViewController.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				A1D805491E89853B0072AA49 /* Base */,
+				A1CD9A161E8AA2F000D3C8F7 /* Base */,
 			);
-			name = UserCreationViewController.storyboard;
-			sourceTree = "<group>";
-		};
-		A1D8054D1E8987540072AA49 /* UsernameViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A1D8054E1E8987540072AA49 /* Base */,
-			);
-			name = UsernameViewController.xib;
+			name = UsernameViewController.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

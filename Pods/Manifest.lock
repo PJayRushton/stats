@@ -9,7 +9,7 @@ PODS:
   - IGListKit/Diffing (2.1.0)
   - LTMorphingLabel (0.4.0)
   - Marshal (1.2.4)
-  - Presentr (1.1.1)
+  - Presentr (1.2.2)
   - TabPageViewController (0.2.5)
   - TextFieldEffects (1.3.1)
   - Whisper (4.0.0)
@@ -38,7 +38,7 @@ SPEC CHECKSUMS:
   IGListKit: b826c68ef7a4ae1626c09d4d3e1ea7a169e6c36e
   LTMorphingLabel: d9a85f16ac306f0e07321d6819964deb2dc69638
   Marshal: 8e04e6624e506921db7143b0bfd83caee03f32d6
-  Presentr: 389acebf4361e0913d942232d70211e279e38645
+  Presentr: bbc0bf3e620851e3519364b73542e98e98e3915c
   TabPageViewController: 66aca4291518e66f6ef6800bfe3a98217f58a434
   TextFieldEffects: faa47d428ee8eafb781a8413ac4345420d2328c4
   Whisper: 08be92623311f8e53201e62e17f6d7b9599a4714

@@ -37,14 +37,14 @@ class AtBat: CloudKitSyncable {
     }
     
     required convenience init(record: CKRecord) throws {
-        guard let game = record.value(forKey: gameRefKey) as? CKReference else { throw CloudKitError.keyNotFound(key: gameRefKey) }
-        guard let player = record.value(forKey: playerRefKey) as? CKReference else { throw CloudKitError.keyNotFound(key: playerRefKey) }
+        guard let gameRef = record.value(forKey: gameRefKey) as? CKReference else { throw CloudKitError.keyNotFound(key: gameRefKey) }
+        guard let playerRef = record.value(forKey: playerRefKey) as? CKReference else { throw CloudKitError.keyNotFound(key: playerRefKey) }
         guard let rbis = record.value(forKey: rbisKey) as? Int else { throw CloudKitError.keyNotFound(key: rbisKey) }
         guard let resultCodeString = record.value(forKey: resultCodeKey) as? String else { throw CloudKitError.keyNotFound(key: resultCodeKey) }
         guard let resultCode = AtBatCode(rawValue: resultCodeString) else { throw CloudKitError.parsingError(key: resultCodeKey) }
-        guard let season = record.value(forKey: seasonRefKey) as? CKReference else { throw CloudKitError.keyNotFound(key: seasonRefKey) }
+        guard let seasonRef = record.value(forKey: seasonRefKey) as? CKReference else { throw CloudKitError.keyNotFound(key: seasonRefKey) }
         
-        self.init(gameRef: game, playerRef: player, rbis: rbis, resultCode: resultCode, seasonRef: season)
+        self.init(gameRef: gameRef, playerRef: playerRef, rbis: rbis, resultCode: resultCode, seasonRef: seasonRef)
         cloudKitRecordId = record.recordID
     }
     

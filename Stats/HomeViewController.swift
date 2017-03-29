@@ -22,6 +22,10 @@ class HomeViewController: UIViewController {
     fileprivate let feedbackGenerator = UISelectionFeedbackGenerator()
     fileprivate let margin: CGFloat = 0
     
+    var core = App.core
+    
+    var isPresentingOnboarding = false
+    
     let presenter: Presentr = {
         let presenter = Presentr(presentationType: .alert)
         presenter.transitionType = TransitionType.coverHorizontalFromRight
@@ -44,6 +48,8 @@ class HomeViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        core.add(subscriber: self)
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
@@ -54,10 +60,17 @@ class HomeViewController: UIViewController {
 }
 
 
-// MARK: - Internal
+// MARK: - Subscriber
 
-extension HomeViewController {
+extension HomeViewController: Subscriber {
     
+    func update(with state: AppState) {
+        if state.userState.currentUser == nil && !isPresentingOnboarding {
+            isPresentingOnboarding = true
+            let usernameVC = UsernameViewController.initializeFromStoryboard().embededInNavigationController
+            present(usernameVC, animated: true, completion: nil)
+        }
+    }
     
 }
 

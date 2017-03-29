@@ -11,5 +11,6 @@ target 'Stats' do
   pod 'Whisper'
   pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
   pod 'TextFieldEffects'
+  pod 'Kingfisher'
   
 end

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CloudKit
 
 struct UsernameUpdated: Event {
     var username: String?
@@ -19,8 +20,13 @@ struct EmailUpdated: Event {
     var email: String?
 }
 
+struct ICloudUserLoaded: Event {
+    var recordID: CKRecordID
+}
+
 struct NewUserState: State {
     
+    var userRecordID: CKRecordID?
     var username: String?
     var usernameIsAvailable = false
     var email: String?
@@ -28,6 +34,8 @@ struct NewUserState: State {
     
     mutating func react(to event: Event) {
         switch event {
+        case let event as ICloudUserLoaded:
+            userRecordID = event.recordID
         case let event as UsernameUpdated:
             username = event.username
         case let event as UsernameAvailabilityUpdated:

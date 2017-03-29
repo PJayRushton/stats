@@ -16,8 +16,13 @@ class AvatarViewController: Component, AutoStoryboardInitializable {
         super.viewDidLoad()
     }
     
-    @IBAction func laterButtonPressed(_ sender: UIButton) {
-        
+    @IBAction func nextButtonPressed(_ sender: UIButton) {
+        let emailVC = EmailViewController.initializeFromStoryboard()
+        navigationController?.pushViewController(emailVC, animated: true)
+    }
+    
+    @IBAction func previousButtonPressed(_ sender: UIButton) {
+        _ = navigationController?.popViewController(animated: true)
     }
     
 }

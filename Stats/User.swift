@@ -22,8 +22,8 @@ class User: CloudKitSyncable {
 
     var cloudKitRecordId: CKRecordID?
     
-    init(cloudKitId: CKReference, username: String, avatar: CKAsset?, email: String?, ownedTeamIds: [CKReference], managedTeamIds: [CKReference], fanTeamIds: [CKReference]) {
-        self.cloudKitId = cloudKitId
+    init(userRecord: CKRecord, username: String, avatar: CKAsset?, email: String?, ownedTeamIds: [CKReference] = [], managedTeamIds: [CKReference] = [], fanTeamIds: [CKReference] = []) {
+        self.cloudKitId = CKReference(record: userRecord, action: .none)
         self.username = username
         self.avatar = avatar
         self.email = email

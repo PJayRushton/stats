@@ -29,7 +29,8 @@ enum ImageError: Error {
 
 extension CKAsset {
     
-    convenience init(image: UIImage, fileType: ImageFileType = .jpg(compressionQuality: 70)) throws {
+    convenience init(image: UIImage?, fileType: ImageFileType = .jpg(compressionQuality: 70)) throws {
+        guard let image = image else { throw CloudKitError.keyNotFound(key: "image") }
         let url = try image.saveToTempLocationWithFileType(fileType: fileType)
         self.init(fileURL: url as URL)
     }

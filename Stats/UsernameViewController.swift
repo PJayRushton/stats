@@ -31,6 +31,8 @@ class UsernameViewController: UIViewController, AutoStoryboardInitializable {
     }
     
     @IBAction func nextButtonPressed(_ sender: UIButton) {
+        let avatarVC = AvatarViewController.initializeFromStoryboard()
+        navigationController?.pushViewController(avatarVC, animated: true)
     }
     
     @IBAction func viewTapped(_ sender: UITapGestureRecognizer) {

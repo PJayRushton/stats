@@ -7,29 +7,27 @@
 //
 
 import Foundation
-import Firebase
+import CloudKit
 import Marshal
 
 struct SaveNewUser: Command {
     
     func execute(state: AppState, core: Core<AppState>) {
-        let ref = networkAccess.usersRef.childByAutoId()
-        let user = newUser(id: ref.key)
+        guard let newUser = newUser(state: state.newUserState) else { return }
         
-        networkAccess.setValue(at: ref, parameters: user.marshaled()) { result in
-            switch result {
-            case .success:
-                core.fire(event: Selected<User>(user))
-            case let .failure(error):
-                core.fire(event: ErrorEvent(error: error, message: nil))
+        cloudManager.saveRecord(CKRecord(user: newUser)) { record, error in
+            if error == nil, let _ = record {
+                core.fire(event: Selected<User>(newUser))
+            } else {
+                core.fire(event: ErrorEvent(error: error, message: "Unable to save new user"))
             }
         }
     }
     
-    private func newUser(id: String) -> User {
-        let cloudKitId = App.core.state.currentICloudId
-        let deviceId = UIDevice.current.identifierForVendor!.uuidString
-        return User(id: id, cloudKitId: cloudKitId, deviceId: deviceId)
+    private func newUser(state: NewUserState) -> User? {
+        guard let cloudKitId = state.userRecordID, let username = state.username else { return nil }
+        let avatarAsset = try? CKAsset(image: state.avatar)
+        return User(cloudKitId: cloudKitId, username: username, avatar: avatarAsset, email: state.email)
     }
     
 }

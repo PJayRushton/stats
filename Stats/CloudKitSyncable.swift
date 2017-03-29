@@ -17,6 +17,10 @@ protocol CloudKitSyncable: Equatable, Hashable {
 }
 
 extension CloudKitSyncable {
+ 
+    static var recordName: String {
+        return String(describing: self)
+    }
     
 	var isSynced: Bool {
 		return cloudKitRecordId != nil

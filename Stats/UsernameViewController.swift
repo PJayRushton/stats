@@ -25,7 +25,16 @@ class UsernameViewController: UIViewController, AutoStoryboardInitializable {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
     @IBAction func nextButtonPressed(_ sender: UIButton) {
+    }
+    
+    @IBAction func viewTapped(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
     }
     
 }
@@ -35,6 +44,7 @@ extension UsernameViewController: Subscriber {
     func update(with state: AppState) {
         imageView.image = state.newUserState.usernameIsAvailable ? checkImage : xImage
         imageView.tintColor = state.newUserState.usernameIsAvailable ? UIColor.flatLime : .flatRed
+        nextButton.isEnabled = state.newUserState.username != nil && state.newUserState.usernameIsAvailable
     }
     
 }

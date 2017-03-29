@@ -9,11 +9,6 @@
 import Foundation
 import CloudKit
 
-struct ICloudUserIdentified: Event {
-    var iCloudId: String?
-}
-
-
 struct LoadICloudUser: Command {
     
     func execute(state: AppState, core: Core<AppState>) {
@@ -21,10 +16,8 @@ struct LoadICloudUser: Command {
         container.fetchUserRecordID { recordID, error in
             if let recordID = recordID, error == nil {
                 
-                core.fire(event: ICloudUserIdentified(iCloudId: recordID.recordName))
             } else {
                 core.fire(event: ErrorEvent(error: error, message: nil))
-                core.fire(event: ICloudUserIdentified(iCloudId: nil))
             }
         }
     }

@@ -87,7 +87,7 @@ class CloudKitManager {
 		}
 	}
     
-    func fetchRecords(withType type: String, predicate: NSPredicate = NSPredicate(value: true), sortDescriptors: [NSSortDescriptor]? = nil, completion: @escaping (([CKRecord]?, Error?) -> Void)) {
+    func fetchRecords(ofType type: String, predicate: NSPredicate = NSPredicate(value: true), sortDescriptors: [NSSortDescriptor]? = nil, completion: @escaping (([CKRecord]?, Error?) -> Void)) {
         let query = CKQuery(recordType: type, predicate: predicate)
         query.sortDescriptors = sortDescriptors
         publicDatabase.perform(query, inZoneWith: nil, completionHandler: completion)

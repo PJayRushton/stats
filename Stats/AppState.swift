@@ -16,8 +16,7 @@ enum App {
 
 struct AppState: State {
     
-    var currentUser: User?
-    
+    var userState = UserState()
     var newUserState = NewUserState()
     var teamState = TeamState()
     var gameState = GameState()
@@ -26,13 +25,7 @@ struct AppState: State {
     var atBatState = AtBatState()
     
     mutating func react(to event: Event) {
-        switch event {
-        case let event as Selected<User>:
-            currentUser = event.item
-        default:
-            break
-        }
-        
+        userState.react(to: event)
         newUserState.react(to: event)
         teamState.react(to: event)
         gameState.react(to: event)

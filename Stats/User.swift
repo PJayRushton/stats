@@ -45,6 +45,11 @@ class User: CloudKitSyncable {
         cloudKitRecordId = record.recordID
     }
     
+    func isOwnerOrManager(of team: Team) -> Bool {
+        guard let teamId = team.cloudKitRecordId else { return false }
+        return ownedTeamRefs.map { $0.recordID }.contains(teamId) || managedTeamRefs.map { $0.recordID }.contains(teamId)
+    }
+    
 }
 
 extension CKRecord {

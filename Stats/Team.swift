@@ -8,6 +8,7 @@
 
 import Foundation
 import CloudKit
+import IGListKit
 
 enum TeamType: Int {
     case baseball
@@ -49,6 +50,22 @@ class Team: CloudKitSyncable {
         guard let type = TeamType(rawValue: typeInt) else { throw CloudKitError.parsingError(key: typeKey) }
         self.init(currentSeasonRef: currentSeasonRef, image: image, name: name, shareCode: shareCode, type: type)
         cloudKitRecordId = record.recordID
+    }
+    
+}
+
+extension Team: IGListDiffable {
+    
+    func diffIdentifier() -> NSObjectProtocol {
+        return cloudKitRecordId!
+    }
+    
+    func isEqual(toDiffableObject object: IGListDiffable?) -> Bool {
+        guard let other = object as? Team else { return false }
+        return image == other.image &&
+        name == other.name &&
+        type == other.type &&
+        currentSeasonRef == other.currentSeasonRef
     }
     
 }

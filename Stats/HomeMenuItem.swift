@@ -17,6 +17,10 @@ enum HomeMenuItem: Int {
     case share
     
     static let allValues = [HomeMenuItem.newGame, .stats, .games, .roster, .share]
+    static let fanItems = [HomeMenuItem.stats, .games, .roster, .share]
+    static var managerItems: [HomeMenuItem] {
+        return allValues
+    }
     
     var title: String {
         switch self {

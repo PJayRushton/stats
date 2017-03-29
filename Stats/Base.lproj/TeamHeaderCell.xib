@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="LemonMilk.otf">
+            <string>LemonMilk</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="TeamHeaderCell" customModule="Stats" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="326" height="173"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="326" height="173"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LXL-x3-7qs">
+                        <rect key="frame" x="0.0" y="0.0" width="326" height="173"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PJu-aD-wyy">
+                                <rect key="frame" x="0.0" y="0.0" width="326" height="173"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eka-6t-7Ew">
+                                <rect key="frame" x="0.0" y="0.0" width="326" height="173"/>
+                                <color key="backgroundColor" red="0.1960784314" green="0.30196078430000001" blue="0.35686274509999999" alpha="0.22358230064655171" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="2QG-Zk-YbK" userLabel="Top Stack">
+                                <rect key="frame" x="8" y="8" width="310" height="35"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lof-fO-0Q5" userLabel="Settings">
+                                        <rect key="frame" x="0.0" y="0.0" width="79" height="35"/>
+                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
+                                        <state key="normal" title="Settings"/>
+                                        <connections>
+                                            <action selector="settingsButtonPressed:" destination="gTV-IL-0wX" eventType="touchUpInside" id="7mI-9e-Vgm"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LwT-PU-ala">
+                                        <rect key="frame" x="186" y="0.0" width="124" height="35"/>
+                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
+                                        <state key="normal" title="Switch Teams"/>
+                                        <connections>
+                                            <action selector="switchTeamButtonPressed:" destination="gTV-IL-0wX" eventType="touchUpInside" id="LVe-3x-eY0"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="7pf-G2-Xq9" userLabel="Bottom stack">
+                                <rect key="frame" x="8" y="130" width="310" height="35"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Team" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m4e-vH-0LG">
+                                        <rect key="frame" x="0.0" y="0.0" width="105.5" height="35"/>
+                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lqc-C1-Ime">
+                                        <rect key="frame" x="275" y="0.0" width="35" height="35"/>
+                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
+                                        <state key="normal" title="Edit"/>
+                                        <connections>
+                                            <action selector="editButtonPressed:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Rpm-Q3-KqZ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="PJu-aD-wyy" firstAttribute="top" secondItem="LXL-x3-7qs" secondAttribute="top" id="4p2-x9-beT"/>
+                            <constraint firstAttribute="bottom" secondItem="Eka-6t-7Ew" secondAttribute="bottom" id="O9Z-hw-F50"/>
+                            <constraint firstAttribute="trailing" secondItem="2QG-Zk-YbK" secondAttribute="trailing" constant="8" id="U3A-Wp-nq9"/>
+                            <constraint firstItem="Eka-6t-7Ew" firstAttribute="top" secondItem="LXL-x3-7qs" secondAttribute="top" id="cvi-Pe-56K"/>
+                            <constraint firstAttribute="trailing" secondItem="7pf-G2-Xq9" secondAttribute="trailing" constant="8" id="dyV-Ql-OSO"/>
+                            <constraint firstItem="Eka-6t-7Ew" firstAttribute="leading" secondItem="LXL-x3-7qs" secondAttribute="leading" id="e09-Xe-Dr6"/>
+                            <constraint firstAttribute="trailing" secondItem="PJu-aD-wyy" secondAttribute="trailing" id="e63-DQ-K0Z"/>
+                            <constraint firstItem="PJu-aD-wyy" firstAttribute="leading" secondItem="LXL-x3-7qs" secondAttribute="leading" id="ivW-rH-Db0"/>
+                            <constraint firstItem="2QG-Zk-YbK" firstAttribute="leading" secondItem="LXL-x3-7qs" secondAttribute="leading" constant="8" id="jau-a7-fIQ"/>
+                            <constraint firstItem="7pf-G2-Xq9" firstAttribute="leading" secondItem="LXL-x3-7qs" secondAttribute="leading" constant="8" id="x0Q-55-wNT"/>
+                            <constraint firstAttribute="trailing" secondItem="Eka-6t-7Ew" secondAttribute="trailing" id="x82-aA-z7x"/>
+                            <constraint firstAttribute="bottom" secondItem="PJu-aD-wyy" secondAttribute="bottom" id="xSv-Wa-AK4"/>
+                            <constraint firstItem="2QG-Zk-YbK" firstAttribute="top" secondItem="LXL-x3-7qs" secondAttribute="top" constant="8" id="xu2-Y4-eaw"/>
+                            <constraint firstAttribute="bottom" secondItem="7pf-G2-Xq9" secondAttribute="bottom" constant="8" id="z5v-JW-2WM"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="LXL-x3-7qs" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="2kO-6G-egQ"/>
+                <constraint firstAttribute="bottom" secondItem="LXL-x3-7qs" secondAttribute="bottom" id="8ZY-Ue-l7H"/>
+                <constraint firstItem="LXL-x3-7qs" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="TMI-ow-9eZ"/>
+                <constraint firstAttribute="trailing" secondItem="LXL-x3-7qs" secondAttribute="trailing" id="aKN-Xx-lUU"/>
+            </constraints>
+            <size key="customSize" width="326" height="173"/>
+            <connections>
+                <outlet property="editButton" destination="Lqc-C1-Ime" id="qmg-1o-tdm"/>
+                <outlet property="imageView" destination="PJu-aD-wyy" id="Rno-U0-96Z"/>
+                <outlet property="nameLabel" destination="m4e-vH-0LG" id="Q10-6n-pah"/>
+                <outlet property="settingsButton" destination="lof-fO-0Q5" id="Twi-Oj-l4S"/>
+                <outlet property="switchTeamButton" destination="LwT-PU-ala" id="t0T-W2-U5a"/>
+            </connections>
+            <point key="canvasLocation" x="172" y="165.5"/>
+        </collectionViewCell>
+    </objects>
+</document>

@@ -25,6 +25,8 @@
 		A1868FA21E802F5C00C191EC /* Reactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1868FA11E802F5C00C191EC /* Reactor.swift */; };
 		A1A2C35C1E8BF2FB0008274F /* AvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2C35B1E8BF2FB0008274F /* AvatarViewController.swift */; };
 		A1A2C35E1E8BF3680008274F /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2C35D1E8BF3680008274F /* Component.swift */; };
+		A1A2C3631E8BF6020008274F /* TeamHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2C3611E8BF6020008274F /* TeamHeaderCell.swift */; };
+		A1A2C3641E8BF6020008274F /* TeamHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1A2C3621E8BF6020008274F /* TeamHeaderCell.xib */; };
 		A1B41C241E85A4B300FAC930 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B41C231E85A4B300FAC930 /* Team.swift */; };
 		A1B41C261E85A4C400FAC930 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B41C251E85A4C400FAC930 /* Player.swift */; };
 		A1B41C2A1E85A4E300FAC930 /* AtBat.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B41C291E85A4E300FAC930 /* AtBat.swift */; };
@@ -77,6 +79,8 @@
 		A1868FA11E802F5C00C191EC /* Reactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reactor.swift; sourceTree = "<group>"; };
 		A1A2C35B1E8BF2FB0008274F /* AvatarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarViewController.swift; sourceTree = "<group>"; };
 		A1A2C35D1E8BF3680008274F /* Component.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
+		A1A2C3611E8BF6020008274F /* TeamHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamHeaderCell.swift; sourceTree = "<group>"; };
+		A1A2C3621E8BF6020008274F /* TeamHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamHeaderCell.xib; sourceTree = "<group>"; };
 		A1B41C231E85A4B300FAC930 /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		A1B41C251E85A4C400FAC930 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		A1B41C271E85A4CD00FAC930 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
@@ -177,6 +181,7 @@
 			children = (
 				A17999981E82DFFF0058A002 /* HomeViewController.storyboard */,
 				A17999951E82DFF00058A002 /* LaunchScreen.storyboard */,
+				A1A2C3621E8BF6020008274F /* TeamHeaderCell.xib */,
 				A1CD9A151E8AA2F000D3C8F7 /* UsernameViewController.storyboard */,
 			);
 			path = Base.lproj;
@@ -186,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				A17999901E82DF300058A002 /* HomeViewController.swift */,
+				A1A2C3611E8BF6020008274F /* TeamHeaderCell.swift */,
 				A179998E1E82DF300058A002 /* HomeCollectionViewCell.swift */,
 				A179998F1E82DF300058A002 /* HomeMenuItem.swift */,
 				A1D8054B1E89870B0072AA49 /* UsernameViewController.swift */,
@@ -357,6 +363,7 @@
 				A179999A1E82DFFF0058A002 /* HomeViewController.storyboard in Resources */,
 				A1CD9A171E8AA2F000D3C8F7 /* UsernameViewController.storyboard in Resources */,
 				A1F959391E8959C60087B040 /* LemonMilk.otf in Resources */,
+				A1A2C3641E8BF6020008274F /* TeamHeaderCell.xib in Resources */,
 				A17999971E82DFF00058A002 /* LaunchScreen.storyboard in Resources */,
 				A1DC99DA1E7E3E4500C6FF8C /* Assets.xcassets in Resources */,
 			);
@@ -420,6 +427,7 @@
 				A1CD9A191E8AA83D00D3C8F7 /* NewUserState.swift in Sources */,
 				A1BF9C401E8AC449007341EA /* GameState.swift in Sources */,
 				A1BF9C3F1E8AC443007341EA /* Game.swift in Sources */,
+				A1A2C3631E8BF6020008274F /* TeamHeaderCell.swift in Sources */,
 				A17999821E82B9780058A002 /* DateHelper.swift in Sources */,
 				A1F959321E882F9C0087B040 /* CloudKitSyncable.swift in Sources */,
 				A17999911E82DF300058A002 /* HomeCollectionViewCell.swift in Sources */,

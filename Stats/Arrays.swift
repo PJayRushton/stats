@@ -9,6 +9,14 @@
 import UIKit
 import Marshal
 
+extension String {
+    
+    var last4: String {
+        return self.substring(from:self.index(self.endIndex, offsetBy: -4))
+    }
+    
+}
+
 extension Array {
     
     func step(from: Index, to:Index, interval: Int = 1) -> Array<Element> {

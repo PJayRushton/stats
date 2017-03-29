@@ -10,12 +10,21 @@ import UIKit
 
 class EmailViewController: Component, AutoStoryboardInitializable {
     
+    var isReadyToDismiss = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     @IBAction func doneButtonPressed(_ sender: UIButton) {
         core.fire(command: SaveNewUser())
+    }
+    
+    override func update(with state: AppState) {
+        if let _ = state.userState.currentUser, isReadyToDismiss {
+            isReadyToDismiss = false
+            dismiss(animated: true, completion: nil)
+        }
     }
     
 }
@@ -29,6 +38,11 @@ extension EmailViewController: UITextFieldDelegate {
         } else {
             // TODO:
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        view.endEditing(true)
+        return true
     }
     
 }

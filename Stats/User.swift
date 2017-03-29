@@ -11,7 +11,7 @@ import CloudKit
 
 class User: CloudKitSyncable {
     
-    let cloudKitId: CKReference
+    let userRecordId: String
     let username: String
     let avatar: CKAsset?
     let email: String?
@@ -22,8 +22,8 @@ class User: CloudKitSyncable {
 
     var cloudKitRecordId: CKRecordID?
     
-    init(userRecord: CKRecord, username: String, avatar: CKAsset?, email: String?, ownedTeamIds: [CKReference] = [], managedTeamIds: [CKReference] = [], fanTeamIds: [CKReference] = []) {
-        self.cloudKitId = CKReference(record: userRecord, action: .none)
+    init(userRecordId: String, username: String, avatar: CKAsset?, email: String?, ownedTeamIds: [CKReference] = [], managedTeamIds: [CKReference] = [], fanTeamIds: [CKReference] = []) {
+        self.userRecordId = userRecordId
         self.username = username
         self.avatar = avatar
         self.email = email
@@ -33,7 +33,7 @@ class User: CloudKitSyncable {
     }
 
     required convenience init(record: CKRecord) throws {
-        guard let cloudKitId = record.object(forKey: cloudKitIdKey) as? CKReference else { throw CloudKitError.keyNotFound(key: cloudKitIdKey) }
+        guard let userRecordId = record.object(forKey: userRecordIdKey) as? String else { throw CloudKitError.keyNotFound(key: userRecordIdKey) }
         guard let username = record.object(forKey: usernameKey) as? String else { throw CloudKitError.keyNotFound(key: usernameKey) }
         guard let ownedTeamsReferences = record.object(forKey: ownedTeamRefsKey) as? [CKReference] else { throw CloudKitError.keyNotFound(key: ownedTeamRefsKey) }
         guard let managedTeamsReferences = record.object(forKey: managedTeamRefsKey) as? [CKReference] else { throw CloudKitError.keyNotFound(key: managedTeamRefsKey) }
@@ -41,7 +41,7 @@ class User: CloudKitSyncable {
 
         let avatar = record.object(forKey: avatarKey) as? CKAsset
         let email = record.object(forKey: emailKey) as? String
-        self.init(cloudKitId: cloudKitId, username: username, avatar: avatar, email: email, ownedTeamIds: ownedTeamsReferences, managedTeamIds: managedTeamsReferences, fanTeamIds: fanTeamsReferences)
+        self.init(userRecordId: userRecordId, username: username, avatar: avatar, email: email, ownedTeamIds: ownedTeamsReferences, managedTeamIds: managedTeamsReferences, fanTeamIds: fanTeamsReferences)
         cloudKitRecordId = record.recordID
     }
     
@@ -56,7 +56,7 @@ extension CKRecord {
     
     convenience init(user: User) {
         self.init(recordType: String(describing: User.self))
-        setObject(user.cloudKitId, forKey: cloudKitIdKey)
+        setObject(user.userRecordId as NSString, forKey: userRecordIdKey)
         setObject(user.username as NSString, forKey: usernameKey)
         setObject(user.avatar, forKey: avatarKey)
         setObject(user.email as NSString?, forKey: emailKey)

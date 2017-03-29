@@ -74,7 +74,7 @@ class HomeViewController: Component {
     // MARK: - Subscriber
     
     override func update(with state: AppState) {
-        if state.userState.currentUser == nil && !isPresentingOnboarding {
+        if state.userState.currentUser == nil && state.userState.userIsLoaded && !isPresentingOnboarding {
             isPresentingOnboarding = true
             let usernameVC = UsernameViewController.initializeFromStoryboard().embededInNavigationController
             present(usernameVC, animated: true, completion: nil)

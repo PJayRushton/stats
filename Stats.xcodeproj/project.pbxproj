@@ -66,7 +66,6 @@
 		A179996D1E82B64A0058A002 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A179996F1E82B67C0058A002 /* LoadICloudUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadICloudUser.swift; sourceTree = "<group>"; };
 		A17999711E82B6930058A002 /* SaveNewUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveNewUser.swift; sourceTree = "<group>"; };
-		A17999781E82B7750058A002 /* UserMiddleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMiddleware.swift; sourceTree = "<group>"; };
 		A179997C1E82B8BD0058A002 /* NSDate+ValueType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+ValueType.swift"; sourceTree = "<group>"; };
 		A179997F1E82B95E0058A002 /* Arrays.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Arrays.swift; sourceTree = "<group>"; };
 		A17999811E82B9780058A002 /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
@@ -154,7 +153,6 @@
 		A179997A1E82B77B0058A002 /* Middleware */ = {
 			isa = PBXGroup;
 			children = (
-				A17999781E82B7750058A002 /* UserMiddleware.swift */,
 			);
 			name = Middleware;
 			sourceTree = "<group>";

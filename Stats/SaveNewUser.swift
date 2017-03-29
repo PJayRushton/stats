@@ -13,21 +13,22 @@ import Marshal
 struct SaveNewUser: Command {
     
     func execute(state: AppState, core: Core<AppState>) {
-        guard let newUser = newUser(state: state.newUserState) else { return }
+        guard let newUser = newUser(state: state) else { return }
         
         cloudManager.saveRecord(CKRecord(user: newUser)) { record, error in
             if error == nil, let _ = record {
                 core.fire(event: Selected<User>(newUser))
+                core.fire(command: GetCurrentUser())
             } else {
                 core.fire(event: ErrorEvent(error: error, message: "Unable to save new user"))
             }
         }
     }
     
-    private func newUser(state: NewUserState) -> User? {
-        guard let cloudKitId = state.userRecordID, let username = state.username else { return nil }
-        let avatarAsset = try? CKAsset(image: state.avatar)
-        return User(cloudKitId: cloudKitId, username: username, avatar: avatarAsset, email: state.email)
+    private func newUser(state: AppState) -> User? {
+        guard let userRecordId = state.userState.userRecordId, let username = state.newUserState.username else { return nil }
+        let avatarAsset = try? CKAsset(image: state.newUserState.avatar)
+        return User(userRecordId: userRecordId.recordName, username: username, avatar: avatarAsset, email: state.newUserState.email)
     }
     
 }

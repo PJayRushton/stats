@@ -16,8 +16,8 @@ class UsernameViewController: UIViewController, AutoStoryboardInitializable {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nextButton: UIButton!
     
-    fileprivate let checkImage = #imageLiteral(resourceName: "check")
-    fileprivate let xImage = #imageLiteral(resourceName: "x")
+    fileprivate let checkImage = UIImage(named: "check")
+    fileprivate let xImage = UIImage(named: "x")
     
     var core = App.core
     

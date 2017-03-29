@@ -11,10 +11,9 @@ import CloudKit
 
 struct GetCurrentUser: Command {
     
-    var userRecordId: CKRecordID
-    
     func execute(state: AppState, core: Core<AppState>) {
-        let predicate = NSPredicate(format: "cloudKitId == %@", userRecordId)
+        guard let userRecordId = state.userState.userRecordId else { return }
+        let predicate = NSPredicate(format: "%K == %@", userRecordIdKey, userRecordId.recordName)
         cloudManager.fetchRecords(ofType: User.recordName, predicate: predicate) { records, error in
             if error == nil, let userRecord = records?.first, let user = try? User(record: userRecord) {
                 core.fire(event: Selected<User>(user))

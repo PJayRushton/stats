@@ -9,7 +9,6 @@
 import Foundation
 
 let avatarKey = "avatar"
-let cloudKitIdKey = "cloudKitId"
 let currentSeasonRefKey = "currentSeasonRef"
 let dateKey = "date"
 let emailKey = "email"
@@ -38,4 +37,5 @@ let seasonRefKey = "seasonRef"
 let shareCodeKey = "shareCode"
 let teamRefKey = "teamRef"
 let usernameKey = "username"
+let userRecordIdKey = "userRecordId"
 let typeKey = "type"

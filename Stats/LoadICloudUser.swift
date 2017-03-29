@@ -16,6 +16,7 @@ struct LoadICloudUser: Command {
         container.fetchUserRecordID { recordID, error in
             if let recordID = recordID, error == nil {
                 core.fire(event: ICloudUserLoaded(recordID: recordID))
+                core.fire(command: GetCurrentUser())
             } else {
                 core.fire(event: ICloudUserLoaded(recordID: nil))
                 core.fire(event: ErrorEvent(error: error, message: nil))

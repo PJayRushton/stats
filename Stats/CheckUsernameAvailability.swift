@@ -19,6 +19,7 @@ struct CheckUsernameAvailability: Command {
                 core.fire(event: UsernameAvailabilityUpdated(isAvailable: false))
             } else {
                 core.fire(event: UsernameAvailabilityUpdated(isAvailable: true))
+                core.fire(event: UsernameUpdated(username: self.username))
             }
         }
     }

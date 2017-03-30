@@ -54,7 +54,7 @@ extension CKRecord {
     
     convenience init(atBat: AtBat) {
         let recordID = CKRecordID(recordName: UUID().uuidString)
-        self.init(recordType: atBat.recordType, recordID: recordID)
+        self.init(recordType: AtBat.recordName, recordID: recordID)
         self.setObject(atBat.gameRef, forKey: gameRefKey)
         self.setObject(atBat.playerRef, forKey: playerRefKey)
         self.setObject(atBat.rbis as NSNumber, forKey: rbisKey)

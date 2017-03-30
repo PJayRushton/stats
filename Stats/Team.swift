@@ -10,7 +10,7 @@ import Foundation
 import CloudKit
 import IGListKit
 
-enum TeamType: Int {
+enum TeamType: String {
     case baseball
     case fastPitch
     case slowPitch
@@ -23,7 +23,7 @@ class Team: CloudKitSyncable {
     let name: String
     let type: TeamType
     let shareCode: String
-    let currentSeasonRef: CKReference
+    let currentSeasonRef: CKReference?
 
     var cloudKitRecordId: CKRecordID?
     
@@ -33,7 +33,7 @@ class Team: CloudKitSyncable {
         return image?.fileURL
     }
     
-    init(currentSeasonRef: CKReference, image: CKAsset?, name: String, shareCode: String, type: TeamType) {
+    init(currentSeasonRef: CKReference? =  nil, image: CKAsset? = nil, name: String, shareCode: String = "", type: TeamType) {
         self.currentSeasonRef = currentSeasonRef
         self.image = image
         self.name = name
@@ -42,12 +42,12 @@ class Team: CloudKitSyncable {
     }
     
     required convenience init(record: CKRecord) throws {
-        guard let currentSeasonRef = record.object(forKey: currentSeasonRefKey) as? CKReference else { throw CloudKitError.keyNotFound(key: currentSeasonRefKey) }
+        let currentSeasonRef = record.object(forKey: currentSeasonRefKey) as? CKReference
         let image = record.object(forKey: imageKey) as? CKAsset
         guard let name = record.object(forKey: nameKey) as? String else { throw CloudKitError.keyNotFound(key: nameKey) }
         guard let shareCode = record.object(forKey: shareCodeKey) as? String else { throw CloudKitError.keyNotFound(key: shareCodeKey) }
-        guard let typeInt = record.object(forKey: typeKey) as? Int else { throw CloudKitError.keyNotFound(key: typeKey) }
-        guard let type = TeamType(rawValue: typeInt) else { throw CloudKitError.parsingError(key: typeKey) }
+        guard let typeString = record.object(forKey: typeKey) as? String else { throw CloudKitError.keyNotFound(key: typeKey) }
+        guard let type = TeamType(rawValue: typeString) else { throw CloudKitError.parsingError(key: typeKey) }
         self.init(currentSeasonRef: currentSeasonRef, image: image, name: name, shareCode: shareCode, type: type)
         cloudKitRecordId = record.recordID
     }
@@ -75,12 +75,12 @@ extension CKRecord {
     convenience init(team: Team) {
         let recordId = CKRecordID(recordName: UUID().uuidString)
         
-        self.init(recordType: team.recordType, recordID: recordId)
+        self.init(recordType: Team.recordName, recordID: recordId)
         self.setObject(team.currentSeasonRef, forKey: currentSeasonRefKey)
         self.setObject(team.image, forKey: imageKey)
         self.setObject(team.name as NSString, forKey: nameKey)
         self.setObject(recordId.recordName.last4 as NSString, forKey: shareCodeKey)
-        self.setObject(NSNumber(value: team.type.rawValue), forKey: typeKey)
+        self.setObject(team.type.rawValue as NSString, forKey: typeKey)
     }
     
 }

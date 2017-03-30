@@ -40,6 +40,9 @@
                                         <rect key="frame" x="0.0" y="46" width="300" height="35"/>
                                         <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
                                         <state key="normal" title="Save"/>
+                                        <connections>
+                                            <action selector="saveButtonPressed:" destination="KaG-dX-WZH" eventType="touchUpInside" id="Ibn-lA-XFp"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -59,6 +62,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="nameTextField" destination="xHr-Ek-Mow" id="f6H-tO-xji"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aQC-Hh-rsB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

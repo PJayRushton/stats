@@ -63,7 +63,7 @@ extension CKRecord {
     convenience init(game: Game) {
         let recordId = CKRecordID(recordName: UUID().uuidString)
         
-        self.init(recordType: game.recordType, recordID: recordId)
+        self.init(recordType: Game.recordName, recordID: recordId)
         self.setObject(game.date as CKRecordValue, forKey: dateKey)
         self.setObject(NSNumber(value: game.inning), forKey: inningKey)
         let isCompletedNumber = NSNumber(booleanLiteral: game.isCompleted)

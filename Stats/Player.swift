@@ -55,7 +55,7 @@ extension CKRecord {
     convenience init(player: Player) {
         let recordID = CKRecordID(recordName: UUID().uuidString)
         
-        self.init(recordType: player.recordType, recordID: recordID)
+        self.init(recordType: Player.recordName, recordID: recordID)
         self.setObject(player.name as NSString, forKey: nameKey)
         self.setObject(player.jerseyNumber as CKRecordValue?, forKey: jerseyNumberKey)
         self.setObject(NSNumber(booleanLiteral: player.isSub), forKey: isSubKey)

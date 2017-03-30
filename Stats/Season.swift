@@ -40,7 +40,7 @@ extension CKRecord {
     convenience init(season: Season) {
         let recordId = CKRecordID(recordName: UUID().uuidString)
         
-        self.init(recordType: season.recordType, recordID: recordId)
+        self.init(recordType: Season.recordName, recordID: recordId)
         let isCompletedNumber = NSNumber(booleanLiteral: season.isCompleted)
         self.setObject(isCompletedNumber, forKey: isCompletedKey)
         self.setObject(season.name as NSString, forKey: nameKey)

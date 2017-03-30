@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A14B64DF1E8D3EC200CBDE92 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B64DE1E8D3EC200CBDE92 /* UIViewControllerExtensions.swift */; };
+		A14B64E11E8D429800CBDE92 /* StockPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B64E01E8D429800CBDE92 /* StockPhotosViewController.swift */; };
+		A14B64E41E8D42B000CBDE92 /* StockPhotosViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A14B64E21E8D42B000CBDE92 /* StockPhotosViewController.storyboard */; };
 		A179996E1E82B64A0058A002 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A179996D1E82B64A0058A002 /* User.swift */; };
 		A17999701E82B67C0058A002 /* LoadICloudUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A179996F1E82B67C0058A002 /* LoadICloudUser.swift */; };
 		A179997D1E82B8BD0058A002 /* NSDate+ValueType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A179997C1E82B8BD0058A002 /* NSDate+ValueType.swift */; };
@@ -63,6 +66,9 @@
 		097AB2DA5C7A85576113EB29 /* Pods_Stats.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stats.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		23340C3D14A1D9E6B1878846 /* Pods-Stats.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stats.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Stats/Pods-Stats.debug.xcconfig"; sourceTree = "<group>"; };
 		3EB00BD85F52BB91F956360D /* Pods-Stats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stats.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stats/Pods-Stats.release.xcconfig"; sourceTree = "<group>"; };
+		A14B64DE1E8D3EC200CBDE92 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
+		A14B64E01E8D429800CBDE92 /* StockPhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockPhotosViewController.swift; sourceTree = "<group>"; };
+		A14B64E31E8D42B000CBDE92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = StockPhotosViewController.storyboard; sourceTree = "<group>"; };
 		A179996D1E82B64A0058A002 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A179996F1E82B67C0058A002 /* LoadICloudUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadICloudUser.swift; sourceTree = "<group>"; };
 		A17999711E82B6930058A002 /* SaveNewUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveNewUser.swift; sourceTree = "<group>"; };
@@ -182,6 +188,7 @@
 				A17999851E82B98E0058A002 /* StoryboardInitializable.swift */,
 				A17999871E82B9A60058A002 /* UIColorExtension.swift */,
 				A1A2C3661E8C006A0008274F /* UIImage+CKAsset.swift */,
+				A14B64DE1E8D3EC200CBDE92 /* UIViewControllerExtensions.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -190,11 +197,12 @@
 			isa = PBXGroup;
 			children = (
 				A1A2C36D1E8C0F4C0008274F /* AvatarViewController.storyboard */,
+				A1A2C3701E8C11F30008274F /* EmailViewController.storyboard */,
 				A17999981E82DFFF0058A002 /* HomeViewController.storyboard */,
 				A17999951E82DFF00058A002 /* LaunchScreen.storyboard */,
+				A14B64E21E8D42B000CBDE92 /* StockPhotosViewController.storyboard */,
 				A1A2C3621E8BF6020008274F /* TeamHeaderCell.xib */,
 				A1CD9A151E8AA2F000D3C8F7 /* UsernameViewController.storyboard */,
-				A1A2C3701E8C11F30008274F /* EmailViewController.storyboard */,
 			);
 			path = Base.lproj;
 			sourceTree = "<group>";
@@ -202,14 +210,15 @@
 		A1868F971E802C1900C191EC /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				A17999901E82DF300058A002 /* HomeViewController.swift */,
-				A1A2C3611E8BF6020008274F /* TeamHeaderCell.swift */,
+				A1A2C35B1E8BF2FB0008274F /* AvatarViewController.swift */,
+				A1A2C3731E8C12080008274F /* EmailViewController.swift */,
 				A179998E1E82DF300058A002 /* HomeCollectionViewCell.swift */,
 				A179998F1E82DF300058A002 /* HomeMenuItem.swift */,
-				A1D8054B1E89870B0072AA49 /* UsernameViewController.swift */,
-				A1A2C35B1E8BF2FB0008274F /* AvatarViewController.swift */,
+				A17999901E82DF300058A002 /* HomeViewController.swift */,
 				A1A2C36A1E8C05190008274F /* SectionControllers */,
-				A1A2C3731E8C12080008274F /* EmailViewController.swift */,
+				A14B64E01E8D429800CBDE92 /* StockPhotosViewController.swift */,
+				A1A2C3611E8BF6020008274F /* TeamHeaderCell.swift */,
+				A1D8054B1E89870B0072AA49 /* UsernameViewController.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -383,6 +392,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A179999A1E82DFFF0058A002 /* HomeViewController.storyboard in Resources */,
+				A14B64E41E8D42B000CBDE92 /* StockPhotosViewController.storyboard in Resources */,
 				A1CD9A171E8AA2F000D3C8F7 /* UsernameViewController.storyboard in Resources */,
 				A1F959391E8959C60087B040 /* LemonMilk.otf in Resources */,
 				A1A2C3641E8BF6020008274F /* TeamHeaderCell.xib in Resources */,
@@ -456,6 +466,7 @@
 				A17999821E82B9780058A002 /* DateHelper.swift in Sources */,
 				A1F959321E882F9C0087B040 /* CloudKitSyncable.swift in Sources */,
 				A17999911E82DF300058A002 /* HomeCollectionViewCell.swift in Sources */,
+				A14B64E11E8D429800CBDE92 /* StockPhotosViewController.swift in Sources */,
 				A1B41C2A1E85A4E300FAC930 /* AtBat.swift in Sources */,
 				A1B41C261E85A4C400FAC930 /* Player.swift in Sources */,
 				A17999931E82DF300058A002 /* HomeViewController.swift in Sources */,
@@ -477,6 +488,7 @@
 				A1B41C241E85A4B300FAC930 /* Team.swift in Sources */,
 				A1CD9A1D1E8AAD4000D3C8F7 /* CloudKitManager.swift in Sources */,
 				A1868FA21E802F5C00C191EC /* Reactor.swift in Sources */,
+				A14B64DF1E8D3EC200CBDE92 /* UIViewControllerExtensions.swift in Sources */,
 				A1CD9A101E8A9ABC00D3C8F7 /* SeasonState.swift in Sources */,
 				A1CD9A1E1E8ABBBC00D3C8F7 /* Arrays.swift in Sources */,
 				A17999701E82B67C0058A002 /* LoadICloudUser.swift in Sources */,
@@ -494,6 +506,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		A14B64E21E8D42B000CBDE92 /* StockPhotosViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A14B64E31E8D42B000CBDE92 /* Base */,
+			);
+			name = StockPhotosViewController.storyboard;
+			sourceTree = "<group>";
+		};
 		A17999951E82DFF00058A002 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

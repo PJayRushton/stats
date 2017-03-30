@@ -9,25 +9,84 @@
 import UIKit
 
 class EmailViewController: Component, AutoStoryboardInitializable {
+
+    // MARK: - IBOutlets
+
+    @IBOutlet weak var doneButton: UIButton!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
-    var isReadyToDismiss = true
+
+    // MARK: - Properties
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    fileprivate let checkImage = UIImage(named: "check")
+    fileprivate let xImage = UIImage(named: "x")
+    fileprivate let disabledColor = UIColor.flatGray.withAlphaComponent(0.6)
+    fileprivate let enabledColor = UIColor.flatGrayDark.darken(byPercentage: 0.2)
+    
+    fileprivate var isReadyToDismiss = true
+    fileprivate var isLoading = false {
+        didSet {
+            spinner.isHidden = !isLoading
+        }
     }
     
+    
+    // MARK: - ViewController Lifecycle
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        isLoading = false
+    }
+    
+    
+    // MARK: - IBActions
+
     @IBAction func doneButtonPressed(_ sender: UIButton) {
+        isLoading = true
         core.fire(command: SaveNewUser())
     }
     
+    
+    // MARK: - Subscriber
+    
     override func update(with state: AppState) {
+        updateUI()
         if let _ = state.userState.currentUser, isReadyToDismiss {
             isReadyToDismiss = false
             dismiss(animated: true, completion: nil)
+        } else {
+            isLoading = false
+        }
+    }
+    
+    @IBAction func textFieldChanged(_ sender: Any) {
+        updateUI()
+    }
+    
+    @IBAction func viewTapped(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+    
+}
+
+extension EmailViewController {
+    
+    func updateUI() {
+        guard let text = textField.text else { return }
+        doneButton.isEnabled = text.isEmpty || (!text.isEmpty && text.isValidEmail)
+        imageView.image = doneButton.isEnabled ? checkImage : xImage
+        imageView.tintColor = doneButton.isEnabled ? .flatLime : .flatRed
+        doneButton.backgroundColor = doneButton.isEnabled ? enabledColor : disabledColor
+        
+        if text.isEmpty {
+            imageView.image = nil
         }
     }
     
 }
+
 
 extension EmailViewController: UITextFieldDelegate {
     

@@ -35,6 +35,8 @@ struct NewUserState: State {
             usernameIsAvailable = event.isAvailable
         case let event as EmailUpdated:
             email = event.email
+        case let event as Selected<UIImage>:
+            avatar = event.item
         default:
             break
         }

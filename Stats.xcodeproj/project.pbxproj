@@ -10,6 +10,8 @@
 		A14B64DF1E8D3EC200CBDE92 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B64DE1E8D3EC200CBDE92 /* UIViewControllerExtensions.swift */; };
 		A14B64E11E8D429800CBDE92 /* StockPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B64E01E8D429800CBDE92 /* StockPhotosViewController.swift */; };
 		A14B64E41E8D42B000CBDE92 /* StockPhotosViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A14B64E21E8D42B000CBDE92 /* StockPhotosViewController.storyboard */; };
+		A14B64E61E8D647B00CBDE92 /* AddTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B64E51E8D647B00CBDE92 /* AddTeamViewController.swift */; };
+		A14B64E91E8D64A900CBDE92 /* AddTeamViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A14B64E71E8D64A900CBDE92 /* AddTeamViewController.storyboard */; };
 		A179996E1E82B64A0058A002 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A179996D1E82B64A0058A002 /* User.swift */; };
 		A17999701E82B67C0058A002 /* LoadICloudUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A179996F1E82B67C0058A002 /* LoadICloudUser.swift */; };
 		A179997D1E82B8BD0058A002 /* NSDate+ValueType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A179997C1E82B8BD0058A002 /* NSDate+ValueType.swift */; };
@@ -69,6 +71,8 @@
 		A14B64DE1E8D3EC200CBDE92 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		A14B64E01E8D429800CBDE92 /* StockPhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockPhotosViewController.swift; sourceTree = "<group>"; };
 		A14B64E31E8D42B000CBDE92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = StockPhotosViewController.storyboard; sourceTree = "<group>"; };
+		A14B64E51E8D647B00CBDE92 /* AddTeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTeamViewController.swift; sourceTree = "<group>"; };
+		A14B64E81E8D64A900CBDE92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AddTeamViewController.storyboard; sourceTree = "<group>"; };
 		A179996D1E82B64A0058A002 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A179996F1E82B67C0058A002 /* LoadICloudUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadICloudUser.swift; sourceTree = "<group>"; };
 		A17999711E82B6930058A002 /* SaveNewUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveNewUser.swift; sourceTree = "<group>"; };
@@ -196,6 +200,7 @@
 		A17999941E82DFF00058A002 /* Base.lproj */ = {
 			isa = PBXGroup;
 			children = (
+				A14B64E71E8D64A900CBDE92 /* AddTeamViewController.storyboard */,
 				A1A2C36D1E8C0F4C0008274F /* AvatarViewController.storyboard */,
 				A1A2C3701E8C11F30008274F /* EmailViewController.storyboard */,
 				A17999981E82DFFF0058A002 /* HomeViewController.storyboard */,
@@ -210,6 +215,7 @@
 		A1868F971E802C1900C191EC /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				A14B64E51E8D647B00CBDE92 /* AddTeamViewController.swift */,
 				A1A2C35B1E8BF2FB0008274F /* AvatarViewController.swift */,
 				A1A2C3731E8C12080008274F /* EmailViewController.swift */,
 				A179998E1E82DF300058A002 /* HomeCollectionViewCell.swift */,
@@ -391,6 +397,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A14B64E91E8D64A900CBDE92 /* AddTeamViewController.storyboard in Resources */,
 				A179999A1E82DFFF0058A002 /* HomeViewController.storyboard in Resources */,
 				A14B64E41E8D42B000CBDE92 /* StockPhotosViewController.storyboard in Resources */,
 				A1CD9A171E8AA2F000D3C8F7 /* UsernameViewController.storyboard in Resources */,
@@ -461,6 +468,7 @@
 				A1A2C3691E8C05150008274F /* HomeSectionController.swift in Sources */,
 				A1CD9A191E8AA83D00D3C8F7 /* NewUserState.swift in Sources */,
 				A1BF9C401E8AC449007341EA /* GameState.swift in Sources */,
+				A14B64E61E8D647B00CBDE92 /* AddTeamViewController.swift in Sources */,
 				A1BF9C3F1E8AC443007341EA /* Game.swift in Sources */,
 				A1A2C3631E8BF6020008274F /* TeamHeaderCell.swift in Sources */,
 				A17999821E82B9780058A002 /* DateHelper.swift in Sources */,
@@ -512,6 +520,14 @@
 				A14B64E31E8D42B000CBDE92 /* Base */,
 			);
 			name = StockPhotosViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		A14B64E71E8D64A900CBDE92 /* AddTeamViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A14B64E81E8D64A900CBDE92 /* Base */,
+			);
+			name = AddTeamViewController.storyboard;
 			sourceTree = "<group>";
 		};
 		A17999951E82DFF00058A002 /* LaunchScreen.storyboard */ = {

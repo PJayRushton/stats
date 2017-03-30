@@ -68,6 +68,8 @@ class HomeViewController: Component {
     }
     
     @IBAction func addTeamButtonPressed(_ sender: UIButton) {
+        let addTeamVC = AddTeamViewController.initializeFromStoryboard().embededInNavigationController
+        present(addTeamVC, animated: true, completion: nil)
     }
     
     

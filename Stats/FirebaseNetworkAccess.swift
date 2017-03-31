@@ -128,6 +128,16 @@ struct FirebaseNetworkAccess {
         })
     }
     
+    func subscribe(to query: FIRDatabaseQuery, completion: @escaping ResultCompletion) {
+        query.observe(.value, with: { snap in
+            if let snapJSON = snap.value as? JSONObject, snap.exists() {
+                completion(Result.success(snapJSON))
+            } else {
+                completion(Result.failure(FirebaseError.incorrectlyFormedData))
+            }
+        })
+    }
+    
     func subscribeToReachability(completion: @escaping (Bool?) -> Void) {
         FIRDatabase.database().reference(withPath: ".info/connected").observe(.value, with: { snapshot in
             completion(snapshot.value as? Bool)

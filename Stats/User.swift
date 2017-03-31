@@ -20,6 +20,10 @@ struct User: Identifiable, Unmarshaling {
     var managedTeamIds: [String]
     var fanTeamIds: [String]
     
+    var alTeamIds: [String] {
+        return [ownedTeamIds, managedTeamIds, fanTeamIds].joined().flatMap { $0 }
+    }
+    
     init(id: String, username: String, avatarURLString: String? = nil, email: String? = nil, ownedTeamIds: [String] = [], managedTeamIds: [String] = [], fanTeamIds: [String] = []) {
         self.id = id
         self.username = username

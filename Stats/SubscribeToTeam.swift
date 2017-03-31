@@ -1,5 +1,5 @@
 //
-//  SubscribeToCurrentUser.swift
+//  SubscribeToTeam.swift
 //  Stats
 //
 //  Created by Parker Rushton on 3/31/17.
@@ -7,22 +7,22 @@
 //
 
 import Foundation
+import Firebase
 
-struct SubscribeToCurrentUser: Command {
+struct SubscribeToTeam: Command {
     
-    var id: String
+    var teamId: String
     
     func execute(state: AppState, core: Core<AppState>) {
-        let ref = networkController.currentUserRef(id: id)
+        let ref = networkController.teamsRef.child(teamId)
         networkController.unsubscribe(from: ref)
         
         networkController.subscribe(to: ref) { result in
-            let userResult = result.map(User.init)
-            switch userResult {
-            case let .success(user):
-                core.fire(event: Selected<User>(user))
+            let teamResult = result.map(Team.init)
+            switch teamResult {
+            case let .success(team):
+                core.fire(event: Updated<Team>(team))
             case let .failure(error):
-                core.fire(event: Selected<User>(nil))
                 core.fire(event: ErrorEvent(error: error, message: nil))
             }
         }

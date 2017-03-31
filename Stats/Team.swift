@@ -25,28 +25,31 @@ struct Team: Identifiable, Unmarshaling {
     var name: String
     var shareCode: String
     var sport: TeamSport
+    var touchDate: Date
     
     var imageURL: URL? {
         guard let imageURLString = imageURLString else { return nil }
         return URL(string: imageURLString)
     }
     
-    init(id: String = "", currentSeasonId: String? =  nil, imageURLString: String? = nil, name: String, shareCode: String = "", sport: TeamSport) {
+    init(id: String = "", currentSeasonId: String? =  nil, imageURLString: String? = nil, name: String, sport: TeamSport = .slowPitch) {
         self.id = id
         self.currentSeasonId = currentSeasonId
         self.imageURLString = imageURLString
         self.name = name
-        self.shareCode = shareCode
+        self.shareCode = UUID().uuidString.last4
         self.sport = sport
+        self.touchDate = Date()
     }
     
     init(object: MarshaledObject) throws {
         id = try object.value(for: idKey)
-        currentSeasonId = try object.value(for: currentSeasonIdKey)
-        imageURLString = try object.value(for: imageURLStringKey)
+        currentSeasonId = try? object.value(for: currentSeasonIdKey)
+        imageURLString = try? object.value(for: imageURLStringKey)
         name = try object.value(for: nameKey)
         shareCode = try object.value(for: shareCodeKey)
         sport = try object.value(for: sportKey)
+        touchDate = try object.value(for: touchDateKey)
     }
  
 }
@@ -58,10 +61,10 @@ extension Team: Marshaling {
         json[idKey] = id
         json[currentSeasonIdKey] = currentSeasonId
         json[imageURLStringKey] = imageURLString
-        json[nameKey] = nameKey
-        json[shareCodeKey] = shareCodeKey
+        json[nameKey] = name
+        json[shareCodeKey] = shareCode
         json[sportKey] = sport.rawValue
-        
+        json[touchDateKey] = touchDate.iso8601String
         return json
     }
     

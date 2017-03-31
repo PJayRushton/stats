@@ -93,17 +93,33 @@ class HomeViewController: Component {
 extension HomeViewController: IGListAdapterDataSource {
     
     func objects(for listAdapter: IGListAdapter) -> [IGListDiffable] {
-        guard let currentTeam = core.state.teamState.currentTeam else { return [] }
-        return [HomeSection(team: currentTeam)]
+        guard let currentTeam = core.state.teamState.currentTeam, let currentUser = core.state.userState.currentUser else { return [] }
+        var objects: [IGListDiffable] = [TeamHeaderSection(team: currentTeam)]
+        let items = currentUser.isOwnerOrManager(of: currentTeam) ? HomeMenuItem.managerItems : HomeMenuItem.fanItems
+        
+        items.forEach { item in
+            objects.append(TeamActionSection(team: currentTeam, menuItem: item))
+        }
+        return objects
     }
     
     func listAdapter(_ listAdapter: IGListAdapter, sectionControllerFor object: Any) -> IGListSectionController {
-        guard let currentUser = core.state.userState.currentUser else { return IGListSectionController() }
-        let homeController = HomeSectionController(user: currentUser)
-        homeController.settingsPressed = {}
-        homeController.editPressed = {}
-        homeController.switchTeamPressed = {}
-        return homeController
+        switch object {
+        case _ as TeamHeaderSection:
+            guard let currentUser = core.state.userState.currentUser else { return IGListSectionController() }
+            let headerController = TeamHeaderSectionController(user: currentUser)
+            headerController.settingsPressed = {}
+            headerController.editPressed = {}
+            headerController.switchTeamPressed = {}
+            return headerController
+            
+        case _ as TeamActionSection:
+            guard let currentUser = core.state.userState.currentUser else { return IGListSectionController() }
+            let actionController = TeamActionSectionController(user: currentUser)
+            return actionController
+        default:
+            fatalError()
+        }
     }
     
     func emptyView(for listAdapter: IGListAdapter) -> UIView? {

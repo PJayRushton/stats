@@ -9,7 +9,7 @@
 import Foundation
 
 enum App {
-    static let core = Core(state: AppState(), middlewares: [/*UserMiddleware()*/])
+    static let core = Core(state: AppState(), middlewares: [SubscriptionMiddleware()])
 }
 
 

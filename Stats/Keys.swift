@@ -40,6 +40,7 @@ let seasonIdKey = "seasonId"
 let shareCodeKey = "shareCode"
 let sportKey = "sport"
 let teamIdKey = "teamId"
+let touchDateKey = "touchDate"
 let usernameKey = "username"
 let iCloudIdKey = "iCloudId"
 

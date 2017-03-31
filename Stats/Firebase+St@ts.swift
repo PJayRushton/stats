@@ -20,6 +20,11 @@ extension FirebaseNetworkAccess {
         return rootRef.child(teamsRefKey)
     }
     
+    /// **/users/{userIdKEY}**
+    func currentUserRef(id: String) -> FIRDatabaseReference {
+        return rootRef.child(usersRefKey).child(id)
+    }
+    
     /// **/seasons/{teamKEY}**
     func seasonsRef(teamId: String) -> FIRDatabaseReference {
         return rootRef.child(seasonsRefKey).child(teamId)

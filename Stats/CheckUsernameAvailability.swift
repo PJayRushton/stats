@@ -22,6 +22,7 @@ struct CheckUsernameAvailability: Command {
             case .success:
                 core.fire(event: UsernameAvailabilityUpdated(isAvailable: false))
             case .failure:
+                core.fire(event: UsernameUpdated(username: self.username))
                 core.fire(event: UsernameAvailabilityUpdated(isAvailable: true))
             }
         }

@@ -34,19 +34,21 @@ struct User: Identifiable, Unmarshaling {
     init(object: MarshaledObject) throws {
         id = try object.value(for: idKey)
         username = try object.value(for: usernameKey)
-        avatarURLString = try object.value(for: avatarKey)
-        email = try object.value(for: emailKey)
+        avatarURLString = try? object.value(for: avatarKey)
+        email = try? object.value(for: emailKey)
         
-        let ownedTeamsObject: JSONObject = try object.value(for: ownedTeamIdsKey)
-        ownedTeamIds = [] // FIXME:
-        let managedTeamsObject: JSONObject = try object.value(for: managedTeamIdsKey)
-        managedTeamIds = []
-        let fanTeamsObject: JSONObject = try object.value(for: fanTeamIdsKey)
-        fanTeamIds = []
+        let ownedTeamsObject: JSONObject? = try? object.value(for: ownedTeamIdsKey)
+        ownedTeamIds = ownedTeamsObject != nil ? Array(ownedTeamsObject!.keys) : []
+        
+        let managedTeamsObject: JSONObject? = try? object.value(for: managedTeamIdsKey)
+        managedTeamIds = managedTeamsObject != nil ? Array(managedTeamsObject!.keys) : []
+        
+        let fanTeamsObject: JSONObject? = try? object.value(for: fanTeamIdsKey)
+        fanTeamIds = fanTeamsObject != nil ? Array(fanTeamsObject!.keys) : []
     }
     
     func isOwnerOrManager(of team: Team) -> Bool {
-        return false // FIXME:
+        return [ownedTeamIds, managedTeamIds].joined().contains(team.id)
     }
     
 }

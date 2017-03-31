@@ -19,6 +19,8 @@
 		A14B64F41E8E04CA00CBDE92 /* GetUserTeams.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B64F31E8E04CA00CBDE92 /* GetUserTeams.swift */; };
 		A14B64F61E8E0E5400CBDE92 /* FirebaseNetworkAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B64F51E8E0E5400CBDE92 /* FirebaseNetworkAccess.swift */; };
 		A14B64F81E8E9D2300CBDE92 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A14B64F71E8E9D2300CBDE92 /* GoogleService-Info.plist */; };
+		A14B64FA1E8EB95600CBDE92 /* Firebase+St@ts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B64F91E8EB95600CBDE92 /* Firebase+St@ts.swift */; };
+		A14B64FC1E8EB99B00CBDE92 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B64FB1E8EB99B00CBDE92 /* Identifiable.swift */; };
 		A179996E1E82B64A0058A002 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A179996D1E82B64A0058A002 /* User.swift */; };
 		A17999701E82B67C0058A002 /* LoadICloudUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A179996F1E82B67C0058A002 /* LoadICloudUser.swift */; };
 		A179997D1E82B8BD0058A002 /* NSDate+ValueType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A179997C1E82B8BD0058A002 /* NSDate+ValueType.swift */; };
@@ -84,6 +86,8 @@
 		A14B64F31E8E04CA00CBDE92 /* GetUserTeams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUserTeams.swift; sourceTree = "<group>"; };
 		A14B64F51E8E0E5400CBDE92 /* FirebaseNetworkAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseNetworkAccess.swift; sourceTree = "<group>"; };
 		A14B64F71E8E9D2300CBDE92 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A14B64F91E8EB95600CBDE92 /* Firebase+St@ts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Firebase+St@ts.swift"; sourceTree = "<group>"; };
+		A14B64FB1E8EB99B00CBDE92 /* Identifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
 		A179996D1E82B64A0058A002 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A179996F1E82B67C0058A002 /* LoadICloudUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadICloudUser.swift; sourceTree = "<group>"; };
 		A17999711E82B6930058A002 /* SaveNewUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveNewUser.swift; sourceTree = "<group>"; };
@@ -256,6 +260,8 @@
 			isa = PBXGroup;
 			children = (
 				A14B64F51E8E0E5400CBDE92 /* FirebaseNetworkAccess.swift */,
+				A14B64FB1E8EB99B00CBDE92 /* Identifiable.swift */,
+				A14B64F91E8EB95600CBDE92 /* Firebase+St@ts.swift */,
 				A1868F9C1E802DDD00C191EC /* Result.swift */,
 			);
 			name = Networking;
@@ -507,6 +513,7 @@
 				A1BF9C461E8B22B2007341EA /* GetCurrentUser.swift in Sources */,
 				A1CD9A1B1E8AACAB00D3C8F7 /* CheckUsernameAvailability.swift in Sources */,
 				A17999841E82B9860058A002 /* SegueHandlerType.swift in Sources */,
+				A14B64FA1E8EB95600CBDE92 /* Firebase+St@ts.swift in Sources */,
 				A1B41C241E85A4B300FAC930 /* Team.swift in Sources */,
 				A1868FA21E802F5C00C191EC /* Reactor.swift in Sources */,
 				A14B64DF1E8D3EC200CBDE92 /* UIViewControllerExtensions.swift in Sources */,
@@ -524,6 +531,7 @@
 				A1F959341E8953440087B040 /* Season.swift in Sources */,
 				A1D8054C1E89870B0072AA49 /* UsernameViewController.swift in Sources */,
 				A179997D1E82B8BD0058A002 /* NSDate+ValueType.swift in Sources */,
+				A14B64FC1E8EB99B00CBDE92 /* Identifiable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,27 +10,6 @@ import Foundation
 import Firebase
 import Marshal
 
-struct NoOp: Event { }
-
-protocol Identifiable: Equatable, Marshaling, Unmarshaling, Hashable {
-    var id: String { get set }
-}
-
-
-extension Identifiable {
-    
-    var hashValue: Int {
-        return id.hashValue
-    }
-    
-}
-
-func ==<T: Identifiable>(lhs: T, rhs: T) -> Bool {
-    return lhs.id == rhs.id
-}
-
-
-
 enum FirebaseError: Error {
     case nilUser
     case userRetrievalFailed(userId: String)
@@ -45,26 +24,6 @@ struct FirebaseNetworkAccess {
     
     let rootRef = FIRDatabase.database().reference()
     var core = App.core
-    
-    
-    /// **root/users**
-    var usersRef: FIRDatabaseReference {
-        return rootRef.child("users")
-    }
-    
-    /// **root/groups/{userId}**
-    func groupsRef(userId: String) -> FIRDatabaseReference {
-        return rootRef.child("groups").child(userId)
-    }
-    
-    /// **root/students/{userId}
-    func studentsRef(userId: String) -> FIRDatabaseReference {
-        return rootRef.child("students").child(userId)
-    }
-
-    var allThemesRef: FIRDatabaseReference {
-        return rootRef.child("allThemes")
-    }
     
     func setValue(at ref: FIRDatabaseReference, parameters: JSONObject, completion: ResultCompletion?) {
         ref.setValue(parameters) { error, ref in
@@ -106,6 +65,16 @@ struct FirebaseNetworkAccess {
                 completion(Result.success(usernames))
             } else {
                 completion(Result.failure(FirebaseError.incorrectlyFormedData))
+            }
+        })
+    }
+    
+    func getData(withQuery query: FIRDatabaseQuery, completion: ResultCompletion?) {
+        query.observeSingleEvent(of: .value, with: { snap in
+            if snap.exists(), let json = snap.value as? JSONObject {
+                completion?(.success(json))
+            } else {
+                completion?(.failure(FirebaseError.incorrectlyFormedData))
             }
         })
     }

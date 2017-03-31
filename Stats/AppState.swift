@@ -37,6 +37,10 @@ struct AppState: State {
 
 extension Command {
     
+    var networkController: FirebaseNetworkAccess {
+        return FirebaseNetworkAccess()
+    }
+    
 }
 
 

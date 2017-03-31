@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import CloudKit
 
 struct SeasonState: State {
     
@@ -18,8 +17,8 @@ struct SeasonState: State {
         switch event {
         case let event as Selected<Season>:
             currentSeason = event.item
-        case let event as Updated<Season>:
-            allSeasons.insert(event.payload)
+        case let event as Updated<[Season]>:
+            allSeasons = event.payload
         default:
             break
         }

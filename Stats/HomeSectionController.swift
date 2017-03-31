@@ -8,10 +8,29 @@
 
 import IGListKit
 
-class HomeSectionController: IGListSectionController {
+class HomeSection: IGListDiffable {
     
     var team: Team!
-    var user: User!
+    
+    func diffIdentifier() -> NSObjectProtocol {
+        return teamId
+    }
+    
+    func isEqual(toDiffableObject object: IGListDiffable?) -> Bool {
+        guard let other = object as? Team else { return false }
+        return image == other.image &&
+            name == other.name &&
+            type == other.type &&
+            currentSeasonId == other.currentSeasonId
+    }
+    
+}
+
+
+class HomeSectionController: IGListSectionController {
+    
+    var section: HomeSection!
+    var user: User
     
     var settingsPressed: (() -> Void) = { }
     var editPressed: (() -> Void) = { }

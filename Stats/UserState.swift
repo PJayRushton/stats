@@ -15,15 +15,14 @@ struct ICloudUserLoaded: Event {
 
 struct UserState: State {
     
-    var userRecordId: CKRecordID?
+    var userRecordId: String?
     var currentUser: User?
     var userIsLoaded = false
     
     mutating func react(to event: Event) {
         switch event {
         case let event as ICloudUserLoaded:
-            userRecordId = event.recordID
-
+            userRecordId = event.recordID?.recordName
         case let event as Selected<User>:
             currentUser = event.item
             userIsLoaded = true

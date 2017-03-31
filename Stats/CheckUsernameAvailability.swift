@@ -13,15 +13,6 @@ struct CheckUsernameAvailability: Command {
     var username: String
     
     func execute(state: AppState, core: Core<AppState>) {
-        let predicate = NSPredicate(format: "username == %@", username)
-        cloudManager.fetchRecords(ofType: String(describing: User.self), predicate: predicate) { records, error in
-            if let records = records, !records.isEmpty {
-                core.fire(event: UsernameAvailabilityUpdated(isAvailable: false))
-            } else {
-                core.fire(event: UsernameAvailabilityUpdated(isAvailable: true))
-                core.fire(event: UsernameUpdated(username: self.username))
-            }
-        }
     }
     
 }

@@ -18,15 +18,17 @@ enum AtBatCode: String {
     case hr
 }
 
-struct AtBat: Marshaling, Unmarshaling {
+struct AtBat: Unmarshaling {
     
-    let gameId: String
-    let playerId: String
-    let rbis: Int
-    let resultCode: AtBatCode
-    let seasonId: String
+    var id: String
+    var gameId: String
+    var playerId: String
+    var rbis: Int
+    var resultCode: AtBatCode
+    var seasonId: String
     
-    init(gameId: String, playerId: CKIderence, rbis: Int = 0, resultCode: AtBatCode, seasonId: String) {
+    init(id: String = "", gameId: String, playerId: String, rbis: Int = 0, resultCode: AtBatCode, seasonId: String) {
+        self.id = id
         self.gameId = gameId
         self.playerId = playerId
         self.rbis = rbis
@@ -34,5 +36,27 @@ struct AtBat: Marshaling, Unmarshaling {
         self.seasonId = seasonId
     }
     
+    init(object: MarshaledObject) throws {
+        id = try object.value(for: idKey)
+        gameId = try object.value(for: gameIdKey)
+        playerId = try object.value(for: playerIdKey)
+        rbis = try object.value(for: rbisKey)
+        resultCode = try object.value(for: resultCodeKey)
+        seasonId = try object.value(for: seasonIdKey)
+    }
+    
+}
+
+extension AtBat: Marshaling {
+    
+    func marshaled() -> JSONObject {
+        var json = JSONObject()
+        json[idKey] = id
+        json[gameIdKey] = gameId
+        json[playerIdKey] = playerId
+        json[resultCodeKey] = resultCode.rawValue
+        json[seasonIdKey] = seasonId
+        return json
+    }
     
 }

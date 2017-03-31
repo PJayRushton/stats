@@ -16,6 +16,7 @@
 		A14B64EE1E8D662900CBDE92 /* CreateTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B64ED1E8D662900CBDE92 /* CreateTeamViewController.swift */; };
 		A14B64F01E8D67A100CBDE92 /* SaveNewTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B64EF1E8D67A100CBDE92 /* SaveNewTeam.swift */; };
 		A14B64F21E8D696800CBDE92 /* AddTeamToUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B64F11E8D696800CBDE92 /* AddTeamToUser.swift */; };
+		A14B64F41E8E04CA00CBDE92 /* GetUserTeams.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B64F31E8E04CA00CBDE92 /* GetUserTeams.swift */; };
 		A179996E1E82B64A0058A002 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A179996D1E82B64A0058A002 /* User.swift */; };
 		A17999701E82B67C0058A002 /* LoadICloudUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A179996F1E82B67C0058A002 /* LoadICloudUser.swift */; };
 		A179997D1E82B8BD0058A002 /* NSDate+ValueType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A179997C1E82B8BD0058A002 /* NSDate+ValueType.swift */; };
@@ -81,6 +82,7 @@
 		A14B64ED1E8D662900CBDE92 /* CreateTeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTeamViewController.swift; sourceTree = "<group>"; };
 		A14B64EF1E8D67A100CBDE92 /* SaveNewTeam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveNewTeam.swift; sourceTree = "<group>"; };
 		A14B64F11E8D696800CBDE92 /* AddTeamToUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTeamToUser.swift; sourceTree = "<group>"; };
+		A14B64F31E8E04CA00CBDE92 /* GetUserTeams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUserTeams.swift; sourceTree = "<group>"; };
 		A179996D1E82B64A0058A002 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A179996F1E82B67C0058A002 /* LoadICloudUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadICloudUser.swift; sourceTree = "<group>"; };
 		A17999711E82B6930058A002 /* SaveNewUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveNewUser.swift; sourceTree = "<group>"; };
@@ -160,12 +162,13 @@
 		A17999771E82B7210058A002 /* Commands */ = {
 			isa = PBXGroup;
 			children = (
+				A14B64F11E8D696800CBDE92 /* AddTeamToUser.swift */,
 				A1CD9A1A1E8AACAB00D3C8F7 /* CheckUsernameAvailability.swift */,
 				A1BF9C451E8B22B2007341EA /* GetCurrentUser.swift */,
+				A14B64F31E8E04CA00CBDE92 /* GetUserTeams.swift */,
 				A179996F1E82B67C0058A002 /* LoadICloudUser.swift */,
 				A14B64EF1E8D67A100CBDE92 /* SaveNewTeam.swift */,
 				A17999711E82B6930058A002 /* SaveNewUser.swift */,
-				A14B64F11E8D696800CBDE92 /* AddTeamToUser.swift */,
 			);
 			name = Commands;
 			sourceTree = "<group>";
@@ -512,6 +515,7 @@
 				A1868FA21E802F5C00C191EC /* Reactor.swift in Sources */,
 				A14B64DF1E8D3EC200CBDE92 /* UIViewControllerExtensions.swift in Sources */,
 				A1CD9A101E8A9ABC00D3C8F7 /* SeasonState.swift in Sources */,
+				A14B64F41E8E04CA00CBDE92 /* GetUserTeams.swift in Sources */,
 				A1CD9A1E1E8ABBBC00D3C8F7 /* Arrays.swift in Sources */,
 				A17999701E82B67C0058A002 /* LoadICloudUser.swift in Sources */,
 				A1CD9A121E8A9C2400D3C8F7 /* AtBatState.swift in Sources */,

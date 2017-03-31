@@ -17,6 +17,7 @@ struct GetCurrentUser: Command {
         cloudManager.fetchRecords(ofType: User.recordName, predicate: predicate) { records, error in
             if error == nil, let userRecord = records?.first, let user = try? User(record: userRecord) {
                 core.fire(event: Selected<User>(user))
+                core.fire(command: GetUserTeams())
             } else {
                 core.fire(event: Selected<User>(nil))
             }

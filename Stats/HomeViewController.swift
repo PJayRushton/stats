@@ -80,8 +80,9 @@ class HomeViewController: Component {
         if state.userState.currentUser == nil && state.userState.userIsLoaded && !isPresentingOnboarding {
             isPresentingOnboarding = true
             let usernameVC = UsernameViewController.initializeFromStoryboard().embededInNavigationController
-            present(usernameVC, animated: true, completion: nil)
+            present(usernameVC, animated: true)
         }
+        adapter.performUpdates(animated: true)
     }
 }
 

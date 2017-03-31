@@ -18,6 +18,10 @@ struct TeamState: State {
         switch event {
         case let event as Selected<Team>:
             currentTeam = event.item
+        case let event as Selected<User>:
+            if let user = event.item, let team = user.recentTeam {
+                currentTeam = team
+            }
         default:
             break
         }

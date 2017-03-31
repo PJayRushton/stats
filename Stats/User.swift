@@ -16,17 +16,20 @@ class User: CloudKitSyncable {
     let avatar: CKAsset?
     let email: String?
     
+    var recentTeamRef: CKReference?
     var ownedTeamRefs: [CKReference]
     var managedTeamRefs: [CKReference]
     var fanTeamRefs: [CKReference]
 
     var cloudKitRecordId: CKRecordID?
     
-    init(userRecordId: String, username: String, avatar: CKAsset?, email: String?, ownedTeamIds: [CKReference] = [], managedTeamIds: [CKReference] = [], fanTeamIds: [CKReference] = []) {
+    init(userRecordId: String, username: String, avatar: CKAsset?, email: String?, recentTeamRef: CKReference? = nil, ownedTeamIds: [CKReference] = [], managedTeamIds: [CKReference] = [], fanTeamIds: [CKReference] = []) {
         self.userRecordId = userRecordId
         self.username = username
         self.avatar = avatar
         self.email = email
+        
+        self.recentTeamRef = recentTeamRef
         self.ownedTeamRefs = ownedTeamIds
         self.managedTeamRefs = managedTeamIds
         self.fanTeamRefs = fanTeamIds
@@ -35,19 +38,28 @@ class User: CloudKitSyncable {
     required convenience init(record: CKRecord) throws {
         guard let userRecordId = record.object(forKey: userRecordIdKey) as? String else { throw CloudKitError.keyNotFound(key: userRecordIdKey) }
         guard let username = record.object(forKey: usernameKey) as? String else { throw CloudKitError.keyNotFound(key: usernameKey) }
+        let avatar = record.object(forKey: avatarKey) as? CKAsset
+        let email = record.object(forKey: emailKey) as? String
+        
+        let recentTeamRef = record.object(forKey: recentTeamRefKey) as? CKReference
         let ownedTeamsReferences = record.object(forKey: ownedTeamRefsKey) as? [CKReference]
         let managedTeamsReferences = record.object(forKey: managedTeamRefsKey) as? [CKReference]
         let fanTeamsReferences = record.object(forKey: fanTeamRefsKey) as? [CKReference]
         
-        let avatar = record.object(forKey: avatarKey) as? CKAsset
-        let email = record.object(forKey: emailKey) as? String
-        self.init(userRecordId: userRecordId, username: username, avatar: avatar, email: email, ownedTeamIds: ownedTeamsReferences ?? [], managedTeamIds: managedTeamsReferences ?? [], fanTeamIds: fanTeamsReferences ?? [])
+        self.init(userRecordId: userRecordId, username: username, avatar: avatar, email: email, recentTeamRef: recentTeamRef, ownedTeamIds: ownedTeamsReferences ?? [], managedTeamIds: managedTeamsReferences ?? [], fanTeamIds: fanTeamsReferences ?? [])
         cloudKitRecordId = record.recordID
     }
     
     func isOwnerOrManager(of team: Team) -> Bool {
         guard let teamId = team.cloudKitRecordId else { return false }
         return ownedTeamRefs.map { $0.recordID }.contains(teamId) || managedTeamRefs.map { $0.recordID }.contains(teamId)
+    }
+    
+    var recentTeam: Team? {
+        guard let recentTeamRef = recentTeamRef else { return nil }
+        let teams = App.core.state.teamState.allTeams
+        guard let index = teams.index(where: { $0.cloudKitRecordId == recentTeamRef.recordID }), case let team = teams[index] else { return nil }
+        return team
     }
     
 }

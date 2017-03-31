@@ -39,11 +39,11 @@ PODS:
     - IGListKit/Diffing
   - IGListKit/Diffing (2.1.0)
   - Kingfisher (3.6.0)
-  - LTMorphingLabel (0.4.0)
+  - LTMorphingLabel (0.5.0)
   - Marshal (1.2.4)
   - Presentr (1.2.2)
-  - TabPageViewController (0.2.5)
-  - TextFieldEffects (1.3.1)
+  - TabPageViewController (0.2.6)
+  - TextFieldEffects (1.3.2)
   - Whisper (4.0.0)
 
 DEPENDENCIES:
@@ -84,11 +84,11 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 5c046c76a1f859bc9c187e918f18e4fc7bb57b5e
   IGListKit: b826c68ef7a4ae1626c09d4d3e1ea7a169e6c36e
   Kingfisher: 300035f9a40634dc9b452d946c9f22250688fecd
-  LTMorphingLabel: d9a85f16ac306f0e07321d6819964deb2dc69638
+  LTMorphingLabel: bc170be74b219b7dae0e5543a44676d16da70ff7
   Marshal: 8e04e6624e506921db7143b0bfd83caee03f32d6
   Presentr: bbc0bf3e620851e3519364b73542e98e98e3915c
-  TabPageViewController: 66aca4291518e66f6ef6800bfe3a98217f58a434
-  TextFieldEffects: faa47d428ee8eafb781a8413ac4345420d2328c4
+  TabPageViewController: a6757ac0203ef3f44185cb7e851eaaea49f0b46c
+  TextFieldEffects: 9e5cce561ea39c75b86e9d3637601727a67e8b23
   Whisper: 08be92623311f8e53201e62e17f6d7b9599a4714
 
 PODFILE CHECKSUM: 5711ec836f938d93393b1c478e3a562c8eaaf690

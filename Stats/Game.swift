@@ -9,7 +9,7 @@
 import Foundation
 import Marshal
 
-struct Game: Unmarshaling {
+struct Game: Identifiable, Unmarshaling {
 
     var id: String
     var date: Date
@@ -38,16 +38,17 @@ struct Game: Unmarshaling {
     }
     
     init(object: MarshaledObject) throws {
-        id = try json.value(for: idKey)
-        date = try json.value(for: dateKey)
-        inning = try json.value(for: inningKey)
-        isCompleted = NSNumber(value: isCompletedInt).boolValue
-        isRegularSeasonInt = try json.value(for: isRegularSeasonKey)
-        opponent = try json.value(for: opponentKey)
-        opponentScore = try json.value(for: opponentScoreKey)
-        score = try json.value(for: scoreKey)
-        season = try json.value(for: seasonIdKey)
-        teamId = try json.value(for: teamIdKey)
+        id = try object.value(for: idKey)
+        date = try object.value(for: dateKey)
+        inning = try object.value(for: inningKey)
+        isCompleted = try object.value(for: isCompletedKey)
+        isHome = try object.value(for: isHomeKey)
+        isRegularSeason = try object.value(for: isRegularSeasonKey)
+        opponent = try object.value(for: opponentKey)
+        opponentScore = try object.value(for: opponentScoreKey)
+        score = try object.value(for: scoreKey)
+        seasonId = try object.value(for: seasonIdKey)
+        teamId = try object.value(for: teamIdKey)
     }
     
 }

@@ -8,16 +8,27 @@
 
 import Foundation
 import Firebase
+import Marshal
 
 struct NoOp: Event { }
-protocol Identifiable: Equatable, Marshaling, Unmarshaling {
+
+protocol Identifiable: Equatable, Marshaling, Unmarshaling, Hashable {
     var id: String { get set }
-    var ref: FIRDatabaseReference { get }
+}
+
+
+extension Identifiable {
+    
+    var hashValue: Int {
+        return id.hashValue
+    }
+    
 }
 
 func ==<T: Identifiable>(lhs: T, rhs: T) -> Bool {
     return lhs.id == rhs.id
 }
+
 
 
 enum FirebaseError: Error {

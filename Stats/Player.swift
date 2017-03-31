@@ -15,7 +15,7 @@ enum Gender: String {
     case female
 }
 
-struct Player: Unmarshaling {
+struct Player: Identifiable, Unmarshaling {
     
     var id: String
     var gender: Gender
@@ -38,16 +38,16 @@ struct Player: Unmarshaling {
     init(object: MarshaledObject) throws {
         id = try object.value(for: idKey)
         gender = try object.value(for: genderKey)
-        isSub = try object(for: isSubKey)
-        jerseyNumber = try object(for: jerseyNumberKey)
-        name = try object(for: nameKey)
-        phone = try object(for: phoneKey)
-        teamId = try object(for: teamIdKey)
+        isSub = try object.value(for: isSubKey)
+        jerseyNumber = try object.value(for: jerseyNumberKey)
+        name = try object.value(for: nameKey)
+        phone = try object.value(for: phoneKey)
+        teamId = try object.value(for: teamIdKey)
     }
     
 }
 
-extension Player: Masrhaling {
+extension Player: Marshaling {
     
     func marshaled() -> JSONObject {
         var json = JSONObject()

@@ -94,7 +94,7 @@ extension HomeViewController: IGListAdapterDataSource {
     
     func objects(for listAdapter: IGListAdapter) -> [IGListDiffable] {
         guard let currentTeam = core.state.teamState.currentTeam else { return [] }
-        return [currentTeam]
+        return [HomeSection(team: currentTeam)]
     }
     
     func listAdapter(_ listAdapter: IGListAdapter, sectionControllerFor object: Any) -> IGListSectionController {

@@ -17,7 +17,7 @@ enum TeamSport: String {
 }
 
 
-struct Team: Marshaling, Unmarshaling {
+struct Team: Identifiable, Unmarshaling {
     
     var id: String
     var currentSeasonId: String?
@@ -27,7 +27,7 @@ struct Team: Marshaling, Unmarshaling {
     var sport: TeamSport
     
     var imageURL: URL? {
-        guard var imageURLString = imageURLString else { return nil }
+        guard let imageURLString = imageURLString else { return nil }
         return URL(string: imageURLString)
     }
     
@@ -41,14 +41,18 @@ struct Team: Marshaling, Unmarshaling {
     }
     
     init(object: MarshaledObject) throws {
-        id = object.value(for: idKey)
-        currentSeasonId = object.value(for: currentSeasonIdKey)
-        image = object.value(for: imageKey)
-        name = object.value(for: nameKey)
-        shareCode = object.value(for: shareCodeKey)
-        sport = object.value(for: typeKey)
+        id = try object.value(for: idKey)
+        currentSeasonId = try object.value(for: currentSeasonIdKey)
+        imageURLString = try object.value(for: imageURLStringKey)
+        name = try object.value(for: nameKey)
+        shareCode = try object.value(for: shareCodeKey)
+        sport = try object.value(for: sportKey)
     }
+ 
+}
 
+extension Team: Marshaling {
+    
     func marshaled() -> JSONObject {
         var json = JSONObject()
         json[idKey] = id

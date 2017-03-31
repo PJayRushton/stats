@@ -12,12 +12,14 @@
 		03DCD393DF69EE6DE4AD424B1192DD02 /* UIViewController+Chameleon.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FDB9BD25B86B9F50A3353758091B8BC /* UIViewController+Chameleon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		04CAC0E5075BD1177EFE2B0A99FC551D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45EDE12BED3510C2E9FE72D656F4154C /* UIKit.framework */; };
 		056C571AF8E633574D9550A0DFB51E2A /* IGListReloadDataUpdater.h in Headers */ = {isa = PBXBuildFile; fileRef = E4127DD1D0598ED7D82197764D54EAF4 /* IGListReloadDataUpdater.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05F43CF2BC38E72BF2CDA8CAA595E66D /* YoshikoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693C382D0DAECFB69FA32846C26FB2BA /* YoshikoTextField.swift */; };
 		06493997FD110ED9EF3BE92F42E2C5F7 /* TabCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719B4D3793C98777C334CD25EA830A5C /* TabCollectionCell.swift */; };
 		07340F15BACBA601736DBB2ABF1ABC35 /* GTMSessionFetcherLogging.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B7DE7AC631C2AF7E95B7EAEF040F0C /* GTMSessionFetcherLogging.m */; };
 		07CFFED3739668B8CDB6B7E2C50B9AC6 /* IGListAdapterUpdaterDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = CCDA97C30D84870FC12714B3DEC1E274 /* IGListAdapterUpdaterDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		07E150FFB1B305F52F81DD7C6815A78A /* ModalSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCFD2467706D2DD80F190E14010C899 /* ModalSize.swift */; };
 		08AB9D415A7437DF5F8EE0786429887F /* UnmarshalUpdating.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E61F1022B14AE2EACF2A805162768B /* UnmarshalUpdating.swift */; };
 		096690F0641CAB56F7CAFEB5A2545D97 /* TabPageViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BA382E9E2FE2D5A068925CC80AE485B /* TabPageViewController.storyboard */; };
+		09D43B8E760FEEC85F5EC4A35B1FA94E /* MinoruTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7141A257804F031F155C27E77312E82 /* MinoruTextField.swift */; };
 		0A3530212EF07C9859D099C193BE2E30 /* IGListDiff.h in Headers */ = {isa = PBXBuildFile; fileRef = A36B4A99065BCF620A854EDFF706205D /* IGListDiff.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0D7F425CFB628271BFB6FCFF8201BF4F /* UIButton+Chameleon.h in Headers */ = {isa = PBXBuildFile; fileRef = A421D0CB3C9A456DF5EF99B3D86A4CEB /* UIButton+Chameleon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0E9CC28AC8E34FE8E1C87E933E04BC7A /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12588BD22F313307B8432EA589827AC1 /* ImageProcessor.swift */; };
@@ -45,13 +47,14 @@
 		24F16C6148C7A2A8A84F15429C98E8EE /* IGListMoveIndexPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AAF35ADCA96F8E52EB8799739964ED2 /* IGListMoveIndexPath.m */; };
 		2534806772D59757EC8F1CC16528B9D1 /* LTStringDiffResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C9F4EF000D22088BD950811735F729 /* LTStringDiffResult.swift */; };
 		29F74E8A334254C68C6720E3B247CE32 /* NSArray+Chameleon.h in Headers */ = {isa = PBXBuildFile; fileRef = 835F8DEA4EF58262E2DC4C95403A789C /* NSArray+Chameleon.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2CAF66FBA6B4D987D2F8890CEDD7DCC2 /* TextFieldEffects-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 07CDAB99B1FB4DAE52C512E139D22C43 /* TextFieldEffects-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2CAF66FBA6B4D987D2F8890CEDD7DCC2 /* TextFieldEffects-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F8049B48D24AE59235FBA0BDEF94E738 /* TextFieldEffects-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2CF4FBD5FC2FAF0030CD32A7B00370EC /* AlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5235C2BC3EC5663E5332C0219B0CCF5 /* AlertViewController.xib */; };
-		2D5F31FE5449BC0B74F1AC8F70B8D519 /* IsaoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DCC6D6181BC2F87E32323F5AC98AA4 /* IsaoTextField.swift */; };
 		2DDDE2C06FB4DCC639CFD100F224D6FD /* UIColor+Chameleon.m in Sources */ = {isa = PBXBuildFile; fileRef = C073B0615D207C7AA1D485F617DC9C8F /* UIColor+Chameleon.m */; };
+		2E2C2A25CEE79EF4FA48ACDCD01F597E /* MadokaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEED9DC6F2D067721F13B976BF17E70 /* MadokaTextField.swift */; };
 		2E5E570FFC49EF98550401421A243C0F /* CacheSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA58E85B4C02857EAE7C46E2BE2032A /* CacheSerializer.swift */; };
 		2F2113E1C6D00DAC44F8D152487EDC4A /* IGListIndexPathResultInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B2FFDB38C327BF4179913BD8239651F /* IGListIndexPathResultInternal.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		2FE82EE470FB27CD0532758F8007323B /* IGListGridCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = ED6E189CED0DD845F67546287945EF13 /* IGListGridCollectionViewLayout.m */; };
+		2FF7E333E7E37753B75C16F5F75AB33D /* TextFieldEffects-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC7D97322E96059AF828AE195FE833C /* TextFieldEffects-dummy.m */; };
 		3159D7CAFD56B809F40CA3330DA10889 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BDA58FA09BFB3E6646F6EB3FE67C406 /* Foundation.framework */; };
 		322BC6C4014C631F64CB4CFB784B7F4C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BDA58FA09BFB3E6646F6EB3FE67C406 /* Foundation.framework */; };
 		32EC972B2CCC65BC231BD10A1C0B0252 /* PresentrAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20002E5CF80C79F906881F7CFC705A41 /* PresentrAnimation.swift */; };
@@ -64,7 +67,6 @@
 		3663AD5A53A399294F616BBB090BC98C /* LTMorphingLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 77617D1B74E48EB8D91878BFE1D86917 /* LTMorphingLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		36777A21A45EEBD796CA70FACCCDC3D5 /* IGListIndexSetResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 83B99AEE49CC419D63DAAD3E283FC99F /* IGListIndexSetResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		378B44CAA91C2106076668FDE72E1E02 /* KingfisherOptionsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962BC60CA0857B87AE5C703B1B440F12 /* KingfisherOptionsInfo.swift */; };
-		37E300DB8CB7AF128D53F6C28BE216D0 /* MadokaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6897480B51564E594BFB6A1E0679BB1 /* MadokaTextField.swift */; };
 		38BBF23F33E768D27B507FDA3713B87C /* CrossDissolveAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E4432395A72F23A04A60F00CD71A1D /* CrossDissolveAnimation.swift */; };
 		395923CE2F34A1B5252DA6B8A159876E /* TabPageViewController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B6F4A76E209A4EAFCF928B469C2B89 /* TabPageViewController-dummy.m */; };
 		3C7D728E5057D9937D5489945D257304 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A242E97A525ABF051B37C2579D399A /* QuartzCore.framework */; };
@@ -105,13 +107,11 @@
 		6075356DEB8120CA19F00C7093CD6A3F /* IGListUpdatingDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = D92D24FE1B966BCEDEB4DA80D3FD1C53 /* IGListUpdatingDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		635CC8B77630D26AB0DE5AC7B8A148E1 /* IGListGridCollectionViewLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = ACB53C26122EB3888BA5244ADF3DE6A2 /* IGListGridCollectionViewLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		63D05B8E96E508B3AD3F6CE743C8158F /* IGListWorkingRangeHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CEA8FDC03110CB9E557366FDDB3E343 /* IGListWorkingRangeHandler.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		6482B25833FF12EAC2F325D748CB9123 /* KaedeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01CE918E4DC6A8517EEC27C79E5E4E3 /* KaedeTextField.swift */; };
 		64F31B70A6E5E6963518A01C285B435F /* GTMSessionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = B714B4E221A8545BCA2EF362C9D48010 /* GTMSessionFetcher.m */; };
 		65B56BD3DBC9B81BB008219D0BA735A9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF5C945C8CDEAE18846F2B9B428067D1 /* Security.framework */; };
 		6712100A2CCB9B987281A02F6778473C /* NSArray+Chameleon.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A8B0E0F882EF34D7E9BD43B2422506E /* NSArray+Chameleon.m */; };
+		681122DA9991946D646799A614E7A23C /* KaedeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C9ECEC1648719971AF1059FED946E4 /* KaedeTextField.swift */; };
 		6A375593407BC7937234B2B6A0811760 /* Kingfisher-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CC17D24C1F063F6591A77F90D0644BBC /* Kingfisher-dummy.m */; };
-		6B88667F35F9EEAF90ED6928D49850F6 /* YoshikoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31405EBC8B682C6EFA1E23A3F22D5AEA /* YoshikoTextField.swift */; };
-		6C1B6B918D2A89CD1E1019A4E7429965 /* AkiraTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141961A2B377DB87CA2CCBD2CA921CED /* AkiraTextField.swift */; };
 		6C2F96F1D97CEE4C463FF67DE81791A2 /* LTMorphingLabel+Sparkle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009BD5817558EA9F4162FC7B2C127EF3 /* LTMorphingLabel+Sparkle.swift */; };
 		6C4F33723E922B3668D02B9DB0DDA879 /* LTEmitterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FC223D31DFB45C345D9670F8601637 /* LTEmitterView.swift */; };
 		6CBEB65ADE55C8C28F8DFED2BE1E9697 /* IGListCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C956C1D67ED5FD092053970824D53178 /* IGListCollectionView.m */; };
@@ -128,6 +128,7 @@
 		74B63F61F794A351591B84D05630E88A /* Marshaling.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75C3474C86DA4EA9691FD8EA6A37526 /* Marshaling.swift */; };
 		74EB211304076E9BF737F5DC887CCFC6 /* PresentrController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1123EFCD138A7BBFC32F1C5A9CFD43 /* PresentrController.swift */; };
 		754A99AC522C1428BFFC3361FC696983 /* Whisper-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C299EBB416D2D5BA7FE8721F9AB9DA0D /* Whisper-dummy.m */; };
+		7582AC52EACB1DDA4D69AD80A2C2743F /* YokoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414FF22126F64CC756C82556F7B06DE8 /* YokoTextField.swift */; };
 		75C5BADF0090FC6309B4561DBFD23EC1 /* IGListDiffKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 800FEEE5EA8BE36FFA3FBF2A2F53F61A /* IGListDiffKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7636F846675C9F4ED96E00C6C19A4890 /* KingfisherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBF81C657EA1BFF9AE2F0F211F5C6A6 /* KingfisherManager.swift */; };
 		77EE8338585D748347F6CA1249C27AB1 /* IGListAdapterDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = E9358431A6128BD2F1E996F5640C8D07 /* IGListAdapterDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -151,7 +152,9 @@
 		86B7DA678C8705523C300947117C0706 /* ImageTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC084333D8A30CCECB413761D040820 /* ImageTransition.swift */; };
 		86F7D970F220974A0E26C3B632C5C74F /* UIImage+ChameleonPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 06D2B7C9327BCAFFAE1E635083A22712 /* UIImage+ChameleonPrivate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8852FD9AFC242520924D98BE9C4E2477 /* GTMSessionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = FF30935AF52B2288BCFE6F84A3A3C51E /* GTMSessionFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8A4E55324398DBBEBC47CB0EE598B7A4 /* AkiraTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CF6C2E184BE4F1FCF098D6324BB0B2 /* AkiraTextField.swift */; };
 		8A507E1B21CA58D614A53396CED9B999 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B9A18B83241DCDF3160E92E1D3B750 /* Config.swift */; };
+		8C4A7466C23DDFF202C0128F03134DDF /* IsaoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182516DCE854CD325298819478B5552 /* IsaoTextField.swift */; };
 		8DA7E6883118CB3C8132B64D3D43AE0B /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C875B86E01267CDE24660B7593D16210 /* Resource.swift */; };
 		8ECF929AC5E737EBEB542283886D5E07 /* UIView+ChameleonPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 3013BEE3E4C5F7DDA7E09DC4E163917A /* UIView+ChameleonPrivate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9036CBEDCB02BA0067C051BF2EDAE8C7 /* IGListKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EAB8F84D6836B61F0E26E016E75AB6A0 /* IGListKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -163,6 +166,7 @@
 		95C69447F517DB81437EDE0003486963 /* GTMSessionFetcherService.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C4AF88F15322068D66C41DC7363226 /* GTMSessionFetcherService.m */; };
 		95E542740750F827BE2EBE3DE6F62D0E /* ChameleonFramework-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BBABCD10B6F50D5E0515D0B5DED6B675 /* ChameleonFramework-dummy.m */; };
 		96430F594BFC145867C96B1AD5BF746E /* UICollectionView+IGListBatchUpdateData.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7C1BB34E51A13C2C358B5005AD20E1 /* UICollectionView+IGListBatchUpdateData.m */; };
+		96DA8451C8D797132BCB41C3434EF124 /* HoshiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C301ADA718305F02EABC0264A8EC4A /* HoshiTextField.swift */; };
 		9890E8C3A3536C1EA848BEBA25050ACB /* Marshal-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D31088BA11250188F3B711AE2CA67FAC /* Marshal-dummy.m */; };
 		9A3EAF15D3C58FD56A552FD703A9154C /* ChameleonConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 2EFCAD1CC2E3942F39C8E24B9BED86FC /* ChameleonConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9B6AD39C81FAF37861FC0FEC41022146 /* UIAppearance+Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = D44D3F16C81AD66542ED85D6D5D54A39 /* UIAppearance+Swift.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -172,7 +176,9 @@
 		A15959B25AFDE97EC2EA5767D12F2F7A /* IGListAdapterProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 0748BA714D00BA73EC695728EC3FF5D9 /* IGListAdapterProxy.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		A2C42A0079CCDFF2514F9C219C861566 /* TabCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E87E2F547140A1789140C28653B59CA /* TabCollectionCell.xib */; };
 		A2EFE55E2C0A1C10C7A5367B47C7D562 /* LTMorphingLabel+Pixelate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FCD45BCA297F7198E45CF269072462 /* LTMorphingLabel+Pixelate.swift */; };
+		A3CE00135DEF1BD7E2B99EE5A637C669 /* JiroTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7CFCC94543FC926A277D919A91AEC8 /* JiroTextField.swift */; };
 		A481CB3C581E4AAD80D9CCDE3E28DF88 /* NSNumber+IGListDiffable.h in Headers */ = {isa = PBXBuildFile; fileRef = E4C2A56CC1ED4A95B8B2C43A58941A4E /* NSNumber+IGListDiffable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A4F265D84FBCC96D8829406B2DA58526 /* TextFieldEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0313ED782F5655A40978966E471FB61 /* TextFieldEffects.swift */; };
 		A55A2A018545D8743F004E290DA310D9 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7363E2C59A47282F70283D41D504A0E7 /* Message.swift */; };
 		A664D0A12D5F3DBD08A7E8DFE3AE83E2 /* UIView+ChameleonPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = C22B78B14BB96E769A7F8217CFA6A971 /* UIView+ChameleonPrivate.m */; };
 		A80951C2DD41CDC49BE87A747862A9D1 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC3A298C6817379131E216EA4937060 /* BackgroundView.swift */; };
@@ -184,14 +190,12 @@
 		B26038F91C7C4CC322D7F25C5D16FE9E /* ChameleonConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = FB767CA5BD43AB1049907AE60E1CD338 /* ChameleonConstants.m */; };
 		B4EA53699AA19822E674188743266B2B /* ChameleonMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 22652FF33014D40E771CE35EF724B286 /* ChameleonMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B70CE294922D8F0FECF8B38F993EA788 /* IGListSectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E205EFA011EAD28B3DDA06F7A6F1818 /* IGListSectionController.m */; };
-		B7BE9FF764CF544C10966C06A3D2B68C /* TextFieldsEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2A5B42BF55E20055319C8DE2B917AA /* TextFieldsEffects.swift */; };
 		B7CFC7EB0E27DB1576E9D8FC837228DD /* Presentr+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B1B4B45948A6EB74555B2E39B50745 /* Presentr+Equatable.swift */; };
 		B8D1E1C695F9C1C48A6C4A22F1A0583A /* IGListMoveIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A525F942221B21A644BDD9C5D0D2B8 /* IGListMoveIndex.m */; };
 		BB0BC4C258123F13C9C25915A2DE9845 /* IGListReloadDataUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = CB8F9569EF0C1D84234EB8E7CCB892E9 /* IGListReloadDataUpdater.m */; };
 		BB2873D1E6440D5510A3E40A1F0D38A3 /* LTMorphingLabel-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CE76623F9051EC4DF7BE9B25E4757281 /* LTMorphingLabel-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BB5A999230F92B5D9CE96D093C898CA5 /* CoverVerticalAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7F2F14F8CDD15D198F5A6BCFC58434 /* CoverVerticalAnimation.swift */; };
 		BD9108B59C7A3C7B343FB6173BE4A0AD /* IGListKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C0BEEDE42C40BFDE727AC9365B6EC80 /* IGListKit-dummy.m */; };
-		BF1FE181A6732BAD7AE32AD3CA7DDD9B /* TextFieldEffects-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CE370116870311D96769BC34E020745B /* TextFieldEffects-dummy.m */; };
 		BFA97401155C4E14893D9AA1E0D1EC80 /* UINavigationController+Chameleon.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F4BD965CFBB884151901F09FA5741EB /* UINavigationController+Chameleon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C025052F8819DF1149FDFA278F08ABE7 /* Fragment.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F72A41B5CECD69A04D9DAC3BD638A62 /* Fragment.png */; };
 		C0265ABA36762C82F6338723A465F61E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45EDE12BED3510C2E9FE72D656F4154C /* UIKit.framework */; };
@@ -201,7 +205,6 @@
 		C64F37A6CB6F3349C0F7709387F088FA /* IGListSectionMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 504BDCDBA64688092FA39E93A1FF74C6 /* IGListSectionMap.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		C78AC9DF55C43B62D6851B2F30ADFE0F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A242E97A525ABF051B37C2579D399A /* QuartzCore.framework */; };
 		C79BDF5389F4B9AD81E2C3B5A287EFA9 /* IGListAdapterUpdater.h in Headers */ = {isa = PBXBuildFile; fileRef = 31CF64CE87D3F8DFEEE82AE34622D9A1 /* IGListAdapterUpdater.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C8E11612E03D33D33571DBB8292C3A77 /* JiroTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B1DB3F1EA64CC7B6C50BF96328F24F /* JiroTextField.swift */; };
 		C9003C07022E4D9E4C1408AC7CE919F2 /* IGListSectionType.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C910F8E4BD954D77493E81A45450A5D /* IGListSectionType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C9C7E60B34097E387E413195FACE37C8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BDA58FA09BFB3E6646F6EB3FE67C406 /* Foundation.framework */; };
 		C9CC5ED97D29C6C3DE22B78A9AA2AD91 /* Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2544F5FFD15696CD5C0F35E7623BA8C0 /* Kingfisher.swift */; };
@@ -233,7 +236,6 @@
 		EC786817C5CEBCD51A4C9EC9B883ED6F /* ChameleonEnums.h in Headers */ = {isa = PBXBuildFile; fileRef = 55BD5F046D95EB95B09EFD5B89798717 /* ChameleonEnums.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ED4DBD1E13182AA813DC1237FA6E3A42 /* Chameleon.h in Headers */ = {isa = PBXBuildFile; fileRef = 71FD5F45B42FD2252843F95117B5AEB8 /* Chameleon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EE89512E8D36E67CDC525DB9D5BBF5A7 /* UIButton+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8692C2BE71AD89E4722F2C46BD28D3 /* UIButton+Kingfisher.swift */; };
-		EF227DFA60EF0F1C38D21C4DF8C7B49A /* YokoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0660288935B4BAEE02B66BCB117FC5 /* YokoTextField.swift */; };
 		F09EDD53B94234F5F8DAC4DCD5CD969E /* GTMSessionUploadFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EE2F45A9FA61F924D599A4CAAF76C847 /* GTMSessionUploadFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F0A7BDC21668EB8AA74FFCD51C46D605 /* WhisperFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D454D6735BA1317B14DC789BDA88BDA /* WhisperFactory.swift */; };
 		F259C309F97DA818B0D54D98AD77FAA2 /* IGListCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0EE25ADB8DEA770A67D946BF18DBCD74 /* IGListCollectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -242,13 +244,11 @@
 		F3032F80DA1421C35337F25C88A7D3E7 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B5F3B19B4FF21F2E707446ED3FEED0 /* Error.swift */; };
 		F4BA9FA0BB119BF592CB48A0DFFC24D1 /* IGListAdapterProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E56E1D5592A19BFCAEF020E74E445D /* IGListAdapterProxy.m */; };
 		F4E294C07EE32FFCDCF7FF4D71D850BD /* GTMSessionUploadFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = C20C369970736DAEECA92216F74149E3 /* GTMSessionUploadFetcher.m */; };
-		F7B999B51CAA5C682875FBC0E8467652 /* MinoruTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D906C592631F67CAB481599A6738C1B4 /* MinoruTextField.swift */; };
 		F7D889906DECB078EAAECB9D4A320E9C /* GTMNSData+zlib.m in Sources */ = {isa = PBXBuildFile; fileRef = AF2843070BDDF0ED8442F08C5442C972 /* GTMNSData+zlib.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		F82ECE6A6BC86560FDBDAEF374ACA751 /* IGListIndexSetResultInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = 41741CDA9BF37D19685815092CE4C3C8 /* IGListIndexSetResultInternal.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		F8E957950566622A3E4B61AACE8F0B4A /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77A9D512313EE0616FF9F1D317E1BB3 /* ImageCache.swift */; };
 		F95D41C5B434547597F053486620C965 /* Sparkle.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A9FF6FF47CF96D7B9974EE5E1AA1E10 /* Sparkle.png */; };
 		F982DD7DFA050A3677D64AF6EFA6E8FB /* UnmarshalingWithContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8E984C9C619D4920C2AECDEB8242F0 /* UnmarshalingWithContext.swift */; };
-		F9EFEC009AB7D98B12FFAAA810069E9D /* HoshiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ED82AC7B6255154DCADB46D7C64E5F /* HoshiTextField.swift */; };
 		FAC3F3CAABA60EF76069431C5BB5032A /* GoogleToolboxForMac-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F0736E84D3D687D9C131C47303517DA /* GoogleToolboxForMac-dummy.m */; };
 		FB82C1293D7DDE0D3E2E6D68CDD5852C /* UILabel+Chameleon.m in Sources */ = {isa = PBXBuildFile; fileRef = 86DC14E56230F007E2D43CE1ACE01CF4 /* UILabel+Chameleon.m */; };
 		FB9A9A8EB066DF4C64D5822EDEB8053B /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17A402C54A2EE6E8D74C13DBA864FE5 /* TabView.swift */; };
@@ -348,20 +348,18 @@
 		06D2B7C9327BCAFFAE1E635083A22712 /* UIImage+ChameleonPrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+ChameleonPrivate.h"; path = "Pod/Classes/Objective-C/UIImage+ChameleonPrivate.h"; sourceTree = "<group>"; };
 		0748BA714D00BA73EC695728EC3FF5D9 /* IGListAdapterProxy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListAdapterProxy.h; path = Source/Internal/IGListAdapterProxy.h; sourceTree = "<group>"; };
 		07B7DE7AC631C2AF7E95B7EAEF040F0C /* GTMSessionFetcherLogging.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GTMSessionFetcherLogging.m; path = Source/GTMSessionFetcherLogging.m; sourceTree = "<group>"; };
-		07CDAB99B1FB4DAE52C512E139D22C43 /* TextFieldEffects-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TextFieldEffects-umbrella.h"; sourceTree = "<group>"; };
 		09DAB87671F6D19FC85D39BFBC8F8BAF /* IGListKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IGListKit.xcconfig; sourceTree = "<group>"; };
 		0AC3A298C6817379131E216EA4937060 /* BackgroundView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BackgroundView.swift; path = Presentr/BackgroundView.swift; sourceTree = "<group>"; };
 		0BBB510B696F372051E7817A7159DDE8 /* IGListDiffable.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListDiffable.h; path = Source/Common/IGListDiffable.h; sourceTree = "<group>"; };
 		0BDA58FA09BFB3E6646F6EB3FE67C406 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		0C8E984C9C619D4920C2AECDEB8242F0 /* UnmarshalingWithContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UnmarshalingWithContext.swift; path = Sources/UnmarshalingWithContext.swift; sourceTree = "<group>"; };
-		0DE05AB175D0C158F79E41CDD36CB845 /* TextFieldEffects-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TextFieldEffects-prefix.pch"; sourceTree = "<group>"; };
 		0EE25ADB8DEA770A67D946BF18DBCD74 /* IGListCollectionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListCollectionView.h; path = Source/IGListCollectionView.h; sourceTree = "<group>"; };
 		0F0736E84D3D687D9C131C47303517DA /* GoogleToolboxForMac-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GoogleToolboxForMac-dummy.m"; sourceTree = "<group>"; };
+		0FEED9DC6F2D067721F13B976BF17E70 /* MadokaTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MadokaTextField.swift; path = TextFieldEffects/TextFieldEffects/MadokaTextField.swift; sourceTree = "<group>"; };
 		106740661CEABA302611EEA7AB35A730 /* IGListMoveIndex.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListMoveIndex.h; path = Source/Common/IGListMoveIndex.h; sourceTree = "<group>"; };
 		11A242E97A525ABF051B37C2579D399A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		124C682CF32DF962ADF37AF7C7B4ACC9 /* IGListSectionMap.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IGListSectionMap.m; path = Source/Internal/IGListSectionMap.m; sourceTree = "<group>"; };
 		12588BD22F313307B8432EA589827AC1 /* ImageProcessor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageProcessor.swift; path = Sources/ImageProcessor.swift; sourceTree = "<group>"; };
-		141961A2B377DB87CA2CCBD2CA921CED /* AkiraTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AkiraTextField.swift; path = TextFieldEffects/TextFieldEffects/AkiraTextField.swift; sourceTree = "<group>"; };
 		142E1B213494FB5C9354DD249D526B5A /* IGListBatchUpdateData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListBatchUpdateData.h; path = Source/Common/IGListBatchUpdateData.h; sourceTree = "<group>"; };
 		147777EFE409019699B3B3ED0EC3EE63 /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCore.framework; path = Frameworks/FirebaseCore.framework; sourceTree = "<group>"; };
 		1515D107A0ADA77404F34D5DBADE6FA3 /* UIAppearance+Swift.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIAppearance+Swift.m"; path = "Pod/Classes/Objective-C/UIAppearance+Swift.m"; sourceTree = "<group>"; };
@@ -373,9 +371,11 @@
 		1C5C91FB510C2DB08F7777F5AADC2B96 /* IGListAdapterDataSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListAdapterDataSource.h; path = Source/IGListAdapterDataSource.h; sourceTree = "<group>"; };
 		1C910F8E4BD954D77493E81A45450A5D /* IGListSectionType.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListSectionType.h; path = Source/IGListSectionType.h; sourceTree = "<group>"; };
 		1D62278D989DAB6059A577EC3ACB7253 /* Pods-Stats.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Stats.modulemap"; sourceTree = "<group>"; };
+		1D7CFCC94543FC926A277D919A91AEC8 /* JiroTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JiroTextField.swift; path = TextFieldEffects/TextFieldEffects/JiroTextField.swift; sourceTree = "<group>"; };
 		1FDB9BD25B86B9F50A3353758091B8BC /* UIViewController+Chameleon.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+Chameleon.h"; path = "Pod/Classes/Objective-C/UIViewController+Chameleon.h"; sourceTree = "<group>"; };
 		20002E5CF80C79F906881F7CFC705A41 /* PresentrAnimation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PresentrAnimation.swift; path = Presentr/PresentrAnimation.swift; sourceTree = "<group>"; };
 		20FF41FCB585DA62E0F72500536B12D8 /* Presentr-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Presentr-prefix.pch"; sourceTree = "<group>"; };
+		2182516DCE854CD325298819478B5552 /* IsaoTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IsaoTextField.swift; path = TextFieldEffects/TextFieldEffects/IsaoTextField.swift; sourceTree = "<group>"; };
 		22652FF33014D40E771CE35EF724B286 /* ChameleonMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ChameleonMacros.h; path = "Pod/Classes/Objective-C/ChameleonMacros.h"; sourceTree = "<group>"; };
 		2333C1D37AFD4E97E70687CEDB2137CB /* Marshal.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Marshal.modulemap; sourceTree = "<group>"; };
 		247D77E9323141A3F4AFF8EDC72742AF /* ImagePrefetcher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImagePrefetcher.swift; path = Sources/ImagePrefetcher.swift; sourceTree = "<group>"; };
@@ -396,7 +396,6 @@
 		3013BEE3E4C5F7DDA7E09DC4E163917A /* UIView+ChameleonPrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+ChameleonPrivate.h"; path = "Pod/Classes/Objective-C/UIView+ChameleonPrivate.h"; sourceTree = "<group>"; };
 		304DD2A89EF3F439BA994FEDB6E4FDFE /* Marshal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Marshal.framework; path = Marshal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		30C3AC1A90957D04D238D8BDFAEB2188 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		31405EBC8B682C6EFA1E23A3F22D5AEA /* YoshikoTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YoshikoTextField.swift; path = TextFieldEffects/TextFieldEffects/YoshikoTextField.swift; sourceTree = "<group>"; };
 		31CF64CE87D3F8DFEEE82AE34622D9A1 /* IGListAdapterUpdater.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListAdapterUpdater.h; path = Source/IGListAdapterUpdater.h; sourceTree = "<group>"; };
 		323F289F38E9130A714B1F7BD5F0B249 /* GoogleToolboxForMac-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GoogleToolboxForMac-prefix.pch"; sourceTree = "<group>"; };
 		33BE0EEFABE61EB878EE9AB87FFF917F /* FirebaseStorage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseStorage.framework; path = Frameworks/FirebaseStorage.framework; sourceTree = "<group>"; };
@@ -418,6 +417,7 @@
 		3DCDCD30536FA5B375776315F0DC0A0E /* FirebaseDatabase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseDatabase.framework; path = Frameworks/FirebaseDatabase.framework; sourceTree = "<group>"; };
 		40A71FE35E59F91A12CE33342294A642 /* Presentr.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Presentr.modulemap; sourceTree = "<group>"; };
 		411CE408409ED141CEC1956777ADA097 /* IGListAdapter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IGListAdapter.m; path = Source/IGListAdapter.m; sourceTree = "<group>"; };
+		414FF22126F64CC756C82556F7B06DE8 /* YokoTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YokoTextField.swift; path = TextFieldEffects/TextFieldEffects/YokoTextField.swift; sourceTree = "<group>"; };
 		4161449DC8A846B6D39A04AC0AD0E337 /* ColorList.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ColorList.swift; path = Source/Configuration/ColorList.swift; sourceTree = "<group>"; };
 		41741CDA9BF37D19685815092CE4C3C8 /* IGListIndexSetResultInternal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListIndexSetResultInternal.h; path = Source/Common/Internal/IGListIndexSetResultInternal.h; sourceTree = "<group>"; };
 		429065E702C2D383FB8E4E2B9E644528 /* LTMorphingLabel+Fall.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "LTMorphingLabel+Fall.swift"; path = "LTMorphingLabel/LTMorphingLabel+Fall.swift"; sourceTree = "<group>"; };
@@ -461,22 +461,26 @@
 		5FC5B5CFF7E6C769ADBD6B3F23BE3608 /* ChameleonFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ChameleonFramework.framework; path = ChameleonFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FE56CDE9B9B1E241E25FF336C6861D4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		632454026599E238E0665CBA161D269B /* Indicator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Indicator.swift; path = Sources/Indicator.swift; sourceTree = "<group>"; };
+		637A25D009D686B417656E3EE234CCE1 /* TextFieldEffects.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = TextFieldEffects.modulemap; sourceTree = "<group>"; };
+		64C301ADA718305F02EABC0264A8EC4A /* HoshiTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HoshiTextField.swift; path = TextFieldEffects/TextFieldEffects/HoshiTextField.swift; sourceTree = "<group>"; };
 		660968BD90991C3EC265FD4B401AF9DB /* Kingfisher.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Kingfisher.modulemap; sourceTree = "<group>"; };
 		66E7CFF2AD9CA31CF22E452AB1763457 /* UIColor+Chameleon.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIColor+Chameleon.h"; path = "Pod/Classes/Objective-C/UIColor+Chameleon.h"; sourceTree = "<group>"; };
 		6770AE06D21E110E1569B6A2E205DC6F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		68DC59C2BBD2C8904BF31D808F6D57D9 /* GTMSessionFetcher-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GTMSessionFetcher-prefix.pch"; sourceTree = "<group>"; };
 		68E844B1C0766AFBC9CD6BEC1941F63C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
+		693C382D0DAECFB69FA32846C26FB2BA /* YoshikoTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YoshikoTextField.swift; path = TextFieldEffects/TextFieldEffects/YoshikoTextField.swift; sourceTree = "<group>"; };
 		6A8B0E0F882EF34D7E9BD43B2422506E /* NSArray+Chameleon.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+Chameleon.m"; path = "Pod/Classes/Objective-C/NSArray+Chameleon.m"; sourceTree = "<group>"; };
 		6C0BEEDE42C40BFDE727AC9365B6EC80 /* IGListKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "IGListKit-dummy.m"; sourceTree = "<group>"; };
 		6CA58E85B4C02857EAE7C46E2BE2032A /* CacheSerializer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CacheSerializer.swift; path = Sources/CacheSerializer.swift; sourceTree = "<group>"; };
 		6DC00B0C7A9ACE2E1618502CB3FA345B /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Kingfisher.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6E0660288935B4BAEE02B66BCB117FC5 /* YokoTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YokoTextField.swift; path = TextFieldEffects/TextFieldEffects/YokoTextField.swift; sourceTree = "<group>"; };
 		6E1123EFCD138A7BBFC32F1C5A9CFD43 /* PresentrController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PresentrController.swift; path = Presentr/PresentrController.swift; sourceTree = "<group>"; };
 		6FB1AB925615ECA6E740FAD949BA3599 /* IGListMoveIndexInternal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListMoveIndexInternal.h; path = Source/Common/Internal/IGListMoveIndexInternal.h; sourceTree = "<group>"; };
 		70568A67E705723873C6BC52E9A90527 /* Whisper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Whisper.framework; path = Whisper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		719B4D3793C98777C334CD25EA830A5C /* TabCollectionCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TabCollectionCell.swift; path = Sources/TabCollectionCell.swift; sourceTree = "<group>"; };
+		71C9ECEC1648719971AF1059FED946E4 /* KaedeTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KaedeTextField.swift; path = TextFieldEffects/TextFieldEffects/KaedeTextField.swift; sourceTree = "<group>"; };
 		71E49552A12C2609713DAC6A15AC2528 /* IGListAdapterInternal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListAdapterInternal.h; path = Source/Internal/IGListAdapterInternal.h; sourceTree = "<group>"; };
 		71FD5F45B42FD2252843F95117B5AEB8 /* Chameleon.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Chameleon.h; path = "Pod/Classes/Objective-C/Chameleon.h"; sourceTree = "<group>"; };
+		72CF6C2E184BE4F1FCF098D6324BB0B2 /* AkiraTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AkiraTextField.swift; path = TextFieldEffects/TextFieldEffects/AkiraTextField.swift; sourceTree = "<group>"; };
 		7363E2C59A47282F70283D41D504A0E7 /* Message.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Message.swift; path = Source/Message.swift; sourceTree = "<group>"; };
 		74BE919981C05A06B0EAE503CD12F86B /* String+MD5.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+MD5.swift"; path = "Sources/String+MD5.swift"; sourceTree = "<group>"; };
 		766E472EFA1B28F733A38ACA67760086 /* Kingfisher.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Kingfisher.xcconfig; sourceTree = "<group>"; };
@@ -499,7 +503,6 @@
 		83B99AEE49CC419D63DAAD3E283FC99F /* IGListIndexSetResult.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListIndexSetResult.h; path = Source/Common/IGListIndexSetResult.h; sourceTree = "<group>"; };
 		83DA89A1D4EA0A7D8CDA771D39108275 /* ImageDownloader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageDownloader.swift; path = Sources/ImageDownloader.swift; sourceTree = "<group>"; };
 		84AA1FA405063EBD7D4ADDF1E1870511 /* KeyType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KeyType.swift; path = Sources/KeyType.swift; sourceTree = "<group>"; };
-		84DCC6D6181BC2F87E32323F5AC98AA4 /* IsaoTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IsaoTextField.swift; path = TextFieldEffects/TextFieldEffects/IsaoTextField.swift; sourceTree = "<group>"; };
 		85329A62A162A8A844DC9651AD3F075F /* Presentr-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Presentr-umbrella.h"; sourceTree = "<group>"; };
 		856537D8B6DC13749CFD196439630A67 /* CoverHorizontalAnimation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoverHorizontalAnimation.swift; path = Presentr/CoverHorizontalAnimation.swift; sourceTree = "<group>"; };
 		86DC14E56230F007E2D43CE1ACE01CF4 /* UILabel+Chameleon.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UILabel+Chameleon.m"; path = "Pod/Classes/Objective-C/UILabel+Chameleon.m"; sourceTree = "<group>"; };
@@ -528,14 +531,13 @@
 		9E0BC67723246D9DBBAFCCD718F2D4C9 /* Pods-Stats-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Stats-acknowledgements.markdown"; sourceTree = "<group>"; };
 		9E14C81BDFF290DA8975D7FED486B297 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "Montserrat-Regular.ttf"; path = "Presentr/Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		9F122F8F1E7863AC13787D931B24240A /* IGListSingleSectionController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IGListSingleSectionController.m; path = Source/IGListSingleSectionController.m; sourceTree = "<group>"; };
+		9FC7D97322E96059AF828AE195FE833C /* TextFieldEffects-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TextFieldEffects-dummy.m"; sourceTree = "<group>"; };
 		A04B0D040D1AD211D5B69BA6FB375DCA /* GoogleToolboxForMac-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GoogleToolboxForMac-umbrella.h"; sourceTree = "<group>"; };
 		A085C2CEBBCC4F4E181952C1CC622F66 /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = GoogleToolboxForMac.framework; path = GoogleToolboxForMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A16BFA28BB41516644F8635580A90AB1 /* IGListAdapterUpdaterInternal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListAdapterUpdaterInternal.h; path = Source/Internal/IGListAdapterUpdaterInternal.h; sourceTree = "<group>"; };
 		A2B5F3B19B4FF21F2E707446ED3FEED0 /* Error.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Error.swift; path = Sources/Error.swift; sourceTree = "<group>"; };
 		A36B4A99065BCF620A854EDFF706205D /* IGListDiff.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListDiff.h; path = Source/Common/IGListDiff.h; sourceTree = "<group>"; };
 		A421D0CB3C9A456DF5EF99B3D86A4CEB /* UIButton+Chameleon.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+Chameleon.h"; path = "Pod/Classes/Objective-C/UIButton+Chameleon.h"; sourceTree = "<group>"; };
-		A4D32FD2E2252F628F5DBD45F1DE62FB /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A6897480B51564E594BFB6A1E0679BB1 /* MadokaTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MadokaTextField.swift; path = TextFieldEffects/TextFieldEffects/MadokaTextField.swift; sourceTree = "<group>"; };
 		A77A9D512313EE0616FF9F1D317E1BB3 /* ImageCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageCache.swift; path = Sources/ImageCache.swift; sourceTree = "<group>"; };
 		A78C450FBE50CF45148A8C66659EBCA4 /* Operators.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Operators.swift; path = Sources/Operators.swift; sourceTree = "<group>"; };
 		A7FC223D31DFB45C345D9670F8601637 /* LTEmitterView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LTEmitterView.swift; path = LTMorphingLabel/LTEmitterView.swift; sourceTree = "<group>"; };
@@ -546,7 +548,6 @@
 		AED613D9D93474544A88CACF8AEB33D0 /* Pods-Stats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Stats.release.xcconfig"; sourceTree = "<group>"; };
 		AF2843070BDDF0ED8442F08C5442C972 /* GTMNSData+zlib.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "GTMNSData+zlib.m"; path = "Foundation/GTMNSData+zlib.m"; sourceTree = "<group>"; };
 		B07AD39BE7213C4FA0D06001FA19433F /* Pods-Stats-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Stats-resources.sh"; sourceTree = "<group>"; };
-		B12A9E81B3720FD440BAD9B401FC3843 /* TextFieldEffects.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = TextFieldEffects.modulemap; sourceTree = "<group>"; };
 		B33C94DA3C19D01D13A05E13E8E9EA1B /* IGListSectionController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListSectionController.h; path = Source/IGListSectionController.h; sourceTree = "<group>"; };
 		B34BA187F030EC5E122B67793F77C396 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = Frameworks/frameworks/GoogleMobileAds.framework; sourceTree = "<group>"; };
 		B714B4E221A8545BCA2EF362C9D48010 /* GTMSessionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GTMSessionFetcher.m; path = Source/GTMSessionFetcher.m; sourceTree = "<group>"; };
@@ -554,7 +555,6 @@
 		BA7BB5A27E61CB633251FDBCC95BC2B4 /* FontList.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontList.swift; path = Source/Configuration/FontList.swift; sourceTree = "<group>"; };
 		BBABCD10B6F50D5E0515D0B5DED6B675 /* ChameleonFramework-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ChameleonFramework-dummy.m"; sourceTree = "<group>"; };
 		BBCFF3CB0801C833EAD7E5AE211DBDD0 /* Marshal.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Marshal.xcconfig; sourceTree = "<group>"; };
-		BD2A5B42BF55E20055319C8DE2B917AA /* TextFieldsEffects.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextFieldsEffects.swift; path = TextFieldEffects/TextFieldEffects/TextFieldsEffects.swift; sourceTree = "<group>"; };
 		BDC262797BBAFE196EBB6005F5DE64A2 /* IGListIndexSetResult.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IGListIndexSetResult.m; path = Source/Common/IGListIndexSetResult.m; sourceTree = "<group>"; };
 		BFAFE2980FC64D12DDCED8B658ED7034 /* UINavigationController+Chameleon.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UINavigationController+Chameleon.m"; path = "Pod/Classes/Objective-C/UINavigationController+Chameleon.m"; sourceTree = "<group>"; };
 		C073B0615D207C7AA1D485F617DC9C8F /* UIColor+Chameleon.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIColor+Chameleon.m"; path = "Pod/Classes/Objective-C/UIColor+Chameleon.m"; sourceTree = "<group>"; };
@@ -562,8 +562,8 @@
 		C22B78B14BB96E769A7F8217CFA6A971 /* UIView+ChameleonPrivate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+ChameleonPrivate.m"; path = "Pod/Classes/Objective-C/UIView+ChameleonPrivate.m"; sourceTree = "<group>"; };
 		C22DDA6E8EA84FC98BAE3836C1C6FB28 /* ShoutFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ShoutFactory.swift; path = Source/ShoutFactory.swift; sourceTree = "<group>"; };
 		C299EBB416D2D5BA7FE8721F9AB9DA0D /* Whisper-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Whisper-dummy.m"; sourceTree = "<group>"; };
-		C2B1DB3F1EA64CC7B6C50BF96328F24F /* JiroTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JiroTextField.swift; path = TextFieldEffects/TextFieldEffects/JiroTextField.swift; sourceTree = "<group>"; };
 		C370B740D34A5B1365F3139EF4F103B8 /* TabPageViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = TabPageViewController.framework; path = TabPageViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7141A257804F031F155C27E77312E82 /* MinoruTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MinoruTextField.swift; path = TextFieldEffects/TextFieldEffects/MinoruTextField.swift; sourceTree = "<group>"; };
 		C743491E38760C99053F9EF6CA50F03A /* Pods-Stats.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Stats.debug.xcconfig"; sourceTree = "<group>"; };
 		C78A031E4CCDAD51247C4D7592FEAD49 /* UIViewController+Chameleon.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+Chameleon.m"; path = "Pod/Classes/Objective-C/UIViewController+Chameleon.m"; sourceTree = "<group>"; };
 		C875B86E01267CDE24660B7593D16210 /* Resource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Resource.swift; path = Sources/Resource.swift; sourceTree = "<group>"; };
@@ -575,8 +575,8 @@
 		CCAF98FF66D97329CFD817AAE1BCCA06 /* IGListStackedSectionController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IGListStackedSectionController.m; path = Source/IGListStackedSectionController.m; sourceTree = "<group>"; };
 		CCDA97C30D84870FC12714B3DEC1E274 /* IGListAdapterUpdaterDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListAdapterUpdaterDelegate.h; path = Source/IGListAdapterUpdaterDelegate.h; sourceTree = "<group>"; };
 		CD32B41A2882AE32531DAA3C098F1ED9 /* UIImage+ChameleonPrivate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+ChameleonPrivate.m"; path = "Pod/Classes/Objective-C/UIImage+ChameleonPrivate.m"; sourceTree = "<group>"; };
-		CE370116870311D96769BC34E020745B /* TextFieldEffects-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TextFieldEffects-dummy.m"; sourceTree = "<group>"; };
 		CE76623F9051EC4DF7BE9B25E4757281 /* LTMorphingLabel-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LTMorphingLabel-umbrella.h"; sourceTree = "<group>"; };
+		D0313ED782F5655A40978966E471FB61 /* TextFieldEffects.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextFieldEffects.swift; path = TextFieldEffects/TextFieldEffects/TextFieldEffects.swift; sourceTree = "<group>"; };
 		D04D7A7491883372336C9B2DFEE5144E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D17A402C54A2EE6E8D74C13DBA864FE5 /* TabView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TabView.swift; path = Sources/TabView.swift; sourceTree = "<group>"; };
 		D266CB05610CEE3255F1441C950B833B /* IGListIndexPathResult.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IGListIndexPathResult.m; path = Source/Common/IGListIndexPathResult.m; sourceTree = "<group>"; };
@@ -588,7 +588,7 @@
 		D53A3E07C10F100FEC3BC487CF70CAB5 /* IGListSingleSectionController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListSingleSectionController.h; path = Source/IGListSingleSectionController.h; sourceTree = "<group>"; };
 		D75C3474C86DA4EA9691FD8EA6A37526 /* Marshaling.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Marshaling.swift; path = Sources/Marshaling.swift; sourceTree = "<group>"; };
 		D7C85BD18F2FC97D9C7C5D17318D7A2D /* TabPageViewController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TabPageViewController-umbrella.h"; sourceTree = "<group>"; };
-		D906C592631F67CAB481599A6738C1B4 /* MinoruTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MinoruTextField.swift; path = TextFieldEffects/TextFieldEffects/MinoruTextField.swift; sourceTree = "<group>"; };
+		D84BCB7C737DF73A597E63771FAD22DA /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D92D24FE1B966BCEDEB4DA80D3FD1C53 /* IGListUpdatingDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListUpdatingDelegate.h; path = Source/IGListUpdatingDelegate.h; sourceTree = "<group>"; };
 		D97B038E1EF309421A1E0C3D58388109 /* TabPageViewController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = TabPageViewController.modulemap; sourceTree = "<group>"; };
 		D9B6F4A76E209A4EAFCF928B469C2B89 /* TabPageViewController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TabPageViewController-dummy.m"; sourceTree = "<group>"; };
@@ -609,11 +609,9 @@
 		E56373EAD00687F90646CE1D804DB957 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E63BF3783E65B7139A4E5065B9054CE6 /* Chameleon_.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = Chameleon_.m; path = "Pod/Classes/Objective-C/Chameleon_.m"; sourceTree = "<group>"; };
 		E683F739EEBABB04BB26B83452A62FAC /* IGListSectionControllerInternal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListSectionControllerInternal.h; path = Source/Internal/IGListSectionControllerInternal.h; sourceTree = "<group>"; };
-		E6ED82AC7B6255154DCADB46D7C64E5F /* HoshiTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HoshiTextField.swift; path = TextFieldEffects/TextFieldEffects/HoshiTextField.swift; sourceTree = "<group>"; };
 		E713A379A9A26040C4C3C65EE323AEB2 /* TabPageViewController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TabPageViewController-prefix.pch"; sourceTree = "<group>"; };
 		E76E81E4FEB90D844550A1655E10E481 /* IGListDiff.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = IGListDiff.mm; path = Source/Common/IGListDiff.mm; sourceTree = "<group>"; };
 		E7DD42DAF78AE379C6030AD3BBF2771C /* Box.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Box.swift; path = Sources/Box.swift; sourceTree = "<group>"; };
-		E86ACC8B0704226BD3856B5BECCD5101 /* TextFieldEffects.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TextFieldEffects.xcconfig; sourceTree = "<group>"; };
 		E9358431A6128BD2F1E996F5640C8D07 /* IGListAdapterDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListAdapterDelegate.h; path = Source/IGListAdapterDelegate.h; sourceTree = "<group>"; };
 		E977150780BD62913610FBF6FFB34868 /* IGListDisplayDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListDisplayDelegate.h; path = Source/IGListDisplayDelegate.h; sourceTree = "<group>"; };
 		EAB8F84D6836B61F0E26E016E75AB6A0 /* IGListKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IGListKit-umbrella.h"; sourceTree = "<group>"; };
@@ -625,7 +623,6 @@
 		EE2F45A9FA61F924D599A4CAAF76C847 /* GTMSessionUploadFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMSessionUploadFetcher.h; path = Source/GTMSessionUploadFetcher.h; sourceTree = "<group>"; };
 		EE8692C2BE71AD89E4722F2C46BD28D3 /* UIButton+Kingfisher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIButton+Kingfisher.swift"; path = "Sources/UIButton+Kingfisher.swift"; sourceTree = "<group>"; };
 		EFF4F650F1CB88E2CC77405D3313B8DB /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = GTMSessionFetcher.framework; path = GTMSessionFetcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F01CE918E4DC6A8517EEC27C79E5E4E3 /* KaedeTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KaedeTextField.swift; path = TextFieldEffects/TextFieldEffects/KaedeTextField.swift; sourceTree = "<group>"; };
 		F1C38A0D558A872A9EC27444050619EC /* IGListSupplementaryViewSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListSupplementaryViewSource.h; path = Source/IGListSupplementaryViewSource.h; sourceTree = "<group>"; };
 		F1FF23896B821C2F6164EF40BF826F20 /* WhistleFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WhistleFactory.swift; path = Source/WhistleFactory.swift; sourceTree = "<group>"; };
 		F262E26EEF970550A0E72325A9259003 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = Frameworks/FirebaseAnalytics.framework; sourceTree = "<group>"; };
@@ -633,10 +630,13 @@
 		F3DF616C5671AF37845194F4524774B6 /* IGListExperiments.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListExperiments.h; path = Source/Common/IGListExperiments.h; sourceTree = "<group>"; };
 		F3EAB7102E9ADCEB18B05804ACAA8D83 /* Showing.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Showing.swift; path = Source/Showing.swift; sourceTree = "<group>"; };
 		F41C592D6B06D95D12EC86F320F91DAB /* UICollectionView+IGListBatchUpdateData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UICollectionView+IGListBatchUpdateData.h"; path = "Source/Internal/UICollectionView+IGListBatchUpdateData.h"; sourceTree = "<group>"; };
+		F4435FAC6254562C3DE960576493E390 /* TextFieldEffects-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TextFieldEffects-prefix.pch"; sourceTree = "<group>"; };
 		F5B4ED024C6F3C7F1AABAE34D36B5722 /* ChameleonFramework.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = ChameleonFramework.modulemap; sourceTree = "<group>"; };
 		F6DEBE9E814320DBEB22A67DC72B3C68 /* LTCharacterLimbo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LTCharacterLimbo.swift; path = LTMorphingLabel/LTCharacterLimbo.swift; sourceTree = "<group>"; };
+		F8049B48D24AE59235FBA0BDEF94E738 /* TextFieldEffects-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TextFieldEffects-umbrella.h"; sourceTree = "<group>"; };
 		F9CD9F1B3C72D618A4593774FBBE068A /* IGListMoveIndexPathInternal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListMoveIndexPathInternal.h; path = Source/Common/Internal/IGListMoveIndexPathInternal.h; sourceTree = "<group>"; };
 		FAF3D92EFB7F07F5CF07620C1B769E42 /* Pods_Stats.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Stats.framework; path = "Pods-Stats.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB598D2BBBAD06296760BAD8221DB5B7 /* TextFieldEffects.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TextFieldEffects.xcconfig; sourceTree = "<group>"; };
 		FB7616EDD6AAEF4E5F76799301B384A2 /* LTCharacterDiffResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LTCharacterDiffResult.swift; path = LTMorphingLabel/LTCharacterDiffResult.swift; sourceTree = "<group>"; };
 		FB767CA5BD43AB1049907AE60E1CD338 /* ChameleonConstants.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ChameleonConstants.m; path = "Pod/Classes/Objective-C/ChameleonConstants.m"; sourceTree = "<group>"; };
 		FB84EE4393A9C84B560B589AE22CF583 /* LTMorphingEffect.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LTMorphingEffect.swift; path = LTMorphingLabel/LTMorphingEffect.swift; sourceTree = "<group>"; };
@@ -770,20 +770,6 @@
 				58E3ACF0C4A56F0ECC143FF63820F67F /* TabView.xib */,
 			);
 			name = Resources;
-			sourceTree = "<group>";
-		};
-		050D03645358F693F531FFE200402D1F /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				A4D32FD2E2252F628F5DBD45F1DE62FB /* Info.plist */,
-				B12A9E81B3720FD440BAD9B401FC3843 /* TextFieldEffects.modulemap */,
-				E86ACC8B0704226BD3856B5BECCD5101 /* TextFieldEffects.xcconfig */,
-				CE370116870311D96769BC34E020745B /* TextFieldEffects-dummy.m */,
-				0DE05AB175D0C158F79E41CDD36CB845 /* TextFieldEffects-prefix.pch */,
-				07CDAB99B1FB4DAE52C512E139D22C43 /* TextFieldEffects-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/TextFieldEffects";
 			sourceTree = "<group>";
 		};
 		06B2AA9C65769FF48B8A58A7C85442D4 /* NSData+zlib */ = {
@@ -952,25 +938,6 @@
 			path = Whisper;
 			sourceTree = "<group>";
 		};
-		31570320E695CB51349E4D4ABF403B1D /* TextFieldEffects */ = {
-			isa = PBXGroup;
-			children = (
-				141961A2B377DB87CA2CCBD2CA921CED /* AkiraTextField.swift */,
-				E6ED82AC7B6255154DCADB46D7C64E5F /* HoshiTextField.swift */,
-				84DCC6D6181BC2F87E32323F5AC98AA4 /* IsaoTextField.swift */,
-				C2B1DB3F1EA64CC7B6C50BF96328F24F /* JiroTextField.swift */,
-				F01CE918E4DC6A8517EEC27C79E5E4E3 /* KaedeTextField.swift */,
-				A6897480B51564E594BFB6A1E0679BB1 /* MadokaTextField.swift */,
-				D906C592631F67CAB481599A6738C1B4 /* MinoruTextField.swift */,
-				BD2A5B42BF55E20055319C8DE2B917AA /* TextFieldsEffects.swift */,
-				6E0660288935B4BAEE02B66BCB117FC5 /* YokoTextField.swift */,
-				31405EBC8B682C6EFA1E23A3F22D5AEA /* YoshikoTextField.swift */,
-				050D03645358F693F531FFE200402D1F /* Support Files */,
-			);
-			name = TextFieldEffects;
-			path = TextFieldEffects;
-			sourceTree = "<group>";
-		};
 		337F3EAA07916543E74BE2473D8F878B /* GoogleToolboxForMac */ = {
 			isa = PBXGroup;
 			children = (
@@ -1115,6 +1082,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		747B02789AF84551F6547BD8CA560E4C /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				D84BCB7C737DF73A597E63771FAD22DA /* Info.plist */,
+				637A25D009D686B417656E3EE234CCE1 /* TextFieldEffects.modulemap */,
+				FB598D2BBBAD06296760BAD8221DB5B7 /* TextFieldEffects.xcconfig */,
+				9FC7D97322E96059AF828AE195FE833C /* TextFieldEffects-dummy.m */,
+				F4435FAC6254562C3DE960576493E390 /* TextFieldEffects-prefix.pch */,
+				F8049B48D24AE59235FBA0BDEF94E738 /* TextFieldEffects-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/TextFieldEffects";
+			sourceTree = "<group>";
+		};
 		7CA0586734B7DE51BC94AB1776AECB0A /* FirebaseStorage */ = {
 			isa = PBXGroup;
 			children = (
@@ -1147,6 +1128,25 @@
 				11187623B3EE1972119D41F0652F3D13 /* Products */,
 				1449E1521AC829228898080ED931959A /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		87DEBD24A214119504B84E3041153408 /* TextFieldEffects */ = {
+			isa = PBXGroup;
+			children = (
+				72CF6C2E184BE4F1FCF098D6324BB0B2 /* AkiraTextField.swift */,
+				64C301ADA718305F02EABC0264A8EC4A /* HoshiTextField.swift */,
+				2182516DCE854CD325298819478B5552 /* IsaoTextField.swift */,
+				1D7CFCC94543FC926A277D919A91AEC8 /* JiroTextField.swift */,
+				71C9ECEC1648719971AF1059FED946E4 /* KaedeTextField.swift */,
+				0FEED9DC6F2D067721F13B976BF17E70 /* MadokaTextField.swift */,
+				C7141A257804F031F155C27E77312E82 /* MinoruTextField.swift */,
+				D0313ED782F5655A40978966E471FB61 /* TextFieldEffects.swift */,
+				414FF22126F64CC756C82556F7B06DE8 /* YokoTextField.swift */,
+				693C382D0DAECFB69FA32846C26FB2BA /* YoshikoTextField.swift */,
+				747B02789AF84551F6547BD8CA560E4C /* Support Files */,
+			);
+			name = TextFieldEffects;
+			path = TextFieldEffects;
 			sourceTree = "<group>";
 		};
 		8E1B63B48E73A1BB3B3A60DE0CF42534 /* Support Files */ = {
@@ -1355,7 +1355,7 @@
 				E219ABF5BD202C9AE6A1A977E5D89C3D /* Marshal */,
 				6123D31BA1B717ECF8AD5281356A2E60 /* Presentr */,
 				41B57CFFA7F7327743C719B7EF796216 /* TabPageViewController */,
-				31570320E695CB51349E4D4ABF403B1D /* TextFieldEffects */,
+				87DEBD24A214119504B84E3041153408 /* TextFieldEffects */,
 				30CFAE81113968004E390D67574E8342 /* Whisper */,
 			);
 			name = Pods;
@@ -1800,7 +1800,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0C573524DC36837602F079115DC6C731 /* Build configuration list for PBXNativeTarget "TextFieldEffects" */;
 			buildPhases = (
-				E3BA0FF71EB5C0D2573FE14C6445AAAF /* Sources */,
+				9A4879E3BD0604FD7F9176C1B80D3B04 /* Sources */,
 				02EDAC0B4770966175CA6DD0BEC84562 /* Frameworks */,
 				2C4978982CACB518D3CA2408690741BF /* Headers */,
 			);
@@ -2053,6 +2053,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9A4879E3BD0604FD7F9176C1B80D3B04 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A4E55324398DBBEBC47CB0EE598B7A4 /* AkiraTextField.swift in Sources */,
+				96DA8451C8D797132BCB41C3434EF124 /* HoshiTextField.swift in Sources */,
+				8C4A7466C23DDFF202C0128F03134DDF /* IsaoTextField.swift in Sources */,
+				A3CE00135DEF1BD7E2B99EE5A637C669 /* JiroTextField.swift in Sources */,
+				681122DA9991946D646799A614E7A23C /* KaedeTextField.swift in Sources */,
+				2E2C2A25CEE79EF4FA48ACDCD01F597E /* MadokaTextField.swift in Sources */,
+				09D43B8E760FEEC85F5EC4A35B1FA94E /* MinoruTextField.swift in Sources */,
+				2FF7E333E7E37753B75C16F5F75AB33D /* TextFieldEffects-dummy.m in Sources */,
+				A4F265D84FBCC96D8829406B2DA58526 /* TextFieldEffects.swift in Sources */,
+				7582AC52EACB1DDA4D69AD80A2C2743F /* YokoTextField.swift in Sources */,
+				05F43CF2BC38E72BF2CDA8CAA595E66D /* YoshikoTextField.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C2148E24A7DEBAC5E111F7BEEFA377DC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2108,24 +2126,6 @@
 				DF6D14394D19505EEAD6A24517CE4419 /* NSNumber+IGListDiffable.m in Sources */,
 				D7AF08A6B540404647B64F38B14E0C14 /* NSString+IGListDiffable.m in Sources */,
 				96430F594BFC145867C96B1AD5BF746E /* UICollectionView+IGListBatchUpdateData.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E3BA0FF71EB5C0D2573FE14C6445AAAF /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6C1B6B918D2A89CD1E1019A4E7429965 /* AkiraTextField.swift in Sources */,
-				F9EFEC009AB7D98B12FFAAA810069E9D /* HoshiTextField.swift in Sources */,
-				2D5F31FE5449BC0B74F1AC8F70B8D519 /* IsaoTextField.swift in Sources */,
-				C8E11612E03D33D33571DBB8292C3A77 /* JiroTextField.swift in Sources */,
-				6482B25833FF12EAC2F325D748CB9123 /* KaedeTextField.swift in Sources */,
-				37E300DB8CB7AF128D53F6C28BE216D0 /* MadokaTextField.swift in Sources */,
-				F7B999B51CAA5C682875FBC0E8467652 /* MinoruTextField.swift in Sources */,
-				BF1FE181A6732BAD7AE32AD3CA7DDD9B /* TextFieldEffects-dummy.m in Sources */,
-				B7BE9FF764CF544C10966C06A3D2B68C /* TextFieldsEffects.swift in Sources */,
-				EF227DFA60EF0F1C38D21C4DF8C7B49A /* YokoTextField.swift in Sources */,
-				6B88667F35F9EEAF90ED6928D49850F6 /* YoshikoTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2601,7 +2601,7 @@
 		};
 		54794C9C7F118CB1D36205B6B87F7FF1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E86ACC8B0704226BD3856B5BECCD5101 /* TextFieldEffects.xcconfig */;
+			baseConfigurationReference = FB598D2BBBAD06296760BAD8221DB5B7 /* TextFieldEffects.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -3098,7 +3098,7 @@
 		};
 		FF4CB021156ECC99E1E61EE1E5606F80 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E86ACC8B0704226BD3856B5BECCD5101 /* TextFieldEffects.xcconfig */;
+			baseConfigurationReference = FB598D2BBBAD06296760BAD8221DB5B7 /* TextFieldEffects.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";

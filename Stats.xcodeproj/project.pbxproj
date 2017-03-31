@@ -18,6 +18,7 @@
 		A14B64F21E8D696800CBDE92 /* AddTeamToUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B64F11E8D696800CBDE92 /* AddTeamToUser.swift */; };
 		A14B64F41E8E04CA00CBDE92 /* GetUserTeams.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B64F31E8E04CA00CBDE92 /* GetUserTeams.swift */; };
 		A14B64F61E8E0E5400CBDE92 /* FirebaseNetworkAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B64F51E8E0E5400CBDE92 /* FirebaseNetworkAccess.swift */; };
+		A14B64F81E8E9D2300CBDE92 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A14B64F71E8E9D2300CBDE92 /* GoogleService-Info.plist */; };
 		A179996E1E82B64A0058A002 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A179996D1E82B64A0058A002 /* User.swift */; };
 		A17999701E82B67C0058A002 /* LoadICloudUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A179996F1E82B67C0058A002 /* LoadICloudUser.swift */; };
 		A179997D1E82B8BD0058A002 /* NSDate+ValueType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A179997C1E82B8BD0058A002 /* NSDate+ValueType.swift */; };
@@ -82,6 +83,7 @@
 		A14B64F11E8D696800CBDE92 /* AddTeamToUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTeamToUser.swift; sourceTree = "<group>"; };
 		A14B64F31E8E04CA00CBDE92 /* GetUserTeams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUserTeams.swift; sourceTree = "<group>"; };
 		A14B64F51E8E0E5400CBDE92 /* FirebaseNetworkAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseNetworkAccess.swift; sourceTree = "<group>"; };
+		A14B64F71E8E9D2300CBDE92 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A179996D1E82B64A0058A002 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A179996F1E82B67C0058A002 /* LoadICloudUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadICloudUser.swift; sourceTree = "<group>"; };
 		A17999711E82B6930058A002 /* SaveNewUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveNewUser.swift; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 		A1868F981E802C1F00C191EC /* Misc */ = {
 			isa = PBXGroup;
 			children = (
+				A14B64F71E8E9D2300CBDE92 /* GoogleService-Info.plist */,
 				A1DC99D91E7E3E4500C6FF8C /* Assets.xcassets */,
 				A1F959381E8959C60087B040 /* LemonMilk.otf */,
 				A1DC99DE1E7E3E4500C6FF8C /* Info.plist */,
@@ -413,6 +416,7 @@
 				A1F959391E8959C60087B040 /* LemonMilk.otf in Resources */,
 				A14B64EC1E8D65C500CBDE92 /* CreateTeamViewController.storyboard in Resources */,
 				A1A2C3641E8BF6020008274F /* TeamHeaderCell.xib in Resources */,
+				A14B64F81E8E9D2300CBDE92 /* GoogleService-Info.plist in Resources */,
 				A1A2C3721E8C11F30008274F /* EmailViewController.storyboard in Resources */,
 				A17999971E82DFF00058A002 /* LaunchScreen.storyboard in Resources */,
 				A1A2C36F1E8C0F4C0008274F /* AvatarViewController.storyboard in Resources */,

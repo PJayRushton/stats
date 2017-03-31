@@ -9,7 +9,7 @@
 import UIKit
 import Marshal
 
-struct User: Unmarshaling {
+struct User: Identifiable, Unmarshaling {
     
     var id: String
     var username: String
@@ -26,7 +26,6 @@ struct User: Unmarshaling {
         self.avatarURLString = avatarURLString
         self.email = email
         
-        self.recentTeamId = recentTeamId
         self.ownedTeamIds = ownedTeamIds
         self.managedTeamIds = managedTeamIds
         self.fanTeamIds = fanTeamIds

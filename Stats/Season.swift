@@ -9,7 +9,7 @@
 import UIKit
 import Marshal
 
-struct Season: Marshaling, Unmarshaling {
+struct Season: Identifiable, Unmarshaling {
     
     var id: String
     var isCompleted: Bool
@@ -27,8 +27,12 @@ struct Season: Marshaling, Unmarshaling {
         id = try object.value(for: idKey)
         isCompleted = try object.value(for: isCompletedKey)
         name = try object.value(for: nameKey)
-        team = try object.value(for: teamIdKey)
+        teamId = try object.value(for: teamIdKey)
     }
+    
+}
+
+extension Season: Marshaling {
     
     func marshaled() -> JSONObject {
         var json = JSONObject()

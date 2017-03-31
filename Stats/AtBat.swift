@@ -18,7 +18,7 @@ enum AtBatCode: String {
     case hr
 }
 
-struct AtBat: Unmarshaling {
+struct AtBat: Identifiable, Unmarshaling {
     
     var id: String
     var gameId: String

@@ -13,4 +13,10 @@ target 'Stats' do
   pod 'TextFieldEffects'
   pod 'Kingfisher'
   
+  pod 'Firebase'
+  pod 'Firebase/Core'
+  pod 'Firebase/Database'
+  pod 'Firebase/Storage'
+  pod 'Firebase/AdMob'
+  
 end

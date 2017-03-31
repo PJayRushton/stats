@@ -38,7 +38,6 @@
 		A1A2C35E1E8BF3680008274F /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2C35D1E8BF3680008274F /* Component.swift */; };
 		A1A2C3631E8BF6020008274F /* TeamHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2C3611E8BF6020008274F /* TeamHeaderCell.swift */; };
 		A1A2C3641E8BF6020008274F /* TeamHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1A2C3621E8BF6020008274F /* TeamHeaderCell.xib */; };
-		A1A2C3671E8C006A0008274F /* UIImage+CKAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2C3661E8C006A0008274F /* UIImage+CKAsset.swift */; };
 		A1A2C3691E8C05150008274F /* HomeSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2C3681E8C05150008274F /* HomeSectionController.swift */; };
 		A1A2C36F1E8C0F4C0008274F /* AvatarViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1A2C36D1E8C0F4C0008274F /* AvatarViewController.storyboard */; };
 		A1A2C3721E8C11F30008274F /* EmailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1A2C3701E8C11F30008274F /* EmailViewController.storyboard */; };
@@ -106,7 +105,6 @@
 		A1A2C35D1E8BF3680008274F /* Component.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
 		A1A2C3611E8BF6020008274F /* TeamHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamHeaderCell.swift; sourceTree = "<group>"; };
 		A1A2C3621E8BF6020008274F /* TeamHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamHeaderCell.xib; sourceTree = "<group>"; };
-		A1A2C3661E8C006A0008274F /* UIImage+CKAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+CKAsset.swift"; sourceTree = "<group>"; };
 		A1A2C3681E8C05150008274F /* HomeSectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeSectionController.swift; sourceTree = "<group>"; };
 		A1A2C36E1E8C0F4C0008274F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AvatarViewController.storyboard; sourceTree = "<group>"; };
 		A1A2C3711E8C11F30008274F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = EmailViewController.storyboard; sourceTree = "<group>"; };
@@ -202,7 +200,6 @@
 				A17999831E82B9860058A002 /* SegueHandlerType.swift */,
 				A17999851E82B98E0058A002 /* StoryboardInitializable.swift */,
 				A17999871E82B9A60058A002 /* UIColorExtension.swift */,
-				A1A2C3661E8C006A0008274F /* UIImage+CKAsset.swift */,
 				A14B64DE1E8D3EC200CBDE92 /* UIViewControllerExtensions.swift */,
 			);
 			name = Helpers;
@@ -504,7 +501,6 @@
 				A17999921E82DF300058A002 /* HomeMenuItem.swift in Sources */,
 				A1868F9D1E802DDD00C191EC /* Result.swift in Sources */,
 				A1BF9C461E8B22B2007341EA /* GetCurrentUser.swift in Sources */,
-				A1A2C3671E8C006A0008274F /* UIImage+CKAsset.swift in Sources */,
 				A1CD9A1B1E8AACAB00D3C8F7 /* CheckUsernameAvailability.swift in Sources */,
 				A17999841E82B9860058A002 /* SegueHandlerType.swift in Sources */,
 				A1B41C241E85A4B300FAC930 /* Team.swift in Sources */,

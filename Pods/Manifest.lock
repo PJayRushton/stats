@@ -2,6 +2,37 @@ PODS:
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
+  - Firebase (3.15.0):
+    - Firebase/Core (= 3.15.0)
+  - Firebase/AdMob (3.15.0):
+    - Firebase/Core
+    - Google-Mobile-Ads-SDK (= 7.19.0)
+  - Firebase/Core (3.15.0):
+    - FirebaseAnalytics (= 3.7.0)
+    - FirebaseCore (= 3.5.2)
+  - Firebase/Database (3.15.0):
+    - Firebase/Core
+    - FirebaseDatabase (= 3.1.2)
+  - Firebase/Storage (3.15.0):
+    - Firebase/Core
+    - FirebaseStorage (= 1.1.0)
+  - FirebaseAnalytics (3.7.0):
+    - FirebaseCore (~> 3.5)
+    - FirebaseInstanceID (~> 1.0)
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+  - FirebaseCore (3.5.2):
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+  - FirebaseDatabase (3.1.2):
+    - FirebaseAnalytics (~> 3.7)
+  - FirebaseInstanceID (1.0.9)
+  - FirebaseStorage (1.1.0):
+    - FirebaseAnalytics (~> 3.7)
+    - GTMSessionFetcher/Core (~> 1.1)
+  - Google-Mobile-Ads-SDK (7.19.0)
+  - GoogleToolboxForMac/Defines (2.1.1)
+  - GoogleToolboxForMac/NSData+zlib (2.1.1):
+    - GoogleToolboxForMac/Defines (= 2.1.1)
+  - GTMSessionFetcher/Core (1.1.9)
   - IGListKit (2.1.0):
     - IGListKit/Default (= 2.1.0)
   - IGListKit/Default (2.1.0):
@@ -17,6 +48,11 @@ PODS:
 
 DEPENDENCIES:
   - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
+  - Firebase
+  - Firebase/AdMob
+  - Firebase/Core
+  - Firebase/Database
+  - Firebase/Storage
   - IGListKit
   - Kingfisher
   - LTMorphingLabel
@@ -37,6 +73,15 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
+  Firebase: 2b1cdfba1cda8589f32904a697cc753322bff9d8
+  FirebaseAnalytics: 0d1b7d81d5021155be37702a94ba1ec16d45365d
+  FirebaseCore: a024587e43778508700af8c6b1209f7c4516ba02
+  FirebaseDatabase: 05c96d7b43a7368dc91c07791adb49683e1738d1
+  FirebaseInstanceID: 2d0518b1378fe9d685ef40cbdd63d2fdc1125339
+  FirebaseStorage: a5c55b23741a49a72af8f30f95b3bb5ddbeda12d
+  Google-Mobile-Ads-SDK: d1bcdbd8347a105a687345b8511701172a5074e9
+  GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
+  GTMSessionFetcher: 5c046c76a1f859bc9c187e918f18e4fc7bb57b5e
   IGListKit: b826c68ef7a4ae1626c09d4d3e1ea7a169e6c36e
   Kingfisher: 300035f9a40634dc9b452d946c9f22250688fecd
   LTMorphingLabel: d9a85f16ac306f0e07321d6819964deb2dc69638
@@ -46,6 +91,6 @@ SPEC CHECKSUMS:
   TextFieldEffects: faa47d428ee8eafb781a8413ac4345420d2328c4
   Whisper: 08be92623311f8e53201e62e17f6d7b9599a4714
 
-PODFILE CHECKSUM: c3e48cc299e11fc8014052494202f87718b24271
+PODFILE CHECKSUM: 5711ec836f938d93393b1c478e3a562c8eaaf690
 
 COCOAPODS: 1.1.1

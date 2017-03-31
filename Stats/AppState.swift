@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import CloudKit
 
 enum App {
     static let core = Core(state: AppState(), middlewares: [/*UserMiddleware()*/])
@@ -37,14 +36,6 @@ struct AppState: State {
 }
 
 extension Command {
-    
-    var publicDatabase: CKDatabase {
-        return CKContainer.default().publicCloudDatabase
-    }
-    
-    var cloudManager: CloudKitManager {
-        return CloudKitManager()
-    }
     
 }
 

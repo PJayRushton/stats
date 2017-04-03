@@ -30,6 +30,10 @@ struct TeamState: State {
             } else {
                 currentTeam = allTeams.sorted { $0.touchDate < $1.touchDate }.first
             }
+        case let event as Selected<User>:
+            if let user = event.item, user.allTeamIds.isEmpty {
+                isLoaded = true
+            }
         default:
             break
         }

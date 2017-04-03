@@ -77,7 +77,7 @@ class HomeViewController: Component, AutoStoryboardInitializable {
     // MARK: - Subscriber
     
     override func update(with state: AppState) {
-        if state.userState.currentUser == nil && state.userState.isLoaded && !isPresentingOnboarding {
+        if state.userState.currentUser == nil, state.userState.isLoaded, !isPresentingOnboarding {
             isPresentingOnboarding = true
             let usernameVC = UsernameViewController.initializeFromStoryboard().embededInNavigationController
             present(usernameVC, animated: true)

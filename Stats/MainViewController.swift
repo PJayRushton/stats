@@ -35,7 +35,7 @@ class MainViewController: Component {
     // MARK: - Subscriber
     
     override func update(with state: AppState) {
-        if let _ = state.userState.currentUser, state.userState.isLoaded && state.teamState.isLoaded {
+        if let _ = state.userState.currentUser, state.userState.isLoaded, state.teamState.isLoaded {
             presentApplication()
         } else {
             showLoadingScreen()

@@ -29,6 +29,7 @@ struct UserState: State {
             isLoaded = true
         case let event as Subscribed<User>:
             isSubscribed = event.item != nil
+            isLoaded = true
         default:
             break
         }

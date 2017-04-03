@@ -1,4 +1,6 @@
 PODS:
+  - AIFlatSwitch (1.0.1)
+  - BetterSegmentedControl (0.7)
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
@@ -47,6 +49,8 @@ PODS:
   - Whisper (4.0.0)
 
 DEPENDENCIES:
+  - AIFlatSwitch (~> 1.0.1)
+  - BetterSegmentedControl
   - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
   - Firebase
   - Firebase/AdMob
@@ -72,6 +76,8 @@ CHECKOUT OPTIONS:
     :git: https://github.com/ViccAlexander/Chameleon.git
 
 SPEC CHECKSUMS:
+  AIFlatSwitch: 5b121a4a90a06f0fbd72e9f1fe9bb30e64d67177
+  BetterSegmentedControl: 0b4dde1caac22de345820858a5e2789132378c1c
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   Firebase: 2b1cdfba1cda8589f32904a697cc753322bff9d8
   FirebaseAnalytics: 0d1b7d81d5021155be37702a94ba1ec16d45365d
@@ -91,6 +97,6 @@ SPEC CHECKSUMS:
   TextFieldEffects: 9e5cce561ea39c75b86e9d3637601727a67e8b23
   Whisper: 08be92623311f8e53201e62e17f6d7b9599a4714
 
-PODFILE CHECKSUM: 5711ec836f938d93393b1c478e3a562c8eaaf690
+PODFILE CHECKSUM: ee263967e1ed47ced48ffa97c3f07ec89a5b5005
 
 COCOAPODS: 1.1.1

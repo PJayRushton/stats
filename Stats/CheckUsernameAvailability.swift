@@ -14,9 +14,9 @@ struct CheckUsernameAvailability: Command {
     var username: String
     
     func execute(state: AppState, core: Core<AppState>) {
-        let ref = networkController.usersRef
+        let ref = networkAccess.usersRef
         let query = ref.queryOrdered(byChild: usernameKey).queryEqual(toValue: username)
-        networkController.getData(withQuery: query) { result in
+        networkAccess.getData(withQuery: query) { result in
             let userResult = result.map(User.init)
             switch userResult {
             case .success:

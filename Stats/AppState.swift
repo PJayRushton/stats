@@ -37,7 +37,7 @@ struct AppState: State {
 
 extension Command {
     
-    var networkController: FirebaseNetworkAccess {
+    var networkAccess: FirebaseNetworkAccess {
         return FirebaseNetworkAccess()
     }
     
@@ -64,10 +64,6 @@ struct Updated<T>: Event {
         self.payload = payload
     }
     
-}
-
-struct ReachablilityChanged: Event {
-    var reachable: Bool
 }
 
 // ERROR

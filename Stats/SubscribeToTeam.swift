@@ -14,10 +14,10 @@ struct SubscribeToTeam: Command {
     var teamId: String
     
     func execute(state: AppState, core: Core<AppState>) {
-        let ref = networkController.teamsRef.child(teamId)
-        networkController.unsubscribe(from: ref)
+        let ref = networkAccess.teamsRef.child(teamId)
+        networkAccess.unsubscribe(from: ref)
         
-        networkController.subscribe(to: ref) { result in
+        networkAccess.subscribe(to: ref) { result in
             let teamResult = result.map(Team.init)
             switch teamResult {
             case let .success(team):

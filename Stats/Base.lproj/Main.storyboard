@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hDZ-v0-TRa">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="LemonMilk.otf">
+            <string>LemonMilk</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="478-BR-gSK">
+            <objects>
+                <viewController storyboardIdentifier="MainViewController" id="hDZ-v0-TRa" customClass="MainViewController" customModule="Stats" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gDR-92-1eY"/>
+                        <viewControllerLayoutGuide type="bottom" id="ePY-Cb-KZ5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HIe-jo-sx8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stock1" translatesAutoresizingMaskIntoConstraints="NO" id="bIl-2g-nVT">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="u30-Aa-mWP">
+                                <rect key="frame" x="118.5" y="20" width="137" height="167.5"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F24-IL-mnO">
+                                        <rect key="frame" x="0.0" y="0.0" width="137" height="100"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="St@s" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IlR-Xn-dxZ">
+                                        <rect key="frame" x="0.0" y="100" width="137" height="67.5"/>
+                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="50"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="bIl-2g-nVT" firstAttribute="top" secondItem="HIe-jo-sx8" secondAttribute="topMargin" id="EgK-QV-ih1"/>
+                            <constraint firstItem="u30-Aa-mWP" firstAttribute="centerX" secondItem="HIe-jo-sx8" secondAttribute="centerX" id="Gzg-vW-hkE"/>
+                            <constraint firstItem="u30-Aa-mWP" firstAttribute="top" secondItem="gDR-92-1eY" secondAttribute="bottom" id="RaA-vd-25i"/>
+                            <constraint firstItem="bIl-2g-nVT" firstAttribute="leading" secondItem="HIe-jo-sx8" secondAttribute="leading" id="b8U-kC-vGQ"/>
+                            <constraint firstAttribute="trailing" secondItem="bIl-2g-nVT" secondAttribute="trailing" id="gXz-Md-KFk"/>
+                            <constraint firstItem="F24-IL-mnO" firstAttribute="height" secondItem="HIe-jo-sx8" secondAttribute="height" multiplier="0.15" id="v26-Xj-3xZ"/>
+                            <constraint firstItem="ePY-Cb-KZ5" firstAttribute="top" secondItem="bIl-2g-nVT" secondAttribute="bottom" id="z8g-hs-2ak"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IMg-mn-ONb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="stock1" width="2500" height="3751"/>
+    </resources>
+</document>

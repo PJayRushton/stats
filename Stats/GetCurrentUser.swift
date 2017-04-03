@@ -13,8 +13,8 @@ struct GetCurrentUser: Command {
     var iCloudId: String
     
     func execute(state: AppState, core: Core<AppState>) {
-        let ref = networkController.usersRef.child(iCloudId)
-        networkController.getData(at: ref) { result in
+        let ref = networkAccess.usersRef.child(iCloudId)
+        networkAccess.getData(at: ref) { result in
             let userResult = result.map(User.init)
             switch userResult {
             case let .success(user):

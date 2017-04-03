@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="LemonMilk.otf">
+            <string>LemonMilk</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Manage Teams-->
+        <scene sceneID="e4R-YM-pBt">
+            <objects>
+                <viewController storyboardIdentifier="ManageTeamsViewController" automaticallyAdjustsScrollViewInsets="NO" id="ENf-at-8QV" customClass="ManageTeamsViewController" customModule="Stats" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aqq-ai-WSG"/>
+                        <viewControllerLayoutGuide type="bottom" id="CHA-Rd-f89"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Jps-Gb-f9e">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ve6-FG-hkK">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BasicHeaderCell" rowHeight="36" id="Xwy-mA-PIO" customClass="BasicHeaderCell" customModule="Stats" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="36"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xwy-mA-PIO" id="Gfw-zM-zgz">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="35.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3HB-0s-pZj">
+                                                    <rect key="frame" x="16" y="8" width="343" height="19"/>
+                                                    <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="3HB-0s-pZj" secondAttribute="bottom" id="5mj-vk-eDB"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="3HB-0s-pZj" secondAttribute="trailing" constant="8" id="6an-rs-a8e"/>
+                                                <constraint firstItem="3HB-0s-pZj" firstAttribute="leading" secondItem="Gfw-zM-zgz" secondAttribute="leadingMargin" constant="8" id="CQT-3L-ss2"/>
+                                                <constraint firstItem="3HB-0s-pZj" firstAttribute="top" secondItem="Gfw-zM-zgz" secondAttribute="topMargin" id="FjF-n3-WdL"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.88595640479769044" green="0.91607971379652775" blue="0.93506861449717316" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="ENf-at-8QV" id="tNg-N4-vlr"/>
+                                    <outlet property="delegate" destination="ENf-at-8QV" id="TQb-KA-ajr"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ve6-FG-hkK" firstAttribute="leading" secondItem="Jps-Gb-f9e" secondAttribute="leading" id="OYf-SS-9gu"/>
+                            <constraint firstItem="Ve6-FG-hkK" firstAttribute="top" secondItem="aqq-ai-WSG" secondAttribute="bottom" id="U8d-AO-y5v"/>
+                            <constraint firstItem="CHA-Rd-f89" firstAttribute="top" secondItem="Ve6-FG-hkK" secondAttribute="bottom" id="nPJ-FI-8Tj"/>
+                            <constraint firstAttribute="trailing" secondItem="Ve6-FG-hkK" secondAttribute="trailing" id="yuj-mI-hBI"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Manage Teams" id="Gxl-5k-Vq4">
+                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="hiz-lF-gQ2">
+                            <connections>
+                                <action selector="dismissButtonPressed:" destination="ENf-at-8QV" id="Dvj-WU-WFM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="dismissButton" destination="hiz-lF-gQ2" id="1Yy-eX-Z5j"/>
+                        <outlet property="tableView" destination="Ve6-FG-hkK" id="odC-6e-6gh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GSQ-yo-2Ug" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="260" y="223.53823088455775"/>
+        </scene>
+    </scenes>
+</document>

@@ -8,10 +8,22 @@
 
 import Foundation
 
-enum TeamOwnershipType {
+enum TeamOwnershipType: Int {
     case owned
     case managed
     case fan
+    
+    var sectionTitle: String {
+        switch self {
+        case .owned:
+            return NSLocalizedString("Coach", comment: "")
+        case .managed:
+            return NSLocalizedString("St@ Keeper", comment: "")
+        case .fan:
+            return NSLocalizedString("Player", comment: "")
+        }
+    }
+    static let allValues = [TeamOwnershipType.owned, .managed, .fan]
 }
 
 struct AddTeamToUser: Command {
@@ -34,8 +46,8 @@ struct AddTeamToUser: Command {
         case .fan:
             currentUser.managedTeamIds.append(team.id)
         }
-        let ref = networkController.currentUserRef(id: currentUser.id)
-        networkController.updateObject(at: ref, parameters: currentUser.marshaled(), completion: nil)
+        let ref = networkAccess.currentUserRef(id: currentUser.id)
+        networkAccess.updateObject(at: ref, parameters: currentUser.marshaled(), completion: nil)
     }
     
 }

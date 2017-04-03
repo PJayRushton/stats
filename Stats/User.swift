@@ -20,7 +20,7 @@ struct User: Identifiable, Unmarshaling {
     var managedTeamIds: [String]
     var fanTeamIds: [String]
     
-    var alTeamIds: [String] {
+    var allTeamIds: [String] {
         return [ownedTeamIds, managedTeamIds, fanTeamIds].joined().flatMap { $0 }
     }
     

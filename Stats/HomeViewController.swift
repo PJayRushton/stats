@@ -10,7 +10,7 @@ import UIKit
 import IGListKit
 import Presentr
 
-class HomeViewController: Component {
+class HomeViewController: Component, AutoStoryboardInitializable {
 
     // MARK: - IBOutlets
 
@@ -77,13 +77,24 @@ class HomeViewController: Component {
     // MARK: - Subscriber
     
     override func update(with state: AppState) {
-        if state.userState.currentUser == nil && state.userState.userIsLoaded && !isPresentingOnboarding {
+        if state.userState.currentUser == nil && state.userState.isLoaded && !isPresentingOnboarding {
             isPresentingOnboarding = true
             let usernameVC = UsernameViewController.initializeFromStoryboard().embededInNavigationController
             present(usernameVC, animated: true)
         }
         adapter.performUpdates(animated: true)
     }
+    
+}
+
+extension HomeViewController {
+    
+    func presentSettings() {
+        let settingsVC = SettingsViewController.initializeFromStoryboard().embededInNavigationController
+        present(settingsVC, animated: true, completion: nil)
+    }
+    
+    
 }
 
 
@@ -108,7 +119,7 @@ extension HomeViewController: IGListAdapterDataSource {
         case _ as TeamHeaderSection:
             guard let currentUser = core.state.userState.currentUser else { return IGListSectionController() }
             let headerController = TeamHeaderSectionController(user: currentUser)
-            headerController.settingsPressed = {}
+            headerController.settingsPressed = presentSettings
             headerController.editPressed = {}
             headerController.switchTeamPressed = {}
             return headerController

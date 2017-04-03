@@ -33,7 +33,7 @@ class TeamHeaderSectionController: IGListSectionController {
     var section: TeamHeaderSection!
     var user: User
     
-    var settingsPressed: (() -> Void) = { }
+    var settingsPressed: () -> Void = { }
     var editPressed: (() -> Void) = { }
     var switchTeamPressed: (() -> Void) = { }
     
@@ -61,6 +61,9 @@ extension TeamHeaderSectionController: IGListSectionType {
     func cellForItem(at index: Int) -> UICollectionViewCell {
         let cell = collectionContext?.dequeueReusableCell(withNibName: TeamHeaderCell.reuseIdentifier, bundle: nil, for: self, at: index) as! TeamHeaderCell
         cell.update(with: section.team, canEdit: user.isOwnerOrManager(of:section.team))
+        cell.settingsPressed = settingsPressed
+        cell.editPressed = editPressed
+        cell.switchTeamPressed = switchTeamPressed
         
         return cell
     }

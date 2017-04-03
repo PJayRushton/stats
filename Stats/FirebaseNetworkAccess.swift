@@ -59,6 +59,16 @@ struct FirebaseNetworkAccess {
         })
     }
     
+    func getObject<T: Identifiable>(at ref: FIRDatabaseReference, completion: ((Result<T>) -> Void)?) {
+        ref.observeSingleEvent(of: .value, with: { snap in
+            if let snapJSON = snap.value as? JSONObject, let object = try? T(object: snapJSON) {
+                completion?(Result.success(object))
+            } else {
+                completion?(Result.failure(FirebaseError.incorrectlyFormedData))
+            }
+        })
+    }
+    
     func getKeys(at ref: FIRDatabaseReference, completion: @escaping ((Result<[String]>) -> Void)) {
         ref.observeSingleEvent(of: FIRDataEventType.value, with: { snap in
             if let usernames = (snap.value as AnyObject).allKeys as? [String] , snap.exists() {
@@ -147,6 +157,5 @@ struct FirebaseNetworkAccess {
     func unsubscribe(from ref: FIRDatabaseReference) {
         ref.removeAllObservers()
     }
-    
     
 }

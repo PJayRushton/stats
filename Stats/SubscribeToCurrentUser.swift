@@ -8,21 +8,33 @@
 
 import Foundation
 
+struct Subscribed<T: Identifiable>: Event {
+    
+    var item: T?
+    
+    init(_ item: T?) {
+        self.item = item
+    }
+    
+}
+
 struct SubscribeToCurrentUser: Command {
     
     var id: String
     
     func execute(state: AppState, core: Core<AppState>) {
-        let ref = networkController.currentUserRef(id: id)
-        networkController.unsubscribe(from: ref)
+        let ref = networkAccess.currentUserRef(id: id)
+        networkAccess.unsubscribe(from: ref)
         
-        networkController.subscribe(to: ref) { result in
+        networkAccess.subscribe(to: ref) { result in
             let userResult = result.map(User.init)
             switch userResult {
             case let .success(user):
                 core.fire(event: Selected<User>(user))
+                core.fire(event: Subscribed<User>(user))
             case let .failure(error):
                 core.fire(event: Selected<User>(nil))
+                core.fire(event: Subscribed<User>(nil))
                 core.fire(event: ErrorEvent(error: error, message: nil))
             }
         }

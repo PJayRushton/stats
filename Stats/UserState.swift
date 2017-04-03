@@ -17,7 +17,8 @@ struct UserState: State {
     
     var iCloudId: String?
     var currentUser: User?
-    var userIsLoaded = false
+    var isLoaded = false
+    var isSubscribed = false
     
     mutating func react(to event: Event) {
         switch event {
@@ -25,7 +26,9 @@ struct UserState: State {
             iCloudId = event.id
         case let event as Selected<User>:
             currentUser = event.item
-            userIsLoaded = true
+            isLoaded = true
+        case let event as Subscribed<User>:
+            isSubscribed = event.item != nil
         default:
             break
         }

@@ -23,7 +23,7 @@ class SettingsViewController: Component, AutoStoryboardInitializable {
         var title: String? {
             switch self {
             case .teams:
-                return "Manage Teams"
+                return "Team Management"
             }
         }
         static let allValues = [SettingsSection.teams]
@@ -133,12 +133,14 @@ extension SettingsViewController: UITableViewDataSource {
 extension SettingsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         let section = SettingsSection(rawValue: indexPath.section)!
         let theRow = section.rows[indexPath.row]
         
         switch theRow {
         case .manageTeams:
             let manageTeamsVC = ManageTeamsViewController.initializeFromStoryboard()
+            manageTeamsVC.dismissable = false
             navigationController?.pushViewController(manageTeamsVC, animated: true)
         case .switchTeam:
             break

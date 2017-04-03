@@ -13,7 +13,7 @@ class BasicCell: UITableViewCell, AutoReuseIdentifiable {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
     
-    func update(withTitle title: String, detail: String?, accessory: UITableViewCellAccessoryType = .none) {
+    func update(withTitle title: String, detail: String? = nil, accessory: UITableViewCellAccessoryType = .none) {
         titleLabel.text = title
         detailLabel.text = detail
         accessoryType = accessory
@@ -21,6 +21,8 @@ class BasicCell: UITableViewCell, AutoReuseIdentifiable {
     
     func update(with team: Team) {
         titleLabel.text = team.name
+        detailLabel.text = nil
+        accessoryType = .disclosureIndicator
     }
     
 }

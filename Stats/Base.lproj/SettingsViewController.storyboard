@@ -34,6 +34,13 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="84"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bnh-bO-xKj" userLabel="Line view">
+                                            <rect key="frame" x="8" y="0.0" width="367" height="1"/>
+                                            <color key="backgroundColor" red="0.8784313725490196" green="0.8784313725490196" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="1" id="FpM-wZ-F2n"/>
+                                            </constraints>
+                                        </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="St@" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BO3-Fx-4zT">
                                             <rect key="frame" x="345" y="56" width="22" height="20"/>
                                             <constraints>
@@ -46,8 +53,11 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
+                                        <constraint firstItem="bnh-bO-xKj" firstAttribute="top" secondItem="BUe-N7-WfE" secondAttribute="top" id="Pwz-ZY-cOL"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="BO3-Fx-4zT" secondAttribute="bottom" id="lqK-iO-uc0"/>
                                         <constraint firstAttribute="trailing" secondItem="BO3-Fx-4zT" secondAttribute="trailing" constant="8" id="tGH-hm-B7x"/>
+                                        <constraint firstItem="bnh-bO-xKj" firstAttribute="leading" secondItem="BUe-N7-WfE" secondAttribute="leadingMargin" id="vQl-G5-MBM"/>
+                                        <constraint firstAttribute="trailing" secondItem="bnh-bO-xKj" secondAttribute="trailing" id="xwR-at-fmy"/>
                                     </constraints>
                                 </view>
                                 <connections>

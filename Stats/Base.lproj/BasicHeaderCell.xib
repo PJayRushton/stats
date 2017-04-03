@@ -17,16 +17,16 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BasicHeaderCell" rowHeight="57" id="cfg-ao-n9Z" customClass="BasicHeaderCell" customModule="Stats" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="57"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BasicHeaderCell" rowHeight="32" id="cfg-ao-n9Z" customClass="BasicHeaderCell" customModule="Stats" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="32"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cfg-ao-n9Z" id="YQF-qX-Iw9">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="31.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uUq-Cs-eKN">
-                        <rect key="frame" x="16" y="8" width="343" height="40.5"/>
-                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
+                        <rect key="frame" x="16" y="8" width="343" height="15.5"/>
+                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -41,7 +41,7 @@
             <connections>
                 <outlet property="label" destination="uUq-Cs-eKN" id="Vxh-Aq-rn5"/>
             </connections>
-            <point key="canvasLocation" x="52.5" y="55.5"/>
+            <point key="canvasLocation" x="52.5" y="43"/>
         </tableViewCell>
     </objects>
 </document>

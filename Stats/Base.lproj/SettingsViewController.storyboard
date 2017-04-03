@@ -31,21 +31,23 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="BUe-N7-WfE">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="84"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version 1.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BO3-Fx-4zT">
-                                            <rect key="frame" x="153" y="12" width="69.5" height="21"/>
-                                            <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="12"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="St@" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BO3-Fx-4zT">
+                                            <rect key="frame" x="345" y="56" width="22" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="0Si-82-ccc"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="10"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstItem="BO3-Fx-4zT" firstAttribute="centerX" secondItem="BUe-N7-WfE" secondAttribute="centerX" id="PE8-7I-hU5"/>
-                                        <constraint firstItem="BO3-Fx-4zT" firstAttribute="top" secondItem="BUe-N7-WfE" secondAttribute="topMargin" constant="4" id="c7L-Sj-AfY"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="BO3-Fx-4zT" secondAttribute="bottom" constant="3" id="lqK-iO-uc0"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="BO3-Fx-4zT" secondAttribute="bottom" id="lqK-iO-uc0"/>
+                                        <constraint firstAttribute="trailing" secondItem="BO3-Fx-4zT" secondAttribute="trailing" constant="8" id="tGH-hm-B7x"/>
                                     </constraints>
                                 </view>
                                 <connections>

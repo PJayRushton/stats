@@ -16,7 +16,7 @@ class SettingsViewController: Component, AutoStoryboardInitializable {
         var rows: [SettingsRow] {
             switch self {
             case .teams:
-                return [.manageTeams]
+                return [.manageTeams, .switchTeam]
             }
         }
         
@@ -85,7 +85,7 @@ extension SettingsViewController {
     
     fileprivate func registerCells() {
         let headerNib = UINib(nibName: BasicHeaderCell.reuseIdentifier, bundle: nil)
-        tableView.register(headerNib, forHeaderFooterViewReuseIdentifier: BasicHeaderCell.reuseIdentifier)
+        tableView.register(headerNib, forCellReuseIdentifier: BasicHeaderCell.reuseIdentifier)
         
         let nib = UINib(nibName: BasicCell.reuseIdentifier, bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: BasicCell.reuseIdentifier)
@@ -122,6 +122,10 @@ extension SettingsViewController: UITableViewDataSource {
         guard let title = theSection.title else { return nil }
         header.update(with: UIColor.gray100, text: title, alignment: .center)
         return header
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 32
     }
     
 }

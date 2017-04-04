@@ -10,10 +10,23 @@ import Foundation
 import IGListKit
 import Marshal
 
-enum TeamSport: String {
+enum TeamSport: Int {
     case baseball
     case fastPitch
     case slowPitch
+    
+    var stringValue: String {
+        switch self {
+        case .baseball:
+            return "Baseball"
+        case .fastPitch:
+            return "Fastpitch"
+        case .slowPitch:
+            return "Slowpitch"
+        }
+    }
+    
+    static let allValues = [TeamSport.baseball, .fastPitch, .slowPitch]
 }
 
 

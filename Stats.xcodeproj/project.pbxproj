@@ -16,7 +16,7 @@
 		A14B64E91E8D64A900CBDE92 /* AddTeamViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A14B64E71E8D64A900CBDE92 /* AddTeamViewController.storyboard */; };
 		A14B64EC1E8D65C500CBDE92 /* CreateTeamViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A14B64EA1E8D65C500CBDE92 /* CreateTeamViewController.storyboard */; };
 		A14B64EE1E8D662900CBDE92 /* CreateTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B64ED1E8D662900CBDE92 /* CreateTeamViewController.swift */; };
-		A14B64F01E8D67A100CBDE92 /* SaveNewTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B64EF1E8D67A100CBDE92 /* SaveNewTeam.swift */; };
+		A14B64F01E8D67A100CBDE92 /* SaveTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B64EF1E8D67A100CBDE92 /* SaveTeam.swift */; };
 		A14B64F21E8D696800CBDE92 /* AddTeamToUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B64F11E8D696800CBDE92 /* AddTeamToUser.swift */; };
 		A14B64F41E8E04CA00CBDE92 /* GetUserTeams.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B64F31E8E04CA00CBDE92 /* GetUserTeams.swift */; };
 		A14B64F61E8E0E5400CBDE92 /* FirebaseNetworkAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B64F51E8E0E5400CBDE92 /* FirebaseNetworkAccess.swift */; };
@@ -39,6 +39,9 @@
 		A17EF6BC1E930D3100DEE4ED /* TeamSwitcherViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A17EF6BA1E930D3100DEE4ED /* TeamSwitcherViewController.storyboard */; };
 		A17EF6BE1E931A0300DEE4ED /* TeamSwitcherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17EF6BD1E931A0300DEE4ED /* TeamSwitcherViewController.swift */; };
 		A17EF6C01E93256000DEE4ED /* TouchObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17EF6BF1E93256000DEE4ED /* TouchObject.swift */; };
+		A17EF6C41E93E8D200DEE4ED /* NewTeamState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17EF6C31E93E8D200DEE4ED /* NewTeamState.swift */; };
+		A17EF6C61E93EDEC00DEE4ED /* UploadToStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17EF6C51E93EDEC00DEE4ED /* UploadToStorage.swift */; };
+		A17EF6C81E93FC6D00DEE4ED /* CreateSeason.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17EF6C71E93FC6D00DEE4ED /* CreateSeason.swift */; };
 		A1868F9D1E802DDD00C191EC /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1868F9C1E802DDD00C191EC /* Result.swift */; };
 		A1868F9F1E802E1600C191EC /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1868F9E1E802E1600C191EC /* AppState.swift */; };
 		A1868FA21E802F5C00C191EC /* Reactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1868FA11E802F5C00C191EC /* Reactor.swift */; };
@@ -104,7 +107,7 @@
 		A14B64E81E8D64A900CBDE92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AddTeamViewController.storyboard; sourceTree = "<group>"; };
 		A14B64EB1E8D65C500CBDE92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = CreateTeamViewController.storyboard; sourceTree = "<group>"; };
 		A14B64ED1E8D662900CBDE92 /* CreateTeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTeamViewController.swift; sourceTree = "<group>"; };
-		A14B64EF1E8D67A100CBDE92 /* SaveNewTeam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveNewTeam.swift; sourceTree = "<group>"; };
+		A14B64EF1E8D67A100CBDE92 /* SaveTeam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveTeam.swift; sourceTree = "<group>"; };
 		A14B64F11E8D696800CBDE92 /* AddTeamToUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTeamToUser.swift; sourceTree = "<group>"; };
 		A14B64F31E8E04CA00CBDE92 /* GetUserTeams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUserTeams.swift; sourceTree = "<group>"; };
 		A14B64F51E8E0E5400CBDE92 /* FirebaseNetworkAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseNetworkAccess.swift; sourceTree = "<group>"; };
@@ -130,6 +133,9 @@
 		A17EF6BB1E930D3100DEE4ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = TeamSwitcherViewController.storyboard; sourceTree = "<group>"; };
 		A17EF6BD1E931A0300DEE4ED /* TeamSwitcherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamSwitcherViewController.swift; sourceTree = "<group>"; };
 		A17EF6BF1E93256000DEE4ED /* TouchObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchObject.swift; sourceTree = "<group>"; };
+		A17EF6C31E93E8D200DEE4ED /* NewTeamState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTeamState.swift; sourceTree = "<group>"; };
+		A17EF6C51E93EDEC00DEE4ED /* UploadToStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadToStorage.swift; sourceTree = "<group>"; };
+		A17EF6C71E93FC6D00DEE4ED /* CreateSeason.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateSeason.swift; sourceTree = "<group>"; };
 		A1868F9C1E802DDD00C191EC /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		A1868F9E1E802E1600C191EC /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		A1868FA11E802F5C00C191EC /* Reactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reactor.swift; sourceTree = "<group>"; };
@@ -211,12 +217,14 @@
 				A1BF9C451E8B22B2007341EA /* GetCurrentUser.swift */,
 				A14B64F31E8E04CA00CBDE92 /* GetUserTeams.swift */,
 				A179996F1E82B67C0058A002 /* LoadICloudUser.swift */,
-				A14B64EF1E8D67A100CBDE92 /* SaveNewTeam.swift */,
 				A17999711E82B6930058A002 /* SaveNewUser.swift */,
+				A14B64EF1E8D67A100CBDE92 /* SaveTeam.swift */,
 				A131CC8D1E8EEE6600A5D66B /* SubscribeToCurrentUser.swift */,
 				A1D67D4E1E8FE9E700200B65 /* SubscribeToReachability.swift */,
 				A131CC8F1E8EF41D00A5D66B /* SubscribeToTeam.swift */,
 				A17EF6BF1E93256000DEE4ED /* TouchObject.swift */,
+				A17EF6C51E93EDEC00DEE4ED /* UploadToStorage.swift */,
+				A17EF6C71E93FC6D00DEE4ED /* CreateSeason.swift */,
 			);
 			name = Commands;
 			sourceTree = "<group>";
@@ -322,8 +330,8 @@
 			isa = PBXGroup;
 			children = (
 				A14B64F51E8E0E5400CBDE92 /* FirebaseNetworkAccess.swift */,
-				A14B64FB1E8EB99B00CBDE92 /* Identifiable.swift */,
 				A14B64F91E8EB95600CBDE92 /* Firebase+St@ts.swift */,
+				A14B64FB1E8EB99B00CBDE92 /* Identifiable.swift */,
 				A1868F9C1E802DDD00C191EC /* Result.swift */,
 			);
 			name = Networking;
@@ -354,6 +362,7 @@
 				A1868F9E1E802E1600C191EC /* AppState.swift */,
 				A1CD9A111E8A9C2400D3C8F7 /* AtBatState.swift */,
 				A1CD9A0B1E89C30400D3C8F7 /* GameState.swift */,
+				A17EF6C31E93E8D200DEE4ED /* NewTeamState.swift */,
 				A1CD9A181E8AA83D00D3C8F7 /* NewUserState.swift */,
 				A1CD9A131E8A9C6000D3C8F7 /* PlayerState.swift */,
 				A1CD9A0F1E8A9ABC00D3C8F7 /* SeasonState.swift */,
@@ -590,12 +599,14 @@
 				A14B64FA1E8EB95600CBDE92 /* Firebase+St@ts.swift in Sources */,
 				A1B41C241E85A4B300FAC930 /* Team.swift in Sources */,
 				A1868FA21E802F5C00C191EC /* Reactor.swift in Sources */,
+				A17EF6C61E93EDEC00DEE4ED /* UploadToStorage.swift in Sources */,
 				A1D67D4A1E8FE8EE00200B65 /* LoadingImageViewController.swift in Sources */,
 				A17EF6C01E93256000DEE4ED /* TouchObject.swift in Sources */,
 				A14B64DF1E8D3EC200CBDE92 /* UIViewControllerExtensions.swift in Sources */,
 				A1CD9A101E8A9ABC00D3C8F7 /* SeasonState.swift in Sources */,
 				A14B64F41E8E04CA00CBDE92 /* GetUserTeams.swift in Sources */,
 				A1CD9A1E1E8ABBBC00D3C8F7 /* Arrays.swift in Sources */,
+				A17EF6C81E93FC6D00DEE4ED /* CreateSeason.swift in Sources */,
 				A17999701E82B67C0058A002 /* LoadICloudUser.swift in Sources */,
 				A1CD9A121E8A9C2400D3C8F7 /* AtBatState.swift in Sources */,
 				A1A2C35E1E8BF3680008274F /* Component.swift in Sources */,
@@ -605,7 +616,7 @@
 				A1A2C35C1E8BF2FB0008274F /* AvatarViewController.swift in Sources */,
 				A1D67D3A1E8F23DE00200B65 /* ManageTeamsViewController.swift in Sources */,
 				A1D67D3F1E8F253F00200B65 /* BasicTeamCell.swift in Sources */,
-				A14B64F01E8D67A100CBDE92 /* SaveNewTeam.swift in Sources */,
+				A14B64F01E8D67A100CBDE92 /* SaveTeam.swift in Sources */,
 				A1DC99D31E7E3E4500C6FF8C /* AppDelegate.swift in Sources */,
 				A1A2C3751E8C135E0008274F /* SaveNewUser.swift in Sources */,
 				A131CC901E8EF41D00A5D66B /* SubscribeToTeam.swift in Sources */,
@@ -616,6 +627,7 @@
 				A1D67D381E8F081A00200B65 /* TeamActionSectionController.swift in Sources */,
 				A131CC8E1E8EEE6600A5D66B /* SubscribeToCurrentUser.swift in Sources */,
 				A14B64FC1E8EB99B00CBDE92 /* Identifiable.swift in Sources */,
+				A17EF6C41E93E8D200DEE4ED /* NewTeamState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -45,4 +45,12 @@ extension FirebaseNetworkAccess {
         return rootRef.child(atBatsRefKey).child(teamId)
     }
     
+    func userAvatarStorageRef(userId id: String) -> FIRStorageReference {
+        return storageRef.child("avatars").child(id)
+    }
+    
+    func teamImageStorageRef(teamId id: String) -> FIRStorageReference {
+        return storageRef.child("teams").child(id)
+    }
+
 }

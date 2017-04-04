@@ -52,6 +52,37 @@ extension UIViewController: UIImagePickerControllerDelegate, UINavigationControl
         
         return imagePicker
     }
+    func standardImagePickerAlert() -> UIViewController {
+        if PHPhotoLibrary.authorizationStatus() == PHAuthorizationStatus.notDetermined {
+            PHPhotoLibrary.requestAuthorization({ _ in })
+        } else if PHPhotoLibrary.authorizationStatus() == .denied {
+            return imageSettingsPermissionAlert()
+        }
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        
+        let alert = UIAlertController()
+        let cameraAction = UIAlertAction(title: "Take a photo", style: .default) { action in
+            imagePicker.sourceType = .camera
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+        
+        let libraryAction = UIAlertAction(title: "Photo Library", style: .default) { action in
+            imagePicker.sourceType = .photoLibrary
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+        
+        if UIImagePickerController.isCameraDeviceAvailable(.rear) {
+            alert.addAction(cameraAction)
+        }
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            alert.addAction(libraryAction)
+        }
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        return alert
+    }
     
     func imageSettingsPermissionAlert() -> UIViewController {
         let alert = UIAlertController(title: "I don't have access to your photos", message: "You'll need enable this in the phone's settings app", preferredStyle: .alert)

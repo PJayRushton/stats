@@ -21,6 +21,13 @@ extension String {
         return emailTest.evaluate(with: self)
     }
     
+    static var seasonSuggestion: String {
+        let currentMonth = Calendar.current.component(.month, from: Date())
+        let currentYear = Calendar.current.component(.year, from: Date())
+        let season = currentMonth < 6 ? "Spring" : "Summer"
+        return "\(season) \(currentYear)"
+    }
+    
 }
 
 extension Array {

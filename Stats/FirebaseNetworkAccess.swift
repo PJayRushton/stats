@@ -22,6 +22,7 @@ struct FirebaseNetworkAccess {
     
     // MARK: - Properties
     
+    let storageRef = FIRStorage.storage().reference()
     let rootRef = FIRDatabase.database().reference()
     var core = App.core
     
@@ -156,6 +157,18 @@ struct FirebaseNetworkAccess {
     
     func unsubscribe(from ref: FIRDatabaseReference) {
         ref.removeAllObservers()
+    }
+    
+    // MARK: Storage
+    
+    func uploadData(_ data: Data, toRef ref: FIRStorageReference, with metadata: FIRStorageMetadata? = nil, completion: @escaping (Result<URL>) -> Void) {
+        ref.put(data, metadata: metadata) { metadata, error in
+            if let url = metadata?.downloadURL(), error == nil {
+                completion(.success(url))
+            } else {
+                completion(.failure(error!))
+            }
+        }
     }
     
 }

@@ -1,5 +1,5 @@
 //
-//  SubscribeToTeam.swift
+//  SubscribeToObject.swift
 //  Stats
 //
 //  Created by Parker Rushton on 4/4/17.
@@ -8,18 +8,17 @@
 
 import Foundation
 
-struct SubscribeToTeam: Command {
+struct SubscribeToObject<T: Identifiable>: Command {
     
-    var teamId: String
+    var object: T
     
-    init(withId id: String) {
-        self.teamId = id
+    init(_ object: T) {
+        self.object = object
     }
     
     func execute(state: AppState, core: Core<AppState>) {
-        let ref = StatsRefs.teamsRef.child(teamId)
-        networkAccess.subscribe(to: ref) { result in
-            let objectResult = result.map(Team.init)
+        networkAccess.subscribe(to: object.ref) { result in
+            let objectResult = result.map(T.init)
             switch objectResult {
             case let .success(parsedObject):
                 core.fire(event: Updated(parsedObject))

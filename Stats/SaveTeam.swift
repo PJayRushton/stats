@@ -13,23 +13,11 @@ struct SaveTeam: Command {
     var team: Team
     
     func execute(state: AppState, core: Core<AppState>) {
-        let isNew = team.id.isEmpty
-        var updatedTeam = team
-        
-        var ref = networkAccess.teamsRef.child(team.id)
-        if isNew {
-            ref = networkAccess.teamsRef.childByAutoId()
-            updatedTeam.id = ref.key
-        }
-        
-        networkAccess.updateObject(at: ref, parameters: updatedTeam.marshaled()) { result in
+        networkAccess.updateObject(at: team.ref, parameters: team.marshaled()) { result in
             if case .success = result {
-                core.fire(event: Selected<Team>(updatedTeam))
-                
-                if isNew {
-                    core.fire(command: AddTeamToUser(team: updatedTeam, type: .owned))
-                    core.fire(command: SubscribeToTeam(teamId: updatedTeam.id))
-                }
+                core.fire(event: Selected<Team>(self.team))
+                core.fire(command: AddTeamToUser(team: self.team, type: .owned))
+                core.fire(command: SubscribeToObject(self.team))
             }
         }
     }

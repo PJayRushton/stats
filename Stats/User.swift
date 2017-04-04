@@ -6,7 +6,7 @@
 //  Copyright © 2016 AppsByPJ. All rights reserved.
 //
 
-import UIKit
+import Firebase
 import Marshal
 
 struct User: Identifiable, Unmarshaling {
@@ -71,4 +71,12 @@ extension User: Marshaling {
         
         return json
     }
+}
+
+extension User {
+    
+    var ref: FIRDatabaseReference {
+        return StatsRefs.usersRef.child(id)
+    }
+    
 }

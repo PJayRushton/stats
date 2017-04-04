@@ -13,10 +13,9 @@ struct SaveNewUser: Command {
     
     func execute(state: AppState, core: Core<AppState>) {
         guard let newUser = newUser(state: state) else { return }
-        let ref = networkAccess.usersRef.child(newUser.id)
-        networkAccess.setValue(at: ref, parameters: newUser.marshaled()) { result in
+        networkAccess.setValue(at: newUser.ref, parameters: newUser.marshaled()) { result in
             if case .success = result {
-                core.fire(command: SubscribeToCurrentUser(id: ref.key))
+                core.fire(command: SubscribeToCurrentUser(id: newUser.id))
             }
         }
     }

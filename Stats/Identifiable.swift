@@ -7,10 +7,12 @@
 //
 
 import Foundation
+import Firebase
 import Marshal
 
 protocol Identifiable: Equatable, Marshaling, Unmarshaling, Hashable {
     var id: String { get set }
+    var ref: FIRDatabaseReference { get }
 }
 
 

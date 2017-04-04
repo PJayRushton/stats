@@ -18,7 +18,7 @@ struct SubscriptionMiddleware: Middleware {
                     App.core.fire(command: SubscribeToCurrentUser(id: user.id))
                     
                     user.allTeamIds.forEach({ id in
-                        App.core.fire(command: SubscribeToTeam(teamId: id))
+                        App.core.fire(command: SubscribeToTeam(withId: id))
                     })
                 }
             }

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		A131CC8E1E8EEE6600A5D66B /* SubscribeToCurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A131CC8D1E8EEE6600A5D66B /* SubscribeToCurrentUser.swift */; };
-		A131CC901E8EF41D00A5D66B /* SubscribeToTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = A131CC8F1E8EF41D00A5D66B /* SubscribeToTeam.swift */; };
 		A14B64DF1E8D3EC200CBDE92 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B64DE1E8D3EC200CBDE92 /* UIViewControllerExtensions.swift */; };
 		A14B64E11E8D429800CBDE92 /* StockPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B64E01E8D429800CBDE92 /* StockPhotosViewController.swift */; };
 		A14B64E41E8D42B000CBDE92 /* StockPhotosViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A14B64E21E8D42B000CBDE92 /* StockPhotosViewController.storyboard */; };
@@ -42,6 +41,10 @@
 		A17EF6C41E93E8D200DEE4ED /* NewTeamState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17EF6C31E93E8D200DEE4ED /* NewTeamState.swift */; };
 		A17EF6C61E93EDEC00DEE4ED /* UploadToStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17EF6C51E93EDEC00DEE4ED /* UploadToStorage.swift */; };
 		A17EF6C81E93FC6D00DEE4ED /* CreateSeason.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17EF6C71E93FC6D00DEE4ED /* CreateSeason.swift */; };
+		A17EF6CA1E94040D00DEE4ED /* DeleteObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17EF6C91E94040D00DEE4ED /* DeleteObject.swift */; };
+		A17EF6CC1E94044E00DEE4ED /* UpdateObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17EF6CB1E94044E00DEE4ED /* UpdateObject.swift */; };
+		A17EF6CE1E94148300DEE4ED /* SubscribeToObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17EF6CD1E94148300DEE4ED /* SubscribeToObject.swift */; };
+		A17EF6D01E941D8700DEE4ED /* SubscribeToTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17EF6CF1E941D8700DEE4ED /* SubscribeToTeam.swift */; };
 		A1868F9D1E802DDD00C191EC /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1868F9C1E802DDD00C191EC /* Result.swift */; };
 		A1868F9F1E802E1600C191EC /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1868F9E1E802E1600C191EC /* AppState.swift */; };
 		A1868FA21E802F5C00C191EC /* Reactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1868FA11E802F5C00C191EC /* Reactor.swift */; };
@@ -99,7 +102,6 @@
 		23340C3D14A1D9E6B1878846 /* Pods-Stats.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stats.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Stats/Pods-Stats.debug.xcconfig"; sourceTree = "<group>"; };
 		3EB00BD85F52BB91F956360D /* Pods-Stats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stats.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stats/Pods-Stats.release.xcconfig"; sourceTree = "<group>"; };
 		A131CC8D1E8EEE6600A5D66B /* SubscribeToCurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribeToCurrentUser.swift; sourceTree = "<group>"; };
-		A131CC8F1E8EF41D00A5D66B /* SubscribeToTeam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribeToTeam.swift; sourceTree = "<group>"; };
 		A14B64DE1E8D3EC200CBDE92 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		A14B64E01E8D429800CBDE92 /* StockPhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockPhotosViewController.swift; sourceTree = "<group>"; };
 		A14B64E31E8D42B000CBDE92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = StockPhotosViewController.storyboard; sourceTree = "<group>"; };
@@ -136,6 +138,10 @@
 		A17EF6C31E93E8D200DEE4ED /* NewTeamState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTeamState.swift; sourceTree = "<group>"; };
 		A17EF6C51E93EDEC00DEE4ED /* UploadToStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadToStorage.swift; sourceTree = "<group>"; };
 		A17EF6C71E93FC6D00DEE4ED /* CreateSeason.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateSeason.swift; sourceTree = "<group>"; };
+		A17EF6C91E94040D00DEE4ED /* DeleteObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteObject.swift; sourceTree = "<group>"; };
+		A17EF6CB1E94044E00DEE4ED /* UpdateObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateObject.swift; sourceTree = "<group>"; };
+		A17EF6CD1E94148300DEE4ED /* SubscribeToObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribeToObject.swift; sourceTree = "<group>"; };
+		A17EF6CF1E941D8700DEE4ED /* SubscribeToTeam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribeToTeam.swift; sourceTree = "<group>"; };
 		A1868F9C1E802DDD00C191EC /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		A1868F9E1E802E1600C191EC /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		A1868FA11E802F5C00C191EC /* Reactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reactor.swift; sourceTree = "<group>"; };
@@ -214,17 +220,20 @@
 			children = (
 				A14B64F11E8D696800CBDE92 /* AddTeamToUser.swift */,
 				A1CD9A1A1E8AACAB00D3C8F7 /* CheckUsernameAvailability.swift */,
+				A17EF6C71E93FC6D00DEE4ED /* CreateSeason.swift */,
+				A17EF6C91E94040D00DEE4ED /* DeleteObject.swift */,
 				A1BF9C451E8B22B2007341EA /* GetCurrentUser.swift */,
 				A14B64F31E8E04CA00CBDE92 /* GetUserTeams.swift */,
 				A179996F1E82B67C0058A002 /* LoadICloudUser.swift */,
 				A17999711E82B6930058A002 /* SaveNewUser.swift */,
 				A14B64EF1E8D67A100CBDE92 /* SaveTeam.swift */,
 				A131CC8D1E8EEE6600A5D66B /* SubscribeToCurrentUser.swift */,
+				A17EF6CD1E94148300DEE4ED /* SubscribeToObject.swift */,
 				A1D67D4E1E8FE9E700200B65 /* SubscribeToReachability.swift */,
-				A131CC8F1E8EF41D00A5D66B /* SubscribeToTeam.swift */,
 				A17EF6BF1E93256000DEE4ED /* TouchObject.swift */,
+				A17EF6CB1E94044E00DEE4ED /* UpdateObject.swift */,
 				A17EF6C51E93EDEC00DEE4ED /* UploadToStorage.swift */,
-				A17EF6C71E93FC6D00DEE4ED /* CreateSeason.swift */,
+				A17EF6CF1E941D8700DEE4ED /* SubscribeToTeam.swift */,
 			);
 			name = Commands;
 			sourceTree = "<group>";
@@ -585,6 +594,7 @@
 				A1CD9A0E1E89D05E00D3C8F7 /* Keys.swift in Sources */,
 				A17999881E82B9A60058A002 /* UIColorExtension.swift in Sources */,
 				A1CD9A141E8A9C6000D3C8F7 /* PlayerState.swift in Sources */,
+				A17EF6CC1E94044E00DEE4ED /* UpdateObject.swift in Sources */,
 				A1CD9A0A1E89C26200D3C8F7 /* TeamState.swift in Sources */,
 				A1868F9F1E802E1600C191EC /* AppState.swift in Sources */,
 				A1D67D4F1E8FE9E700200B65 /* SubscribeToReachability.swift in Sources */,
@@ -611,15 +621,17 @@
 				A1CD9A121E8A9C2400D3C8F7 /* AtBatState.swift in Sources */,
 				A1A2C35E1E8BF3680008274F /* Component.swift in Sources */,
 				A1D67D361E8EFC8900200B65 /* SubscriptionMiddleware.swift in Sources */,
+				A17EF6D01E941D8700DEE4ED /* SubscribeToTeam.swift in Sources */,
 				A17EF6BE1E931A0300DEE4ED /* TeamSwitcherViewController.swift in Sources */,
 				A1D67D431E8FE3A000200B65 /* Appearance.swift in Sources */,
 				A1A2C35C1E8BF2FB0008274F /* AvatarViewController.swift in Sources */,
+				A17EF6CA1E94040D00DEE4ED /* DeleteObject.swift in Sources */,
 				A1D67D3A1E8F23DE00200B65 /* ManageTeamsViewController.swift in Sources */,
 				A1D67D3F1E8F253F00200B65 /* BasicTeamCell.swift in Sources */,
 				A14B64F01E8D67A100CBDE92 /* SaveTeam.swift in Sources */,
+				A17EF6CE1E94148300DEE4ED /* SubscribeToObject.swift in Sources */,
 				A1DC99D31E7E3E4500C6FF8C /* AppDelegate.swift in Sources */,
 				A1A2C3751E8C135E0008274F /* SaveNewUser.swift in Sources */,
-				A131CC901E8EF41D00A5D66B /* SubscribeToTeam.swift in Sources */,
 				A14B64F21E8D696800CBDE92 /* AddTeamToUser.swift in Sources */,
 				A1F959341E8953440087B040 /* Season.swift in Sources */,
 				A1D8054C1E89870B0072AA49 /* UsernameViewController.swift in Sources */,

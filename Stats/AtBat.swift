@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Firebase
 import Marshal
 
 enum AtBatCode: String {
@@ -26,14 +27,16 @@ struct AtBat: Identifiable, Unmarshaling {
     var rbis: Int
     var resultCode: AtBatCode
     var seasonId: String
+    var teamId: String
     
-    init(id: String = "", gameId: String, playerId: String, rbis: Int = 0, resultCode: AtBatCode, seasonId: String) {
+    init(id: String = "", gameId: String, playerId: String, rbis: Int = 0, resultCode: AtBatCode, seasonId: String, teamId: String) {
         self.id = id
         self.gameId = gameId
         self.playerId = playerId
         self.rbis = rbis
         self.resultCode = resultCode
         self.seasonId = seasonId
+        self.teamId = teamId
     }
     
     init(object: MarshaledObject) throws {
@@ -43,6 +46,7 @@ struct AtBat: Identifiable, Unmarshaling {
         rbis = try object.value(for: rbisKey)
         resultCode = try object.value(for: resultCodeKey)
         seasonId = try object.value(for: seasonIdKey)
+        teamId = try object.value(for: teamIdKey)
     }
     
 }
@@ -56,7 +60,17 @@ extension AtBat: Marshaling {
         json[playerIdKey] = playerId
         json[resultCodeKey] = resultCode.rawValue
         json[seasonIdKey] = seasonId
+        json[teamIdKey] = teamId
+        
         return json
+    }
+    
+}
+
+extension AtBat {
+    
+    var ref: FIRDatabaseReference {
+        return StatsRefs.atBatsRef(teamId: teamId).child(id)
     }
     
 }

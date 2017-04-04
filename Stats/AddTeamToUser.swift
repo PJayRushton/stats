@@ -46,7 +46,7 @@ struct AddTeamToUser: Command {
         case .fan:
             currentUser.managedTeamIds.append(team.id)
         }
-        let ref = networkAccess.currentUserRef(id: currentUser.id)
+        let ref = StatsRefs.userRef(id: currentUser.id)
         networkAccess.updateObject(at: ref, parameters: currentUser.marshaled(), completion: nil)
     }
     

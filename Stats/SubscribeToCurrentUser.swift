@@ -23,7 +23,7 @@ struct SubscribeToCurrentUser: Command {
     var id: String
     
     func execute(state: AppState, core: Core<AppState>) {
-        let ref = networkAccess.currentUserRef(id: id)
+        let ref = StatsRefs.userRef(id: id)
         networkAccess.unsubscribe(from: ref)
         
         networkAccess.subscribe(to: ref) { result in

@@ -18,7 +18,7 @@ struct NewTeamState: State {
         case let event as Updated<Season>:
             season = event.payload
         case let event as Selected<URL>:
-            image = event.item
+            imageURL = event.item
         default:
             break
         }

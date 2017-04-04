@@ -6,7 +6,7 @@
 //  Copyright © 2017 AppsByPJ. All rights reserved.
 //
 
-import UIKit
+import Firebase
 import Marshal
 
 struct Season: Identifiable, Unmarshaling {
@@ -42,6 +42,14 @@ extension Season: Marshaling {
         json[teamIdKey] = teamId
         
         return json
+    }
+    
+}
+
+extension Season {
+    
+    var ref: FIRDatabaseReference {
+        return StatsRefs.seasonsRef(teamId: teamId).child(id)
     }
     
 }

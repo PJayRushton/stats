@@ -30,9 +30,9 @@ struct UploadToStorage: Command {
         var ref: FIRStorageReference
         switch type {
         case .avatar:
-            ref = networkAccess.userAvatarStorageRef(userId: objectId)
+            ref = StatsRefs.userAvatarStorageRef(userId: objectId)
         case .team:
-            ref = networkAccess.teamImageStorageRef(teamId: objectId)
+            ref = StatsRefs.teamImageStorageRef(teamId: objectId)
         }
         
         networkAccess.uploadData(imageData, toRef: ref) { result in

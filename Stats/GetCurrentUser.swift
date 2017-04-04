@@ -13,7 +13,7 @@ struct GetCurrentUser: Command {
     var iCloudId: String
     
     func execute(state: AppState, core: Core<AppState>) {
-        let ref = networkAccess.usersRef.child(iCloudId)
+        let ref = StatsRefs.userRef(id: iCloudId)
         networkAccess.getData(at: ref) { result in
             let userResult = result.map(User.init)
             switch userResult {

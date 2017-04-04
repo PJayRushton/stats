@@ -6,7 +6,7 @@
 //  Copyright © 2017 AppsByPJ. All rights reserved.
 //
 
-import Foundation
+import Firebase
 import IGListKit
 import Marshal
 
@@ -79,6 +79,15 @@ extension Team: Marshaling {
         json[sportKey] = sport.rawValue
         json[touchDateKey] = touchDate.iso8601String
         return json
+    }
+    
+}
+
+
+extension Team {
+    
+    var ref: FIRDatabaseReference {
+        return StatsRefs.teamsRef.child(id)
     }
     
 }

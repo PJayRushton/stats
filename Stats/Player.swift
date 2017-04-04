@@ -6,7 +6,7 @@
 //  Copyright © 2017 AppsByPJ. All rights reserved.
 //
 
-import Foundation
+import Firebase
 import Marshal
 
 enum Gender: String {
@@ -60,6 +60,14 @@ extension Player: Marshaling {
         json[teamIdKey] = teamId
         
         return json
+    }
+    
+}
+
+extension Player {
+    
+    var ref: FIRDatabaseReference {
+        return StatsRefs.playersRef(teamId: teamId).child(id)
     }
     
 }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Firebase
 import Marshal
 
 struct Game: Identifiable, Unmarshaling {
@@ -70,6 +71,14 @@ extension Game: Marshaling {
         json[teamIdKey] = teamId
         
         return json
+    }
+    
+}
+
+extension Game {
+    
+    var ref: FIRDatabaseReference {
+        return StatsRefs.gamesRef(teamId: teamId).child(id)
     }
     
 }

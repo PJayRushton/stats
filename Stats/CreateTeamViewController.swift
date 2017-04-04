@@ -28,13 +28,8 @@ class CreateTeamViewController: Component, AutoStoryboardInitializable {
     var editingTeam: Team?
     
     fileprivate lazy var newTeamRef: FIRDatabaseReference = {
-        return FirebaseNetworkAccess().teamsRef.childByAutoId()
+        return StatsRefs.teamsRef.childByAutoId()
     }()
-    
-    fileprivate var teamRef: FIRDatabaseReference {
-        guard let editingTeam = editingTeam else { return newTeamRef }
-        return FirebaseNetworkAccess().teamsRef.child(editingTeam.id)
-    }
     
     fileprivate var selectedSport: TeamSport {
         return TeamSport(rawValue: Int(sportSegControl.index)) ?? .slowPitch
@@ -96,15 +91,16 @@ extension CreateTeamViewController {
         }
     }
     
-    fileprivate func constructedTeam() -> Team {
+    fileprivate func constructedTeam() -> Team? {
         if let editingTeam = editingTeam {
+            return editingTeam // FIXME:
         } else {
             guard let name = nameTextField.text else { return nil }
             let newTeamState = core.state.newTeamState
             let season = newTeamState.season
             let imageURL = newTeamState.imageURL
             
-            return Team(id: teamRef.key, currentSeasonId: season?.id, imageURLString: imageURL, name: name, sport: selectedSport)
+            return Team(id: newTeamRef.key, currentSeasonId: season?.id, imageURLString: imageURL?.absoluteString, name: name, sport: selectedSport)
         }
     }
     
@@ -115,7 +111,7 @@ extension CreateTeamViewController {
     }
     
     fileprivate func deleteData() {
-        if let season
+//        if let season = 
     }
     
 }
@@ -125,7 +121,7 @@ extension CreateTeamViewController {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         dismiss(animated: true, completion: nil)
         if let image = info[UIImagePickerControllerEditedImage] as? UIImage, let imageData = UIImageJPEGRepresentation(image, 0.5) {
-            core.fire(command: UploadToStorage(imageData: imageData, objectId: teamRef.key, type: .team))
+            core.fire(command: UploadToStorage(imageData: imageData, objectId: editingTeam?.id ?? newTeamRef.key, type: .team))
         } else {
             core.fire(event: ErrorEvent(error: nil, message: NSLocalizedString("Image processing failed. Try again", comment: "")))
         }

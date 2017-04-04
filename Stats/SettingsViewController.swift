@@ -76,6 +76,10 @@ class SettingsViewController: Component, AutoStoryboardInitializable {
         dismiss(animated: true, completion: nil)
     }
     
+    override func update(with: AppState) {
+        tableView.reloadData()
+    }
+    
 }
 
 
@@ -143,7 +147,9 @@ extension SettingsViewController: UITableViewDelegate {
             manageTeamsVC.dismissable = false
             navigationController?.pushViewController(manageTeamsVC, animated: true)
         case .switchTeam:
-            break
+            let teamSwitcherVC = TeamSwitcherViewController.initializeFromStoryboard()
+            teamSwitcherVC.dismissable = false
+            navigationController?.pushViewController(teamSwitcherVC, animated: true)
         }
     }
     

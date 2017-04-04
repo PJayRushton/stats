@@ -36,6 +36,8 @@
 		A17999931E82DF300058A002 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17999901E82DF300058A002 /* HomeViewController.swift */; };
 		A17999971E82DFF00058A002 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A17999951E82DFF00058A002 /* LaunchScreen.storyboard */; };
 		A179999A1E82DFFF0058A002 /* HomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A17999981E82DFFF0058A002 /* HomeViewController.storyboard */; };
+		A17EF6BC1E930D3100DEE4ED /* TeamSwitcherViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A17EF6BA1E930D3100DEE4ED /* TeamSwitcherViewController.storyboard */; };
+		A17EF6BE1E931A0300DEE4ED /* TeamSwitcherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17EF6BD1E931A0300DEE4ED /* TeamSwitcherViewController.swift */; };
 		A1868F9D1E802DDD00C191EC /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1868F9C1E802DDD00C191EC /* Result.swift */; };
 		A1868F9F1E802E1600C191EC /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1868F9E1E802E1600C191EC /* AppState.swift */; };
 		A1868FA21E802F5C00C191EC /* Reactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1868FA11E802F5C00C191EC /* Reactor.swift */; };
@@ -124,6 +126,8 @@
 		A17999901E82DF300058A002 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A17999961E82DFF00058A002 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A17999991E82DFFF0058A002 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = HomeViewController.storyboard; sourceTree = "<group>"; };
+		A17EF6BB1E930D3100DEE4ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = TeamSwitcherViewController.storyboard; sourceTree = "<group>"; };
+		A17EF6BD1E931A0300DEE4ED /* TeamSwitcherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamSwitcherViewController.swift; sourceTree = "<group>"; };
 		A1868F9C1E802DDD00C191EC /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		A1868F9E1E802E1600C191EC /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		A1868FA11E802F5C00C191EC /* Reactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reactor.swift; sourceTree = "<group>"; };
@@ -269,6 +273,7 @@
 				A1D67D501E9097C600200B65 /* SettingsViewController.storyboard */,
 				A14B64E21E8D42B000CBDE92 /* StockPhotosViewController.storyboard */,
 				A1A2C3621E8BF6020008274F /* TeamHeaderCell.xib */,
+				A17EF6BA1E930D3100DEE4ED /* TeamSwitcherViewController.storyboard */,
 				A1CD9A151E8AA2F000D3C8F7 /* UsernameViewController.storyboard */,
 			);
 			path = Base.lproj;
@@ -277,7 +282,6 @@
 		A1868F971E802C1900C191EC /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				A1D67D491E8FE8EE00200B65 /* LoadingImageViewController.swift */,
 				A14B64E51E8D647B00CBDE92 /* AddTeamViewController.swift */,
 				A1A2C35B1E8BF2FB0008274F /* AvatarViewController.swift */,
 				A1D67D401E8FE24C00200B65 /* BasicHeaderCell.swift */,
@@ -287,13 +291,15 @@
 				A179998E1E82DF300058A002 /* HomeCollectionViewCell.swift */,
 				A179998F1E82DF300058A002 /* HomeMenuItem.swift */,
 				A17999901E82DF300058A002 /* HomeViewController.swift */,
+				A1D67D491E8FE8EE00200B65 /* LoadingImageViewController.swift */,
 				A1D67D471E8FE8BF00200B65 /* MainViewController.swift */,
 				A1D67D391E8F23DE00200B65 /* ManageTeamsViewController.swift */,
 				A1A2C36A1E8C05190008274F /* SectionControllers */,
+				A1D67D531E9097E100200B65 /* SettingsViewController.swift */,
 				A14B64E01E8D429800CBDE92 /* StockPhotosViewController.swift */,
 				A1A2C3611E8BF6020008274F /* TeamHeaderCell.swift */,
+				A17EF6BD1E931A0300DEE4ED /* TeamSwitcherViewController.swift */,
 				A1D8054B1E89870B0072AA49 /* UsernameViewController.swift */,
-				A1D67D531E9097E100200B65 /* SettingsViewController.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -477,6 +483,7 @@
 				A14B64EC1E8D65C500CBDE92 /* CreateTeamViewController.storyboard in Resources */,
 				A1D67D5A1E928A0D00200B65 /* BasicHeaderCell.xib in Resources */,
 				A1D67D571E92872A00200B65 /* BasicCell.xib in Resources */,
+				A17EF6BC1E930D3100DEE4ED /* TeamSwitcherViewController.storyboard in Resources */,
 				A1A2C3641E8BF6020008274F /* TeamHeaderCell.xib in Resources */,
 				A1D67D461E8FE8B100200B65 /* Main.storyboard in Resources */,
 				A1D67D521E9097C600200B65 /* SettingsViewController.storyboard in Resources */,
@@ -589,6 +596,7 @@
 				A1CD9A121E8A9C2400D3C8F7 /* AtBatState.swift in Sources */,
 				A1A2C35E1E8BF3680008274F /* Component.swift in Sources */,
 				A1D67D361E8EFC8900200B65 /* SubscriptionMiddleware.swift in Sources */,
+				A17EF6BE1E931A0300DEE4ED /* TeamSwitcherViewController.swift in Sources */,
 				A1D67D431E8FE3A000200B65 /* Appearance.swift in Sources */,
 				A1A2C35C1E8BF2FB0008274F /* AvatarViewController.swift in Sources */,
 				A1D67D3A1E8F23DE00200B65 /* ManageTeamsViewController.swift in Sources */,
@@ -648,6 +656,14 @@
 				A17999991E82DFFF0058A002 /* Base */,
 			);
 			name = HomeViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		A17EF6BA1E930D3100DEE4ED /* TeamSwitcherViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A17EF6BB1E930D3100DEE4ED /* Base */,
+			);
+			name = TeamSwitcherViewController.storyboard;
 			sourceTree = "<group>";
 		};
 		A1A2C36D1E8C0F4C0008274F /* AvatarViewController.storyboard */ = {

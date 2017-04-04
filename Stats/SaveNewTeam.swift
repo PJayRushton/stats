@@ -19,6 +19,7 @@ struct SaveNewTeam: Command {
             if case .success = result {
                 core.fire(command: AddTeamToUser(team: newTeam, type: .owned))
                 core.fire(command: SubscribeToTeam(teamId: newTeam.id))
+                core.fire(event: Selected<Team>(newTeam))
             }
         }
     }

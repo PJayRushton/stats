@@ -22,6 +22,7 @@ class CreateTeamViewController: Component, AutoStoryboardInitializable {
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         core.fire(command: SaveNewTeam(name: nameTextField.text!))
+        dismiss(animated: true, completion: nil)
     }
     
 }

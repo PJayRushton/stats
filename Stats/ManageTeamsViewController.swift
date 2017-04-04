@@ -38,7 +38,7 @@ class ManageTeamsViewController: Component, AutoStoryboardInitializable {
     }
     
     @IBAction func plusButtonPressed(_ sender: UIBarButtonItem) {
-        
+        launchTeamCreation()
     }
 
     @IBAction func dismissButtonPressed(_ sender: UIBarButtonItem) {
@@ -50,13 +50,30 @@ class ManageTeamsViewController: Component, AutoStoryboardInitializable {
         tableView.reloadData()
     }
     
+    override func update(with: AppState) {
+        tableView.reloadData()
+    }
+    
 }
 
 extension ManageTeamsViewController {
     
-    func teams(for section: Int) -> [Team] {
-        let type = TeamOwnershipType(rawValue: section)!
+    var currentTeams: [Team] {
+        let type = TeamOwnershipType(rawValue: tab)!
         return core.state.teamState.currentUserTeams(forType: type)
+    }
+
+    fileprivate func launchTeamCreation() {
+        let type = TeamOwnershipType(rawValue: tab)!
+        switch type {
+        case .owned:
+            let teamCreationVC = CreateTeamViewController.initializeFromStoryboard().embededInNavigationController
+            present(teamCreationVC, animated: true, completion: nil)
+        case .managed:
+            break
+        case .fan:
+            break
+        }
     }
     
 }
@@ -65,23 +82,15 @@ extension ManageTeamsViewController {
 extension ManageTeamsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return teams(for: tab).count
+        return currentTeams.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: BasicCell.reuseIdentifier) as! BasicCell
-        let team = teams(for: tab)[indexPath.row]
-        cell.update(with: team)
+        let team = currentTeams[indexPath.row]
+        cell.update(with: team, accessory: .disclosureIndicator)
         
         return cell
-    }
-    
-}
-
-extension ManageTeamsViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
     }
     
 }

@@ -6,89 +6,88 @@
 //  Copyright © 2017 AppsByPJ. All rights reserved.
 //
 
-import Foundation
-import CloudKit
+import Firebase
 import IGListKit
+import Marshal
 
-enum TeamType: String {
+enum TeamSport: Int {
     case baseball
     case fastPitch
     case slowPitch
+    
+    var stringValue: String {
+        switch self {
+        case .baseball:
+            return "Baseball"
+        case .fastPitch:
+            return "Fastpitch"
+        case .slowPitch:
+            return "Slowpitch"
+        }
+    }
+    
+    static let allValues = [TeamSport.baseball, .fastPitch, .slowPitch]
 }
 
 
-class Team: CloudKitSyncable {
+struct Team: Identifiable, Unmarshaling {
     
-    let image: CKAsset?
-    let name: String
-    let type: TeamType
-    let shareCode: String
-    let currentSeasonRef: CKReference?
-
-    var cloudKitRecordId: CKRecordID?
+    var id: String
+    var currentSeasonId: String?
+    var imageURLString: String?
+    var name: String
+    var shareCode: String
+    var sport: TeamSport
+    var touchDate: Date
     
-    
-    // Accessors
     var imageURL: URL? {
-        return image?.fileURL
+        guard let imageURLString = imageURLString else { return nil }
+        return URL(string: imageURLString)
     }
     
-    init(currentSeasonRef: CKReference? =  nil, image: CKAsset? = nil, name: String, shareCode: String = "", type: TeamType) {
-        self.currentSeasonRef = currentSeasonRef
-        self.image = image
+    init(id: String = "", currentSeasonId: String? =  nil, imageURLString: String? = nil, name: String, sport: TeamSport = .slowPitch) {
+        self.id = id
+        self.currentSeasonId = currentSeasonId
+        self.imageURLString = imageURLString
         self.name = name
-        self.shareCode = shareCode
-        self.type = type
+        self.shareCode = UUID().uuidString.last4
+        self.sport = sport
+        self.touchDate = Date()
     }
     
-    required convenience init(record: CKRecord) throws {
-        let currentSeasonRef = record.object(forKey: currentSeasonRefKey) as? CKReference
-        let image = record.object(forKey: imageKey) as? CKAsset
-        guard let name = record.object(forKey: nameKey) as? String else { throw CloudKitError.keyNotFound(key: nameKey) }
-        guard let shareCode = record.object(forKey: shareCodeKey) as? String else { throw CloudKitError.keyNotFound(key: shareCodeKey) }
-        guard let typeString = record.object(forKey: typeKey) as? String else { throw CloudKitError.keyNotFound(key: typeKey) }
-        guard let type = TeamType(rawValue: typeString) else { throw CloudKitError.parsingError(key: typeKey) }
-        self.init(currentSeasonRef: currentSeasonRef, image: image, name: name, shareCode: shareCode, type: type)
-        cloudKitRecordId = record.recordID
+    init(object: MarshaledObject) throws {
+        id = try object.value(for: idKey)
+        currentSeasonId = try? object.value(for: currentSeasonIdKey)
+        imageURLString = try? object.value(for: imageURLStringKey)
+        name = try object.value(for: nameKey)
+        shareCode = try object.value(for: shareCodeKey)
+        sport = try object.value(for: sportKey)
+        touchDate = try object.value(for: touchDateKey)
+    }
+ 
+}
+
+extension Team: Marshaling {
+    
+    func marshaled() -> JSONObject {
+        var json = JSONObject()
+        json[idKey] = id
+        json[currentSeasonIdKey] = currentSeasonId
+        json[imageURLStringKey] = imageURLString
+        json[nameKey] = name
+        json[shareCodeKey] = shareCode
+        json[sportKey] = sport.rawValue
+        json[touchDateKey] = touchDate.iso8601String
+        return json
     }
     
 }
 
-extension Team: IGListDiffable {
+
+extension Team {
     
-    func diffIdentifier() -> NSObjectProtocol {
-        return cloudKitRecordId!
-    }
-    
-    func isEqual(toDiffableObject object: IGListDiffable?) -> Bool {
-        guard let other = object as? Team else { return false }
-        return image == other.image &&
-        name == other.name &&
-        type == other.type &&
-        currentSeasonRef == other.currentSeasonRef
+    var ref: FIRDatabaseReference {
+        return StatsRefs.teamsRef.child(id)
     }
     
 }
-
-extension CKRecord {
-    
-    convenience init(team: Team) {
-        let recordId = CKRecordID(recordName: UUID().uuidString)
-        
-        self.init(recordType: Team.recordName, recordID: recordId)
-        self.setObject(team.currentSeasonRef, forKey: currentSeasonRefKey)
-        self.setObject(team.image, forKey: imageKey)
-        self.setObject(team.name as NSString, forKey: nameKey)
-        self.setObject(recordId.recordName.last4 as NSString, forKey: shareCodeKey)
-        self.setObject(team.type.rawValue as NSString, forKey: typeKey)
-    }
-    
-}
-
-/*
-    let seasons: [CKReference]
-    let players: [CKReference]
-    let ownerIds: [CKReference]
-    let managerIds: [CKReference]
-    let fanIds: [CKReference]
-*/

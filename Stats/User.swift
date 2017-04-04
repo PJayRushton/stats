@@ -6,75 +6,77 @@
 //  Copyright © 2016 AppsByPJ. All rights reserved.
 //
 
-import UIKit
-import CloudKit
+import Firebase
+import Marshal
 
-class User: CloudKitSyncable {
+struct User: Identifiable, Unmarshaling {
     
-    let userRecordId: String
-    let username: String
-    let avatar: CKAsset?
-    let email: String?
+    var id: String
+    var username: String
+    var avatarURLString: String?
+    var email: String?
     
-    var recentTeamRef: CKReference?
-    var ownedTeamRefs: [CKReference]
-    var managedTeamRefs: [CKReference]
-    var fanTeamRefs: [CKReference]
-
-    var cloudKitRecordId: CKRecordID?
+    var ownedTeamIds: [String]
+    var managedTeamIds: [String]
+    var fanTeamIds: [String]
     
-    init(userRecordId: String, username: String, avatar: CKAsset?, email: String?, recentTeamRef: CKReference? = nil, ownedTeamIds: [CKReference] = [], managedTeamIds: [CKReference] = [], fanTeamIds: [CKReference] = []) {
-        self.userRecordId = userRecordId
+    var allTeamIds: [String] {
+        return [ownedTeamIds, managedTeamIds, fanTeamIds].joined().flatMap { $0 }
+    }
+    
+    init(id: String, username: String, avatarURLString: String? = nil, email: String? = nil, ownedTeamIds: [String] = [], managedTeamIds: [String] = [], fanTeamIds: [String] = []) {
+        self.id = id
         self.username = username
-        self.avatar = avatar
+        self.avatarURLString = avatarURLString
         self.email = email
         
-        self.recentTeamRef = recentTeamRef
-        self.ownedTeamRefs = ownedTeamIds
-        self.managedTeamRefs = managedTeamIds
-        self.fanTeamRefs = fanTeamIds
+        self.ownedTeamIds = ownedTeamIds
+        self.managedTeamIds = managedTeamIds
+        self.fanTeamIds = fanTeamIds
     }
 
-    required convenience init(record: CKRecord) throws {
-        guard let userRecordId = record.object(forKey: userRecordIdKey) as? String else { throw CloudKitError.keyNotFound(key: userRecordIdKey) }
-        guard let username = record.object(forKey: usernameKey) as? String else { throw CloudKitError.keyNotFound(key: usernameKey) }
-        let avatar = record.object(forKey: avatarKey) as? CKAsset
-        let email = record.object(forKey: emailKey) as? String
+    init(object: MarshaledObject) throws {
+        id = try object.value(for: idKey)
+        username = try object.value(for: usernameKey)
+        avatarURLString = try? object.value(for: avatarKey)
+        email = try? object.value(for: emailKey)
         
-        let recentTeamRef = record.object(forKey: recentTeamRefKey) as? CKReference
-        let ownedTeamsReferences = record.object(forKey: ownedTeamRefsKey) as? [CKReference]
-        let managedTeamsReferences = record.object(forKey: managedTeamRefsKey) as? [CKReference]
-        let fanTeamsReferences = record.object(forKey: fanTeamRefsKey) as? [CKReference]
+        let ownedTeamsObject: JSONObject? = try? object.value(for: ownedTeamIdsKey)
+        ownedTeamIds = ownedTeamsObject != nil ? Array(ownedTeamsObject!.keys) : []
         
-        self.init(userRecordId: userRecordId, username: username, avatar: avatar, email: email, recentTeamRef: recentTeamRef, ownedTeamIds: ownedTeamsReferences ?? [], managedTeamIds: managedTeamsReferences ?? [], fanTeamIds: fanTeamsReferences ?? [])
-        cloudKitRecordId = record.recordID
+        let managedTeamsObject: JSONObject? = try? object.value(for: managedTeamIdsKey)
+        managedTeamIds = managedTeamsObject != nil ? Array(managedTeamsObject!.keys) : []
+        
+        let fanTeamsObject: JSONObject? = try? object.value(for: fanTeamIdsKey)
+        fanTeamIds = fanTeamsObject != nil ? Array(fanTeamsObject!.keys) : []
     }
     
     func isOwnerOrManager(of team: Team) -> Bool {
-        guard let teamId = team.cloudKitRecordId else { return false }
-        return ownedTeamRefs.map { $0.recordID }.contains(teamId) || managedTeamRefs.map { $0.recordID }.contains(teamId)
-    }
-    
-    var recentTeam: Team? {
-        guard let recentTeamRef = recentTeamRef else { return nil }
-        let teams = App.core.state.teamState.allTeams
-        guard let index = teams.index(where: { $0.cloudKitRecordId == recentTeamRef.recordID }), case let team = teams[index] else { return nil }
-        return team
+        return [ownedTeamIds, managedTeamIds].joined().contains(team.id)
     }
     
 }
 
-extension CKRecord {
+extension User: Marshaling {
     
-    convenience init(user: User) {
-        self.init(recordType: User.recordName)
-        setObject(user.userRecordId as NSString, forKey: userRecordIdKey)
-        setObject(user.username as NSString, forKey: usernameKey)
-        setObject(user.avatar, forKey: avatarKey)
-        setObject(user.email as NSString?, forKey: emailKey)
-        setObject(user.ownedTeamRefs as CKRecordValue?, forKey: ownedTeamRefsKey)
-        setObject(user.managedTeamRefs as CKRecordValue?, forKey: managedTeamRefsKey)
-        setObject(user.fanTeamRefs as CKRecordValue?, forKey: fanTeamRefsKey)
+    func marshaled() -> JSONObject {
+        var json = JSONObject()
+        json[idKey] = id
+        json[usernameKey] = username
+        json[avatarKey] = avatarURLString
+        json[emailKey] = email
+        json[ownedTeamIdsKey] = ownedTeamIds.marshaled()
+        json[managedTeamIdsKey] = managedTeamIds.marshaled()
+        json[fanTeamIdsKey] = fanTeamIds.marshaled()
+        
+        return json
+    }
+}
+
+extension User {
+    
+    var ref: FIRDatabaseReference {
+        return StatsRefs.usersRef.child(id)
     }
     
 }

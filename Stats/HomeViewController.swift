@@ -10,7 +10,7 @@ import UIKit
 import IGListKit
 import Presentr
 
-class HomeViewController: Component {
+class HomeViewController: Component, AutoStoryboardInitializable {
 
     // MARK: - IBOutlets
 
@@ -52,8 +52,8 @@ class HomeViewController: Component {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        core.add(subscriber: self)
         navigationController?.setNavigationBarHidden(true, animated: true)
+        adapter.performUpdates(animated: true)
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -77,13 +77,28 @@ class HomeViewController: Component {
     // MARK: - Subscriber
     
     override func update(with state: AppState) {
-        if state.userState.currentUser == nil && state.userState.userIsLoaded && !isPresentingOnboarding {
+        if state.userState.currentUser == nil, state.userState.isLoaded, !isPresentingOnboarding {
             isPresentingOnboarding = true
             let usernameVC = UsernameViewController.initializeFromStoryboard().embededInNavigationController
             present(usernameVC, animated: true)
         }
         adapter.performUpdates(animated: true)
     }
+    
+}
+
+extension HomeViewController {
+    
+    func presentSettings() {
+        let settingsVC = SettingsViewController.initializeFromStoryboard().embededInNavigationController
+        present(settingsVC, animated: true, completion: nil)
+    }
+    
+    func presentTeamSwitcher() {
+        let switcherVC = TeamSwitcherViewController.initializeFromStoryboard().embededInNavigationController
+        present(switcherVC, animated: true)
+    }
+    
 }
 
 
@@ -93,17 +108,33 @@ class HomeViewController: Component {
 extension HomeViewController: IGListAdapterDataSource {
     
     func objects(for listAdapter: IGListAdapter) -> [IGListDiffable] {
-        guard let currentTeam = core.state.teamState.currentTeam else { return [] }
-        return [currentTeam]
+        guard let currentTeam = core.state.teamState.currentTeam, let currentUser = core.state.userState.currentUser else { return [] }
+        var objects: [IGListDiffable] = [TeamHeaderSection(team: currentTeam)]
+        let items = currentUser.isOwnerOrManager(of: currentTeam) ? HomeMenuItem.managerItems : HomeMenuItem.fanItems
+        
+        items.forEach { item in
+            objects.append(TeamActionSection(team: currentTeam, menuItem: item))
+        }
+        return objects
     }
     
     func listAdapter(_ listAdapter: IGListAdapter, sectionControllerFor object: Any) -> IGListSectionController {
-        guard let currentUser = core.state.userState.currentUser else { return IGListSectionController() }
-        let homeController = HomeSectionController(user: currentUser)
-        homeController.settingsPressed = {}
-        homeController.editPressed = {}
-        homeController.switchTeamPressed = {}
-        return homeController
+        switch object {
+        case _ as TeamHeaderSection:
+            guard let currentUser = core.state.userState.currentUser else { return IGListSectionController() }
+            let headerController = TeamHeaderSectionController(user: currentUser)
+            headerController.settingsPressed = presentSettings
+            headerController.editPressed = {}
+            headerController.switchTeamPressed = presentTeamSwitcher
+            return headerController
+            
+        case _ as TeamActionSection:
+            guard let currentUser = core.state.userState.currentUser else { return IGListSectionController() }
+            let actionController = TeamActionSectionController(user: currentUser)
+            return actionController
+        default:
+            fatalError()
+        }
     }
     
     func emptyView(for listAdapter: IGListAdapter) -> UIView? {

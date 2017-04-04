@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CloudKit
 
 struct UsernameUpdated: Event {
     var username: String?

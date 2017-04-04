@@ -7,21 +7,24 @@
 //
 
 import Foundation
-import CloudKit
 
 struct GetCurrentUser: Command {
     
+    var iCloudId: String
+    
     func execute(state: AppState, core: Core<AppState>) {
-        guard let userRecordId = state.userState.userRecordId else { return }
-        let predicate = NSPredicate(format: "%K == %@", userRecordIdKey, userRecordId.recordName)
-        cloudManager.fetchRecords(ofType: User.recordName, predicate: predicate) { records, error in
-            if error == nil, let userRecord = records?.first, let user = try? User(record: userRecord) {
+        let ref = StatsRefs.userRef(id: iCloudId)
+        networkAccess.getData(at: ref) { result in
+            let userResult = result.map(User.init)
+            switch userResult {
+            case let .success(user):
                 core.fire(event: Selected<User>(user))
-                core.fire(command: GetUserTeams())
-            } else {
+            case let .failure(error):
                 core.fire(event: Selected<User>(nil))
+                core.fire(event: ErrorEvent(error: error, message: "Unable to find user with iCloudId: \(self.iCloudId)"))
             }
         }
     }
     
 }
+    

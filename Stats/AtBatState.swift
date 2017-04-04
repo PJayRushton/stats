@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import CloudKit
 
 struct AtBatState: State {
     
@@ -18,8 +17,6 @@ struct AtBatState: State {
         switch event {
         case let event as Selected<AtBat>:
             currentAtBat = event.item
-        case let event as Updated<AtBat>:
-            allAtBats.insert(event.payload)
         default:
             break
         }

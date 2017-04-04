@@ -7,10 +7,9 @@
 //
 
 import Foundation
-import CloudKit
 
 enum App {
-    static let core = Core(state: AppState(), middlewares: [/*UserMiddleware()*/])
+    static let core = Core(state: AppState(), middlewares: [SubscriptionMiddleware()])
 }
 
 
@@ -19,6 +18,7 @@ struct AppState: State {
     var userState = UserState()
     var newUserState = NewUserState()
     var teamState = TeamState()
+    var newTeamState = NewTeamState()
     var gameState = GameState()
     var seasonState = SeasonState()
     var playerState = PlayerState()
@@ -28,6 +28,7 @@ struct AppState: State {
         userState.react(to: event)
         newUserState.react(to: event)
         teamState.react(to: event)
+        newTeamState.react(to: event)
         gameState.react(to: event)
         seasonState.react(to: event)
         playerState.react(to: event)
@@ -38,12 +39,8 @@ struct AppState: State {
 
 extension Command {
     
-    var publicDatabase: CKDatabase {
-        return CKContainer.default().publicCloudDatabase
-    }
-    
-    var cloudManager: CloudKitManager {
-        return CloudKitManager()
+    var networkAccess: FirebaseNetworkAccess {
+        return FirebaseNetworkAccess()
     }
     
 }
@@ -69,10 +66,6 @@ struct Updated<T>: Event {
         self.payload = payload
     }
     
-}
-
-struct ReachablilityChanged: Event {
-    var reachable: Bool
 }
 
 // ERROR

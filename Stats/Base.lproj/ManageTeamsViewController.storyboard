@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Manage Teams-->
+        <scene sceneID="e4R-YM-pBt">
+            <objects>
+                <viewController storyboardIdentifier="ManageTeamsViewController" automaticallyAdjustsScrollViewInsets="NO" id="ENf-at-8QV" customClass="ManageTeamsViewController" customModule="Stats" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aqq-ai-WSG"/>
+                        <viewControllerLayoutGuide type="bottom" id="CHA-Rd-f89"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Jps-Gb-f9e">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ve6-FG-hkK">
+                                <rect key="frame" x="0.0" y="130" width="375" height="537"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="ENf-at-8QV" id="tNg-N4-vlr"/>
+                                    <outlet property="delegate" destination="ENf-at-8QV" id="TQb-KA-ajr"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WpG-0U-5xB" customClass="BetterSegmentedControl" customModule="BetterSegmentedControl">
+                                <rect key="frame" x="24" y="80" width="327" height="34"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="6tH-bj-UWL"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="indicatorViewBackgroundColor">
+                                        <color key="value" red="0.14901960780000001" green="0.65098039220000004" blue="0.81960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="segmentedControlChanged:" destination="ENf-at-8QV" eventType="valueChanged" id="hwH-Se-89b"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ve6-FG-hkK" firstAttribute="leading" secondItem="Jps-Gb-f9e" secondAttribute="leading" id="OYf-SS-9gu"/>
+                            <constraint firstItem="WpG-0U-5xB" firstAttribute="leading" secondItem="Jps-Gb-f9e" secondAttribute="leading" constant="24" id="T58-BH-tar"/>
+                            <constraint firstAttribute="trailing" secondItem="WpG-0U-5xB" secondAttribute="trailing" constant="24" id="fkh-8R-2le"/>
+                            <constraint firstItem="CHA-Rd-f89" firstAttribute="top" secondItem="Ve6-FG-hkK" secondAttribute="bottom" id="nPJ-FI-8Tj"/>
+                            <constraint firstItem="WpG-0U-5xB" firstAttribute="top" secondItem="aqq-ai-WSG" secondAttribute="bottom" constant="16" id="uf5-II-Qnt"/>
+                            <constraint firstItem="Ve6-FG-hkK" firstAttribute="top" secondItem="WpG-0U-5xB" secondAttribute="bottom" constant="16" id="yZh-wW-Rm4"/>
+                            <constraint firstAttribute="trailing" secondItem="Ve6-FG-hkK" secondAttribute="trailing" id="yuj-mI-hBI"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Manage Teams" id="Gxl-5k-Vq4">
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="hiz-lF-gQ2">
+                            <connections>
+                                <action selector="dismissButtonPressed:" destination="ENf-at-8QV" id="Dvj-WU-WFM"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="dv4-oh-EhZ">
+                            <connections>
+                                <action selector="plusButtonPressed:" destination="ENf-at-8QV" id="7oP-oM-FL9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="dismissButton" destination="hiz-lF-gQ2" id="1Yy-eX-Z5j"/>
+                        <outlet property="plusButton" destination="dv4-oh-EhZ" id="633-yz-4EO"/>
+                        <outlet property="segmentedControl" destination="WpG-0U-5xB" id="jms-rI-3TH"/>
+                        <outlet property="tableView" destination="Ve6-FG-hkK" id="odC-6e-6gh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GSQ-yo-2Ug" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="260" y="223.53823088455775"/>
+        </scene>
+    </scenes>
+</document>

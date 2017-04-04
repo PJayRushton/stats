@@ -10,23 +10,26 @@ import Foundation
 import CloudKit
 
 struct ICloudUserLoaded: Event {
-    var recordID: CKRecordID?
+    var id: String?
 }
 
 struct UserState: State {
     
-    var userRecordId: CKRecordID?
+    var iCloudId: String?
     var currentUser: User?
-    var userIsLoaded = false
+    var isLoaded = false
+    var isSubscribed = false
     
     mutating func react(to event: Event) {
         switch event {
         case let event as ICloudUserLoaded:
-            userRecordId = event.recordID
-
+            iCloudId = event.id
         case let event as Selected<User>:
             currentUser = event.item
-            userIsLoaded = true
+            isLoaded = true
+        case let event as Subscribed<User>:
+            isSubscribed = event.item != nil
+            isLoaded = true
         default:
             break
         }

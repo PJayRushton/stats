@@ -7,24 +7,25 @@
 //
 
 import Foundation
-import CloudKit
+import Firebase
+import Marshal
 
-class Game: CloudKitSyncable {
+struct Game: Identifiable, Unmarshaling {
 
-    let date: Date
-    let inning: Int
-    let isCompleted: Bool
-    let isHome: Bool
-    let isRegularSeason: Bool
-    let opponent: String
-    let opponentScore: Int
-    let score: Int
-    let seasonRef: CKReference
-    let teamRef: CKReference
+    var id: String
+    var date: Date
+    var inning: Int
+    var isCompleted: Bool
+    var isHome: Bool
+    var isRegularSeason: Bool
+    var opponent: String
+    var opponentScore: Int
+    var score: Int
+    var seasonId: String
+    var teamId: String
 
-    var cloudKitRecordId: CKRecordID?
-    
-    init(date: Date, inning: Int, isCompleted: Bool, isHome: Bool, isRegularSeason: Bool, opponent: String, opponentScore: Int, score: Int, seasonRef: CKReference, teamRef: CKReference) {
+    init(id: String = "", date: Date, inning: Int, isCompleted: Bool, isHome: Bool, isRegularSeason: Bool, opponent: String, opponentScore: Int, score: Int, seasonId: String, teamId: String) {
+        self.id = id
         self.date = date
         self.inning = inning
         self.isCompleted = isCompleted
@@ -33,50 +34,51 @@ class Game: CloudKitSyncable {
         self.opponent = opponent
         self.opponentScore = opponentScore
         self.score = score
-        self.seasonRef = seasonRef
-        self.teamRef = teamRef
+        self.seasonId = seasonId
+        self.teamId = teamId
     }
     
-    convenience required init(record: CKRecord) throws {
-        guard let date = record.value(forKey: dateKey) as? Date else { throw CloudKitError.keyNotFound(key: dateKey) }
-        guard let inning = record.value(forKey: inningKey) as? Int else { throw CloudKitError.keyNotFound(key: inningKey) }
-        guard let isCompletedInt = record.value(forKey: isCompletedKey) as? Int else { throw CloudKitError.keyNotFound(key: isCompletedKey) }
-        let isCompleted = NSNumber(value: isCompletedInt).boolValue
-        guard let isHomeInt = record.value(forKey: isHomeKey) as? Int else { throw CloudKitError.keyNotFound(key: isHomeKey) }
-        let isHome = NSNumber(value: isHomeInt).boolValue
-        guard let isRegularSeasonInt = record.value(forKey: isRegularSeasonKey) as? Int else { throw CloudKitError.keyNotFound(key: isRegularSeasonKey) }
-        let isRegularSeason = NSNumber(value: isRegularSeasonInt).boolValue
-        guard let opponent = record.value(forKey: opponentKey) as? String else { throw CloudKitError.keyNotFound(key: opponentKey) }
-        guard let opponentScore = record.value(forKey: opponentScoreKey) as? Int else { throw CloudKitError.keyNotFound(key: opponentScoreKey) }
-        guard let score = record.value(forKey: scoreKey) as? Int else { throw CloudKitError.keyNotFound(key: scoreKey) }
-        guard let season = record.value(forKey: seasonRefKey) as? CKReference else { throw CloudKitError.keyNotFound(key: seasonRefKey) }
-        guard let teamRef = record.value(forKey: teamRefKey) as? CKReference else { throw CloudKitError.keyNotFound(key: teamRefKey) }
-        
-        self.init(date: date, inning: inning, isCompleted: isCompleted, isHome: isHome, isRegularSeason: isRegularSeason, opponent: opponent, opponentScore: opponentScore, score: score, seasonRef: season, teamRef: teamRef)
-        self.cloudKitRecordId = record.recordID
+    init(object: MarshaledObject) throws {
+        id = try object.value(for: idKey)
+        date = try object.value(for: dateKey)
+        inning = try object.value(for: inningKey)
+        isCompleted = try object.value(for: isCompletedKey)
+        isHome = try object.value(for: isHomeKey)
+        isRegularSeason = try object.value(for: isRegularSeasonKey)
+        opponent = try object.value(for: opponentKey)
+        opponentScore = try object.value(for: opponentScoreKey)
+        score = try object.value(for: scoreKey)
+        seasonId = try object.value(for: seasonIdKey)
+        teamId = try object.value(for: teamIdKey)
     }
-
+    
 }
 
-extension CKRecord {
+extension Game: Marshaling {
     
-    convenience init(game: Game) {
-        let recordId = CKRecordID(recordName: UUID().uuidString)
+    func marshaled() ->JSONObject {
+        var json = JSONObject()
+        json[idKey] = id
+        json[dateKey] = date.iso8601String
+        json[inningKey] = inning
+        json[isCompletedKey] = isCompleted
+        json[isHomeKey] = isHome
+        json[isRegularSeasonKey] = isRegularSeason
+        json[opponentKey] = opponent
+        json[opponentScoreKey] = opponentScore
+        json[scoreKey] = score
+        json[seasonIdKey] = seasonId
+        json[teamIdKey] = teamId
         
-        self.init(recordType: Game.recordName, recordID: recordId)
-        self.setObject(game.date as CKRecordValue, forKey: dateKey)
-        self.setObject(NSNumber(value: game.inning), forKey: inningKey)
-        let isCompletedNumber = NSNumber(booleanLiteral: game.isCompleted)
-        self.setObject(isCompletedNumber, forKey: isCompletedKey)
-        let isHomeNumber = NSNumber(booleanLiteral: game.isHome)
-        self.setObject(isHomeNumber, forKey: isHomeKey)
-        let isRegularSeasonNumber = NSNumber(booleanLiteral: game.isRegularSeason)
-        self.setObject(isRegularSeasonNumber, forKey: isRegularSeasonKey)
-        self.setObject(game.opponent as NSString, forKey: opponentKey)
-        self.setObject(game.opponentScore as NSNumber, forKey: opponentScoreKey)
-        self.setObject(game.score as NSNumber, forKey: scoreKey)
-        self.setObject(game.seasonRef, forKey: seasonRefKey)
-        self.setObject(game.teamRef, forKey: teamRefKey)
+        return json
+    }
+    
+}
+
+extension Game {
+    
+    var ref: FIRDatabaseReference {
+        return StatsRefs.gamesRef(teamId: teamId).child(id)
     }
     
 }

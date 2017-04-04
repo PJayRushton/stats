@@ -38,6 +38,7 @@
 		A179999A1E82DFFF0058A002 /* HomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A17999981E82DFFF0058A002 /* HomeViewController.storyboard */; };
 		A17EF6BC1E930D3100DEE4ED /* TeamSwitcherViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A17EF6BA1E930D3100DEE4ED /* TeamSwitcherViewController.storyboard */; };
 		A17EF6BE1E931A0300DEE4ED /* TeamSwitcherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17EF6BD1E931A0300DEE4ED /* TeamSwitcherViewController.swift */; };
+		A17EF6C01E93256000DEE4ED /* TouchObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17EF6BF1E93256000DEE4ED /* TouchObject.swift */; };
 		A1868F9D1E802DDD00C191EC /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1868F9C1E802DDD00C191EC /* Result.swift */; };
 		A1868F9F1E802E1600C191EC /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1868F9E1E802E1600C191EC /* AppState.swift */; };
 		A1868FA21E802F5C00C191EC /* Reactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1868FA11E802F5C00C191EC /* Reactor.swift */; };
@@ -128,6 +129,7 @@
 		A17999991E82DFFF0058A002 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = HomeViewController.storyboard; sourceTree = "<group>"; };
 		A17EF6BB1E930D3100DEE4ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = TeamSwitcherViewController.storyboard; sourceTree = "<group>"; };
 		A17EF6BD1E931A0300DEE4ED /* TeamSwitcherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamSwitcherViewController.swift; sourceTree = "<group>"; };
+		A17EF6BF1E93256000DEE4ED /* TouchObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchObject.swift; sourceTree = "<group>"; };
 		A1868F9C1E802DDD00C191EC /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		A1868F9E1E802E1600C191EC /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		A1868FA11E802F5C00C191EC /* Reactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reactor.swift; sourceTree = "<group>"; };
@@ -210,10 +212,11 @@
 				A14B64F31E8E04CA00CBDE92 /* GetUserTeams.swift */,
 				A179996F1E82B67C0058A002 /* LoadICloudUser.swift */,
 				A14B64EF1E8D67A100CBDE92 /* SaveNewTeam.swift */,
-				A1D67D4E1E8FE9E700200B65 /* SubscribeToReachability.swift */,
 				A17999711E82B6930058A002 /* SaveNewUser.swift */,
 				A131CC8D1E8EEE6600A5D66B /* SubscribeToCurrentUser.swift */,
+				A1D67D4E1E8FE9E700200B65 /* SubscribeToReachability.swift */,
 				A131CC8F1E8EF41D00A5D66B /* SubscribeToTeam.swift */,
+				A17EF6BF1E93256000DEE4ED /* TouchObject.swift */,
 			);
 			name = Commands;
 			sourceTree = "<group>";
@@ -588,6 +591,7 @@
 				A1B41C241E85A4B300FAC930 /* Team.swift in Sources */,
 				A1868FA21E802F5C00C191EC /* Reactor.swift in Sources */,
 				A1D67D4A1E8FE8EE00200B65 /* LoadingImageViewController.swift in Sources */,
+				A17EF6C01E93256000DEE4ED /* TouchObject.swift in Sources */,
 				A14B64DF1E8D3EC200CBDE92 /* UIViewControllerExtensions.swift in Sources */,
 				A1CD9A101E8A9ABC00D3C8F7 /* SeasonState.swift in Sources */,
 				A14B64F41E8E04CA00CBDE92 /* GetUserTeams.swift in Sources */,

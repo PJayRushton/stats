@@ -23,12 +23,8 @@ struct TeamState: State {
             allTeams.insert(event.payload)
             isLoaded = true
             
-            guard allTeams.count > 0 else { return }
-            
-            if allTeams.count == 1 {
-                currentTeam = event.payload
-            } else {
-                currentTeam = allTeams.sorted { $0.touchDate < $1.touchDate }.first
+            if let user = App.core.state.userState.currentUser, currentTeam == nil, allTeams.count == user.allTeamIds.count {
+                currentTeam = allTeams.sorted { $0.touchDate > $1.touchDate }.first
             }
         case let event as Selected<User>:
             if let user = event.item, user.allTeamIds.isEmpty {

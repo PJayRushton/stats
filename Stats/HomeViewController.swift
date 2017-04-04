@@ -52,8 +52,8 @@ class HomeViewController: Component, AutoStoryboardInitializable {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        core.add(subscriber: self)
         navigationController?.setNavigationBarHidden(true, animated: true)
+        adapter.performUpdates(animated: true)
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -94,6 +94,10 @@ extension HomeViewController {
         present(settingsVC, animated: true, completion: nil)
     }
     
+    func presentTeamSwitcher() {
+        let switcherVC = TeamSwitcherViewController.initializeFromStoryboard().embededInNavigationController
+        present(switcherVC, animated: true)
+    }
     
 }
 
@@ -121,7 +125,7 @@ extension HomeViewController: IGListAdapterDataSource {
             let headerController = TeamHeaderSectionController(user: currentUser)
             headerController.settingsPressed = presentSettings
             headerController.editPressed = {}
-            headerController.switchTeamPressed = {}
+            headerController.switchTeamPressed = presentTeamSwitcher
             return headerController
             
         case _ as TeamActionSection:

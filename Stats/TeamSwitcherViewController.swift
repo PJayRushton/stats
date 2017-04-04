@@ -81,7 +81,9 @@ extension TeamSwitcherViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedTeam = teams(for: indexPath.section)[indexPath.row]
+        core.fire(command: TouchObject(selectedTeam))
         core.fire(event: Selected<Team>(selectedTeam))
+        
         if dismissable {
             dismiss(animated: true, completion: nil)
         } else {

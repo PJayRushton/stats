@@ -49,7 +49,6 @@ class TeamCreationViewController: Component, AutoStoryboardInitializable {
 
         setUpColors()
         setUpSegControl()
-        updateCurrentSeason(name: String.seasonSuggestion)
         imageView.layer.cornerRadius = 5
 
         
@@ -58,6 +57,8 @@ class TeamCreationViewController: Component, AutoStoryboardInitializable {
         }
         if let editingTeam = editingTeam {
             updateUI(with: editingTeam)
+        } else {
+            updateCurrentSeason(name: String.seasonSuggestion)
         }
     }
     
@@ -144,7 +145,6 @@ extension TeamCreationViewController {
     
     fileprivate func updateUI(with team: Team) {
         nameTextField.text = team.name
-        seasonTextField.text = team.currentSeason?.name
         try? sportSegControl.setIndex(UInt(team.sport.rawValue), animated:  true)
         imageView.kf.setImage(with: team.imageURL)
     }

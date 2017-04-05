@@ -104,3 +104,14 @@ extension ManageTeamsViewController: UITableViewDataSource {
     }
     
 }
+
+extension ManageTeamsViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let creationVC = TeamCreationViewController.initializeFromStoryboard()
+        creationVC.editingTeam = currentTeams[indexPath.row]
+        creationVC.isDismissable = false
+        navigationController?.pushViewController(creationVC, animated: true)
+    }
+    
+}

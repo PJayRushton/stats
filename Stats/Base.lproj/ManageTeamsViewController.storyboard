@@ -60,6 +60,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Manage Teams" id="Gxl-5k-Vq4">
+                        <barButtonItem key="backBarButtonItem" title=" " id="UQM-MV-6uR"/>
                         <barButtonItem key="leftBarButtonItem" systemItem="stop" id="hiz-lF-gQ2">
                             <connections>
                                 <action selector="dismissButtonPressed:" destination="ENf-at-8QV" id="Dvj-WU-WFM"/>

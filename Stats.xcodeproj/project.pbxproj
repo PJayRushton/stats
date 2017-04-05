@@ -13,8 +13,8 @@
 		A14B64E41E8D42B000CBDE92 /* StockPhotosViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A14B64E21E8D42B000CBDE92 /* StockPhotosViewController.storyboard */; };
 		A14B64E61E8D647B00CBDE92 /* AddTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B64E51E8D647B00CBDE92 /* AddTeamViewController.swift */; };
 		A14B64E91E8D64A900CBDE92 /* AddTeamViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A14B64E71E8D64A900CBDE92 /* AddTeamViewController.storyboard */; };
-		A14B64EC1E8D65C500CBDE92 /* CreateTeamViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A14B64EA1E8D65C500CBDE92 /* CreateTeamViewController.storyboard */; };
-		A14B64EE1E8D662900CBDE92 /* CreateTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B64ED1E8D662900CBDE92 /* CreateTeamViewController.swift */; };
+		A14B64EC1E8D65C500CBDE92 /* TeamCreationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A14B64EA1E8D65C500CBDE92 /* TeamCreationViewController.storyboard */; };
+		A14B64EE1E8D662900CBDE92 /* TeamCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B64ED1E8D662900CBDE92 /* TeamCreationViewController.swift */; };
 		A14B64F01E8D67A100CBDE92 /* SaveTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B64EF1E8D67A100CBDE92 /* SaveTeam.swift */; };
 		A14B64F21E8D696800CBDE92 /* AddTeamToUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B64F11E8D696800CBDE92 /* AddTeamToUser.swift */; };
 		A14B64F41E8E04CA00CBDE92 /* GetUserTeams.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B64F31E8E04CA00CBDE92 /* GetUserTeams.swift */; };
@@ -107,8 +107,8 @@
 		A14B64E31E8D42B000CBDE92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = StockPhotosViewController.storyboard; sourceTree = "<group>"; };
 		A14B64E51E8D647B00CBDE92 /* AddTeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTeamViewController.swift; sourceTree = "<group>"; };
 		A14B64E81E8D64A900CBDE92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AddTeamViewController.storyboard; sourceTree = "<group>"; };
-		A14B64EB1E8D65C500CBDE92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = CreateTeamViewController.storyboard; sourceTree = "<group>"; };
-		A14B64ED1E8D662900CBDE92 /* CreateTeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTeamViewController.swift; sourceTree = "<group>"; };
+		A14B64EB1E8D65C500CBDE92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = TeamCreationViewController.storyboard; sourceTree = "<group>"; };
+		A14B64ED1E8D662900CBDE92 /* TeamCreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamCreationViewController.swift; sourceTree = "<group>"; };
 		A14B64EF1E8D67A100CBDE92 /* SaveTeam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveTeam.swift; sourceTree = "<group>"; };
 		A14B64F11E8D696800CBDE92 /* AddTeamToUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTeamToUser.swift; sourceTree = "<group>"; };
 		A14B64F31E8E04CA00CBDE92 /* GetUserTeams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUserTeams.swift; sourceTree = "<group>"; };
@@ -283,7 +283,7 @@
 				A1A2C36D1E8C0F4C0008274F /* AvatarViewController.storyboard */,
 				A1D67D551E92872A00200B65 /* BasicCell.xib */,
 				A1D67D581E928A0C00200B65 /* BasicHeaderCell.xib */,
-				A14B64EA1E8D65C500CBDE92 /* CreateTeamViewController.storyboard */,
+				A14B64EA1E8D65C500CBDE92 /* TeamCreationViewController.storyboard */,
 				A1A2C3701E8C11F30008274F /* EmailViewController.storyboard */,
 				A17999981E82DFFF0058A002 /* HomeViewController.storyboard */,
 				A17999951E82DFF00058A002 /* LaunchScreen.storyboard */,
@@ -306,7 +306,6 @@
 				A1A2C35B1E8BF2FB0008274F /* AvatarViewController.swift */,
 				A1D67D401E8FE24C00200B65 /* BasicHeaderCell.swift */,
 				A1D67D3E1E8F253F00200B65 /* BasicTeamCell.swift */,
-				A14B64ED1E8D662900CBDE92 /* CreateTeamViewController.swift */,
 				A1A2C3731E8C12080008274F /* EmailViewController.swift */,
 				A179998E1E82DF300058A002 /* HomeCollectionViewCell.swift */,
 				A179998F1E82DF300058A002 /* HomeMenuItem.swift */,
@@ -317,6 +316,7 @@
 				A1A2C36A1E8C05190008274F /* SectionControllers */,
 				A1D67D531E9097E100200B65 /* SettingsViewController.swift */,
 				A14B64E01E8D429800CBDE92 /* StockPhotosViewController.swift */,
+				A14B64ED1E8D662900CBDE92 /* TeamCreationViewController.swift */,
 				A1A2C3611E8BF6020008274F /* TeamHeaderCell.swift */,
 				A17EF6BD1E931A0300DEE4ED /* TeamSwitcherViewController.swift */,
 				A1D8054B1E89870B0072AA49 /* UsernameViewController.swift */,
@@ -501,7 +501,7 @@
 				A14B64E41E8D42B000CBDE92 /* StockPhotosViewController.storyboard in Resources */,
 				A1CD9A171E8AA2F000D3C8F7 /* UsernameViewController.storyboard in Resources */,
 				A1F959391E8959C60087B040 /* LemonMilk.otf in Resources */,
-				A14B64EC1E8D65C500CBDE92 /* CreateTeamViewController.storyboard in Resources */,
+				A14B64EC1E8D65C500CBDE92 /* TeamCreationViewController.storyboard in Resources */,
 				A1D67D5A1E928A0D00200B65 /* BasicHeaderCell.xib in Resources */,
 				A1D67D571E92872A00200B65 /* BasicCell.xib in Resources */,
 				A17EF6BC1E930D3100DEE4ED /* TeamSwitcherViewController.storyboard in Resources */,
@@ -577,7 +577,7 @@
 				A1CD9A191E8AA83D00D3C8F7 /* NewUserState.swift in Sources */,
 				A1BF9C401E8AC449007341EA /* GameState.swift in Sources */,
 				A14B64F61E8E0E5400CBDE92 /* FirebaseNetworkAccess.swift in Sources */,
-				A14B64EE1E8D662900CBDE92 /* CreateTeamViewController.swift in Sources */,
+				A14B64EE1E8D662900CBDE92 /* TeamCreationViewController.swift in Sources */,
 				A14B64E61E8D647B00CBDE92 /* AddTeamViewController.swift in Sources */,
 				A1BF9C3F1E8AC443007341EA /* Game.swift in Sources */,
 				A1D67D481E8FE8BF00200B65 /* MainViewController.swift in Sources */,
@@ -662,12 +662,12 @@
 			name = AddTeamViewController.storyboard;
 			sourceTree = "<group>";
 		};
-		A14B64EA1E8D65C500CBDE92 /* CreateTeamViewController.storyboard */ = {
+		A14B64EA1E8D65C500CBDE92 /* TeamCreationViewController.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				A14B64EB1E8D65C500CBDE92 /* Base */,
 			);
-			name = CreateTeamViewController.storyboard;
+			name = TeamCreationViewController.storyboard;
 			sourceTree = "<group>";
 		};
 		A17999951E82DFF00058A002 /* LaunchScreen.storyboard */ = {

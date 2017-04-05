@@ -18,7 +18,7 @@
         <!--Create Team-->
         <scene sceneID="ujA-32-Pzp">
             <objects>
-                <viewController storyboardIdentifier="CreateTeamViewController" id="KaG-dX-WZH" customClass="CreateTeamViewController" customModule="Stats" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TeamCreationViewController" id="KaG-dX-WZH" customClass="TeamCreationViewController" customModule="Stats" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ryd-f2-m4f"/>
                         <viewControllerLayoutGuide type="bottom" id="had-4q-I7d"/>
@@ -106,7 +106,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KP9-cp-bI2">
-                                                        <rect key="frame" x="0.0" y="55.5" width="44" height="55.5"/>
+                                                        <rect key="frame" x="0.0" y="55.5" width="44" height="56"/>
                                                         <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="13"/>
                                                         <state key="normal" title="Lib"/>
                                                         <connections>
@@ -114,7 +114,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="efs-ro-bAO">
-                                                        <rect key="frame" x="0.0" y="111" width="44" height="56"/>
+                                                        <rect key="frame" x="0.0" y="111.5" width="44" height="55.5"/>
                                                         <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="13"/>
                                                         <state key="normal" title="Trash"/>
                                                         <connections>

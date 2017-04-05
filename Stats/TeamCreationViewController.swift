@@ -1,5 +1,5 @@
 //
-//  CreateTeamViewController.swift
+//  TeamCreationViewController.swift
 //  Stats
 //
 //  Created by Parker Rushton on 3/30/17.
@@ -11,7 +11,7 @@ import BetterSegmentedControl
 import Firebase
 import TextFieldEffects
 
-class CreateTeamViewController: Component, AutoStoryboardInitializable {
+class TeamCreationViewController: Component, AutoStoryboardInitializable {
     
     @IBOutlet weak var nameTextField: MadokaTextField!
     @IBOutlet weak var seasonTextField: MadokaTextField!
@@ -78,7 +78,7 @@ class CreateTeamViewController: Component, AutoStoryboardInitializable {
     
 }
 
-extension CreateTeamViewController {
+extension TeamCreationViewController {
     
     fileprivate func updateSaveButton() {
         guard let name = nameTextField.text, !name.isEmpty else { saveButton.isEnabled = false; return  }
@@ -116,7 +116,7 @@ extension CreateTeamViewController {
     
 }
 
-extension CreateTeamViewController {
+extension TeamCreationViewController {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         dismiss(animated: true, completion: nil)
@@ -130,7 +130,7 @@ extension CreateTeamViewController {
 }
 
 
-extension CreateTeamViewController: UITextFieldDelegate {
+extension TeamCreationViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == nameTextField {

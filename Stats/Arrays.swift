@@ -24,7 +24,18 @@ extension String {
     static var seasonSuggestion: String {
         let currentMonth = Calendar.current.component(.month, from: Date())
         let currentYear = Calendar.current.component(.year, from: Date())
-        let season = currentMonth < 6 ? "Spring" : "Summer"
+        var season = ""
+        
+        switch currentMonth {
+        case 0...5:
+            season = "Spring"
+        case 6...8:
+            season = "Summer"
+        case 9...12:
+            season = "Fall"
+        default:
+            break
+        }
         return "\(season) \(currentYear)"
     }
     

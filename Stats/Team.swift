@@ -44,6 +44,9 @@ struct Team: Identifiable, Unmarshaling {
         guard let imageURLString = imageURLString else { return nil }
         return URL(string: imageURLString)
     }
+    var currentSeason: Season? {
+        return App.core.state.seasonState.allSeasons.first(where: { $0.id == currentSeasonId })
+    }
     
     init(id: String = "", currentSeasonId: String? =  nil, imageURLString: String? = nil, name: String, sport: TeamSport = .slowPitch) {
         self.id = id

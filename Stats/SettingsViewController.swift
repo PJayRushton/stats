@@ -65,11 +65,19 @@ class SettingsViewController: Component, AutoStoryboardInitializable {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.navigationBar.barTintColor = UIColor.mainNavBarColor
+        navigationItem.leftBarButtonItem?.tintColor =  .white
+        Appearance.setUp(navTextColor: .white)
         registerCells()
         
         if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
             versionLabel.text = "Version: \(version)"
         }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        Appearance.setUp()
     }
     
     @IBAction func dismissButtonPressed(_ sender: UIBarButtonItem) {

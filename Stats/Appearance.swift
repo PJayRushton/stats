@@ -11,13 +11,13 @@ import ChameleonFramework
 
 enum Appearance {
     
-    static func setUp() {
-        let navTitleAttributes = [NSFontAttributeName: FontType.lemonMilk.font(withSize: 20), NSForegroundColorAttributeName: UIColor.gray500]
+    static func setUp(navTextColor: UIColor = UIColor.white) {
+        let navTitleAttributes = [NSFontAttributeName: FontType.lemonMilk.font(withSize: 20), NSForegroundColorAttributeName: navTextColor]
         UINavigationBar.appearance().titleTextAttributes = navTitleAttributes
-        UINavigationBar.appearance(whenContainedInInstancesOf: [UINavigationController.self]).tintColor = UIColor.gray500
+        UINavigationBar.appearance(whenContainedInInstancesOf: [UINavigationController.self]).tintColor = navTextColor
         UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: FontType.lemonMilk.font(withSize: 15)], for: .normal)
         UINavigationBar.appearance().isTranslucent = false
-        UINavigationBar.appearance().backgroundColor = UIColor.flatBlue
+        UIApplication.shared.statusBarStyle = .lightContent
     }
     
 }

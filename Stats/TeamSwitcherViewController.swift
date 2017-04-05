@@ -22,13 +22,11 @@ class TeamSwitcherViewController: Component, AutoStoryboardInitializable {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.navigationBar.barTintColor = .mainAppColor
         if !dismissable {
             navigationItem.rightBarButtonItem = nil
         }
-        let nib = UINib(nibName: BasicCell.reuseIdentifier, bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: BasicCell.reuseIdentifier)
-        let headerNib = UINib(nibName: BasicHeaderCell.reuseIdentifier, bundle: nil)
-        tableView.register(headerNib, forCellReuseIdentifier: BasicHeaderCell.reuseIdentifier)
+        registerCells()
         
         tableView.rowHeight = 60
         tableView.tableFooterView = UIView()
@@ -38,9 +36,20 @@ class TeamSwitcherViewController: Component, AutoStoryboardInitializable {
         dismiss(animated: true, completion: nil)
     }
     
+    override func update(with state: AppState) {
+        tableView.reloadData()
+    }
+    
 }
 
 extension TeamSwitcherViewController {
+    
+    fileprivate func registerCells() {
+        let nib = UINib(nibName: BasicCell.reuseIdentifier, bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: BasicCell.reuseIdentifier)
+        let headerNib = UINib(nibName: BasicHeaderCell.reuseIdentifier, bundle: nil)
+        tableView.register(headerNib, forCellReuseIdentifier: BasicHeaderCell.reuseIdentifier)
+    }
     
     func teams(for section: Int) -> [Team] {
         let type = TeamOwnershipType(rawValue: section)!
@@ -84,11 +93,13 @@ extension TeamSwitcherViewController: UITableViewDelegate {
         core.fire(command: TouchObject(selectedTeam))
         core.fire(event: Selected<Team>(selectedTeam))
         
-        if dismissable {
-            dismiss(animated: true, completion: nil)
-        } else {
-            navigationController?.popViewController(animated: true)
-        }
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.6, execute: {
+            if self.dismissable {
+                self.dismiss(animated: true, completion: nil)
+            } else {
+                self.navigationController?.popViewController(animated: true)
+            }
+        })
     }
     
 }

@@ -64,8 +64,8 @@ class HomeViewController: Component, AutoStoryboardInitializable {
     // MARK: - IBActions
 
     @IBAction func createTeamButtonPressed(_ sender: UIButton) {
-        let createTeamVC = CreateTeamViewController.initializeFromStoryboard().embededInNavigationController
-        present(createTeamVC, animated: true, completion: nil)
+        let teamCreationVC = TeamCreationViewController.initializeFromStoryboard().embededInNavigationController
+        present(teamCreationVC, animated: true, completion: nil)
     }
     
     @IBAction func addTeamButtonPressed(_ sender: UIButton) {

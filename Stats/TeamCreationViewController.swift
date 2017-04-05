@@ -8,6 +8,7 @@
 
 import UIKit
 import BetterSegmentedControl
+import Kingfisher
 import Firebase
 import TextFieldEffects
 
@@ -16,14 +17,14 @@ class TeamCreationViewController: Component, AutoStoryboardInitializable {
     @IBOutlet weak var nameTextField: MadokaTextField!
     @IBOutlet weak var seasonTextField: MadokaTextField!
     @IBOutlet weak var sportSegControl: BetterSegmentedControl!
+    @IBOutlet weak var imageHolderView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var stockPhotoButton: UIButton!
     @IBOutlet weak var trashButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
 
-    
-    var isDismissable = false
+    var isDismissable = true
     
     var editingTeam: Team?
     
@@ -35,29 +36,40 @@ class TeamCreationViewController: Component, AutoStoryboardInitializable {
         return TeamSport(rawValue: Int(sportSegControl.index)) ?? .slowPitch
     }
     
-    fileprivate var currentImage: UIImage? {
+    fileprivate var currentImageURL: URL? {
         didSet {
-            imageView.image = currentImage
-            trashButton.isHidden = currentImage == nil
+            imageView.kf.setImage(with: currentImageURL)
+            trashButton.isHidden = currentImageURL == nil
         }
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        setUpColors()
+        setUpSegControl()
+        updateCurrentSeason(name: String.seasonSuggestion)
+        imageView.layer.cornerRadius = 5
+
         
         if !isDismissable {
             navigationItem.leftBarButtonItem = nil
         }
-        seasonTextField.text = String.seasonSuggestion
-        sportSegControl.titles = TeamSport.allValues.map { $0.stringValue }
-        sportSegControl.titleFont = FontType.lemonMilk.font(withSize: 14)
-        sportSegControl.selectedTitleFont = FontType.lemonMilk.font(withSize: 16)
+        if let editingTeam = editingTeam {
+            updateUI(with: editingTeam)
+        }
     }
     
     @IBAction func dismissButtonPressed(_ sender: UIBarButtonItem) {
         deleteData()
         dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func imageTapped(_ sender: UITapGestureRecognizer) {
+        if currentImageURL == nil {
+            cameraButtonPressed(cameraButton)
+        }
     }
     
     @IBAction func cameraButtonPressed(_ sender: UIButton) {
@@ -69,39 +81,100 @@ class TeamCreationViewController: Component, AutoStoryboardInitializable {
     }
 
     @IBAction func trashButtonPressed(_ sender: UIButton) {
-        currentImage = nil
+        core.fire(event: Selected<URL>(nil))
+    }
+    
+    @IBAction func viewTapped(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
     }
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         saveTeam()
     }
     
+    
+    // MARK: - Subscriber
+    
+    override func update(with state: AppState) {
+        if let editingTeam = editingTeam {
+            
+        } else {
+            seasonTextField.text = state.newTeamState.season?.name
+            currentImageURL = state.newTeamState.imageURL
+        }
+        updateSaveButton()
+    }
+    
 }
 
 extension TeamCreationViewController {
     
-    fileprivate func updateSaveButton() {
-        guard let name = nameTextField.text, !name.isEmpty else { saveButton.isEnabled = false; return  }
-        guard let _ = currentImage else { saveButton.isEnabled = false; return }
-        guard let seasonText = seasonTextField.text, !seasonText.isEmpty else { saveButton.isEnabled = false; return }
-        
-        if let editingTeam = editingTeam {
-            let isSame = name == editingTeam.name && selectedSport == editingTeam.sport
-            saveButton.isEnabled = !isSame
+    fileprivate func setUpColors() {
+        navigationController?.navigationBar.barTintColor = .secondaryAppColor
+        nameTextField.borderColor = .mainAppColor
+        nameTextField.layer.cornerRadius = 5
+        seasonTextField.borderColor = .mainAppColor
+        saveButton.backgroundColor = .mainAppColor
+        saveButton.layer.cornerRadius = 5
+    }
+    
+    fileprivate func setUpSegControl() {
+        sportSegControl.titles = TeamSport.allValues.map { $0.stringValue }
+        sportSegControl.titleFont = FontType.lemonMilk.font(withSize: 14)
+        sportSegControl.selectedTitleFont = FontType.lemonMilk.font(withSize: 16)
+        sportSegControl.titleColor = .gray400
+        sportSegControl.indicatorViewBackgroundColor = .secondaryAppColor
+    }
+    
+    fileprivate func updateCurrentSeason(name: String) {
+        if let _ = editingTeam {
+            seasonTextField.isHidden = true
+            return
+        }
+        if var updatedSeason = core.state.newTeamState.season {
+            updatedSeason.name = name
+            core.fire(command: UpdateObject(object: updatedSeason))
+        } else {
+            let teamId = editingTeam?.id ?? newTeamRef.key
+            let ref = StatsRefs.seasonsRef(teamId: teamId)
+            let newSeason = Season(id: ref.key, name: name, teamId: teamId)
+            core.fire(command: UpdateObject(object: newSeason))
         }
     }
     
-    fileprivate func constructedTeam() -> Team? {
+    fileprivate func updateUI(with team: Team) {
+        nameTextField.text = team.name
+        seasonTextField.text = team.currentSeason?.name
+        try? sportSegControl.setIndex(UInt(team.sport.rawValue), animated:  true)
+        imageView.kf.setImage(with: team.imageURL)
+    }
+    
+    fileprivate func updateSaveButton() {
+        let isEnabled = constructedTeam() != nil
+        saveButton.isEnabled = isEnabled
+        
         if let editingTeam = editingTeam {
-            return editingTeam // FIXME:
-        } else {
-            guard let name = nameTextField.text else { return nil }
-            let newTeamState = core.state.newTeamState
-            let season = newTeamState.season
-            let imageURL = newTeamState.imageURL
-            
-            return Team(id: newTeamRef.key, currentSeasonId: season?.id, imageURLString: imageURL?.absoluteString, name: name, sport: selectedSport)
+            let isSame = nameTextField.text! == editingTeam.name && selectedSport == editingTeam.sport
+            saveButton.isEnabled = !isSame
         }
+        saveButton.backgroundColor = isEnabled ? UIColor.mainAppColor : UIColor.mainAppColor.withAlphaComponent(0.5)
+    }
+    
+    fileprivate func constructedTeam() -> Team? {
+        guard let name = nameTextField.text else { return nil }
+        let newTeamState = core.state.newTeamState
+        
+        if var editingTeam = editingTeam {
+            editingTeam.name = name
+            editingTeam.sport = selectedSport
+            editingTeam.imageURLString = core.state.newTeamState.imageURL?.absoluteString ?? editingTeam.imageURLString
+            
+            return editingTeam
+        }
+        guard let season = newTeamState.season else { return nil }
+        guard let imageURL = newTeamState.imageURL else { return nil }
+    
+        return Team(id: newTeamRef.key, currentSeasonId: season.id, imageURLString: imageURL.absoluteString, name: name, sport: selectedSport)
     }
     
     fileprivate func saveTeam() {
@@ -111,7 +184,12 @@ extension TeamCreationViewController {
     }
     
     fileprivate func deleteData() {
-//        if let season = 
+        if let season = core.state.newTeamState.season {
+            core.fire(command: DeleteObject(object: season))
+        }
+        if let _ = core.state.newTeamState.imageURL {
+            // TODO: Possibly delete image
+        }
     }
     
 }
@@ -131,6 +209,15 @@ extension TeamCreationViewController {
 
 
 extension TeamCreationViewController: UITextFieldDelegate {
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let text = textField.text else { return }
+        
+        if textField == seasonTextField {
+            updateCurrentSeason(name: text)
+        }
+        updateSaveButton()
+    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == nameTextField {

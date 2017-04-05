@@ -16,7 +16,7 @@ struct Season: Identifiable, Unmarshaling {
     var name: String
     var teamId: String
     
-    init(id: String = "", isCompleted: Bool, name: String, teamId: String) {
+    init(id: String = "", isCompleted: Bool = false, name: String, teamId: String) {
         self.id = id
         self.isCompleted = isCompleted
         self.name = name
@@ -37,7 +37,7 @@ extension Season: Marshaling {
     func marshaled() -> JSONObject {
         var json = JSONObject()
         json[idKey] = id
-        json[isCompletedKey] = isCompletedKey
+        json[isCompletedKey] = isCompleted
         json[nameKey] = name
         json[teamIdKey] = teamId
         

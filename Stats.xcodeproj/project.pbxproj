@@ -45,6 +45,7 @@
 		A17EF6CC1E94044E00DEE4ED /* UpdateObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17EF6CB1E94044E00DEE4ED /* UpdateObject.swift */; };
 		A17EF6CE1E94148300DEE4ED /* SubscribeToObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17EF6CD1E94148300DEE4ED /* SubscribeToObject.swift */; };
 		A17EF6D01E941D8700DEE4ED /* SubscribeToTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17EF6CF1E941D8700DEE4ED /* SubscribeToTeam.swift */; };
+		A17EF6D91E954A6500DEE4ED /* DeleteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17EF6D81E954A6500DEE4ED /* DeleteImage.swift */; };
 		A1868F9D1E802DDD00C191EC /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1868F9C1E802DDD00C191EC /* Result.swift */; };
 		A1868F9F1E802E1600C191EC /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1868F9E1E802E1600C191EC /* AppState.swift */; };
 		A1868FA21E802F5C00C191EC /* Reactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1868FA11E802F5C00C191EC /* Reactor.swift */; };
@@ -142,6 +143,7 @@
 		A17EF6CB1E94044E00DEE4ED /* UpdateObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateObject.swift; sourceTree = "<group>"; };
 		A17EF6CD1E94148300DEE4ED /* SubscribeToObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribeToObject.swift; sourceTree = "<group>"; };
 		A17EF6CF1E941D8700DEE4ED /* SubscribeToTeam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribeToTeam.swift; sourceTree = "<group>"; };
+		A17EF6D81E954A6500DEE4ED /* DeleteImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteImage.swift; sourceTree = "<group>"; };
 		A1868F9C1E802DDD00C191EC /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		A1868F9E1E802E1600C191EC /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		A1868FA11E802F5C00C191EC /* Reactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reactor.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 				A14B64F11E8D696800CBDE92 /* AddTeamToUser.swift */,
 				A1CD9A1A1E8AACAB00D3C8F7 /* CheckUsernameAvailability.swift */,
 				A17EF6C71E93FC6D00DEE4ED /* CreateSeason.swift */,
+				A17EF6D81E954A6500DEE4ED /* DeleteImage.swift */,
 				A17EF6C91E94040D00DEE4ED /* DeleteObject.swift */,
 				A1BF9C451E8B22B2007341EA /* GetCurrentUser.swift */,
 				A14B64F31E8E04CA00CBDE92 /* GetUserTeams.swift */,
@@ -230,10 +233,10 @@
 				A131CC8D1E8EEE6600A5D66B /* SubscribeToCurrentUser.swift */,
 				A17EF6CD1E94148300DEE4ED /* SubscribeToObject.swift */,
 				A1D67D4E1E8FE9E700200B65 /* SubscribeToReachability.swift */,
+				A17EF6CF1E941D8700DEE4ED /* SubscribeToTeam.swift */,
 				A17EF6BF1E93256000DEE4ED /* TouchObject.swift */,
 				A17EF6CB1E94044E00DEE4ED /* UpdateObject.swift */,
 				A17EF6C51E93EDEC00DEE4ED /* UploadToStorage.swift */,
-				A17EF6CF1E941D8700DEE4ED /* SubscribeToTeam.swift */,
 			);
 			name = Commands;
 			sourceTree = "<group>";
@@ -639,6 +642,7 @@
 				A1D67D381E8F081A00200B65 /* TeamActionSectionController.swift in Sources */,
 				A131CC8E1E8EEE6600A5D66B /* SubscribeToCurrentUser.swift in Sources */,
 				A14B64FC1E8EB99B00CBDE92 /* Identifiable.swift in Sources */,
+				A17EF6D91E954A6500DEE4ED /* DeleteImage.swift in Sources */,
 				A17EF6C41E93E8D200DEE4ED /* NewTeamState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

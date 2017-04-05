@@ -7,9 +7,36 @@
 //
 
 import UIKit
+import ChameleonFramework
 import Marshal
 
 extension UIColor {
+    
+    class var mainAppColor: UIColor {
+        return .flatLimeDark
+    }
+    
+    class var mainNavBarColor: UIColor {
+        return .flatLimeDark
+    }
+    
+    class var secondaryAppColor: UIColor {
+        return .flatOrange
+    }
+    
+    class var tertiaryAppColor: UIColor {
+        return .flatGray
+    }
+    
+    class var mainTextColor: UIColor {
+        return .gray500
+    }
+    
+    class var secondaryTextColor: UIColor {
+        return .gray300
+    }
+    
+    
     /// Hex: #F7F9FA
     class var gray100: UIColor { return #colorLiteral(red: 0.968627451, green: 0.9764705882, blue: 0.9803921569, alpha: 1) }
     

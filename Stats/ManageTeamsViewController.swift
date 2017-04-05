@@ -22,19 +22,15 @@ class ManageTeamsViewController: Component, AutoStoryboardInitializable {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.rowHeight = 60
+        tableView.tableFooterView = UIView()
+        
+        registerCells()
+        setUpSegmentedControl()
+        
         if !dismissable {
             navigationItem.leftBarButtonItem = nil
         }
-        let nib = UINib(nibName: BasicCell.reuseIdentifier, bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: BasicCell.reuseIdentifier)
-        let headerNib = UINib(nibName: BasicHeaderCell.reuseIdentifier, bundle: nil)
-        tableView.register(headerNib, forCellReuseIdentifier: BasicHeaderCell.reuseIdentifier)
-        
-        tableView.rowHeight = 60
-        tableView.tableFooterView = UIView()
-        segmentedControl.titles = TeamOwnershipType.allValues.map { $0.sectionTitle }
-        segmentedControl.titleFont = FontType.lemonMilk.font(withSize: 14)
-        segmentedControl.selectedTitleFont = FontType.lemonMilk.font(withSize: 16)
     }
     
     @IBAction func plusButtonPressed(_ sender: UIBarButtonItem) {
@@ -58,16 +54,30 @@ class ManageTeamsViewController: Component, AutoStoryboardInitializable {
 
 extension ManageTeamsViewController {
     
-    var currentTeams: [Team] {
+    fileprivate var currentTeams: [Team] {
         let type = TeamOwnershipType(rawValue: tab)!
         return core.state.teamState.currentUserTeams(forType: type)
+    }
+    
+    fileprivate func registerCells() {
+        let nib = UINib(nibName: BasicCell.reuseIdentifier, bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: BasicCell.reuseIdentifier)
+        let headerNib = UINib(nibName: BasicHeaderCell.reuseIdentifier, bundle: nil)
+        tableView.register(headerNib, forCellReuseIdentifier: BasicHeaderCell.reuseIdentifier)
+    }
+    
+    fileprivate func setUpSegmentedControl() {
+        segmentedControl.titles = TeamOwnershipType.allValues.map { $0.sectionTitle }
+        segmentedControl.titleFont = FontType.lemonMilk.font(withSize: 14)
+        segmentedControl.selectedTitleFont = FontType.lemonMilk.font(withSize: 16)
+        segmentedControl.indicatorViewBackgroundColor = .secondaryAppColor
     }
 
     fileprivate func launchTeamCreation() {
         let type = TeamOwnershipType(rawValue: tab)!
         switch type {
         case .owned:
-            let teamCreationVC = CreateTeamViewController.initializeFromStoryboard().embededInNavigationController
+            let teamCreationVC = TeamCreationViewController.initializeFromStoryboard().embededInNavigationController
             present(teamCreationVC, animated: true, completion: nil)
         case .managed:
             break
@@ -88,7 +98,7 @@ extension ManageTeamsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: BasicCell.reuseIdentifier) as! BasicCell
         let team = currentTeams[indexPath.row]
-        cell.update(with: team, accessory: .disclosureIndicator)
+        cell.update(with: team, accessory: .disclosureIndicator, fontSize: 18)
         
         return cell
     }

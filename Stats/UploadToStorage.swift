@@ -34,8 +34,10 @@ struct UploadToStorage: Command {
         case .team:
             ref = StatsRefs.teamImageStorageRef(teamId: objectId)
         }
-        
-        networkAccess.uploadData(imageData, toRef: ref) { result in
+        let metadata = FIRStorageMetadata()
+        metadata.contentType = "image/jpeg"
+
+        networkAccess.uploadData(imageData, toRef: ref, with: metadata) { result in
             switch result {
             case let .success(url):
                 core.fire(event: Selected<URL>(url))

@@ -8,17 +8,27 @@
 
 import UIKit
 
+struct Loading<T>: Event {
+    var object: T?
+    
+    init(_ object: T? = nil) {
+        self.object = object
+    }
+    
+}
+
 struct NewTeamState: State {
     
-    var season: Season?
     var imageURL: URL?
+    var isLoading = false
     
     mutating func react(to event: Event) {
         switch event {
-        case let event as Updated<Season>:
-            season = event.payload
         case let event as Selected<URL>:
             imageURL = event.item
+            isLoading = false
+        case _ as Loading<URL>:
+            isLoading = true
         default:
             break
         }

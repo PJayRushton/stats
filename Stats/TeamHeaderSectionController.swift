@@ -54,7 +54,7 @@ extension TeamHeaderSectionController: IGListSectionType {
     func sizeForItem(at index: Int) -> CGSize {
         guard let collectionContext = collectionContext else { return .zero }
         let fullWidth = collectionContext.containerSize.width
-        let height = collectionContext.containerSize.width * 0.65
+        let height = collectionContext.containerSize.width * (2 / 3)
         return CGSize(width: fullWidth, height: height)
     }
     

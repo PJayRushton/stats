@@ -16,9 +16,9 @@ struct User: Identifiable, Unmarshaling {
     var avatarURLString: String?
     var email: String?
     
-    var ownedTeamIds: [String]
-    var managedTeamIds: [String]
-    var fanTeamIds: [String]
+    var ownedTeamIds: Set<String>
+    var managedTeamIds: Set<String>
+    var fanTeamIds: Set<String>
     
     var allTeamIds: [String] {
         return [ownedTeamIds, managedTeamIds, fanTeamIds].joined().flatMap { $0 }
@@ -30,9 +30,9 @@ struct User: Identifiable, Unmarshaling {
         self.avatarURLString = avatarURLString
         self.email = email
         
-        self.ownedTeamIds = ownedTeamIds
-        self.managedTeamIds = managedTeamIds
-        self.fanTeamIds = fanTeamIds
+        self.ownedTeamIds = Set(ownedTeamIds)
+        self.managedTeamIds = Set(managedTeamIds)
+        self.fanTeamIds = Set(fanTeamIds)
     }
 
     init(object: MarshaledObject) throws {
@@ -42,13 +42,13 @@ struct User: Identifiable, Unmarshaling {
         email = try? object.value(for: emailKey)
         
         let ownedTeamsObject: JSONObject? = try? object.value(for: ownedTeamIdsKey)
-        ownedTeamIds = ownedTeamsObject != nil ? Array(ownedTeamsObject!.keys) : []
+        ownedTeamIds = ownedTeamsObject != nil ? Set(ownedTeamsObject!.keys) : []
         
         let managedTeamsObject: JSONObject? = try? object.value(for: managedTeamIdsKey)
-        managedTeamIds = managedTeamsObject != nil ? Array(managedTeamsObject!.keys) : []
+        managedTeamIds = managedTeamsObject != nil ? Set(managedTeamsObject!.keys) : []
         
         let fanTeamsObject: JSONObject? = try? object.value(for: fanTeamIdsKey)
-        fanTeamIds = fanTeamsObject != nil ? Array(fanTeamsObject!.keys) : []
+        fanTeamIds = fanTeamsObject != nil ? Set(fanTeamsObject!.keys) : []
     }
     
     func isOwnerOrManager(of team: Team) -> Bool {

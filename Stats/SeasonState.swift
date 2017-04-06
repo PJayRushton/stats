@@ -17,6 +17,10 @@ struct SeasonState: State {
         switch event {
         case let event as Selected<Season>:
             currentSeason = event.item
+        case let event as Updated<Season>:
+            allSeasons.remove(event.payload)
+            allSeasons.insert(event.payload)
+
         default:
             break
         }

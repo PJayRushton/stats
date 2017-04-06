@@ -36,7 +36,8 @@ struct UploadToStorage: Command {
         }
         let metadata = FIRStorageMetadata()
         metadata.contentType = "image/jpeg"
-
+        core.fire(event: Loading<URL>(nil))
+        
         networkAccess.uploadData(imageData, toRef: ref, with: metadata) { result in
             switch result {
             case let .success(url):

@@ -18,6 +18,7 @@ struct SubscribeToTeam: Command {
     
     func execute(state: AppState, core: Core<AppState>) {
         let ref = StatsRefs.teamsRef.child(teamId)
+        
         networkAccess.subscribe(to: ref) { result in
             let objectResult = result.map(Team.init)
             switch objectResult {

@@ -17,6 +17,7 @@ struct SubscribeToObject<T: Identifiable>: Command {
     }
     
     func execute(state: AppState, core: Core<AppState>) {
+        networkAccess.unsubscribe(from: object.ref)
         networkAccess.subscribe(to: object.ref) { result in
             let objectResult = result.map(T.init)
             switch objectResult {

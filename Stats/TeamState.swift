@@ -20,8 +20,13 @@ struct TeamState: State {
             currentTeam = event.item
             isLoaded = true
         case let event as Updated<Team>:
+            allTeams.remove(event.payload)
             allTeams.insert(event.payload)
             isLoaded = true
+            
+            if event.payload == currentTeam {
+                currentTeam = event.payload
+            }
             
             if let user = App.core.state.userState.currentUser, currentTeam == nil, allTeams.count == user.allTeamIds.count {
                 currentTeam = allTeams.sorted { $0.touchDate > $1.touchDate }.first
@@ -38,10 +43,10 @@ struct TeamState: State {
     func currentUserTeams(forType type: TeamOwnershipType) -> [Team] {
         guard let currentUser = App.core.state.userState.currentUser else { return [] }
         switch type {
-            case .owned:
-                return allTeams.filter { currentUser.ownedTeamIds.contains($0.id) }
-            case .managed:
-                return allTeams.filter { currentUser.managedTeamIds.contains($0.id) }
+        case .owned:
+            return allTeams.filter { currentUser.ownedTeamIds.contains($0.id) }
+        case .managed:
+            return allTeams.filter { currentUser.managedTeamIds.contains($0.id) }
         case .fan:
             return allTeams.filter { currentUser.fanTeamIds.contains($0.id) }
         }

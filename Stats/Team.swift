@@ -76,7 +76,7 @@ extension Team: Marshaling {
         var json = JSONObject()
         json[idKey] = id
         json[currentSeasonIdKey] = currentSeasonId
-        json[imageURLStringKey] = imageURLString
+        json[imageURLStringKey] = imageURLString ?? NSNull()
         json[nameKey] = name
         json[shareCodeKey] = shareCode
         json[sportKey] = sport.rawValue

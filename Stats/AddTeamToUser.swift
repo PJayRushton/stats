@@ -40,11 +40,11 @@ struct AddTeamToUser: Command {
         guard var currentUser = state.userState.currentUser else { return }
         switch type {
         case .owned:
-            currentUser.ownedTeamIds.append(team.id)
+            currentUser.ownedTeamIds.insert(team.id)
         case .managed:
-            currentUser.managedTeamIds.append(team.id)
+            currentUser.managedTeamIds.insert(team.id)
         case .fan:
-            currentUser.managedTeamIds.append(team.id)
+            currentUser.managedTeamIds.insert(team.id)
         }
         let ref = StatsRefs.userRef(id: currentUser.id)
         networkAccess.updateObject(at: ref, parameters: currentUser.marshaled(), completion: nil)

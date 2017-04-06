@@ -54,7 +54,7 @@ class ManageTeamsViewController: Component, AutoStoryboardInitializable {
 
 extension ManageTeamsViewController {
     
-    fileprivate var currentTeams: [Team] {
+    fileprivate func currentTeams() -> [Team] {
         let type = TeamOwnershipType(rawValue: tab)!
         return core.state.teamState.currentUserTeams(forType: type)
     }
@@ -92,12 +92,12 @@ extension ManageTeamsViewController {
 extension ManageTeamsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return currentTeams.count
+        return currentTeams().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: BasicCell.reuseIdentifier) as! BasicCell
-        let team = currentTeams[indexPath.row]
+        let team = currentTeams()[indexPath.row]
         cell.update(with: team, accessory: .disclosureIndicator, fontSize: 18)
         
         return cell
@@ -109,7 +109,7 @@ extension ManageTeamsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let creationVC = TeamCreationViewController.initializeFromStoryboard()
-        creationVC.editingTeam = currentTeams[indexPath.row]
+        creationVC.editingTeam = currentTeams()[indexPath.row]
         creationVC.isDismissable = false
         navigationController?.pushViewController(creationVC, animated: true)
     }

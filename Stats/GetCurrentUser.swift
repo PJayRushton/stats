@@ -19,6 +19,11 @@ struct GetCurrentUser: Command {
             switch userResult {
             case let .success(user):
                 core.fire(event: Selected<User>(user))
+                core.fire(command: SubscribeToCurrentUser(id: user.id))
+                
+                user.allTeamIds.forEach { id in
+                    core.fire(command: SubscribeToTeam(withId: id))
+                }
             case let .failure(error):
                 core.fire(event: Selected<User>(nil))
                 core.fire(event: ErrorEvent(error: error, message: "Unable to find user with iCloudId: \(self.iCloudId)"))

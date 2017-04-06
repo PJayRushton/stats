@@ -17,6 +17,9 @@ struct PlayerState: State {
         switch event {
         case let event as Selected<Player>:
             currentPlayer = event.item
+        case let event as Updated<Player>:
+            allPlayers.remove(event.payload)
+            allPlayers.insert(event.payload)
         default:
             break
         }

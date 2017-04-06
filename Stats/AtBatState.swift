@@ -17,6 +17,9 @@ struct AtBatState: State {
         switch event {
         case let event as Selected<AtBat>:
             currentAtBat = event.item
+        case let event as Updated<AtBat>:
+            allAtBats.remove(event.payload)
+            allAtBats.insert(event.payload)
         default:
             break
         }

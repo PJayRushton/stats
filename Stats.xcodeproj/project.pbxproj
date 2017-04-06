@@ -74,7 +74,6 @@
 		A1CD9A191E8AA83D00D3C8F7 /* NewUserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD9A181E8AA83D00D3C8F7 /* NewUserState.swift */; };
 		A1CD9A1B1E8AACAB00D3C8F7 /* CheckUsernameAvailability.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD9A1A1E8AACAB00D3C8F7 /* CheckUsernameAvailability.swift */; };
 		A1CD9A1E1E8ABBBC00D3C8F7 /* Arrays.swift in Sources */ = {isa = PBXBuildFile; fileRef = A179997F1E82B95E0058A002 /* Arrays.swift */; };
-		A1D67D361E8EFC8900200B65 /* SubscriptionMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D67D351E8EFC8900200B65 /* SubscriptionMiddleware.swift */; };
 		A1D67D381E8F081A00200B65 /* TeamActionSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D67D371E8F081A00200B65 /* TeamActionSectionController.swift */; };
 		A1D67D3A1E8F23DE00200B65 /* ManageTeamsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D67D391E8F23DE00200B65 /* ManageTeamsViewController.swift */; };
 		A1D67D3D1E8F244000200B65 /* ManageTeamsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1D67D3B1E8F244000200B65 /* ManageTeamsViewController.storyboard */; };
@@ -170,7 +169,6 @@
 		A1CD9A161E8AA2F000D3C8F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = UsernameViewController.storyboard; sourceTree = "<group>"; };
 		A1CD9A181E8AA83D00D3C8F7 /* NewUserState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserState.swift; sourceTree = "<group>"; };
 		A1CD9A1A1E8AACAB00D3C8F7 /* CheckUsernameAvailability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckUsernameAvailability.swift; sourceTree = "<group>"; };
-		A1D67D351E8EFC8900200B65 /* SubscriptionMiddleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionMiddleware.swift; sourceTree = "<group>"; };
 		A1D67D371E8F081A00200B65 /* TeamActionSectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamActionSectionController.swift; sourceTree = "<group>"; };
 		A1D67D391E8F23DE00200B65 /* ManageTeamsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageTeamsViewController.swift; sourceTree = "<group>"; };
 		A1D67D3C1E8F244000200B65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ManageTeamsViewController.storyboard; sourceTree = "<group>"; };
@@ -244,7 +242,6 @@
 		A179997A1E82B77B0058A002 /* Middleware */ = {
 			isa = PBXGroup;
 			children = (
-				A1D67D351E8EFC8900200B65 /* SubscriptionMiddleware.swift */,
 			);
 			name = Middleware;
 			sourceTree = "<group>";
@@ -623,7 +620,6 @@
 				A17999701E82B67C0058A002 /* LoadICloudUser.swift in Sources */,
 				A1CD9A121E8A9C2400D3C8F7 /* AtBatState.swift in Sources */,
 				A1A2C35E1E8BF3680008274F /* Component.swift in Sources */,
-				A1D67D361E8EFC8900200B65 /* SubscriptionMiddleware.swift in Sources */,
 				A17EF6D01E941D8700DEE4ED /* SubscribeToTeam.swift in Sources */,
 				A17EF6BE1E931A0300DEE4ED /* TeamSwitcherViewController.swift in Sources */,
 				A1D67D431E8FE3A000200B65 /* Appearance.swift in Sources */,

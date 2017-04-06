@@ -25,6 +25,9 @@ class HomeViewController: Component, AutoStoryboardInitializable {
     
     var isPresentingOnboarding = false
     
+    var currentTeam: Team? {
+        return core.state.teamState.currentTeam
+    }
     fileprivate lazy var adapter: IGListAdapter = {
         return IGListAdapter(updater: IGListAdapterUpdater(), viewController: self, workingRangeSize: 0)
     }()
@@ -99,6 +102,12 @@ extension HomeViewController {
         present(switcherVC, animated: true)
     }
     
+    func presentTeamEdit() {
+        let creationVC = TeamCreationViewController.initializeFromStoryboard()
+        creationVC.editingTeam = currentTeam
+        present(creationVC.embededInNavigationController, animated: true, completion: nil)
+    }
+    
 }
 
 
@@ -108,7 +117,7 @@ extension HomeViewController {
 extension HomeViewController: IGListAdapterDataSource {
     
     func objects(for listAdapter: IGListAdapter) -> [IGListDiffable] {
-        guard let currentTeam = core.state.teamState.currentTeam, let currentUser = core.state.userState.currentUser else { return [] }
+        guard let currentTeam = currentTeam, let currentUser = core.state.userState.currentUser else { return [] }
         var objects: [IGListDiffable] = [TeamHeaderSection(team: currentTeam)]
         let items = currentUser.isOwnerOrManager(of: currentTeam) ? HomeMenuItem.managerItems : HomeMenuItem.fanItems
         
@@ -124,7 +133,7 @@ extension HomeViewController: IGListAdapterDataSource {
             guard let currentUser = core.state.userState.currentUser else { return IGListSectionController() }
             let headerController = TeamHeaderSectionController(user: currentUser)
             headerController.settingsPressed = presentSettings
-            headerController.editPressed = {}
+            headerController.editPressed = presentTeamEdit
             headerController.switchTeamPressed = presentTeamSwitcher
             return headerController
             

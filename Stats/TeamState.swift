@@ -35,6 +35,11 @@ struct TeamState: State {
             if let user = event.item, user.allTeamIds.isEmpty {
                 isLoaded = true
             }
+        case let event as Delete<Team>:
+            allTeams.remove(event.object)
+            if currentTeam == event.object {
+                currentTeam = allTeams.sorted { $0.touchDate > $1.touchDate }.first
+            }
         default:
             break
         }

@@ -150,7 +150,7 @@
                                                         <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="13"/>
                                                         <state key="normal" title="Trash"/>
                                                         <connections>
-                                                            <action selector="trashButtonPressed:" destination="KaG-dX-WZH" eventType="touchUpInside" id="sBz-g7-bYI"/>
+                                                            <action selector="deleteImageButtonPressed:" destination="KaG-dX-WZH" eventType="touchUpInside" id="yXf-bO-hv1"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -199,10 +199,18 @@
                                 <action selector="dismissButtonPressed:" destination="KaG-dX-WZH" id="Gme-81-bTC"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="pU9-Xl-KXe">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="deleteTeamButtonPressed:" destination="KaG-dX-WZH" id="M32-Pg-AgN"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="cameraButton" destination="qqi-XZ-Wga" id="gCW-As-fui"/>
+                        <outlet property="deleteImageButton" destination="efs-ro-bAO" id="tfT-Dx-kjO"/>
+                        <outlet property="deleteTeamButton" destination="pU9-Xl-KXe" id="brA-yX-y6n"/>
                         <outlet property="imageHolderView" destination="lZR-tm-6PG" id="OCC-3s-nsH"/>
                         <outlet property="imageView" destination="mog-My-PcO" id="Mbg-lu-1JL"/>
                         <outlet property="loadingImageView" destination="FVi-ND-DnS" id="dC3-4Z-yKE"/>
@@ -211,7 +219,6 @@
                         <outlet property="seasonTextField" destination="OU1-yB-hdE" id="tys-e5-4cc"/>
                         <outlet property="sportSegControl" destination="JUc-SH-7TI" id="Hms-iX-dI4"/>
                         <outlet property="stockPhotoButton" destination="KP9-cp-bI2" id="xDu-Yl-FFE"/>
-                        <outlet property="trashButton" destination="efs-ro-bAO" id="n7C-rq-nzU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aQC-Hh-rsB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -230,7 +237,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="baseball" width="101" height="102"/>
+        <image name="baseball" width="99" height="100"/>
         <image name="stock1" width="2500" height="3751"/>
     </resources>
 </document>

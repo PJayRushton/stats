@@ -14,6 +14,7 @@ import TextFieldEffects
 
 class TeamCreationViewController: Component, AutoStoryboardInitializable {
     
+    @IBOutlet weak var deleteTeamButton: UIBarButtonItem!
     @IBOutlet weak var nameTextField: MadokaTextField!
     @IBOutlet weak var seasonTextField: MadokaTextField!
     @IBOutlet weak var sportSegControl: BetterSegmentedControl!
@@ -22,7 +23,7 @@ class TeamCreationViewController: Component, AutoStoryboardInitializable {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var stockPhotoButton: UIButton!
-    @IBOutlet weak var trashButton: UIButton!
+    @IBOutlet weak var deleteImageButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
 
     var isDismissable = true
@@ -41,7 +42,7 @@ class TeamCreationViewController: Component, AutoStoryboardInitializable {
     fileprivate var currentImageURL: URL? {
         didSet {
             imageView.kf.setImage(with: currentImageURL)
-            trashButton.isHidden = currentImageURL == nil
+            deleteImageButton.isHidden = currentImageURL == nil
         }
     }
     
@@ -60,11 +61,17 @@ class TeamCreationViewController: Component, AutoStoryboardInitializable {
         if let editingTeam = editingTeam {
             updateUI(with: editingTeam)
             core.fire(event: Selected<URL>(editingTeam.imageURL))
+        } else {
+            seasonTextField.text = String.seasonSuggestion
         }
     }
     
     @IBAction func dismissButtonPressed(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func deleteTeamButtonPressed(_ sender: UIBarButtonItem) {
+        showDeleteConfirmationAlert()
     }
     
     @IBAction func segControlChanged(_ sender: Any) {
@@ -85,7 +92,7 @@ class TeamCreationViewController: Component, AutoStoryboardInitializable {
     @IBAction func stockButtonPressed(_ sender: UIButton) {
     }
 
-    @IBAction func trashButtonPressed(_ sender: UIButton) {
+    @IBAction func deleteImageButtonPressed(_ sender: UIButton) {
         core.fire(event: Selected<URL>(nil))
     }
     
@@ -119,10 +126,11 @@ class TeamCreationViewController: Component, AutoStoryboardInitializable {
 extension TeamCreationViewController {
     
     fileprivate func setUpColors() {
-        navigationController?.navigationBar.barTintColor = .secondaryAppColor
-        nameTextField.borderColor = .mainAppColor
+        navigationController?.navigationBar.barTintColor = .mainAppColor
+        deleteTeamButton.tintColor = .red
+        nameTextField.borderColor = .secondaryAppColor
         nameTextField.layer.cornerRadius = 5
-        seasonTextField.borderColor = .mainAppColor
+        seasonTextField.borderColor = .secondaryAppColor
         saveButton.backgroundColor = .mainAppColor
         saveButton.layer.cornerRadius = 5
     }
@@ -185,6 +193,27 @@ extension TeamCreationViewController {
         if editingTeam == nil {
             saveSeason()
         }
+        exit()
+    }
+    
+    fileprivate func showDeleteConfirmationAlert() {
+        guard let editingTeam = editingTeam else { return }
+        let alert = UIAlertController(title: "Delete \(editingTeam.name)?", message: "This will also delete all the team's data including its players and stats\nThis cannot be undone", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Cancel! 😳", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "☠️", style: .destructive, handler: { _ in
+            self.destruct()
+        }))
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    fileprivate func destruct() {
+        guard let editingTeam = editingTeam else { return }
+        core.fire(command: DeleteTeam(editingTeam))
+        exit()
+    }
+    
+    fileprivate func exit() {
         if isDismissable {
             dismiss(animated: true, completion: nil)
         } else {

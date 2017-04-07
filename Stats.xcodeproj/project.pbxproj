@@ -22,6 +22,7 @@
 		A14B64F81E8E9D2300CBDE92 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A14B64F71E8E9D2300CBDE92 /* GoogleService-Info.plist */; };
 		A14B64FA1E8EB95600CBDE92 /* Firebase+St@ts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B64F91E8EB95600CBDE92 /* Firebase+St@ts.swift */; };
 		A14B64FC1E8EB99B00CBDE92 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B64FB1E8EB99B00CBDE92 /* Identifiable.swift */; };
+		A16D416D1E97364300DE01D4 /* DeleteTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16D416C1E97364300DE01D4 /* DeleteTeam.swift */; };
 		A179996E1E82B64A0058A002 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A179996D1E82B64A0058A002 /* User.swift */; };
 		A17999701E82B67C0058A002 /* LoadICloudUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A179996F1E82B67C0058A002 /* LoadICloudUser.swift */; };
 		A179997D1E82B8BD0058A002 /* NSDate+ValueType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A179997C1E82B8BD0058A002 /* NSDate+ValueType.swift */; };
@@ -116,6 +117,7 @@
 		A14B64F71E8E9D2300CBDE92 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A14B64F91E8EB95600CBDE92 /* Firebase+St@ts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Firebase+St@ts.swift"; sourceTree = "<group>"; };
 		A14B64FB1E8EB99B00CBDE92 /* Identifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
+		A16D416C1E97364300DE01D4 /* DeleteTeam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteTeam.swift; sourceTree = "<group>"; };
 		A179996D1E82B64A0058A002 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A179996F1E82B67C0058A002 /* LoadICloudUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadICloudUser.swift; sourceTree = "<group>"; };
 		A17999711E82B6930058A002 /* SaveNewUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveNewUser.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				A17EF6BF1E93256000DEE4ED /* TouchObject.swift */,
 				A17EF6CB1E94044E00DEE4ED /* UpdateObject.swift */,
 				A17EF6C51E93EDEC00DEE4ED /* UploadToStorage.swift */,
+				A16D416C1E97364300DE01D4 /* DeleteTeam.swift */,
 			);
 			name = Commands;
 			sourceTree = "<group>";
@@ -578,6 +581,7 @@
 				A1BF9C401E8AC449007341EA /* GameState.swift in Sources */,
 				A14B64F61E8E0E5400CBDE92 /* FirebaseNetworkAccess.swift in Sources */,
 				A14B64EE1E8D662900CBDE92 /* TeamCreationViewController.swift in Sources */,
+				A16D416D1E97364300DE01D4 /* DeleteTeam.swift in Sources */,
 				A14B64E61E8D647B00CBDE92 /* AddTeamViewController.swift in Sources */,
 				A1BF9C3F1E8AC443007341EA /* Game.swift in Sources */,
 				A1D67D481E8FE8BF00200B65 /* MainViewController.swift in Sources */,

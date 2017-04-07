@@ -59,6 +59,11 @@ class HomeViewController: Component, AutoStoryboardInitializable {
         adapter.performUpdates(animated: true)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         collectionView.collectionViewLayout.invalidateLayout()
     }
@@ -68,11 +73,13 @@ class HomeViewController: Component, AutoStoryboardInitializable {
 
     @IBAction func createTeamButtonPressed(_ sender: UIButton) {
         let teamCreationVC = TeamCreationViewController.initializeFromStoryboard().embededInNavigationController
+        teamCreationVC.modalPresentationStyle = .overFullScreen
         present(teamCreationVC, animated: true, completion: nil)
     }
     
     @IBAction func addTeamButtonPressed(_ sender: UIButton) {
         let addTeamVC = AddTeamViewController.initializeFromStoryboard().embededInNavigationController
+        addTeamVC.modalPresentationStyle = .overFullScreen
         present(addTeamVC, animated: true, completion: nil)
     }
     
@@ -83,6 +90,7 @@ class HomeViewController: Component, AutoStoryboardInitializable {
         if state.userState.currentUser == nil, state.userState.isLoaded, !isPresentingOnboarding {
             isPresentingOnboarding = true
             let usernameVC = UsernameViewController.initializeFromStoryboard().embededInNavigationController
+            usernameVC.modalPresentationStyle = .overFullScreen
             present(usernameVC, animated: true)
         }
         adapter.performUpdates(animated: true)
@@ -94,21 +102,26 @@ extension HomeViewController {
     
     func presentSettings() {
         let settingsVC = SettingsViewController.initializeFromStoryboard().embededInNavigationController
+        settingsVC.modalPresentationStyle = .overFullScreen
         present(settingsVC, animated: true, completion: nil)
     }
     
     func presentTeamSwitcher() {
         let switcherVC = TeamSwitcherViewController.initializeFromStoryboard().embededInNavigationController
+        switcherVC.modalPresentationStyle = .overFullScreen
         present(switcherVC, animated: true)
     }
     
     func presentTeamEdit() {
         let creationVC = TeamCreationViewController.initializeFromStoryboard()
         creationVC.editingTeam = currentTeam
-        present(creationVC.embededInNavigationController, animated: true, completion: nil)
+        let creationVCWithNav = creationVC.embededInNavigationController
+        creationVCWithNav.modalPresentationStyle = .overFullScreen
+        present(creationVCWithNav, animated: true, completion: nil)
     }
     
     func didSelectItem(_ item: HomeMenuItem) {
+        core.fire(event: Selected<HomeMenuItem>(item))
         switch item {
         case .newGame:
             break

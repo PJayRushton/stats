@@ -16,14 +16,17 @@ class PlayerCell: UICollectionViewCell, AutoReuseIdentifiable {
     
     var upButtonPressed: (() -> Void) = {}
 
-    func update(with player: Player, order: Int) {
-        numberLabel.text = "\(order)"
+    func update(with player: Player) {
+        numberLabel.text = "\(player.order + 1))"
+        if player.isSub {
+            numberLabel.text = "S"
+        }
         var nameText = "\(player.name)"
         if let jerseyNumber = player.jerseyNumber {
-            nameText += "(\(jerseyNumber))"
+            nameText += " (\(jerseyNumber))"
         }
         nameLabel.text = nameText
-        upButton.isHidden = order == 1
+        upButton.isHidden = player.order == 0 || player.isSub
     }
     
     @IBAction func upButtonPressed(_ sender: UIButton) {

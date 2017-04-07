@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Marshal
 
 struct SubscribeToTeam: Command {
     
@@ -24,6 +25,20 @@ struct SubscribeToTeam: Command {
             switch objectResult {
             case let .success(parsedObject):
                 core.fire(event: Updated(parsedObject))
+            case let .failure(error):
+                core.fire(event: ErrorEvent(error: error, message: nil))
+            }
+        }
+        
+        networkAccess.subscribe(to: StatsRefs.playersRef(teamId: self.teamId)) { result in
+            let playersResult = result.map { (json: JSONObject) -> [Player] in
+                let players: [Player] = json.parsedObjects()
+                return players.filter { $0.id != "fake" }
+            }
+
+            switch playersResult {
+            case let .success(players):
+                core.fire(event: Updated<[Player]>(players))
             case let .failure(error):
                 core.fire(event: ErrorEvent(error: error, message: nil))
             }

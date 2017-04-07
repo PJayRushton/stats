@@ -22,7 +22,11 @@ class PlayerSection: IGListDiffable {
     
     func isEqual(toDiffableObject object: IGListDiffable?) -> Bool {
         guard let other = object as? PlayerSection else { return false }
-        return player == other.player
+        return player == other.player &&
+            player.name == other.player.name &&
+            player.order == other.player.order &&
+            player.jerseyNumber == other.player.jerseyNumber &&
+            player.isSub == other.player.isSub
     }
     
 }
@@ -55,7 +59,7 @@ extension PlayerSectionController: IGListSectionType {
     
     func cellForItem(at index: Int) -> UICollectionViewCell {
         let cell = collectionContext?.dequeueReusableCell(withNibName: PlayerCell.reuseIdentifier, bundle: nil, for: self, at: index) as! PlayerCell
-        cell.update(with: section.player, order: index + 1)
+        cell.update(with: section.player)
         cell.upButtonPressed = {
             self.didUpPlayer(self.section.player)
         }

@@ -8,6 +8,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="LemonMilk.otf">
+            <string>LemonMilk</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Roster-->
         <scene sceneID="FTq-tO-xpS">
@@ -21,10 +26,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NMg-jV-iah" customClass="IGListCollectionView">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="oPv-y6-7gl" customClass="IGListCollectionView">
+                                <rect key="frame" x="0.0" y="114" width="375" height="553"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="uJl-nE-KCZ">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="u2r-bm-2qy">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -32,23 +37,47 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gmr-4V-FSi">
+                                <rect key="frame" x="0.0" y="64" width="375" height="50"/>
+                                <color key="backgroundColor" red="0.25098040700000002" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ChM-YZ-sSD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
+                                <state key="normal" title="Add Player" image="x">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addPlayerButtonPressed:" destination="vNQ-fo-axD" eventType="touchUpInside" id="oKc-t1-XxP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="XIN-fG-YTi" firstAttribute="top" secondItem="NMg-jV-iah" secondAttribute="bottom" id="1ea-qA-btv"/>
-                            <constraint firstItem="NMg-jV-iah" firstAttribute="leading" secondItem="e6R-fx-h2d" secondAttribute="leading" id="DuJ-8P-ZaD"/>
-                            <constraint firstItem="NMg-jV-iah" firstAttribute="top" secondItem="wYt-kJ-wbM" secondAttribute="bottom" id="n1m-5u-e8H"/>
-                            <constraint firstAttribute="trailing" secondItem="NMg-jV-iah" secondAttribute="trailing" id="pwk-Yq-9Bd"/>
+                            <constraint firstItem="oPv-y6-7gl" firstAttribute="leading" secondItem="e6R-fx-h2d" secondAttribute="leading" id="CmB-8z-zIS"/>
+                            <constraint firstAttribute="trailing" secondItem="oPv-y6-7gl" secondAttribute="trailing" id="Mia-y4-h7p"/>
+                            <constraint firstItem="gmr-4V-FSi" firstAttribute="leading" secondItem="e6R-fx-h2d" secondAttribute="leading" id="kf1-y5-ikM"/>
+                            <constraint firstItem="XIN-fG-YTi" firstAttribute="top" secondItem="oPv-y6-7gl" secondAttribute="bottom" id="nFA-Ck-Ok0"/>
+                            <constraint firstItem="oPv-y6-7gl" firstAttribute="top" secondItem="gmr-4V-FSi" secondAttribute="bottom" id="tZD-fC-kx4"/>
+                            <constraint firstAttribute="trailing" secondItem="gmr-4V-FSi" secondAttribute="trailing" id="wv6-9L-1Vh"/>
+                            <constraint firstItem="gmr-4V-FSi" firstAttribute="top" secondItem="wYt-kJ-wbM" secondAttribute="bottom" id="zHs-Og-a3j"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Roster" id="EvN-qc-zcY">
                         <barButtonItem key="backBarButtonItem" title=" " id="enb-RA-JAC"/>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="addPlayerButton" destination="gmr-4V-FSi" id="4gW-uK-vKA"/>
+                        <outlet property="collectionView" destination="oPv-y6-7gl" id="URC-ng-htt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sau-NI-lzk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="180" y="149.77511244377811"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="x" width="50" height="51"/>
+    </resources>
 </document>

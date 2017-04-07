@@ -8,16 +8,31 @@
 
 import UIKit
 import IGListKit
+import Presentr
 
 class RosterViewController: Component, AutoStoryboardInitializable {
     
+    @IBOutlet weak var addPlayerButton: UIButton!
     @IBOutlet weak var collectionView: IGListCollectionView!
     
     fileprivate lazy var adapter: IGListAdapter = {
         return IGListAdapter(updater: IGListAdapterUpdater(), viewController: self, workingRangeSize: 0)
     }()
     
-    fileprivate var allPlayers = [Player]()
+    fileprivate let modalPresenter: Presentr = {
+        let customPresentation = PresentationType.custom(width: .half, height: .half, center: .center)
+        let modalPresentation = PresentationType.popup
+        
+        let presentationType = UIDevice.current.userInterfaceIdiom == .pad ? customPresentation : modalPresentation
+        let presenter = Presentr(presentationType: presentationType)
+        presenter.transitionType = TransitionType.coverHorizontalFromRight
+        return presenter
+    }()
+    
+    fileprivate var allPlayers: [Player] {
+        guard let currentTeam = currentTeam else { return [] }
+        return core.state.playerState.players(for: currentTeam)
+    }
     fileprivate var regularPlayers = [Player]()
     fileprivate var subs = [Player]()
     
@@ -40,7 +55,18 @@ class RosterViewController: Component, AutoStoryboardInitializable {
         adapter.dataSource = self
         feedbackGenerator.prepare()
     }
-
+    
+    @IBAction func addPlayerButtonPressed(_ sender: UIButton) {
+        let playerCreationVC = PlayerCreationViewController.initializeFromStoryboard()
+        customPresentViewController(modalPresenter, viewController: playerCreationVC, animated: true, completion: nil)
+    }
+    
+    override func update(with: AppState) {
+        navigationController?.navigationBar.barTintColor = core.state.currentMenuItem?.backgroundColor
+        setUpPlayers()
+        adapter.performUpdates(animated: true)
+    }
+    
 }
 
 
@@ -49,9 +75,8 @@ extension RosterViewController {
     fileprivate func setUpPlayers() {
         guard let currentTeam = currentTeam else { return }
         let teamPlayers = core.state.playerState.players(for: currentTeam)
-        allPlayers = teamPlayers
-        regularPlayers = teamPlayers.filter { !$0.isSub }
-        subs = teamPlayers.filter { $0.isSub }
+        regularPlayers = teamPlayers.filter { !$0.isSub }.sorted { $0.order < $1.order }
+        subs = teamPlayers.filter { $0.isSub }.sorted { $0.name < $1.name }
     }
     
     func didSelectPlayer(_ player: Player) {
@@ -63,6 +88,16 @@ extension RosterViewController {
             regularPlayers.remove(at: index)
             regularPlayers.insert(player, at: index - 1)
             adapter.performUpdates(animated: true)
+            updateRosterOrder()
+        }
+    }
+    
+    fileprivate func updateRosterOrder() {
+        for (index, player) in regularPlayers.enumerated() {
+            guard player.order != index else { return }
+            var updatedPlayer = player
+            updatedPlayer.order = index
+            core.fire(command: UpdateObject(object: updatedPlayer))
         }
     }
     
@@ -108,7 +143,7 @@ extension RosterViewController: IGListAdapterDataSource {
         let sectionController = PlayerSectionController()
         sectionController.didSelectPlayer = didSelectPlayer
         sectionController.didUpPlayer = upButtonPressed
-        return PlayerSectionController()
+        return sectionController
     }
     
     func emptyView(for listAdapter: IGListAdapter) -> UIView? {

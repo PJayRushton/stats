@@ -27,7 +27,7 @@ enum HomeMenuItem: Int {
         case .newGame:
             return NSLocalizedString("New Game", comment: "")
         case .stats:
-            return NSLocalizedString("St@ts", comment: "")
+            return NSLocalizedString("St@s", comment: "")
         case .games:
             return NSLocalizedString("Games", comment: "")
         case .roster:

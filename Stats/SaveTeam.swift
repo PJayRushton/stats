@@ -19,7 +19,15 @@ struct SaveTeam: Command {
                 
                 if let user = state.userState.currentUser, !user.allTeamIds.contains(self.team.id) {
                     core.fire(command: AddTeamToUser(team: self.team, type: .owned))
-                    core.fire(command: SubscribeToTeam(withId: self.team.id))
+                    
+                    // Fake player
+                    let fakePlayer = Player(id: "fake", name: "fake", teamId: self.team.id)
+                    self.networkAccess.updateObject(at: fakePlayer.ref, parameters: fakePlayer.marshaled(), completion: { result in
+                        if case .success = result {
+                            // Subscribe
+                            core.fire(command: SubscribeToTeam(withId: self.team.id))
+                        }
+                    })
                 }
             }
         }

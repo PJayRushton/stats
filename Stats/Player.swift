@@ -9,10 +9,23 @@
 import Firebase
 import Marshal
 
-enum Gender: String {
+enum Gender: Int {
     case unspecified
     case male
     case female
+    
+    var stringValue: String {
+        switch self {
+        case .unspecified:
+            return "Unspecified"
+        case .male:
+            return "Male"
+        case .female:
+            return "Female"
+        }
+    }
+    
+    static let allValues = [Gender.unspecified, .male, .female]
 }
 
 struct Player: Identifiable, Unmarshaling {
@@ -22,15 +35,17 @@ struct Player: Identifiable, Unmarshaling {
     var isSub: Bool
     var jerseyNumber: String?
     var name: String
+    var order: Int
     var phone: String?
     var teamId: String
     
-    init(id: String = "", name: String, jerseyNumber: String?, isSub: Bool = false, phone: String? = nil, gender: Gender = .unspecified, teamId: String) {
+    init(id: String = "", name: String, jerseyNumber: String? = nil, isSub: Bool = false, phone: String? = nil, gender: Gender = .unspecified, teamId: String) {
         self.id = id
         self.name = name
         self.jerseyNumber = jerseyNumber
         self.isSub = isSub
         self.phone = phone
+        self.order = App.core.state.playerState.players(for: teamId).count
         self.gender = gender
         self.teamId = teamId
     }
@@ -41,6 +56,7 @@ struct Player: Identifiable, Unmarshaling {
         isSub = try object.value(for: isSubKey)
         jerseyNumber = try object.value(for: jerseyNumberKey)
         name = try object.value(for: nameKey)
+        order = try object.value(for: orderKey)
         phone = try object.value(for: phoneKey)
         teamId = try object.value(for: teamIdKey)
     }
@@ -56,6 +72,7 @@ extension Player: Marshaling {
         json[isSubKey] = isSub
         json[jerseyNumberKey] = jerseyNumber
         json[nameKey] = name
+        json[orderKey] = order
         json[phoneKey] = phone
         json[teamIdKey] = teamId
         

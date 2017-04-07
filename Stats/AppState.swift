@@ -15,6 +15,7 @@ enum App {
 
 struct AppState: State {
     
+    var currentMenuItem: HomeMenuItem?
     var userState = UserState()
     var newUserState = NewUserState()
     var teamState = TeamState()
@@ -25,6 +26,13 @@ struct AppState: State {
     var atBatState = AtBatState()
     
     mutating func react(to event: Event) {
+        switch event {
+        case let event as Selected<HomeMenuItem>:
+            currentMenuItem = event.item
+        default:
+            break
+        }
+        
         userState.react(to: event)
         newUserState.react(to: event)
         teamState.react(to: event)

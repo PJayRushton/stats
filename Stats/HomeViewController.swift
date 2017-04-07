@@ -108,6 +108,22 @@ extension HomeViewController {
         present(creationVC.embededInNavigationController, animated: true, completion: nil)
     }
     
+    func didSelectItem(_ item: HomeMenuItem) {
+        switch item {
+        case .newGame:
+            break
+        case .stats:
+            break
+        case .games:
+            break
+        case .roster:
+            let rosterVC = RosterViewController.initializeFromStoryboard()
+            navigationController?.pushViewController(rosterVC, animated: true)
+        case .share:
+            break
+        }
+    }
+    
 }
 
 
@@ -140,6 +156,7 @@ extension HomeViewController: IGListAdapterDataSource {
         case _ as TeamActionSection:
             guard let currentUser = core.state.userState.currentUser else { return IGListSectionController() }
             let actionController = TeamActionSectionController(user: currentUser)
+            actionController.didSelectItem = didSelectItem
             return actionController
         default:
             fatalError()

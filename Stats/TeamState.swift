@@ -49,7 +49,7 @@ struct TeamState: State {
         guard let currentUser = App.core.state.userState.currentUser else { return [] }
         switch type {
         case .owned:
-            return allTeams.filter { currentUser.ownedTeamIds.contains($0.id) }
+            return allTeams.filter { currentUser.ownedTeamIds.contains($0.id) }.sorted(by: { $0.touchDate > $1.touchDate })
         case .managed:
             return allTeams.filter { currentUser.managedTeamIds.contains($0.id) }
         case .fan:

@@ -10,19 +10,20 @@ import Foundation
 
 struct PlayerState: State {
     
-    var currentPlayer: Player?
     var allPlayers = Set<Player>()
     
     mutating func react(to event: Event) {
         switch event {
-        case let event as Selected<Player>:
-            currentPlayer = event.item
         case let event as Updated<Player>:
             allPlayers.remove(event.payload)
             allPlayers.insert(event.payload)
         default:
             break
         }
+    }
+    
+    func players(for team: Team) -> [Player] {
+        return allPlayers.filter { $0.teamId == team.id }
     }
     
 }

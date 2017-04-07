@@ -8,7 +8,6 @@
 
 import IGListKit
 
-
 class TeamActionSection: IGListDiffable {
     
     var team: Team
@@ -25,7 +24,11 @@ class TeamActionSection: IGListDiffable {
     
     func isEqual(toDiffableObject object: IGListDiffable?) -> Bool {
         guard let other = object as? TeamActionSection else { return false }
-        return team == other.team && menuItem.title == other.menuItem.title
+        var isSameOwnership = true
+        if let user = App.core.state.userState.currentUser {
+            isSameOwnership = user.isOwnerOrManager(of: team) == user.isOwnerOrManager(of: other.team)
+        }
+        return team == other.team && menuItem.title == other.menuItem.title && isSameOwnership
     }
     
 }
@@ -35,7 +38,7 @@ class TeamActionSectionController: IGListSectionController {
     var section: TeamActionSection!
     var user: User
     
-    var didSelectItem: ((Int) -> Void) = { _ in }
+    var didSelectItem: ((HomeMenuItem) -> Void) = { _ in }
     
     init(user: User) {
         self.user = user
@@ -55,7 +58,7 @@ extension TeamActionSectionController: IGListSectionType {
     func sizeForItem(at index: Int) -> CGSize {
         guard let collectionContext = collectionContext else { return .zero }
         let fullWidth = collectionContext.containerSize.width
-        let headerHeight = collectionContext.containerSize.width * 0.65
+        let headerHeight = collectionContext.containerSize.width * (2 / 3)
         let rows: CGFloat = user.isOwnerOrManager(of: section.team) ? 3 : 4
         let height = (collectionContext.containerSize.height - headerHeight) / rows
         let width = fullWidth / section.menuItem.itemsPerRow
@@ -75,7 +78,7 @@ extension TeamActionSectionController: IGListSectionType {
     }
     
     func didSelectItem(at index: Int) {
-        didSelectItem(index)
+        didSelectItem(section.menuItem)
     }
     
 }

@@ -36,6 +36,9 @@ struct DeleteTeam: Command {
                     user.ownedTeamIds.remove(self.team.id)
                     core.fire(command: UpdateObject(object: user))
                 }
+                
+                //Delete image
+                StatsRefs.teamImageStorageRef(teamId: self.team.id).delete(completion: nil)
                 // Delete players
                 // Delete games
                 // Delete Atbats

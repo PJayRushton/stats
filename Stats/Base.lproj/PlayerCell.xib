@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="LemonMilk.otf">
+            <string>LemonMilk</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ATc-Qs-wwU" customClass="PlayerCell" customModule="Stats" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kWg-W8-U0q">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="oHE-xr-NxI">
+                                <rect key="frame" x="16" y="8" width="351" height="34"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="1)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ztt-DA-Rjo">
+                                        <rect key="frame" x="0.0" y="0.0" width="11.5" height="34"/>
+                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="999" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Amanda Rushton(00)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O4R-uZ-Hgw">
+                                        <rect key="frame" x="27.5" y="0.0" width="193.5" height="34"/>
+                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" horizontalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="2jm-UI-CXZ">
+                                        <rect key="frame" x="237" y="0.0" width="98" height="34"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xqR-5h-Lpo">
+                                        <rect key="frame" x="351" y="0.0" width="0.0" height="34"/>
+                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="30"/>
+                                        <state key="normal" title="^">
+                                            <color key="titleColor" red="0.21090820430000001" green="0.2391114235" blue="0.25170251729999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="upButtonPressed:" destination="ATc-Qs-wwU" eventType="touchUpInside" id="sxF-Xj-pN9"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="oHE-xr-NxI" firstAttribute="top" secondItem="kWg-W8-U0q" secondAttribute="topMargin" id="9BY-RG-let"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="oHE-xr-NxI" secondAttribute="trailing" id="aQr-Hn-S0k"/>
+                            <constraint firstItem="oHE-xr-NxI" firstAttribute="leading" secondItem="kWg-W8-U0q" secondAttribute="leadingMargin" constant="8" id="lt7-W5-TIg"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="oHE-xr-NxI" secondAttribute="bottom" id="tkV-ah-ZPf"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="kWg-W8-U0q" firstAttribute="top" secondItem="ATc-Qs-wwU" secondAttribute="top" id="4L9-7Y-e5p"/>
+                <constraint firstItem="kWg-W8-U0q" firstAttribute="leading" secondItem="ATc-Qs-wwU" secondAttribute="leading" id="dRr-rk-eur"/>
+                <constraint firstAttribute="trailing" secondItem="kWg-W8-U0q" secondAttribute="trailing" id="kpY-tT-Nf8"/>
+                <constraint firstAttribute="bottom" secondItem="kWg-W8-U0q" secondAttribute="bottom" id="sSb-w3-q8I"/>
+            </constraints>
+            <connections>
+                <outlet property="nameLabel" destination="O4R-uZ-Hgw" id="Gx9-tp-fOG"/>
+                <outlet property="numberLabel" destination="ztt-DA-Rjo" id="zXF-GU-57Z"/>
+                <outlet property="upButton" destination="xqR-5h-Lpo" id="BVC-X3-gbO"/>
+            </connections>
+            <point key="canvasLocation" x="202" y="-120"/>
+        </collectionViewCell>
+    </objects>
+</document>

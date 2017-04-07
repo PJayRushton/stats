@@ -58,12 +58,10 @@ class TeamCreationViewController: Component, AutoStoryboardInitializable {
         if !isDismissable {
             navigationItem.leftBarButtonItem = nil
         }
-        if let editingTeam = editingTeam {
-            updateUI(with: editingTeam)
-            core.fire(event: Selected<URL>(editingTeam.imageURL))
-        } else {
-            seasonTextField.text = String.seasonSuggestion
-        }
+        
+        core.fire(event: Selected<URL>(editingTeam?.imageURL))
+        
+        updateUI(with: editingTeam)
     }
     
     @IBAction func dismissButtonPressed(_ sender: UIBarButtonItem) {
@@ -149,11 +147,18 @@ extension TeamCreationViewController {
         core.fire(command: UpdateObject(object: newSeason))
     }
     
-    fileprivate func updateUI(with team: Team) {
-        nameTextField.text = team.name
-        seasonTextField.isHidden = true
-        try? sportSegControl.setIndex(UInt(team.sport.rawValue), animated:  true)
-        imageView.kf.setImage(with: team.imageURL)
+    fileprivate func updateUI(with team: Team?) {
+        if let editingTeam = team {
+            title = "Edit Team"
+            nameTextField.text = editingTeam.name
+            seasonTextField.isHidden = true
+            try? sportSegControl.setIndex(UInt(editingTeam.sport.rawValue), animated:  true)
+            imageView.kf.setImage(with: editingTeam.imageURL)
+        } else {
+            title = "Create Team"
+            navigationItem.rightBarButtonItem = nil
+            seasonTextField.text = String.seasonSuggestion
+        }
     }
     
     fileprivate func updateSaveButton() {

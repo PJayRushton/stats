@@ -23,6 +23,11 @@
 		A14B64FA1E8EB95600CBDE92 /* Firebase+St@ts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B64F91E8EB95600CBDE92 /* Firebase+St@ts.swift */; };
 		A14B64FC1E8EB99B00CBDE92 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B64FB1E8EB99B00CBDE92 /* Identifiable.swift */; };
 		A16D416D1E97364300DE01D4 /* DeleteTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16D416C1E97364300DE01D4 /* DeleteTeam.swift */; };
+		A16D416F1E97D08F00DE01D4 /* RosterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16D416E1E97D08F00DE01D4 /* RosterViewController.swift */; };
+		A16D41721E97D09E00DE01D4 /* RosterViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A16D41701E97D09E00DE01D4 /* RosterViewController.storyboard */; };
+		A16D41751E97D1BC00DE01D4 /* PlayerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A16D41731E97D1BC00DE01D4 /* PlayerCell.xib */; };
+		A16D41771E97D1D500DE01D4 /* PlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16D41761E97D1D500DE01D4 /* PlayerCell.swift */; };
+		A16D41791E97E4EA00DE01D4 /* PlayerSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16D41781E97E4EA00DE01D4 /* PlayerSectionController.swift */; };
 		A179996E1E82B64A0058A002 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A179996D1E82B64A0058A002 /* User.swift */; };
 		A17999701E82B67C0058A002 /* LoadICloudUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A179996F1E82B67C0058A002 /* LoadICloudUser.swift */; };
 		A179997D1E82B8BD0058A002 /* NSDate+ValueType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A179997C1E82B8BD0058A002 /* NSDate+ValueType.swift */; };
@@ -118,6 +123,11 @@
 		A14B64F91E8EB95600CBDE92 /* Firebase+St@ts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Firebase+St@ts.swift"; sourceTree = "<group>"; };
 		A14B64FB1E8EB99B00CBDE92 /* Identifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
 		A16D416C1E97364300DE01D4 /* DeleteTeam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteTeam.swift; sourceTree = "<group>"; };
+		A16D416E1E97D08F00DE01D4 /* RosterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosterViewController.swift; sourceTree = "<group>"; };
+		A16D41711E97D09E00DE01D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = RosterViewController.storyboard; sourceTree = "<group>"; };
+		A16D41741E97D1BC00DE01D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = PlayerCell.xib; sourceTree = "<group>"; };
+		A16D41761E97D1D500DE01D4 /* PlayerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCell.swift; sourceTree = "<group>"; };
+		A16D41781E97E4EA00DE01D4 /* PlayerSectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerSectionController.swift; sourceTree = "<group>"; };
 		A179996D1E82B64A0058A002 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A179996F1E82B67C0058A002 /* LoadICloudUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadICloudUser.swift; sourceTree = "<group>"; };
 		A17999711E82B6930058A002 /* SaveNewUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveNewUser.swift; sourceTree = "<group>"; };
@@ -286,18 +296,20 @@
 				A1A2C36D1E8C0F4C0008274F /* AvatarViewController.storyboard */,
 				A1D67D551E92872A00200B65 /* BasicCell.xib */,
 				A1D67D581E928A0C00200B65 /* BasicHeaderCell.xib */,
-				A14B64EA1E8D65C500CBDE92 /* TeamCreationViewController.storyboard */,
 				A1A2C3701E8C11F30008274F /* EmailViewController.storyboard */,
 				A17999981E82DFFF0058A002 /* HomeViewController.storyboard */,
 				A17999951E82DFF00058A002 /* LaunchScreen.storyboard */,
 				A1D67D4B1E8FE8FC00200B65 /* LoadingImageViewController.storyboard */,
 				A1D67D441E8FE8B100200B65 /* Main.storyboard */,
 				A1D67D3B1E8F244000200B65 /* ManageTeamsViewController.storyboard */,
+				A16D41701E97D09E00DE01D4 /* RosterViewController.storyboard */,
 				A1D67D501E9097C600200B65 /* SettingsViewController.storyboard */,
 				A14B64E21E8D42B000CBDE92 /* StockPhotosViewController.storyboard */,
+				A14B64EA1E8D65C500CBDE92 /* TeamCreationViewController.storyboard */,
 				A1A2C3621E8BF6020008274F /* TeamHeaderCell.xib */,
 				A17EF6BA1E930D3100DEE4ED /* TeamSwitcherViewController.storyboard */,
 				A1CD9A151E8AA2F000D3C8F7 /* UsernameViewController.storyboard */,
+				A16D41731E97D1BC00DE01D4 /* PlayerCell.xib */,
 			);
 			path = Base.lproj;
 			sourceTree = "<group>";
@@ -316,6 +328,8 @@
 				A1D67D491E8FE8EE00200B65 /* LoadingImageViewController.swift */,
 				A1D67D471E8FE8BF00200B65 /* MainViewController.swift */,
 				A1D67D391E8F23DE00200B65 /* ManageTeamsViewController.swift */,
+				A16D41761E97D1D500DE01D4 /* PlayerCell.swift */,
+				A16D416E1E97D08F00DE01D4 /* RosterViewController.swift */,
 				A1A2C36A1E8C05190008274F /* SectionControllers */,
 				A1D67D531E9097E100200B65 /* SettingsViewController.swift */,
 				A14B64E01E8D429800CBDE92 /* StockPhotosViewController.swift */,
@@ -364,6 +378,7 @@
 			children = (
 				A1A2C3681E8C05150008274F /* TeamHeaderSectionController.swift */,
 				A1D67D371E8F081A00200B65 /* TeamActionSectionController.swift */,
+				A16D41781E97E4EA00DE01D4 /* PlayerSectionController.swift */,
 			);
 			name = SectionControllers;
 			sourceTree = "<group>";
@@ -502,11 +517,13 @@
 				A14B64E91E8D64A900CBDE92 /* AddTeamViewController.storyboard in Resources */,
 				A179999A1E82DFFF0058A002 /* HomeViewController.storyboard in Resources */,
 				A14B64E41E8D42B000CBDE92 /* StockPhotosViewController.storyboard in Resources */,
+				A16D41751E97D1BC00DE01D4 /* PlayerCell.xib in Resources */,
 				A1CD9A171E8AA2F000D3C8F7 /* UsernameViewController.storyboard in Resources */,
 				A1F959391E8959C60087B040 /* LemonMilk.otf in Resources */,
 				A14B64EC1E8D65C500CBDE92 /* TeamCreationViewController.storyboard in Resources */,
 				A1D67D5A1E928A0D00200B65 /* BasicHeaderCell.xib in Resources */,
 				A1D67D571E92872A00200B65 /* BasicCell.xib in Resources */,
+				A16D41721E97D09E00DE01D4 /* RosterViewController.storyboard in Resources */,
 				A17EF6BC1E930D3100DEE4ED /* TeamSwitcherViewController.storyboard in Resources */,
 				A1A2C3641E8BF6020008274F /* TeamHeaderCell.xib in Resources */,
 				A1D67D461E8FE8B100200B65 /* Main.storyboard in Resources */,
@@ -593,11 +610,13 @@
 				A1B41C2A1E85A4E300FAC930 /* AtBat.swift in Sources */,
 				A1B41C261E85A4C400FAC930 /* Player.swift in Sources */,
 				A17999931E82DF300058A002 /* HomeViewController.swift in Sources */,
+				A16D416F1E97D08F00DE01D4 /* RosterViewController.swift in Sources */,
 				A17999861E82B98E0058A002 /* StoryboardInitializable.swift in Sources */,
 				A1BF9C441E8B2172007341EA /* UserState.swift in Sources */,
 				A1CD9A0E1E89D05E00D3C8F7 /* Keys.swift in Sources */,
 				A17999881E82B9A60058A002 /* UIColorExtension.swift in Sources */,
 				A1CD9A141E8A9C6000D3C8F7 /* PlayerState.swift in Sources */,
+				A16D41791E97E4EA00DE01D4 /* PlayerSectionController.swift in Sources */,
 				A17EF6CC1E94044E00DEE4ED /* UpdateObject.swift in Sources */,
 				A1CD9A0A1E89C26200D3C8F7 /* TeamState.swift in Sources */,
 				A1868F9F1E802E1600C191EC /* AppState.swift in Sources */,
@@ -619,6 +638,7 @@
 				A14B64DF1E8D3EC200CBDE92 /* UIViewControllerExtensions.swift in Sources */,
 				A1CD9A101E8A9ABC00D3C8F7 /* SeasonState.swift in Sources */,
 				A14B64F41E8E04CA00CBDE92 /* GetUserTeams.swift in Sources */,
+				A16D41771E97D1D500DE01D4 /* PlayerCell.swift in Sources */,
 				A1CD9A1E1E8ABBBC00D3C8F7 /* Arrays.swift in Sources */,
 				A17EF6C81E93FC6D00DEE4ED /* CreateSeason.swift in Sources */,
 				A17999701E82B67C0058A002 /* LoadICloudUser.swift in Sources */,
@@ -672,6 +692,22 @@
 				A14B64EB1E8D65C500CBDE92 /* Base */,
 			);
 			name = TeamCreationViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		A16D41701E97D09E00DE01D4 /* RosterViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A16D41711E97D09E00DE01D4 /* Base */,
+			);
+			name = RosterViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		A16D41731E97D1BC00DE01D4 /* PlayerCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A16D41741E97D1BC00DE01D4 /* Base */,
+			);
+			name = PlayerCell.xib;
 			sourceTree = "<group>";
 		};
 		A17999951E82DFF00058A002 /* LaunchScreen.storyboard */ = {

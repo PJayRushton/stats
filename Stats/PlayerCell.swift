@@ -10,23 +10,30 @@ import UIKit
 
 class PlayerCell: UICollectionViewCell, AutoReuseIdentifiable {
 
+    @IBOutlet weak var insetView: UIView!
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var upButton: UIButton!
     
     var upButtonPressed: (() -> Void) = {}
 
-    func update(with player: Player) {
-        numberLabel.text = "\(player.order + 1))"
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        insetView.layer.applyShadow()
+    }
+    
+    func update(with player: Player, order: Int) {
+        numberLabel.text = "\(order + 1))"
+        
         if player.isSub {
             numberLabel.text = "S"
         }
-        var nameText = "\(player.name)"
-        if let jerseyNumber = player.jerseyNumber {
+        var nameText = player.name
+        if let jerseyNumber = player.jerseyNumber, !jerseyNumber.isEmpty {
             nameText += " (\(jerseyNumber))"
         }
         nameLabel.text = nameText
-        upButton.isHidden = player.order == 0 || player.isSub
+        upButton.isHidden = order == 0 || player.isSub
     }
     
     @IBAction func upButtonPressed(_ sender: UIButton) {

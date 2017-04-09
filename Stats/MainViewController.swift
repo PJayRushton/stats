@@ -35,9 +35,15 @@ class MainViewController: Component {
     // MARK: - Subscriber
     
     override func update(with state: AppState) {
-        if let _ = state.userState.currentUser, state.userState.isLoaded, state.teamState.isLoaded {
+        if let _ = state.userState.iCloudId, state.userState.isLoaded {
             presentApplication()
         } else {
+//            if state.userState.isLoaded == false {
+//                print("User state is not loaded")
+//            }
+//            if state.teamState.isLoaded == false {
+//                print("TEAM stat is not loaded")
+//            }
             showLoadingScreen()
         }
     }

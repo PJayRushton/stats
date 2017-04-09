@@ -12,7 +12,7 @@ import Presentr
 
 class RosterViewController: Component, AutoStoryboardInitializable {
     
-    @IBOutlet weak var addPlayerButton: UIButton!
+    @IBOutlet weak var addButton: UIBarButtonItem!
     @IBOutlet weak var collectionView: IGListCollectionView!
     
     fileprivate lazy var adapter: IGListAdapter = {
@@ -35,7 +35,9 @@ class RosterViewController: Component, AutoStoryboardInitializable {
     }
     fileprivate var regularPlayers = [Player]()
     fileprivate var subs = [Player]()
-    
+    fileprivate var orderedPlayers: [Player] {
+        return [regularPlayers, subs].joined().flatMap { $0 }
+    }
     fileprivate var currentTeam: Team? {
         return core.state.teamState.currentTeam
     }
@@ -56,14 +58,18 @@ class RosterViewController: Component, AutoStoryboardInitializable {
         feedbackGenerator.prepare()
     }
     
-    @IBAction func addPlayerButtonPressed(_ sender: UIButton) {
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        updateRosterOrder()
+    }
+    
+    @IBAction func addPlayerButtonPressed(_ sender: UIBarButtonItem) {
         let playerCreationVC = PlayerCreationViewController.initializeFromStoryboard()
         customPresentViewController(modalPresenter, viewController: playerCreationVC, animated: true, completion: nil)
     }
     
     override func update(with: AppState) {
         navigationController?.navigationBar.barTintColor = core.state.currentMenuItem?.backgroundColor
-        setUpPlayers()
         adapter.performUpdates(animated: true)
     }
     
@@ -88,7 +94,6 @@ extension RosterViewController {
             regularPlayers.remove(at: index)
             regularPlayers.insert(player, at: index - 1)
             adapter.performUpdates(animated: true)
-            updateRosterOrder()
         }
     }
     
@@ -136,11 +141,12 @@ extension RosterViewController: IGListAdapterDataSource {
     }
     
     func objects(for listAdapter: IGListAdapter) -> [IGListDiffable] {
-        return regularPlayers.map(PlayerSection.init)
+        return orderedPlayers.map(PlayerSection.init)
     }
     
     func listAdapter(_ listAdapter: IGListAdapter, sectionControllerFor object: Any) -> IGListSectionController {
-        let sectionController = PlayerSectionController()
+        guard let playerSection = object as? PlayerSection, let index = orderedPlayers.index(of: playerSection.player) else { return IGListSectionController() }
+        let sectionController = PlayerSectionController(order: index)
         sectionController.didSelectPlayer = didSelectPlayer
         sectionController.didUpPlayer = upButtonPressed
         return sectionController

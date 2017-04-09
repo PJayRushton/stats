@@ -23,6 +23,8 @@ class PlayerCreationViewController: Component, AutoStoryboardInitializable {
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var saveAddButton: UIButton!
+    @IBOutlet var keyboardView: UIView!
+    
     
     fileprivate lazy var newPlayerRef: FIRDatabaseReference = {
         return StatsRefs.playersRef(teamId: App.core.state.teamState.currentTeam!.id).childByAutoId()
@@ -31,11 +33,10 @@ class PlayerCreationViewController: Component, AutoStoryboardInitializable {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpSegControl()
+        nameTextField.inputAccessoryView = keyboardView
+        jerseyNumberTextField.inputAccessoryView = keyboardView
+        phoneTextField.inputAccessoryView = keyboardView
     }
-    
-    @IBAction func genderControlChanged(_ sender: BetterSegmentedControl) {
-    }
-    
     
     @IBAction func cancelButtonPressed(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
@@ -51,12 +52,24 @@ class PlayerCreationViewController: Component, AutoStoryboardInitializable {
         savePlayer(newPlayer, add: true)
     }
     
-    @IBAction func viewTapped(_ sender: Any) {
-        view.endEditing(true)
-    }
-    
     @IBAction func textFieldChanged(_ sender: UITextField) {
         updateSaveButtons()
+    }
+    
+    @IBAction func subLabelTapped(_ sender: UITapGestureRecognizer) {
+        subSwitch.setSelected(!subSwitch.isSelected, animated: true)
+    }
+    
+    @IBAction func nextButtonPressed(_ sender: UIButton) {
+        moveTextFields(next: true)
+    }
+    
+    @IBAction func previousButtonPressed(_ sender: UIButton) {
+        moveTextFields(next: false)
+    }
+    
+    @IBAction func dismissKeyboardButtonPressed(_ sender: UIButton) {
+        view.endEditing(true)
     }
     
     
@@ -84,14 +97,17 @@ extension PlayerCreationViewController {
        let isSavable = constructedPlayer() != nil
         saveButton.isEnabled = isSavable
         saveAddButton.isEnabled = isSavable
+        saveButton.backgroundColor = isSavable ? UIColor.flatLime : UIColor.flatLime.withAlphaComponent(0.5)
+        saveAddButton.backgroundColor = isSavable ? UIColor.flatLime : UIColor.flatLime.withAlphaComponent(0.5)
     }
     
     fileprivate func constructedPlayer(add: Bool = false) -> Player? {
         guard let team = core.state.teamState.currentTeam else { return nil }
         guard let name = nameTextField.text, !name.isEmpty else { return nil }
+        let jerseyNumber = jerseyNumberTextField.text!.isEmpty ? nil : jerseyNumberTextField.text
         guard let gender = Gender(rawValue: Int(genderSegControl.index)) else { return nil }
         let id = StatsRefs.playersRef(teamId: team.id).childByAutoId().key
-        return Player(id: id, name: name, jerseyNumber: jerseyNumberTextField.text, isSub: subSwitch.isSelected, phone: phoneTextField.text, gender: gender, teamId: team.id)
+        return Player(id: id, name: name, jerseyNumber: jerseyNumber, isSub: subSwitch.isSelected, phone: phoneTextField.text, gender: gender, teamId: team.id)
     }
     
     fileprivate func savePlayer(_ player: Player, add: Bool) {
@@ -110,6 +126,17 @@ extension PlayerCreationViewController {
         phoneTextField.text = ""
         subSwitch.setSelected(false, animated: true)
         updateSaveButtons()
+    }
+    
+    fileprivate func moveTextFields(next: Bool) {
+        if (nameTextField.isFirstResponder && !next) || (phoneTextField.isFirstResponder && next) {
+            view.endEditing(false)
+        } else if (nameTextField.isFirstResponder && next) || (phoneTextField.isFirstResponder && !next) {
+                jerseyNumberTextField.becomeFirstResponder()
+        } else if jerseyNumberTextField.isFirstResponder {
+            let nextTextField = next ? phoneTextField : nameTextField
+            nextTextField?.becomeFirstResponder()
+        }
     }
     
 }

@@ -147,4 +147,12 @@ extension UIView {
         layer.add(rotation, forKey: "rotationAnimation")
     }
     
+    func fadeTransition(duration:CFTimeInterval) {
+        let animation:CATransition = CATransition()
+        animation.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseInEaseOut)
+        animation.type = kCATransitionFade
+        animation.duration = duration
+        layer.add(animation, forKey: kCATransitionFade)
+    }
+    
 }

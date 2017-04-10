@@ -27,7 +27,6 @@
 		A16D41721E97D09E00DE01D4 /* RosterViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A16D41701E97D09E00DE01D4 /* RosterViewController.storyboard */; };
 		A16D41751E97D1BC00DE01D4 /* PlayerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A16D41731E97D1BC00DE01D4 /* PlayerCell.xib */; };
 		A16D41771E97D1D500DE01D4 /* PlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16D41761E97D1D500DE01D4 /* PlayerCell.swift */; };
-		A16D41791E97E4EA00DE01D4 /* PlayerSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16D41781E97E4EA00DE01D4 /* PlayerSectionController.swift */; };
 		A16D417B1E97FF6000DE01D4 /* PlayerCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16D417A1E97FF6000DE01D4 /* PlayerCreationViewController.swift */; };
 		A16D417E1E97FF7400DE01D4 /* PlayerCreationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A16D417C1E97FF7400DE01D4 /* PlayerCreationViewController.storyboard */; };
 		A16D41801E98171600DE01D4 /* CreatePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16D417F1E98171600DE01D4 /* CreatePlayer.swift */; };
@@ -631,7 +630,6 @@
 				A1CD9A0E1E89D05E00D3C8F7 /* Keys.swift in Sources */,
 				A17999881E82B9A60058A002 /* UIColorExtension.swift in Sources */,
 				A1CD9A141E8A9C6000D3C8F7 /* PlayerState.swift in Sources */,
-				A16D41791E97E4EA00DE01D4 /* PlayerSectionController.swift in Sources */,
 				A17EF6CC1E94044E00DEE4ED /* UpdateObject.swift in Sources */,
 				A1CD9A0A1E89C26200D3C8F7 /* TeamState.swift in Sources */,
 				A1868F9F1E802E1600C191EC /* AppState.swift in Sources */,

@@ -13,11 +13,10 @@ import Presentr
 class RosterViewController: Component, AutoStoryboardInitializable {
     
     @IBOutlet weak var addButton: UIBarButtonItem!
-    @IBOutlet weak var collectionView: IGListCollectionView!
+    @IBOutlet weak var tableView: UITableView!
     
-    fileprivate lazy var adapter: IGListAdapter = {
-        return IGListAdapter(updater: IGListAdapterUpdater(), viewController: self, workingRangeSize: 0)
-    }()
+    fileprivate var orderedPlayers = [Player]()
+    fileprivate let feedbackGenerator = UISelectionFeedbackGenerator()
     
     fileprivate let modalPresenter: Presentr = {
         let customPresentation = PresentationType.custom(width: .half, height: .half, center: .center)
@@ -31,31 +30,22 @@ class RosterViewController: Component, AutoStoryboardInitializable {
     
     fileprivate var allPlayers: [Player] {
         guard let currentTeam = currentTeam else { return [] }
-        return core.state.playerState.players(for: currentTeam)
-    }
-    fileprivate var regularPlayers = [Player]()
-    fileprivate var subs = [Player]()
-    fileprivate var orderedPlayers: [Player] {
-        return [regularPlayers, subs].joined().flatMap { $0 }
+        return core.state.playerState.players(for: currentTeam).sorted(by: { $0.order < $1.order })
     }
     fileprivate var currentTeam: Team? {
         return core.state.teamState.currentTeam
     }
-    
-    fileprivate var hasSubs: Bool {
-        return !subs.isEmpty
-    }
-    
-    fileprivate let feedbackGenerator = UISelectionFeedbackGenerator()
-    
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setUpPlayers()
-        adapter.collectionView = collectionView
-        adapter.dataSource = self
+        tableView.rowHeight = 60
+        orderedPlayers = allPlayers
         feedbackGenerator.prepare()
+        
+        let nib = UINib(nibName: PlayerCell.reuseIdentifier, bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: PlayerCell.reuseIdentifier)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -70,90 +60,72 @@ class RosterViewController: Component, AutoStoryboardInitializable {
     
     override func update(with: AppState) {
         navigationController?.navigationBar.barTintColor = core.state.currentMenuItem?.backgroundColor
-        adapter.performUpdates(animated: true)
+        tableView.reloadData()
     }
     
-}
+ }
 
 
 extension RosterViewController {
     
-    fileprivate func setUpPlayers() {
-        guard let currentTeam = currentTeam else { return }
-        let teamPlayers = core.state.playerState.players(for: currentTeam)
-        regularPlayers = teamPlayers.filter { !$0.isSub }.sorted { $0.order < $1.order }
-        subs = teamPlayers.filter { $0.isSub }.sorted { $0.name < $1.name }
+    func moveButtonPressed(for player: Player, up: Bool = true) {
+        guard let index = orderedPlayers.index(of: player), !(!up && index == orderedPlayers.count - 1), !(up && index == 0) else { return }
+        feedbackGenerator.selectionChanged()
+        tableView.beginUpdates()
+        orderedPlayers.remove(at: index)
+        let newIndex = up ? index - 1 : index + 1
+        orderedPlayers.insert(player, at: newIndex)
+        let indexToMove = IndexPath(row: index, section: 0)
+        let indexToArrive = IndexPath(row: newIndex, section: 0)
+        tableView.moveRow(at: indexToMove, to: indexToArrive)
+        tableView.endUpdates()
+        
+        tableView.beginUpdates()
+        updateCells(at: [indexToMove, indexToArrive])
+        tableView.endUpdates()
     }
     
-    func didSelectPlayer(_ player: Player) {
-        print("did Select player: \(player)")
-    }
-    
-    func upButtonPressed(for player: Player) {
-        if let index = regularPlayers.index(of: player) {
-            regularPlayers.remove(at: index)
-            regularPlayers.insert(player, at: index - 1)
-            adapter.performUpdates(animated: true)
+    fileprivate func updateCells(at indexPaths: [IndexPath]) {
+        indexPaths.forEach { indexPath in
+            guard let cell = tableView.cellForRow(at: indexPath) as? PlayerCell else { return }
+            cell.contentView.fadeTransition(duration: 0.3)
+            configure(cell: cell, with: orderedPlayers[indexPath.row], atRow: indexPath.row)
         }
     }
-    
+
     fileprivate func updateRosterOrder() {
-        for (index, player) in regularPlayers.enumerated() {
-            guard player.order != index else { return }
+        for (index, player) in orderedPlayers.enumerated() {
+            guard player.order != index else { continue }
             var updatedPlayer = player
             updatedPlayer.order = index
             core.fire(command: UpdateObject(object: updatedPlayer))
         }
     }
-    
+
 }
 
-extension RosterViewController {
-    
-    enum RosterSection: Int {
-        case regular
-        case sub
-        
-        static let allValues = [RosterSection.regular, .sub]
-        
-        var sectionTitle: String {
-            switch self {
-            case .regular:
-                return "Regulars"
-            case .sub:
-                return "Subs"
-            }
-        }
-        
-    }
-    
-}
+extension RosterViewController: UITableViewDataSource, UITableViewDelegate {
 
-extension RosterViewController: IGListAdapterDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return orderedPlayers.count
+    }
     
-    fileprivate func players(forSection section: RosterSection) -> [Player] {
-        switch section {
-        case .regular:
-            return regularPlayers
-        case .sub:
-            return subs
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: PlayerCell.reuseIdentifier) as! PlayerCell
+        let player = orderedPlayers[indexPath.row]
+        configure(cell: cell, with: player, atRow: indexPath.row)
+        cell.upButtonPressed = {
+            self.moveButtonPressed(for: player, up: true)
         }
+        cell.downButtonPressed = {
+            self.moveButtonPressed(for: player, up: false)
+        }
+        
+        return cell
     }
     
-    func objects(for listAdapter: IGListAdapter) -> [IGListDiffable] {
-        return orderedPlayers.map(PlayerSection.init)
-    }
-    
-    func listAdapter(_ listAdapter: IGListAdapter, sectionControllerFor object: Any) -> IGListSectionController {
-        guard let playerSection = object as? PlayerSection, let index = orderedPlayers.index(of: playerSection.player) else { return IGListSectionController() }
-        let sectionController = PlayerSectionController(order: index)
-        sectionController.didSelectPlayer = didSelectPlayer
-        sectionController.didUpPlayer = upButtonPressed
-        return sectionController
-    }
-    
-    func emptyView(for listAdapter: IGListAdapter) -> UIView? {
-        return nil
+    func configure(cell: PlayerCell, with player: Player, atRow row: Int) {
+        cell.update(with: player, order: row, isLast: player == orderedPlayers.last)
     }
     
 }

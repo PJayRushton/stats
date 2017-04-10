@@ -27,6 +27,11 @@ struct PlayerState: State {
         }
     }
     
+    var currentPlayers: [Player]? {
+        guard let currentTeam = App.core.state.teamState.currentTeam else { return nil }
+        return players(for: currentTeam.id)
+    }
+    
     func players(for team: Team) -> [Player] {
         return players(for: team.id)
     }

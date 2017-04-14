@@ -24,6 +24,14 @@ class PlayerCell: UITableViewCell, AutoReuseIdentifiable {
         insetView.layer.applyShadow()
     }
     
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        insetView.backgroundColor = highlighted ? .gray100 : .white
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        insetView.backgroundColor = selected ? .gray100 : .white
+    }
+    
     func update(with player: Player, order: Int, isLast: Bool = false) {
         numberLabel.text = "\(order + 1))"
   

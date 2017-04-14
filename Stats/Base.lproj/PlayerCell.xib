@@ -39,21 +39,18 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="999" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Amanda Rushton(00)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VcC-eY-xGx">
-                                        <rect key="frame" x="46" y="0.0" width="203" height="28.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" horizontalCompressionResistancePriority="999" text="Amanda Rushton(00)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VcC-eY-xGx">
+                                        <rect key="frame" x="46" y="0.0" width="189" height="28.5"/>
                                         <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" horizontalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="B54-vf-JkG">
-                                        <rect key="frame" x="265" y="0.0" width="0.0" height="28.5"/>
+                                        <rect key="frame" x="251" y="0.0" width="0.0" height="28.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="apL-eT-ZXo">
-                                        <rect key="frame" x="281" y="0.0" width="23" height="28.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="23" id="d4J-4X-iUt"/>
-                                        </constraints>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="apL-eT-ZXo">
+                                        <rect key="frame" x="267" y="0.0" width="30" height="28.5"/>
                                         <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="20"/>
                                         <state key="normal" title="⬇️">
                                             <color key="titleColor" red="0.21090820430000001" green="0.2391114235" blue="0.25170251729999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -62,11 +59,8 @@
                                             <action selector="downButtonPressed:" destination="SHl-qf-CpF" eventType="touchUpInside" id="FEk-p7-nLg"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Qq-Uy-8JN">
-                                        <rect key="frame" x="320" y="0.0" width="23" height="28.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="23" id="Fw8-Zd-eOJ"/>
-                                        </constraints>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Qq-Uy-8JN">
+                                        <rect key="frame" x="313" y="0.0" width="30" height="28.5"/>
                                         <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="20"/>
                                         <state key="normal" title="⬆️">
                                             <color key="titleColor" red="0.21090820430000001" green="0.2391114235" blue="0.25170251729999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

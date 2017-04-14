@@ -18,16 +18,6 @@ class RosterViewController: Component, AutoStoryboardInitializable {
     fileprivate var orderedPlayers = [Player]()
     fileprivate let feedbackGenerator = UISelectionFeedbackGenerator()
     
-    fileprivate let modalPresenter: Presentr = {
-        let customPresentation = PresentationType.custom(width: .half, height: .half, center: .center)
-        let modalPresentation = PresentationType.popup
-        
-        let presentationType = UIDevice.current.userInterfaceIdiom == .pad ? customPresentation : modalPresentation
-        let presenter = Presentr(presentationType: presentationType)
-        presenter.transitionType = TransitionType.coverHorizontalFromRight
-        return presenter
-    }()
-    
     fileprivate var allPlayers: [Player] {
         guard let currentTeam = currentTeam else { return [] }
         return core.state.playerState.players(for: currentTeam).sorted(by: { $0.order < $1.order })
@@ -55,7 +45,7 @@ class RosterViewController: Component, AutoStoryboardInitializable {
     
     @IBAction func addPlayerButtonPressed(_ sender: UIBarButtonItem) {
         let playerCreationVC = PlayerCreationViewController.initializeFromStoryboard()
-        customPresentViewController(modalPresenter, viewController: playerCreationVC, animated: true, completion: nil)
+        customPresentViewController(modalPresenter(), viewController: playerCreationVC, animated: true, completion: nil)
     }
     
     override func update(with: AppState) {
@@ -68,6 +58,16 @@ class RosterViewController: Component, AutoStoryboardInitializable {
 
 extension RosterViewController {
     
+    fileprivate func modalPresenter(transitionType: TransitionType = .coverHorizontalFromRight) -> Presentr {
+        let customPresentation = PresentationType.custom(width: .half, height: .half, center: .center)
+        let modalPresentation = PresentationType.popup
+        
+        let presentationType = UIDevice.current.userInterfaceIdiom == .pad ? customPresentation : modalPresentation
+        let presenter = Presentr(presentationType: presentationType)
+        presenter.transitionType = transitionType
+        return presenter
+    }
+
     func moveButtonPressed(for player: Player, up: Bool = true) {
         guard let index = orderedPlayers.index(of: player), !(!up && index == orderedPlayers.count - 1), !(up && index == 0) else { return }
         feedbackGenerator.selectionChanged()
@@ -92,7 +92,13 @@ extension RosterViewController {
             configure(cell: cell, with: orderedPlayers[indexPath.row], atRow: indexPath.row)
         }
     }
-
+    
+    fileprivate func editPlayer(_ player: Player) {
+        let playerEditVC = PlayerCreationViewController.initializeFromStoryboard()
+        playerEditVC.editingPlayer = player
+        customPresentViewController(modalPresenter(transitionType: .coverHorizontalFromLeft), viewController: playerEditVC, animated: true, completion: nil)
+    }
+    
     fileprivate func updateRosterOrder() {
         for (index, player) in orderedPlayers.enumerated() {
             guard player.order != index else { continue }
@@ -126,6 +132,11 @@ extension RosterViewController: UITableViewDataSource, UITableViewDelegate {
     
     func configure(cell: PlayerCell, with player: Player, atRow row: Int) {
         cell.update(with: player, order: row, isLast: player == orderedPlayers.last)
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let player = orderedPlayers[indexPath.row]
+        editPlayer(player)
     }
     
 }

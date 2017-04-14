@@ -25,6 +25,7 @@ class PlayerCreationViewController: Component, AutoStoryboardInitializable {
     @IBOutlet weak var saveAddButton: UIButton!
     @IBOutlet var keyboardView: UIView!
     
+    var editingPlayer: Player?
     
     fileprivate lazy var newPlayerRef: FIRDatabaseReference = {
         return StatsRefs.playersRef(teamId: App.core.state.teamState.currentTeam!.id).childByAutoId()
@@ -32,6 +33,9 @@ class PlayerCreationViewController: Component, AutoStoryboardInitializable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let editingPlayer = editingPlayer {
+            updateUI(with: editingPlayer)
+        }
         setUpSegControl()
         nameTextField.inputAccessoryView = keyboardView
         jerseyNumberTextField.inputAccessoryView = keyboardView
@@ -61,11 +65,11 @@ class PlayerCreationViewController: Component, AutoStoryboardInitializable {
     }
     
     @IBAction func nextButtonPressed(_ sender: UIButton) {
-        moveTextFields(next: true)
+        moveFirstResponder(next: true)
     }
     
     @IBAction func previousButtonPressed(_ sender: UIButton) {
-        moveTextFields(next: false)
+        moveFirstResponder(next: false)
     }
     
     @IBAction func dismissKeyboardButtonPressed(_ sender: UIButton) {
@@ -83,6 +87,16 @@ class PlayerCreationViewController: Component, AutoStoryboardInitializable {
 
 extension PlayerCreationViewController {
     
+    fileprivate func updateUI(with player: Player) {
+        nameTextField.text = player.name
+        jerseyNumberTextField.text = player.jerseyNumber
+        phoneTextField.text = player.phone
+        try? genderSegControl.setIndex(UInt(player.gender.rawValue))
+        subSwitch.isSelected = player.isSub
+        saveAddButton.isHidden = true
+        updateSaveButtons()
+    }
+    
     fileprivate func setUpSegControl() {
         genderSegControl.titles = Gender.allValues.map { $0.stringValue }
         let font = FontType.lemonMilk.font(withSize: 13)
@@ -94,7 +108,14 @@ extension PlayerCreationViewController {
     }
     
     fileprivate func updateSaveButtons() {
-       let isSavable = constructedPlayer() != nil
+        var isSavable = constructedPlayer() != nil
+        if let editingPlayer = editingPlayer {
+            guard let nameText = nameTextField.text, let jerseyText = jerseyNumberTextField.text, let phoneText = phoneTextField.text else { return }
+            let nameIsSame = !nameText.isEmpty && nameText == editingPlayer.name
+            let jerseyIsSame = jerseyText == editingPlayer.jerseyNumber
+            let phoneIsSame = phoneText == editingPlayer.phone
+            isSavable = constructedPlayer() != nil && !nameIsSame || !jerseyIsSame || !phoneIsSame
+        }
         saveButton.isEnabled = isSavable
         saveAddButton.isEnabled = isSavable
         saveButton.backgroundColor = isSavable ? UIColor.flatLime : UIColor.flatLime.withAlphaComponent(0.5)
@@ -107,16 +128,30 @@ extension PlayerCreationViewController {
         let jerseyNumber = jerseyNumberTextField.text!.isEmpty ? nil : jerseyNumberTextField.text
         guard let gender = Gender(rawValue: Int(genderSegControl.index)) else { return nil }
         let id = StatsRefs.playersRef(teamId: team.id).childByAutoId().key
-        return Player(id: id, name: name, jerseyNumber: jerseyNumber, isSub: subSwitch.isSelected, phone: phoneTextField.text, gender: gender, teamId: team.id)
+        
+        if var editingPlayer = editingPlayer {
+            editingPlayer.name = name
+            editingPlayer.jerseyNumber = jerseyNumber
+            editingPlayer.gender = gender
+            editingPlayer.isSub = subSwitch.isSelected
+            return editingPlayer
+        } else {
+            return Player(id: id, name: name, jerseyNumber: jerseyNumber, isSub: subSwitch.isSelected, phone: phoneTextField.text, gender: gender, teamId: team.id)
+        }
     }
     
     fileprivate func savePlayer(_ player: Player, add: Bool) {
-        core.fire(command: CreatePlayer(player))
-        
-        if add {
-            clear()
-        } else {
+        if let _ = editingPlayer {
+            core.fire(command: UpdateObject(object: player))
             dismiss(animated: true, completion: nil)
+        } else {
+            core.fire(command: CreatePlayer(player))
+            
+            if add {
+                clear()
+            } else {
+                dismiss(animated: true, completion: nil)
+            }
         }
     }
     
@@ -128,7 +163,7 @@ extension PlayerCreationViewController {
         updateSaveButtons()
     }
     
-    fileprivate func moveTextFields(next: Bool) {
+    fileprivate func moveFirstResponder(next: Bool) {
         if (nameTextField.isFirstResponder && !next) || (phoneTextField.isFirstResponder && next) {
             view.endEditing(false)
         } else if (nameTextField.isFirstResponder && next) || (phoneTextField.isFirstResponder && !next) {

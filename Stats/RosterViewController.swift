@@ -9,6 +9,8 @@
 import UIKit
 import IGListKit
 import Presentr
+import Messages
+import MessageUI
 
 class RosterViewController: Component, AutoStoryboardInitializable {
     
@@ -48,8 +50,12 @@ class RosterViewController: Component, AutoStoryboardInitializable {
         customPresentViewController(modalPresenter(), viewController: playerCreationVC, animated: true, completion: nil)
     }
     
-    override func update(with: AppState) {
+    override func update(with state: AppState) {
         navigationController?.navigationBar.barTintColor = core.state.currentMenuItem?.backgroundColor
+        
+        if let currentPlayers = state.playerState.currentPlayers {
+            diffOrderedPlayers(with: currentPlayers)
+        }
         tableView.reloadData()
     }
     
@@ -65,9 +71,21 @@ extension RosterViewController {
         let presentationType = UIDevice.current.userInterfaceIdiom == .pad ? customPresentation : modalPresentation
         let presenter = Presentr(presentationType: presentationType)
         presenter.transitionType = transitionType
+        presenter.dismissTransitionType = TransitionType.coverHorizontalFromRight
         return presenter
     }
 
+    fileprivate func diffOrderedPlayers(with statePlayers: [Player]) {
+        for (index, player) in orderedPlayers.enumerated() {
+            guard let trueIndex = statePlayers.index(of: player) else { continue }
+            let truePlayer = statePlayers[trueIndex]
+            
+            if !player.isTheSameAs(truePlayer) {
+                orderedPlayers[index] = truePlayer
+            }
+        }
+    }
+    
     func moveButtonPressed(for player: Player, up: Bool = true) {
         guard let index = orderedPlayers.index(of: player), !(!up && index == orderedPlayers.count - 1), !(up && index == 0) else { return }
         feedbackGenerator.selectionChanged()
@@ -96,7 +114,7 @@ extension RosterViewController {
     fileprivate func editPlayer(_ player: Player) {
         let playerEditVC = PlayerCreationViewController.initializeFromStoryboard()
         playerEditVC.editingPlayer = player
-        customPresentViewController(modalPresenter(transitionType: .coverHorizontalFromLeft), viewController: playerEditVC, animated: true, completion: nil)
+        customPresentViewController(modalPresenter(), viewController: playerEditVC, animated: true, completion: nil)
     }
     
     fileprivate func updateRosterOrder() {
@@ -105,6 +123,46 @@ extension RosterViewController {
             var updatedPlayer = player
             updatedPlayer.order = index
             core.fire(command: UpdateObject(object: updatedPlayer))
+        }
+    }
+    
+    fileprivate func callPhoneNumber(_ number: String) {
+        guard let phoneURL = URL(string: "tel://\(number)"), UIApplication.shared.canOpenURL(phoneURL) else { return }
+        UIApplication.shared.open(phoneURL, options: [:], completionHandler: nil)
+    }
+    
+    fileprivate func textPhoneNumber(_ number: String) {
+        let textVC = MFMessageComposeViewController(rootViewController: self)
+        textVC.recipients = [number]
+        textVC.messageComposeDelegate = self
+        present(textVC, animated: true, completion: nil)
+    }
+    
+    fileprivate func presentOptions(for player: Player) {
+        if let phone = player.phone, !phone.isEmpty {
+            let alert = UIAlertController(title: "Actions for:", message: player.name, preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Edit ✏️", style: .default, handler: { _ in
+                self.editPlayer(player)
+            }))
+            let callAction = UIAlertAction(title: "Call 📞", style: .default, handler: { _ in
+                self.callPhoneNumber(phone)
+            })
+            
+            if let url = URL(string: "tel://\(phone)"), UIApplication.shared.canOpenURL(url) {
+                alert.addAction(callAction)
+            }
+            let textAction = UIAlertAction(title: "Text 💬", style: .default, handler: { _ in
+                self.textPhoneNumber(phone)
+            })
+            
+            if MFMessageComposeViewController.canSendText() {
+                alert.addAction(textAction)
+            }
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            
+            present(alert, animated: true, completion: nil)
+        } else {
+            editPlayer(player)
         }
     }
 
@@ -136,7 +194,15 @@ extension RosterViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let player = orderedPlayers[indexPath.row]
-        editPlayer(player)
+        presentOptions(for: player)
+    }
+    
+}
+
+extension RosterViewController: MFMessageComposeViewControllerDelegate {
+    
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        dismiss(animated: true, completion: nil)
     }
     
 }

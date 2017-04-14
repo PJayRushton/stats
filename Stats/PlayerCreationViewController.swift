@@ -10,6 +10,7 @@ import UIKit
 import AIFlatSwitch
 import BetterSegmentedControl
 import Firebase
+import Presentr
 import TextFieldEffects
 
 class PlayerCreationViewController: Component, AutoStoryboardInitializable {
@@ -44,6 +45,14 @@ class PlayerCreationViewController: Component, AutoStoryboardInitializable {
     
     @IBAction func cancelButtonPressed(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func genderChanged(_ sender: BetterSegmentedControl) {
+        updateSaveButtons()
+    }
+    
+    @IBAction func subSwitchChanged(_ sender: Any) {
+        updateSaveButtons()
     }
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
@@ -114,7 +123,9 @@ extension PlayerCreationViewController {
             let nameIsSame = !nameText.isEmpty && nameText == editingPlayer.name
             let jerseyIsSame = jerseyText == editingPlayer.jerseyNumber
             let phoneIsSame = phoneText == editingPlayer.phone
-            isSavable = constructedPlayer() != nil && !nameIsSame || !jerseyIsSame || !phoneIsSame
+            let genderIsSame = editingPlayer.gender.rawValue == Int(genderSegControl.index)
+            let subIsSame = editingPlayer.isSub == subSwitch.isSelected
+            isSavable = constructedPlayer() != nil && !nameIsSame || !jerseyIsSame || !phoneIsSame || !genderIsSame || !subIsSame
         }
         saveButton.isEnabled = isSavable
         saveAddButton.isEnabled = isSavable
@@ -129,14 +140,19 @@ extension PlayerCreationViewController {
         guard let gender = Gender(rawValue: Int(genderSegControl.index)) else { return nil }
         let id = StatsRefs.playersRef(teamId: team.id).childByAutoId().key
         
+        var phone: String?
+        if let phoneText = phoneTextField.text, !phoneText.isEmpty, phoneText.isValidPhoneNumber {
+            phone = phoneText
+        }
         if var editingPlayer = editingPlayer {
             editingPlayer.name = name
             editingPlayer.jerseyNumber = jerseyNumber
+            editingPlayer.phone = phone
             editingPlayer.gender = gender
             editingPlayer.isSub = subSwitch.isSelected
             return editingPlayer
         } else {
-            return Player(id: id, name: name, jerseyNumber: jerseyNumber, isSub: subSwitch.isSelected, phone: phoneTextField.text, gender: gender, teamId: team.id)
+            return Player(id: id, name: name, jerseyNumber: jerseyNumber, isSub: subSwitch.isSelected, phone: phone, gender: gender, teamId: team.id)
         }
     }
     

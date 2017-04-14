@@ -123,6 +123,9 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="cs6-EF-646"/>
                                         </constraints>
+                                        <connections>
+                                            <action selector="genderChanged:" destination="JCe-SB-1of" eventType="valueChanged" id="9zj-Gm-gcM"/>
+                                        </connections>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="l8J-fs-joE">
                                         <rect key="frame" x="15.5" y="254.5" width="289" height="34"/>
@@ -149,6 +152,9 @@
                                                         <color key="value" red="0.65098039220000004" green="0.76862745099999996" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="subSwitchChanged:" destination="JCe-SB-1of" eventType="valueChanged" id="wRp-zS-R3w"/>
+                                                </connections>
                                             </view>
                                         </subviews>
                                     </stackView>

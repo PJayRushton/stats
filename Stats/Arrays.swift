@@ -43,6 +43,20 @@ extension String {
         return emailTest.evaluate(with: self)
     }
     
+    var isValidPhoneNumber: Bool {
+        do {
+            let detector = try NSDataDetector(types: NSTextCheckingResult.CheckingType.phoneNumber.rawValue)
+            let matches = detector.matches(in: self, options: [], range: NSMakeRange(0, self.characters.count))
+            if let res = matches.first {
+                return res.resultType == .phoneNumber && res.range.location == 0 && res.range.length == self.characters.count
+            } else {
+                return false
+            }
+        } catch {
+            return false
+        }
+    }
+    
     static var seasonSuggestion: String {
         let currentMonth = Calendar.current.component(.month, from: Date())
         let currentYear = Calendar.current.component(.year, from: Date())

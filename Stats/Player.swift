@@ -61,6 +61,10 @@ struct Player: Identifiable, Unmarshaling {
         teamId = try object.value(for: teamIdKey)
     }
     
+    func isTheSameAs(_ player: Player) -> Bool {
+        return id == player.id && gender == player.gender && isSub == player.isSub && jerseyNumber == player.jerseyNumber && name == player.name && order == player.order && phone == player.phone && teamId == player.teamId
+    }
+    
 }
 
 extension Player: Marshaling {

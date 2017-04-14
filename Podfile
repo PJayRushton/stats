@@ -13,6 +13,7 @@ target 'Stats' do
   pod 'Presentr'
   pod 'TabPageViewController'
   pod 'TextFieldEffects'
+  pod 'QRCode'
   pod 'Whisper'
   
   pod 'Firebase'

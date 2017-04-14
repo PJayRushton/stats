@@ -74,6 +74,10 @@
 		A1BF9C401E8AC449007341EA /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD9A0B1E89C30400D3C8F7 /* GameState.swift */; };
 		A1BF9C441E8B2172007341EA /* UserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BF9C431E8B2172007341EA /* UserState.swift */; };
 		A1BF9C461E8B22B2007341EA /* GetCurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BF9C451E8B22B2007341EA /* GetCurrentUser.swift */; };
+		A1C722101EA0F71700A71C51 /* ShareTeamRolesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C7220F1EA0F71700A71C51 /* ShareTeamRolesViewController.swift */; };
+		A1C722131EA0F75500A71C51 /* ShareTeamRolesViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1C722111EA0F75500A71C51 /* ShareTeamRolesViewController.storyboard */; };
+		A1C722151EA10CE600A71C51 /* ShareTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C722141EA10CE600A71C51 /* ShareTeamViewController.swift */; };
+		A1C722181EA10D1800A71C51 /* ShareTeamViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1C722161EA10D1800A71C51 /* ShareTeamViewController.storyboard */; };
 		A1CD9A0A1E89C26200D3C8F7 /* TeamState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD9A091E89C26200D3C8F7 /* TeamState.swift */; };
 		A1CD9A0E1E89D05E00D3C8F7 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD9A0D1E89D05E00D3C8F7 /* Keys.swift */; };
 		A1CD9A101E8A9ABC00D3C8F7 /* SeasonState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD9A0F1E8A9ABC00D3C8F7 /* SeasonState.swift */; };
@@ -179,6 +183,10 @@
 		A1B41C291E85A4E300FAC930 /* AtBat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtBat.swift; sourceTree = "<group>"; };
 		A1BF9C431E8B2172007341EA /* UserState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserState.swift; sourceTree = "<group>"; };
 		A1BF9C451E8B22B2007341EA /* GetCurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCurrentUser.swift; sourceTree = "<group>"; };
+		A1C7220F1EA0F71700A71C51 /* ShareTeamRolesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareTeamRolesViewController.swift; sourceTree = "<group>"; };
+		A1C722121EA0F75500A71C51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ShareTeamRolesViewController.storyboard; sourceTree = "<group>"; };
+		A1C722141EA10CE600A71C51 /* ShareTeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareTeamViewController.swift; sourceTree = "<group>"; };
+		A1C722171EA10D1800A71C51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ShareTeamViewController.storyboard; sourceTree = "<group>"; };
 		A1CD9A091E89C26200D3C8F7 /* TeamState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamState.swift; sourceTree = "<group>"; };
 		A1CD9A0B1E89C30400D3C8F7 /* GameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
 		A1CD9A0D1E89D05E00D3C8F7 /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
@@ -315,6 +323,8 @@
 				A16D417C1E97FF7400DE01D4 /* PlayerCreationViewController.storyboard */,
 				A16D41701E97D09E00DE01D4 /* RosterViewController.storyboard */,
 				A1D67D501E9097C600200B65 /* SettingsViewController.storyboard */,
+				A1C722111EA0F75500A71C51 /* ShareTeamRolesViewController.storyboard */,
+				A1C722161EA10D1800A71C51 /* ShareTeamViewController.storyboard */,
 				A14B64E21E8D42B000CBDE92 /* StockPhotosViewController.storyboard */,
 				A14B64EA1E8D65C500CBDE92 /* TeamCreationViewController.storyboard */,
 				A1A2C3621E8BF6020008274F /* TeamHeaderCell.xib */,
@@ -343,6 +353,8 @@
 				A16D416E1E97D08F00DE01D4 /* RosterViewController.swift */,
 				A1A2C36A1E8C05190008274F /* SectionControllers */,
 				A1D67D531E9097E100200B65 /* SettingsViewController.swift */,
+				A1C7220F1EA0F71700A71C51 /* ShareTeamRolesViewController.swift */,
+				A1C722141EA10CE600A71C51 /* ShareTeamViewController.swift */,
 				A14B64E01E8D429800CBDE92 /* StockPhotosViewController.swift */,
 				A14B64ED1E8D662900CBDE92 /* TeamCreationViewController.swift */,
 				A1A2C3611E8BF6020008274F /* TeamHeaderCell.swift */,
@@ -537,11 +549,13 @@
 				A1D67D571E92872A00200B65 /* BasicCell.xib in Resources */,
 				A16D41721E97D09E00DE01D4 /* RosterViewController.storyboard in Resources */,
 				A17EF6BC1E930D3100DEE4ED /* TeamSwitcherViewController.storyboard in Resources */,
+				A1C722131EA0F75500A71C51 /* ShareTeamRolesViewController.storyboard in Resources */,
 				A1A2C3641E8BF6020008274F /* TeamHeaderCell.xib in Resources */,
 				A1D67D461E8FE8B100200B65 /* Main.storyboard in Resources */,
 				A1D67D521E9097C600200B65 /* SettingsViewController.storyboard in Resources */,
 				A14B64F81E8E9D2300CBDE92 /* GoogleService-Info.plist in Resources */,
 				A1A2C3721E8C11F30008274F /* EmailViewController.storyboard in Resources */,
+				A1C722181EA10D1800A71C51 /* ShareTeamViewController.storyboard in Resources */,
 				A1D67D3D1E8F244000200B65 /* ManageTeamsViewController.storyboard in Resources */,
 				A1D67D4D1E8FE8FC00200B65 /* LoadingImageViewController.storyboard in Resources */,
 				A17999971E82DFF00058A002 /* LaunchScreen.storyboard in Resources */,
@@ -610,6 +624,7 @@
 				A1BF9C401E8AC449007341EA /* GameState.swift in Sources */,
 				A14B64F61E8E0E5400CBDE92 /* FirebaseNetworkAccess.swift in Sources */,
 				A14B64EE1E8D662900CBDE92 /* TeamCreationViewController.swift in Sources */,
+				A1C722101EA0F71700A71C51 /* ShareTeamRolesViewController.swift in Sources */,
 				A16D416D1E97364300DE01D4 /* DeleteTeam.swift in Sources */,
 				A14B64E61E8D647B00CBDE92 /* AddTeamViewController.swift in Sources */,
 				A1BF9C3F1E8AC443007341EA /* Game.swift in Sources */,
@@ -674,6 +689,7 @@
 				A1D8054C1E89870B0072AA49 /* UsernameViewController.swift in Sources */,
 				A179997D1E82B8BD0058A002 /* NSDate+ValueType.swift in Sources */,
 				A1D67D381E8F081A00200B65 /* TeamActionSectionController.swift in Sources */,
+				A1C722151EA10CE600A71C51 /* ShareTeamViewController.swift in Sources */,
 				A131CC8E1E8EEE6600A5D66B /* SubscribeToCurrentUser.swift in Sources */,
 				A14B64FC1E8EB99B00CBDE92 /* Identifiable.swift in Sources */,
 				A17EF6D91E954A6500DEE4ED /* DeleteImage.swift in Sources */,
@@ -770,6 +786,22 @@
 				A1A2C3711E8C11F30008274F /* Base */,
 			);
 			name = EmailViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		A1C722111EA0F75500A71C51 /* ShareTeamRolesViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A1C722121EA0F75500A71C51 /* Base */,
+			);
+			name = ShareTeamRolesViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		A1C722161EA10D1800A71C51 /* ShareTeamViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A1C722171EA10D1800A71C51 /* Base */,
+			);
+			name = ShareTeamViewController.storyboard;
 			sourceTree = "<group>";
 		};
 		A1CD9A151E8AA2F000D3C8F7 /* UsernameViewController.storyboard */ = {

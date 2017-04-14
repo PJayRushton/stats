@@ -120,6 +120,22 @@ extension HomeViewController {
         present(creationVCWithNav, animated: true, completion: nil)
     }
     
+    func pushRoster() {
+        let rosterVC = RosterViewController.initializeFromStoryboard()
+        navigationController?.pushViewController(rosterVC, animated: true)
+    }
+    
+    func pushShareTeamRoles() {
+        if let user = core.state.userState.currentUser, let team = core.state.teamState.currentTeam, !user.isOwnerOrManager(of: team) {
+            let shareTeamRolesVC = ShareTeamRolesViewController.initializeFromStoryboard()
+            navigationController?.pushViewController(shareTeamRolesVC, animated: true)
+        } else {
+            let shareTeamVC = ShareTeamViewController.initializeFromStoryboard()
+            shareTeamVC.modalPresentationStyle = .overFullScreen
+            present(shareTeamVC, animated: false, completion: nil)
+        }
+    }
+    
     func didSelectItem(_ item: HomeMenuItem) {
         core.fire(event: Selected<HomeMenuItem>(item))
         switch item {
@@ -130,10 +146,9 @@ extension HomeViewController {
         case .games:
             break
         case .roster:
-            let rosterVC = RosterViewController.initializeFromStoryboard()
-            navigationController?.pushViewController(rosterVC, animated: true)
+            pushRoster()
         case .share:
-            break
+            pushShareTeamRoles()
         }
     }
     

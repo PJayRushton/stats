@@ -8,10 +8,21 @@
 
 import Foundation
 
-enum TeamOwnershipType: Int {
+enum TeamOwnershipType: String {
     case owned
     case managed
     case fan
+    
+    init?(hashValue value: Int) {
+        switch value {
+        case 0:
+            self = .owned
+        case 1:
+            self = .managed
+        default:
+            self = .fan
+        }
+    }
     
     var sectionTitle: String {
         switch self {
@@ -23,6 +34,7 @@ enum TeamOwnershipType: Int {
             return NSLocalizedString("Player", comment: "")
         }
     }
+    
     static let allValues = [TeamOwnershipType.owned, .managed, .fan]
 }
 

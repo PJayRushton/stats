@@ -17,6 +17,8 @@ class ShareTeamViewController: Component, AutoStoryboardInitializable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        nameLabel.text = ""
+        shareLabel.text = ""
     }
     
     @IBAction func viewTapped(_ sender: Any) {

@@ -8,22 +8,35 @@
 
 import UIKit
 import AVFoundation
+import Firebase
 import Presentr
 
 class AddTeamViewController: Component, AutoStoryboardInitializable {
     
-    var captureSession: AVCaptureSession?
-    var videoPreviewLayer: AVCaptureVideoPreviewLayer?
-    var qrCodeFrameView: UIView?
+    @IBOutlet weak var topStack: UIStackView!
+    @IBOutlet weak var videoHolderView: UIView!
+    @IBOutlet weak var codeHolderView: UIView!
+    @IBOutlet weak var textField1: UITextField!
+    @IBOutlet weak var textField2: UITextField!
+    @IBOutlet weak var textField3: UITextField!
+    @IBOutlet weak var textField4: UITextField!
     
-    let supportedBarCodes = [AVMetadataObjectTypeQRCode, AVMetadataObjectTypeCode128Code, AVMetadataObjectTypeCode39Code, AVMetadataObjectTypeCode93Code, AVMetadataObjectTypeUPCECode, AVMetadataObjectTypePDF417Code, AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeAztecCode]
     
-    let presenter: Presentr = {
+    fileprivate var captureSession: AVCaptureSession?
+    fileprivate var videoPreviewLayer: AVCaptureVideoPreviewLayer?
+    fileprivate var qrCodeFrameView: UIView?
+    
+    fileprivate let supportedBarCodes = [AVMetadataObjectTypeQRCode]
+    fileprivate let networkAccess = FirebaseNetworkAccess()
+    
+    fileprivate let presenter: Presentr = {
         let presenter = Presentr(presentationType: .alert)
         presenter.transitionType = TransitionType.coverHorizontalFromRight
         return presenter
     }()
-    
+    fileprivate var allTextFields: [UITextField] {
+        return [textField1, textField2, textField3, textField4]
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +47,8 @@ class AddTeamViewController: Component, AutoStoryboardInitializable {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        navigationController?.navigationBar.barTintColor = UIColor.flatLime
         captureSession?.startRunning()
     }
     
@@ -56,8 +71,7 @@ class AddTeamViewController: Component, AutoStoryboardInitializable {
             
             videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
             videoPreviewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
-            let videoFrame = CGRect(origin: CGPoint.zero, size: CGSize(width: view.frame.width, height: view.frame.height / 2))
-            videoPreviewLayer?.frame = videoFrame
+            videoPreviewLayer?.frame = videoHolderView.frame
             view.layer.addSublayer(videoPreviewLayer!)
         } catch {
             print(error)
@@ -79,42 +93,41 @@ class AddTeamViewController: Component, AutoStoryboardInitializable {
 }
 
 
-extension AddTeamViewController: AVCaptureMetadataOutputObjectsDelegate {
+// MARK: - Fileprivate 
+
+extension AddTeamViewController {
     
-    func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
-        guard let objects = metadataObjects, objects.isEmpty == false else {
-            qrCodeFrameView?.frame = CGRect.zero
-            return
-        }
-        
-        if let metadataObj = metadataObjects.first as? AVMetadataMachineReadableCodeObject, supportedBarCodes.contains(metadataObj.type) {
-            let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
-            qrCodeFrameView?.frame = barCodeObject!.bounds
-            
-            if let metadataString = metadataObj.stringValue {
-                searchForTeam(withId: metadataString)
-                captureSession?.stopRunning()
-            }
-        }
-    }
-    
-    fileprivate func searchForTeam(withId id: String) {
-        var teamId = id
+    fileprivate func searchForTeam(with metadata: String) {
+        var teamId = metadata
         var ownershipType = TeamOwnershipType.fan
-        if id.contains(" ") {
-            let parts = id.components(separatedBy: " ")
-            guard parts.count == 2 else { return }
-            teamId = parts.first!
-            guard let typeString = parts.last, let type = TeamOwnershipType(rawValue: typeString) else { return }
-            ownershipType = type
-        }
+        let parts = metadata.components(separatedBy: " ")
+        guard parts.count == 2 else { return }
+        teamId = parts.first!
+        guard let typeString = parts.last, let type = TeamOwnershipType(rawValue: typeString) else { return }
+        ownershipType = type
+        
         let ref = StatsRefs.teamsRef.child(teamId)
-        FirebaseNetworkAccess().getData(at: ref) { result in
+        networkAccess.getData(at: ref) { result in
             let teamResult = result.map(Team.init)
             switch teamResult {
             case let .success(team):
                 DispatchQueue.main.async {
                     self.presentConfirmationAlert(withTeam: team, ownershipType: ownershipType)
+                }
+            case let .failure(error):
+                self.core.fire(event: ErrorEvent(error: error, message: nil))
+            }
+        }
+    }
+    
+    fileprivate func searchForTeam(withCode code: String) {
+        let query = StatsRefs.teamsRef.queryOrdered(byChild: shareCodeKey).queryEqual(toValue: code)
+        networkAccess.getData(withQuery: query) { result in
+            let teamResult = result.map(Team.init)
+            switch teamResult {
+            case let .success(team):
+                DispatchQueue.main.async {
+                    self.presentConfirmationAlert(withTeam: team, ownershipType: .fan)
                 }
             case let .failure(error):
                 self.core.fire(event: ErrorEvent(error: error, message: nil))
@@ -134,6 +147,74 @@ extension AddTeamViewController: AVCaptureMetadataOutputObjectsDelegate {
             self.core.fire(command: SubscribeToTeam(withId: team.id))
         }))
         customPresentViewController(presenter, viewController: alert, animated: true, completion: nil)
+    }
+
+}
+
+extension AddTeamViewController: AVCaptureMetadataOutputObjectsDelegate {
+    
+    func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
+        guard let objects = metadataObjects, objects.isEmpty == false else {
+            qrCodeFrameView?.frame = CGRect.zero
+            return
+        }
+        
+        if let metadataObj = metadataObjects.first as? AVMetadataMachineReadableCodeObject, supportedBarCodes.contains(metadataObj.type) {
+            let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
+            qrCodeFrameView?.frame = barCodeObject!.bounds
+            
+            if let metadataString = metadataObj.stringValue {
+                searchForTeam(with: metadataString)
+                captureSession?.stopRunning()
+            }
+        }
+    }
+    
+    func moveView(up: Bool = true) {
+        UIView.animate(withDuration: 0.25) {
+            let amount: CGFloat = up ? -150.0 : 150.0
+            self.view.frame.origin.y += amount
+        }
+    }
+    
+}
+
+extension AddTeamViewController: UITextFieldDelegate {
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        moveView()
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let text = textField.text else { return true }
+        let newLength = text.characters.count + string.characters.count - range.length
+        return newLength <= 1
+
+    }
+    
+    @IBAction func textFieldChanged(_ sender: UITextField) {
+        if let text = sender.text, text.characters.count == 1 {
+            _ = textFieldShouldReturn(sender)
+        }
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == textField1 {
+            textField2.becomeFirstResponder()
+        } else if textField == textField2 {
+            textField3.becomeFirstResponder()
+        } else if textField == textField3 {
+            textField4.becomeFirstResponder()
+        } else {
+            let strings = allTextFields.flatMap( { $0.text })
+            guard strings.count == 4 else { return true }
+            searchForTeam(withCode: strings.joined())
+        }
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        moveView(up: false)
     }
     
 }

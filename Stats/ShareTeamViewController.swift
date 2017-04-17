@@ -15,6 +15,8 @@ class ShareTeamViewController: Component, AutoStoryboardInitializable {
     @IBOutlet weak var qrImageView: UIImageView!
     @IBOutlet weak var shareLabel: UILabel!
     
+    var ownershipType = TeamOwnershipType.fan
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         nameLabel.text = ""
@@ -37,7 +39,7 @@ extension ShareTeamViewController {
     
     fileprivate func updateUI(with team: Team) {
         nameLabel.text = team.name
-        let code = QRCode(team.shareCode)
+        let code = QRCode(team.qrCodeString(type: ownershipType))
         qrImageView.image = code?.image
         shareLabel.text = team.shareCode
     }

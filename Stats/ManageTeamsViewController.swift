@@ -55,7 +55,7 @@ class ManageTeamsViewController: Component, AutoStoryboardInitializable {
 extension ManageTeamsViewController {
     
     fileprivate func currentTeams() -> [Team] {
-        let type = TeamOwnershipType(rawValue: tab)!
+        let type = TeamOwnershipType(hashValue: tab)!
         return core.state.teamState.currentUserTeams(forType: type)
     }
     
@@ -74,15 +74,15 @@ extension ManageTeamsViewController {
     }
 
     fileprivate func launchTeamCreation() {
-        let type = TeamOwnershipType(rawValue: tab)!
+        let type = TeamOwnershipType(hashValue: tab)!
         switch type {
         case .owned:
             let teamCreationVC = TeamCreationViewController.initializeFromStoryboard().embededInNavigationController
-            present(teamCreationVC, animated: true, completion: nil)
-        case .managed:
-            break
-        case .fan:
-            break
+            present(teamCreationVC, animated: true)
+        case .managed, .fan:
+            let addTeamVC = AddTeamViewController.initializeFromStoryboard().embededInNavigationController
+            addTeamVC.modalPresentationStyle = .overFullScreen
+            present(addTeamVC, animated: true)
         }
     }
     

@@ -38,6 +38,25 @@ struct Game: Identifiable, Unmarshaling {
         self.teamId = teamId
     }
     
+    var wasWon: Bool {
+        return isCompleted && score > opponentScore
+    }
+
+    var scoreString: String {
+        let firstScore = isHome ? opponentScore : score
+        let secondScore = isHome ? score : opponentScore
+        return "(\(firstScore) - \(secondScore))"
+    }
+    
+    var status: String {
+        if isCompleted {
+            return wasWon ? "W" : "L"
+        } else {
+            let inningPrefix = isHome ? "⬆️" : "⬇️"
+            return "\(inningPrefix)\(inning)"
+        }
+    }
+    
     init(object: MarshaledObject) throws {
         id = try object.value(for: idKey)
         date = try object.value(for: dateKey)

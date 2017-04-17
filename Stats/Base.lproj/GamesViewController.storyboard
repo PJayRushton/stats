@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="X8O-oI-RP3">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="LemonMilk.otf">
+            <string>LemonMilk</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Games-->
+        <scene sceneID="rG6-fi-90l">
+            <objects>
+                <viewController storyboardIdentifier="GamesViewController" automaticallyAdjustsScrollViewInsets="NO" id="X8O-oI-RP3" customClass="GamesViewController" customModule="Stats" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kgA-iF-G30"/>
+                        <viewControllerLayoutGuide type="bottom" id="I29-tI-AcJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cYj-P0-Ol6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="127" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cFx-X9-Ysy">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="GameCell" rowHeight="127" id="sc5-y3-K1u" customClass="GameCell" customModule="Stats" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="127"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sc5-y3-K1u" id="bN7-Ry-u0b">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="126.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5xf-me-Oxc">
+                                                    <rect key="frame" x="8" y="8" width="326" height="110.5"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="82b-oB-AhM">
+                                                            <rect key="frame" x="0.0" y="0.0" width="149" height="110.5"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Opponent Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qxB-Mo-89n">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="149" height="37"/>
+                                                                    <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rgf-ub-vmL">
+                                                                    <rect key="frame" x="0.0" y="37" width="149" height="36.5"/>
+                                                                    <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DateLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZFy-Cz-jcH">
+                                                                    <rect key="frame" x="0.0" y="73.5" width="149" height="37"/>
+                                                                    <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="uTR-Ms-Eia">
+                                                            <rect key="frame" x="208.5" y="32.5" width="117.5" height="46"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LTD-gb-F7c">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="117.5" height="23"/>
+                                                                    <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zJh-wz-nJz">
+                                                                    <rect key="frame" x="0.0" y="23" width="117.5" height="23"/>
+                                                                    <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="82b-oB-AhM" firstAttribute="height" secondItem="5xf-me-Oxc" secondAttribute="height" id="yGl-CJ-eNf"/>
+                                                    </constraints>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="5xf-me-Oxc" secondAttribute="bottom" id="1sC-du-h0u"/>
+                                                <constraint firstItem="5xf-me-Oxc" firstAttribute="leading" secondItem="bN7-Ry-u0b" secondAttribute="leadingMargin" id="QBB-cd-RyN"/>
+                                                <constraint firstItem="5xf-me-Oxc" firstAttribute="top" secondItem="bN7-Ry-u0b" secondAttribute="topMargin" id="XHP-SH-Ily"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="5xf-me-Oxc" secondAttribute="trailing" id="c5u-Jc-Ln7"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="ZFy-Cz-jcH" id="KwF-zC-0h6"/>
+                                            <outlet property="gameLabel" destination="rgf-ub-vmL" id="wtZ-nj-mfs"/>
+                                            <outlet property="opponentLabel" destination="qxB-Mo-89n" id="Dzu-91-gLl"/>
+                                            <outlet property="scoreLabel" destination="zJh-wz-nJz" id="TbB-mC-Pw8"/>
+                                            <outlet property="statusLabel" destination="LTD-gb-F7c" id="N3z-BT-RCY"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="X8O-oI-RP3" id="MUE-BW-Z2u"/>
+                                    <outlet property="delegate" destination="X8O-oI-RP3" id="xlf-GI-ALN"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="I29-tI-AcJ" firstAttribute="top" secondItem="cFx-X9-Ysy" secondAttribute="bottom" id="6k8-0z-400"/>
+                            <constraint firstItem="cFx-X9-Ysy" firstAttribute="top" secondItem="kgA-iF-G30" secondAttribute="bottom" id="DiE-2k-8R7"/>
+                            <constraint firstItem="cFx-X9-Ysy" firstAttribute="leading" secondItem="cYj-P0-Ol6" secondAttribute="leading" id="DkU-kz-7Uh"/>
+                            <constraint firstAttribute="trailing" secondItem="cFx-X9-Ysy" secondAttribute="trailing" id="STt-ZT-4tk"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Games" id="LGt-nQ-gHo">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Prn-s9-OwD">
+                            <connections>
+                                <action selector="plusButtonPressed:" destination="X8O-oI-RP3" id="Mnp-uu-FsF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="plusButton" destination="Prn-s9-OwD" id="W7y-Sb-wh6"/>
+                        <outlet property="tableView" destination="cFx-X9-Ysy" id="oYI-Iw-L45"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k28-ec-XUI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="160.80000000000001" y="83.208395802098963"/>
+        </scene>
+    </scenes>
+</document>

@@ -120,6 +120,12 @@ extension HomeViewController {
         present(creationVCWithNav, animated: true, completion: nil)
     }
     
+    fileprivate func pushGames(new: Bool = false) {
+        let gamesVC = GamesViewController.initializeFromStoryboard()
+        gamesVC.new = new
+        navigationController?.pushViewController(gamesVC, animated: true)
+    }
+    
     func pushRoster() {
         let rosterVC = RosterViewController.initializeFromStoryboard()
         navigationController?.pushViewController(rosterVC, animated: true)
@@ -140,11 +146,12 @@ extension HomeViewController {
         core.fire(event: Selected<HomeMenuItem>(item))
         switch item {
         case .newGame:
+            pushGames(new: true)
             break
         case .stats:
             break
         case .games:
-            break
+            pushGames()
         case .roster:
             pushRoster()
         case .share:

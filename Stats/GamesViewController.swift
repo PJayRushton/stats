@@ -13,8 +13,8 @@ class GamesViewController: Component, AutoStoryboardInitializable {
     @IBOutlet weak var plusButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
 
-    var backgroundView = UIView()
     var new = false
+    fileprivate var backgroundView = UIView()
     fileprivate var isReadyToShowNewGame = true
     
     fileprivate var ongoingGames: [Game] {
@@ -31,6 +31,8 @@ class GamesViewController: Component, AutoStoryboardInitializable {
         backgroundView.backgroundColor = UIColor.flatRed
         tableView.rowHeight = 100
         tableView.sectionHeaderHeight = 30
+        let headerNib = UINib(nibName: String(describing: BasicHeaderCell.self), bundle: nil)
+        tableView.register(headerNib, forCellReuseIdentifier: BasicHeaderCell.reuseIdentifier)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,6 +44,7 @@ class GamesViewController: Component, AutoStoryboardInitializable {
         super.viewDidAppear(animated)
         
         if new {
+            new = false
             plusButtonPressed(plusButton)
         }
     }
@@ -73,6 +76,17 @@ class GamesViewController: Component, AutoStoryboardInitializable {
 
 extension GamesViewController: UITableViewDataSource {
     
+    func game(at indexPath: IndexPath) -> Game {
+        switch indexPath.section {
+        case 0:
+            return ongoingGames[indexPath.row]
+        case 1:
+            return games[indexPath.row]
+        default:
+            fatalError()
+        }
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return ongoingGames.isEmpty ? 1 : 2
     }
@@ -102,12 +116,19 @@ extension GamesViewController: UITableViewDataSource {
         }
         let headerCell = tableView.dequeueReusableCell(withIdentifier: BasicHeaderCell.reuseIdentifier) as! BasicHeaderCell
         let headerText = section == 0 ? "Ongoing" : "Past"
-        headerCell.update(text: headerText)
+        headerCell.update(with: headerText)
         return headerCell
     }
     
 }
 
 extension GamesViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedGame = game(at: indexPath)
+        core.fire(event: Selected<Game>(selectedGame))
+        let gameVC = GameViewController.initializeFromStoryboard()
+        navigationController?.pushViewController(gameVC, animated: true)
+    }
     
 }

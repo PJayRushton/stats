@@ -14,7 +14,7 @@ struct LinupUpdated: Event {
 
 struct NewGameState: State {
     
-    var lineup = [Player]()
+    var lineup: [Player]?
     var isReadyToShow = false
     
     mutating func react(to event: Event) {

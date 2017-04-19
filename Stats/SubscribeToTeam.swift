@@ -23,8 +23,8 @@ struct SubscribeToTeam: Command {
         networkAccess.subscribe(to: ref) { result in
             let teamResult = result.map(Team.init)
             switch teamResult {
-            case let .success(parsedObject):
-                core.fire(event: Updated(parsedObject))
+            case let .success(team):
+                core.fire(event: Updated<Team>(team))
                 self.subscribeToPlayers(core: core)
                 self.subscribeToGames(core: core)
                 

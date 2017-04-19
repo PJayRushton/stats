@@ -12,21 +12,26 @@ import UIKit
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        originalBackgroundColor = backgroundColor
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
+        originalBackgroundColor = backgroundColor
     }
+    
+    var originalBackgroundColor: UIColor?
     
     @IBInspectable var disabledBackgroundColor: UIColor =  UIColor.lightGray.withAlphaComponent(0.5) {
         didSet {
-            backgroundColor = isEnabled ? backgroundColor : disabledBackgroundColor
+            backgroundColor = isEnabled ? originalBackgroundColor : disabledBackgroundColor
             setNeedsLayout()
         }
     }
     override var isEnabled: Bool {
         didSet {
-            backgroundColor = isEnabled ? backgroundColor : disabledBackgroundColor
+            backgroundColor = isEnabled ? originalBackgroundColor : disabledBackgroundColor
+            setNeedsLayout()
         }
     }
     

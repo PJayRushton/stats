@@ -30,8 +30,14 @@
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="otn-Eo-Oph">
                                 <rect key="frame" x="8" y="8" width="343" height="28.5"/>
                                 <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="☑️" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fox-1K-D3c">
+                                        <rect key="frame" x="0.0" y="0.0" width="25" height="28.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="1)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="fML-SC-xmb">
-                                        <rect key="frame" x="0.0" y="0.0" width="30" height="28.5"/>
+                                        <rect key="frame" x="41" y="0.0" width="30" height="28.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="Z1I-Ij-dzO"/>
                                         </constraints>
@@ -40,7 +46,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" horizontalCompressionResistancePriority="999" text="Amanda Rushton(00)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VcC-eY-xGx">
-                                        <rect key="frame" x="46" y="0.0" width="189" height="28.5"/>
+                                        <rect key="frame" x="87" y="0.0" width="148" height="28.5"/>
                                         <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -90,6 +96,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="checkLabel" destination="fox-1K-D3c" id="bBn-Jk-vPT"/>
                 <outlet property="downButton" destination="apL-eT-ZXo" id="zgY-1a-tt5"/>
                 <outlet property="insetView" destination="66b-cg-8uO" id="YR3-S4-wLy"/>
                 <outlet property="nameLabel" destination="VcC-eY-xGx" id="ZPm-R8-uzR"/>

@@ -11,6 +11,7 @@ import UIKit
 class PlayerCell: UITableViewCell, AutoReuseIdentifiable {
 
     @IBOutlet weak var insetView: UIView!
+    @IBOutlet weak var checkLabel: UILabel!
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var upButton: UIButton!
@@ -32,9 +33,11 @@ class PlayerCell: UITableViewCell, AutoReuseIdentifiable {
         insetView.backgroundColor = selected ? .gray100 : .white
     }
     
-    func update(with player: Player, order: Int, isLast: Bool = false) {
+    func update(with player: Player, order: Int, isLast: Bool = false, isSelected: Bool = true) {
+        checkLabel.text = isSelected ? "☑️" : ""
         numberLabel.text = "\(order + 1))"
-  
+        numberLabel.isHidden = !isSelected
+        
         var nameText = player.name
         if player.isSub {
             nameText += " (S)"
@@ -42,8 +45,8 @@ class PlayerCell: UITableViewCell, AutoReuseIdentifiable {
             nameText += " (\(jerseyNumber))"
         }
         nameLabel.text = nameText
-        upButton.isHidden = order == 0
-        downButton.isHidden = isLast
+        upButton.isHidden = order == 0 || !isSelected
+        downButton.isHidden = isLast || !isSelected
     }
     
     @IBAction func upButtonPressed(_ sender: UIButton) {

@@ -10,8 +10,15 @@ import UIKit
 
 class GameViewController: Component, AutoStoryboardInitializable {
     
+    @IBOutlet weak var label: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    }
+    
+    override func update(with state: AppState) {
+        label.text = "\(state.gameState.currentGame?.date.longStyleDateString) vs. \(state.gameState.currentGame?.opponent)"
     }
     
 }

@@ -76,7 +76,7 @@ extension TeamSwitcherViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableCell(withIdentifier: BasicHeaderCell.reuseIdentifier) as! BasicHeaderCell
         let title = TeamOwnershipType(hashValue: section)!.sectionTitle
-        header.update(with: UIColor.gray100, text: title, alignment: .center)
+        header.update(with:title, backgroundColor: UIColor.gray100, alignment: .center)
         return header
     }
     

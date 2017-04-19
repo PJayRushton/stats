@@ -108,20 +108,39 @@
                                             <outlet property="delegate" destination="Jkh-Hx-hEg" id="6EY-LN-IXo"/>
                                         </connections>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CUM-Sj-ruL">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zy8-W4-M51">
                                         <rect key="frame" x="0.0" y="252" width="343" height="50"/>
-                                        <color key="backgroundColor" red="0.65098039220000004" green="0.76862745099999996" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tZd-nm-0n3">
+                                                <rect key="frame" x="16" y="11" width="319" height="27"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Edit Lineup" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="llq-AV-YfB">
+                                                        <rect key="frame" x="0.0" y="0.0" width="290" height="27"/>
+                                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="20"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text=" ▶" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="211-4O-u5N">
+                                                        <rect key="frame" x="290" y="0.0" width="29" height="27"/>
+                                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="20"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.65268194680000002" green="0.77056586739999999" blue="0.27349492910000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <gestureRecognizers/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="vto-km-nJW"/>
+                                            <constraint firstItem="tZd-nm-0n3" firstAttribute="leading" secondItem="zy8-W4-M51" secondAttribute="leading" constant="16" id="3xv-sx-3nX"/>
+                                            <constraint firstItem="tZd-nm-0n3" firstAttribute="centerY" secondItem="zy8-W4-M51" secondAttribute="centerY" id="JFx-8E-Hl4"/>
+                                            <constraint firstAttribute="trailing" secondItem="tZd-nm-0n3" secondAttribute="trailing" constant="8" id="Oen-di-3S9"/>
+                                            <constraint firstAttribute="height" constant="50" id="lFO-O9-dmr"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
-                                        <state key="normal" title="Lineup">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
                                         <connections>
-                                            <action selector="lineupButtonPressed:" destination="Jkh-Hx-hEg" eventType="touchUpInside" id="lvR-Ln-wc6"/>
+                                            <outletCollection property="gestureRecognizers" destination="K7F-O4-qLJ" appends="YES" id="JM5-db-o4W"/>
                                         </connections>
-                                    </button>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0V3-Ea-Sze" userLabel="Spacer view">
                                         <rect key="frame" x="0.0" y="318" width="343" height="187"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -157,6 +176,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Game" id="ceV-bp-CXv">
+                        <barButtonItem key="backBarButtonItem" title=" " id="MUg-rC-B3f"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="stop" id="OiU-Wq-dki">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -169,7 +189,7 @@
                         <outlet property="dateTextField" destination="EXX-et-8KP" id="opR-1D-d1L"/>
                         <outlet property="homeAwaySegControl" destination="8Gb-yP-WeZ" id="dnm-X4-E2P"/>
                         <outlet property="keyboardAccessoryView" destination="Una-Ia-iPp" id="nbl-h1-bCx"/>
-                        <outlet property="lineupButton" destination="CUM-Sj-ruL" id="BmI-GQ-Yfb"/>
+                        <outlet property="lineupView" destination="zy8-W4-M51" id="kNP-NX-vdg"/>
                         <outlet property="opponentTextField" destination="MDJ-NP-EMZ" id="qVx-Xi-3lA"/>
                         <outlet property="regSeasonSegControl" destination="bSd-bC-zHo" id="5FK-hK-cdl"/>
                         <outlet property="startButton" destination="CHq-qX-WQn" id="G8s-Jh-KSO"/>
@@ -229,6 +249,11 @@
                         <constraint firstAttribute="bottomMargin" secondItem="ISY-NS-F9C" secondAttribute="bottom" id="xKo-w6-Lfd"/>
                     </constraints>
                 </view>
+                <tapGestureRecognizer id="K7F-O4-qLJ">
+                    <connections>
+                        <action selector="lineupViewPressed:" destination="Jkh-Hx-hEg" id="vrh-2X-743"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="329" y="117"/>
         </scene>

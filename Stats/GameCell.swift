@@ -20,7 +20,7 @@ class GameCell: UITableViewCell, AutoReuseIdentifiable {
         let homeAwayPrefix = game.isHome ? "vs." : "@"
         opponentLabel.text = "\(homeAwayPrefix) \(game.opponent)"
         gameLabel.text = order == nil ? nil : "Game \(order! + 1)"
-        dateLabel.text = game.date.proximityDateString
+        dateLabel.text = game.date.proximityDateTimeString
         statusLabel.text = game.status
         scoreLabel.text = game.scoreString
     }

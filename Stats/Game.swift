@@ -40,8 +40,9 @@ struct Game: Identifiable, Unmarshaling {
         self.teamId = teamId
     }
     
-    var wasWon: Bool {
-        return isCompleted && score > opponentScore
+    var wasWon: Bool? {
+        guard opponentScore != score && isCompleted else { return nil }
+        return score > opponentScore
     }
 
     var scoreString: String {
@@ -52,10 +53,11 @@ struct Game: Identifiable, Unmarshaling {
     
     var status: String {
         if isCompleted {
+            guard let wasWon = wasWon else { return "🚫" }
             return wasWon ? "W" : "L"
         } else {
             let inningPrefix = isHome ? "⬆️" : "⬇️"
-            return "\(inningPrefix)\(inning)"
+            return "\(inningPrefix) \(inning)"
         }
     }
     

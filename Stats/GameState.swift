@@ -30,6 +30,8 @@ struct GameState: State {
         switch event {
         case let event as Selected<Game>:
             currentGame = event.item
+        case let event as Updated<[Game]>:
+            allGames = Set(event.payload)
         case let event as Updated<Game>:
             allGames.remove(event.payload)
             allGames.insert(event.payload)

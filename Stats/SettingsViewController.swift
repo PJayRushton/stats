@@ -132,7 +132,7 @@ extension SettingsViewController: UITableViewDataSource {
         let theSection = SettingsSection(rawValue: section)!
         let header = tableView.dequeueReusableCell(withIdentifier: BasicHeaderCell.reuseIdentifier) as! BasicHeaderCell
         guard let title = theSection.title else { return nil }
-        header.update(with: UIColor.gray100, text: title, alignment: .center)
+        header.update(with: title, backgroundColor: UIColor.gray100, alignment: .center)
         return header
     }
     

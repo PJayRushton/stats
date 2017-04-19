@@ -17,8 +17,8 @@ class GameCreationViewController: Component, AutoStoryboardInitializable {
     @IBOutlet weak var homeAwaySegControl: BetterSegmentedControl!
     @IBOutlet weak var regSeasonSegControl: BetterSegmentedControl!
     @IBOutlet weak var dateTextField: MadokaTextField!
-    @IBOutlet weak var lineupButton: UIButton!
-    @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var lineupView: UIView!
+    @IBOutlet weak var startButton: CustomButton!
     @IBOutlet var keyboardAccessoryView: UIView!
     
     var editingGame: Game?
@@ -37,6 +37,10 @@ class GameCreationViewController: Component, AutoStoryboardInitializable {
         super.viewDidLoad()
         
         updateUI(with: editingGame)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         updateSaveButton()
     }
     
@@ -44,8 +48,9 @@ class GameCreationViewController: Component, AutoStoryboardInitializable {
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func lineupButtonPressed(_ sender: UIButton) {
+    @IBAction func lineupViewPressed(_ sender: UITapGestureRecognizer) {
         let rosterVC = RosterViewController.initializeFromStoryboard()
+        rosterVC.isLineup = true
         navigationController?.pushViewController(rosterVC, animated: true)
     }
     
@@ -93,6 +98,7 @@ class GameCreationViewController: Component, AutoStoryboardInitializable {
     
     override func update(with state: AppState) {
         navigationController?.navigationBar.barTintColor = state.currentMenuItem?.backgroundColor
+        updateSaveButton()
     }
     
 }
@@ -138,20 +144,25 @@ extension GameCreationViewController {
     }
     
     fileprivate func updateSaveButton() {
-        guard let newGame = construtedGame() else { startButton.isEnabled = false; return }
-        
+        let newGame = construtedGame()
         if let editingGame = editingGame {
-            startButton.isEnabled = !newGame.isTheSame(as: editingGame)
+            startButton.isEnabled = newGame != nil && !newGame!.isTheSame(as: editingGame)
+        } else {
+            startButton.isEnabled = newGame != nil
         }
+        let hasValidLineup = core.state.newGameState.lineup != nil && !core.state.newGameState.lineup!.isEmpty
+        lineupView.backgroundColor = hasValidLineup ? UIColor.mainAppColor : UIColor.mainAppColor.withAlphaComponent(0.5)
     }
     
     fileprivate func construtedGame() -> Game? {
-        guard let opponentText = opponentTextField.text, opponentText.isEmpty else { return nil }
-        guard let currentTeam = core.state.teamState.currentTeam else { return nil }
-        guard let currentSeasonId = currentTeam.currentSeasonId else { return nil }
+        guard let opponentText = opponentTextField.text, !opponentText.isEmpty else {print("Opponent can't be empty"); return nil }
+        guard let currentTeam = core.state.teamState.currentTeam else { print("current team can't be nil"); return nil }
+        guard let currentSeasonId = currentTeam.currentSeasonId else { print("curentseason can't be nil"); return nil }
         let isHome = homeAwaySegControl.index == 0
         let isRegularSeason = regSeasonSegControl.index == 0
-        let lineupIds = core.state.newGameState.lineup.map { $0.id }
+        guard let lineup = core.state.newGameState.lineup else { return nil }
+        let lineupIds = lineup.map { $0.id }
+        guard !lineupIds.isEmpty else { print("Lineup can't be empty"); return nil }
         return Game(id: newGameRef.key, date: date, inning: 1, isCompleted: false, isHome: isHome, isRegularSeason: isRegularSeason, lineupIds: lineupIds,opponent: opponentText, seasonId: currentSeasonId, teamId: currentTeam.id)
     }
     

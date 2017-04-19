@@ -20,9 +20,24 @@
                     <view key="view" contentMode="scaleToFill" id="JCj-z7-m8C">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LeJ-Kd-VMS">
+                                <rect key="frame" x="166" y="323" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LeJ-Kd-VMS" firstAttribute="centerX" secondItem="JCj-z7-m8C" secondAttribute="centerX" id="494-FI-chQ"/>
+                            <constraint firstItem="LeJ-Kd-VMS" firstAttribute="centerY" secondItem="JCj-z7-m8C" secondAttribute="centerY" id="rvs-aj-Idw"/>
+                        </constraints>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="label" destination="LeJ-Kd-VMS" id="HdW-I7-azw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JS9-ec-fls" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

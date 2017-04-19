@@ -17,8 +17,10 @@ class RosterViewController: Component, AutoStoryboardInitializable {
     @IBOutlet weak var addButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     
+    var isLineup = false
+    
     fileprivate var orderedPlayers = [Player]()
-    fileprivate let feedbackGenerator = UISelectionFeedbackGenerator()
+    fileprivate var benchedPlayers = [Player]()
     
     fileprivate var allPlayers: [Player] {
         guard let currentTeam = currentTeam else { return [] }
@@ -28,21 +30,37 @@ class RosterViewController: Component, AutoStoryboardInitializable {
         return core.state.teamState.currentTeam
     }
 
+    fileprivate let feedbackGenerator = UISelectionFeedbackGenerator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.rowHeight = 60
-        orderedPlayers = allPlayers
+        tableView.sectionHeaderHeight = isLineup ? 30 : 0
+        
+        if let lineup = core.state.newGameState.lineup, isLineup {
+            orderedPlayers = lineup
+            guard let currentTeam = currentTeam else { orderedPlayers = allPlayers; return }
+            benchedPlayers = core.state.playerState.players(for: currentTeam).filter { !lineup.contains($0) }
+        } else {
+            orderedPlayers = allPlayers
+        }
         feedbackGenerator.prepare()
         
         let nib = UINib(nibName: PlayerCell.reuseIdentifier, bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: PlayerCell.reuseIdentifier)
+        let headerNib = UINib(nibName: BasicHeaderCell.reuseIdentifier, bundle: nil)
+        tableView.register(headerNib, forCellReuseIdentifier: BasicHeaderCell.reuseIdentifier)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        updateRosterOrder()
+        
+        if isLineup {
+            core.fire(event: LinupUpdated(players: orderedPlayers))
+        } else {
+            updateRosterOrder()
+        }
     }
     
     @IBAction func addPlayerButtonPressed(_ sender: UIBarButtonItem) {
@@ -86,20 +104,45 @@ extension RosterViewController {
         }
     }
     
-    func moveButtonPressed(for player: Player, up: Bool = true) {
-        guard let index = orderedPlayers.index(of: player), !(!up && index == orderedPlayers.count - 1), !(up && index == 0) else { return }
+    fileprivate func player(at indexPath: IndexPath) -> Player {
+        if indexPath.section == 1 {
+            return benchedPlayers[indexPath.row]
+        } else {
+            return orderedPlayers[indexPath.row]
+        }
+    }
+    
+    func movePlayer(from fromIndex: IndexPath, to toIndex: IndexPath) {
         feedbackGenerator.selectionChanged()
         tableView.beginUpdates()
-        orderedPlayers.remove(at: index)
-        let newIndex = up ? index - 1 : index + 1
-        orderedPlayers.insert(player, at: newIndex)
-        let indexToMove = IndexPath(row: index, section: 0)
-        let indexToArrive = IndexPath(row: newIndex, section: 0)
-        tableView.moveRow(at: indexToMove, to: indexToArrive)
+        
+        var playerToRemove: Player?
+        if fromIndex.section == 1 {
+            playerToRemove = benchedPlayers.remove(at: fromIndex.row)
+        } else {
+            playerToRemove = orderedPlayers.remove(at: fromIndex.row)
+        }
+        
+        guard let removedPlayer = playerToRemove else { return }
+        
+        if toIndex.section == 1 {
+            benchedPlayers.append(removedPlayer)
+        } else {
+            orderedPlayers.insert(removedPlayer, at: toIndex.row)
+        }
+        tableView.moveRow(at: fromIndex, to: toIndex)
         tableView.endUpdates()
         
         tableView.beginUpdates()
-        updateCells(at: [indexToMove, indexToArrive])
+        updateCells(at: [fromIndex, toIndex])
+        
+        if fromIndex.section == 0 && toIndex.section == 1 {
+            var indexPathsOutOfOrder = [IndexPath]()
+            for index in fromIndex.row..<orderedPlayers.count {
+                indexPathsOutOfOrder.append(IndexPath(row: index, section: 0))
+            }
+            updateCells(at: indexPathsOutOfOrder)
+        }
         tableView.endUpdates()
     }
     
@@ -107,7 +150,7 @@ extension RosterViewController {
         indexPaths.forEach { indexPath in
             guard let cell = tableView.cellForRow(at: indexPath) as? PlayerCell else { return }
             cell.contentView.fadeTransition(duration: 0.3)
-            configure(cell: cell, with: orderedPlayers[indexPath.row], atRow: indexPath.row)
+            configure(cell: cell, with: player(at: indexPath), atRow: indexPath.row, isSelected: indexPath.section == 0)
         }
     }
     
@@ -170,31 +213,50 @@ extension RosterViewController {
 
 extension RosterViewController: UITableViewDataSource, UITableViewDelegate {
 
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return orderedPlayers.count
+        return section == 0 ? orderedPlayers.count : benchedPlayers.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: PlayerCell.reuseIdentifier) as! PlayerCell
-        let player = orderedPlayers[indexPath.row]
-        configure(cell: cell, with: player, atRow: indexPath.row)
+        configure(cell: cell, with: player(at: indexPath), atRow: indexPath.row, isSelected: indexPath.section == 0)
+        
         cell.upButtonPressed = {
-            self.moveButtonPressed(for: player, up: true)
+            guard let currentIndex = tableView.indexPath(for: cell) else { return }
+            self.movePlayer(from: currentIndex, to: IndexPath(row: indexPath.row - 1, section: indexPath.section))
         }
         cell.downButtonPressed = {
-            self.moveButtonPressed(for: player, up: false)
+            guard let currentIndex = tableView.indexPath(for: cell) else { return }
+            self.movePlayer(from: currentIndex, to: IndexPath(row: indexPath.row + 1, section: indexPath.section))
         }
         
         return cell
     }
     
-    func configure(cell: PlayerCell, with player: Player, atRow row: Int) {
-        cell.update(with: player, order: row, isLast: player == orderedPlayers.last)
+    func configure(cell: PlayerCell, with player: Player, atRow row: Int, isSelected: Bool) {
+        cell.update(with: player, order: row, isLast: player == orderedPlayers.last, isSelected: isSelected)
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard isLineup else { return nil }
+        let headerCell = tableView.dequeueReusableCell(withIdentifier: BasicHeaderCell.reuseIdentifier) as! BasicHeaderCell
+        let title = section == 0 ? "Roster" : "Bench"
+        headerCell.update(with: title, backgroundColor: .gray200)
+        return headerCell.contentView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let player = orderedPlayers[indexPath.row]
-        presentOptions(for: player)
+        if isLineup {
+            let row = indexPath.section == 0 ? benchedPlayers.count : orderedPlayers.count
+            movePlayer(from: indexPath, to: IndexPath(row: row, section: indexPath.section == 0 ? 1 : 0))
+        } else {
+            let player = orderedPlayers[indexPath.row]
+            presentOptions(for: player)
+        }
     }
     
 }

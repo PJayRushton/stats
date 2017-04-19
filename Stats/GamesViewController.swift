@@ -13,21 +13,29 @@ class GamesViewController: Component, AutoStoryboardInitializable {
     @IBOutlet weak var plusButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
 
-    var new: Bool = false
+    var backgroundView = UIView()
+    var new = false
+    fileprivate var isReadyToShowNewGame = true
     
     fileprivate var ongoingGames: [Game] {
         return core.state.gameState.ongoingGames.sorted(by: { $0.date > $1.date })
     }
     
     fileprivate var games: [Game] {
-        guard let team = core.state.teamState.currentTeam else { return [] }
-        return core.state.gameState.allGames.filter { $0.teamId == team.id }.sorted { $0.date > $1.date }
+        return core.state.gameState.teamGames.filter { $0.isCompleted }.sorted { $0.date > $1.date }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        backgroundView.backgroundColor = UIColor.flatRed
         tableView.rowHeight = 100
         tableView.sectionHeaderHeight = 30
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        isReadyToShowNewGame = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -38,8 +46,27 @@ class GamesViewController: Component, AutoStoryboardInitializable {
         }
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        core.fire(event: NewGameReadyToShow(ready: false))
+    }
+    
     @IBAction func plusButtonPressed(_ sender: UIBarButtonItem) {
+        let newGameVC = GameCreationViewController.initializeFromStoryboard().embededInNavigationController
+        newGameVC.modalPresentationStyle = .overFullScreen
+        present(newGameVC, animated: true, completion: nil)
+    }
+    
+    override func update(with state: AppState) {
+        navigationController?.navigationBar.barTintColor = HomeMenuItem.games.backgroundColor
+        tableView.backgroundView = games.isEmpty && ongoingGames.isEmpty ? backgroundView : nil
+        tableView.reloadData()
         
+        if core.state.newGameState.isReadyToShow && isReadyToShowNewGame {
+            isReadyToShowNewGame = false
+            let gameVC = GameViewController.initializeFromStoryboard()
+            navigationController?.pushViewController(gameVC, animated: true)
+        }
     }
 
 }
@@ -65,7 +92,7 @@ extension GamesViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: GameCell.reuseIdentifier) as! GameCell
         let game = indexPath.section == 0 ? ongoingGames[indexPath.row] : games[indexPath.row]
         let order = core.state.gameState.index(of: game)
-        cell.update(with: games, order: order)
+        cell.update(with: game, order: order)
         return cell
     }
     

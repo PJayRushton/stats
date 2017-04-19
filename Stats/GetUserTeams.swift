@@ -13,7 +13,7 @@ struct GetUserTeams: Command {
     
     func execute(state: AppState, core: Core<AppState>) {
         guard let user = state.userState.currentUser else { return }
-        let ids = user.allTeamIds
+//        let ids = user.allTeamIds
         
     }
     

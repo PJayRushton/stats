@@ -140,6 +140,15 @@ extension Sequence where Iterator.Element == StringLiteralType {
         }
         return json
     }
+    
+    func marshaledArray() -> JSONObject {
+        var json = JSONObject()
+        for (index, value) in enumerated() {
+            json["\(index)"] = value
+        }
+        return json
+    }
+    
 }
 
 extension UIViewController {

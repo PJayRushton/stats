@@ -18,10 +18,7 @@ struct PlayerState: State {
             allPlayers.remove(event.payload)
             allPlayers.insert(event.payload)
         case let event as Updated<[Player]>:
-            event.payload.forEach { player in
-                allPlayers.remove(player)
-                allPlayers.insert(player)
-            }
+            allPlayers = Set(event.payload)
         default:
             break
         }

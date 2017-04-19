@@ -33,20 +33,20 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="472"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Player" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U2A-uy-k0o">
-                                        <rect key="frame" x="96.5" y="0.0" width="127" height="19.5"/>
+                                        <rect key="frame" x="83.5" y="0.0" width="153" height="16.5"/>
                                         <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="GQc-go-ecY" userLabel="Spacer View">
-                                        <rect key="frame" x="0.0" y="27.5" width="320" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="320" height="0.0"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" id="nr0-1J-r1X"/>
                                         </constraints>
                                     </view>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pbN-jM-Zx4" customClass="MadokaTextField" customModule="TextFieldEffects">
-                                        <rect key="frame" x="32" y="35.5" width="256" height="50"/>
+                                        <rect key="frame" x="32" y="32.5" width="256" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="4Sw-Yc-xPC"/>
                                         </constraints>
@@ -70,7 +70,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Jersey #" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FzI-Sm-Z0X" customClass="MadokaTextField" customModule="TextFieldEffects">
-                                        <rect key="frame" x="96" y="93.5" width="128" height="50"/>
+                                        <rect key="frame" x="96" y="90.5" width="128" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="61R-3Y-djV"/>
                                         </constraints>
@@ -94,7 +94,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone #" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4hN-kV-uPH" customClass="MadokaTextField" customModule="TextFieldEffects">
-                                        <rect key="frame" x="32" y="151.5" width="256" height="50"/>
+                                        <rect key="frame" x="32" y="148.5" width="256" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Aj1-bo-SwV"/>
                                         </constraints>
@@ -118,7 +118,7 @@
                                         </connections>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A4o-rE-hsc" customClass="BetterSegmentedControl" customModule="BetterSegmentedControl">
-                                        <rect key="frame" x="16" y="209.5" width="288" height="40"/>
+                                        <rect key="frame" x="16" y="206.5" width="288" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="cs6-EF-646"/>
@@ -128,10 +128,10 @@
                                         </connections>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="l8J-fs-joE">
-                                        <rect key="frame" x="15.5" y="257.5" width="289" height="34"/>
+                                        <rect key="frame" x="15.5" y="254.5" width="289" height="34"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This player is a substitute" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1l-L4-ME3">
-                                                <rect key="frame" x="0.0" y="0.0" width="170.5" height="34"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="211" height="34"/>
                                                 <gestureRecognizers/>
                                                 <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="15"/>
                                                 <nil key="textColor"/>
@@ -159,14 +159,14 @@
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="sS6-56-bAQ" userLabel="Spacer View">
-                                        <rect key="frame" x="0.0" y="299.5" width="320" height="132.5"/>
+                                        <rect key="frame" x="0.0" y="296.5" width="320" height="132.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="pHD-Z1-Ud5" userLabel="Buttons Stack">
-                                        <rect key="frame" x="0.0" y="440" width="320" height="32"/>
+                                        <rect key="frame" x="0.0" y="437" width="320" height="35"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rIr-6h-phC">
-                                                <rect key="frame" x="0.0" y="0.0" width="101.5" height="32"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="101.5" height="35"/>
                                                 <color key="backgroundColor" red="0.74509803919999995" green="0.2274509804" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
                                                 <state key="normal" title="Cancel">
@@ -177,7 +177,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HEZ-F2-Ah4">
-                                                <rect key="frame" x="109.5" y="0.0" width="101" height="32"/>
+                                                <rect key="frame" x="109.5" y="0.0" width="101" height="35"/>
                                                 <color key="backgroundColor" red="0.65098039220000004" green="0.76862745099999996" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
                                                 <state key="normal" title="Save">
@@ -188,7 +188,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FlP-pA-9el">
-                                                <rect key="frame" x="218.5" y="0.0" width="101.5" height="32"/>
+                                                <rect key="frame" x="218.5" y="0.0" width="101.5" height="35"/>
                                                 <color key="backgroundColor" red="0.65098039220000004" green="0.76862745099999996" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
                                                 <state key="normal" title="Save + 1">
@@ -256,15 +256,15 @@
                                         <constraint firstAttribute="width" constant="40" id="2pe-1b-Zlv"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                    <state key="normal" title="V"/>
+                                    <state key="normal" title="⬇️"/>
                                     <connections>
                                         <action selector="nextButtonPressed:" destination="JCe-SB-1of" eventType="touchUpInside" id="Rlq-AR-HVq"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pf3-ut-bNh">
                                     <rect key="frame" x="40" y="0.0" width="40" height="33"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                    <state key="normal" title="^"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                    <state key="normal" title="⬆️"/>
                                     <connections>
                                         <action selector="previousButtonPressed:" destination="JCe-SB-1of" eventType="touchUpInside" id="zve-Ld-cgs"/>
                                     </connections>
@@ -275,8 +275,8 @@
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DU5-Px-BIE">
                                     <rect key="frame" x="255" y="0.0" width="40" height="33"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                    <state key="normal" title="D"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                    <state key="normal" title="⌨️"/>
                                     <connections>
                                         <action selector="dismissKeyboardButtonPressed:" destination="JCe-SB-1of" eventType="touchUpInside" id="wHD-Dh-Sa5"/>
                                     </connections>

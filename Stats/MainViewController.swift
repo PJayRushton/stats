@@ -38,12 +38,12 @@ class MainViewController: Component {
         if let _ = state.userState.iCloudId, state.userState.isLoaded {
             presentApplication()
         } else {
-//            if state.userState.isLoaded == false {
-//                print("User state is not loaded")
-//            }
-//            if state.teamState.isLoaded == false {
-//                print("TEAM stat is not loaded")
-//            }
+            if state.userState.isLoaded == false {
+                print("User state is not loaded")
+            }
+            if state.teamState.isLoaded == false {
+                print("TEAM state is not loaded")
+            }
             showLoadingScreen()
         }
     }

@@ -1,0 +1,178 @@
+//
+//  GameCreationViewController.swift
+//  Stats
+//
+//  Created by Parker Rushton on 4/17/17.
+//  Copyright © 2017 AppsByPJ. All rights reserved.
+//
+
+import UIKit
+import BetterSegmentedControl
+import Firebase
+import TextFieldEffects
+
+class GameCreationViewController: Component, AutoStoryboardInitializable {
+    
+    @IBOutlet weak var opponentTextField: MadokaTextField!
+    @IBOutlet weak var homeAwaySegControl: BetterSegmentedControl!
+    @IBOutlet weak var regSeasonSegControl: BetterSegmentedControl!
+    @IBOutlet weak var dateTextField: MadokaTextField!
+    @IBOutlet weak var lineupButton: UIButton!
+    @IBOutlet weak var startButton: UIButton!
+    @IBOutlet var keyboardAccessoryView: UIView!
+    
+    var editingGame: Game?
+    
+    fileprivate var date = Date() {
+        didSet {
+            dateTextField.text = date.gameDayString
+        }
+    }
+    fileprivate let datePicker = UIDatePicker()
+    fileprivate lazy var newGameRef: FIRDatabaseReference = {
+        return StatsRefs.gamesRef(teamId: App.core.state.teamState.currentTeam!.id).childByAutoId()
+    }()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        updateUI(with: editingGame)
+        updateSaveButton()
+    }
+    
+    @IBAction func dismissButtonPressed(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func lineupButtonPressed(_ sender: UIButton) {
+        let rosterVC = RosterViewController.initializeFromStoryboard()
+        navigationController?.pushViewController(rosterVC, animated: true)
+    }
+    
+    @IBAction func startButtonPressed(_ sender: UIButton) {
+        guard let game = construtedGame() else { return }
+        core.fire(command: CreateGame(game: game))
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func downButtonPressed(_ sender: UIButton) {
+        if opponentTextField.isFirstResponder {
+            dateTextField.becomeFirstResponder()
+        } else {
+            view.endEditing(false)
+        }
+    }
+    
+    @IBAction func upButtonPressed(_ sender: UIButton) {
+        if dateTextField.isFirstResponder {
+            opponentTextField.becomeFirstResponder()
+        } else {
+            view.endEditing(false)
+        }
+    }
+    
+    @IBAction func keyboardPressed(_ sender: UIButton) {
+        view.endEditing(false)
+    }
+    
+    @IBAction func textFieldChanged(_ sender: UITextField) {
+        updateSaveButton()
+    }
+    
+    @IBAction func homeAwayChanged(_ sender: BetterSegmentedControl) {
+        updateSaveButton()
+    }
+    
+    @IBAction func seasonTypeChanged(_ sender: BetterSegmentedControl) {
+        updateSaveButton()
+    }
+    
+    func dateChanged(_ sender: UIDatePicker) {
+        date = sender.date
+    }
+    
+    override func update(with state: AppState) {
+        navigationController?.navigationBar.barTintColor = state.currentMenuItem?.backgroundColor
+    }
+    
+}
+
+
+extension GameCreationViewController {
+    
+    fileprivate func setUpSegmentedControls() {
+        homeAwaySegControl.titles = ["Home", "Away"]
+        homeAwaySegControl.titleFont = FontType.lemonMilk.font(withSize: 14)
+        homeAwaySegControl.selectedTitleFont = FontType.lemonMilk.font(withSize: 16)
+        homeAwaySegControl.titleColor = .gray400
+        homeAwaySegControl.indicatorViewBackgroundColor = .secondaryAppColor
+
+        regSeasonSegControl.titles = ["Regular Season", "Post Season"]
+        regSeasonSegControl.titleFont = FontType.lemonMilk.font(withSize: 14)
+        regSeasonSegControl.selectedTitleFont = FontType.lemonMilk.font(withSize: 16)
+        regSeasonSegControl.titleColor = .gray400
+        regSeasonSegControl.indicatorViewBackgroundColor = .secondaryAppColor
+    }
+
+    fileprivate func setUpDatePicker() {
+        datePicker.datePickerMode = .dateAndTime
+        datePicker.minuteInterval = 30
+        datePicker.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
+        dateTextField.inputAccessoryView = keyboardAccessoryView
+        dateTextField.inputView = datePicker
+    }
+    
+    fileprivate func updateUI(with game: Game?) {
+        navigationController?.navigationBar.barTintColor = HomeMenuItem.newGame.backgroundColor
+        opponentTextField.inputAccessoryView = keyboardAccessoryView
+        setUpSegmentedControls()
+        setUpDatePicker()
+        date = Date().nearestHalfHour
+
+        guard let game = game else { return }
+        title = "Edit Game"
+        opponentTextField.text = game.opponent
+        try? homeAwaySegControl.setIndex(game.isHome ? 0 : 1)
+        try? regSeasonSegControl.setIndex(game.isRegularSeason ? 0 : 1)
+        date = game.date
+    }
+    
+    fileprivate func updateSaveButton() {
+        guard let newGame = construtedGame() else { startButton.isEnabled = false; return }
+        
+        if let editingGame = editingGame {
+            startButton.isEnabled = !newGame.isTheSame(as: editingGame)
+        }
+    }
+    
+    fileprivate func construtedGame() -> Game? {
+        guard let opponentText = opponentTextField.text, opponentText.isEmpty else { return nil }
+        guard let currentTeam = core.state.teamState.currentTeam else { return nil }
+        guard let currentSeasonId = currentTeam.currentSeasonId else { return nil }
+        let isHome = homeAwaySegControl.index == 0
+        let isRegularSeason = regSeasonSegControl.index == 0
+        let lineupIds = core.state.newGameState.lineup.map { $0.id }
+        return Game(id: newGameRef.key, date: date, inning: 1, isCompleted: false, isHome: isHome, isRegularSeason: isRegularSeason, lineupIds: lineupIds,opponent: opponentText, seasonId: currentSeasonId, teamId: currentTeam.id)
+    }
+    
+}
+
+
+extension GameCreationViewController: UITextFieldDelegate {
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        guard textField == dateTextField else { return }
+        datePicker.setDate(date, animated: true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == opponentTextField {
+            dateTextField.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+        }
+        
+        return true
+    }
+    
+}

@@ -13,7 +13,7 @@ import Marshal
 extension UIColor {
     
     class var mainAppColor: UIColor {
-        return .flatLimeDark
+        return UIColor.flatLimeDark
     }
     
     class var mainNavBarColor: UIColor {

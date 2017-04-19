@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Jkh-Hx-hEg">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="LemonMilk.otf">
+            <string>LemonMilk</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--New Game-->
+        <scene sceneID="J2k-60-Wj5">
+            <objects>
+                <viewController storyboardIdentifier="GameCreationViewController" id="Jkh-Hx-hEg" customClass="GameCreationViewController" customModule="Stats" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gsF-9D-TZS"/>
+                        <viewControllerLayoutGuide type="bottom" id="ulS-VL-k16"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9iB-cF-hwx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Txz-sG-uI2">
+                                <rect key="frame" x="16" y="80" width="343" height="571"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Opponent" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MDJ-NP-EMZ" customClass="MadokaTextField" customModule="TextFieldEffects">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="7aC-lT-mgJ"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="yes"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                <color key="value" red="0.74117647060000003" green="0.76470588240000004" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.14901960780000001" green="0.65098039220000004" blue="0.81960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="placeholderFontScale">
+                                                <real key="value" value="0.69999999999999996"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="textFieldChanged:" destination="Jkh-Hx-hEg" eventType="editingChanged" id="lev-x1-OSX"/>
+                                            <outlet property="delegate" destination="Jkh-Hx-hEg" id="y0r-cr-gQw"/>
+                                        </connections>
+                                    </textField>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Gb-yP-WeZ" customClass="BetterSegmentedControl" customModule="BetterSegmentedControl">
+                                        <rect key="frame" x="0.0" y="66" width="343" height="44"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="HyH-67-vFs"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="homeAwayChanged:" destination="Jkh-Hx-hEg" eventType="valueChanged" id="GDs-I9-nYI"/>
+                                        </connections>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bSd-bC-zHo" customClass="BetterSegmentedControl" customModule="BetterSegmentedControl">
+                                        <rect key="frame" x="0.0" y="126" width="343" height="44"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="Crg-LV-ffx"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="seasonTypeChanged:" destination="Jkh-Hx-hEg" eventType="valueChanged" id="3Vq-aA-lJu"/>
+                                        </connections>
+                                    </view>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Game day" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EXX-et-8KP" customClass="MadokaTextField" customModule="TextFieldEffects">
+                                        <rect key="frame" x="0.0" y="186" width="343" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="tD6-jg-27A"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="yes"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                <color key="value" red="0.74117647060000003" green="0.76470588240000004" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.14901960780000001" green="0.65098039220000004" blue="0.81960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="placeholderFontScale">
+                                                <real key="value" value="0.69999999999999996"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="textFieldChanged:" destination="Jkh-Hx-hEg" eventType="editingChanged" id="Hnz-rM-5em"/>
+                                            <outlet property="delegate" destination="Jkh-Hx-hEg" id="6EY-LN-IXo"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CUM-Sj-ruL">
+                                        <rect key="frame" x="0.0" y="252" width="343" height="50"/>
+                                        <color key="backgroundColor" red="0.65098039220000004" green="0.76862745099999996" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="vto-km-nJW"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
+                                        <state key="normal" title="Lineup">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="lineupButtonPressed:" destination="Jkh-Hx-hEg" eventType="touchUpInside" id="lvR-Ln-wc6"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0V3-Ea-Sze" userLabel="Spacer view">
+                                        <rect key="frame" x="0.0" y="318" width="343" height="187"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CHq-qX-WQn" customClass="CustomButton" customModule="Stats" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="521" width="343" height="50"/>
+                                        <color key="backgroundColor" red="0.65098039220000004" green="0.76862745099999996" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="rH8-ST-xlY"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
+                                        <state key="normal" title="Play Ball!">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="disabledBackgroundColor">
+                                                <color key="value" red="0.65268194675445557" green="0.77056586742401123" blue="0.27349492907524109" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="startButtonPressed:" destination="Jkh-Hx-hEg" eventType="touchUpInside" id="DHB-im-Kou"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Txz-sG-uI2" firstAttribute="leading" secondItem="9iB-cF-hwx" secondAttribute="leadingMargin" id="6d8-LO-8nm"/>
+                            <constraint firstItem="Txz-sG-uI2" firstAttribute="trailing" secondItem="9iB-cF-hwx" secondAttribute="trailingMargin" id="HWK-67-1El"/>
+                            <constraint firstItem="ulS-VL-k16" firstAttribute="top" secondItem="Txz-sG-uI2" secondAttribute="bottom" constant="16" id="akl-Hw-AMw"/>
+                            <constraint firstItem="Txz-sG-uI2" firstAttribute="top" secondItem="gsF-9D-TZS" secondAttribute="bottom" constant="16" id="sme-R2-chz"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Game" id="ceV-bp-CXv">
+                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="OiU-Wq-dki">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="dismissButtonPressed:" destination="Jkh-Hx-hEg" id="m6w-aZ-WaL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="dateTextField" destination="EXX-et-8KP" id="opR-1D-d1L"/>
+                        <outlet property="homeAwaySegControl" destination="8Gb-yP-WeZ" id="dnm-X4-E2P"/>
+                        <outlet property="keyboardAccessoryView" destination="Una-Ia-iPp" id="nbl-h1-bCx"/>
+                        <outlet property="lineupButton" destination="CUM-Sj-ruL" id="BmI-GQ-Yfb"/>
+                        <outlet property="opponentTextField" destination="MDJ-NP-EMZ" id="qVx-Xi-3lA"/>
+                        <outlet property="regSeasonSegControl" destination="bSd-bC-zHo" id="5FK-hK-cdl"/>
+                        <outlet property="startButton" destination="CHq-qX-WQn" id="G8s-Jh-KSO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QTK-fr-Vf9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="Una-Ia-iPp">
+                    <rect key="frame" x="0.0" y="0.0" width="311" height="49"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ISY-NS-F9C">
+                            <rect key="frame" x="8" y="8" width="295" height="33"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m3L-qX-AJE">
+                                    <rect key="frame" x="0.0" y="0.0" width="40" height="33"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="40" id="umY-eb-gSm"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                    <state key="normal" title="⬇️"/>
+                                    <connections>
+                                        <action selector="downButtonPressed:" destination="Jkh-Hx-hEg" eventType="touchUpInside" id="QuZ-mt-HKZ"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NA2-9O-K13">
+                                    <rect key="frame" x="40" y="0.0" width="40" height="33"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                    <state key="normal" title="⬆️"/>
+                                    <connections>
+                                        <action selector="upButtonPressed:" destination="Jkh-Hx-hEg" eventType="touchUpInside" id="5Ez-75-goq"/>
+                                    </connections>
+                                </button>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w0f-nI-L3v">
+                                    <rect key="frame" x="80" y="0.0" width="175" height="33"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hWE-PI-3HZ">
+                                    <rect key="frame" x="255" y="0.0" width="40" height="33"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                    <state key="normal" title="⌨️"/>
+                                    <connections>
+                                        <action selector="keyboardPressed:" destination="Jkh-Hx-hEg" eventType="touchUpInside" id="8We-U1-pbH"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="hWE-PI-3HZ" firstAttribute="width" secondItem="m3L-qX-AJE" secondAttribute="width" id="bNF-Ck-g9I"/>
+                                <constraint firstItem="NA2-9O-K13" firstAttribute="width" secondItem="m3L-qX-AJE" secondAttribute="width" id="qbd-LJ-owf"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.90948253869999995" green="0.91766279939999995" blue="0.92171078920000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailingMargin" secondItem="ISY-NS-F9C" secondAttribute="trailing" id="Kpm-iq-LW5"/>
+                        <constraint firstItem="ISY-NS-F9C" firstAttribute="top" secondItem="Una-Ia-iPp" secondAttribute="topMargin" id="ND4-Lw-a9q"/>
+                        <constraint firstItem="ISY-NS-F9C" firstAttribute="leading" secondItem="Una-Ia-iPp" secondAttribute="leadingMargin" id="iSq-2M-dR3"/>
+                        <constraint firstAttribute="bottomMargin" secondItem="ISY-NS-F9C" secondAttribute="bottom" id="xKo-w6-Lfd"/>
+                    </constraints>
+                </view>
+            </objects>
+            <point key="canvasLocation" x="329" y="117"/>
+        </scene>
+    </scenes>
+</document>

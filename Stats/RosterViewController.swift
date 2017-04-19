@@ -51,7 +51,7 @@ class RosterViewController: Component, AutoStoryboardInitializable {
     }
     
     override func update(with state: AppState) {
-        navigationController?.navigationBar.barTintColor = core.state.currentMenuItem?.backgroundColor
+        navigationController?.navigationBar.barTintColor = state.currentMenuItem?.backgroundColor
         
         if let currentPlayers = state.playerState.currentPlayers {
             diffOrderedPlayers(with: currentPlayers)

@@ -26,6 +26,7 @@ enum DateHelper {
     static fileprivate let eventListStyleDateFormat = "MMM d '@' h:mma"
     static fileprivate let eventDetailStyleDateFormat = "EEEE, MMMM d"
     static fileprivate let weekDayMonthDateFormat = "E, MMM d"
+    static fileprivate let gameDayFormat = "EEEE MMM d '@' h:mma"
     static fileprivate let birthdayFormat = "d MMMM yyyy"
 }
 
@@ -118,6 +119,11 @@ extension Date {
     /// Format: "Mon, Apr 1"
     var mediumStyleWeekDayMonthDateString: String {
         DateHelper.formatter.dateFormat = DateHelper.weekDayMonthDateFormat
+        return DateHelper.formatter.string(from: self)
+    }
+    
+    var gameDayString: String {
+        DateHelper.formatter.dateFormat = DateHelper.gameDayFormat
         return DateHelper.formatter.string(from: self)
     }
     

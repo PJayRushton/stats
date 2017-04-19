@@ -18,19 +18,21 @@ struct Game: Identifiable, Unmarshaling {
     var isCompleted: Bool
     var isHome: Bool
     var isRegularSeason: Bool
+    var lineupIds: [String]
     var opponent: String
     var opponentScore: Int
     var score: Int
     var seasonId: String
     var teamId: String
 
-    init(id: String = "", date: Date, inning: Int, isCompleted: Bool, isHome: Bool, isRegularSeason: Bool, opponent: String, opponentScore: Int, score: Int, seasonId: String, teamId: String) {
+    init(id: String = "", date: Date, inning: Int = 1, isCompleted: Bool = false, isHome: Bool, isRegularSeason: Bool = true, lineupIds: [String] = [], opponent: String, opponentScore: Int = 0, score: Int = 0, seasonId: String, teamId: String) {
         self.id = id
         self.date = date
         self.inning = inning
         self.isCompleted = isCompleted
         self.isHome = isHome
         self.isRegularSeason = isRegularSeason
+        self.lineupIds = lineupIds
         self.opponent = opponent
         self.opponentScore = opponentScore
         self.score = score
@@ -64,11 +66,20 @@ struct Game: Identifiable, Unmarshaling {
         isCompleted = try object.value(for: isCompletedKey)
         isHome = try object.value(for: isHomeKey)
         isRegularSeason = try object.value(for: isRegularSeasonKey)
+        lineupIds = try object.value(for: lineupKey)
         opponent = try object.value(for: opponentKey)
         opponentScore = try object.value(for: opponentScoreKey)
         score = try object.value(for: scoreKey)
         seasonId = try object.value(for: seasonIdKey)
         teamId = try object.value(for: teamIdKey)
+    }
+    
+    func isTheSame(as otherGame: Game) -> Bool {
+        return id == otherGame.id &&
+        date == otherGame.date &&
+        isHome == otherGame.isHome &&
+        isRegularSeason == otherGame.isRegularSeason &&
+        opponent == otherGame.opponent
     }
     
 }
@@ -83,6 +94,7 @@ extension Game: Marshaling {
         json[isCompletedKey] = isCompleted
         json[isHomeKey] = isHome
         json[isRegularSeasonKey] = isRegularSeason
+        json[lineupKey] = lineupIds.marshaledArray()
         json[opponentKey] = opponent
         json[opponentScoreKey] = opponentScore
         json[scoreKey] = score

@@ -22,7 +22,7 @@ struct GameState: State {
         return teamGames.filter { $0.isCompleted == false }
     }
 
-    func index(for game: Game) -> Int? {
+    func index(of game: Game) -> Int? {
         return teamGames.index(of: game)
     }
     

@@ -142,6 +142,9 @@ extension RosterViewController {
                 indexPathsOutOfOrder.append(IndexPath(row: index, section: 0))
             }
             updateCells(at: indexPathsOutOfOrder)
+        } else if fromIndex.section == 1 && toIndex.section == 0, orderedPlayers.count > 1 {
+            let indexPath = IndexPath(row: orderedPlayers.count - 2, section: 0)
+            updateCells(at: [indexPath])
         }
         tableView.endUpdates()
     }
@@ -227,11 +230,11 @@ extension RosterViewController: UITableViewDataSource, UITableViewDelegate {
         
         cell.upButtonPressed = {
             guard let currentIndex = tableView.indexPath(for: cell) else { return }
-            self.movePlayer(from: currentIndex, to: IndexPath(row: indexPath.row - 1, section: indexPath.section))
+            self.movePlayer(from: currentIndex, to: IndexPath(row: currentIndex.row - 1, section: indexPath.section))
         }
         cell.downButtonPressed = {
             guard let currentIndex = tableView.indexPath(for: cell) else { return }
-            self.movePlayer(from: currentIndex, to: IndexPath(row: indexPath.row + 1, section: indexPath.section))
+            self.movePlayer(from: currentIndex, to: IndexPath(row: currentIndex.row + 1, section: indexPath.section))
         }
         
         return cell

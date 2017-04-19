@@ -56,7 +56,7 @@ struct Game: Identifiable, Unmarshaling {
             guard let wasWon = wasWon else { return "🚫" }
             return wasWon ? "W" : "L"
         } else {
-            let inningPrefix = isHome ? "⬆️" : "⬇️"
+            let inningPrefix = isHome ? "⬇️" : "⬆️"
             return "\(inningPrefix) \(inning)"
         }
     }

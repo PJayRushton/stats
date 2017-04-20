@@ -14,6 +14,13 @@
 		A1398B451EA707F500A4B830 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1398B441EA707F500A4B830 /* GameViewController.swift */; };
 		A1398B481EA7081F00A4B830 /* GameViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1398B461EA7081F00A4B830 /* GameViewController.storyboard */; };
 		A1398B4A1EA7097700A4B830 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1398B491EA7097700A4B830 /* CustomButton.swift */; };
+		A1426B9D1EA8586E00AAABB3 /* AKPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1426B9C1EA8586E00AAABB3 /* AKPickerView.swift */; };
+		A1426B9F1EA85E5500AAABB3 /* AtBatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1426B9E1EA85E5500AAABB3 /* AtBatCell.swift */; };
+		A1426BA21EA85E7200AAABB3 /* AtBatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1426BA01EA85E7200AAABB3 /* AtBatCell.xib */; };
+		A1426BA41EA863AF00AAABB3 /* AtBatSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1426BA31EA863AF00AAABB3 /* AtBatSectionController.swift */; };
+		A1426BA61EA86B3200AAABB3 /* NewAtBatSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1426BA51EA86B3200AAABB3 /* NewAtBatSectionController.swift */; };
+		A1426BA81EA86C5000AAABB3 /* NewAtBatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1426BA71EA86C5000AAABB3 /* NewAtBatCell.swift */; };
+		A1426BAB1EA86CC300AAABB3 /* NewAtBatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1426BA91EA86CC300AAABB3 /* NewAtBatCell.xib */; };
 		A14B64DF1E8D3EC200CBDE92 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B64DE1E8D3EC200CBDE92 /* UIViewControllerExtensions.swift */; };
 		A14B64E11E8D429800CBDE92 /* StockPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B64E01E8D429800CBDE92 /* StockPhotosViewController.swift */; };
 		A14B64E41E8D42B000CBDE92 /* StockPhotosViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A14B64E21E8D42B000CBDE92 /* StockPhotosViewController.storyboard */; };
@@ -131,6 +138,13 @@
 		A1398B441EA707F500A4B830 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		A1398B471EA7081F00A4B830 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = GameViewController.storyboard; sourceTree = "<group>"; };
 		A1398B491EA7097700A4B830 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		A1426B9C1EA8586E00AAABB3 /* AKPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKPickerView.swift; sourceTree = "<group>"; };
+		A1426B9E1EA85E5500AAABB3 /* AtBatCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtBatCell.swift; sourceTree = "<group>"; };
+		A1426BA11EA85E7200AAABB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = AtBatCell.xib; sourceTree = "<group>"; };
+		A1426BA31EA863AF00AAABB3 /* AtBatSectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtBatSectionController.swift; sourceTree = "<group>"; };
+		A1426BA51EA86B3200AAABB3 /* NewAtBatSectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewAtBatSectionController.swift; sourceTree = "<group>"; };
+		A1426BA71EA86C5000AAABB3 /* NewAtBatCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewAtBatCell.swift; sourceTree = "<group>"; };
+		A1426BAA1EA86CC300AAABB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = NewAtBatCell.xib; sourceTree = "<group>"; };
 		A14B64DE1E8D3EC200CBDE92 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		A14B64E01E8D429800CBDE92 /* StockPhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockPhotosViewController.swift; sourceTree = "<group>"; };
 		A14B64E31E8D42B000CBDE92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = StockPhotosViewController.storyboard; sourceTree = "<group>"; };
@@ -312,6 +326,7 @@
 		A179997E1E82B9540058A002 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				A1426B9C1EA8586E00AAABB3 /* AKPickerView.swift */,
 				A1D67D421E8FE3A000200B65 /* Appearance.swift */,
 				A16D41831E9838FD00DE01D4 /* ApplyShadow.swift */,
 				A179997F1E82B95E0058A002 /* Arrays.swift */,
@@ -332,12 +347,14 @@
 			isa = PBXGroup;
 			children = (
 				A14B64E71E8D64A900CBDE92 /* AddTeamViewController.storyboard */,
+				A1426BA01EA85E7200AAABB3 /* AtBatCell.xib */,
 				A1A2C36D1E8C0F4C0008274F /* AvatarViewController.storyboard */,
 				A1D67D551E92872A00200B65 /* BasicCell.xib */,
 				A1D67D581E928A0C00200B65 /* BasicHeaderCell.xib */,
 				A1A2C3701E8C11F30008274F /* EmailViewController.storyboard */,
 				A1398B3D1EA6D3DF00A4B830 /* GameCreationViewController.storyboard */,
 				A1C722191EA5696E00A71C51 /* GamesViewController.storyboard */,
+				A1398B461EA7081F00A4B830 /* GameViewController.storyboard */,
 				A17999981E82DFFF0058A002 /* HomeViewController.storyboard */,
 				A17999951E82DFF00058A002 /* LaunchScreen.storyboard */,
 				A1D67D4B1E8FE8FC00200B65 /* LoadingImageViewController.storyboard */,
@@ -354,7 +371,7 @@
 				A1A2C3621E8BF6020008274F /* TeamHeaderCell.xib */,
 				A17EF6BA1E930D3100DEE4ED /* TeamSwitcherViewController.storyboard */,
 				A1CD9A151E8AA2F000D3C8F7 /* UsernameViewController.storyboard */,
-				A1398B461EA7081F00A4B830 /* GameViewController.storyboard */,
+				A1426BA91EA86CC300AAABB3 /* NewAtBatCell.xib */,
 			);
 			path = Base.lproj;
 			sourceTree = "<group>";
@@ -363,6 +380,7 @@
 			isa = PBXGroup;
 			children = (
 				A14B64E51E8D647B00CBDE92 /* AddTeamViewController.swift */,
+				A1426B9E1EA85E5500AAABB3 /* AtBatCell.swift */,
 				A1A2C35B1E8BF2FB0008274F /* AvatarViewController.swift */,
 				A1D67D401E8FE24C00200B65 /* BasicHeaderCell.swift */,
 				A1D67D3E1E8F253F00200B65 /* BasicTeamCell.swift */,
@@ -370,6 +388,7 @@
 				A1C7221E1EA56A2800A71C51 /* GameCell.swift */,
 				A1B49D8B1EA577AC00DA9FAB /* GameCreationViewController.swift */,
 				A1C7221C1EA5698C00A71C51 /* GamesViewController.swift */,
+				A1398B441EA707F500A4B830 /* GameViewController.swift */,
 				A179998E1E82DF300058A002 /* HomeCollectionViewCell.swift */,
 				A179998F1E82DF300058A002 /* HomeMenuItem.swift */,
 				A17999901E82DF300058A002 /* HomeViewController.swift */,
@@ -388,7 +407,7 @@
 				A1A2C3611E8BF6020008274F /* TeamHeaderCell.swift */,
 				A17EF6BD1E931A0300DEE4ED /* TeamSwitcherViewController.swift */,
 				A1D8054B1E89870B0072AA49 /* UsernameViewController.swift */,
-				A1398B441EA707F500A4B830 /* GameViewController.swift */,
+				A1426BA71EA86C5000AAABB3 /* NewAtBatCell.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -428,9 +447,11 @@
 		A1A2C36A1E8C05190008274F /* SectionControllers */ = {
 			isa = PBXGroup;
 			children = (
-				A1A2C3681E8C05150008274F /* TeamHeaderSectionController.swift */,
-				A1D67D371E8F081A00200B65 /* TeamActionSectionController.swift */,
+				A1426BA31EA863AF00AAABB3 /* AtBatSectionController.swift */,
+				A1426BA51EA86B3200AAABB3 /* NewAtBatSectionController.swift */,
 				A16D41781E97E4EA00DE01D4 /* PlayerSectionController.swift */,
+				A1D67D371E8F081A00200B65 /* TeamActionSectionController.swift */,
+				A1A2C3681E8C05150008274F /* TeamHeaderSectionController.swift */,
 			);
 			name = SectionControllers;
 			sourceTree = "<group>";
@@ -581,7 +602,9 @@
 				A1D67D571E92872A00200B65 /* BasicCell.xib in Resources */,
 				A16D41721E97D09E00DE01D4 /* RosterViewController.storyboard in Resources */,
 				A17EF6BC1E930D3100DEE4ED /* TeamSwitcherViewController.storyboard in Resources */,
+				A1426BA21EA85E7200AAABB3 /* AtBatCell.xib in Resources */,
 				A1C722131EA0F75500A71C51 /* ShareTeamRolesViewController.storyboard in Resources */,
+				A1426BAB1EA86CC300AAABB3 /* NewAtBatCell.xib in Resources */,
 				A1A2C3641E8BF6020008274F /* TeamHeaderCell.xib in Resources */,
 				A1D67D461E8FE8B100200B65 /* Main.storyboard in Resources */,
 				A1C7221B1EA5696E00A71C51 /* GamesViewController.storyboard in Resources */,
@@ -652,6 +675,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1426BA81EA86C5000AAABB3 /* NewAtBatCell.swift in Sources */,
 				A1A2C3691E8C05150008274F /* TeamHeaderSectionController.swift in Sources */,
 				A1CD9A191E8AA83D00D3C8F7 /* NewUserState.swift in Sources */,
 				A1BF9C401E8AC449007341EA /* GameState.swift in Sources */,
@@ -661,6 +685,7 @@
 				A16D416D1E97364300DE01D4 /* DeleteTeam.swift in Sources */,
 				A14B64E61E8D647B00CBDE92 /* AddTeamViewController.swift in Sources */,
 				A1BF9C3F1E8AC443007341EA /* Game.swift in Sources */,
+				A1426BA61EA86B3200AAABB3 /* NewAtBatSectionController.swift in Sources */,
 				A1D67D481E8FE8BF00200B65 /* MainViewController.swift in Sources */,
 				A16D41801E98171600DE01D4 /* CreatePlayer.swift in Sources */,
 				A1A2C3631E8BF6020008274F /* TeamHeaderCell.swift in Sources */,
@@ -680,6 +705,7 @@
 				A1CD9A0E1E89D05E00D3C8F7 /* Keys.swift in Sources */,
 				A17999881E82B9A60058A002 /* UIColorExtension.swift in Sources */,
 				A1CD9A141E8A9C6000D3C8F7 /* PlayerState.swift in Sources */,
+				A1426B9D1EA8586E00AAABB3 /* AKPickerView.swift in Sources */,
 				A17EF6CC1E94044E00DEE4ED /* UpdateObject.swift in Sources */,
 				A1CD9A0A1E89C26200D3C8F7 /* TeamState.swift in Sources */,
 				A1868F9F1E802E1600C191EC /* AppState.swift in Sources */,
@@ -731,8 +757,10 @@
 				A1398B411EA6EB3400A4B830 /* CreateGame.swift in Sources */,
 				A131CC8E1E8EEE6600A5D66B /* SubscribeToCurrentUser.swift in Sources */,
 				A14B64FC1E8EB99B00CBDE92 /* Identifiable.swift in Sources */,
+				A1426BA41EA863AF00AAABB3 /* AtBatSectionController.swift in Sources */,
 				A17EF6D91E954A6500DEE4ED /* DeleteImage.swift in Sources */,
 				A1B49D8C1EA577AC00DA9FAB /* GameCreationViewController.swift in Sources */,
+				A1426B9F1EA85E5500AAABB3 /* AtBatCell.swift in Sources */,
 				A17EF6C41E93E8D200DEE4ED /* NewTeamState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -754,6 +782,22 @@
 				A1398B471EA7081F00A4B830 /* Base */,
 			);
 			name = GameViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		A1426BA01EA85E7200AAABB3 /* AtBatCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A1426BA11EA85E7200AAABB3 /* Base */,
+			);
+			name = AtBatCell.xib;
+			sourceTree = "<group>";
+		};
+		A1426BA91EA86CC300AAABB3 /* NewAtBatCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A1426BAA1EA86CC300AAABB3 /* Base */,
+			);
+			name = NewAtBatCell.xib;
 			sourceTree = "<group>";
 		};
 		A14B64E21E8D42B000CBDE92 /* StockPhotosViewController.storyboard */ = {

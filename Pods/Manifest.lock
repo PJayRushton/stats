@@ -45,7 +45,6 @@ PODS:
   - Marshal (1.2.4)
   - Presentr (1.2.3)
   - QRCode (2.0)
-  - TabPageViewController (0.2.6)
   - TextFieldEffects (1.3.2)
   - Whisper (4.0.0)
 
@@ -64,7 +63,6 @@ DEPENDENCIES:
   - Marshal
   - Presentr
   - QRCode
-  - TabPageViewController
   - TextFieldEffects
   - Whisper
 
@@ -96,10 +94,9 @@ SPEC CHECKSUMS:
   Marshal: 8e04e6624e506921db7143b0bfd83caee03f32d6
   Presentr: a21c7bbb3532c8ff60320e235c0a4869e72f8885
   QRCode: f98a1886c8f37523704a7512a4c0cd45b34c18a4
-  TabPageViewController: a6757ac0203ef3f44185cb7e851eaaea49f0b46c
   TextFieldEffects: 9e5cce561ea39c75b86e9d3637601727a67e8b23
   Whisper: 08be92623311f8e53201e62e17f6d7b9599a4714
 
-PODFILE CHECKSUM: 62aa2737cc9ae9cbf060a6f2bef2076d0f3f899f
+PODFILE CHECKSUM: 7672cf908fa3c9a7f60f92711e205758bbba8f28
 
 COCOAPODS: 1.1.1

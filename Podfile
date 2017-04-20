@@ -11,7 +11,7 @@ target 'Stats' do
   pod 'LTMorphingLabel'
   pod 'Marshal'
   pod 'Presentr'
-  pod 'TabPageViewController'
+  
   pod 'TextFieldEffects'
   pod 'QRCode'
   pod 'Whisper'

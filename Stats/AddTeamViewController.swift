@@ -34,6 +34,7 @@ class AddTeamViewController: Component, AutoStoryboardInitializable {
         presenter.transitionType = TransitionType.coverHorizontalFromRight
         return presenter
     }()
+    
     fileprivate var allTextFields: [UITextField] {
         return [textField1, textField2, textField3, textField4]
     }

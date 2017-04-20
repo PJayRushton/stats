@@ -40,29 +40,14 @@ extension UIColor {
     /// Hex: #F7F9FA
     class var gray100: UIColor { return #colorLiteral(red: 0.968627451, green: 0.9764705882, blue: 0.9803921569, alpha: 1) }
     
-    /// Hex: #E8EAEB
-//    class var gray100: UIColor { return #colorLiteral(red: 0.9094825387, green: 0.9176627994, blue: 0.9217107892, alpha: 1) }
-    
     /// Hex: #DADCDD
     class var gray200: UIColor { return #colorLiteral(red: 0.8545860648, green: 0.8627576232, blue: 0.8668149114, alpha: 1) }
-    
-    /// Hex: #C8CCCE
-//    class var gray300: UIColor { return #colorLiteral(red: 0.7837791443, green: 0.7999660373, blue: 0.8082466722, alpha: 1) }
     
     /// Hex: #A0A5A8
     class var gray300: UIColor { return #colorLiteral(red: 0.6268096566, green: 0.6469563246, blue: 0.6594427228, alpha: 1) }
     
-    /// Hex: #868C8F
-//    class var gray500: UIColor { return #colorLiteral(red: 0.5254901961, green: 0.5489256382, blue: 0.5614547729, alpha: 1) }
-    
-    /// Hex: #707679
-//    class var gray600: UIColor { return #colorLiteral(red: 0.4384772182, green: 0.4626450539, blue: 0.4751864672, alpha: 1) }
-    
     /// Hex: #52595C
     class var gray400: UIColor { return #colorLiteral(red: 0.3207190633, green: 0.3489254713, blue: 0.3615074456, alpha: 1) }
-    
-    /// Hex: #363D40
-//    class var gray800: UIColor { return #colorLiteral(red: 0.2109082043, green: 0.2391114235, blue: 0.2517025173, alpha: 1) }
     
     /// Hex: #1A1E20
     class var gray500: UIColor { return #colorLiteral(red: 0.1055081859, green: 0.117551811, blue: 0.1259064078, alpha: 1) }

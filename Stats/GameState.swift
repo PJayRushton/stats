@@ -10,6 +10,7 @@ import Foundation
 
 struct GameState: State {
     
+    var currentPlayer: Player?
     var currentGame: Game?
     var allGames = Set<Game>()
     
@@ -35,6 +36,8 @@ struct GameState: State {
         case let event as Updated<Game>:
             allGames.remove(event.payload)
             allGames.insert(event.payload)
+        case let event as Selected<Player>:
+            currentPlayer = event.item
         default:
             break
         }

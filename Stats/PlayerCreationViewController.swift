@@ -177,6 +177,7 @@ extension PlayerCreationViewController {
         phoneTextField.text = ""
         subSwitch.setSelected(false, animated: true)
         updateSaveButtons()
+        nameTextField.becomeFirstResponder()
     }
     
     fileprivate func moveFirstResponder(next: Bool) {

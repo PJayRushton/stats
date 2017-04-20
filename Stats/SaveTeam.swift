@@ -26,7 +26,7 @@ struct SaveTeam: Command {
     }
     
     fileprivate func addFakeStuffAndSubscribe(core: Core<AppState>) {
-        let fakePlayerRef = StatsRefs.playersRef(teamId: team.id).childByAutoId()
+        let fakePlayerRef = StatsRefs.playersRef(teamId: team.id)
         self.networkAccess.updateObject(at: fakePlayerRef, parameters: ["fake": true], completion: { result in
             switch result {
             case .success:
@@ -39,8 +39,8 @@ struct SaveTeam: Command {
     }
     
     fileprivate func addFakeGame(core: Core<AppState>) {
-        let fakePlayerRef = StatsRefs.gamesRef(teamId: team.id)
-        networkAccess.updateObject(at: fakePlayerRef, parameters: ["fake": true], completion: { result in
+        let fakeGameRef = StatsRefs.gamesRef(teamId: team.id)
+        networkAccess.updateObject(at: fakeGameRef, parameters: ["fake": true], completion: { result in
             core.fire(command: SubscribeToTeam(withId: self.team.id))
         })
     }

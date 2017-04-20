@@ -6,10 +6,16 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="LemonMilk.otf">
+            <string>LemonMilk</string>
+        </array>
+    </customFonts>
     <scenes>
-        <!--Game View Controller-->
+        <!--Game-->
         <scene sceneID="MYZ-R0-MfE">
             <objects>
                 <viewController storyboardIdentifier="GameViewController" id="Fe0-L2-bmy" customClass="GameViewController" customModule="Stats" customModuleProvider="target" sceneMemberID="viewController">
@@ -21,27 +27,114 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LeJ-Kd-VMS">
-                                <rect key="frame" x="166" y="323" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="9ql-Cu-9WG">
+                                <rect key="frame" x="0.0" y="88" width="375" height="579"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="6Mu-gt-bXw" userLabel="Team &amp; Score stack">
+                                        <rect key="frame" x="28" y="0.0" width="319" height="50"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2W3-Nk-rAB">
+                                                <rect key="frame" x="0.0" y="0.0" width="106" height="50"/>
+                                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0-2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SPf-WQ-mH5" customClass="LTMorphingLabel" customModule="LTMorphingLabel">
+                                                <rect key="frame" x="122" y="0.0" width="75.5" height="50"/>
+                                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="44"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cdM-sS-RD6">
+                                                <rect key="frame" x="213.5" y="0.0" width="105.5" height="50"/>
+                                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="cdM-sS-RD6" firstAttribute="width" secondItem="2W3-Nk-rAB" secondAttribute="width" id="6eA-sT-M0N"/>
+                                            <constraint firstAttribute="height" constant="50" id="Jub-1g-tlj"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="YZz-sW-GRL" userLabel="Inning stack">
+                                        <rect key="frame" x="127" y="66" width="121" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="16g-hk-PGe">
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <state key="normal" title="◀"/>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="^3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iZi-AT-nA1" customClass="LTMorphingLabel" customModule="LTMorphingLabel">
+                                                <rect key="frame" x="50" y="0.0" width="21" height="30"/>
+                                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N3Y-am-xXh">
+                                                <rect key="frame" x="91" y="0.0" width="30" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <state key="normal" title="▶"/>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Ijm-Xd-0Vf"/>
+                                        </constraints>
+                                    </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uF9-DD-9dm" customClass="AKPickerView" customModule="Stats" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="112" width="375" height="36"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="DWe-wJ-exw"/>
+                                        </constraints>
+                                    </view>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Eej-ST-WO7" customClass="IGListCollectionView">
+                                        <rect key="frame" x="0.0" y="164" width="375" height="415"/>
+                                        <color key="backgroundColor" red="0.96862745098039216" green="0.97647058823529409" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8Rr-kv-Tf2">
+                                            <size key="itemSize" width="50" height="50"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells/>
+                                    </collectionView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="6Mu-gt-bXw" firstAttribute="width" secondItem="9ql-Cu-9WG" secondAttribute="width" multiplier="0.85" id="Zgw-Cn-Pgz"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="LeJ-Kd-VMS" firstAttribute="centerX" secondItem="JCj-z7-m8C" secondAttribute="centerX" id="494-FI-chQ"/>
-                            <constraint firstItem="LeJ-Kd-VMS" firstAttribute="centerY" secondItem="JCj-z7-m8C" secondAttribute="centerY" id="rvs-aj-Idw"/>
+                            <constraint firstAttribute="trailing" secondItem="9ql-Cu-9WG" secondAttribute="trailing" id="AYC-LM-af3"/>
+                            <constraint firstItem="9ql-Cu-9WG" firstAttribute="top" secondItem="j1z-Cc-dNl" secondAttribute="bottom" constant="24" id="LZv-eP-lE1"/>
+                            <constraint firstItem="9ql-Cu-9WG" firstAttribute="leading" secondItem="JCj-z7-m8C" secondAttribute="leading" id="gFO-NZ-seH"/>
+                            <constraint firstItem="63M-QJ-UP4" firstAttribute="top" secondItem="9ql-Cu-9WG" secondAttribute="bottom" id="hPV-3Z-e6O"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Game" id="6U3-qI-jnJ">
+                        <barButtonItem key="rightBarButtonItem" title="⚙️" id="ITS-cb-Tgo">
+                            <connections>
+                                <action selector="settingsTapped:" destination="Fe0-L2-bmy" id="tRK-fT-v35"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="label" destination="LeJ-Kd-VMS" id="HdW-I7-azw"/>
+                        <outlet property="awayTeamLabel" destination="2W3-Nk-rAB" id="3dI-GH-0Yb"/>
+                        <outlet property="collectionView" destination="Eej-ST-WO7" id="lIZ-sG-uUH"/>
+                        <outlet property="homeTeamLabel" destination="cdM-sS-RD6" id="Xi2-Op-8LF"/>
+                        <outlet property="inningLabel" destination="iZi-AT-nA1" id="6Sw-0L-1sa"/>
+                        <outlet property="nextInningButton" destination="N3Y-am-xXh" id="wW5-2m-Sbt"/>
+                        <outlet property="playerPickerView" destination="uF9-DD-9dm" id="mcN-Mf-VeC"/>
+                        <outlet property="previousInningButton" destination="16g-hk-PGe" id="hvL-FA-dt4"/>
+                        <outlet property="scoreLabel" destination="SPf-WQ-mH5" id="dEP-nB-PJH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JS9-ec-fls" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="214" y="134"/>
+            <point key="canvasLocation" x="213.59999999999999" y="133.5832083958021"/>
         </scene>
     </scenes>
 </document>

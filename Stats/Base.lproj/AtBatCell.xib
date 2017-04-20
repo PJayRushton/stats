@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="LemonMilk.otf">
+            <string>LemonMilk</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AtBatCell" id="F1N-or-OmA" customClass="AtBatCell" customModule="Stats" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="376" height="81"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="376" height="81"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J5X-qp-zvH">
+                        <rect key="frame" x="0.0" y="0.0" width="376" height="81"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="UsJ-rz-6Kr">
+                                <rect key="frame" x="8" y="8" width="360" height="65"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="1." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="daM-Vt-OVK">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="65"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="wgn-oV-VWd"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="F94-rf-wTN">
+                                        <rect key="frame" x="46" y="0.0" width="65" height="65"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="F94-rf-wTN" secondAttribute="height" id="NHD-CA-Rr5"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="2 RBIs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybM-v6-wlh">
+                                        <rect key="frame" x="127" y="0.0" width="70.5" height="65"/>
+                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" horizontalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="9Jq-4d-gKX">
+                                        <rect key="frame" x="213.5" y="0.0" width="100.5" height="65"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="✏️" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nCU-2p-ztA">
+                                        <rect key="frame" x="330" y="0.0" width="30" height="65"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="G1L-c9-eNC"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="28"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="UsJ-rz-6Kr" firstAttribute="leading" secondItem="J5X-qp-zvH" secondAttribute="leadingMargin" id="1jf-Ub-5T6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="UsJ-rz-6Kr" secondAttribute="trailing" id="8n8-ib-4Td"/>
+                            <constraint firstItem="UsJ-rz-6Kr" firstAttribute="top" secondItem="J5X-qp-zvH" secondAttribute="topMargin" id="rut-ZZ-BG0"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="UsJ-rz-6Kr" secondAttribute="bottom" id="uKQ-oF-sRm"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="J5X-qp-zvH" secondAttribute="trailing" id="NQ5-jS-f7n"/>
+                <constraint firstItem="J5X-qp-zvH" firstAttribute="top" secondItem="F1N-or-OmA" secondAttribute="top" id="SM8-zU-3Nv"/>
+                <constraint firstItem="J5X-qp-zvH" firstAttribute="leading" secondItem="F1N-or-OmA" secondAttribute="leading" id="ac7-io-eWO"/>
+                <constraint firstAttribute="bottom" secondItem="J5X-qp-zvH" secondAttribute="bottom" id="jvv-uS-hi4"/>
+            </constraints>
+            <size key="customSize" width="376" height="81"/>
+            <connections>
+                <outlet property="atBatImageView" destination="F94-rf-wTN" id="8jM-r6-8GN"/>
+                <outlet property="numberLabel" destination="daM-Vt-OVK" id="bbh-as-UfI"/>
+                <outlet property="rbisLabel" destination="ybM-v6-wlh" id="yPg-nq-kSn"/>
+            </connections>
+            <point key="canvasLocation" x="171" y="-219.5"/>
+        </collectionViewCell>
+    </objects>
+</document>

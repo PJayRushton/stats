@@ -70,9 +70,8 @@ class RosterViewController: Component, AutoStoryboardInitializable {
     
     override func update(with state: AppState) {
         navigationController?.navigationBar.barTintColor = state.currentMenuItem?.backgroundColor
-        
-        if let currentPlayers = state.playerState.currentPlayers {
-            diffOrderedPlayers(with: currentPlayers)
+        if let team = state.teamState.currentTeam, !isLineup {
+            diffOrderedPlayers(with: state.playerState.players(for: team))
         }
         tableView.reloadData()
     }
@@ -95,11 +94,14 @@ extension RosterViewController {
 
     fileprivate func diffOrderedPlayers(with statePlayers: [Player]) {
         for (index, player) in orderedPlayers.enumerated() {
-            guard let trueIndex = statePlayers.index(of: player) else { continue }
-            let truePlayer = statePlayers[trueIndex]
-            
-            if !player.isTheSameAs(truePlayer) {
-                orderedPlayers[index] = truePlayer
+            if let index = statePlayers.index(of: player) {
+                let truePlayer = statePlayers[index]
+                
+                if !player.isTheSameAs(truePlayer) {
+                    orderedPlayers[index] = truePlayer
+                }
+            } else {
+                orderedPlayers.append(player)
             }
         }
     }

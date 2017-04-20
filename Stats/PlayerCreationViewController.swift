@@ -23,6 +23,7 @@ class PlayerCreationViewController: Component, AutoStoryboardInitializable {
     @IBOutlet weak var subSwitch: AIFlatSwitch!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var saveAddButton: UIButton!
     @IBOutlet var keyboardView: UIView!
     
@@ -32,8 +33,17 @@ class PlayerCreationViewController: Component, AutoStoryboardInitializable {
         return StatsRefs.playersRef(teamId: App.core.state.teamState.currentTeam!.id).childByAutoId()
     }()
     
+    fileprivate let presenter: Presentr = {
+        let presenter = Presentr(presentationType: .alert)
+        presenter.transitionType = TransitionType.coverHorizontalFromRight
+        return presenter
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        deleteButton.isHidden = true
+        
         if let editingPlayer = editingPlayer {
             updateUI(with: editingPlayer)
         }
@@ -43,8 +53,11 @@ class PlayerCreationViewController: Component, AutoStoryboardInitializable {
         phoneTextField.inputAccessoryView = keyboardView
     }
     
-    @IBAction func cancelButtonPressed(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if editingPlayer == nil {
+            nameTextField.becomeFirstResponder()
+        }
     }
     
     @IBAction func genderChanged(_ sender: BetterSegmentedControl) {
@@ -55,9 +68,17 @@ class PlayerCreationViewController: Component, AutoStoryboardInitializable {
         updateSaveButtons()
     }
     
+    @IBAction func cancelButtonPressed(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         guard let newPlayer = constructedPlayer() else { return }
         savePlayer(newPlayer, add: false)
+    }
+    
+    @IBAction func deleteButtonPressed(_ sender: UIButton) {
+        showDeleteConfirmation()
     }
     
     @IBAction func saveAndAddButtonPressed(_ sender: UIButton) {
@@ -97,12 +118,14 @@ class PlayerCreationViewController: Component, AutoStoryboardInitializable {
 extension PlayerCreationViewController {
     
     fileprivate func updateUI(with player: Player) {
+        topLabel.text = "Edit Player"
         nameTextField.text = player.name
         jerseyNumberTextField.text = player.jerseyNumber
         phoneTextField.text = player.phone
         try? genderSegControl.setIndex(UInt(player.gender.rawValue))
         subSwitch.isSelected = player.isSub
         saveAddButton.isHidden = true
+        deleteButton.isHidden = false
         updateSaveButtons()
     }
     
@@ -189,6 +212,19 @@ extension PlayerCreationViewController {
             let nextTextField = next ? phoneTextField : nameTextField
             nextTextField?.becomeFirstResponder()
         }
+    }
+    
+    fileprivate func showDeleteConfirmation() {
+        guard let editingPlayer = editingPlayer else { return }
+        let alert = Presentr.alertViewController(title: "Delete \(editingPlayer.name)?", body: "This cannot be undone")
+        alert.addAction(AlertAction(title: "Cancel 😳", style: .cancel, handler: nil))
+        alert.addAction(AlertAction(title: "☠️", style: .destructive, handler: {
+            self.core.fire(command: DeleteObject(object: editingPlayer))
+            self.dismiss(animated: true, completion: { 
+                self.dismiss(animated: true, completion: nil)
+            })
+        }))
+        customPresentViewController(presenter, viewController: alert, animated: true, completion: nil)
     }
     
 }

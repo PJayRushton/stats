@@ -28,9 +28,17 @@ class GameViewController: Component, AutoStoryboardInitializable {
     var currentPlayer: Player? {
         return core.state.gameState.currentPlayer
     }
+    var gamePlayers: [Player] {
+        guard let game = game else { return [] }
+        return core.state.playerState.allPlayers.filter { game.lineupIds.contains($0.id) }
+    }
     var currentAtBats: [AtBat] {
         guard let player = currentPlayer else { return [] }
         return core.state.atBatState.atBats(for: player)
+    }
+    
+    var game: Game? {
+        return core.state.gameState.currentGame
     }
     
     override func viewDidLoad() {
@@ -38,9 +46,23 @@ class GameViewController: Component, AutoStoryboardInitializable {
         
         adapter.collectionView = collectionView
         adapter.dataSource = self
+        
+        guard let game = game else { return }
+        let currentTeam = core.state.teamState.currentTeam
+        awayTeamLabel.text = game.isHome ? game.opponent : currentTeam?.name
+        homeTeamLabel.text = game.isHome ? currentTeam?.name : game.opponent
+        scoreLabel.text = game.scoreString
+        inningLabel.text = game.status
+        playerPickerView.delegate = self
+        playerPickerView.dataSource = self
+        playerPickerView.font = FontType.lemonMilk.font(withSize: 12)
+        playerPickerView.highlightedFont = FontType.lemonMilk.font(withSize: 12)
+        playerPickerView.interitemSpacing = 24
+        playerPickerView.pickerViewStyle = .flat
     }
     
     @IBAction func settingsTapped(_ sender: UIBarButtonItem) {
+        print("You tapped settings. YAY!")
     }
     
     func presentAtBatCreation() {
@@ -83,6 +105,22 @@ extension GameViewController: IGListAdapterDataSource {
     
     func emptyView(for listAdapter: IGListAdapter) -> UIView? {
         return nil
+    }
+    
+}
+
+extension GameViewController: AKPickerViewDelegate, AKPickerViewDataSource {
+    
+    func numberOfItemsInPickerView(_ pickerView: AKPickerView) -> Int {
+        return gamePlayers.count
+    }
+    
+    func pickerView(_ pickerView: AKPickerView, titleForItem item: Int) -> String {
+        return gamePlayers[item].name
+    }
+    
+    func pickerView(_ pickerView: AKPickerView, didSelectItem item: Int) {
+        core.fire(event: Selected<Player>(gamePlayers[item]))
     }
     
 }

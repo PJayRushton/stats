@@ -39,7 +39,7 @@ extension NewAtBatSectionController: IGListSectionType {
     }
     
     func cellForItem(at index: Int) -> UICollectionViewCell {
-        let cell = collectionContext?.dequeueReusableCell(withNibName: NewAtBatCell.reuseIdentifier, bundle: nil, for: self, at: index) as! AtBatCell
+        let cell = collectionContext?.dequeueReusableCell(withNibName: NewAtBatCell.reuseIdentifier, bundle: nil, for: self, at: index) as! NewAtBatCell
         return cell
     }
     

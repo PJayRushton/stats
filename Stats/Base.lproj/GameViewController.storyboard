@@ -87,10 +87,15 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="36" id="DWe-wJ-exw"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="interitemSpacing">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Eej-ST-WO7" customClass="IGListCollectionView">
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Eej-ST-WO7" customClass="IGListCollectionView">
                                         <rect key="frame" x="0.0" y="164" width="375" height="415"/>
-                                        <color key="backgroundColor" red="0.96862745098039216" green="0.97647058823529409" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.85490196078431369" green="0.86274509803921573" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8Rr-kv-Tf2">
                                             <size key="itemSize" width="50" height="50"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -102,6 +107,8 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="6Mu-gt-bXw" firstAttribute="width" secondItem="9ql-Cu-9WG" secondAttribute="width" multiplier="0.85" id="Zgw-Cn-Pgz"/>
+                                    <constraint firstItem="uF9-DD-9dm" firstAttribute="width" secondItem="9ql-Cu-9WG" secondAttribute="width" id="hAa-hS-T0I"/>
+                                    <constraint firstItem="Eej-ST-WO7" firstAttribute="width" secondItem="9ql-Cu-9WG" secondAttribute="width" id="i7D-8a-KZF"/>
                                 </constraints>
                             </stackView>
                         </subviews>

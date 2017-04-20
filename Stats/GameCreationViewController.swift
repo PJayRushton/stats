@@ -122,7 +122,7 @@ extension GameCreationViewController {
 
     fileprivate func setUpDatePicker() {
         datePicker.datePickerMode = .dateAndTime
-        datePicker.minuteInterval = 30
+        datePicker.minuteInterval = 15
         datePicker.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
         dateTextField.inputAccessoryView = keyboardAccessoryView
         dateTextField.inputView = datePicker

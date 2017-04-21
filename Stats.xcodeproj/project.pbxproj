@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		364FFAEE1EA9A15600CD26F9 /* EventBetterSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364FFAED1EA9A15600CD26F9 /* EventBetterSegmentedControl.swift */; };
 		A131CC8E1E8EEE6600A5D66B /* SubscribeToCurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A131CC8D1E8EEE6600A5D66B /* SubscribeToCurrentUser.swift */; };
 		A1398B3F1EA6D3DF00A4B830 /* GameCreationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1398B3D1EA6D3DF00A4B830 /* GameCreationViewController.storyboard */; };
 		A1398B411EA6EB3400A4B830 /* CreateGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1398B401EA6EB3400A4B830 /* CreateGame.swift */; };
@@ -134,6 +135,7 @@
 /* Begin PBXFileReference section */
 		097AB2DA5C7A85576113EB29 /* Pods_Stats.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stats.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		23340C3D14A1D9E6B1878846 /* Pods-Stats.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stats.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Stats/Pods-Stats.debug.xcconfig"; sourceTree = "<group>"; };
+		364FFAED1EA9A15600CD26F9 /* EventBetterSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventBetterSegmentedControl.swift; sourceTree = "<group>"; };
 		3EB00BD85F52BB91F956360D /* Pods-Stats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stats.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stats/Pods-Stats.release.xcconfig"; sourceTree = "<group>"; };
 		A131CC8D1E8EEE6600A5D66B /* SubscribeToCurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribeToCurrentUser.swift; sourceTree = "<group>"; };
 		A1398B3E1EA6D3DF00A4B830 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = GameCreationViewController.storyboard; sourceTree = "<group>"; };
@@ -343,6 +345,7 @@
 				A1A2C35D1E8BF3680008274F /* Component.swift */,
 				A1398B491EA7097700A4B830 /* CustomButton.swift */,
 				A17999811E82B9780058A002 /* DateHelper.swift */,
+				364FFAED1EA9A15600CD26F9 /* EventBetterSegmentedControl.swift */,
 				A1CD9A0D1E89D05E00D3C8F7 /* Keys.swift */,
 				A179997C1E82B8BD0058A002 /* NSDate+ValueType.swift */,
 				A17999831E82B9860058A002 /* SegueHandlerType.swift */,
@@ -392,6 +395,7 @@
 			children = (
 				A14B64E51E8D647B00CBDE92 /* AddTeamViewController.swift */,
 				A1426B9E1EA85E5500AAABB3 /* AtBatCell.swift */,
+				A1ABAFF81EA9420F00B28A46 /* AtBatCreationViewController.swift */,
 				A1A2C35B1E8BF2FB0008274F /* AvatarViewController.swift */,
 				A1D67D401E8FE24C00200B65 /* BasicHeaderCell.swift */,
 				A1D67D3E1E8F253F00200B65 /* BasicTeamCell.swift */,
@@ -406,6 +410,7 @@
 				A1D67D491E8FE8EE00200B65 /* LoadingImageViewController.swift */,
 				A1D67D471E8FE8BF00200B65 /* MainViewController.swift */,
 				A1D67D391E8F23DE00200B65 /* ManageTeamsViewController.swift */,
+				A1426BA71EA86C5000AAABB3 /* NewAtBatCell.swift */,
 				A16D41761E97D1D500DE01D4 /* PlayerCell.swift */,
 				A16D417A1E97FF6000DE01D4 /* PlayerCreationViewController.swift */,
 				A16D416E1E97D08F00DE01D4 /* RosterViewController.swift */,
@@ -418,8 +423,6 @@
 				A1A2C3611E8BF6020008274F /* TeamHeaderCell.swift */,
 				A17EF6BD1E931A0300DEE4ED /* TeamSwitcherViewController.swift */,
 				A1D8054B1E89870B0072AA49 /* UsernameViewController.swift */,
-				A1426BA71EA86C5000AAABB3 /* NewAtBatCell.swift */,
-				A1ABAFF81EA9420F00B28A46 /* AtBatCreationViewController.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -708,6 +711,7 @@
 				A14B64E11E8D429800CBDE92 /* StockPhotosViewController.swift in Sources */,
 				A1D67D541E9097E100200B65 /* SettingsViewController.swift in Sources */,
 				A1B41C2A1E85A4E300FAC930 /* AtBat.swift in Sources */,
+				364FFAEE1EA9A15600CD26F9 /* EventBetterSegmentedControl.swift in Sources */,
 				A1398B4A1EA7097700A4B830 /* CustomButton.swift in Sources */,
 				A1398B431EA6F4B600A4B830 /* NewGameState.swift in Sources */,
 				A1B41C261E85A4C400FAC930 /* Player.swift in Sources */,

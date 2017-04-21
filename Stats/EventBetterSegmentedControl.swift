@@ -7,3 +7,17 @@
 //
 
 import Foundation
+import BetterSegmentedControl
+
+extension BetterSegmentedControl {
+    
+    func setUp(with titles: [String], indicatorColor: UIColor = UIColor.secondaryAppColor, fontSize: CGFloat = 14) {
+        self.titles = titles
+        titleFont = FontType.lemonMilk.font(withSize: fontSize)
+        selectedTitleFont = FontType.lemonMilk.font(withSize: fontSize + 2)
+        titleColor = .gray400
+        selectedTitleColor = .white
+        indicatorViewBackgroundColor = .secondaryAppColor
+    }
+    
+}

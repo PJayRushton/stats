@@ -67,10 +67,8 @@ extension ManageTeamsViewController {
     }
     
     fileprivate func setUpSegmentedControl() {
-        segmentedControl.titles = TeamOwnershipType.allValues.map { $0.sectionTitle }
-        segmentedControl.titleFont = FontType.lemonMilk.font(withSize: 14)
-        segmentedControl.selectedTitleFont = FontType.lemonMilk.font(withSize: 16)
-        segmentedControl.indicatorViewBackgroundColor = .secondaryAppColor
+        let titles = TeamOwnershipType.allValues.map { $0.sectionTitle }
+        segmentedControl.setUp(with: titles)
     }
 
     fileprivate func launchTeamCreation() {

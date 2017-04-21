@@ -14,10 +14,16 @@ class AtBatCell: UICollectionViewCell, AutoReuseIdentifiable {
     @IBOutlet weak var atBatImageView: UIImageView!
     @IBOutlet weak var rbisLabel: UILabel!
     
-    func update(with atBat: AtBat) {
-        numberLabel.text = "\(atBat.order)"
-//        atBatImageView = atBat.image
-        rbisLabel.text = "\(atBat.rbis) RBIs"
+    func update(with atBat: AtBat, order: String) {
+        numberLabel.text = "\(order)."
+        atBatImageView.image = atBat.resultCode.selectedImage
+        
+        if atBat.rbis > 0 {
+            let rbisString = atBat.rbis == 1 ? "RBI" : "RBIs"
+            rbisLabel.text = "\(atBat.rbis.emojiString) \(rbisString)"
+        } else {
+            rbisLabel.text = nil
+        }
     }
     
 }

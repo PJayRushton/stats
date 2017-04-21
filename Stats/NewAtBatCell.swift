@@ -10,4 +10,11 @@ import UIKit
 
 class NewAtBatCell: UICollectionViewCell, AutoReuseIdentifiable {
     
+    @IBOutlet weak var plusImageView: UIImageView!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        plusImageView.tintColor = .white
+    }
+    
 }

@@ -10,5 +10,11 @@ import UIKit
 
 class AtBatButton: UIButton {
     
-    var code: AtBatCode!
+    var code: AtBatCode! {
+        didSet {
+            setImage(code.image, for: .normal)
+            setImage(code.selectedImage, for: .selected)
+        }
+    }
+    
 }

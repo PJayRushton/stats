@@ -14,6 +14,7 @@ import Whisper
 
 class AtBatCreationViewController: Component, AutoStoryboardInitializable {
     
+    @IBOutlet weak var playerLabel: UILabel!
     @IBOutlet weak var singleButton: AtBatButton!
     @IBOutlet weak var doubleButton: AtBatButton!
     @IBOutlet weak var tripleButton: AtBatButton!
@@ -30,24 +31,25 @@ class AtBatCreationViewController: Component, AutoStoryboardInitializable {
     }
     
     var editingAtBat: AtBat?
-    var currentAtBatResult = AtBatCode.single
-    var rbis = 0
     
+    fileprivate var currentAtBatResult = AtBatCode.single
+    fileprivate var rbis = 0
+    fileprivate var player: Player? {
+        return core.state.gameState.currentPlayer
+    }
+
     lazy var newAtBatRef: FIRDatabaseReference = {
         return StatsRefs.atBatsRef(teamId: App.core.state.teamState.currentTeam!.id).childByAutoId()
     }()
     
-    fileprivate let presenter: Presentr = {
-        let presenter = Presentr(presentationType: .alert)
-        presenter.transitionType = TransitionType.coverHorizontalFromRight
-        return presenter
-    }()
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        playerLabel.text = player?.name
         addButtonCodes()
+        setUpRBISegControl()
+        deleteButton.isHidden = editingAtBat == nil
+
         if let editingAtBat = editingAtBat {
             update(with: editingAtBat)
         }
@@ -74,6 +76,7 @@ class AtBatCreationViewController: Component, AutoStoryboardInitializable {
     }
     
     override func update(with state: AppState) {
+        currentAtBatResult = state.atBatState.currentResult ?? .single
         updateUI(with: state.atBatState.currentResult)
     }
     
@@ -93,7 +96,7 @@ extension AtBatCreationViewController {
 
     fileprivate func update(with atBat: AtBat) {
         updateUI(with: atBat.resultCode)
-        deleteButton.isHidden = editingAtBat == nil
+        try? rbisSegControl.setIndex(UInt(atBat.rbis), animated: true)
     }
     
     fileprivate func updateUI(with code: AtBatCode?) {
@@ -102,26 +105,37 @@ extension AtBatCreationViewController {
         }
     }
     
+    fileprivate func setUpRBISegControl() {
+        let titles = ["0", "1", "2", "3", "4"]
+        rbisSegControl.setUp(with: titles, fontSize: 18)
+    }
+    
     fileprivate func saveAtBat(next: Bool) {
-        guard let atBat = constructedAtBat() else { return }
+        guard let atBat = constructedAtBat() else { print("Could not construct at bat"); return }
         core.fire(command: UpdateObject(object: atBat))
-        
+        updateGameScore(atBat: atBat)
+
         if next {
             clear()
+        } else {
+            dismiss(animated: true, completion: nil)
         }
     }
     
     fileprivate func constructedAtBat() -> AtBat? {
         let id = editingAtBat?.ref.key ?? newAtBatRef.key
         guard let game = core.state.gameState.currentGame else { return nil }
-        guard let player = core.state.gameState.currentPlayer else { return nil }
-        guard let season = core.state.seasonState.currentSeason else { return nil }
+        guard let player = player else { return nil }
         guard let team = core.state.teamState.currentTeam else { return nil }
-        let order = core.state.atBatState.atBats(for: player).count
-        return AtBat(id: id, gameId: game.id, order: order, playerId: player.id, rbis: rbis, resultCode: currentAtBatResult, seasonId: season.id, teamId: team.id)
+        guard let seasonId = team.currentSeasonId else { return nil }
+        let order = core.state.atBatState.atBats(for: player, in: game).count
+        return AtBat(id: id, gameId: game.id, order: order, playerId: player.id, rbis: rbis, resultCode: currentAtBatResult, seasonId: seasonId, teamId: team.id)
     }
     
     fileprivate func clear() {
+        core.fire(event: Selected<AtBatCode>(.single))
+        try? rbisSegControl.setIndex(0, animated: true)
+        rbis = 0
     }
     
     fileprivate func showDeleteConfirmation() {
@@ -130,11 +144,18 @@ extension AtBatCreationViewController {
         alert.addAction(AlertAction(title: "Cancel 😳", style: .cancel, handler: nil))
         alert.addAction(AlertAction(title: "☠️", style: .destructive, handler: {
             self.core.fire(command: DeleteObject(object: editingAtBat))
+            self.updateGameScore(atBat: editingAtBat)
             self.dismiss(animated: true, completion: {
                 self.dismiss(animated: true, completion: nil)
             })
         }))
-        customPresentViewController(presenter, viewController: alert, animated: true, completion: nil)
+        customPresentViewController(alertPresenter, viewController: alert, animated: true, completion: nil)
+    }
+    
+    fileprivate func updateGameScore(atBat: AtBat) {
+        guard var updatedScoreGame = core.state.gameState.currentGame else { return }
+        updatedScoreGame.score += atBat.rbis
+        core.fire(command: UpdateObject(object: updatedScoreGame))
     }
     
 }

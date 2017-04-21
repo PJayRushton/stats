@@ -30,11 +30,11 @@ class GameViewController: Component, AutoStoryboardInitializable {
     }
     var gamePlayers: [Player] {
         guard let game = game else { return [] }
-        return core.state.playerState.allPlayers.filter { game.lineupIds.contains($0.id) }
+        return game.lineupIds.flatMap { $0.statePlayer }
     }
     var currentAtBats: [AtBat] {
-        guard let player = currentPlayer else { return [] }
-        return core.state.atBatState.atBats(for: player)
+        guard let player = currentPlayer, let game = game else { return [] }
+        return core.state.atBatState.atBats(for: player, in: game)
     }
     
     var game: Game? {
@@ -48,36 +48,83 @@ class GameViewController: Component, AutoStoryboardInitializable {
         adapter.dataSource = self
         
         guard let game = game else { return }
-        let currentTeam = core.state.teamState.currentTeam
-        awayTeamLabel.text = game.isHome ? game.opponent : currentTeam?.name
-        homeTeamLabel.text = game.isHome ? currentTeam?.name : game.opponent
-        scoreLabel.text = game.scoreString
-        inningLabel.text = game.status
-        playerPickerView.delegate = self
-        playerPickerView.dataSource = self
-        playerPickerView.font = FontType.lemonMilk.font(withSize: 12)
-        playerPickerView.highlightedFont = FontType.lemonMilk.font(withSize: 12)
-        playerPickerView.interitemSpacing = 24
-        playerPickerView.pickerViewStyle = .flat
+        
+        if let firstPlayerId = game.lineupIds.first, let player = firstPlayerId.statePlayer {
+            core.fire(event: Selected<Player>(player))
+        }
+        updateUI(with: game)
+        scoreLabel.morphingEffect = .fall
+        previousInningButton.tintColor = .gray400
+        nextInningButton.tintColor = .gray400
+        inningLabel.morphingEffect = .evaporate
+        setUpPickerView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        scoreLabel.text = game?.scoreString
     }
     
     @IBAction func settingsTapped(_ sender: UIBarButtonItem) {
         print("You tapped settings. YAY!")
     }
     
-    func presentAtBatCreation() {
-        
+    @IBAction func inningArrowPressed(_ sender: UIButton) {
+        guard let game = game else { return }
+        let previousButtonWasPressed = sender == previousInningButton
+        let newInning = previousButtonWasPressed ? game.inning - 1 : game.inning + 1
+        updateInning(newInning)
     }
     
-    func presentAtBatEdit() {
-        
+    func presentAtBatCreation() {
+        let newAtBatVC = AtBatCreationViewController.initializeFromStoryboard()
+        customPresentViewController(modalPresenter(), viewController: newAtBatVC, animated: true, completion: nil)
+    }
+    
+    func presentAtBatEdit(atBat: AtBat) {
+        let newAtBatVC = AtBatCreationViewController.initializeFromStoryboard()
+        newAtBatVC.editingAtBat = atBat
+        customPresentViewController(modalPresenter(), viewController: newAtBatVC, animated: true, completion: nil)
     }
     
     override func update(with state: AppState) {
+        if let game = game {
+            updateUI(with: game)
+            updatePicker(game: game)
+        }
         adapter.performUpdates(animated: true)
     }
     
 }
+
+
+extension GameViewController {
+    
+    fileprivate func updateUI(with game: Game) {
+        if let team = core.state.teamState.currentTeam {
+            awayTeamLabel.text = game.isHome ? game.opponent : team.name
+            homeTeamLabel.text = game.isHome ? team.name : game.opponent
+        }
+        inningLabel.text = game.status
+        previousInningButton.tintColor = game.inning == 1 ? .white : .gray400
+        previousInningButton.isEnabled = game.inning > 1
+    }
+    
+    fileprivate func updatePicker(game: Game) {
+        guard let currentPlayer = core.state.gameState.currentPlayer,
+            let index = game.lineupIds.index(of: currentPlayer.id),
+            playerPickerView.selectedItem != index else { return }
+        playerPickerView.scrollToItem(index, animated: true)
+    }
+    
+    fileprivate func updateInning(_ inning: Int) {
+        guard var updatedGame = game else { return }
+        updatedGame.inning = inning
+        core.fire(command: UpdateObject(object: updatedGame))
+    }
+    
+}
+
 
 extension GameViewController: IGListAdapterDataSource {
     
@@ -96,7 +143,10 @@ extension GameViewController: IGListAdapterDataSource {
             return newAtBatSectionController
         case _ as AtBatSection:
             let atBatSectionController = AtBatSectionController()
-            atBatSectionController.didSelectAtBat = presentAtBatEdit
+            atBatSectionController.didSelectAtBat = { atBat in
+                self.presentAtBatEdit(atBat: atBat)
+            }
+            
             return atBatSectionController
         default:
             fatalError()
@@ -110,6 +160,15 @@ extension GameViewController: IGListAdapterDataSource {
 }
 
 extension GameViewController: AKPickerViewDelegate, AKPickerViewDataSource {
+    
+    func setUpPickerView() {
+        playerPickerView.delegate = self
+        playerPickerView.dataSource = self
+        playerPickerView.font = FontType.lemonMilk.font(withSize: 12)
+        playerPickerView.highlightedFont = FontType.lemonMilk.font(withSize: 12)
+        playerPickerView.interitemSpacing = 32
+        playerPickerView.pickerViewStyle = .flat
+    }
     
     func numberOfItemsInPickerView(_ pickerView: AKPickerView) -> Int {
         return gamePlayers.count

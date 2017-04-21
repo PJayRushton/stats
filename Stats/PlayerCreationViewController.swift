@@ -32,12 +32,6 @@ class PlayerCreationViewController: Component, AutoStoryboardInitializable {
     fileprivate lazy var newPlayerRef: FIRDatabaseReference = {
         return StatsRefs.playersRef(teamId: App.core.state.teamState.currentTeam!.id).childByAutoId()
     }()
-    
-    fileprivate let presenter: Presentr = {
-        let presenter = Presentr(presentationType: .alert)
-        presenter.transitionType = TransitionType.coverHorizontalFromRight
-        return presenter
-    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -224,7 +218,7 @@ extension PlayerCreationViewController {
                 self.dismiss(animated: true, completion: nil)
             })
         }))
-        customPresentViewController(presenter, viewController: alert, animated: true, completion: nil)
+        customPresentViewController(alertPresenter, viewController: alert, animated: true, completion: nil)
     }
     
 }

@@ -27,7 +27,7 @@ struct SubscribeToTeam: Command {
                 core.fire(event: Updated<Team>(team))
                 self.subscribeToPlayers(core: core)
                 self.subscribeToGames(core: core)
-                
+                self.subscribeToAtBats(core: core)
             case let .failure(error):
                 core.fire(event: ErrorEvent(error: error, message: nil))
             }
@@ -59,6 +59,21 @@ struct SubscribeToTeam: Command {
             switch gamesResult {
             case let .success(games):
                 core.fire(event: Updated<[Game]>(games))
+            case let .failure(error):
+                core.fire(event: ErrorEvent(error: error, message: nil))
+            }
+        }
+    }
+    
+    private func subscribeToAtBats(core: Core<AppState>) {
+        networkAccess.subscribe(to: StatsRefs.atBatsRef(teamId: self.teamId)) { result in
+            let atBatsResult = result.map { (json: JSONObject) -> [AtBat] in
+                return json.parsedObjects()
+            }
+            
+            switch atBatsResult {
+            case let .success(atBats):
+                core.fire(event: Updated<[AtBat]>(atBats))
             case let .failure(error):
                 core.fire(event: ErrorEvent(error: error, message: nil))
             }

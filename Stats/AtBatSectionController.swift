@@ -37,7 +37,7 @@ class AtBatSection: IGListDiffable {
 class AtBatSectionController: IGListSectionController {
     
     var section: AtBatSection!
-    var didSelectAtBat: (() -> Void) = { }
+    var didSelectAtBat: ((AtBat) -> Void) = { _ in }
     
 }
 
@@ -63,7 +63,7 @@ extension AtBatSectionController: IGListSectionType {
     }
     
     func didSelectItem(at index: Int) {
-        didSelectAtBat()
+        didSelectAtBat(section.atBat)
     }
     
 }

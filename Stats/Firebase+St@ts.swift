@@ -57,3 +57,10 @@ enum StatsRefs {
     }
 
 }
+
+extension String {
+    
+    var statePlayer: Player? {
+        return App.core.state.playerState.allPlayers.first(where: { $0.id == self })
+    }
+}

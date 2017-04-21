@@ -29,12 +29,6 @@ class AddTeamViewController: Component, AutoStoryboardInitializable {
     fileprivate let supportedBarCodes = [AVMetadataObjectTypeQRCode]
     fileprivate let networkAccess = FirebaseNetworkAccess()
     
-    fileprivate let presenter: Presentr = {
-        let presenter = Presentr(presentationType: .alert)
-        presenter.transitionType = TransitionType.coverHorizontalFromRight
-        return presenter
-    }()
-    
     fileprivate var allTextFields: [UITextField] {
         return [textField1, textField2, textField3, textField4]
     }
@@ -147,7 +141,7 @@ extension AddTeamViewController {
             self.core.fire(command: AddTeamToUser(team: team, type: ownershipType))
             self.core.fire(command: SubscribeToTeam(withId: team.id))
         }))
-        customPresentViewController(presenter, viewController: alert, animated: true, completion: nil)
+        customPresentViewController(alertPresenter, viewController: alert, animated: true, completion: nil)
     }
 
 }

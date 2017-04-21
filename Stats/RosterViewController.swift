@@ -80,17 +80,6 @@ class RosterViewController: Component, AutoStoryboardInitializable {
 
 extension RosterViewController {
     
-    fileprivate func modalPresenter(transitionType: TransitionType = .coverHorizontalFromRight) -> Presentr {
-        let customPresentation = PresentationType.custom(width: .half, height: .half, center: .center)
-        let modalPresentation = PresentationType.popup
-        
-        let presentationType = UIDevice.current.userInterfaceIdiom == .pad ? customPresentation : modalPresentation
-        let presenter = Presentr(presentationType: presentationType)
-        presenter.transitionType = transitionType
-        presenter.dismissTransitionType = TransitionType.coverHorizontalFromRight
-        return presenter
-    }
-    
     fileprivate func player(at indexPath: IndexPath) -> Player {
         if indexPath.section == 1 {
             return benchedPlayers[indexPath.row]

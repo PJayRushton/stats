@@ -107,17 +107,11 @@ class GameCreationViewController: Component, AutoStoryboardInitializable {
 extension GameCreationViewController {
     
     fileprivate func setUpSegmentedControls() {
-        homeAwaySegControl.titles = ["Home", "Away"]
-        homeAwaySegControl.titleFont = FontType.lemonMilk.font(withSize: 14)
-        homeAwaySegControl.selectedTitleFont = FontType.lemonMilk.font(withSize: 16)
-        homeAwaySegControl.titleColor = .gray400
-        homeAwaySegControl.indicatorViewBackgroundColor = .secondaryAppColor
-
-        regSeasonSegControl.titles = ["Regular Season", "Post Season"]
-        regSeasonSegControl.titleFont = FontType.lemonMilk.font(withSize: 14)
-        regSeasonSegControl.selectedTitleFont = FontType.lemonMilk.font(withSize: 16)
-        regSeasonSegControl.titleColor = .gray400
-        regSeasonSegControl.indicatorViewBackgroundColor = .secondaryAppColor
+        let homeAwayTitles = ["Home", "Away"]
+        homeAwaySegControl.setUp(with: homeAwayTitles)
+        
+        let regSeasonTitles = ["Regular Season", "Post Season"]
+        regSeasonSegControl.setUp(with: regSeasonTitles)
     }
 
     fileprivate func setUpDatePicker() {

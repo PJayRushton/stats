@@ -48,7 +48,7 @@ struct Game: Identifiable, Unmarshaling {
     var scoreString: String {
         let firstScore = isHome ? opponentScore : score
         let secondScore = isHome ? score : opponentScore
-        return "(\(firstScore) - \(secondScore))"
+        return "\(firstScore) - \(secondScore)"
     }
     
     var status: String {

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Hhr-ev-fTh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Hhr-ev-fTh">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -28,18 +28,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="xz9-1y-zVm">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xz9-1y-zVm">
                                 <rect key="frame" x="0.0" y="36" width="375" height="464"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aet-91-cO3" customClass="AtBatButton" customModule="Stats" customModuleProvider="target">
-                                        <rect key="frame" x="162.5" y="0.0" width="50" height="50"/>
-                                        <color key="backgroundColor" red="0.65268194680000002" green="0.77056586739999999" blue="0.27349492910000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x4Y-ev-Yur">
+                                        <rect key="frame" x="151.5" y="0.0" width="72" height="16"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="XPu-xQ-sNQ"/>
+                                            <constraint firstAttribute="height" constant="16" id="J36-Zg-2oe"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GP8-eV-dV0">
+                                        <rect key="frame" x="0.0" y="24" width="375" height="8"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="8" id="DkK-I5-xA3"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aet-91-cO3" customClass="AtBatButton" customModule="Stats" customModuleProvider="target">
+                                        <rect key="frame" x="157.5" y="40" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="XPu-xQ-sNQ"/>
                                             <constraint firstAttribute="width" secondItem="aet-91-cO3" secondAttribute="height" id="Yiz-tg-4BV"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="18"/>
-                                        <state key="normal" title="2B">
+                                        <state key="normal" image="double">
                                             <color key="titleColor" red="0.32156862745098036" green="0.34901960784313724" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -47,30 +61,26 @@
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="25n-5K-B3x" userLabel="3b 1b stack">
-                                        <rect key="frame" x="75" y="74" width="225" height="50"/>
+                                        <rect key="frame" x="94" y="108" width="187.5" height="60"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="38c-Qz-rYm" customClass="AtBatButton" customModule="Stats" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                <color key="backgroundColor" red="0.65268194680000002" green="0.77056586739999999" blue="0.27349492910000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="38c-Qz-rYm" customClass="AtBatButton" customModule="Stats" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="38c-Qz-rYm" secondAttribute="height" id="7lq-gZ-Nqt"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="18"/>
-                                                <state key="normal" title="3B">
+                                                <state key="normal" image="triple">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="resultButtonPressed:" destination="Hhr-ev-fTh" eventType="touchUpInside" id="ren-Jq-xXJ"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1AZ-hK-u4a" customClass="AtBatButton" customModule="Stats" customModuleProvider="target">
-                                                <rect key="frame" x="175" y="0.0" width="50" height="50"/>
-                                                <color key="backgroundColor" red="0.65268194680000002" green="0.77056586739999999" blue="0.27349492910000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1AZ-hK-u4a" customClass="AtBatButton" customModule="Stats" customModuleProvider="target">
+                                                <rect key="frame" x="127.5" y="0.0" width="60" height="60"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="1AZ-hK-u4a" secondAttribute="height" id="ImM-XK-l8e"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="18"/>
-                                                <state key="normal" title="1B">
+                                                <state key="normal" image="single">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -79,42 +89,39 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L10-Sc-SsQ" customClass="AtBatButton" customModule="Stats" customModuleProvider="target">
-                                        <rect key="frame" x="162.5" y="148" width="50" height="50"/>
-                                        <color key="backgroundColor" red="0.65268194680000002" green="0.77056586739999999" blue="0.27349492910000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L10-Sc-SsQ" customClass="AtBatButton" customModule="Stats" customModuleProvider="target">
+                                        <rect key="frame" x="157.5" y="176" width="60" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="L10-Sc-SsQ" secondAttribute="height" id="LA9-tQ-SoS"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="18"/>
-                                        <state key="normal" title="HR">
+                                        <state key="normal" image="hr">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="resultButtonPressed:" destination="Hhr-ev-fTh" eventType="touchUpInside" id="m4w-fP-5Ax"/>
                                         </connections>
                                     </button>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="2Da-fR-7gg" userLabel="k out stack">
-                                        <rect key="frame" x="19" y="222" width="337.5" height="50"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="2Da-fR-7gg" userLabel="k out stack">
+                                        <rect key="frame" x="56.5" y="244" width="262.5" height="40"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ay4-aH-TVW" customClass="AtBatButton" customModule="Stats" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="80" height="50"/>
-                                                <color key="backgroundColor" red="0.65268194680000002" green="0.77056586739999999" blue="0.27349492910000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="18"/>
-                                                <state key="normal" title="K">
+                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ay4-aH-TVW" customClass="AtBatButton" customModule="Stats" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="60" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="Ay4-aH-TVW" secondAttribute="height" multiplier="3/2" id="ILd-iZ-ccu"/>
+                                                </constraints>
+                                                <state key="normal" image="k">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="resultButtonPressed:" destination="Hhr-ev-fTh" eventType="touchUpInside" id="mjj-X7-NTU"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lck-Lo-UDN" customClass="AtBatButton" customModule="Stats" customModuleProvider="target">
-                                                <rect key="frame" x="257.5" y="0.0" width="80" height="50"/>
-                                                <color key="backgroundColor" red="0.65268194680000002" green="0.77056586739999999" blue="0.27349492910000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lck-Lo-UDN" customClass="AtBatButton" customModule="Stats" customModuleProvider="target">
+                                                <rect key="frame" x="202.5" y="0.0" width="60" height="40"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="80" id="sOz-ui-IaY"/>
+                                                    <constraint firstAttribute="width" secondItem="Lck-Lo-UDN" secondAttribute="height" multiplier="3/2" id="xpb-cM-sI3"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="18"/>
-                                                <state key="normal" title="Out/FC">
+                                                <state key="normal" image="out">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -123,27 +130,27 @@
                                             </button>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="Lck-Lo-UDN" firstAttribute="width" secondItem="Ay4-aH-TVW" secondAttribute="width" id="MpI-to-ICJ"/>
+                                            <constraint firstAttribute="height" constant="40" id="wYx-Nx-4HE"/>
                                         </constraints>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hML-qF-cSg" userLabel="Spacer view">
-                                        <rect key="frame" x="37.5" y="296" width="300" height="16"/>
+                                        <rect key="frame" x="37.5" y="292" width="300" height="16"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="bXE-Zp-set"/>
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="QQ4-ef-Bh8" userLabel="rbis stack">
-                                        <rect key="frame" x="16" y="336" width="343" height="30"/>
+                                        <rect key="frame" x="16" y="316" width="343" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="RBIs:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exg-aX-EEf">
-                                                <rect key="frame" x="0.0" y="0.0" width="43.5" height="30"/>
-                                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="18"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
+                                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XR1-0e-nT5" customClass="BetterSegmentedControl" customModule="BetterSegmentedControl">
-                                                <rect key="frame" x="59.5" y="0.0" width="283.5" height="30"/>
+                                                <rect key="frame" x="62" y="0.0" width="281" height="30"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="znP-1p-i0X"/>
@@ -153,9 +160,12 @@
                                                 </connections>
                                             </view>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="9K5-DK-6yH"/>
+                                        </constraints>
                                     </stackView>
                                     <view contentMode="scaleToFill" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="W80-IN-kct" userLabel="Spacer view">
-                                        <rect key="frame" x="37.5" y="390" width="300" height="0.0"/>
+                                        <rect key="frame" x="37.5" y="354" width="300" height="52"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="XuV-qA-7Qf" userLabel="Bottom stack">
@@ -196,7 +206,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="re8-1O-Nog" customClass="CustomButton" customModule="Stats" customModuleProvider="target">
                                                 <rect key="frame" x="260.5" y="0.0" width="114.5" height="50"/>
-                                                <color key="backgroundColor" red="0.65268194680000002" green="0.77056586739999999" blue="0.27349492910000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.65098039215686276" green="0.76862745098039209" blue="0.27450980392156865" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="avX-7e-eZ8"/>
                                                 </constraints>
@@ -218,14 +228,13 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="38c-Qz-rYm" firstAttribute="height" secondItem="aet-91-cO3" secondAttribute="height" id="4If-bq-IX0"/>
-                                    <constraint firstItem="2Da-fR-7gg" firstAttribute="width" secondItem="xz9-1y-zVm" secondAttribute="width" multiplier="0.9" id="Gou-a7-sKO"/>
+                                    <constraint firstItem="2Da-fR-7gg" firstAttribute="width" secondItem="xz9-1y-zVm" secondAttribute="width" multiplier="0.7" id="Gou-a7-sKO"/>
                                     <constraint firstItem="XuV-qA-7Qf" firstAttribute="width" secondItem="xz9-1y-zVm" secondAttribute="width" id="JL3-cN-b1z"/>
-                                    <constraint firstItem="Lck-Lo-UDN" firstAttribute="height" secondItem="aet-91-cO3" secondAttribute="height" id="Lb6-s8-H8G"/>
-                                    <constraint firstItem="Ay4-aH-TVW" firstAttribute="height" secondItem="aet-91-cO3" secondAttribute="height" id="NhD-zC-rti"/>
                                     <constraint firstItem="1AZ-hK-u4a" firstAttribute="height" secondItem="aet-91-cO3" secondAttribute="height" id="Qzg-Ql-xSK"/>
                                     <constraint firstItem="L10-Sc-SsQ" firstAttribute="height" secondItem="aet-91-cO3" secondAttribute="height" id="Vvx-2B-VB1"/>
                                     <constraint firstItem="QQ4-ef-Bh8" firstAttribute="width" secondItem="xz9-1y-zVm" secondAttribute="width" constant="-32" id="cCj-1z-Lv2"/>
-                                    <constraint firstItem="25n-5K-B3x" firstAttribute="width" secondItem="xz9-1y-zVm" secondAttribute="width" multiplier="0.6" id="gJJ-g9-uJQ"/>
+                                    <constraint firstItem="GP8-eV-dV0" firstAttribute="width" secondItem="xz9-1y-zVm" secondAttribute="width" id="dMr-9w-gni"/>
+                                    <constraint firstItem="25n-5K-B3x" firstAttribute="width" secondItem="xz9-1y-zVm" secondAttribute="width" multiplier="0.5" id="gJJ-g9-uJQ"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -244,6 +253,7 @@
                         <outlet property="doubleButton" destination="aet-91-cO3" id="a9B-T7-SxQ"/>
                         <outlet property="hrButton" destination="L10-Sc-SsQ" id="s5g-SK-iKA"/>
                         <outlet property="outButton" destination="Lck-Lo-UDN" id="eYG-xh-nK9"/>
+                        <outlet property="playerLabel" destination="x4Y-ev-Yur" id="rDm-mq-pTD"/>
                         <outlet property="rbisSegControl" destination="XR1-0e-nT5" id="PZ3-1i-umo"/>
                         <outlet property="saveButton" destination="SLb-Bl-f4t" id="lkw-PA-Uxi"/>
                         <outlet property="saveNextButton" destination="re8-1O-Nog" id="n3n-lH-MJh"/>
@@ -257,4 +267,12 @@
             <point key="canvasLocation" x="-54.399999999999999" y="256.37181409295357"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="double" width="122" height="122"/>
+        <image name="hr" width="100" height="100"/>
+        <image name="k" width="88" height="88"/>
+        <image name="out" width="113" height="88"/>
+        <image name="single" width="122" height="122"/>
+        <image name="triple" width="122" height="122"/>
+    </resources>
 </document>

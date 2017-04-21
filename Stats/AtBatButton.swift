@@ -13,7 +13,7 @@ class AtBatButton: UIButton {
     var code: AtBatCode! {
         didSet {
             setImage(code.image, for: .normal)
-            setImage(code.selectedImage, for: .selected)
+            setImage(code.selectedImage, for: .selected)
         }
     }
     

@@ -118,7 +118,7 @@ extension GameViewController {
         guard let currentPlayer = core.state.gameState.currentPlayer,
             let index = game.lineupIds.index(of: currentPlayer.id),
             playerPickerView.selectedItem != index else { return }
-        playerPickerView.scrollToItem(index, animated: true)
+        playerPickerView.selectItem(index, animated: true, notifySelection: true)
     }
     
     fileprivate func updateInning(_ inning: Int) {
@@ -149,11 +149,12 @@ extension GameViewController {
     
     fileprivate func presentConfirmationAlert() {
         let alert = Presentr.alertViewController(title: "Are you sure?", body: "This cannot be undone")
+        alert.addAction(AlertAction(title: "Cancel 😳", style: .cancel, handler: nil))
         alert.addAction(AlertAction(title: "☠️", style: .destructive, handler: {
             guard let game = self.game else { return }
             self.core.fire(command: DeleteGame(game))
+            _ = self.navigationController?.popToRootViewController(animated: true)
         }))
-            alert.addAction(AlertAction(title: "Cancel 😳", style: .cancel, handler: nil))
         customPresentViewController(alertPresenter, viewController: alert, animated: true, completion: nil)
     }
     
@@ -209,15 +210,21 @@ extension GameViewController: AKPickerViewDelegate, AKPickerViewDataSource {
     }
     
     func numberOfItemsInPickerView(_ pickerView: AKPickerView) -> Int {
-        return gamePlayers.count
+        return gamePlayers.count + 1
     }
     
     func pickerView(_ pickerView: AKPickerView, titleForItem item: Int) -> String {
-        return gamePlayers[item].name
+        var names = gamePlayers.map { $0.name }
+        names.append("⬅️")
+        return names[item]
     }
     
     func pickerView(_ pickerView: AKPickerView, didSelectItem item: Int) {
-        core.fire(event: Selected<Player>(gamePlayers[item]))
+        if item == gamePlayers.count {
+            pickerView.selectItem(0, animated: true, notifySelection: true)
+        } else {
+            core.fire(event: Selected<Player>(gamePlayers[item]))
+        }
     }
     
 }

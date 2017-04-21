@@ -33,7 +33,6 @@
 		A14B64EE1E8D662900CBDE92 /* TeamCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B64ED1E8D662900CBDE92 /* TeamCreationViewController.swift */; };
 		A14B64F01E8D67A100CBDE92 /* SaveTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B64EF1E8D67A100CBDE92 /* SaveTeam.swift */; };
 		A14B64F21E8D696800CBDE92 /* AddTeamToUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B64F11E8D696800CBDE92 /* AddTeamToUser.swift */; };
-		A14B64F41E8E04CA00CBDE92 /* GetUserTeams.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B64F31E8E04CA00CBDE92 /* GetUserTeams.swift */; };
 		A14B64F61E8E0E5400CBDE92 /* FirebaseNetworkAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B64F51E8E0E5400CBDE92 /* FirebaseNetworkAccess.swift */; };
 		A14B64F81E8E9D2300CBDE92 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A14B64F71E8E9D2300CBDE92 /* GoogleService-Info.plist */; };
 		A14B64FA1E8EB95600CBDE92 /* Firebase+St@ts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B64F91E8EB95600CBDE92 /* Firebase+St@ts.swift */; };
@@ -164,7 +163,6 @@
 		A14B64ED1E8D662900CBDE92 /* TeamCreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamCreationViewController.swift; sourceTree = "<group>"; };
 		A14B64EF1E8D67A100CBDE92 /* SaveTeam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveTeam.swift; sourceTree = "<group>"; };
 		A14B64F11E8D696800CBDE92 /* AddTeamToUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTeamToUser.swift; sourceTree = "<group>"; };
-		A14B64F31E8E04CA00CBDE92 /* GetUserTeams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUserTeams.swift; sourceTree = "<group>"; };
 		A14B64F51E8E0E5400CBDE92 /* FirebaseNetworkAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseNetworkAccess.swift; sourceTree = "<group>"; };
 		A14B64F71E8E9D2300CBDE92 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A14B64F91E8EB95600CBDE92 /* Firebase+St@ts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Firebase+St@ts.swift"; sourceTree = "<group>"; };
@@ -303,7 +301,6 @@
 				A17EF6C91E94040D00DEE4ED /* DeleteObject.swift */,
 				A16D416C1E97364300DE01D4 /* DeleteTeam.swift */,
 				A1BF9C451E8B22B2007341EA /* GetCurrentUser.swift */,
-				A14B64F31E8E04CA00CBDE92 /* GetUserTeams.swift */,
 				A179996F1E82B67C0058A002 /* LoadICloudUser.swift */,
 				A17999711E82B6930058A002 /* SaveNewUser.swift */,
 				A14B64EF1E8D67A100CBDE92 /* SaveTeam.swift */,
@@ -753,7 +750,6 @@
 				A17EF6C01E93256000DEE4ED /* TouchObject.swift in Sources */,
 				A14B64DF1E8D3EC200CBDE92 /* UIViewControllerExtensions.swift in Sources */,
 				A1CD9A101E8A9ABC00D3C8F7 /* SeasonState.swift in Sources */,
-				A14B64F41E8E04CA00CBDE92 /* GetUserTeams.swift in Sources */,
 				A16D41771E97D1D500DE01D4 /* PlayerCell.swift in Sources */,
 				A1CD9A1E1E8ABBBC00D3C8F7 /* Arrays.swift in Sources */,
 				A17EF6C81E93FC6D00DEE4ED /* CreateSeason.swift in Sources */,

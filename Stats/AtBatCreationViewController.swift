@@ -37,10 +37,15 @@ class AtBatCreationViewController: Component, AutoStoryboardInitializable {
     fileprivate var player: Player? {
         return core.state.gameState.currentPlayer
     }
-
-    lazy var newAtBatRef: FIRDatabaseReference = {
-        return StatsRefs.atBatsRef(teamId: App.core.state.teamState.currentTeam!.id).childByAutoId()
-    }()
+    fileprivate var saveIsEnabled = true {
+        didSet {
+            saveButton.isEnabled = saveIsEnabled
+            saveNextButton.isEnabled = saveIsEnabled
+        }
+    }
+    var newAtBatRef: FIRDatabaseReference {
+        return StatsRefs.atBatsRef(teamId: core.state.teamState.currentTeam!.id).childByAutoId()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -113,8 +118,11 @@ extension AtBatCreationViewController {
     
     fileprivate func saveAtBat(next: Bool) {
         guard let atBat = constructedAtBat() else { print("Could not construct at bat"); return }
+        saveIsEnabled = false
         let updateCommand = UpdateObject(atBat) { success in
+            self.saveIsEnabled = true
             guard success else { return }
+            
             DispatchQueue.main.async {
                 self.updateGameScore(atBat: atBat)
                 
@@ -137,6 +145,7 @@ extension AtBatCreationViewController {
             nextPlayerId = currentGame.lineupIds[index + 1]
         }
         guard let nextPlayer = nextPlayerId?.statePlayer else { return }
+        print("Selecting player: \(nextPlayer)")
         core.fire(event: Selected<Player>(nextPlayer))
     }
     

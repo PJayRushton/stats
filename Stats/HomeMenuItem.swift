@@ -37,6 +37,21 @@ enum HomeMenuItem: Int {
         }
     }
     
+    var emoji: String {
+        switch self {
+        case .newGame:
+            return "➕"
+        case .stats:
+            return "🏆"
+        case .games:
+            return "⚾️"
+        case .roster:
+            return "👕"
+        case .share:
+            return "✉️"
+        }
+    }
+    
     var image: UIImage? {
         switch self {
         case .newGame:
@@ -55,15 +70,15 @@ enum HomeMenuItem: Int {
     var backgroundColor: UIColor {
         switch self {
         case .newGame:
-            return UIColor.flatBlue
+            return UIColor.flatSkyBlue
         case .stats:
             return UIColor.flatRed
         case .games:
-            return UIColor.flatYellow
+            return UIColor.flatLime
         case .roster:
             return UIColor.flatTeal
         case .share:
-            return UIColor.flatGreen
+            return UIColor.flatOrange
         }
     }
     

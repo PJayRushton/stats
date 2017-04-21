@@ -11,12 +11,12 @@ import UIKit
 class HomeCollectionViewCell: UICollectionViewCell, AutoReuseIdentifiable {
     
     @IBOutlet weak var colorView: UIView!
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var emojiLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     
     func update(with menuItem: HomeMenuItem ) {
         colorView.backgroundColor = menuItem.backgroundColor
-        imageView.image = menuItem.image
+        emojiLabel.text = menuItem.emoji
         titleLabel.text = menuItem.title
     }
     

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -55,14 +55,21 @@
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="LCM-ht-SLT">
                                                                     <rect key="frame" x="16" y="38.5" width="355" height="230"/>
                                                                     <subviews>
-                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WcZ-6I-RqR">
-                                                                            <rect key="frame" x="109" y="0.0" width="137" height="137.5"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="⚾️" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dAi-Cz-zGk">
+                                                                            <rect key="frame" x="101" y="0.0" width="153.5" height="153.5"/>
+                                                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                             <constraints>
-                                                                                <constraint firstAttribute="width" secondItem="WcZ-6I-RqR" secondAttribute="height" id="7Wn-ht-580"/>
+                                                                                <constraint firstAttribute="width" secondItem="dAi-Cz-zGk" secondAttribute="height" id="9yI-qb-Ey3"/>
                                                                             </constraints>
-                                                                        </imageView>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="kqr-GQ-twJ">
-                                                                            <rect key="frame" x="148" y="203" width="59.5" height="27"/>
+                                                                            <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="60"/>
+                                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="kqr-GQ-twJ">
+                                                                            <rect key="frame" x="156.5" y="190" width="42.5" height="40"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="40" id="0tH-hL-wHp"/>
+                                                                            </constraints>
                                                                             <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="20"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                             <nil key="highlightedColor"/>
@@ -71,14 +78,12 @@
                                                                             </variation>
                                                                         </label>
                                                                     </subviews>
-                                                                    <constraints>
-                                                                        <constraint firstItem="WcZ-6I-RqR" firstAttribute="height" secondItem="LCM-ht-SLT" secondAttribute="height" multiplier="0.6" id="tje-XX-DCX"/>
-                                                                    </constraints>
                                                                 </stackView>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                                             <gestureRecognizers/>
                                                             <constraints>
+                                                                <constraint firstItem="dAi-Cz-zGk" firstAttribute="height" secondItem="q5z-lF-WpD" secondAttribute="height" multiplier="0.5" id="LHb-iz-mak"/>
                                                                 <constraint firstItem="LCM-ht-SLT" firstAttribute="height" secondItem="q5z-lF-WpD" secondAttribute="height" multiplier="0.75" id="ODZ-Fs-2Xd"/>
                                                                 <constraint firstItem="LCM-ht-SLT" firstAttribute="leading" secondItem="q5z-lF-WpD" secondAttribute="leadingMargin" constant="8" id="W9L-H6-JBi"/>
                                                                 <constraint firstAttribute="trailingMargin" secondItem="LCM-ht-SLT" secondAttribute="trailing" constant="8" id="Y9T-TN-XWi"/>
@@ -95,7 +100,7 @@
                                                 </constraints>
                                                 <connections>
                                                     <outlet property="colorView" destination="q5z-lF-WpD" id="vkW-OA-jWk"/>
-                                                    <outlet property="imageView" destination="WcZ-6I-RqR" id="nYU-Ns-2od"/>
+                                                    <outlet property="emojiLabel" destination="dAi-Cz-zGk" id="ZEk-tB-0Gr"/>
                                                     <outlet property="titleLabel" destination="kqr-GQ-twJ" id="1eF-NJ-ftM"/>
                                                 </connections>
                                             </collectionViewCell>

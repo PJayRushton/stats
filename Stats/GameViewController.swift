@@ -124,21 +124,27 @@ extension GameViewController {
     fileprivate func updateInning(_ inning: Int) {
         guard var updatedGame = game else { return }
         updatedGame.inning = inning
-        core.fire(command: UpdateObject(object: updatedGame))
+        core.fire(command: UpdateObject(updatedGame))
     }
     
     fileprivate func showOptionsForGame() {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Edit Game ✏️", style: .default, handler: { _ in
-            let gameCreationVC = GameCreationViewController.initializeFromStoryboard()
-            gameCreationVC.editingGame = self.game
-            self.customPresentViewController(self.modalPresenter(), viewController: gameCreationVC, animated: true, completion: nil)
+            self.presentGameEditVC()
         }))
         alert.addAction(UIAlertAction(title: "Delete game ☠️", style: .destructive, handler: { _ in
             self.presentConfirmationAlert()
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
+    }
+    
+    fileprivate func presentGameEditVC() {
+        let gameCreationVC = GameCreationViewController.initializeFromStoryboard()
+        gameCreationVC.editingGame = self.game
+        let gameCreationNav = gameCreationVC.embededInNavigationController
+        gameCreationVC.modalPresentationStyle = .overFullScreen
+        present(gameCreationNav, animated: true, completion: nil)
     }
     
     fileprivate func presentConfirmationAlert() {

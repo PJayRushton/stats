@@ -175,7 +175,7 @@ extension PlayerCreationViewController {
     
     fileprivate func savePlayer(_ player: Player, add: Bool) {
         if let _ = editingPlayer {
-            core.fire(command: UpdateObject(object: player))
+            core.fire(command: UpdateObject(player))
             dismiss(animated: true, completion: nil)
         } else {
             core.fire(command: CreatePlayer(player))

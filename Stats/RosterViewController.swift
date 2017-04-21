@@ -70,8 +70,13 @@ class RosterViewController: Component, AutoStoryboardInitializable {
     
     override func update(with state: AppState) {
         navigationController?.navigationBar.barTintColor = state.currentMenuItem?.backgroundColor
-        guard let team = state.teamState.currentTeam, !isLineup else { tableView.reloadData(); return }
-        orderedPlayers = core.state.playerState.players(for: team)
+        guard let team = state.teamState.currentTeam else { tableView.reloadData(); return }
+        if isLineup {
+            let newPlayers = core.state.playerState.players(for: team).filter { !orderedPlayers.contains($0) && !benchedPlayers.contains($0) }
+            benchedPlayers.append(contentsOf: newPlayers)
+        } else {
+            orderedPlayers = core.state.playerState.players(for: team)
+        }
         tableView.reloadData()
     }
     
@@ -144,7 +149,7 @@ extension RosterViewController {
             guard player.order != index else { continue }
             var updatedPlayer = player
             updatedPlayer.order = index
-            core.fire(command: UpdateObject(object: updatedPlayer))
+            core.fire(command: UpdateObject(updatedPlayer))
         }
     }
     

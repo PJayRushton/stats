@@ -168,11 +168,11 @@
                                         <rect key="frame" x="37.5" y="354" width="300" height="52"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="XuV-qA-7Qf" userLabel="Bottom stack">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="XuV-qA-7Qf" userLabel="Bottom stack">
                                         <rect key="frame" x="0.0" y="414" width="375" height="50"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ryf-Qd-WIv">
-                                                <rect key="frame" x="0.0" y="0.0" width="114.5" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="125" height="50"/>
                                                 <color key="backgroundColor" red="0.74509803919999995" green="0.2274509804" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="q6O-qb-zYM"/>
@@ -186,7 +186,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SLb-Bl-f4t" customClass="CustomButton" customModule="Stats" customModuleProvider="target">
-                                                <rect key="frame" x="130.5" y="0.0" width="114" height="50"/>
+                                                <rect key="frame" x="125" y="0.0" width="125" height="50"/>
                                                 <color key="backgroundColor" red="0.65268194680000002" green="0.77056586739999999" blue="0.27349492910000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="i5O-Ux-ZjH"/>
@@ -205,7 +205,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="re8-1O-Nog" customClass="CustomButton" customModule="Stats" customModuleProvider="target">
-                                                <rect key="frame" x="260.5" y="0.0" width="114.5" height="50"/>
+                                                <rect key="frame" x="250" y="0.0" width="125" height="50"/>
                                                 <color key="backgroundColor" red="0.65098039215686276" green="0.76862745098039209" blue="0.27450980392156865" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="avX-7e-eZ8"/>

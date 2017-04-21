@@ -34,7 +34,7 @@ struct DeleteTeam: Command {
                 // Delete team from user team lists
                 if var user = state.userState.currentUser {
                     user.ownedTeamIds.remove(self.team.id)
-                    core.fire(command: UpdateObject(object: user))
+                    core.fire(command: UpdateObject(user))
                 }
                 
                 //Delete image

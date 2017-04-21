@@ -144,7 +144,7 @@ extension TeamCreationViewController {
     fileprivate func saveSeason() {
         guard let seasonName = seasonTextField.text else { return }
         let newSeason = Season(id: newRefs.seasonRef.key, name: seasonName, teamId: newRefs.teamRef.key)
-        core.fire(command: UpdateObject(object: newSeason))
+        core.fire(command: UpdateObject(newSeason))
     }
     
     fileprivate func updateUI(with team: Team?) {

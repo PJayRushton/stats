@@ -113,15 +113,20 @@ extension AtBatCreationViewController {
     
     fileprivate func saveAtBat(next: Bool) {
         guard let atBat = constructedAtBat() else { print("Could not construct at bat"); return }
-        core.fire(command: UpdateObject(object: atBat))
-        updateGameScore(atBat: atBat)
-
-        if next {
-            clear()
-            moveToNextBatter()
-        } else {
-            dismiss(animated: true, completion: nil)
+        let updateCommand = UpdateObject(atBat) { success in
+            guard success else { return }
+            DispatchQueue.main.async {
+                self.updateGameScore(atBat: atBat)
+                
+                if next {
+                    self.clear()
+                    self.moveToNextBatter()
+                } else {
+                    self.dismiss(animated: true, completion: nil)
+                }
+            }
         }
+        core.fire(command: updateCommand)
     }
     
     fileprivate func moveToNextBatter() {
@@ -136,12 +141,16 @@ extension AtBatCreationViewController {
     }
     
     fileprivate func constructedAtBat() -> AtBat? {
-        let id = editingAtBat?.ref.key ?? newAtBatRef.key
-        guard let game = core.state.gameState.currentGame else { return nil }
-        guard let player = player else { return nil }
-        guard let team = core.state.teamState.currentTeam else { return nil }
-        guard let seasonId = team.currentSeasonId else { return nil }
-        return AtBat(id: id, gameId: game.id, playerId: player.id, rbis: rbis, resultCode: currentAtBatResult, seasonId: seasonId, teamId: team.id)
+        if let editingAtBat = editingAtBat {
+            return AtBat(id: editingAtBat.id, gameId: editingAtBat.gameId, playerId: editingAtBat.playerId, rbis: rbis, resultCode: currentAtBatResult, seasonId: editingAtBat.seasonId, teamId: editingAtBat.teamId)
+        } else {
+            let id = newAtBatRef.key
+            guard let game = core.state.gameState.currentGame else { return nil }
+            guard let player = player else { return nil }
+            guard let team = core.state.teamState.currentTeam else { return nil }
+            guard let seasonId = team.currentSeasonId else { return nil }
+            return AtBat(id: id, gameId: game.id, playerId: player.id, rbis: rbis, resultCode: currentAtBatResult, seasonId: seasonId, teamId: team.id)
+        }
     }
     
     fileprivate func clear() {
@@ -156,7 +165,7 @@ extension AtBatCreationViewController {
         alert.addAction(AlertAction(title: "Cancel 😳", style: .cancel, handler: nil))
         alert.addAction(AlertAction(title: "☠️", style: .destructive, handler: {
             self.core.fire(command: DeleteObject(object: editingAtBat))
-            self.updateGameScore(atBat: editingAtBat)
+            self.updateGameScore(atBat: editingAtBat, delete: true)
             self.dismiss(animated: true, completion: {
                 self.dismiss(animated: true, completion: nil)
             })
@@ -164,10 +173,11 @@ extension AtBatCreationViewController {
         customPresentViewController(alertPresenter, viewController: alert, animated: true, completion: nil)
     }
     
-    fileprivate func updateGameScore(atBat: AtBat) {
+    fileprivate func updateGameScore(atBat: AtBat, delete: Bool = false) {
         guard var updatedScoreGame = core.state.gameState.currentGame else { return }
-        updatedScoreGame.score += atBat.rbis
-        core.fire(command: UpdateObject(object: updatedScoreGame))
+        let newScore = delete ? updatedScoreGame.score - atBat.rbis : updatedScoreGame.score + atBat.rbis
+        updatedScoreGame.score = newScore
+        core.fire(command: UpdateObject(updatedScoreGame))
     }
     
 }

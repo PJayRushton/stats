@@ -128,6 +128,7 @@
 		A1D8054C1E89870B0072AA49 /* UsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D8054B1E89870B0072AA49 /* UsernameViewController.swift */; };
 		A1DC99D31E7E3E4500C6FF8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DC99D21E7E3E4500C6FF8C /* AppDelegate.swift */; };
 		A1DC99DA1E7E3E4500C6FF8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1DC99D91E7E3E4500C6FF8C /* Assets.xcassets */; };
+		A1E5AE5D1EAA59C70046131B /* Chameleon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E5AE5C1EAA59C70046131B /* Chameleon.swift */; };
 		A1F959341E8953440087B040 /* Season.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F959331E8953440087B040 /* Season.swift */; };
 		A1F959391E8959C60087B040 /* LemonMilk.otf in Resources */ = {isa = PBXBuildFile; fileRef = A1F959381E8959C60087B040 /* LemonMilk.otf */; };
 		E550D9575E4FFE68382F160D /* Pods_Stats.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 097AB2DA5C7A85576113EB29 /* Pods_Stats.framework */; };
@@ -262,6 +263,7 @@
 		A1DC99D21E7E3E4500C6FF8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1DC99D91E7E3E4500C6FF8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1DC99DE1E7E3E4500C6FF8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1E5AE5C1EAA59C70046131B /* Chameleon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chameleon.swift; sourceTree = "<group>"; };
 		A1F959331E8953440087B040 /* Season.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Season.swift; sourceTree = "<group>"; };
 		A1F959381E8959C60087B040 /* LemonMilk.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LemonMilk.otf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -345,6 +347,7 @@
 				A16D41831E9838FD00DE01D4 /* ApplyShadow.swift */,
 				A179997F1E82B95E0058A002 /* Arrays.swift */,
 				A1ABAFFA1EA9463900B28A46 /* AtBatButton.swift */,
+				A1E5AE5C1EAA59C70046131B /* Chameleon.swift */,
 				A1A2C35D1E8BF3680008274F /* Component.swift */,
 				A1398B491EA7097700A4B830 /* CustomButton.swift */,
 				A17999811E82B9780058A002 /* DateHelper.swift */,
@@ -755,6 +758,7 @@
 				A1CD9A1E1E8ABBBC00D3C8F7 /* Arrays.swift in Sources */,
 				A17EF6C81E93FC6D00DEE4ED /* CreateSeason.swift in Sources */,
 				A17999701E82B67C0058A002 /* LoadICloudUser.swift in Sources */,
+				A1E5AE5D1EAA59C70046131B /* Chameleon.swift in Sources */,
 				A1CD9A121E8A9C2400D3C8F7 /* AtBatState.swift in Sources */,
 				A1A2C35E1E8BF3680008274F /* Component.swift in Sources */,
 				A17EF6D01E941D8700DEE4ED /* SubscribeToTeam.swift in Sources */,

@@ -34,13 +34,13 @@
                                         <rect key="frame" x="19" y="0.0" width="337.5" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OP" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="2W3-Nk-rAB">
-                                                <rect key="frame" x="0.0" y="0.0" width="101" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="101.5" height="50"/>
                                                 <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="SPf-WQ-mH5" customClass="LTMorphingLabel" customModule="LTMorphingLabel">
-                                                <rect key="frame" x="117" y="0.0" width="102.5" height="50"/>
+                                                <rect key="frame" x="117.5" y="0.0" width="102" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="J5y-mq-mNo"/>
                                                 </constraints>
@@ -90,20 +90,42 @@
                                             <constraint firstAttribute="height" constant="30" id="Ijm-Xd-0Vf"/>
                                         </constraints>
                                     </stackView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uF9-DD-9dm" customClass="AKPickerView" customModule="Stats" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="112" width="375" height="36"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Oa-dL-ZFd">
+                                        <rect key="frame" x="0.0" y="112" width="375" height="42"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uF9-DD-9dm" customClass="AKPickerView" customModule="Stats" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="0.0" width="343" height="36"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="36" id="DWe-wJ-exw"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="interitemSpacing">
+                                                        <real key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2YA-ge-deC" userLabel="Line view">
+                                                <rect key="frame" x="147" y="40" width="80" height="2"/>
+                                                <color key="backgroundColor" red="0.9029431939125061" green="0.49502122402191162" blue="0.13090425729751587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="2" id="B14-CU-oGb"/>
+                                                    <constraint firstAttribute="width" constant="80" id="rbq-ok-yWm"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="36" id="DWe-wJ-exw"/>
+                                            <constraint firstAttribute="bottom" secondItem="2YA-ge-deC" secondAttribute="bottom" id="Fd6-Zv-5Fd"/>
+                                            <constraint firstItem="uF9-DD-9dm" firstAttribute="leading" secondItem="2Oa-dL-ZFd" secondAttribute="leading" constant="16" id="HQv-mP-PM4"/>
+                                            <constraint firstAttribute="trailing" secondItem="uF9-DD-9dm" secondAttribute="trailing" constant="16" id="Mgt-II-IYp"/>
+                                            <constraint firstItem="2YA-ge-deC" firstAttribute="centerX" secondItem="2Oa-dL-ZFd" secondAttribute="centerX" id="aGU-Um-cwm"/>
+                                            <constraint firstItem="uF9-DD-9dm" firstAttribute="top" secondItem="2Oa-dL-ZFd" secondAttribute="top" id="gjW-zA-iEC"/>
+                                            <constraint firstItem="2YA-ge-deC" firstAttribute="top" secondItem="uF9-DD-9dm" secondAttribute="bottom" constant="4" id="tw9-7u-z1h"/>
                                         </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="interitemSpacing">
-                                                <real key="value" value="8"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Eej-ST-WO7" customClass="IGListCollectionView">
-                                        <rect key="frame" x="0.0" y="164" width="375" height="415"/>
+                                        <rect key="frame" x="0.0" y="170" width="375" height="409"/>
                                         <color key="backgroundColor" red="0.85490196078431369" green="0.86274509803921573" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8Rr-kv-Tf2">
                                             <size key="itemSize" width="50" height="50"/>
@@ -115,8 +137,8 @@
                                     </collectionView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="2Oa-dL-ZFd" firstAttribute="width" secondItem="9ql-Cu-9WG" secondAttribute="width" id="5gO-hn-2jG"/>
                                     <constraint firstItem="6Mu-gt-bXw" firstAttribute="width" secondItem="9ql-Cu-9WG" secondAttribute="width" multiplier="0.9" id="Zgw-Cn-Pgz"/>
-                                    <constraint firstItem="uF9-DD-9dm" firstAttribute="width" secondItem="9ql-Cu-9WG" secondAttribute="width" id="hAa-hS-T0I"/>
                                     <constraint firstItem="Eej-ST-WO7" firstAttribute="width" secondItem="9ql-Cu-9WG" secondAttribute="width" id="i7D-8a-KZF"/>
                                 </constraints>
                             </stackView>

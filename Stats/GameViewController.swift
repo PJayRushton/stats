@@ -9,6 +9,7 @@
 import UIKit
 import IGListKit
 import LTMorphingLabel
+import Presentr
 
 class GameViewController: Component, AutoStoryboardInitializable {
     
@@ -34,7 +35,7 @@ class GameViewController: Component, AutoStoryboardInitializable {
     }
     var currentAtBats: [AtBat] {
         guard let player = currentPlayer, let game = game else { return [] }
-        return core.state.atBatState.atBats(for: player, in: game)
+        return core.state.atBatState.atBats(for: player, in: game).sorted(by: { $0.creationDate > $1.creationDate })
     }
     
     var game: Game? {
@@ -66,7 +67,7 @@ class GameViewController: Component, AutoStoryboardInitializable {
     }
     
     @IBAction func settingsTapped(_ sender: UIBarButtonItem) {
-        print("You tapped settings. YAY!")
+        showOptionsForGame()
     }
     
     @IBAction func inningArrowPressed(_ sender: UIButton) {
@@ -91,6 +92,9 @@ class GameViewController: Component, AutoStoryboardInitializable {
         if let game = game {
             updateUI(with: game)
             updatePicker(game: game)
+            if scoreLabel.text != "-" {
+                scoreLabel.text = game.scoreString
+            }
         }
         adapter.performUpdates(animated: true)
     }
@@ -123,13 +127,40 @@ extension GameViewController {
         core.fire(command: UpdateObject(object: updatedGame))
     }
     
+    fileprivate func showOptionsForGame() {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Edit Game ✏️", style: .default, handler: { _ in
+            let gameCreationVC = GameCreationViewController.initializeFromStoryboard()
+            gameCreationVC.editingGame = self.game
+            self.customPresentViewController(self.modalPresenter(), viewController: gameCreationVC, animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "Delete game ☠️", style: .destructive, handler: { _ in
+            self.presentConfirmationAlert()
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    fileprivate func presentConfirmationAlert() {
+        let alert = Presentr.alertViewController(title: "Are you sure?", body: "This cannot be undone")
+        alert.addAction(AlertAction(title: "☠️", style: .destructive, handler: {
+            guard let game = self.game else { return }
+            self.core.fire(command: DeleteGame(game))
+        }))
+            alert.addAction(AlertAction(title: "Cancel 😳", style: .cancel, handler: nil))
+        customPresentViewController(alertPresenter, viewController: alert, animated: true, completion: nil)
+    }
+    
 }
 
 
 extension GameViewController: IGListAdapterDataSource {
     
     func objects(for listAdapter: IGListAdapter) -> [IGListDiffable] {
-        var objects: [IGListDiffable] = currentAtBats.map { AtBatSection(atBat: $0) }
+        var objects = [IGListDiffable]()
+        for (index, atBat) in currentAtBats.enumerated() {
+            objects.append(AtBatSection(atBat: atBat, order: currentAtBats.count - index))
+        }
         let newAtBatSection = NewAtBatSection()
         objects.insert(newAtBatSection, at: 0)
         return objects
@@ -164,8 +195,9 @@ extension GameViewController: AKPickerViewDelegate, AKPickerViewDataSource {
     func setUpPickerView() {
         playerPickerView.delegate = self
         playerPickerView.dataSource = self
-        playerPickerView.font = FontType.lemonMilk.font(withSize: 12)
-        playerPickerView.highlightedFont = FontType.lemonMilk.font(withSize: 12)
+        playerPickerView.font = FontType.lemonMilk.font(withSize: 15)
+        playerPickerView.highlightedFont = FontType.lemonMilk.font(withSize: 16)
+        playerPickerView.highlightedTextColor = UIColor.secondaryAppColor
         playerPickerView.interitemSpacing = 32
         playerPickerView.pickerViewStyle = .flat
     }

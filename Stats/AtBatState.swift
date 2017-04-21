@@ -15,8 +15,12 @@ struct AtBatState: State {
     
     var currentResult: AtBatCode? = .single
     
+    func atBats(for game: Game) -> [AtBat] {
+        return allAtBats.filter { $0.gameId == game.id }
+    }
+    
     func atBats(for player: Player, in game: Game) -> [AtBat] {
-        return allAtBats.filter { $0.playerId == player.id && $0.gameId == game.id }.sorted { $0.order > $1.order }
+        return allAtBats.filter { $0.playerId == player.id && $0.gameId == game.id }
     }
     
     mutating func react(to event: Event) {
@@ -25,6 +29,10 @@ struct AtBatState: State {
             currentAtBat = event.item
         case let event as Updated<[AtBat]>:
             allAtBats = Set(event.payload)
+            if let atBat = currentAtBat, let index = event.payload.index(of: atBat) {
+                currentAtBat = event.payload[index]
+            }
+
         case let event as Selected<AtBatCode>:
             currentResult = event.item
         default:

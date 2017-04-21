@@ -38,6 +38,9 @@ struct GameState: State {
             currentGame = event.item
         case let event as Updated<[Game]>:
             allGames = Set(event.payload)
+            if let game = currentGame, let index = event.payload.index(of: game) {
+                currentGame = event.payload[index]
+            }
         case let event as Updated<Game>:
             allGames.remove(event.payload)
             allGames.insert(event.payload)

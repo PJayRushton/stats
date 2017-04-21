@@ -11,9 +11,11 @@ import IGListKit
 class AtBatSection: IGListDiffable {
     
     var atBat: AtBat
+    var order: Int
     
-    init(atBat: AtBat) {
+    init(atBat: AtBat, order: Int) {
         self.atBat = atBat
+        self.order = order
     }
     
     func diffIdentifier() -> NSObjectProtocol {
@@ -23,13 +25,13 @@ class AtBatSection: IGListDiffable {
     func isEqual(toDiffableObject object: IGListDiffable?) -> Bool {
         guard let other = object as? AtBatSection else { return false }
         return atBat == other.atBat &&
-        atBat.gameId == other.atBat.gameId &&
-        atBat.order == other.atBat.order &&
-        atBat.playerId == other.atBat.playerId &&
-        atBat.rbis == other.atBat.rbis &&
-        atBat.resultCode == other.atBat.resultCode &&
-        atBat.seasonId == other.atBat.seasonId &&
-        atBat.teamId == other.atBat.teamId
+            order == other.order &&
+            atBat.gameId == other.atBat.gameId &&
+            atBat.playerId == other.atBat.playerId &&
+            atBat.rbis == other.atBat.rbis &&
+            atBat.resultCode == other.atBat.resultCode &&
+            atBat.seasonId == other.atBat.seasonId &&
+            atBat.teamId == other.atBat.teamId
     }
     
 }
@@ -38,6 +40,11 @@ class AtBatSectionController: IGListSectionController {
     
     var section: AtBatSection!
     var didSelectAtBat: ((AtBat) -> Void) = { _ in }
+    
+    override init() {
+        super.init()
+        inset = UIEdgeInsets(top: 1, left: 0, bottom: 0, right: 0)
+    }
     
 }
 
@@ -54,7 +61,7 @@ extension AtBatSectionController: IGListSectionType {
     
     func cellForItem(at index: Int) -> UICollectionViewCell {
         let cell = collectionContext?.dequeueReusableCell(withNibName: AtBatCell.reuseIdentifier, bundle: nil, for: self, at: index) as! AtBatCell
-        cell.update(with: section.atBat)
+        cell.update(with: section.atBat, order: section.order)
         return cell
     }
     

@@ -14,7 +14,7 @@ class AtBatCell: UICollectionViewCell, AutoReuseIdentifiable {
     @IBOutlet weak var atBatImageView: UIImageView!
     @IBOutlet weak var rbisLabel: UILabel!
     
-    func update(with atBat: AtBat, order: String) {
+    func update(with atBat: AtBat, order: Int) {
         numberLabel.text = "\(order)."
         atBatImageView.image = atBat.resultCode.selectedImage
         

@@ -43,6 +43,7 @@ struct SubscribeToTeam: Command {
 
             switch playersResult {
             case let .success(players):
+                guard self.teamId == core.state.teamState.currentTeam?.id else { return }
                 core.fire(event: Updated<[Player]>(players))
             case let .failure(error):
                 core.fire(event: ErrorEvent(error: error, message: nil))
@@ -58,6 +59,7 @@ struct SubscribeToTeam: Command {
             
             switch gamesResult {
             case let .success(games):
+                guard self.teamId == core.state.teamState.currentTeam?.id else { return }
                 core.fire(event: Updated<[Game]>(games))
             case let .failure(error):
                 core.fire(event: ErrorEvent(error: error, message: nil))
@@ -73,6 +75,7 @@ struct SubscribeToTeam: Command {
             
             switch atBatsResult {
             case let .success(atBats):
+                guard self.teamId == core.state.teamState.currentTeam?.id else { return }
                 core.fire(event: Updated<[AtBat]>(atBats))
             case let .failure(error):
                 core.fire(event: ErrorEvent(error: error, message: nil))

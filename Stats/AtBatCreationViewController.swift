@@ -45,11 +45,11 @@ class AtBatCreationViewController: Component, AutoStoryboardInitializable {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        playerLabel.text = player?.name
         addButtonCodes()
         setUpRBISegControl()
         deleteButton.isHidden = editingAtBat == nil
-
+        updateUI(with: nil)
+        
         if let editingAtBat = editingAtBat {
             update(with: editingAtBat)
         }
@@ -76,6 +76,7 @@ class AtBatCreationViewController: Component, AutoStoryboardInitializable {
     }
     
     override func update(with state: AppState) {
+        playerLabel.text = player?.name
         currentAtBatResult = state.atBatState.currentResult ?? .single
         updateUI(with: state.atBatState.currentResult)
     }
@@ -117,9 +118,21 @@ extension AtBatCreationViewController {
 
         if next {
             clear()
+            moveToNextBatter()
         } else {
             dismiss(animated: true, completion: nil)
         }
+    }
+    
+    fileprivate func moveToNextBatter() {
+        guard let currentGame = core.state.gameState.currentGame, let player = player else { return }
+        var nextPlayerId = currentGame.lineupIds.first
+        
+        if player.id != currentGame.lineupIds.last, let index = currentGame.lineupIds.index(of: player.id) {
+            nextPlayerId = currentGame.lineupIds[index + 1]
+        }
+        guard let nextPlayer = nextPlayerId?.statePlayer else { return }
+        core.fire(event: Selected<Player>(nextPlayer))
     }
     
     fileprivate func constructedAtBat() -> AtBat? {
@@ -128,8 +141,7 @@ extension AtBatCreationViewController {
         guard let player = player else { return nil }
         guard let team = core.state.teamState.currentTeam else { return nil }
         guard let seasonId = team.currentSeasonId else { return nil }
-        let order = core.state.atBatState.atBats(for: player, in: game).count
-        return AtBat(id: id, gameId: game.id, order: order, playerId: player.id, rbis: rbis, resultCode: currentAtBatResult, seasonId: seasonId, teamId: team.id)
+        return AtBat(id: id, gameId: game.id, playerId: player.id, rbis: rbis, resultCode: currentAtBatResult, seasonId: seasonId, teamId: team.id)
     }
     
     fileprivate func clear() {

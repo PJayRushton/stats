@@ -10,6 +10,7 @@ import Foundation
 
 let avatarKey = "avatar"
 let currentSeasonIdKey = "currentSeasonId"
+let creationDateKey = "creationDate"
 let dateKey = "date"
 let emailKey = "email"
 let fanTeamIdsKey = "fanTeamIds"
@@ -46,6 +47,7 @@ let touchDateKey = "touchDate"
 let usernameKey = "username"
 let iCloudIdKey = "iCloudId"
 
+// Refs
 let atBatsRefKey = "atBats"
 let gamesRefKey = "games"
 let playersRefKey = "players"

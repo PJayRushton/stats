@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		364FFAEE1EA9A15600CD26F9 /* EventBetterSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364FFAED1EA9A15600CD26F9 /* EventBetterSegmentedControl.swift */; };
+		364FFAF01EA9F1B000CD26F9 /* DeleteGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364FFAEF1EA9F1B000CD26F9 /* DeleteGame.swift */; };
 		A131CC8E1E8EEE6600A5D66B /* SubscribeToCurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A131CC8D1E8EEE6600A5D66B /* SubscribeToCurrentUser.swift */; };
 		A1398B3F1EA6D3DF00A4B830 /* GameCreationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1398B3D1EA6D3DF00A4B830 /* GameCreationViewController.storyboard */; };
 		A1398B411EA6EB3400A4B830 /* CreateGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1398B401EA6EB3400A4B830 /* CreateGame.swift */; };
@@ -136,6 +137,7 @@
 		097AB2DA5C7A85576113EB29 /* Pods_Stats.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stats.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		23340C3D14A1D9E6B1878846 /* Pods-Stats.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stats.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Stats/Pods-Stats.debug.xcconfig"; sourceTree = "<group>"; };
 		364FFAED1EA9A15600CD26F9 /* EventBetterSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventBetterSegmentedControl.swift; sourceTree = "<group>"; };
+		364FFAEF1EA9F1B000CD26F9 /* DeleteGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteGame.swift; sourceTree = "<group>"; };
 		3EB00BD85F52BB91F956360D /* Pods-Stats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stats.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stats/Pods-Stats.release.xcconfig"; sourceTree = "<group>"; };
 		A131CC8D1E8EEE6600A5D66B /* SubscribeToCurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribeToCurrentUser.swift; sourceTree = "<group>"; };
 		A1398B3E1EA6D3DF00A4B830 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = GameCreationViewController.storyboard; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 				A1398B401EA6EB3400A4B830 /* CreateGame.swift */,
 				A16D417F1E98171600DE01D4 /* CreatePlayer.swift */,
 				A17EF6C71E93FC6D00DEE4ED /* CreateSeason.swift */,
+				364FFAEF1EA9F1B000CD26F9 /* DeleteGame.swift */,
 				A17EF6D81E954A6500DEE4ED /* DeleteImage.swift */,
 				A17EF6C91E94040D00DEE4ED /* DeleteObject.swift */,
 				A16D416C1E97364300DE01D4 /* DeleteTeam.swift */,
@@ -302,6 +305,7 @@
 				A179996F1E82B67C0058A002 /* LoadICloudUser.swift */,
 				A17999711E82B6930058A002 /* SaveNewUser.swift */,
 				A14B64EF1E8D67A100CBDE92 /* SaveTeam.swift */,
+				A1ABAFFC1EA97AF900B28A46 /* ShowMessage.swift */,
 				A131CC8D1E8EEE6600A5D66B /* SubscribeToCurrentUser.swift */,
 				A17EF6CD1E94148300DEE4ED /* SubscribeToObject.swift */,
 				A1D67D4E1E8FE9E700200B65 /* SubscribeToReachability.swift */,
@@ -309,7 +313,6 @@
 				A17EF6BF1E93256000DEE4ED /* TouchObject.swift */,
 				A17EF6CB1E94044E00DEE4ED /* UpdateObject.swift */,
 				A17EF6C51E93EDEC00DEE4ED /* UploadToStorage.swift */,
-				A1ABAFFC1EA97AF900B28A46 /* ShowMessage.swift */,
 			);
 			name = Commands;
 			sourceTree = "<group>";
@@ -767,6 +770,7 @@
 				A1DC99D31E7E3E4500C6FF8C /* AppDelegate.swift in Sources */,
 				A1A2C3751E8C135E0008274F /* SaveNewUser.swift in Sources */,
 				A14B64F21E8D696800CBDE92 /* AddTeamToUser.swift in Sources */,
+				364FFAF01EA9F1B000CD26F9 /* DeleteGame.swift in Sources */,
 				A1F959341E8953440087B040 /* Season.swift in Sources */,
 				A1D8054C1E89870B0072AA49 /* UsernameViewController.swift in Sources */,
 				A1C7221D1EA5698C00A71C51 /* GamesViewController.swift in Sources */,

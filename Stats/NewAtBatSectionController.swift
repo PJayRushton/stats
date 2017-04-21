@@ -35,7 +35,7 @@ extension NewAtBatSectionController: IGListSectionType {
     
     func sizeForItem(at index: Int) -> CGSize {
         guard let context = collectionContext else { return .zero }
-        return CGSize(width: context.containerSize.width, height: 80)
+        return CGSize(width: context.containerSize.width, height: 60)
     }
     
     func cellForItem(at index: Int) -> UICollectionViewCell {

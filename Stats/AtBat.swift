@@ -31,6 +31,7 @@ enum AtBatCode: String {
 struct AtBat: Identifiable, Unmarshaling {
     
     var id: String
+    var creationDate: Date
     var gameId: String
     var playerId: String
     var rbis: Int
@@ -40,6 +41,7 @@ struct AtBat: Identifiable, Unmarshaling {
     
     init(id: String = "", gameId: String, playerId: String, rbis: Int = 0, resultCode: AtBatCode, seasonId: String, teamId: String) {
         self.id = id
+        self.creationDate = Date()
         self.gameId = gameId
         self.playerId = playerId
         self.rbis = rbis
@@ -50,6 +52,7 @@ struct AtBat: Identifiable, Unmarshaling {
     
     init(object: MarshaledObject) throws {
         id = try object.value(for: idKey)
+        creationDate = try object.value(for: creationDateKey)
         gameId = try object.value(for: gameIdKey)
         playerId = try object.value(for: playerIdKey)
         rbis = try object.value(for: rbisKey)
@@ -65,6 +68,7 @@ extension AtBat: Marshaling {
     func marshaled() -> JSONObject {
         var json = JSONObject()
         json[idKey] = id
+        json[creationDateKey] = creationDate.iso8601String
         json[gameIdKey] = gameId
         json[playerIdKey] = playerId
         json[rbisKey] = rbis

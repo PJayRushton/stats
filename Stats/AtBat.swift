@@ -13,6 +13,7 @@ import Marshal
 enum AtBatCode: String {
     case out
     case k
+    case w
     case single
     case double
     case triple

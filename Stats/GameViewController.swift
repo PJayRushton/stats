@@ -70,6 +70,12 @@ class GameViewController: Component, AutoStoryboardInitializable {
         showOptionsForGame()
     }
     
+    @IBAction func scoreLabelPressed(_ sender: UITapGestureRecognizer) {
+        guard var game = game else { return }
+        game.opponentScore += 1
+        core.fire(command: UpdateObject(game))
+    }
+    
     @IBAction func inningArrowPressed(_ sender: UIButton) {
         guard let game = game else { return }
         let previousButtonWasPressed = sender == previousInningButton

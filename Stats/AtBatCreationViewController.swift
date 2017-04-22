@@ -14,7 +14,9 @@ import Whisper
 
 class AtBatCreationViewController: Component, AutoStoryboardInitializable {
     
-    @IBOutlet weak var playerLabel: UILabel!
+    @IBOutlet weak var previousPlayerLabel: UILabel!
+    @IBOutlet weak var currentPlayerLabel: UILabel!
+    @IBOutlet weak var nextPlayerLabel: UILabel!
     @IBOutlet weak var singleButton: AtBatButton!
     @IBOutlet weak var doubleButton: AtBatButton!
     @IBOutlet weak var tripleButton: AtBatButton!
@@ -82,9 +84,21 @@ class AtBatCreationViewController: Component, AutoStoryboardInitializable {
     }
     
     override func update(with state: AppState) {
-        playerLabel.text = player?.name
+        currentPlayerLabel.text = player?.name
         currentAtBatResult = state.atBatState.currentResult ?? .single
         updateUI(with: state.atBatState.currentResult)
+        
+        guard let game = state.gameState.currentGame else { return }
+        if let player = player, let index = game.lineupIds.index(of: player.id), index > 0, let previousPlayer = game.lineupIds[index - 1].statePlayer {
+            previousPlayerLabel.text = previousPlayer.name
+        } else {
+            previousPlayerLabel.text = nil
+        }
+        if let player = player, let index = game.lineupIds.index(of: player.id), index < game.lineupIds.count - 1, let nextPlayer = game.lineupIds[index + 1].statePlayer {
+            nextPlayerLabel.text = nextPlayer.name
+        } else {
+            nextPlayerLabel.text = nil
+        }
     }
     
 }

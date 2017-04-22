@@ -138,6 +138,10 @@ extension GameViewController {
         alert.addAction(UIAlertAction(title: "Edit Game ✏️", style: .default, handler: { _ in
             self.presentGameEditVC()
         }))
+        let emojiForStatus = game!.score > game!.opponentScore ? "😎" : "😞"
+        alert.addAction(UIAlertAction(title: "End Game \(emojiForStatus)", style: .default, handler: { _ in
+            self.endGame()
+        }))
         alert.addAction(UIAlertAction(title: "Delete game ☠️", style: .destructive, handler: { _ in
             self.presentConfirmationAlert()
         }))
@@ -151,6 +155,13 @@ extension GameViewController {
         let gameCreationNav = gameCreationVC.embededInNavigationController
         gameCreationVC.modalPresentationStyle = .overFullScreen
         present(gameCreationNav, animated: true, completion: nil)
+    }
+    
+    fileprivate func endGame() {
+        guard var game = game else { return }
+        game.isCompleted = true
+        core.fire(command: UpdateObject(game))
+        navigationController?.popViewController(animated: true)
     }
     
     fileprivate func presentConfirmationAlert() {

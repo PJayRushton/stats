@@ -83,17 +83,6 @@ class GameViewController: Component, AutoStoryboardInitializable {
         updateInning(newInning)
     }
     
-    func presentAtBatCreation() {
-        let newAtBatVC = AtBatCreationViewController.initializeFromStoryboard()
-        customPresentViewController(modalPresenter(), viewController: newAtBatVC, animated: true, completion: nil)
-    }
-    
-    func presentAtBatEdit(atBat: AtBat) {
-        let newAtBatVC = AtBatCreationViewController.initializeFromStoryboard()
-        newAtBatVC.editingAtBat = atBat
-        customPresentViewController(modalPresenter(), viewController: newAtBatVC, animated: true, completion: nil)
-    }
-    
     override func update(with state: AppState) {
         if let game = game {
             updateUI(with: game)
@@ -147,6 +136,17 @@ extension GameViewController {
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
+    }
+    
+    func presentAtBatCreation() {
+        let newAtBatVC = AtBatCreationViewController.initializeFromStoryboard()
+        customPresentViewController(modalPresenter(), viewController: newAtBatVC, animated: true, completion: nil)
+    }
+    
+    func presentAtBatEdit(atBat: AtBat) {
+        let newAtBatVC = AtBatCreationViewController.initializeFromStoryboard()
+        newAtBatVC.editingAtBat = atBat
+        customPresentViewController(modalPresenter(), viewController: newAtBatVC, animated: true, completion: nil)
     }
     
     fileprivate func presentGameEditVC() {

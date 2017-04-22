@@ -50,6 +50,9 @@ class AtBatCreationViewController: Component, AutoStoryboardInitializable {
         return StatsRefs.atBatsRef(teamId: core.state.teamState.currentTeam!.id).childByAutoId()
     }
     
+    
+    // MARK: - ViewController Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -62,6 +65,9 @@ class AtBatCreationViewController: Component, AutoStoryboardInitializable {
             update(with: editingAtBat)
         }
     }
+
+    
+    // MARK: - IBActions
 
     @IBAction func resultButtonPressed(_ sender: AtBatButton) {
         core.fire(event: Selected<AtBatCode>(sender.code))
@@ -103,6 +109,8 @@ class AtBatCreationViewController: Component, AutoStoryboardInitializable {
     
 }
 
+
+// MARK: - Internal
 
 extension AtBatCreationViewController {
     
@@ -199,10 +207,14 @@ extension AtBatCreationViewController {
     }
     
     fileprivate func updateGameScore(atBat: AtBat, delete: Bool = false) {
-        guard var updatedScoreGame = core.state.gameState.currentGame else { return }
-        let newScore = delete ? updatedScoreGame.score - atBat.rbis : updatedScoreGame.score + atBat.rbis
-        updatedScoreGame.score = newScore
-        core.fire(command: UpdateObject(updatedScoreGame))
+        guard var currentGame = core.state.gameState.currentGame else { return }
+        
+        if let editingAtBat = editingAtBat {
+            currentGame.score += atBat.rbis - editingAtBat.rbis
+        } else {
+            currentGame.score = delete ? currentGame.score - atBat.rbis : currentGame.score + atBat.rbis
+        }
+        core.fire(command: UpdateObject(currentGame))
     }
     
 }

@@ -88,7 +88,7 @@ extension GamesViewController: UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return ongoingGames.isEmpty ? 1 : 2
+        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -111,9 +111,6 @@ extension GamesViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if ongoingGames.isEmpty {
-            return nil
-        }
         let headerCell = tableView.dequeueReusableCell(withIdentifier: BasicHeaderCell.reuseIdentifier) as! BasicHeaderCell
         let headerText = section == 0 ? "Ongoing" : "Past"
         headerCell.update(with: headerText)

@@ -147,7 +147,7 @@ extension GameViewController {
     
     fileprivate func presentGameEditVC() {
         let gameCreationVC = GameCreationViewController.initializeFromStoryboard()
-        gameCreationVC.editingGame = self.game
+        gameCreationVC.editingGame = game
         let gameCreationNav = gameCreationVC.embededInNavigationController
         gameCreationVC.modalPresentationStyle = .overFullScreen
         present(gameCreationNav, animated: true, completion: nil)

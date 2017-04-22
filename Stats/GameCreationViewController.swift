@@ -37,6 +37,9 @@ class GameCreationViewController: Component, AutoStoryboardInitializable {
         super.viewDidLoad()
         
         updateUI(with: editingGame)
+        if let editingGame = editingGame {
+            core.fire(event: LineupUpdated(players: editingGame.lineupIds.flatMap { $0.statePlayer }))
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,7 +59,11 @@ class GameCreationViewController: Component, AutoStoryboardInitializable {
     
     @IBAction func startButtonPressed(_ sender: UIButton) {
         guard let game = construtedGame() else { return }
-        core.fire(command: CreateGame(game: game))
+        if let _ = editingGame {
+            core.fire(command: UpdateObject(game))
+        } else {
+            core.fire(command: CreateGame(game: game))
+        }
         dismiss(animated: true, completion: nil)
     }
     
@@ -135,6 +142,9 @@ extension GameCreationViewController {
         try? homeAwaySegControl.setIndex(game.isHome ? 0 : 1)
         try? regSeasonSegControl.setIndex(game.isRegularSeason ? 0 : 1)
         date = game.date
+        if !game.lineupIds.isEmpty {
+            
+        }
     }
     
     fileprivate func updateSaveButton() {
@@ -144,12 +154,13 @@ extension GameCreationViewController {
         } else {
             startButton.isEnabled = newGame != nil
         }
+        
         let hasValidLineup = core.state.newGameState.lineup != nil && !core.state.newGameState.lineup!.isEmpty
         lineupView.backgroundColor = hasValidLineup ? UIColor.mainAppColor : UIColor.mainAppColor.withAlphaComponent(0.5)
     }
     
     fileprivate func construtedGame() -> Game? {
-        guard let opponentText = opponentTextField.text, !opponentText.isEmpty else {print("Opponent can't be empty"); return nil }
+        guard let opponentText = opponentTextField.text, !opponentText.isEmpty else { print("Opponent can't be empty"); return nil }
         guard let currentTeam = core.state.teamState.currentTeam else { print("current team can't be nil"); return nil }
         guard let currentSeasonId = currentTeam.currentSeasonId else { print("curentseason can't be nil"); return nil }
         let isHome = homeAwaySegControl.index == 0
@@ -157,7 +168,16 @@ extension GameCreationViewController {
         guard let lineup = core.state.newGameState.lineup else { return nil }
         let lineupIds = lineup.map { $0.id }
         guard !lineupIds.isEmpty else { print("Lineup can't be empty"); return nil }
-        return Game(id: newGameRef.key, date: date, inning: 1, isCompleted: false, isHome: isHome, isRegularSeason: isRegularSeason, lineupIds: lineupIds,opponent: opponentText, seasonId: currentSeasonId, teamId: currentTeam.id)
+        
+        if var editingGame = editingGame {
+            editingGame.opponent = opponentText
+            editingGame.isHome = isHome
+            editingGame.isRegularSeason = isRegularSeason
+            editingGame.lineupIds = lineupIds
+            return editingGame
+        } else {
+            return Game(id: newGameRef.key, date: date, inning: 1, isCompleted: false, isHome: isHome, isRegularSeason: isRegularSeason, lineupIds: lineupIds,opponent: opponentText, seasonId: currentSeasonId, teamId: currentTeam.id)
+        }
     }
     
 }

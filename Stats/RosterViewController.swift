@@ -57,7 +57,7 @@ class RosterViewController: Component, AutoStoryboardInitializable {
         super.viewDidDisappear(animated)
         
         if isLineup {
-            core.fire(event: LinupUpdated(players: orderedPlayers))
+            core.fire(event: LineupUpdated(players: orderedPlayers))
         } else {
             updateRosterOrder()
         }

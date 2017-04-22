@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct LinupUpdated: Event {
+struct LineupUpdated: Event {
     var players: [Player]
 }
 
@@ -19,7 +19,7 @@ struct NewGameState: State {
     
     mutating func react(to event: Event) {
         switch event {
-        case let event as LinupUpdated:
+        case let event as LineupUpdated:
             lineup = event.players
         case let event as NewGameReadyToShow:
             isReadyToShow = event.ready

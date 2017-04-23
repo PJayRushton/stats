@@ -59,6 +59,7 @@
 		A17999931E82DF300058A002 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17999901E82DF300058A002 /* HomeViewController.swift */; };
 		A17999971E82DFF00058A002 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A17999951E82DFF00058A002 /* LaunchScreen.storyboard */; };
 		A179999A1E82DFFF0058A002 /* HomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A17999981E82DFFF0058A002 /* HomeViewController.storyboard */; };
+		A17DC2431EAC90DD00597063 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17DC2421EAC90DD00597063 /* Gender.swift */; };
 		A17EF6BC1E930D3100DEE4ED /* TeamSwitcherViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A17EF6BA1E930D3100DEE4ED /* TeamSwitcherViewController.storyboard */; };
 		A17EF6BE1E931A0300DEE4ED /* TeamSwitcherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17EF6BD1E931A0300DEE4ED /* TeamSwitcherViewController.swift */; };
 		A17EF6C01E93256000DEE4ED /* TouchObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17EF6BF1E93256000DEE4ED /* TouchObject.swift */; };
@@ -192,6 +193,7 @@
 		A17999901E82DF300058A002 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A17999961E82DFF00058A002 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A17999991E82DFFF0058A002 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = HomeViewController.storyboard; sourceTree = "<group>"; };
+		A17DC2421EAC90DD00597063 /* Gender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
 		A17EF6BB1E930D3100DEE4ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = TeamSwitcherViewController.storyboard; sourceTree = "<group>"; };
 		A17EF6BD1E931A0300DEE4ED /* TeamSwitcherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamSwitcherViewController.swift; sourceTree = "<group>"; };
 		A17EF6BF1E93256000DEE4ED /* TouchObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchObject.swift; sourceTree = "<group>"; };
@@ -331,6 +333,7 @@
 				A1F959331E8953440087B040 /* Season.swift */,
 				A1B41C231E85A4B300FAC930 /* Team.swift */,
 				A179996D1E82B64A0058A002 /* User.swift */,
+				A17DC2421EAC90DD00597063 /* Gender.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -722,6 +725,7 @@
 				A1BF9C441E8B2172007341EA /* UserState.swift in Sources */,
 				A1CD9A0E1E89D05E00D3C8F7 /* Keys.swift in Sources */,
 				A1ABAFF91EA9420F00B28A46 /* AtBatCreationViewController.swift in Sources */,
+				A17DC2431EAC90DD00597063 /* Gender.swift in Sources */,
 				A17999881E82B9A60058A002 /* UIColorExtension.swift in Sources */,
 				A1CD9A141E8A9C6000D3C8F7 /* PlayerState.swift in Sources */,
 				A1426B9D1EA8586E00AAABB3 /* AKPickerView.swift in Sources */,

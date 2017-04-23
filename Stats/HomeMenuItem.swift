@@ -48,7 +48,7 @@ enum HomeMenuItem: Int {
         case .roster:
             return "👕"
         case .share:
-            return "✉️"
+            return "👥"
         }
     }
     

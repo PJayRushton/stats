@@ -24,6 +24,16 @@ enum Gender: Int {
             return "Female"
         }
     }
+    var color: UIColor {
+        switch self {
+        case .unspecified:
+            return .white
+        case .male:
+            return UIColor.flatSkyBlue.withAlphaComponent(0.1)
+        case .female:
+            return UIColor.flatLimeDark.withAlphaComponent(0.1)
+        }
+    }
     
     static let allValues = [Gender.unspecified, .male, .female]
 }

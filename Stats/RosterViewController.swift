@@ -35,8 +35,10 @@ class RosterViewController: Component, AutoStoryboardInitializable {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.rowHeight = 60
+        tableView.rowHeight = 44
         tableView.sectionHeaderHeight = isLineup ? 30 : 0
+        tableView.isEditing = true
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 24, right: 0)
         
         if let lineup = core.state.newGameState.lineup, isLineup {
             orderedPlayers = lineup
@@ -46,11 +48,7 @@ class RosterViewController: Component, AutoStoryboardInitializable {
             orderedPlayers = allPlayers
         }
         feedbackGenerator.prepare()
-        
-        let nib = UINib(nibName: PlayerCell.reuseIdentifier, bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: PlayerCell.reuseIdentifier)
-        let headerNib = UINib(nibName: BasicHeaderCell.reuseIdentifier, bundle: nil)
-        tableView.register(headerNib, forCellReuseIdentifier: BasicHeaderCell.reuseIdentifier)
+        registerNibs()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -75,7 +73,8 @@ class RosterViewController: Component, AutoStoryboardInitializable {
             let newPlayers = core.state.playerState.players(for: team).filter { !orderedPlayers.contains($0) && !benchedPlayers.contains($0) }
             benchedPlayers.append(contentsOf: newPlayers)
         } else {
-            orderedPlayers = core.state.playerState.players(for: team)
+            orderedPlayers = core.state.playerState.players(for: team).filter { orderedPlayers.contains($0) }
+            benchedPlayers = core.state.playerState.players(for: team).filter { benchedPlayers.contains($0) }
         }
         tableView.reloadData()
     }
@@ -85,12 +84,29 @@ class RosterViewController: Component, AutoStoryboardInitializable {
 
 extension RosterViewController {
     
+    fileprivate func registerNibs() {
+        let nib = UINib(nibName: PlayerCell.reuseIdentifier, bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: PlayerCell.reuseIdentifier)
+        let headerNib = UINib(nibName: BasicHeaderCell.reuseIdentifier, bundle: nil)
+        tableView.register(headerNib, forCellReuseIdentifier: BasicHeaderCell.reuseIdentifier)
+    }
+    
     fileprivate func player(at indexPath: IndexPath) -> Player {
         if indexPath.section == 1 {
             return benchedPlayers[indexPath.row]
         } else {
             return orderedPlayers[indexPath.row]
         }
+    }
+    
+    func switchPlayerSection(at indexPath: IndexPath) {
+        var toIndex = IndexPath()
+        if indexPath.section == 0 {
+            toIndex = IndexPath(row: benchedPlayers.count, section: 1)
+        } else {
+            toIndex = IndexPath(row: orderedPlayers.count, section: 0)
+        }
+        movePlayer(from: indexPath, to: toIndex)
     }
     
     func movePlayer(from fromIndex: IndexPath, to toIndex: IndexPath) {
@@ -134,7 +150,7 @@ extension RosterViewController {
         indexPaths.forEach { indexPath in
             guard let cell = tableView.cellForRow(at: indexPath) as? PlayerCell else { return }
             cell.contentView.fadeTransition(duration: 0.3)
-            configure(cell: cell, with: player(at: indexPath), atRow: indexPath.row, isSelected: indexPath.section == 0)
+            configure(cell: cell, with: player(at: indexPath), atIndex: indexPath, isSelected: indexPath.section == 0)
         }
     }
     
@@ -198,7 +214,7 @@ extension RosterViewController {
 extension RosterViewController: UITableViewDataSource, UITableViewDelegate {
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return isLineup ? 2 : 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -207,26 +223,16 @@ extension RosterViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: PlayerCell.reuseIdentifier) as! PlayerCell
-        configure(cell: cell, with: player(at: indexPath), atRow: indexPath.row, isSelected: indexPath.section == 0)
-        
-        cell.upButtonPressed = {
-            guard let currentIndex = tableView.indexPath(for: cell) else { return }
-            self.movePlayer(from: currentIndex, to: IndexPath(row: currentIndex.row - 1, section: indexPath.section))
-        }
-        cell.downButtonPressed = {
-            guard let currentIndex = tableView.indexPath(for: cell) else { return }
-            self.movePlayer(from: currentIndex, to: IndexPath(row: currentIndex.row + 1, section: indexPath.section))
-        }
-        
+        cell.isLineup = isLineup
+        configure(cell: cell, with: player(at: indexPath), atIndex: indexPath, isSelected: indexPath.section == 0)
         return cell
     }
     
-    func configure(cell: PlayerCell, with player: Player, atRow row: Int, isSelected: Bool) {
-        cell.update(with: player, order: row, isLast: player == orderedPlayers.last, isSelected: isSelected)
+    func configure(cell: PlayerCell, with player: Player, atIndex index: IndexPath, isSelected: Bool) {
+        cell.update(with: player, index: index, isLast: player == orderedPlayers.last, isSelected: isSelected)
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard isLineup else { return nil }
         let headerCell = tableView.dequeueReusableCell(withIdentifier: BasicHeaderCell.reuseIdentifier) as! BasicHeaderCell
         let title = section == 0 ? "Roster" : "Bench"
         headerCell.update(with: title, backgroundColor: .gray200)
@@ -234,13 +240,42 @@ extension RosterViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         if isLineup {
-            let row = indexPath.section == 0 ? benchedPlayers.count : orderedPlayers.count
-            movePlayer(from: indexPath, to: IndexPath(row: row, section: indexPath.section == 0 ? 1 : 0))
+            switchPlayerSection(at: indexPath)
         } else {
-            let player = orderedPlayers[indexPath.row]
-            presentOptions(for: player)
+            let selectedPlayer = player(at: indexPath)
+            presentOptions(for: selectedPlayer)
         }
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return UITableViewCellEditingStyle.none
+    }
+    
+    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+    
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let movedPlayer = sourceIndexPath.section == 0 ? orderedPlayers.remove(at: sourceIndexPath.row) : benchedPlayers.remove(at: sourceIndexPath.row)
+        switch destinationIndexPath.section {
+        case 0:
+            orderedPlayers.insert(movedPlayer, at: destinationIndexPath.row)
+        case 1:
+            benchedPlayers.insert(movedPlayer, at: destinationIndexPath.row)
+        default:
+            fatalError()
+        }
+        updateRosterOrder()
     }
     
 }

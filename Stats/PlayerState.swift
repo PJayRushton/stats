@@ -30,11 +30,11 @@ struct PlayerState: State {
     }
     
     func players(for team: Team) -> [Player] {
-        return players(for: team.id)
+        return players(for: team.id).sorted(by: { $0.order < $1.order })
     }
     
     func players(for teamId: String) -> [Player] {
-        return allPlayers.filter { $0.teamId == teamId }
+        return allPlayers.filter { $0.teamId == teamId }.sorted(by: { $0.order < $1.order })
     }
     
 }

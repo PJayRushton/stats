@@ -7,35 +7,35 @@
 //
 
 import UIKit
+import AIFlatSwitch
 
 class PlayerCell: UITableViewCell, AutoReuseIdentifiable {
 
-    @IBOutlet weak var insetView: UIView!
-    @IBOutlet weak var checkLabel: UILabel!
+    @IBOutlet weak var selectedSwitch: AIFlatSwitch!
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var upButton: UIButton!
-    @IBOutlet weak var downButton: UIButton!
     
-    var upButtonPressed: (() -> Void) = {}
-    var downButtonPressed: (() -> Void) = {}
+    var isLineup = false {
+        didSet {
+            selectedSwitch.isHidden = !isLineup
+        }
+    }
+    override var isSelected: Bool {
+        didSet {
+            guard oldValue != isSelected else { return }
+            selectedSwitch.setSelected(!isSelected, animated: true)
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        insetView.layer.applyShadow()
+        selectedSwitch.isSelected = true
     }
     
-    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
-        insetView.backgroundColor = highlighted ? .gray100 : .white
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        insetView.backgroundColor = selected ? .gray100 : .white
-    }
-    
-    func update(with player: Player, order: Int, isLast: Bool = false, isSelected: Bool = true) {
-        checkLabel.text = isSelected ? "☑️" : ""
-        numberLabel.text = "\(order + 1))"
+    func update(with player: Player, index: IndexPath, isLast: Bool = false, isSelected: Bool = true) {
+        backgroundColor = player.gender.color
+        selectedSwitch.setSelected(isSelected, animated: false)
+        numberLabel.text = index.section == 0 ? "\(index.row + 1))" : nil
         numberLabel.isHidden = !isSelected
         
         var nameText = player.name
@@ -45,16 +45,6 @@ class PlayerCell: UITableViewCell, AutoReuseIdentifiable {
             nameText += " (\(jerseyNumber))"
         }
         nameLabel.text = nameText
-        upButton.isHidden = order == 0 || !isSelected
-        downButton.isHidden = isLast || !isSelected
     }
     
-    @IBAction func upButtonPressed(_ sender: UIButton) {
-        upButtonPressed()
-    }
-    
-    @IBAction func downButtonPressed(_ sender: UIButton) {
-        downButtonPressed()
-    }
-
 }

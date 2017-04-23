@@ -172,7 +172,6 @@
 		A16D41711E97D09E00DE01D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = RosterViewController.storyboard; sourceTree = "<group>"; };
 		A16D41741E97D1BC00DE01D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = PlayerCell.xib; sourceTree = "<group>"; };
 		A16D41761E97D1D500DE01D4 /* PlayerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCell.swift; sourceTree = "<group>"; };
-		A16D41781E97E4EA00DE01D4 /* PlayerSectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerSectionController.swift; sourceTree = "<group>"; };
 		A16D417A1E97FF6000DE01D4 /* PlayerCreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCreationViewController.swift; sourceTree = "<group>"; };
 		A16D417D1E97FF7400DE01D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = PlayerCreationViewController.storyboard; sourceTree = "<group>"; };
 		A16D417F1E98171600DE01D4 /* CreatePlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePlayer.swift; sourceTree = "<group>"; };
@@ -467,7 +466,6 @@
 			children = (
 				A1426BA31EA863AF00AAABB3 /* AtBatSectionController.swift */,
 				A1426BA51EA86B3200AAABB3 /* NewAtBatSectionController.swift */,
-				A16D41781E97E4EA00DE01D4 /* PlayerSectionController.swift */,
 				A1D67D371E8F081A00200B65 /* TeamActionSectionController.swift */,
 				A1A2C3681E8C05150008274F /* TeamHeaderSectionController.swift */,
 			);

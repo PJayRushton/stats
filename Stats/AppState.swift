@@ -25,6 +25,7 @@ struct AppState: State {
     var seasonState = SeasonState()
     var playerState = PlayerState()
     var atBatState = AtBatState()
+    var statState = StatState()
     
     mutating func react(to event: Event) {
         switch event {
@@ -43,6 +44,7 @@ struct AppState: State {
         seasonState.react(to: event)
         playerState.react(to: event)
         atBatState.react(to: event)
+        statState.react(to: event)
     }
     
 }

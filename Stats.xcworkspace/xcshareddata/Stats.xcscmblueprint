@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "84744AF3FF12A81E1B397FF775C691C634B61FD2",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "84744AF3FF12A81E1B397FF775C691C634B61FD2" : 9223372036854775807,
+    "9BE855E264AFFCB0EA3D4F1D348A3A132650B387" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "B7E8ED25-03B3-4B62-8785-9BAE918204EB",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "84744AF3FF12A81E1B397FF775C691C634B61FD2" : "Stats\/",
+    "9BE855E264AFFCB0EA3D4F1D348A3A132650B387" : "Labs\/welbe\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Stats",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Stats.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/PJayRushton\/stats.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "84744AF3FF12A81E1B397FF775C691C634B61FD2"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/octanner\/welbe-ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9BE855E264AFFCB0EA3D4F1D348A3A132650B387"
+    }
+  ]
+}

@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		364FFAEE1EA9A15600CD26F9 /* EventBetterSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364FFAED1EA9A15600CD26F9 /* EventBetterSegmentedControl.swift */; };
 		364FFAF01EA9F1B000CD26F9 /* DeleteGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364FFAEF1EA9F1B000CD26F9 /* DeleteGame.swift */; };
+		A10359991EAE4259009365F4 /* StatState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10359981EAE4259009365F4 /* StatState.swift */; };
+		A11B4D8F1EAEC3D800798D52 /* StatsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B4D8E1EAEC3D800798D52 /* StatsPageViewController.swift */; };
+		A11B4D911EAEC4D000798D52 /* StatsNumbersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B4D901EAEC4D000798D52 /* StatsNumbersViewController.swift */; };
+		A11B4D931EAEC4DF00798D52 /* StatsTrophiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B4D921EAEC4DF00798D52 /* StatsTrophiesViewController.swift */; };
+		A11B4D991EAED3BB00798D52 /* StatsPageViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A11B4D971EAED3BB00798D52 /* StatsPageViewController.storyboard */; };
+		A11B4D9C1EAED7A900798D52 /* StatsTrophiesViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A11B4D9A1EAED7A900798D52 /* StatsTrophiesViewController.storyboard */; };
+		A11B4D9F1EAED86000798D52 /* StatsNumbersViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A11B4D9D1EAED86000798D52 /* StatsNumbersViewController.storyboard */; };
 		A131CC8E1E8EEE6600A5D66B /* SubscribeToCurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A131CC8D1E8EEE6600A5D66B /* SubscribeToCurrentUser.swift */; };
 		A1398B3F1EA6D3DF00A4B830 /* GameCreationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1398B3D1EA6D3DF00A4B830 /* GameCreationViewController.storyboard */; };
 		A1398B411EA6EB3400A4B830 /* CreateGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1398B401EA6EB3400A4B830 /* CreateGame.swift */; };
@@ -37,6 +44,8 @@
 		A14B64F81E8E9D2300CBDE92 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A14B64F71E8E9D2300CBDE92 /* GoogleService-Info.plist */; };
 		A14B64FA1E8EB95600CBDE92 /* Firebase+St@ts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B64F91E8EB95600CBDE92 /* Firebase+St@ts.swift */; };
 		A14B64FC1E8EB99B00CBDE92 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B64FB1E8EB99B00CBDE92 /* Identifiable.swift */; };
+		A15ACF861EAE3AFA00091F9E /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15ACF851EAE3AFA00091F9E /* StatsViewController.swift */; };
+		A15ACF891EAE3B2200091F9E /* StatsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A15ACF871EAE3B2200091F9E /* StatsViewController.storyboard */; };
 		A16D416D1E97364300DE01D4 /* DeleteTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16D416C1E97364300DE01D4 /* DeleteTeam.swift */; };
 		A16D416F1E97D08F00DE01D4 /* RosterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16D416E1E97D08F00DE01D4 /* RosterViewController.swift */; };
 		A16D41721E97D09E00DE01D4 /* RosterViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A16D41701E97D09E00DE01D4 /* RosterViewController.storyboard */; };
@@ -140,6 +149,13 @@
 		364FFAED1EA9A15600CD26F9 /* EventBetterSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventBetterSegmentedControl.swift; sourceTree = "<group>"; };
 		364FFAEF1EA9F1B000CD26F9 /* DeleteGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteGame.swift; sourceTree = "<group>"; };
 		3EB00BD85F52BB91F956360D /* Pods-Stats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stats.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stats/Pods-Stats.release.xcconfig"; sourceTree = "<group>"; };
+		A10359981EAE4259009365F4 /* StatState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatState.swift; sourceTree = "<group>"; };
+		A11B4D8E1EAEC3D800798D52 /* StatsPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsPageViewController.swift; sourceTree = "<group>"; };
+		A11B4D901EAEC4D000798D52 /* StatsNumbersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsNumbersViewController.swift; sourceTree = "<group>"; };
+		A11B4D921EAEC4DF00798D52 /* StatsTrophiesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsTrophiesViewController.swift; sourceTree = "<group>"; };
+		A11B4D981EAED3BB00798D52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = StatsPageViewController.storyboard; sourceTree = "<group>"; };
+		A11B4D9B1EAED7A900798D52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = StatsTrophiesViewController.storyboard; sourceTree = "<group>"; };
+		A11B4D9E1EAED86000798D52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = StatsNumbersViewController.storyboard; sourceTree = "<group>"; };
 		A131CC8D1E8EEE6600A5D66B /* SubscribeToCurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribeToCurrentUser.swift; sourceTree = "<group>"; };
 		A1398B3E1EA6D3DF00A4B830 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = GameCreationViewController.storyboard; sourceTree = "<group>"; };
 		A1398B401EA6EB3400A4B830 /* CreateGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGame.swift; sourceTree = "<group>"; };
@@ -168,6 +184,8 @@
 		A14B64F71E8E9D2300CBDE92 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A14B64F91E8EB95600CBDE92 /* Firebase+St@ts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Firebase+St@ts.swift"; sourceTree = "<group>"; };
 		A14B64FB1E8EB99B00CBDE92 /* Identifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
+		A15ACF851EAE3AFA00091F9E /* StatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
+		A15ACF881EAE3B2200091F9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = StatsViewController.storyboard; sourceTree = "<group>"; };
 		A16D416C1E97364300DE01D4 /* DeleteTeam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteTeam.swift; sourceTree = "<group>"; };
 		A16D416E1E97D08F00DE01D4 /* RosterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosterViewController.swift; sourceTree = "<group>"; };
 		A16D41711E97D09E00DE01D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = RosterViewController.storyboard; sourceTree = "<group>"; };
@@ -386,6 +404,10 @@
 				A1D67D501E9097C600200B65 /* SettingsViewController.storyboard */,
 				A1C722111EA0F75500A71C51 /* ShareTeamRolesViewController.storyboard */,
 				A1C722161EA10D1800A71C51 /* ShareTeamViewController.storyboard */,
+				A11B4D9D1EAED86000798D52 /* StatsNumbersViewController.storyboard */,
+				A11B4D971EAED3BB00798D52 /* StatsPageViewController.storyboard */,
+				A11B4D9A1EAED7A900798D52 /* StatsTrophiesViewController.storyboard */,
+				A15ACF871EAE3B2200091F9E /* StatsViewController.storyboard */,
 				A14B64E21E8D42B000CBDE92 /* StockPhotosViewController.storyboard */,
 				A14B64EA1E8D65C500CBDE92 /* TeamCreationViewController.storyboard */,
 				A1A2C3621E8BF6020008274F /* TeamHeaderCell.xib */,
@@ -423,6 +445,10 @@
 				A1D67D531E9097E100200B65 /* SettingsViewController.swift */,
 				A1C7220F1EA0F71700A71C51 /* ShareTeamRolesViewController.swift */,
 				A1C722141EA10CE600A71C51 /* ShareTeamViewController.swift */,
+				A11B4D901EAEC4D000798D52 /* StatsNumbersViewController.swift */,
+				A11B4D8E1EAEC3D800798D52 /* StatsPageViewController.swift */,
+				A11B4D921EAEC4DF00798D52 /* StatsTrophiesViewController.swift */,
+				A15ACF851EAE3AFA00091F9E /* StatsViewController.swift */,
 				A14B64E01E8D429800CBDE92 /* StockPhotosViewController.swift */,
 				A14B64ED1E8D662900CBDE92 /* TeamCreationViewController.swift */,
 				A1A2C3611E8BF6020008274F /* TeamHeaderCell.swift */,
@@ -488,6 +514,7 @@
 				A1CD9A0F1E8A9ABC00D3C8F7 /* SeasonState.swift */,
 				A1CD9A091E89C26200D3C8F7 /* TeamState.swift */,
 				A1BF9C431E8B2172007341EA /* UserState.swift */,
+				A10359981EAE4259009365F4 /* StatState.swift */,
 			);
 			name = AppState;
 			sourceTree = "<group>";
@@ -627,6 +654,7 @@
 				A1A2C3641E8BF6020008274F /* TeamHeaderCell.xib in Resources */,
 				A1D67D461E8FE8B100200B65 /* Main.storyboard in Resources */,
 				A1C7221B1EA5696E00A71C51 /* GamesViewController.storyboard in Resources */,
+				A11B4D991EAED3BB00798D52 /* StatsPageViewController.storyboard in Resources */,
 				A1D67D521E9097C600200B65 /* SettingsViewController.storyboard in Resources */,
 				A14B64F81E8E9D2300CBDE92 /* GoogleService-Info.plist in Resources */,
 				A1A2C3721E8C11F30008274F /* EmailViewController.storyboard in Resources */,
@@ -634,9 +662,12 @@
 				A1D67D3D1E8F244000200B65 /* ManageTeamsViewController.storyboard in Resources */,
 				A1D67D4D1E8FE8FC00200B65 /* LoadingImageViewController.storyboard in Resources */,
 				A17999971E82DFF00058A002 /* LaunchScreen.storyboard in Resources */,
+				A11B4D9F1EAED86000798D52 /* StatsNumbersViewController.storyboard in Resources */,
 				A1A2C36F1E8C0F4C0008274F /* AvatarViewController.storyboard in Resources */,
 				A1DC99DA1E7E3E4500C6FF8C /* Assets.xcassets in Resources */,
+				A15ACF891EAE3B2200091F9E /* StatsViewController.storyboard in Resources */,
 				A1426BAE1EA93C1800AAABB3 /* AtBatCreationViewController.storyboard in Resources */,
+				A11B4D9C1EAED7A900798D52 /* StatsTrophiesViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -705,8 +736,10 @@
 				A16D416D1E97364300DE01D4 /* DeleteTeam.swift in Sources */,
 				A14B64E61E8D647B00CBDE92 /* AddTeamViewController.swift in Sources */,
 				A1BF9C3F1E8AC443007341EA /* Game.swift in Sources */,
+				A11B4D8F1EAEC3D800798D52 /* StatsPageViewController.swift in Sources */,
 				A1426BA61EA86B3200AAABB3 /* NewAtBatSectionController.swift in Sources */,
 				A1D67D481E8FE8BF00200B65 /* MainViewController.swift in Sources */,
+				A15ACF861EAE3AFA00091F9E /* StatsViewController.swift in Sources */,
 				A16D41801E98171600DE01D4 /* CreatePlayer.swift in Sources */,
 				A1A2C3631E8BF6020008274F /* TeamHeaderCell.swift in Sources */,
 				A17999821E82B9780058A002 /* DateHelper.swift in Sources */,
@@ -720,6 +753,7 @@
 				A1398B431EA6F4B600A4B830 /* NewGameState.swift in Sources */,
 				A1B41C261E85A4C400FAC930 /* Player.swift in Sources */,
 				A17999931E82DF300058A002 /* HomeViewController.swift in Sources */,
+				A10359991EAE4259009365F4 /* StatState.swift in Sources */,
 				A16D416F1E97D08F00DE01D4 /* RosterViewController.swift in Sources */,
 				A17999861E82B98E0058A002 /* StoryboardInitializable.swift in Sources */,
 				A1BF9C441E8B2172007341EA /* UserState.swift in Sources */,
@@ -742,6 +776,7 @@
 				A1D67D411E8FE24C00200B65 /* BasicHeaderCell.swift in Sources */,
 				A1BF9C461E8B22B2007341EA /* GetCurrentUser.swift in Sources */,
 				A1CD9A1B1E8AACAB00D3C8F7 /* CheckUsernameAvailability.swift in Sources */,
+				A11B4D931EAEC4DF00798D52 /* StatsTrophiesViewController.swift in Sources */,
 				A17999841E82B9860058A002 /* SegueHandlerType.swift in Sources */,
 				A14B64FA1E8EB95600CBDE92 /* Firebase+St@ts.swift in Sources */,
 				A1398B451EA707F500A4B830 /* GameViewController.swift in Sources */,
@@ -766,6 +801,7 @@
 				A1A2C35C1E8BF2FB0008274F /* AvatarViewController.swift in Sources */,
 				A17EF6CA1E94040D00DEE4ED /* DeleteObject.swift in Sources */,
 				A1D67D3A1E8F23DE00200B65 /* ManageTeamsViewController.swift in Sources */,
+				A11B4D911EAEC4D000798D52 /* StatsNumbersViewController.swift in Sources */,
 				A1D67D3F1E8F253F00200B65 /* BasicTeamCell.swift in Sources */,
 				A14B64F01E8D67A100CBDE92 /* SaveTeam.swift in Sources */,
 				A17EF6CE1E94148300DEE4ED /* SubscribeToObject.swift in Sources */,
@@ -794,6 +830,30 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		A11B4D971EAED3BB00798D52 /* StatsPageViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A11B4D981EAED3BB00798D52 /* Base */,
+			);
+			name = StatsPageViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		A11B4D9A1EAED7A900798D52 /* StatsTrophiesViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A11B4D9B1EAED7A900798D52 /* Base */,
+			);
+			name = StatsTrophiesViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		A11B4D9D1EAED86000798D52 /* StatsNumbersViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A11B4D9E1EAED86000798D52 /* Base */,
+			);
+			name = StatsNumbersViewController.storyboard;
+			sourceTree = "<group>";
+		};
 		A1398B3D1EA6D3DF00A4B830 /* GameCreationViewController.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -856,6 +916,14 @@
 				A14B64EB1E8D65C500CBDE92 /* Base */,
 			);
 			name = TeamCreationViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		A15ACF871EAE3B2200091F9E /* StatsViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A15ACF881EAE3B2200091F9E /* Base */,
+			);
+			name = StatsViewController.storyboard;
 			sourceTree = "<group>";
 		};
 		A16D41701E97D09E00DE01D4 /* RosterViewController.storyboard */ = {

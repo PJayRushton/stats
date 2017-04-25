@@ -65,6 +65,7 @@ class HomeViewController: Component, AutoStoryboardInitializable {
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
         collectionView.collectionViewLayout.invalidateLayout()
     }
     
@@ -126,6 +127,11 @@ extension HomeViewController {
         navigationController?.pushViewController(gamesVC, animated: true)
     }
     
+    fileprivate func pushStats() {
+        let statsVC = StatsViewController.initializeFromStoryboard()
+        navigationController?.pushViewController(statsVC, animated: true)
+    }
+    
     func pushRoster() {
         let rosterVC = RosterViewController.initializeFromStoryboard()
         navigationController?.pushViewController(rosterVC, animated: true)
@@ -147,9 +153,8 @@ extension HomeViewController {
         switch item {
         case .newGame:
             pushGames(new: true)
-            break
         case .stats:
-            break
+            pushStats()
         case .games:
             pushGames()
         case .roster:

@@ -99,6 +99,7 @@
 		A1B41C261E85A4C400FAC930 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B41C251E85A4C400FAC930 /* Player.swift */; };
 		A1B41C2A1E85A4E300FAC930 /* AtBat.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B41C291E85A4E300FAC930 /* AtBat.swift */; };
 		A1B49D8C1EA577AC00DA9FAB /* GameCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B49D8B1EA577AC00DA9FAB /* GameCreationViewController.swift */; };
+		A1B65DBD1EAF9AF9009983E1 /* StatType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B65DBC1EAF9AF9009983E1 /* StatType.swift */; };
 		A1BF9C3F1E8AC443007341EA /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B41C271E85A4CD00FAC930 /* Game.swift */; };
 		A1BF9C401E8AC449007341EA /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD9A0B1E89C30400D3C8F7 /* GameState.swift */; };
 		A1BF9C441E8B2172007341EA /* UserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BF9C431E8B2172007341EA /* UserState.swift */; };
@@ -242,6 +243,7 @@
 		A1B41C271E85A4CD00FAC930 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		A1B41C291E85A4E300FAC930 /* AtBat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtBat.swift; sourceTree = "<group>"; };
 		A1B49D8B1EA577AC00DA9FAB /* GameCreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCreationViewController.swift; sourceTree = "<group>"; };
+		A1B65DBC1EAF9AF9009983E1 /* StatType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatType.swift; sourceTree = "<group>"; };
 		A1BF9C431E8B2172007341EA /* UserState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserState.swift; sourceTree = "<group>"; };
 		A1BF9C451E8B22B2007341EA /* GetCurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCurrentUser.swift; sourceTree = "<group>"; };
 		A1C7220F1EA0F71700A71C51 /* ShareTeamRolesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareTeamRolesViewController.swift; sourceTree = "<group>"; };
@@ -352,6 +354,7 @@
 				A1B41C231E85A4B300FAC930 /* Team.swift */,
 				A179996D1E82B64A0058A002 /* User.swift */,
 				A17DC2421EAC90DD00597063 /* Gender.swift */,
+				A1B65DBC1EAF9AF9009983E1 /* StatType.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -727,6 +730,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1426BA81EA86C5000AAABB3 /* NewAtBatCell.swift in Sources */,
+				A1B65DBD1EAF9AF9009983E1 /* StatType.swift in Sources */,
 				A1A2C3691E8C05150008274F /* TeamHeaderSectionController.swift in Sources */,
 				A1CD9A191E8AA83D00D3C8F7 /* NewUserState.swift in Sources */,
 				A1BF9C401E8AC449007341EA /* GameState.swift in Sources */,

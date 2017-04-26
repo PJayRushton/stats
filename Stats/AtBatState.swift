@@ -19,8 +19,10 @@ struct AtBatState: State {
         return allAtBats.filter { $0.gameId == game.id }
     }
     
-    func atBats(for player: Player, in game: Game) -> [AtBat] {
-        return allAtBats.filter { $0.playerId == player.id && $0.gameId == game.id }
+    func atBats(for player: Player, in game: Game? = nil) -> [AtBat] {
+        let playerABs = allAtBats.filter { $0.playerId == player.id }
+        guard let filteringGame = game else { return playerABs }
+        return playerABs.filter { $0.gameId == filteringGame.id }
     }
     
     mutating func react(to event: Event) {

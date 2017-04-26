@@ -14,4 +14,13 @@ struct Stat {
     var statType: StatType
     var value: Double
     
+    var displayString: String {
+        switch statType {
+        case .battingAverage, .onBasePercentage:
+            return value.displayString
+        default:
+            return "\(Int(value))"
+        }
+    }
+    
 }

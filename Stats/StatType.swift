@@ -78,7 +78,8 @@ enum StatType: String {
         case .homeRuns:
             return atBats.withResult(.hr).count.doubleValue
         case .onBasePercentage:
-            return atBats.filter { $0.resultCode.gotOnBase }.count.doubleValue
+            let onBaseBatCount = atBats.filter { $0.resultCode.gotOnBase }.count.doubleValue
+            return onBaseBatCount / atBats.count.doubleValue
         case .rbis:
             return atBats.reduce(0, { $0 + $1.rbis }).doubleValue
         case .reachOnError:

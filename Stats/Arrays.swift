@@ -92,17 +92,7 @@ extension String {
 extension Double {
     
     var displayString: String {
-        if let integer = Int(exactly: self) {
-            return "\(integer)"
-        } else {
-            return "\(self.roundTo(places: 3))"
-        }
-    }
-    
-    /// Rounds the double to decimal places value
-    func roundTo(places: Int) -> Double {
-        let divisor = pow(10.0, Double(places))
-        return (self * divisor).rounded() / divisor
+        return String(format: "%.3f", self)
     }
     
 }

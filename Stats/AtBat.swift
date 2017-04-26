@@ -12,6 +12,7 @@ import Marshal
 
 enum AtBatCode: String {
     case out
+    case roe
     case k
     case w
     case single
@@ -22,9 +23,14 @@ enum AtBatCode: String {
     var image: UIImage? {
         return UIImage(named: rawValue)
     }
-    
     var selectedImage: UIImage? {
         return UIImage(named: "\(rawValue)-selected")
+    }
+    var isHit: Bool {
+        return self == .single || self == .double || self == .triple || self == .hr
+    }
+    var gotOnBase: Bool {
+        return isHit || self == .w || self == .roe
     }
     
 }

@@ -31,6 +31,18 @@ extension Optional where Wrapped: MarshaledObject {
     
 }
 
+extension Sequence where Iterator.Element == AtBat {
+    
+    func withResult(_ code: AtBatCode) -> [AtBat] {
+        return filter { $0.resultCode == code }
+    }
+    
+    var hitCount: Int {
+        return self.filter { $0.resultCode.isHit }.count
+    }
+    
+}
+
 extension String {
     
     var last4: String {
@@ -73,6 +85,24 @@ extension String {
             break
         }
         return "\(season) \(currentYear)"
+    }
+    
+}
+
+extension Double {
+    
+    var displayString: String {
+        if let integer = Int(exactly: self) {
+            return "\(integer)"
+        } else {
+            return "\(self.roundTo(places: 3))"
+        }
+    }
+    
+    /// Rounds the double to decimal places value
+    func roundTo(places: Int) -> Double {
+        let divisor = pow(10.0, Double(places))
+        return (self * divisor).rounded() / divisor
     }
     
 }
@@ -127,6 +157,10 @@ extension Int {
     
     static func random(_ range: Range<Int>) -> Int {
         return range.lowerBound + (Int(arc4random_uniform(UInt32(range.upperBound - range.lowerBound))))
+    }
+    
+    var doubleValue: Double {
+        return Double(self)
     }
 
 }

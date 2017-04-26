@@ -59,4 +59,39 @@ enum StatType: String {
         }
     }
     
+    func statValue(with atBats: [AtBat]) -> Double {
+        switch self {
+        case .atBats:
+            return atBats.count.doubleValue
+        case .battingAverage:
+            let hits = atBats.hitCount.doubleValue
+            return hits / atBats.count.doubleValue
+        case .doubles:
+            return atBats.withResult(.double).count.doubleValue
+        case .gamesPlayed:
+            return Set(atBats.map { $0.gameId }).count.doubleValue
+        case .grandSlams:
+            let hrs = atBats.withResult(.hr)
+            return hrs.filter { $0.rbis == 4 }.count.doubleValue
+        case .hits:
+            return atBats.hitCount.doubleValue
+        case .homeRuns:
+            return atBats.withResult(.hr).count.doubleValue
+        case .onBasePercentage:
+            return atBats.filter { $0.resultCode.gotOnBase }.count.doubleValue
+        case .rbis:
+            return atBats.reduce(0, { $0 + $1.rbis }).doubleValue
+        case .reachOnError:
+            return atBats.withResult(.roe).count.doubleValue
+        case .singles:
+            return atBats.withResult(.single).count.doubleValue
+        case .strikeOuts:
+            return atBats.withResult(.k).count.doubleValue
+        case .triples:
+            return atBats.withResult(.triple).count.doubleValue
+        case .walks:
+            return atBats.withResult(.w).count.doubleValue
+        }
+    }
+    
 }

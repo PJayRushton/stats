@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="LemonMilk.otf">
+            <string>LemonMilk</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TrophyHeaderCell" id="6oR-5g-Pqa" customClass="TrophyHeaderCell" customModule="Stats" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="370" height="57"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="370" height="57"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S9B-IJ-x2n">
+                        <rect key="frame" x="0.0" y="0.0" width="370" height="57"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hitman" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="geg-dh-URg">
+                                <rect key="frame" x="118" y="0.0" width="114" height="57"/>
+                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="geg-dh-URg" secondAttribute="bottom" id="PCw-jA-q6E"/>
+                            <constraint firstItem="geg-dh-URg" firstAttribute="top" secondItem="S9B-IJ-x2n" secondAttribute="top" id="RXM-ND-0gA"/>
+                            <constraint firstItem="geg-dh-URg" firstAttribute="centerX" secondItem="S9B-IJ-x2n" secondAttribute="centerX" constant="-10" id="n8g-c3-8k8"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="S9B-IJ-x2n" secondAttribute="bottom" id="H2W-dw-Oy3"/>
+                <constraint firstItem="S9B-IJ-x2n" firstAttribute="leading" secondItem="6oR-5g-Pqa" secondAttribute="leading" id="TVd-Z1-ny5"/>
+                <constraint firstAttribute="trailing" secondItem="S9B-IJ-x2n" secondAttribute="trailing" id="Ybe-GY-ga6"/>
+                <constraint firstItem="S9B-IJ-x2n" firstAttribute="top" secondItem="6oR-5g-Pqa" secondAttribute="top" id="oFb-vd-Gj1"/>
+            </constraints>
+            <size key="customSize" width="370" height="57"/>
+            <connections>
+                <outlet property="colorView" destination="S9B-IJ-x2n" id="gkT-xo-OjA"/>
+                <outlet property="titleLabel" destination="geg-dh-URg" id="ZLZ-ZY-kgT"/>
+            </connections>
+            <point key="canvasLocation" x="126" y="-162.5"/>
+        </collectionViewCell>
+    </objects>
+</document>

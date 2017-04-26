@@ -7,12 +7,23 @@
 //
 
 import UIKit
+import IGListKit
 
 class StatsTrophiesViewController: Component, AutoStoryboardInitializable {
+    
+    @IBOutlet weak var collectionView: IGListCollectionView!
+
+    fileprivate lazy var adapter: IGListAdapter = {
+        return IGListAdapter(updater: IGListAdapterUpdater(), viewController: self, workingRangeSize: 0)
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .blue
+        
+        adapter.collectionView = collectionView
+        adapter.dataSource = self
     }
 
 }
+
+extension

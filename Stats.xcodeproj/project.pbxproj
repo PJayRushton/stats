@@ -108,6 +108,8 @@
 		A1B65DCD1EB07818009983E1 /* TrophyHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1B65DCB1EB07818009983E1 /* TrophyHeaderCell.xib */; };
 		A1B65DD01EB07BFC009983E1 /* TrophyWinnerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1B65DCE1EB07BFC009983E1 /* TrophyWinnerCell.xib */; };
 		A1B65DD21EB07E79009983E1 /* TrophyWinnerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B65DD11EB07E79009983E1 /* TrophyWinnerCell.swift */; };
+		A1B65DD41EB0FB0E009983E1 /* Trophy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B65DD31EB0FB0E009983E1 /* Trophy.swift */; };
+		A1B65DD61EB15EA0009983E1 /* TrophySectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B65DD51EB15EA0009983E1 /* TrophySectionController.swift */; };
 		A1BF9C3F1E8AC443007341EA /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B41C271E85A4CD00FAC930 /* Game.swift */; };
 		A1BF9C401E8AC449007341EA /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD9A0B1E89C30400D3C8F7 /* GameState.swift */; };
 		A1BF9C441E8B2172007341EA /* UserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BF9C431E8B2172007341EA /* UserState.swift */; };
@@ -260,6 +262,8 @@
 		A1B65DCC1EB07818009983E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = TrophyHeaderCell.xib; sourceTree = "<group>"; };
 		A1B65DCF1EB07BFC009983E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = TrophyWinnerCell.xib; sourceTree = "<group>"; };
 		A1B65DD11EB07E79009983E1 /* TrophyWinnerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrophyWinnerCell.swift; sourceTree = "<group>"; };
+		A1B65DD31EB0FB0E009983E1 /* Trophy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trophy.swift; sourceTree = "<group>"; };
+		A1B65DD51EB15EA0009983E1 /* TrophySectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrophySectionController.swift; sourceTree = "<group>"; };
 		A1BF9C431E8B2172007341EA /* UserState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserState.swift; sourceTree = "<group>"; };
 		A1BF9C451E8B22B2007341EA /* GetCurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCurrentUser.swift; sourceTree = "<group>"; };
 		A1C7220F1EA0F71700A71C51 /* ShareTeamRolesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareTeamRolesViewController.swift; sourceTree = "<group>"; };
@@ -371,6 +375,7 @@
 				A1F959331E8953440087B040 /* Season.swift */,
 				A1B65DBC1EAF9AF9009983E1 /* StatType.swift */,
 				A1B41C231E85A4B300FAC930 /* Team.swift */,
+				A1B65DD31EB0FB0E009983E1 /* Trophy.swift */,
 				A179996D1E82B64A0058A002 /* User.swift */,
 			);
 			name = Model;
@@ -524,6 +529,7 @@
 				A1D67D371E8F081A00200B65 /* TeamActionSectionController.swift */,
 				A1A2C3681E8C05150008274F /* TeamHeaderSectionController.swift */,
 				A1B65DC71EB056EB009983E1 /* StatSectionController.swift */,
+				A1B65DD51EB15EA0009983E1 /* TrophySectionController.swift */,
 			);
 			name = SectionControllers;
 			sourceTree = "<group>";
@@ -828,6 +834,7 @@
 				A1CD9A121E8A9C2400D3C8F7 /* AtBatState.swift in Sources */,
 				A1A2C35E1E8BF3680008274F /* Component.swift in Sources */,
 				A17EF6D01E941D8700DEE4ED /* SubscribeToTeam.swift in Sources */,
+				A1B65DD41EB0FB0E009983E1 /* Trophy.swift in Sources */,
 				A17EF6BE1E931A0300DEE4ED /* TeamSwitcherViewController.swift in Sources */,
 				A1D67D431E8FE3A000200B65 /* Appearance.swift in Sources */,
 				A16D417B1E97FF6000DE01D4 /* PlayerCreationViewController.swift in Sources */,
@@ -838,6 +845,7 @@
 				A11B4D911EAEC4D000798D52 /* StatsNumbersViewController.swift in Sources */,
 				A1D67D3F1E8F253F00200B65 /* BasicTeamCell.swift in Sources */,
 				A14B64F01E8D67A100CBDE92 /* SaveTeam.swift in Sources */,
+				A1B65DD61EB15EA0009983E1 /* TrophySectionController.swift in Sources */,
 				A17EF6CE1E94148300DEE4ED /* SubscribeToObject.swift in Sources */,
 				A1DC99D31E7E3E4500C6FF8C /* AppDelegate.swift in Sources */,
 				A1A2C3751E8C135E0008274F /* SaveNewUser.swift in Sources */,

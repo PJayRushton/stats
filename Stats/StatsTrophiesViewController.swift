@@ -26,4 +26,18 @@ class StatsTrophiesViewController: Component, AutoStoryboardInitializable {
 
 }
 
-extension
+extension StatsTrophiesViewController: IGListAdapterDataSource {
+    
+    func objects(for listAdapter: IGListAdapter) -> [IGListDiffable] {
+        return [] // FIXME:
+    }
+    
+    func listAdapter(_ listAdapter: IGListAdapter, sectionControllerFor object: Any) -> IGListSectionController {
+        return IGListSectionController() // FIXME:
+    }
+    
+    func emptyView(for listAdapter: IGListAdapter) -> UIView? {
+        return nil
+    }
+    
+}

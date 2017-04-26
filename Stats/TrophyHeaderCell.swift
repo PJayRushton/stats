@@ -12,9 +12,12 @@ class TrophyHeaderCell: UICollectionViewCell, AutoReuseIdentifiable {
     
     @IBOutlet weak var colorView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var subtitleLabel: UILabel!
     
-    func update(with title: String, backgroundColor: UIColor) {
-        
+    func update(with trophy: Trophy) {
+        colorView.backgroundColor = trophy.backgroundColor
+        titleLabel.text = trophy.displayName
+        subtitleLabel.text = trophy.subtitle
     }
     
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Stat {
+struct Stat: Equatable {
     
     var displayName: String
     var statType: StatType
@@ -23,4 +23,8 @@ struct Stat {
         }
     }
     
+}
+
+func ==(lhs: Stat, rhs: Stat) -> Bool {
+    return lhs.displayName == rhs.displayName && lhs.statType == rhs.statType && lhs.value == rhs.value
 }

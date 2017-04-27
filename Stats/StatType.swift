@@ -95,4 +95,17 @@ enum StatType: String {
         }
     }
     
+    func allStats(with atBats: [AtBat]) -> [Stat] {
+        let playerIds = Set(atBats.map { $0.playerId })
+        
+        var playerStats = [Stat]()
+        playerIds.forEach { playerId in
+            guard let player = playerId.statePlayer else { return }
+            let playerAtBats = atBats.filter { $0.playerId == playerId }
+            let playerStat = Stat(displayName: player.name, statType: self, value: self.statValue(with: playerAtBats))
+            playerStats.append(playerStat)
+        }
+        return playerStats
+    }
+    
 }

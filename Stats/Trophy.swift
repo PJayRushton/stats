@@ -22,6 +22,8 @@ enum Trophy {
     case triples
     case worseBattingAverage
     
+    static let allValues = [Trophy.battingAverage, .hits, .homeRuns, .grandSlams, .rbis, .walks, .onBasePercentage, .reachedOnErrors, .doubles, .triples, .worseBattingAverage]
+    
     var displayName: String {
         switch self {
         case .battingAverage:
@@ -100,6 +102,33 @@ enum Trophy {
             return UIColor.mainAppColor
         case .worseBattingAverage:
             return UIColor.mainAppColor
+        }
+    }
+    
+    var statType: StatType {
+        switch self {
+        case .battingAverage:
+            return .battingAverage
+        case .hits:
+            return .hits
+        case .homeRuns:
+            return .homeRuns
+        case .grandSlams:
+            return .grandSlams
+        case .rbis:
+            return .rbis
+        case .walks:
+            return .walks
+        case .onBasePercentage:
+            return .onBasePercentage
+        case .reachedOnErrors:
+            return .reachOnError
+        case .doubles:
+            return .doubles
+        case .triples:
+            return .triples
+        case .worseBattingAverage:
+            return .battingAverage
         }
     }
 

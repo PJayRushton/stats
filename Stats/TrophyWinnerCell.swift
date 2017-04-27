@@ -12,11 +12,18 @@ class TrophyWinnerCell: UICollectionViewCell, AutoReuseIdentifiable {
     
     @IBOutlet weak var colorView: UIView!
     @IBOutlet weak var winnerLabel: UILabel!
+    @IBOutlet weak var honorableMentionLabel: UILabel!
     @IBOutlet weak var secondPlaceLabel: UILabel!
     
-    func update(withWinner winnerStat: Stat, secondPlaceState secondStat: Stat) {
+    func update(withWinner winnerStat: Stat, secondPlaceState secondStat: Stat?) {
         winnerLabel.text = "\(winnerStat.displayName) - \(winnerStat.displayString)"
-        secondPlaceLabel.text = "\(secondStat.displayName) - (\(secondStat.displayString))"
+        
+        if let firstLoserStat = secondStat {
+            honorableMentionLabel.isHidden = false
+            secondPlaceLabel.text = "\(firstLoserStat.displayName) - (\(firstLoserStat.displayString))"
+        } else {
+            honorableMentionLabel.isHidden = true
+        }
     }
     
 }

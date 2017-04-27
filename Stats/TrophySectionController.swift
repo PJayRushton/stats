@@ -12,9 +12,9 @@ class TrophySection: IGListDiffable {
     
     var trophy: Trophy
     var firstStat: Stat
-    var secondStat: Stat
+    var secondStat: Stat?
     
-    init(trophy: Trophy, firstStat: Stat, secondStat: Stat) {
+    init(trophy: Trophy, firstStat: Stat, secondStat: Stat?) {
         self.trophy = trophy
         self.firstStat = firstStat
         self.secondStat = secondStat
@@ -52,7 +52,18 @@ extension TrophySectionController: IGListSectionType {
     
     func sizeForItem(at index: Int) -> CGSize {
         guard let context = collectionContext else { return .zero }
-        return CGSize(width: context.containerSize.width, height: 100)
+        switch index {
+        case 0:
+            return CGSize(width: context.containerSize.width, height: 80)
+        case 1:
+            if let _ = section.secondStat {
+                return CGSize(width: context.containerSize.width, height: 100)
+            } else {
+                return CGSize(width: context.containerSize.width, height: 70)
+            }
+        default:
+            fatalError()
+        }
     }
     
     func cellForItem(at index: Int) -> UICollectionViewCell {

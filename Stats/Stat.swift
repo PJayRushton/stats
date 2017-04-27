@@ -1,5 +1,5 @@
 //
-//  PlayerStat.swift
+//  Stat.swift
 //  Stats
 //
 //  Created by Parker Rushton on 4/25/17.

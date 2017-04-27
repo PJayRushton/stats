@@ -46,6 +46,10 @@ struct Player: Identifiable, Unmarshaling {
         return id == player.id && gender == player.gender && isSub == player.isSub && jerseyNumber == player.jerseyNumber && name == player.name && order == player.order && phone == player.phone && teamId == player.teamId
     }
     
+    func stat(ofType type: StatType, from atBats: [AtBat]) -> Stat {
+        return Stat(displayName: name, statType: type, value: type.statValue(with: atBats))
+    }
+    
 }
 
 extension Player: Marshaling {

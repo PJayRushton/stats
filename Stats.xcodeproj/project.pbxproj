@@ -102,7 +102,7 @@
 		A1B65DBD1EAF9AF9009983E1 /* StatType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B65DBC1EAF9AF9009983E1 /* StatType.swift */; };
 		A1B65DBF1EB010E1009983E1 /* StatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B65DBE1EB010E1009983E1 /* StatCell.swift */; };
 		A1B65DC21EB01123009983E1 /* StatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1B65DC01EB01123009983E1 /* StatCell.xib */; };
-		A1B65DC41EB018C6009983E1 /* PlayerStat.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B65DC31EB018C6009983E1 /* PlayerStat.swift */; };
+		A1B65DC41EB018C6009983E1 /* Stat.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B65DC31EB018C6009983E1 /* Stat.swift */; };
 		A1B65DC81EB056EB009983E1 /* StatSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B65DC71EB056EB009983E1 /* StatSectionController.swift */; };
 		A1B65DCA1EB077A2009983E1 /* TrophyHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B65DC91EB077A2009983E1 /* TrophyHeaderCell.swift */; };
 		A1B65DCD1EB07818009983E1 /* TrophyHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1B65DCB1EB07818009983E1 /* TrophyHeaderCell.xib */; };
@@ -256,7 +256,7 @@
 		A1B65DBC1EAF9AF9009983E1 /* StatType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatType.swift; sourceTree = "<group>"; };
 		A1B65DBE1EB010E1009983E1 /* StatCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatCell.swift; sourceTree = "<group>"; };
 		A1B65DC11EB01123009983E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = StatCell.xib; sourceTree = "<group>"; };
-		A1B65DC31EB018C6009983E1 /* PlayerStat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerStat.swift; sourceTree = "<group>"; };
+		A1B65DC31EB018C6009983E1 /* Stat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stat.swift; sourceTree = "<group>"; };
 		A1B65DC71EB056EB009983E1 /* StatSectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatSectionController.swift; sourceTree = "<group>"; };
 		A1B65DC91EB077A2009983E1 /* TrophyHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrophyHeaderCell.swift; sourceTree = "<group>"; };
 		A1B65DCC1EB07818009983E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = TrophyHeaderCell.xib; sourceTree = "<group>"; };
@@ -371,7 +371,7 @@
 				A1B41C271E85A4CD00FAC930 /* Game.swift */,
 				A17DC2421EAC90DD00597063 /* Gender.swift */,
 				A1B41C251E85A4C400FAC930 /* Player.swift */,
-				A1B65DC31EB018C6009983E1 /* PlayerStat.swift */,
+				A1B65DC31EB018C6009983E1 /* Stat.swift */,
 				A1F959331E8953440087B040 /* Season.swift */,
 				A1B65DBC1EAF9AF9009983E1 /* StatType.swift */,
 				A1B41C231E85A4B300FAC930 /* Team.swift */,
@@ -852,7 +852,7 @@
 				A14B64F21E8D696800CBDE92 /* AddTeamToUser.swift in Sources */,
 				364FFAF01EA9F1B000CD26F9 /* DeleteGame.swift in Sources */,
 				A1F959341E8953440087B040 /* Season.swift in Sources */,
-				A1B65DC41EB018C6009983E1 /* PlayerStat.swift in Sources */,
+				A1B65DC41EB018C6009983E1 /* Stat.swift in Sources */,
 				A1D8054C1E89870B0072AA49 /* UsernameViewController.swift in Sources */,
 				A1C7221D1EA5698C00A71C51 /* GamesViewController.swift in Sources */,
 				A1C7221F1EA56A2800A71C51 /* GameCell.swift in Sources */,

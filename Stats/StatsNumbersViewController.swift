@@ -39,26 +39,14 @@ extension StatsNumbersViewController: IGListAdapterDataSource {
     
     func objects(for listAdapter: IGListAdapter) -> [IGListDiffable] {
         let players = core.state.atBatState.allAtBats.flatMap { $0.playerId.statePlayer }
-        var allSections = [IGListDiffable]()
         var allStats = [Stat]()
         
         players.forEach { player in
             let atBats = core.state.atBatState.atBats(for: player)
-            let playerStat = Stat(displayName: player.name, statType: currentStatType, value: currentStatType.statValue(with: atBats))
-            allStats.append(playerStat)
+            allStats.append(player.stat(ofType: currentStatType, from: atBats))
         }
-        allStats.sort(by: { $0.value > $1.value })
-        let allStatValues = Set(allStats.map { $0.value }).sorted(by: { $0 > $1 })
         
-        allStats.forEach { stat in
-            var place: Place?
-            if let index = allStatValues.index(of: stat.value), let statPlace = Place(rawValue: index) {
-                place = statPlace
-            }
-            let section = StatSection(stat: stat, place: nil)
-            allSections.append(section)
-        }
-        return allSections
+        return allStats.map { StatSection(stat: $0) }.sorted(by: { $0.stat.value > $1.stat.value })
     }
     
     func listAdapter(_ listAdapter: IGListAdapter, sectionControllerFor object: Any) -> IGListSectionController {

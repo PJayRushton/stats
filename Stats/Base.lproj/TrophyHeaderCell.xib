@@ -18,32 +18,32 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TrophyHeaderCell" id="6oR-5g-Pqa" customClass="TrophyHeaderCell" customModule="Stats" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="388" height="102"/>
+            <rect key="frame" x="0.0" y="0.0" width="388" height="81"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="388" height="102"/>
+                <rect key="frame" x="0.0" y="0.0" width="388" height="81"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S9B-IJ-x2n">
-                        <rect key="frame" x="0.0" y="0.0" width="388" height="102"/>
+                        <rect key="frame" x="0.0" y="0.0" width="388" height="81"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="HbM-oZ-2dl">
-                                <rect key="frame" x="8" y="0.0" width="372" height="94"/>
+                                <rect key="frame" x="16" y="0.0" width="356" height="73"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gmd-tr-mIn">
-                                        <rect key="frame" x="0.0" y="0.0" width="372" height="23"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="356" height="12.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Hitman" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="geg-dh-URg">
-                                        <rect key="frame" x="0.0" y="27" width="372" height="41"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Hitman" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="geg-dh-URg">
+                                        <rect key="frame" x="0.0" y="16.5" width="356" height="40.5"/>
                                         <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="30"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hitman" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oZd-rj-tqc">
-                                        <rect key="frame" x="0.0" y="72" width="372" height="22"/>
+                                        <rect key="frame" x="0.0" y="61" width="356" height="12"/>
                                         <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="12"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -52,12 +52,12 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.65098039220000004" green="0.76862745099999996" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottomMargin" secondItem="HbM-oZ-2dl" secondAttribute="bottom" id="DlI-gH-wpK"/>
                             <constraint firstItem="HbM-oZ-2dl" firstAttribute="top" secondItem="S9B-IJ-x2n" secondAttribute="top" id="Qw5-Qb-y8W"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="HbM-oZ-2dl" secondAttribute="trailing" id="R1w-cy-V1M"/>
-                            <constraint firstItem="HbM-oZ-2dl" firstAttribute="leading" secondItem="S9B-IJ-x2n" secondAttribute="leadingMargin" id="SWP-eb-hi0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="HbM-oZ-2dl" secondAttribute="trailing" constant="8" id="R1w-cy-V1M"/>
+                            <constraint firstItem="HbM-oZ-2dl" firstAttribute="leading" secondItem="S9B-IJ-x2n" secondAttribute="leadingMargin" constant="8" id="SWP-eb-hi0"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -68,13 +68,13 @@
                 <constraint firstAttribute="trailing" secondItem="S9B-IJ-x2n" secondAttribute="trailing" id="Ybe-GY-ga6"/>
                 <constraint firstItem="S9B-IJ-x2n" firstAttribute="top" secondItem="6oR-5g-Pqa" secondAttribute="top" id="oFb-vd-Gj1"/>
             </constraints>
-            <size key="customSize" width="388" height="102"/>
+            <size key="customSize" width="388" height="81"/>
             <connections>
                 <outlet property="colorView" destination="S9B-IJ-x2n" id="gkT-xo-OjA"/>
                 <outlet property="subtitleLabel" destination="oZd-rj-tqc" id="rJO-L8-R1h"/>
                 <outlet property="titleLabel" destination="geg-dh-URg" id="ZLZ-ZY-kgT"/>
             </connections>
-            <point key="canvasLocation" x="135" y="-140"/>
+            <point key="canvasLocation" x="135" y="-150.5"/>
         </collectionViewCell>
     </objects>
 </document>

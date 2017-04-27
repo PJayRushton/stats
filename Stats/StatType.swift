@@ -59,6 +59,39 @@ enum StatType: String {
         }
     }
     
+    var displayString: String {
+        switch self {
+        case .atBats:
+            return "At Bats"
+        case .battingAverage:
+            return "BA"
+        case .doubles:
+            return "Doubles"
+        case .gamesPlayed:
+            return "Games"
+        case .grandSlams:
+            return "Grand Slams"
+        case .hits:
+            return "Hits"
+        case .homeRuns:
+            return "Home Runs"
+        case .onBasePercentage:
+            return "OBP"
+        case .rbis:
+            return "RBIs"
+        case .reachOnError:
+            return "Reached on Error"
+        case .singles:
+            return "Singles"
+        case .strikeOuts:
+            return "Strike Outs"
+        case .triples:
+            return "Triples"
+        case .walks:
+            return "Walks"
+        }
+    }
+    
     func statValue(with atBats: [AtBat]) -> Double {
         switch self {
         case .atBats:

@@ -40,11 +40,11 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fa9-hW-r46" customClass="AKPickerView" customModule="Stats" customModuleProvider="target">
-                                                <rect key="frame" x="108" y="0.0" width="251" height="44"/>
+                                                <rect key="frame" x="144" y="0.0" width="215" height="44"/>
                                             </view>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="fa9-hW-r46" firstAttribute="width" secondItem="zbt-3t-wHw" secondAttribute="width" multiplier="0.7" id="8ma-2h-uDd"/>
+                                            <constraint firstItem="fa9-hW-r46" firstAttribute="width" secondItem="zbt-3t-wHw" secondAttribute="width" multiplier="0.6" id="8ma-2h-uDd"/>
                                             <constraint firstAttribute="height" constant="44" id="yEE-kN-4SP"/>
                                         </constraints>
                                     </stackView>

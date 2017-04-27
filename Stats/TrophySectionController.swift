@@ -74,7 +74,7 @@ extension TrophySectionController: IGListSectionType {
             return cell
         case 1:
             let cell = collectionContext?.dequeueReusableCell(withNibName: TrophyWinnerCell.reuseIdentifier, bundle: nil, for: self, at: index) as! TrophyWinnerCell
-            cell.update(withWinner: section.firstStat, secondPlaceState: section.secondStat)
+            cell.update(withTrophy: section.trophy, winner: section.firstStat, firstLoser: section.secondStat)
             return cell
         default:
             fatalError()

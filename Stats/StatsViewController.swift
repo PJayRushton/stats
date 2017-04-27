@@ -36,7 +36,7 @@ class StatsViewController: Component, AutoStoryboardInitializable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        segmentedControl.setUp(with: StatsViewType.allValues.map { $0.title })
+        segmentedControl.setUp(with: StatsViewType.allValues.map { $0.title }, indicatorColor: UIColor.mainAppColor)
     }
     
     @IBAction func viewTypeChanged(_ sender: BetterSegmentedControl) {

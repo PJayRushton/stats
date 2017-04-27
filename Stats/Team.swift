@@ -48,10 +48,6 @@ struct Team: Identifiable, Unmarshaling {
         return App.core.state.seasonState.allSeasons.first(where: { $0.id == currentSeasonId })
     }
     
-    func qrCodeString(type: TeamOwnershipType) -> String {
-        return "\(id) \(type.rawValue)"
-    }
-    
     init(id: String = "", currentSeasonId: String? =  nil, imageURLString: String? = nil, name: String, sport: TeamSport = .slowPitch) {
         self.id = id
         self.currentSeasonId = currentSeasonId

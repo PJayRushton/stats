@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -28,45 +29,88 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="IGT-Ua-M5b">
-                                <rect key="frame" x="35.5" y="100.5" width="303" height="467"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="IGT-Ua-M5b">
+                                <rect key="frame" x="24" y="33" width="327" height="601"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FY8-2f-omH">
-                                        <rect key="frame" x="96.5" y="0.0" width="110.5" height="54"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Become a fan of:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sqv-qI-1lw">
+                                        <rect key="frame" x="53" y="0.0" width="222" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="oQa-6R-3eg"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="24"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Team" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FY8-2f-omH">
+                                        <rect key="frame" x="108" y="52" width="111" height="39"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="39" id="7AT-dq-H8f"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="40"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Have your friends download and open the ST@ app and either scan this:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0q3-8o-zYL">
+                                        <rect key="frame" x="0.0" y="107" width="327" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="sUX-7E-zmI"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qko-v4-gWh" userLabel="spacer view">
+                                        <rect key="frame" x="79" y="173" width="169" height="0.0"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GsK-Xs-yGS">
-                                        <rect key="frame" x="20" y="102.5" width="263" height="262.5"/>
+                                        <rect key="frame" x="24" y="189" width="280" height="280"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="GsK-Xs-yGS" secondAttribute="height" id="WNM-FK-xor"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Axa-ye-DzB">
-                                        <rect key="frame" x="89.5" y="413" width="124" height="54"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6W7-mK-fZp" userLabel="spacer view">
+                                        <rect key="frame" x="0.0" y="485" width="327" height="0.0"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text=". . . or enter this share code:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SpI-B7-b9W">
+                                        <rect key="frame" x="47" y="501" width="233" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="dX0-tA-zAG"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Axa-ye-DzB">
+                                        <rect key="frame" x="102" y="547" width="124" height="54"/>
                                         <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="40"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="6W7-mK-fZp" firstAttribute="height" secondItem="Qko-v4-gWh" secondAttribute="height" id="fne-4B-CYx"/>
+                                    <constraint firstItem="6W7-mK-fZp" firstAttribute="width" secondItem="IGT-Ua-M5b" secondAttribute="width" id="i6q-iV-PLm"/>
                                     <constraint firstItem="GsK-Xs-yGS" firstAttribute="width" secondItem="IGT-Ua-M5b" secondAttribute="width" multiplier="0.7" constant="50.75" id="kte-VH-esy"/>
+                                    <constraint firstItem="0q3-8o-zYL" firstAttribute="width" secondItem="IGT-Ua-M5b" secondAttribute="width" id="mS5-Ee-jnG"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.1055081859" green="0.11755181100000001" blue="0.12590640780000001" alpha="0.59848127693965514" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="IGT-Ua-M5b" firstAttribute="height" secondItem="zyi-Dw-dKh" secondAttribute="height" multiplier="0.7" id="JbS-5F-LOd"/>
+                            <constraint firstItem="IGT-Ua-M5b" firstAttribute="height" secondItem="zyi-Dw-dKh" secondAttribute="height" multiplier="0.9" id="JbS-5F-LOd"/>
+                            <constraint firstItem="IGT-Ua-M5b" firstAttribute="leading" secondItem="zyi-Dw-dKh" secondAttribute="leadingMargin" constant="8" id="NUW-gj-RnK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="IGT-Ua-M5b" secondAttribute="trailing" constant="8" id="TeI-90-py7"/>
                             <constraint firstItem="IGT-Ua-M5b" firstAttribute="centerY" secondItem="zyi-Dw-dKh" secondAttribute="centerY" id="cP2-yx-HOI"/>
-                            <constraint firstItem="IGT-Ua-M5b" firstAttribute="centerX" secondItem="zyi-Dw-dKh" secondAttribute="centerX" id="dUK-fa-Mdi"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="tJ0-SH-wRS" appends="YES" id="ve0-Lm-o9U"/>
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="becomeLabel" destination="sqv-qI-1lw" id="W2t-ah-X8W"/>
                         <outlet property="nameLabel" destination="FY8-2f-omH" id="2eg-mU-LuK"/>
                         <outlet property="qrImageView" destination="GsK-Xs-yGS" id="b9s-8H-HgM"/>
                         <outlet property="shareLabel" destination="Axa-ye-DzB" id="Lil-rk-9ve"/>

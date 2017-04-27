@@ -17,7 +17,7 @@ extension BetterSegmentedControl {
         selectedTitleFont = FontType.lemonMilk.font(withSize: fontSize + 2)
         titleColor = .gray400
         selectedTitleColor = .white
-        indicatorViewBackgroundColor = .secondaryAppColor
+        indicatorViewBackgroundColor = indicatorColor
     }
     
 }

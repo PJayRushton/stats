@@ -24,6 +24,10 @@ enum TeamOwnershipType: String {
         }
     }
     
+    var firstCharacter: String {
+        return String(rawValue.characters.first!)
+    }
+    
     var sectionTitle: String {
         switch self {
         case .owned:

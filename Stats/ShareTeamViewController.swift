@@ -11,6 +11,7 @@ import QRCode
 
 class ShareTeamViewController: Component, AutoStoryboardInitializable {
     
+    @IBOutlet weak var becomeLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var qrImageView: UIImageView!
     @IBOutlet weak var shareLabel: UILabel!
@@ -19,6 +20,7 @@ class ShareTeamViewController: Component, AutoStoryboardInitializable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         nameLabel.text = ""
         shareLabel.text = ""
     }
@@ -38,10 +40,21 @@ class ShareTeamViewController: Component, AutoStoryboardInitializable {
 extension ShareTeamViewController {
     
     fileprivate func updateUI(with team: Team) {
+        let fanOrManagerString = ownershipType == .fan ? "fan" : "st@ keeper"
+        becomeLabel.text = "Become a \(fanOrManagerString) of:"
         nameLabel.text = team.name
-        let code = QRCode(team.qrCodeString(type: ownershipType))
+        let code = QRCode(qrCodeString(for: team, type: ownershipType))
         qrImageView.image = code?.image
-        shareLabel.text = team.shareCode
+
+        let codeString = team.shareCode + ownershipType.firstCharacter
+        let attributedString = NSMutableAttributedString(string: codeString)
+        attributedString.addAttribute(NSKernAttributeName, value: CGFloat(16), range: NSRange(location: 0, length: codeString.characters.count - 1))
+        shareLabel.attributedText = attributedString
+    }
+    
+    
+    fileprivate func qrCodeString(for team: Team, type: TeamOwnershipType) -> String {
+        return "\(team.id) \(type.rawValue)"
     }
     
 }

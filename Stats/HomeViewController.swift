@@ -138,14 +138,36 @@ extension HomeViewController {
     }
     
     func pushShareTeamRoles() {
-        if let user = core.state.userState.currentUser, let team = core.state.teamState.currentTeam, !user.isOwnerOrManager(of: team) {
+        if let user = core.state.userState.currentUser, let team = core.state.teamState.currentTeam, user.isOwnerOrManager(of: team) {
+            presentShareRoles()
             let shareTeamRolesVC = ShareTeamRolesViewController.initializeFromStoryboard()
             navigationController?.pushViewController(shareTeamRolesVC, animated: true)
         } else {
-            let shareTeamVC = ShareTeamViewController.initializeFromStoryboard()
-            shareTeamVC.modalPresentationStyle = .overFullScreen
-            present(shareTeamVC, animated: false, completion: nil)
+            presentTeamShare(withType: .fan)
         }
+    }
+    
+    fileprivate func presentShareRoles() {
+        let alert = Presentr.alertViewController(title: "Share Team", body: "Which would you like to add?")
+        alert.addAction(AlertAction(title: "Stat Keeper", style: .default, handler: {
+            self.dismiss(animated: true, completion: { 
+                self.presentTeamShare(withType: .managed)
+            })
+        }))
+        
+        alert.addAction(AlertAction(title: "Player/Fan", style: .default, handler: {
+            self.dismiss(animated: true, completion: { 
+                self.presentTeamShare(withType: .fan)
+            })
+        }))
+        customPresentViewController(alertPresenter, viewController: alert, animated: true, completion: nil)
+    }
+    
+    fileprivate func presentTeamShare(withType type: TeamOwnershipType) {
+        let shareTeamVC = ShareTeamViewController.initializeFromStoryboard()
+        shareTeamVC.modalPresentationStyle = .overFullScreen
+        shareTeamVC.ownershipType = type
+        present(shareTeamVC, animated: false, completion: nil)
     }
     
     func didSelectItem(_ item: HomeMenuItem) {

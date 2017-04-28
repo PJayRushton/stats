@@ -36,7 +36,6 @@ class RosterViewController: Component, AutoStoryboardInitializable {
         super.viewDidLoad()
         
         tableView.rowHeight = 44
-        tableView.sectionHeaderHeight = isLineup ? 30 : 0
         tableView.isEditing = true
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 24, right: 0)
         
@@ -45,7 +44,8 @@ class RosterViewController: Component, AutoStoryboardInitializable {
             guard let currentTeam = currentTeam else { orderedPlayers = allPlayers; return }
             benchedPlayers = core.state.playerState.players(for: currentTeam).filter { !lineup.contains($0) }
         } else {
-            orderedPlayers = allPlayers
+            orderedPlayers = allPlayers.filter { $0.order >= 0 }.sorted { $0.order < $1.order }
+            benchedPlayers = allPlayers.filter { $0.order < 0 }
         }
         feedbackGenerator.prepare()
         registerNibs()
@@ -167,6 +167,11 @@ extension RosterViewController {
             updatedPlayer.order = index
             core.fire(command: UpdateObject(updatedPlayer))
         }
+        benchedPlayers.forEach { player in
+            var updatedPlayer = player
+            updatedPlayer.order = -1
+            core.fire(command: UpdateObject(updatedPlayer))
+        }
     }
     
     fileprivate func callPhoneNumber(_ number: String) {
@@ -214,7 +219,7 @@ extension RosterViewController {
 extension RosterViewController: UITableViewDataSource, UITableViewDelegate {
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return isLineup ? 2 : 1
+        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -229,7 +234,7 @@ extension RosterViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func configure(cell: PlayerCell, with player: Player, atIndex index: IndexPath, isSelected: Bool) {
-        cell.update(with: player, index: index, isLast: player == orderedPlayers.last, isSelected: isSelected)
+        cell.update(with: player, index: index, isSelected: isSelected)
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -237,6 +242,10 @@ extension RosterViewController: UITableViewDataSource, UITableViewDelegate {
         let title = section == 0 ? "Roster" : "Bench"
         headerCell.update(with: title, backgroundColor: .gray200)
         return headerCell.contentView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -41,10 +41,14 @@ extension StatsTrophiesViewController: IGListAdapterDataSource {
             
             if trophy == .worseBattingAverage {
                 winnerStat = trophyStats.last
-                secondStat = trophyStats[trophyStats.count - 2]
+                if trophyStats.count > 1 {
+                    secondStat = trophyStats[trophyStats.count - 2]
+                }
             } else {
                 winnerStat = trophyStats.first
-                secondStat = trophyStats[1]
+                if trophyStats.count > 1 {
+                    secondStat = trophyStats[1]
+                }
             }
             guard let winner = winnerStat, winner.value > 0 else { return }
             let firstLoser: Stat? = secondStat != nil && secondStat!.value > 0 ? secondStat! : nil

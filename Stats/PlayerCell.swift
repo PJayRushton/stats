@@ -32,7 +32,7 @@ class PlayerCell: UITableViewCell, AutoReuseIdentifiable {
         selectedSwitch.isSelected = true
     }
     
-    func update(with player: Player, index: IndexPath, isLast: Bool = false, isSelected: Bool = true) {
+    func update(with player: Player, index: IndexPath, isSelected: Bool = true) {
         backgroundColor = player.gender.color
         selectedSwitch.setSelected(isSelected, animated: false)
         numberLabel.text = index.section == 0 ? "\(index.row + 1))" : nil

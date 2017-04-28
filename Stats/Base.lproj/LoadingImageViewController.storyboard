@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -32,17 +31,20 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ClA-TE-LLa">
-                                <rect key="frame" x="118.5" y="20" width="137" height="160.5"/>
+                                <rect key="frame" x="134.5" y="20" width="105" height="140.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pyq-0d-nXJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="137" height="100"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="105" height="80"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="jG9-aT-63j"/>
+                                        </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WvG-MS-C07">
-                                        <rect key="frame" x="0.0" y="100" width="137" height="60.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yZR-HS-GTH">
+                                        <rect key="frame" x="0.0" y="80" width="105" height="60.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" text="St   s" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDH-sv-0qX">
-                                                <rect key="frame" x="-0.5" y="0.0" width="137" height="60.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" text="St" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDH-sv-0qX">
+                                                <rect key="frame" x="0.0" y="0.0" width="58" height="60.5"/>
                                                 <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="50"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -54,21 +56,8 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="4Iq-65-fwt" secondAttribute="bottom" id="06X-jV-3ae"/>
-                                            <constraint firstAttribute="trailing" secondItem="NDH-sv-0qX" secondAttribute="trailing" id="BZG-FO-IEf"/>
-                                            <constraint firstItem="NDH-sv-0qX" firstAttribute="leading" secondItem="WvG-MS-C07" secondAttribute="leading" id="Uuo-HS-PHO"/>
-                                            <constraint firstItem="NDH-sv-0qX" firstAttribute="top" secondItem="WvG-MS-C07" secondAttribute="top" id="aia-SN-Akf"/>
-                                            <constraint firstItem="4Iq-65-fwt" firstAttribute="top" secondItem="WvG-MS-C07" secondAttribute="top" id="iKS-WT-l5t"/>
-                                            <constraint firstAttribute="trailing" secondItem="4Iq-65-fwt" secondAttribute="trailing" constant="32" id="ipw-AX-eAW"/>
-                                            <constraint firstAttribute="bottom" secondItem="NDH-sv-0qX" secondAttribute="bottom" id="w96-bw-har"/>
-                                        </constraints>
-                                    </view>
+                                    </stackView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="137" id="3Db-jR-qqo"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -79,7 +68,6 @@
                             <constraint firstItem="7dL-JM-Uez" firstAttribute="top" secondItem="b2u-qD-HKY" secondAttribute="topMargin" id="ax3-So-QhM"/>
                             <constraint firstAttribute="trailing" secondItem="7dL-JM-Uez" secondAttribute="trailing" id="hnY-Fw-JQs"/>
                             <constraint firstItem="ClA-TE-LLa" firstAttribute="top" secondItem="EKP-mk-bmS" secondAttribute="bottom" id="iW4-Dj-P8e"/>
-                            <constraint firstItem="pyq-0d-nXJ" firstAttribute="height" secondItem="b2u-qD-HKY" secondAttribute="height" multiplier="0.15" id="lmP-gL-Laj"/>
                         </constraints>
                     </view>
                     <connections>
@@ -92,6 +80,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="stock1" width="2500" height="3751"/>
+        <image name="stock1" width="312" height="552"/>
     </resources>
 </document>

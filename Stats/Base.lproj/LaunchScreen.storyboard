@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,18 +22,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stock1" translatesAutoresizingMaskIntoConstraints="NO" id="EN7-1i-cR6">
+                            <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch" translatesAutoresizingMaskIntoConstraints="NO" id="c3F-HZ-V1p">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="EN7-1i-cR6" secondAttribute="trailing" id="V8h-8n-vIH"/>
-                            <constraint firstItem="oRg-CE-SoQ" firstAttribute="top" secondItem="EN7-1i-cR6" secondAttribute="bottom" id="Z1J-1t-GtW"/>
-                            <constraint firstItem="EN7-1i-cR6" firstAttribute="top" secondItem="h1W-I9-eRM" secondAttribute="top" id="djA-jM-VNQ"/>
-                            <constraint firstItem="EN7-1i-cR6" firstAttribute="leading" secondItem="h1W-I9-eRM" secondAttribute="leading" id="eDg-b2-hkC"/>
+                            <constraint firstItem="c3F-HZ-V1p" firstAttribute="leading" secondItem="h1W-I9-eRM" secondAttribute="leading" id="1DN-5D-thB"/>
+                            <constraint firstAttribute="trailing" secondItem="c3F-HZ-V1p" secondAttribute="trailing" id="242-KP-KXz"/>
+                            <constraint firstItem="oRg-CE-SoQ" firstAttribute="top" secondItem="c3F-HZ-V1p" secondAttribute="bottom" id="4FJ-qr-1XB"/>
+                            <constraint firstItem="c3F-HZ-V1p" firstAttribute="top" secondItem="h1W-I9-eRM" secondAttribute="topMargin" id="UTx-Th-Knp"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -42,6 +41,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="stock1" width="312" height="552"/>
+        <image name="launch" width="416" height="736"/>
     </resources>
 </document>

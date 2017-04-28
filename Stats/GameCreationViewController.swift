@@ -64,7 +64,7 @@ class GameCreationViewController: Component, AutoStoryboardInitializable {
     @IBAction func startButtonPressed(_ sender: UIButton) {
         guard let game = construtedGame() else { return }
         if let _ = editingGame {
-            core.fire(command: UpdateObject(game))
+            core.fire(command: SetObject(game))
         } else {
             core.fire(command: CreateGame(game: game))
         }

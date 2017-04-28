@@ -16,7 +16,7 @@ class TeamSwitcherViewController: Component, AutoStoryboardInitializable {
     var selectedTeam: Team? {
         return core.state.teamState.currentTeam
     }
-    
+    var currentTypes = [TeamOwnershipType]()
     var dismissable = true
     
     override func viewDidLoad() {
@@ -37,6 +37,9 @@ class TeamSwitcherViewController: Component, AutoStoryboardInitializable {
     }
     
     override func update(with state: AppState) {
+        currentTypes = TeamOwnershipType.allValues.filter { type -> Bool in
+            return core.state.teamState.currentUserTeams(forType: type).isEmpty == false
+        }
         tableView.reloadData()
     }
     
@@ -52,7 +55,7 @@ extension TeamSwitcherViewController {
     }
     
     func teams(for section: Int) -> [Team] {
-        let type = TeamOwnershipType(hashValue: section)
+        let type = currentTypes[section]
         return core.state.teamState.currentUserTeams(forType: type)
     }
     
@@ -60,6 +63,10 @@ extension TeamSwitcherViewController {
 
 
 extension TeamSwitcherViewController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return currentTypes.count
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return teams(for: section).count
@@ -75,7 +82,7 @@ extension TeamSwitcherViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableCell(withIdentifier: BasicHeaderCell.reuseIdentifier) as! BasicHeaderCell
-        let title = TeamOwnershipType(hashValue: section).sectionTitle
+        let title = currentTypes[section].sectionTitle
         header.update(with:title, backgroundColor: UIColor.gray100, alignment: .center)
         return header
     }

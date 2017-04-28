@@ -42,6 +42,14 @@ class GameViewController: Component, AutoStoryboardInitializable {
         return core.state.gameState.currentGame
     }
     
+    var names = [String]() {
+        didSet {
+            if names != oldValue {
+                playerPickerView.reloadData()
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -91,6 +99,9 @@ class GameViewController: Component, AutoStoryboardInitializable {
                 scoreLabel.text = game.scoreString
             }
         }
+        var playerNames = gamePlayers.map { $0.name }
+        playerNames.append("⬅️")
+        names = playerNames
         adapter.performUpdates(animated: true)
     }
     
@@ -227,12 +238,10 @@ extension GameViewController: AKPickerViewDelegate, AKPickerViewDataSource {
     }
     
     func numberOfItemsInPickerView(_ pickerView: AKPickerView) -> Int {
-        return gamePlayers.count + 1
+        return names.count
     }
     
     func pickerView(_ pickerView: AKPickerView, titleForItem item: Int) -> String {
-        var names = gamePlayers.map { $0.name }
-        names.append("⬅️")
         return names[item]
     }
     

@@ -32,7 +32,6 @@ struct SubscribeToTeam: Command {
                 core.fire(event: ErrorEvent(error: error, message: nil))
             }
         }
-        
     }
     
     private func subscribeToPlayers(core: Core<AppState>) {

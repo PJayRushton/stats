@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -131,24 +131,25 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qqi-XZ-Wga">
                                                         <rect key="frame" x="0.0" y="0.0" width="44" height="63"/>
-                                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="13"/>
-                                                        <state key="normal" title="Camera"/>
+                                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="40"/>
+                                                        <state key="normal" title="📷"/>
                                                         <connections>
                                                             <action selector="cameraButtonPressed:" destination="KaG-dX-WZH" eventType="touchUpInside" id="rM1-Sa-cuQ"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KP9-cp-bI2">
                                                         <rect key="frame" x="0.0" y="63" width="44" height="62.5"/>
-                                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="13"/>
-                                                        <state key="normal" title="Lib"/>
+                                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="40"/>
+                                                        <state key="normal" title="📗"/>
                                                         <connections>
+                                                            <action selector="cameraButtonPressed:" destination="KaG-dX-WZH" eventType="touchUpInside" id="hks-u7-TFK"/>
                                                             <action selector="stockButtonPressed:" destination="KaG-dX-WZH" eventType="touchUpInside" id="eqq-NQ-NbQ"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="efs-ro-bAO">
                                                         <rect key="frame" x="0.0" y="125.5" width="44" height="63"/>
-                                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="13"/>
-                                                        <state key="normal" title="Trash"/>
+                                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="40"/>
+                                                        <state key="normal" title="🗑"/>
                                                         <connections>
                                                             <action selector="deleteImageButtonPressed:" destination="KaG-dX-WZH" eventType="touchUpInside" id="yXf-bO-hv1"/>
                                                         </connections>
@@ -238,6 +239,6 @@
     </scenes>
     <resources>
         <image name="baseball" width="99" height="100"/>
-        <image name="stock1" width="2500" height="3751"/>
+        <image name="stock1" width="312" height="552"/>
     </resources>
 </document>

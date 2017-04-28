@@ -42,6 +42,11 @@ class AddTeamViewController: Component, AutoStoryboardInitializable {
         setUpQRFramer()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        videoPreviewLayer?.frame = videoHolderView.frame
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         

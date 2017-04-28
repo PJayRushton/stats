@@ -46,10 +46,6 @@ class GameCreationViewController: Component, AutoStoryboardInitializable {
         super.viewWillAppear(animated)
         updateSaveButton()
     }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        opponentTextField.becomeFirstResponder()
-    }
     
     @IBAction func dismissButtonPressed(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)

@@ -73,7 +73,7 @@ class RosterViewController: Component, AutoStoryboardInitializable {
             let newPlayers = core.state.playerState.players(for: team).filter { !orderedPlayers.contains($0) && !benchedPlayers.contains($0) }
             benchedPlayers.append(contentsOf: newPlayers)
         } else {
-            orderedPlayers = core.state.playerState.players(for: team).filter { orderedPlayers.contains($0) }
+            orderedPlayers = core.state.playerState.players(for: team).filter { !benchedPlayers.contains($0) }
             benchedPlayers = core.state.playerState.players(for: team).filter { benchedPlayers.contains($0) }
         }
         tableView.reloadData()

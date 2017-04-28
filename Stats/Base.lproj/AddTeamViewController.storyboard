@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -46,7 +46,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ztA-xl-xU9">
                                         <rect key="frame" x="0.0" y="336.5" width="375" height="266.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Or input the 4 digit share code here:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="FPk-Au-OWf">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Or input the 5 digit share code here:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="FPk-Au-OWf">
                                                 <rect key="frame" x="0.0" y="8" width="375" height="64.5"/>
                                                 <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -56,40 +56,53 @@
                                                 <rect key="frame" x="24" y="88.5" width="327" height="90"/>
                                                 <subviews>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DRs-t2-eal">
-                                                        <rect key="frame" x="0.0" y="0.0" width="70" height="90"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="52.5" height="90"/>
                                                         <nil key="textColor"/>
-                                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="70"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="60"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                         <connections>
-                                                            <action selector="textFieldChanged:" destination="qad-wd-SC7" eventType="editingChanged" id="Ehe-sv-ViJ"/>
+                                                            <action selector="textFieldChanged:" destination="qad-wd-SC7" eventType="editingChanged" id="a3V-9O-Ekv"/>
                                                             <outlet property="delegate" destination="qad-wd-SC7" id="XpI-iu-DC3"/>
                                                         </connections>
                                                     </textField>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ben-iE-4sb">
-                                                        <rect key="frame" x="86" y="0.0" width="69.5" height="90"/>
+                                                        <rect key="frame" x="68.5" y="0.0" width="52.5" height="90"/>
                                                         <nil key="textColor"/>
-                                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="70"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="60"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                         <connections>
+                                                            <action selector="textFieldChanged:" destination="qad-wd-SC7" eventType="editingChanged" id="Lvf-l5-HIm"/>
                                                             <outlet property="delegate" destination="qad-wd-SC7" id="7wf-gc-wQp"/>
                                                         </connections>
                                                     </textField>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n2T-mU-Fzx">
-                                                        <rect key="frame" x="171.5" y="0.0" width="70" height="90"/>
+                                                        <rect key="frame" x="137" y="0.0" width="53" height="90"/>
                                                         <nil key="textColor"/>
-                                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="70"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="60"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                         <connections>
+                                                            <action selector="textFieldChanged:" destination="qad-wd-SC7" eventType="editingChanged" id="Bid-bF-AE3"/>
                                                             <outlet property="delegate" destination="qad-wd-SC7" id="lh7-Wb-LDi"/>
                                                         </connections>
                                                     </textField>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ca8-ad-V1b">
-                                                        <rect key="frame" x="257.5" y="0.0" width="69.5" height="90"/>
+                                                        <rect key="frame" x="206" y="0.0" width="52.5" height="90"/>
                                                         <nil key="textColor"/>
-                                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="70"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="60"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                         <connections>
+                                                            <action selector="textFieldChanged:" destination="qad-wd-SC7" eventType="editingChanged" id="elW-c1-Nb4"/>
                                                             <outlet property="delegate" destination="qad-wd-SC7" id="5uy-3z-j1I"/>
+                                                        </connections>
+                                                    </textField>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SXK-OR-l8R">
+                                                        <rect key="frame" x="274.5" y="0.0" width="52.5" height="90"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="60"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                        <connections>
+                                                            <action selector="textFieldChanged:" destination="qad-wd-SC7" eventType="editingChanged" id="Ns0-Fz-Sz5"/>
+                                                            <outlet property="delegate" destination="qad-wd-SC7" id="bkl-Th-rg2"/>
                                                         </connections>
                                                     </textField>
                                                 </subviews>
@@ -137,6 +150,7 @@
                         <outlet property="textField2" destination="Ben-iE-4sb" id="4Y7-Pr-S0W"/>
                         <outlet property="textField3" destination="n2T-mU-Fzx" id="tm0-PT-CRZ"/>
                         <outlet property="textField4" destination="ca8-ad-V1b" id="zIg-EL-Zqn"/>
+                        <outlet property="textField5" destination="SXK-OR-l8R" id="LNW-cu-i4c"/>
                         <outlet property="topStack" destination="VHE-zs-ZM0" id="7CY-wk-pD1"/>
                         <outlet property="videoHolderView" destination="7CN-f0-xNv" id="5dG-MW-po9"/>
                     </connections>

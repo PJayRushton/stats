@@ -149,6 +149,17 @@ extension Int {
         return range.lowerBound + (Int(arc4random_uniform(UInt32(range.upperBound - range.lowerBound))))
     }
     
+    var randomDigitsString: String {
+        guard self > 0 else { return "" }
+        var digitsString = ""
+        
+        for _ in 0..<self {
+            let newDigit = Int(arc4random_uniform(9))
+            digitsString += String(newDigit)
+        }
+        return digitsString
+    }
+    
     var doubleValue: Double {
         return Double(self)
     }

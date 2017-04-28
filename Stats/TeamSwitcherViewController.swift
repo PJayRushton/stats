@@ -52,7 +52,7 @@ extension TeamSwitcherViewController {
     }
     
     func teams(for section: Int) -> [Team] {
-        let type = TeamOwnershipType(hashValue: section)!
+        let type = TeamOwnershipType(hashValue: section)
         return core.state.teamState.currentUserTeams(forType: type)
     }
     
@@ -75,7 +75,7 @@ extension TeamSwitcherViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableCell(withIdentifier: BasicHeaderCell.reuseIdentifier) as! BasicHeaderCell
-        let title = TeamOwnershipType(hashValue: section)!.sectionTitle
+        let title = TeamOwnershipType(hashValue: section).sectionTitle
         header.update(with:title, backgroundColor: UIColor.gray100, alignment: .center)
         return header
     }

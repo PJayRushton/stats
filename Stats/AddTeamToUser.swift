@@ -13,7 +13,7 @@ enum TeamOwnershipType: String {
     case managed
     case fan
     
-    init?(hashValue value: Int) {
+    init(hashValue value: Int) {
         switch value {
         case 0:
             self = .owned
@@ -24,6 +24,16 @@ enum TeamOwnershipType: String {
         }
     }
     
+    var hashValue: Int {
+        switch self {
+        case .owned:
+            return 0
+        case .managed:
+            return 1
+        case .fan:
+            return 2
+        }
+    }
     var firstCharacter: String {
         return String(rawValue.characters.first!)
     }
@@ -60,7 +70,7 @@ struct AddTeamToUser: Command {
         case .managed:
             currentUser.managedTeamIds.insert(team.id)
         case .fan:
-            currentUser.managedTeamIds.insert(team.id)
+            currentUser.fanTeamIds.insert(team.id)
         }
         let ref = StatsRefs.userRef(id: currentUser.id)
         networkAccess.updateObject(at: ref, parameters: currentUser.marshaled(), completion: nil)

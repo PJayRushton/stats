@@ -53,7 +53,7 @@ struct Team: Identifiable, Unmarshaling {
         self.currentSeasonId = currentSeasonId
         self.imageURLString = imageURLString
         self.name = name
-        self.shareCode = UUID().uuidString.last4
+        self.shareCode = 4.randomDigitsString
         self.sport = sport
         self.touchDate = Date()
     }

@@ -52,7 +52,6 @@ extension ShareTeamViewController {
         shareLabel.attributedText = attributedString
     }
     
-    
     fileprivate func qrCodeString(for team: Team, type: TeamOwnershipType) -> String {
         return "\(team.id) \(type.rawValue)"
     }

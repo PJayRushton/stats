@@ -70,7 +70,7 @@
 		A17999971E82DFF00058A002 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A17999951E82DFF00058A002 /* LaunchScreen.storyboard */; };
 		A179999A1E82DFFF0058A002 /* HomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A17999981E82DFFF0058A002 /* HomeViewController.storyboard */; };
 		A17DC2431EAC90DD00597063 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17DC2421EAC90DD00597063 /* Gender.swift */; };
-		A17EF6BC1E930D3100DEE4ED /* TeamSwitcherViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A17EF6BA1E930D3100DEE4ED /* TeamSwitcherViewController.storyboard */; };
+		A17EF6BC1E930D3100DEE4ED /* TeamListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A17EF6BA1E930D3100DEE4ED /* TeamListViewController.storyboard */; };
 		A17EF6BE1E931A0300DEE4ED /* TeamListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17EF6BD1E931A0300DEE4ED /* TeamListViewController.swift */; };
 		A17EF6C01E93256000DEE4ED /* TouchObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17EF6BF1E93256000DEE4ED /* TouchObject.swift */; };
 		A17EF6C41E93E8D200DEE4ED /* NewTeamState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17EF6C31E93E8D200DEE4ED /* NewTeamState.swift */; };
@@ -223,7 +223,7 @@
 		A17999961E82DFF00058A002 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A17999991E82DFFF0058A002 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = HomeViewController.storyboard; sourceTree = "<group>"; };
 		A17DC2421EAC90DD00597063 /* Gender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
-		A17EF6BB1E930D3100DEE4ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = TeamSwitcherViewController.storyboard; sourceTree = "<group>"; };
+		A17EF6BB1E930D3100DEE4ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = TeamListViewController.storyboard; sourceTree = "<group>"; };
 		A17EF6BD1E931A0300DEE4ED /* TeamListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamListViewController.swift; sourceTree = "<group>"; };
 		A17EF6BF1E93256000DEE4ED /* TouchObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchObject.swift; sourceTree = "<group>"; };
 		A17EF6C31E93E8D200DEE4ED /* NewTeamState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTeamState.swift; sourceTree = "<group>"; };
@@ -435,10 +435,10 @@
 				A14B64E21E8D42B000CBDE92 /* StockPhotosViewController.storyboard */,
 				A14B64EA1E8D65C500CBDE92 /* TeamCreationViewController.storyboard */,
 				A1A2C3621E8BF6020008274F /* TeamHeaderCell.xib */,
-				A17EF6BA1E930D3100DEE4ED /* TeamSwitcherViewController.storyboard */,
-				A1CD9A151E8AA2F000D3C8F7 /* UsernameViewController.storyboard */,
+				A17EF6BA1E930D3100DEE4ED /* TeamListViewController.storyboard */,
 				A1B65DCB1EB07818009983E1 /* TrophyHeaderCell.xib */,
 				A1B65DCE1EB07BFC009983E1 /* TrophyWinnerCell.xib */,
+				A1CD9A151E8AA2F000D3C8F7 /* UsernameViewController.storyboard */,
 			);
 			path = Base.lproj;
 			sourceTree = "<group>";
@@ -679,7 +679,7 @@
 				A1D67D5A1E928A0D00200B65 /* BasicHeaderCell.xib in Resources */,
 				A1D67D571E92872A00200B65 /* BasicCell.xib in Resources */,
 				A16D41721E97D09E00DE01D4 /* RosterViewController.storyboard in Resources */,
-				A17EF6BC1E930D3100DEE4ED /* TeamSwitcherViewController.storyboard in Resources */,
+				A17EF6BC1E930D3100DEE4ED /* TeamListViewController.storyboard in Resources */,
 				A1426BA21EA85E7200AAABB3 /* AtBatCell.xib in Resources */,
 				A1C722131EA0F75500A71C51 /* ShareTeamRolesViewController.storyboard in Resources */,
 				A1B65DC21EB01123009983E1 /* StatCell.xib in Resources */,
@@ -1006,12 +1006,12 @@
 			name = HomeViewController.storyboard;
 			sourceTree = "<group>";
 		};
-		A17EF6BA1E930D3100DEE4ED /* TeamSwitcherViewController.storyboard */ = {
+		A17EF6BA1E930D3100DEE4ED /* TeamListViewController.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				A17EF6BB1E930D3100DEE4ED /* Base */,
 			);
-			name = TeamSwitcherViewController.storyboard;
+			name = TeamListViewController.storyboard;
 			sourceTree = "<group>";
 		};
 		A1A2C36D1E8C0F4C0008274F /* AvatarViewController.storyboard */ = {

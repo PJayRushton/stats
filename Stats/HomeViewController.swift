@@ -108,9 +108,10 @@ extension HomeViewController {
     }
     
     func presentTeamSwitcher() {
-        let switcherVC = TeamSwitcherViewController.initializeFromStoryboard().embededInNavigationController
-        switcherVC.modalPresentationStyle = .overFullScreen
-        present(switcherVC, animated: true)
+        let teamListVC = TeamListViewController.initializeFromStoryboard()
+        teamListVC.isSwitcher = true
+        teamListVC.modalPresentationStyle = .overFullScreen
+        present(teamListVC, animated: true)
     }
     
     func presentTeamEdit() {

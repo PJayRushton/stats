@@ -151,12 +151,14 @@ extension SettingsViewController: UITableViewDelegate {
         
         switch theRow {
         case .manageTeams:
-            let manageTeamsVC = ManageTeamsViewController.initializeFromStoryboard()
-            manageTeamsVC.dismissable = false
-            navigationController?.pushViewController(manageTeamsVC, animated: true)
+            let teamManagerVC = TeamListViewController.initializeFromStoryboard()
+            teamManagerVC.isDismissable = false
+            teamManagerVC.isSwitcher = false
+            navigationController?.pushViewController(teamManagerVC, animated: true)
         case .switchTeam:
-            let teamSwitcherVC = TeamSwitcherViewController.initializeFromStoryboard()
-            teamSwitcherVC.dismissable = false
+            let teamSwitcherVC = TeamListViewController.initializeFromStoryboard()
+            teamSwitcherVC.isDismissable = false
+            teamSwitcherVC.isSwitcher = true
             navigationController?.pushViewController(teamSwitcherVC, animated: true)
         }
     }

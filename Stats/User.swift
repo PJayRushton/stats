@@ -55,6 +55,10 @@ struct User: Identifiable, Unmarshaling {
         return [ownedTeamIds, managedTeamIds].joined().contains(team.id)
     }
     
+    func owns(_ team: Team) -> Bool {
+        return ownedTeamIds.contains(team.id)
+    }
+    
 }
 
 extension User: Marshaling {

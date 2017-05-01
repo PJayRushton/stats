@@ -71,7 +71,7 @@
 		A179999A1E82DFFF0058A002 /* HomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A17999981E82DFFF0058A002 /* HomeViewController.storyboard */; };
 		A17DC2431EAC90DD00597063 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17DC2421EAC90DD00597063 /* Gender.swift */; };
 		A17EF6BC1E930D3100DEE4ED /* TeamSwitcherViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A17EF6BA1E930D3100DEE4ED /* TeamSwitcherViewController.storyboard */; };
-		A17EF6BE1E931A0300DEE4ED /* TeamSwitcherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17EF6BD1E931A0300DEE4ED /* TeamSwitcherViewController.swift */; };
+		A17EF6BE1E931A0300DEE4ED /* TeamListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17EF6BD1E931A0300DEE4ED /* TeamListViewController.swift */; };
 		A17EF6C01E93256000DEE4ED /* TouchObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17EF6BF1E93256000DEE4ED /* TouchObject.swift */; };
 		A17EF6C41E93E8D200DEE4ED /* NewTeamState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17EF6C31E93E8D200DEE4ED /* NewTeamState.swift */; };
 		A17EF6C61E93EDEC00DEE4ED /* UploadToStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17EF6C51E93EDEC00DEE4ED /* UploadToStorage.swift */; };
@@ -132,8 +132,6 @@
 		A1CD9A1B1E8AACAB00D3C8F7 /* CheckUsernameAvailability.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD9A1A1E8AACAB00D3C8F7 /* CheckUsernameAvailability.swift */; };
 		A1CD9A1E1E8ABBBC00D3C8F7 /* Arrays.swift in Sources */ = {isa = PBXBuildFile; fileRef = A179997F1E82B95E0058A002 /* Arrays.swift */; };
 		A1D67D381E8F081A00200B65 /* TeamActionSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D67D371E8F081A00200B65 /* TeamActionSectionController.swift */; };
-		A1D67D3A1E8F23DE00200B65 /* ManageTeamsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D67D391E8F23DE00200B65 /* ManageTeamsViewController.swift */; };
-		A1D67D3D1E8F244000200B65 /* ManageTeamsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1D67D3B1E8F244000200B65 /* ManageTeamsViewController.storyboard */; };
 		A1D67D3F1E8F253F00200B65 /* BasicTeamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D67D3E1E8F253F00200B65 /* BasicTeamCell.swift */; };
 		A1D67D411E8FE24C00200B65 /* BasicHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D67D401E8FE24C00200B65 /* BasicHeaderCell.swift */; };
 		A1D67D431E8FE3A000200B65 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D67D421E8FE3A000200B65 /* Appearance.swift */; };
@@ -226,7 +224,7 @@
 		A17999991E82DFFF0058A002 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = HomeViewController.storyboard; sourceTree = "<group>"; };
 		A17DC2421EAC90DD00597063 /* Gender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
 		A17EF6BB1E930D3100DEE4ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = TeamSwitcherViewController.storyboard; sourceTree = "<group>"; };
-		A17EF6BD1E931A0300DEE4ED /* TeamSwitcherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamSwitcherViewController.swift; sourceTree = "<group>"; };
+		A17EF6BD1E931A0300DEE4ED /* TeamListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamListViewController.swift; sourceTree = "<group>"; };
 		A17EF6BF1E93256000DEE4ED /* TouchObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchObject.swift; sourceTree = "<group>"; };
 		A17EF6C31E93E8D200DEE4ED /* NewTeamState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTeamState.swift; sourceTree = "<group>"; };
 		A17EF6C51E93EDEC00DEE4ED /* UploadToStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadToStorage.swift; sourceTree = "<group>"; };
@@ -285,8 +283,6 @@
 		A1CD9A181E8AA83D00D3C8F7 /* NewUserState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserState.swift; sourceTree = "<group>"; };
 		A1CD9A1A1E8AACAB00D3C8F7 /* CheckUsernameAvailability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckUsernameAvailability.swift; sourceTree = "<group>"; };
 		A1D67D371E8F081A00200B65 /* TeamActionSectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamActionSectionController.swift; sourceTree = "<group>"; };
-		A1D67D391E8F23DE00200B65 /* ManageTeamsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageTeamsViewController.swift; sourceTree = "<group>"; };
-		A1D67D3C1E8F244000200B65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ManageTeamsViewController.storyboard; sourceTree = "<group>"; };
 		A1D67D3E1E8F253F00200B65 /* BasicTeamCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicTeamCell.swift; sourceTree = "<group>"; };
 		A1D67D401E8FE24C00200B65 /* BasicHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicHeaderCell.swift; sourceTree = "<group>"; };
 		A1D67D421E8FE3A000200B65 /* Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
@@ -424,7 +420,6 @@
 				A17999951E82DFF00058A002 /* LaunchScreen.storyboard */,
 				A1D67D4B1E8FE8FC00200B65 /* LoadingImageViewController.storyboard */,
 				A1D67D441E8FE8B100200B65 /* Main.storyboard */,
-				A1D67D3B1E8F244000200B65 /* ManageTeamsViewController.storyboard */,
 				A1426BA91EA86CC300AAABB3 /* NewAtBatCell.xib */,
 				A16D41731E97D1BC00DE01D4 /* PlayerCell.xib */,
 				A16D417C1E97FF7400DE01D4 /* PlayerCreationViewController.storyboard */,
@@ -467,7 +462,6 @@
 				A17999901E82DF300058A002 /* HomeViewController.swift */,
 				A1D67D491E8FE8EE00200B65 /* LoadingImageViewController.swift */,
 				A1D67D471E8FE8BF00200B65 /* MainViewController.swift */,
-				A1D67D391E8F23DE00200B65 /* ManageTeamsViewController.swift */,
 				A1426BA71EA86C5000AAABB3 /* NewAtBatCell.swift */,
 				A16D41761E97D1D500DE01D4 /* PlayerCell.swift */,
 				A16D417A1E97FF6000DE01D4 /* PlayerCreationViewController.swift */,
@@ -483,7 +477,7 @@
 				A14B64E01E8D429800CBDE92 /* StockPhotosViewController.swift */,
 				A14B64ED1E8D662900CBDE92 /* TeamCreationViewController.swift */,
 				A1A2C3611E8BF6020008274F /* TeamHeaderCell.swift */,
-				A17EF6BD1E931A0300DEE4ED /* TeamSwitcherViewController.swift */,
+				A17EF6BD1E931A0300DEE4ED /* TeamListViewController.swift */,
 				A1D8054B1E89870B0072AA49 /* UsernameViewController.swift */,
 				A1B65DBE1EB010E1009983E1 /* StatCell.swift */,
 				A1B65DC91EB077A2009983E1 /* TrophyHeaderCell.swift */,
@@ -698,7 +692,6 @@
 				A14B64F81E8E9D2300CBDE92 /* GoogleService-Info.plist in Resources */,
 				A1A2C3721E8C11F30008274F /* EmailViewController.storyboard in Resources */,
 				A1C722181EA10D1800A71C51 /* ShareTeamViewController.storyboard in Resources */,
-				A1D67D3D1E8F244000200B65 /* ManageTeamsViewController.storyboard in Resources */,
 				A1D67D4D1E8FE8FC00200B65 /* LoadingImageViewController.storyboard in Resources */,
 				A17999971E82DFF00058A002 /* LaunchScreen.storyboard in Resources */,
 				A11B4D9F1EAED86000798D52 /* StatsNumbersViewController.storyboard in Resources */,
@@ -725,7 +718,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		7BA00481D859435D9134BF7A /* [CP] Embed Pods Frameworks */ = {
@@ -839,13 +832,12 @@
 				A1A2C35E1E8BF3680008274F /* Component.swift in Sources */,
 				A17EF6D01E941D8700DEE4ED /* SubscribeToTeam.swift in Sources */,
 				A1B65DD41EB0FB0E009983E1 /* Trophy.swift in Sources */,
-				A17EF6BE1E931A0300DEE4ED /* TeamSwitcherViewController.swift in Sources */,
+				A17EF6BE1E931A0300DEE4ED /* TeamListViewController.swift in Sources */,
 				A1D67D431E8FE3A000200B65 /* Appearance.swift in Sources */,
 				A16D417B1E97FF6000DE01D4 /* PlayerCreationViewController.swift in Sources */,
 				A1A2C35C1E8BF2FB0008274F /* AvatarViewController.swift in Sources */,
 				A1B65DC81EB056EB009983E1 /* StatSectionController.swift in Sources */,
 				A17EF6CA1E94040D00DEE4ED /* DeleteObject.swift in Sources */,
-				A1D67D3A1E8F23DE00200B65 /* ManageTeamsViewController.swift in Sources */,
 				A11B4D911EAEC4D000798D52 /* StatsNumbersViewController.swift in Sources */,
 				A1D67D3F1E8F253F00200B65 /* BasicTeamCell.swift in Sources */,
 				A14B64F01E8D67A100CBDE92 /* SaveTeam.swift in Sources */,
@@ -1092,14 +1084,6 @@
 				A1CD9A161E8AA2F000D3C8F7 /* Base */,
 			);
 			name = UsernameViewController.storyboard;
-			sourceTree = "<group>";
-		};
-		A1D67D3B1E8F244000200B65 /* ManageTeamsViewController.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A1D67D3C1E8F244000200B65 /* Base */,
-			);
-			name = ManageTeamsViewController.storyboard;
 			sourceTree = "<group>";
 		};
 		A1D67D441E8FE8B100200B65 /* Main.storyboard */ = {

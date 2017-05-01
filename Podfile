@@ -5,7 +5,6 @@ target 'Stats' do
 
   pod 'AIFlatSwitch', '~> 1.0.1'
   pod 'BetterSegmentedControl'
-  pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
   pod 'IGListKit'
   pod 'Kingfisher'
   pod 'LTMorphingLabel'

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import ChameleonFramework
 import TextFieldEffects
 
 class UsernameViewController: Component, AutoStoryboardInitializable {
@@ -19,7 +18,7 @@ class UsernameViewController: Component, AutoStoryboardInitializable {
     fileprivate let checkImage = UIImage(named: "check")
     fileprivate let xImage = UIImage(named: "x")
     fileprivate let disabledColor = UIColor.flatGray.withAlphaComponent(0.6)
-    fileprivate let enabledColor = UIColor.flatGrayDark.darken(byPercentage: 0.2)
+    fileprivate let enabledColor = UIColor.flatGrayDark
     
     override func viewDidLoad() {
         super.viewDidLoad()

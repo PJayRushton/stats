@@ -45,7 +45,7 @@ class RosterViewController: Component, AutoStoryboardInitializable {
             benchedPlayers = core.state.playerState.players(for: currentTeam).filter { !lineup.contains($0) }
         } else {
             orderedPlayers = allPlayers.filter { $0.order >= 0 }.sorted { $0.order < $1.order }
-            benchedPlayers = allPlayers.filter { $0.order < 0 }
+            benchedPlayers = allPlayers.filter { $0.order < 0 }.sorted { $0.name < $1.name }
         }
         feedbackGenerator.prepare()
         registerNibs()
@@ -57,7 +57,7 @@ class RosterViewController: Component, AutoStoryboardInitializable {
         if isLineup {
             core.fire(event: LineupUpdated(players: orderedPlayers))
         } else {
-            updateRosterOrder()
+            updateRosterOrder(all: true)
         }
     }
     
@@ -70,11 +70,16 @@ class RosterViewController: Component, AutoStoryboardInitializable {
         navigationController?.navigationBar.barTintColor = state.currentMenuItem?.backgroundColor
         guard let team = state.teamState.currentTeam else { tableView.reloadData(); return }
         if isLineup {
-            let newPlayers = core.state.playerState.players(for: team).filter { !orderedPlayers.contains($0) && !benchedPlayers.contains($0) }
+            let newPlayers = state.playerState.players(for: team).filter { !orderedPlayers.contains($0) && !benchedPlayers.contains($0) }
             benchedPlayers.append(contentsOf: newPlayers)
         } else {
-            orderedPlayers = core.state.playerState.players(for: team).filter { !benchedPlayers.contains($0) }
-            benchedPlayers = core.state.playerState.players(for: team).filter { benchedPlayers.contains($0) }
+            orderedPlayers = state.playerState.players(for: team).filter { !benchedPlayers.contains($0) }
+            for (index, player) in benchedPlayers.enumerated() {
+                let teamPlayers = state.playerState.players(for: team)
+                if let statePlayerIndex = teamPlayers.index(of: player), case let statePlayer = teamPlayers[statePlayerIndex], !player.isTheSameAs(statePlayer) {
+                    benchedPlayers[index] = statePlayer
+                }
+            }
         }
         tableView.reloadData()
     }
@@ -160,17 +165,19 @@ extension RosterViewController {
         customPresentViewController(modalPresenter(), viewController: playerEditVC, animated: true, completion: nil)
     }
     
-    fileprivate func updateRosterOrder() {
+    fileprivate func updateRosterOrder(all: Bool = false) {
         for (index, player) in orderedPlayers.enumerated() {
             guard player.order != index else { continue }
             var updatedPlayer = player
             updatedPlayer.order = index
             core.fire(command: UpdateObject(updatedPlayer))
         }
-        benchedPlayers.forEach { player in
-            var updatedPlayer = player
-            updatedPlayer.order = -1
-            core.fire(command: UpdateObject(updatedPlayer))
+        if all {
+            benchedPlayers.forEach { player in
+                var updatedPlayer = player
+                updatedPlayer.order = -1
+                core.fire(command: UpdateObject(updatedPlayer))
+            }
         }
     }
     

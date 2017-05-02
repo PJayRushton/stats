@@ -17,7 +17,7 @@ class AtBatCell: UICollectionViewCell, AutoReuseIdentifiable {
     func update(with atBat: AtBat, order: Int) {
         numberLabel.text = "\(order)."
         atBatImageView.image = atBat.resultCode.selectedImage
-        
+        atBatImageView.tintColor = atBat.resultCode.tintColor
         if atBat.rbis > 0 {
             let rbisString = atBat.rbis == 1 ? "RBI" : "RBIs"
             rbisLabel.text = "\(atBat.rbis.emojiString) \(rbisString)"

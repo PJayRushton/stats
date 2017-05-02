@@ -56,7 +56,7 @@ class AtBatCreationViewController: Component, AutoStoryboardInitializable {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addButtonCodes()
+        setUpButtons()
         setUpRBISegControl()
         deleteButton.isHidden = editingAtBat == nil
         updateUI(with: nil)
@@ -114,7 +114,7 @@ class AtBatCreationViewController: Component, AutoStoryboardInitializable {
 
 extension AtBatCreationViewController {
     
-    fileprivate func addButtonCodes() {
+    fileprivate func setUpButtons() {
         singleButton.code = .single
         doubleButton.code = .double
         tripleButton.code = .triple
@@ -122,6 +122,10 @@ extension AtBatCreationViewController {
         walkButton.code = .w
         strikeOutButton.code = .k
         outButton.code = .out
+        
+        allResultButtons.forEach { button in
+            button.tintColor = UIColor.mainAppColor
+        }
     }
 
     fileprivate func update(with atBat: AtBat) {
@@ -175,7 +179,7 @@ extension AtBatCreationViewController {
     
     fileprivate func constructedAtBat() -> AtBat? {
         if let editingAtBat = editingAtBat {
-            return AtBat(id: editingAtBat.id, gameId: editingAtBat.gameId, playerId: editingAtBat.playerId, rbis: rbis, resultCode: currentAtBatResult, seasonId: editingAtBat.seasonId, teamId: editingAtBat.teamId)
+            return AtBat(id: editingAtBat.id, creationDate: editingAtBat.creationDate, gameId: editingAtBat.gameId, playerId: editingAtBat.playerId, rbis: rbis, resultCode: currentAtBatResult, seasonId: editingAtBat.seasonId, teamId: editingAtBat.teamId)
         } else {
             let id = newAtBatRef.key
             guard let game = core.state.gameState.currentGame else { return nil }

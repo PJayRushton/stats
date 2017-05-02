@@ -26,6 +26,14 @@ enum AtBatCode: String {
     var selectedImage: UIImage? {
         return UIImage(named: "\(rawValue)-selected")
     }
+    var tintColor: UIColor {
+        switch self {
+        case .w, .single, .double, .triple, .hr:
+            return .mainAppColor
+        case .out, .roe, .k:
+            return .flatCoffee
+        }
+    }
     var isHit: Bool {
         return self == .single || self == .double || self == .triple || self == .hr
     }
@@ -46,9 +54,9 @@ struct AtBat: Identifiable, Unmarshaling {
     var seasonId: String
     var teamId: String
     
-    init(id: String = "", gameId: String, playerId: String, rbis: Int = 0, resultCode: AtBatCode, seasonId: String, teamId: String) {
+    init(id: String = "", creationDate: Date = Date(), gameId: String, playerId: String, rbis: Int = 0, resultCode: AtBatCode, seasonId: String, teamId: String) {
         self.id = id
-        self.creationDate = Date()
+        self.creationDate = creationDate
         self.gameId = gameId
         self.playerId = playerId
         self.rbis = rbis

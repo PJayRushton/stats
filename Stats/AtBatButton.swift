@@ -17,4 +17,10 @@ class AtBatButton: UIButton {
         }
     }
     
+    override var isSelected: Bool {
+        didSet {
+            imageView?.tintColor = isSelected ? tintColor : UIColor.flatGray.withAlphaComponent(0.8)
+        }
+    }
+    
 }

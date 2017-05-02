@@ -25,11 +25,11 @@
                         <viewControllerLayoutGuide type="bottom" id="wty-cU-Wcf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="cMV-K2-ca8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="500"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="550"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xz9-1y-zVm">
-                                <rect key="frame" x="0.0" y="36" width="375" height="464"/>
+                                <rect key="frame" x="0.0" y="36" width="375" height="514"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="hsr-yZ-orh">
                                         <rect key="frame" x="8" y="0.0" width="359" height="24"/>
@@ -118,8 +118,15 @@
                                             <action selector="resultButtonPressed:" destination="Hhr-ev-fTh" eventType="touchUpInside" id="m4w-fP-5Ax"/>
                                         </connections>
                                     </button>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="2Da-fR-7gg" userLabel="k out stack">
-                                        <rect key="frame" x="56.5" y="264" width="262.5" height="44"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yV1-Jj-YNs" userLabel="Spacer view">
+                                        <rect key="frame" x="0.0" y="264" width="375" height="8"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="8" id="y3N-Qf-1X6"/>
+                                        </constraints>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="2Da-fR-7gg" userLabel="WKOutROE stack">
+                                        <rect key="frame" x="19" y="280" width="337.5" height="44"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s8E-ce-FaX" customClass="AtBatButton" customModule="Stats" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="52.5" height="44"/>
@@ -133,8 +140,20 @@
                                                     <action selector="resultButtonPressed:" destination="Hhr-ev-fTh" eventType="touchUpInside" id="W65-v1-HHb"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1RR-MV-Rs4" userLabel="roe" customClass="AtBatButton" customModule="Stats" customModuleProvider="target">
+                                                <rect key="frame" x="90.5" y="0.0" width="59" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="1RR-MV-Rs4" secondAttribute="height" multiplier="4/3" id="A5e-Le-91f"/>
+                                                </constraints>
+                                                <state key="normal" image="roe">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="resultButtonPressed:" destination="Hhr-ev-fTh" eventType="touchUpInside" id="fHg-O4-Aa0"/>
+                                                </connections>
+                                            </button>
                                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ay4-aH-TVW" customClass="AtBatButton" customModule="Stats" customModuleProvider="target">
-                                                <rect key="frame" x="103" y="0.0" width="53" height="44"/>
+                                                <rect key="frame" x="187.5" y="0.0" width="53" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Ay4-aH-TVW" secondAttribute="height" multiplier="1.2" id="ILd-iZ-ccu"/>
                                                 </constraints>
@@ -146,7 +165,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lck-Lo-UDN" customClass="AtBatButton" customModule="Stats" customModuleProvider="target">
-                                                <rect key="frame" x="203.5" y="0.0" width="59" height="44"/>
+                                                <rect key="frame" x="278.5" y="0.0" width="59" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Lck-Lo-UDN" secondAttribute="height" multiplier="4/3" id="xpb-cM-sI3"/>
                                                 </constraints>
@@ -163,14 +182,14 @@
                                         </constraints>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hML-qF-cSg" userLabel="Spacer view">
-                                        <rect key="frame" x="37.5" y="316" width="300" height="16"/>
+                                        <rect key="frame" x="37.5" y="332" width="300" height="16"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="bXE-Zp-set"/>
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="QQ4-ef-Bh8" userLabel="rbis stack">
-                                        <rect key="frame" x="16" y="340" width="343" height="30"/>
+                                        <rect key="frame" x="16" y="356" width="343" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="RBIs:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exg-aX-EEf">
                                                 <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
@@ -194,11 +213,11 @@
                                         </constraints>
                                     </stackView>
                                     <view contentMode="scaleToFill" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="W80-IN-kct" userLabel="Spacer view">
-                                        <rect key="frame" x="37.5" y="378" width="300" height="28"/>
+                                        <rect key="frame" x="37.5" y="394" width="300" height="62"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="XuV-qA-7Qf" userLabel="Bottom stack">
-                                        <rect key="frame" x="0.0" y="414" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="464" width="375" height="50"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ryf-Qd-WIv">
                                                 <rect key="frame" x="0.0" y="0.0" width="122.5" height="50"/>
@@ -257,7 +276,8 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="38c-Qz-rYm" firstAttribute="height" secondItem="aet-91-cO3" secondAttribute="height" id="4If-bq-IX0"/>
-                                    <constraint firstItem="2Da-fR-7gg" firstAttribute="width" secondItem="xz9-1y-zVm" secondAttribute="width" multiplier="0.7" id="Gou-a7-sKO"/>
+                                    <constraint firstItem="yV1-Jj-YNs" firstAttribute="width" secondItem="xz9-1y-zVm" secondAttribute="width" id="4cq-bK-466"/>
+                                    <constraint firstItem="2Da-fR-7gg" firstAttribute="width" secondItem="xz9-1y-zVm" secondAttribute="width" multiplier="0.9" id="Gou-a7-sKO"/>
                                     <constraint firstItem="XuV-qA-7Qf" firstAttribute="width" secondItem="xz9-1y-zVm" secondAttribute="width" id="JL3-cN-b1z"/>
                                     <constraint firstItem="hsr-yZ-orh" firstAttribute="width" secondItem="xz9-1y-zVm" secondAttribute="width" constant="-16" id="QhL-JK-Qza"/>
                                     <constraint firstItem="1AZ-hK-u4a" firstAttribute="height" secondItem="aet-91-cO3" secondAttribute="height" id="Qzg-Ql-xSK"/>
@@ -277,7 +297,7 @@
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="500"/>
+                    <size key="freeformSize" width="375" height="550"/>
                     <connections>
                         <outlet property="currentPlayerLabel" destination="x4Y-ev-Yur" id="nIz-c0-Nc6"/>
                         <outlet property="deleteButton" destination="ryf-Qd-WIv" id="5LV-vr-gmr"/>
@@ -287,6 +307,7 @@
                         <outlet property="outButton" destination="Lck-Lo-UDN" id="eYG-xh-nK9"/>
                         <outlet property="previousPlayerLabel" destination="P4E-Op-Po7" id="bAp-b6-E6D"/>
                         <outlet property="rbisSegControl" destination="XR1-0e-nT5" id="PZ3-1i-umo"/>
+                        <outlet property="roeButton" destination="1RR-MV-Rs4" id="fbU-6J-9Sj"/>
                         <outlet property="saveButton" destination="SLb-Bl-f4t" id="lkw-PA-Uxi"/>
                         <outlet property="saveNextButton" destination="re8-1O-Nog" id="n3n-lH-MJh"/>
                         <outlet property="singleButton" destination="1AZ-hK-u4a" id="LXh-EH-Nai"/>
@@ -305,6 +326,7 @@
         <image name="hr" width="100" height="100"/>
         <image name="k" width="88" height="88"/>
         <image name="out" width="113" height="88"/>
+        <image name="roe" width="113" height="88"/>
         <image name="single" width="122" height="122"/>
         <image name="triple" width="122" height="122"/>
         <image name="w" width="88" height="88"/>

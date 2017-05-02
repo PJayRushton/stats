@@ -22,6 +22,7 @@ class AtBatCreationViewController: Component, AutoStoryboardInitializable {
     @IBOutlet weak var tripleButton: AtBatButton!
     @IBOutlet weak var hrButton: AtBatButton!
     @IBOutlet weak var walkButton: AtBatButton!
+    @IBOutlet weak var roeButton: AtBatButton!
     @IBOutlet weak var strikeOutButton: AtBatButton!
     @IBOutlet weak var outButton: AtBatButton!
     @IBOutlet weak var rbisSegControl: BetterSegmentedControl!
@@ -30,7 +31,7 @@ class AtBatCreationViewController: Component, AutoStoryboardInitializable {
     @IBOutlet weak var saveNextButton: CustomButton!
     
     fileprivate var allResultButtons: [AtBatButton] {
-        return [singleButton, doubleButton, tripleButton, hrButton, walkButton, strikeOutButton, outButton]
+        return [singleButton, doubleButton, tripleButton, hrButton, walkButton, roeButton, strikeOutButton, outButton]
     }
     
     var editingAtBat: AtBat?
@@ -120,6 +121,7 @@ extension AtBatCreationViewController {
         tripleButton.code = .triple
         hrButton.code = .hr
         walkButton.code = .w
+        roeButton.code = .roe
         strikeOutButton.code = .k
         outButton.code = .out
         

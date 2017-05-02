@@ -26,6 +26,14 @@ class GameViewController: Component, AutoStoryboardInitializable {
         return IGListAdapter(updater: IGListAdapterUpdater(), viewController: self, workingRangeSize: 0)
     }()
     
+    var customPresenter: Presentr {
+        let customPresentation = PresentationType.custom(width: ModalSize.fluid(percentage: 0.8), height: .fluid(percentage: 0.7), center: .center)
+        let presenter = Presentr(presentationType: customPresentation)
+        presenter.transitionType = TransitionType.coverHorizontalFromRight
+        presenter.dismissTransitionType = TransitionType.coverHorizontalFromRight
+        return presenter
+    }
+
     var currentPlayer: Player? {
         return core.state.gameState.currentPlayer
     }
@@ -151,13 +159,13 @@ extension GameViewController {
     
     func presentAtBatCreation() {
         let newAtBatVC = AtBatCreationViewController.initializeFromStoryboard()
-        customPresentViewController(modalPresenter(), viewController: newAtBatVC, animated: true, completion: nil)
+        customPresentViewController(customPresenter, viewController: newAtBatVC, animated: true, completion: nil)
     }
     
     func presentAtBatEdit(atBat: AtBat) {
         let newAtBatVC = AtBatCreationViewController.initializeFromStoryboard()
         newAtBatVC.editingAtBat = atBat
-        customPresentViewController(modalPresenter(), viewController: newAtBatVC, animated: true, completion: nil)
+        customPresentViewController(customPresenter, viewController: newAtBatVC, animated: true, completion: nil)
     }
     
     fileprivate func presentGameEditVC() {

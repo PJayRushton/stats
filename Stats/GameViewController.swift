@@ -13,6 +13,7 @@ import Presentr
 
 class GameViewController: Component, AutoStoryboardInitializable {
     
+    @IBOutlet weak var settingsButton: UIBarButtonItem!
     @IBOutlet weak var awayTeamLabel: UILabel!
     @IBOutlet weak var scoreLabel: LTMorphingLabel!
     @IBOutlet weak var homeTeamLabel: UILabel!
@@ -57,6 +58,10 @@ class GameViewController: Component, AutoStoryboardInitializable {
             }
         }
     }
+    var hasEditRights: Bool {
+        guard let currentUser = core.state.userState.currentUser, let team = core.state.teamState.currentTeam else { return false }
+        return currentUser.isOwnerOrManager(of: team)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,10 +74,11 @@ class GameViewController: Component, AutoStoryboardInitializable {
         if let firstPlayerId = game.lineupIds.first, let player = firstPlayerId.statePlayer {
             core.fire(event: Selected<Player>(player))
         }
+        
         updateUI(with: game)
         scoreLabel.morphingEffect = .fall
-        previousInningButton.isHidden = game.isCompleted
-        nextInningButton.isHidden = game.isCompleted
+        previousInningButton.isHidden = game.isCompleted || !hasEditRights
+        nextInningButton.isHidden = game.isCompleted || !hasEditRights
         previousInningButton.tintColor = .gray400
         nextInningButton.tintColor = .gray400
         inningLabel.morphingEffect = .scale
@@ -124,10 +130,12 @@ extension GameViewController {
         if let team = core.state.teamState.currentTeam {
             awayTeamLabel.text = game.isHome ? game.opponent : team.name
             homeTeamLabel.text = game.isHome ? team.name : game.opponent
+            navigationItem.rightBarButtonItem = hasEditRights ? settingsButton : nil
         }
         inningLabel.text = game.status
         previousInningButton.tintColor = game.inning == 1 ? .white : .gray400
         previousInningButton.isEnabled = game.inning > 1
+        
     }
     
     fileprivate func updatePicker(game: Game) {
@@ -230,10 +238,11 @@ extension GameViewController: IGListAdapterDataSource {
             newAtBatSectionController.cellSelected = presentAtBatCreation
             return newAtBatSectionController
         case _ as AtBatSection:
-            guard let currentUser = core.state.userState.currentUser, let team = core.state.teamState.currentTeam, let game = game else { fatalError() }
-            let canEdit = currentUser.isOwnerOrManager(of: team) && !game.isCompleted
+            guard let game = game else { fatalError() }
+            let canEdit = hasEditRights && !game.isCompleted
             let atBatSectionController = AtBatSectionController(canEdit: canEdit)
             atBatSectionController.didSelectAtBat = { atBat in
+                guard hasEditRights else { return }
                 self.presentAtBatEdit(atBat: atBat)
             }
             

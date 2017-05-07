@@ -15,7 +15,7 @@ struct AtBatState: State {
     
     var currentAtBat: AtBat?
     var allAtBats = Set<AtBat>()
-    var currentResult: AtBatCode?
+    var currentResult = AtBatCode.single
     var outs = 0
     
     func atBats(for game: Game) -> [AtBat] {
@@ -39,7 +39,7 @@ struct AtBatState: State {
             }
 
         case let event as Selected<AtBatCode>:
-            currentResult = event.item
+            currentResult = event.item ?? .single
         case _ as OutAdded:
             outs += 1
         case _ as OutSubtracted:

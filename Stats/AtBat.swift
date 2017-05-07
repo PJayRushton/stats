@@ -19,16 +19,27 @@ enum AtBatCode: String {
     case double
     case triple
     case hr
+    case hrITP
     
     var image: UIImage? {
-        return UIImage(named: rawValue)
+        switch self {
+        case .hrITP:
+            return UIImage(named: AtBatCode.hr.rawValue)
+        default:
+            return UIImage(named: rawValue)
+        }
     }
     var selectedImage: UIImage? {
-        return UIImage(named: "\(rawValue)-selected")
+        switch self {
+        case .hrITP:
+            return UIImage(named: "\(AtBatCode.hr.rawValue)-selected")
+        default:
+            return UIImage(named: "\(rawValue)-selected")
+        }
     }
     var tintColor: UIColor {
         switch self {
-        case .w, .single, .double, .triple, .hr:
+        case .w, .single, .double, .triple, .hr, .hrITP:
             return .mainAppColor
         case .out, .roe, .k:
             return .flatCoffee
@@ -38,7 +49,10 @@ enum AtBatCode: String {
         return self == .k || self == .out
     }
     var isHit: Bool {
-        return self == .single || self == .double || self == .triple || self == .hr
+        return self == .single || self == .double || self == .triple || self == .hr || self == .hrITP
+    }
+    var isHR: Bool {
+        return self == .hr || self == .hrITP
     }
     var gotOnBase: Bool {
         return isHit || self == .w || self == .roe

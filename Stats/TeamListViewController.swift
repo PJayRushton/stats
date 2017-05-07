@@ -28,8 +28,9 @@ class TeamListViewController: Component, AutoStoryboardInitializable {
         super.viewDidLoad()
         
         navigationController?.navigationBar.barTintColor = .mainAppColor
-        plusBarButton = isSwitcher ? nil : UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showAddTeamOptionsAlert))
-        xBarButton = isDismissable ? UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(close)) : nil
+        plusBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showAddTeamOptionsAlert))
+        xBarButton = isDismissable ? UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(close)) : nil
+        navigationItem.rightBarButtonItem = isSwitcher || isDismissable ? xBarButton : plusBarButton
         
         registerCells()
         tableView.rowHeight = 60
@@ -77,7 +78,7 @@ extension TeamListViewController {
                 self.presentAddTeam()
             })
         }))
-        customPresentViewController(alertPresenter, viewController: self, animated: true, completion: nil)
+        customPresentViewController(alertPresenter, viewController: alert, animated: true, completion: nil)
     }
     
     fileprivate func pushTeamCreation(editingTeam team: Team? = nil) {
@@ -133,7 +134,7 @@ extension TeamListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableCell(withIdentifier: BasicHeaderCell.reuseIdentifier) as! BasicHeaderCell
         let title = currentTypes[section].sectionTitle
-        header.update(with:title, backgroundColor: UIColor.gray100, alignment: .center)
+        header.update(with:title, backgroundColor: .flatCoffee, alignment: .center)
         return header
     }
     

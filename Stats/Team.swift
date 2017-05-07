@@ -67,7 +67,11 @@ struct Team: Identifiable, Unmarshaling {
         sport = try object.value(for: sportKey)
         touchDate = try object.value(for: touchDateKey)
     }
- 
+    
+    func shareCodeString(ownershipType: TeamOwnershipType) -> String {
+        return shareCode + String(ownershipType.hashValue)
+    }
+    
 }
 
 extension Team: Marshaling {

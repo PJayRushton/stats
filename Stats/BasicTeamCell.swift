@@ -23,6 +23,7 @@ class BasicCell: UITableViewCell, AutoReuseIdentifiable {
         detailLabel.font = FontType.lemonMilk.font(withSize: fontSize * 0.7)
         accessoryType = accessory
         accessoryImageView.image = image
+        accessoryImageView.tintColor = .mainAppColor
     }
     
     func update(with team: Team, isSelected: Bool = false, accessory: UITableViewCellAccessoryType = .none, fontSize: CGFloat = 16) {
@@ -33,6 +34,7 @@ class BasicCell: UITableViewCell, AutoReuseIdentifiable {
         accessoryType = .disclosureIndicator
         accessoryType = accessory
         accessoryImageView.image = isSelected ? checkImage : nil
+        accessoryImageView.tintColor = .mainAppColor
     }
     
 }

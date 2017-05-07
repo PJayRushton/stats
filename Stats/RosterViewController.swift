@@ -194,31 +194,26 @@ extension RosterViewController {
     }
     
     fileprivate func presentOptions(for player: Player) {
-        if let phone = player.phone, !phone.isEmpty {
-            let alert = UIAlertController(title: "Actions for:", message: player.name, preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "Actions for:", message: player.name, preferredStyle: .actionSheet)
+        
+        if let currentUser = core.state.userState.currentUser, let team = core.state.teamState.currentTeam, currentUser.isOwnerOrManager(of: team) {
             alert.addAction(UIAlertAction(title: "Edit ✏️", style: .default, handler: { _ in
                 self.editPlayer(player)
             }))
-            let callAction = UIAlertAction(title: "Call 📞", style: .default, handler: { _ in
-                self.callPhoneNumber(phone)
-            })
-            
-            if let url = URL(string: "tel://\(phone)"), UIApplication.shared.canOpenURL(url) {
-                alert.addAction(callAction)
-            }
-            let textAction = UIAlertAction(title: "Text 💬", style: .default, handler: { _ in
-                self.textPhoneNumber(phone)
-            })
-            
-            if MFMessageComposeViewController.canSendText() {
-                alert.addAction(textAction)
-            }
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-            
-            present(alert, animated: true, completion: nil)
-        } else {
-            editPlayer(player)
         }
+        if let phone = player.phone, !phone.isEmpty, let url = URL(string: "tel://\(phone)"), UIApplication.shared.canOpenURL(url){
+            alert.addAction(UIAlertAction(title: "Call 📞", style: .default, handler: { _ in
+                self.callPhoneNumber(phone)
+            }))
+            if MFMessageComposeViewController.canSendText() {
+                alert.addAction(UIAlertAction(title: "Text 💬", style: .default, handler: { _ in
+                    self.textPhoneNumber(phone)
+                }))
+            }
+        }
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
 
 }
@@ -247,7 +242,7 @@ extension RosterViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerCell = tableView.dequeueReusableCell(withIdentifier: BasicHeaderCell.reuseIdentifier) as! BasicHeaderCell
         let title = section == 0 ? "Roster" : "Bench"
-        headerCell.update(with: title, backgroundColor: .gray200)
+        headerCell.update(with: title, backgroundColor: .flatGrayDark)
         return headerCell.contentView
     }
     
@@ -257,6 +252,7 @@ extension RosterViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+
         if isLineup {
             switchPlayerSection(at: indexPath)
         } else {
@@ -266,7 +262,8 @@ extension RosterViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
+        guard let currentUser = core.state.userState.currentUser, let team = core.state.teamState.currentTeam else { return false }
+        return currentUser.isOwnerOrManager(of: team)
     }
     
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
@@ -278,7 +275,8 @@ extension RosterViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        return true
+        guard let currentUser = core.state.userState.currentUser, let team = core.state.teamState.currentTeam else { return false }
+        return currentUser.isOwnerOrManager(of: team)
     }
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {

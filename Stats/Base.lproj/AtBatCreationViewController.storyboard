@@ -36,7 +36,7 @@
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P4E-Op-Po7">
                                                 <rect key="frame" x="0.0" y="0.0" width="119.5" height="24"/>
-                                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="18"/>
+                                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="15"/>
                                                 <color key="textColor" red="0.32156862749999998" green="0.34901960780000002" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -48,7 +48,7 @@
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ubN-Vc-LSF">
                                                 <rect key="frame" x="239.5" y="0.0" width="119.5" height="24"/>
-                                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="18"/>
+                                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="15"/>
                                                 <color key="textColor" red="0.32156862749999998" green="0.34901960780000002" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -125,8 +125,47 @@
                                             <constraint firstAttribute="height" constant="8" id="y3N-Qf-1X6"/>
                                         </constraints>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w9B-lg-Nks" userLabel="ITP view">
+                                        <rect key="frame" x="0.0" y="280" width="375" height="50"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CBF-UJ-TsX">
+                                                <rect key="frame" x="16" y="0.0" width="351" height="38"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In the park?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdu-1k-dJv">
+                                                        <rect key="frame" x="0.0" y="0.0" width="313" height="38"/>
+                                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ase-Ba-IWG" customClass="AIFlatSwitch" customModule="AIFlatSwitch">
+                                                        <rect key="frame" x="313" y="0.0" width="38" height="38"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="Ase-Ba-IWG" secondAttribute="height" id="kQr-Uf-Az4"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="trailStrokeColor">
+                                                                <color key="value" red="0.64856451749999999" green="0.77474325899999996" blue="0.22945481540000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="itpChanged:" destination="Hhr-ev-fTh" eventType="valueChanged" id="1Jo-N9-U8e"/>
+                                                        </connections>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="8yz-pb-XY0"/>
+                                            <constraint firstAttribute="trailing" secondItem="CBF-UJ-TsX" secondAttribute="trailing" constant="8" id="I8X-4w-s1m"/>
+                                            <constraint firstAttribute="bottom" secondItem="CBF-UJ-TsX" secondAttribute="bottom" constant="12" id="IjW-8c-Gah"/>
+                                            <constraint firstItem="CBF-UJ-TsX" firstAttribute="top" secondItem="w9B-lg-Nks" secondAttribute="top" id="McI-76-XOg"/>
+                                            <constraint firstItem="CBF-UJ-TsX" firstAttribute="leading" secondItem="w9B-lg-Nks" secondAttribute="leading" constant="16" id="yYy-Zj-vl5"/>
+                                        </constraints>
+                                    </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="2Da-fR-7gg" userLabel="WKOutROE stack">
-                                        <rect key="frame" x="19" y="280" width="337.5" height="44"/>
+                                        <rect key="frame" x="19" y="338" width="337.5" height="44"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s8E-ce-FaX" customClass="AtBatButton" customModule="Stats" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="52.5" height="44"/>
@@ -182,14 +221,14 @@
                                         </constraints>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hML-qF-cSg" userLabel="Spacer view">
-                                        <rect key="frame" x="37.5" y="332" width="300" height="16"/>
+                                        <rect key="frame" x="37.5" y="390" width="300" height="16"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="bXE-Zp-set"/>
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="QQ4-ef-Bh8" userLabel="rbis stack">
-                                        <rect key="frame" x="16" y="356" width="343" height="30"/>
+                                        <rect key="frame" x="16" y="414" width="343" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="RBIs:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exg-aX-EEf">
                                                 <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
@@ -213,7 +252,7 @@
                                         </constraints>
                                     </stackView>
                                     <view contentMode="scaleToFill" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="W80-IN-kct" userLabel="Spacer view">
-                                        <rect key="frame" x="37.5" y="394" width="300" height="62"/>
+                                        <rect key="frame" x="37.5" y="452" width="300" height="4"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="XuV-qA-7Qf" userLabel="Bottom stack">
@@ -281,6 +320,7 @@
                                     <constraint firstItem="XuV-qA-7Qf" firstAttribute="width" secondItem="xz9-1y-zVm" secondAttribute="width" id="JL3-cN-b1z"/>
                                     <constraint firstItem="hsr-yZ-orh" firstAttribute="width" secondItem="xz9-1y-zVm" secondAttribute="width" constant="-16" id="QhL-JK-Qza"/>
                                     <constraint firstItem="1AZ-hK-u4a" firstAttribute="height" secondItem="aet-91-cO3" secondAttribute="height" id="Qzg-Ql-xSK"/>
+                                    <constraint firstItem="w9B-lg-Nks" firstAttribute="width" secondItem="xz9-1y-zVm" secondAttribute="width" id="VXj-Vy-H3V"/>
                                     <constraint firstItem="L10-Sc-SsQ" firstAttribute="height" secondItem="aet-91-cO3" secondAttribute="height" id="Vvx-2B-VB1"/>
                                     <constraint firstItem="QQ4-ef-Bh8" firstAttribute="width" secondItem="xz9-1y-zVm" secondAttribute="width" constant="-32" id="cCj-1z-Lv2"/>
                                     <constraint firstItem="GP8-eV-dV0" firstAttribute="width" secondItem="xz9-1y-zVm" secondAttribute="width" id="dMr-9w-gni"/>
@@ -303,6 +343,8 @@
                         <outlet property="deleteButton" destination="ryf-Qd-WIv" id="5LV-vr-gmr"/>
                         <outlet property="doubleButton" destination="aet-91-cO3" id="a9B-T7-SxQ"/>
                         <outlet property="hrButton" destination="L10-Sc-SsQ" id="s5g-SK-iKA"/>
+                        <outlet property="inTheParkSwitch" destination="Ase-Ba-IWG" id="40a-dA-x8q"/>
+                        <outlet property="inTheParkView" destination="w9B-lg-Nks" id="K00-Wr-pcS"/>
                         <outlet property="nextPlayerLabel" destination="ubN-Vc-LSF" id="EVw-Ah-UGV"/>
                         <outlet property="outButton" destination="Lck-Lo-UDN" id="eYG-xh-nK9"/>
                         <outlet property="previousPlayerLabel" destination="P4E-Op-Po7" id="bAp-b6-E6D"/>

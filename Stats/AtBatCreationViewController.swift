@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AIFlatSwitch
 import BetterSegmentedControl
 import Firebase
 import Presentr
@@ -21,6 +22,8 @@ class AtBatCreationViewController: Component, AutoStoryboardInitializable {
     @IBOutlet weak var doubleButton: AtBatButton!
     @IBOutlet weak var tripleButton: AtBatButton!
     @IBOutlet weak var hrButton: AtBatButton!
+    @IBOutlet weak var inTheParkView: UIView!
+    @IBOutlet weak var inTheParkSwitch: AIFlatSwitch!
     @IBOutlet weak var walkButton: AtBatButton!
     @IBOutlet weak var roeButton: AtBatButton!
     @IBOutlet weak var strikeOutButton: AtBatButton!
@@ -36,10 +39,18 @@ class AtBatCreationViewController: Component, AutoStoryboardInitializable {
     
     var editingAtBat: AtBat?
     
-    fileprivate var currentAtBatResult = AtBatCode.single
     fileprivate var rbis = 0
     fileprivate var player: Player? {
         return core.state.gameState.currentPlayer
+    }
+    fileprivate var newAtBatRef: FIRDatabaseReference {
+        return StatsRefs.atBatsRef(teamId: core.state.teamState.currentTeam!.id).childByAutoId()
+    }
+    
+    fileprivate var currentAtBatResult = AtBatCode.single {
+        didSet {
+            updateUI(with: currentAtBatResult)
+        }
     }
     fileprivate var saveIsEnabled = true {
         didSet {
@@ -47,8 +58,11 @@ class AtBatCreationViewController: Component, AutoStoryboardInitializable {
             saveNextButton.isEnabled = saveIsEnabled
         }
     }
-    var newAtBatRef: FIRDatabaseReference {
-        return StatsRefs.atBatsRef(teamId: core.state.teamState.currentTeam!.id).childByAutoId()
+    fileprivate var isShowingITPSwitch = false {
+        didSet {
+            guard isShowingITPSwitch != oldValue else { return }
+            toggleITPView(isHidden: !isShowingITPSwitch)
+        }
     }
     
     
@@ -57,21 +71,34 @@ class AtBatCreationViewController: Component, AutoStoryboardInitializable {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        toggleITPView(isHidden: true, animated: false)
         setUpButtons()
         setUpRBISegControl()
-        deleteButton.isHidden = editingAtBat == nil
-        updateUI(with: nil)
+        let isEditing = editingAtBat != nil
+        deleteButton.isHidden = !isEditing
+        saveNextButton.isHidden = isEditing
+        currentAtBatResult = .single
         
         if let editingAtBat = editingAtBat {
             update(with: editingAtBat)
         }
     }
 
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        core.fire(event: Selected<AtBatCode>(.single))
+    }
     
     // MARK: - IBActions
 
     @IBAction func resultButtonPressed(_ sender: AtBatButton) {
-        core.fire(event: Selected<AtBatCode>(sender.code))
+        let code = inTheParkSwitch.isSelected && sender.code == .hr ? .hrITP : sender.code
+        core.fire(event: Selected<AtBatCode>(code))
+    }
+    
+    @IBAction func itpChanged(_ sender: AIFlatSwitch) {
+        guard hrButton.isSelected else { return }
+        core.fire(event: Selected<AtBatCode>(sender.isSelected ? .hrITP : .hr))
     }
     
     @IBAction func rbisChanged(_ sender: BetterSegmentedControl) {
@@ -92,19 +119,18 @@ class AtBatCreationViewController: Component, AutoStoryboardInitializable {
     
     override func update(with state: AppState) {
         currentPlayerLabel.text = player?.name
-        currentAtBatResult = state.atBatState.currentResult ?? .single
-        updateUI(with: state.atBatState.currentResult)
+        currentAtBatResult = state.atBatState.currentResult
         
         guard let game = state.gameState.currentGame else { return }
         if let player = player, let index = game.lineupIds.index(of: player.id), index > 0, let previousPlayer = game.lineupIds[index - 1].statePlayer {
             previousPlayerLabel.text = previousPlayer.name
         } else {
-            previousPlayerLabel.text = nil
+            previousPlayerLabel.text = ""
         }
         if let player = player, let index = game.lineupIds.index(of: player.id), index < game.lineupIds.count - 1, let nextPlayer = game.lineupIds[index + 1].statePlayer {
             nextPlayerLabel.text = nextPlayer.name
         } else {
-            nextPlayerLabel.text = nil
+            nextPlayerLabel.text = ""
         }
     }
     
@@ -131,13 +157,29 @@ extension AtBatCreationViewController {
     }
 
     fileprivate func update(with atBat: AtBat) {
-        updateUI(with: atBat.resultCode)
+        core.fire(event: Selected<AtBatCode>(atBat.resultCode))
+        currentAtBatResult = atBat.resultCode
+        isShowingITPSwitch = atBat.resultCode.isHR
+        inTheParkSwitch.isSelected = atBat.resultCode == .hrITP
         try? rbisSegControl.setIndex(UInt(atBat.rbis), animated: true)
     }
     
-    fileprivate func updateUI(with code: AtBatCode?) {
+    fileprivate func updateUI(with code: AtBatCode) {
         allResultButtons.forEach { button in
             button.isSelected = button.code == code
+        }
+        hrButton.isSelected = code.isHR
+        isShowingITPSwitch = code.isHR
+    }
+    
+    fileprivate func toggleITPView(isHidden: Bool, animated: Bool = true) {
+        if animated {
+            UIView.animate(withDuration: 0.25) {
+                self.inTheParkView.isHidden = isHidden
+                self.inTheParkView.alpha = isHidden ? 0 : 1
+            }
+        } else {
+            inTheParkView.isHidden = isHidden
         }
     }
     

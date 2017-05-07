@@ -43,6 +43,16 @@ extension Sequence where Iterator.Element == AtBat {
     
 }
 
+extension UUID {
+    
+    func userFacingCode() -> String {
+        let unacceptableCharacters = CharacterSet(charactersIn: "0Oo1IiLl")
+        let strippedString = self.uuidString.trimmingCharacters(in: unacceptableCharacters)
+        return strippedString.last4
+    }
+    
+}
+
 extension String {
     
     var last4: String {

@@ -213,6 +213,7 @@ extension RosterViewController {
         }
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        guard alert.actions.count > 1 else { return }
         present(alert, animated: true, completion: nil)
     }
 

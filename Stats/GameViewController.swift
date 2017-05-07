@@ -95,13 +95,13 @@ class GameViewController: Component, AutoStoryboardInitializable {
     }
     
     @IBAction func scoreLabelPressed(_ sender: UITapGestureRecognizer) {
-        guard var game = game, !game.isCompleted else { return }
+        guard var game = game, !game.isCompleted, hasEditRights else { return }
         game.opponentScore += 1
         core.fire(command: UpdateObject(game))
     }
     
     @IBAction func inningArrowPressed(_ sender: UIButton) {
-        guard let game = game else { return }
+        guard let game = game, hasEditRights else { return }
         let previousButtonWasPressed = sender == previousInningButton
         let newInning = previousButtonWasPressed ? game.inning - 1 : game.inning + 1
         updateInning(newInning)
@@ -146,7 +146,7 @@ extension GameViewController {
     }
     
     fileprivate func updateInning(_ inning: Int) {
-        guard var updatedGame = game else { return }
+        guard var updatedGame = game, hasEditRights else { return }
         updatedGame.inning = inning
         core.fire(command: UpdateObject(updatedGame))
     }
@@ -193,7 +193,7 @@ extension GameViewController {
     }
     
     fileprivate func changeGameCompletion(isCompleted: Bool) {
-        guard var game = game else { return }
+        guard var game = game, hasEditRights else { return }
         game.isCompleted = isCompleted
         core.fire(command: UpdateObject(game))
         
@@ -206,7 +206,7 @@ extension GameViewController {
         let alert = Presentr.alertViewController(title: "Are you sure?", body: "This cannot be undone")
         alert.addAction(AlertAction(title: "Cancel 😳", style: .cancel, handler: nil))
         alert.addAction(AlertAction(title: "☠️", style: .destructive, handler: {
-            guard let game = self.game else { return }
+            guard let game = self.game, self.hasEditRights else { return }
             self.core.fire(command: DeleteGame(game))
             _ = self.navigationController?.popToRootViewController(animated: true)
         }))
@@ -241,9 +241,10 @@ extension GameViewController: IGListAdapterDataSource {
             guard let game = game else { fatalError() }
             let canEdit = hasEditRights && !game.isCompleted
             let atBatSectionController = AtBatSectionController(canEdit: canEdit)
-            atBatSectionController.didSelectAtBat = { atBat in
-                guard hasEditRights else { return }
-                self.presentAtBatEdit(atBat: atBat)
+            atBatSectionController.didSelectAtBat = { [weak self] atBat in
+                guard let weakSelf = self else { return }
+                guard weakSelf.hasEditRights else { return }
+                weakSelf.presentAtBatEdit(atBat: atBat)
             }
             
             return atBatSectionController

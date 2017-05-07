@@ -44,6 +44,9 @@ class PlayerCell: UITableViewCell, AutoReuseIdentifiable {
         } else if let jerseyNumber = player.jerseyNumber, !jerseyNumber.isEmpty {
             nameText += " (\(jerseyNumber))"
         }
+        if let phone = player.phone, !phone.isEmpty {
+            nameText += " 📱"
+        }
         nameLabel.text = nameText
     }
     

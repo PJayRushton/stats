@@ -23,6 +23,10 @@ class GameCell: UITableViewCell, AutoReuseIdentifiable {
         dateLabel.text = game.date.proximityDateTimeString
         statusLabel.text = game.status
         scoreLabel.text = "(\(game.scoreString))"
+        
+        if let isWin = game.wasWon {
+            backgroundColor = isWin ? UIColor.mainAppColor.withAlphaComponent(0.1) : UIColor.flatRed.withAlphaComponent(0.1)
+        }
     }
     
 }

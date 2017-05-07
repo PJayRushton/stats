@@ -191,8 +191,7 @@ extension HomeViewController {
 }
 
 
-// MARK: - CollectionView
-// MARK: DataSource
+// MARK: - IGListKitDataSource
 
 extension HomeViewController: IGListAdapterDataSource {
     

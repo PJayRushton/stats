@@ -46,6 +46,7 @@ class StatsViewController: Component, AutoStoryboardInitializable {
     
     override func update(with state: AppState) {
         navigationController?.navigationBar.barTintColor = state.currentMenuItem?.backgroundColor
+        try? segmentedControl.setIndex(UInt(state.statState.currentViewType.rawValue))
     }
     
 }

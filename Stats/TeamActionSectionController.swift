@@ -59,9 +59,10 @@ extension TeamActionSectionController: IGListSectionType {
         guard let collectionContext = collectionContext else { return .zero }
         let fullWidth = collectionContext.containerSize.width
         let headerHeight = collectionContext.containerSize.width * (2 / 3)
-        let rows: CGFloat = user.isOwnerOrManager(of: section.team) ? 3 : 4
+        let hasEditRights = user.isOwnerOrManager(of: section.team)
+        let rows: CGFloat = hasEditRights ? 3 : 4
         let height = (collectionContext.containerSize.height - headerHeight) / rows
-        let width = fullWidth / section.menuItem.itemsPerRow
+        let width = hasEditRights ? fullWidth / section.menuItem.itemsPerRow : fullWidth
         
         return CGSize(width: width, height: height)
     }

@@ -122,7 +122,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Zmn-fn-xI4">
-                        <barButtonItem key="backBarButtonItem" title="⚾️" id="qhy-rg-PzX"/>
+                        <barButtonItem key="backBarButtonItem" title="🏠" id="6Lg-Zy-S5J"/>
                     </navigationItem>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>

@@ -43,12 +43,13 @@ extension ShareTeamViewController {
         let fanOrManagerString = ownershipType == .fan ? "fan" : "st@ keeper"
         becomeLabel.text = "Become a \(fanOrManagerString) of:"
         nameLabel.text = team.name
-        let code = QRCode(team.shareCodeInternal(ownershipType: ownershipType))
-        qrImageView.image = code?.image
+        let shareCode = team.shareCodeString(ownershipType: ownershipType)
+        let qrCode = QRCode(shareCode)
+        qrImageView.image = qrCode?.image
 
-        let codeString = team.shareCodeUserFacing(ownershipType: ownershipType)
-        let attributedString = NSMutableAttributedString(string: codeString)
-        attributedString.addAttribute(NSKernAttributeName, value: CGFloat(16), range: NSRange(location: 0, length: codeString.characters.count - 1))
+        let userFacingCode = shareCode.replacingOccurrences(of: " ", with: "")
+        let attributedString = NSMutableAttributedString(string: userFacingCode)
+        attributedString.addAttribute(NSKernAttributeName, value: CGFloat(16), range: NSRange(location: 0, length: userFacingCode.characters.count - 1))
         shareLabel.attributedText = attributedString
     }
     

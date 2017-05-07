@@ -49,7 +49,6 @@ struct SaveTeam: Command {
             print("ALL DONE")
             core.fire(command: SubscribeToTeam(withId: self.team.id))
         }
-        
     }
     
 }

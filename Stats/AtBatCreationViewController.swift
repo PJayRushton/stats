@@ -162,6 +162,9 @@ extension AtBatCreationViewController {
                 } else {
                     self.dismiss(animated: true, completion: nil)
                 }
+                if atBat.resultCode.isOut {
+                    self.core.fire(event: OutAdded())
+                }
             }
         }
         core.fire(command: updateCommand)

@@ -13,8 +13,9 @@ class AtBatCell: UICollectionViewCell, AutoReuseIdentifiable {
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var atBatImageView: UIImageView!
     @IBOutlet weak var rbisLabel: UILabel!
+    @IBOutlet weak var editLabel: UILabel!
     
-    func update(with atBat: AtBat, order: Int) {
+    func update(with atBat: AtBat, order: Int, canEdit: Bool) {
         numberLabel.text = "\(order)."
         atBatImageView.image = atBat.resultCode.selectedImage
         atBatImageView.tintColor = atBat.resultCode.tintColor
@@ -24,6 +25,7 @@ class AtBatCell: UICollectionViewCell, AutoReuseIdentifiable {
         } else {
             rbisLabel.text = nil
         }
+        editLabel.isHidden = !canEdit
     }
     
 }

@@ -31,23 +31,23 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xz9-1y-zVm">
                                 <rect key="frame" x="0.0" y="36" width="375" height="514"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="hsr-yZ-orh">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="hsr-yZ-orh" userLabel="Player stack">
                                         <rect key="frame" x="8" y="0.0" width="359" height="24"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P4E-Op-Po7">
-                                                <rect key="frame" x="0.0" y="0.0" width="65" height="24"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P4E-Op-Po7">
+                                                <rect key="frame" x="0.0" y="0.0" width="119.5" height="24"/>
                                                 <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="18"/>
                                                 <color key="textColor" red="0.32156862749999998" green="0.34901960780000002" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x4Y-ev-Yur">
-                                                <rect key="frame" x="136.5" y="0.0" width="86.5" height="24"/>
+                                                <rect key="frame" x="119.5" y="0.0" width="120" height="24"/>
                                                 <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="24"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ubN-Vc-LSF">
-                                                <rect key="frame" x="294" y="0.0" width="65" height="24"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ubN-Vc-LSF">
+                                                <rect key="frame" x="239.5" y="0.0" width="119.5" height="24"/>
                                                 <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="18"/>
                                                 <color key="textColor" red="0.32156862749999998" green="0.34901960780000002" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -78,7 +78,7 @@
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="25n-5K-B3x" userLabel="3b 1b stack">
-                                        <rect key="frame" x="94" y="120" width="187.5" height="64"/>
+                                        <rect key="frame" x="84.5" y="120" width="206" height="64"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="38c-Qz-rYm" customClass="AtBatButton" customModule="Stats" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
@@ -93,7 +93,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1AZ-hK-u4a" customClass="AtBatButton" customModule="Stats" customModuleProvider="target">
-                                                <rect key="frame" x="123.5" y="0.0" width="64" height="64"/>
+                                                <rect key="frame" x="142" y="0.0" width="64" height="64"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="1AZ-hK-u4a" secondAttribute="height" id="ImM-XK-l8e"/>
                                                 </constraints>
@@ -284,7 +284,7 @@
                                     <constraint firstItem="L10-Sc-SsQ" firstAttribute="height" secondItem="aet-91-cO3" secondAttribute="height" id="Vvx-2B-VB1"/>
                                     <constraint firstItem="QQ4-ef-Bh8" firstAttribute="width" secondItem="xz9-1y-zVm" secondAttribute="width" constant="-32" id="cCj-1z-Lv2"/>
                                     <constraint firstItem="GP8-eV-dV0" firstAttribute="width" secondItem="xz9-1y-zVm" secondAttribute="width" id="dMr-9w-gni"/>
-                                    <constraint firstItem="25n-5K-B3x" firstAttribute="width" secondItem="xz9-1y-zVm" secondAttribute="width" multiplier="0.5" id="gJJ-g9-uJQ"/>
+                                    <constraint firstItem="25n-5K-B3x" firstAttribute="width" secondItem="xz9-1y-zVm" secondAttribute="width" multiplier="0.55" id="gJJ-g9-uJQ"/>
                                 </constraints>
                             </stackView>
                         </subviews>

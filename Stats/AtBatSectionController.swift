@@ -39,9 +39,11 @@ class AtBatSection: IGListDiffable {
 class AtBatSectionController: IGListSectionController {
     
     var section: AtBatSection!
+    var canEdit: Bool
     var didSelectAtBat: ((AtBat) -> Void) = { _ in }
     
-    override init() {
+    init(canEdit: Bool) {
+        self.canEdit = canEdit
         super.init()
         inset = UIEdgeInsets(top: 1, left: 0, bottom: 0, right: 0)
     }
@@ -61,7 +63,7 @@ extension AtBatSectionController: IGListSectionType {
     
     func cellForItem(at index: Int) -> UICollectionViewCell {
         let cell = collectionContext?.dequeueReusableCell(withNibName: AtBatCell.reuseIdentifier, bundle: nil, for: self, at: index) as! AtBatCell
-        cell.update(with: section.atBat, order: section.order)
+        cell.update(with: section.atBat, order: section.order, canEdit: canEdit)
         return cell
     }
     

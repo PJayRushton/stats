@@ -8,11 +8,6 @@
 
 import Foundation
 
-struct InningUpdated: Event {
-    var inning: Int
-}
-
-
 struct GameState: State {
     
     var currentPlayer: Player?

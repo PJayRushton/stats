@@ -34,6 +34,9 @@ enum AtBatCode: String {
             return .flatCoffee
         }
     }
+    var isOut: Bool {
+        return self == .k || self == .out
+    }
     var isHit: Bool {
         return self == .single || self == .double || self == .triple || self == .hr
     }

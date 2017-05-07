@@ -27,7 +27,7 @@ class GameViewController: Component, AutoStoryboardInitializable {
     }()
     
     var customPresenter: Presentr {
-        let customPresentation = PresentationType.custom(width: ModalSize.fluid(percentage: 0.8), height: .fluid(percentage: 0.7), center: .center)
+        let customPresentation = PresentationType.custom(width: ModalSize.fluid(percentage: 0.8), height: .fluid(percentage: 0.8), center: .center)
         let presenter = Presentr(presentationType: customPresentation)
         presenter.transitionType = TransitionType.coverHorizontalFromRight
         presenter.dismissTransitionType = TransitionType.coverHorizontalFromRight
@@ -71,9 +71,11 @@ class GameViewController: Component, AutoStoryboardInitializable {
         }
         updateUI(with: game)
         scoreLabel.morphingEffect = .fall
+        previousInningButton.isHidden = game.isCompleted
+        nextInningButton.isHidden = game.isCompleted
         previousInningButton.tintColor = .gray400
         nextInningButton.tintColor = .gray400
-        inningLabel.morphingEffect = .evaporate
+        inningLabel.morphingEffect = .scale
         setUpPickerView()
     }
     
@@ -87,7 +89,7 @@ class GameViewController: Component, AutoStoryboardInitializable {
     }
     
     @IBAction func scoreLabelPressed(_ sender: UITapGestureRecognizer) {
-        guard var game = game else { return }
+        guard var game = game, !game.isCompleted else { return }
         game.opponentScore += 1
         core.fire(command: UpdateObject(game))
     }
@@ -144,12 +146,17 @@ extension GameViewController {
     fileprivate func showOptionsForGame() {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Edit Game ✏️", style: .default, handler: { _ in
+            self.changeGameCompletion(isCompleted: false)
             self.presentGameEditVC()
         }))
         let emojiForStatus = game!.score > game!.opponentScore ? "😎" : "😞"
-        alert.addAction(UIAlertAction(title: "End Game \(emojiForStatus)", style: .default, handler: { _ in
-            self.endGame()
-        }))
+        
+        let endGameAction = UIAlertAction(title: "End Game \(emojiForStatus)", style: .default, handler: { _ in
+            self.changeGameCompletion(isCompleted: true)
+        })
+        if let game = game, !game.isCompleted {
+            alert.addAction(endGameAction)
+        }
         alert.addAction(UIAlertAction(title: "Delete game ☠️", style: .destructive, handler: { _ in
             self.presentConfirmationAlert()
         }))
@@ -163,6 +170,7 @@ extension GameViewController {
     }
     
     func presentAtBatEdit(atBat: AtBat) {
+        guard let game = game, !game.isCompleted else { return }
         let newAtBatVC = AtBatCreationViewController.initializeFromStoryboard()
         newAtBatVC.editingAtBat = atBat
         customPresentViewController(customPresenter, viewController: newAtBatVC, animated: true, completion: nil)
@@ -176,11 +184,14 @@ extension GameViewController {
         present(gameCreationNav, animated: true, completion: nil)
     }
     
-    fileprivate func endGame() {
+    fileprivate func changeGameCompletion(isCompleted: Bool) {
         guard var game = game else { return }
-        game.isCompleted = true
+        game.isCompleted = isCompleted
         core.fire(command: UpdateObject(game))
-        navigationController?.popViewController(animated: true)
+        
+        if isCompleted {
+            navigationController?.popViewController(animated: true)
+        }
     }
     
     fileprivate func presentConfirmationAlert() {
@@ -204,8 +215,11 @@ extension GameViewController: IGListAdapterDataSource {
         for (index, atBat) in currentAtBats.enumerated() {
             objects.append(AtBatSection(atBat: atBat, order: currentAtBats.count - index))
         }
-        let newAtBatSection = NewAtBatSection()
-        objects.insert(newAtBatSection, at: 0)
+        if let currentUser = core.state.userState.currentUser, let team = core.state.teamState.currentTeam, currentUser.isOwnerOrManager(of: team), let game = game, !game.isCompleted {
+            let newAtBatSection = NewAtBatSection()
+            objects.insert(newAtBatSection, at: 0)
+        }
+        
         return objects
     }
     
@@ -216,7 +230,9 @@ extension GameViewController: IGListAdapterDataSource {
             newAtBatSectionController.cellSelected = presentAtBatCreation
             return newAtBatSectionController
         case _ as AtBatSection:
-            let atBatSectionController = AtBatSectionController()
+            guard let currentUser = core.state.userState.currentUser, let team = core.state.teamState.currentTeam, let game = game else { fatalError() }
+            let canEdit = currentUser.isOwnerOrManager(of: team) && !game.isCompleted
+            let atBatSectionController = AtBatSectionController(canEdit: canEdit)
             atBatSectionController.didSelectAtBat = { atBat in
                 self.presentAtBatEdit(atBat: atBat)
             }

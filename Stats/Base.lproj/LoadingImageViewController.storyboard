@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -31,14 +32,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ClA-TE-LLa">
-                                <rect key="frame" x="134.5" y="20" width="105" height="140.5"/>
+                                <rect key="frame" x="135" y="20" width="105" height="140.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pyq-0d-nXJ">
                                         <rect key="frame" x="0.0" y="0.0" width="105" height="80"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="80" id="jG9-aT-63j"/>
-                                        </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yZR-HS-GTH">
                                         <rect key="frame" x="0.0" y="80" width="105" height="60.5"/>
@@ -66,6 +64,7 @@
                             <constraint firstItem="7dL-JM-Uez" firstAttribute="leading" secondItem="b2u-qD-HKY" secondAttribute="leading" id="Avl-Dn-hzE"/>
                             <constraint firstItem="60c-kk-M3F" firstAttribute="top" secondItem="7dL-JM-Uez" secondAttribute="bottom" id="EO1-6a-opa"/>
                             <constraint firstItem="7dL-JM-Uez" firstAttribute="top" secondItem="b2u-qD-HKY" secondAttribute="topMargin" id="ax3-So-QhM"/>
+                            <constraint firstItem="pyq-0d-nXJ" firstAttribute="height" secondItem="b2u-qD-HKY" secondAttribute="height" multiplier="0.12" constant="0.10000000000000001" id="euM-Ig-9Qa"/>
                             <constraint firstAttribute="trailing" secondItem="7dL-JM-Uez" secondAttribute="trailing" id="hnY-Fw-JQs"/>
                             <constraint firstItem="ClA-TE-LLa" firstAttribute="top" secondItem="EKP-mk-bmS" secondAttribute="bottom" id="iW4-Dj-P8e"/>
                         </constraints>

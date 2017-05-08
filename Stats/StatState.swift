@@ -8,10 +8,16 @@
 
 import Foundation
 
+struct SubFilterUpdated: Event {
+    var includeSubs: Bool
+}
+
 struct StatState: State {
     
     var currentViewType = StatsViewType.trophies
     var currentStatType = StatType.battingAverage
+    var includeSubs = false
+    var sortType = SortType.best
     
     mutating func react(to event: Event) {
         switch event {
@@ -19,6 +25,10 @@ struct StatState: State {
             currentViewType = event.payload
         case let event as Updated<StatType>:
             currentStatType = event.payload
+        case let event as SubFilterUpdated:
+            includeSubs = event.includeSubs
+        case let event as Updated<SortType>:
+            sortType = event.payload
         default:
             break
         }

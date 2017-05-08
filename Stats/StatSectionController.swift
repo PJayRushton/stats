@@ -36,12 +36,12 @@ class StatSection: IGListDiffable {
     }
     
     func diffIdentifier() -> NSObjectProtocol {
-        return stat.displayName as NSString
+        return stat.player.id as NSString
     }
     
     func isEqual(toDiffableObject object: IGListDiffable?) -> Bool {
         guard let other = object as? StatSection else { return false }
-        return stat.displayName == other.stat.displayName &&
+        return stat.player == other.stat.player &&
         stat.statType == other.stat.statType &&
         stat.value == other.stat.value
     }

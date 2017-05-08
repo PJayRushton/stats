@@ -38,15 +38,26 @@ class StatsNumbersViewController: Component, AutoStoryboardInitializable {
 extension StatsNumbersViewController: IGListAdapterDataSource {
     
     func objects(for listAdapter: IGListAdapter) -> [IGListDiffable] {
-        let players = core.state.atBatState.allAtBats.flatMap { $0.playerId.statePlayer }
+        var allAtBats = Array(core.state.atBatState.allAtBats)
+        
+        if core.state.statState.includeSubs == false {
+            allAtBats = allAtBats.filter({ atBat -> Bool in
+                guard let player = atBat.playerId.statePlayer else { print("Filterout out at bat \(atBat))");return false }
+                return !player.isSub
+            })
+        }
+        
+        let players = allAtBats.flatMap { $0.playerId.statePlayer }
         var allStats = [Stat]()
         
         players.forEach { player in
             let atBats = core.state.atBatState.atBats(for: player)
             allStats.append(player.stat(ofType: currentStatType, from: atBats))
         }
-        
-        return allStats.map { StatSection(stat: $0) }.sorted(by: { $0.stat.value > $1.stat.value })
+        dump(allStats.map { $0.player.name })
+        let sortedStats = allStats.sorted(by: core.state.statState.sortType.sort)
+        dump(sortedStats.map { $0.player.name })
+        return sortedStats.map { StatSection(stat: $0) }
     }
     
     func listAdapter(_ listAdapter: IGListAdapter, sectionControllerFor object: Any) -> IGListSectionController {

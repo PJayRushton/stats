@@ -49,4 +49,10 @@ class StatsViewController: Component, AutoStoryboardInitializable {
         try? segmentedControl.setIndex(UInt(state.statState.currentViewType.rawValue))
     }
     
+    @IBAction func filterButtonPressed(_ sender: UIBarButtonItem) {
+        let filterVC = StatFilterViewController.initializeFromStoryboard().embededInNavigationController
+        filterVC.modalPresentationStyle = .popover
+        present(filterVC, animated: true, completion: nil)
+    }
+    
 }

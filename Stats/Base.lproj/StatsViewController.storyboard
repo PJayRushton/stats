@@ -51,7 +51,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Stats" id="Fge-gg-s29">
-                        <barButtonItem key="rightBarButtonItem" title="🔻" id="Zu5-ql-bwz"/>
+                        <barButtonItem key="rightBarButtonItem" title="▽" id="Zu5-ql-bwz">
+                            <connections>
+                                <action selector="filterButtonPressed:" destination="SEj-IR-cX0" id="tMe-uq-0Af"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>

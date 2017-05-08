@@ -10,7 +10,7 @@ import Foundation
 
 struct Stat: Equatable {
     
-    var displayName: String
+    var player: Player
     var statType: StatType
     var value: Double
     
@@ -25,6 +25,12 @@ struct Stat: Equatable {
     
 }
 
+extension Stat: Comparable { }
+
+func <(lhs: Stat, rhs: Stat) -> Bool {
+    return lhs.value < rhs.value
+}
+
 func ==(lhs: Stat, rhs: Stat) -> Bool {
-    return lhs.displayName == rhs.displayName && lhs.statType == rhs.statType && lhs.value == rhs.value
+    return lhs.player == rhs.player && lhs.statType == rhs.statType && lhs.value == rhs.value
 }

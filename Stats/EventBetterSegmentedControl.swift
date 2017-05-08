@@ -18,6 +18,7 @@ extension BetterSegmentedControl {
         titleColor = .gray400
         selectedTitleColor = .white
         indicatorViewBackgroundColor = indicatorColor
+        cornerRadius = 5
     }
     
 }

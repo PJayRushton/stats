@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="LemonMilk.otf">
+            <string>LemonMilk</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Filter-->
+        <scene sceneID="81t-HP-xTU">
+            <objects>
+                <viewController storyboardIdentifier="StatFilterViewController" id="iF8-Dr-JrK" customClass="StatFilterViewController" customModule="Stats" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QK9-BZ-DhJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="hXd-zN-0T2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lYp-pj-TVP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="AaP-Mk-sw2">
+                                <rect key="frame" x="16" y="80" width="343" height="557"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="7ck-AI-umm" userLabel="Subs stack">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="36"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Include Subs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rkA-M8-Y6v">
+                                                <rect key="frame" x="0.0" y="0.0" width="307" height="36"/>
+                                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eC4-ei-DkZ" customClass="AIFlatSwitch" customModule="AIFlatSwitch">
+                                                <rect key="frame" x="307" y="0.0" width="36" height="36"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="eC4-ei-DkZ" secondAttribute="height" id="LdA-c5-czM"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="trailStrokeColor">
+                                                        <color key="value" red="0.64856451749999999" green="0.77474325899999996" blue="0.22945481540000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="subSwitchFlipped:" destination="iF8-Dr-JrK" eventType="valueChanged" id="Taa-oB-dDA"/>
+                                                </connections>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="N0w-RH-Zft"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mAV-YS-3a6">
+                                        <rect key="frame" x="0.0" y="60" width="343" height="78"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sort Stats By:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P7J-LX-j8a">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="vIP-ig-XgI"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W6L-NJ-zHd" customClass="BetterSegmentedControl" customModule="BetterSegmentedControl">
+                                                <rect key="frame" x="0.0" y="38" width="343" height="40"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="bVr-Fe-IRc"/>
+                                                </constraints>
+                                                <connections>
+                                                    <action selector="sortTypeChanged:" destination="iF8-Dr-JrK" eventType="valueChanged" id="qoA-eY-3rF"/>
+                                                </connections>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                    <view contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="MG3-CT-i1F">
+                                        <rect key="frame" x="0.0" y="162" width="343" height="395"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hXd-zN-0T2" firstAttribute="top" secondItem="AaP-Mk-sw2" secondAttribute="bottom" constant="30" id="0kc-Hx-vch"/>
+                            <constraint firstItem="AaP-Mk-sw2" firstAttribute="top" secondItem="QK9-BZ-DhJ" secondAttribute="bottom" constant="16" id="gjk-io-8gU"/>
+                            <constraint firstAttribute="trailing" secondItem="AaP-Mk-sw2" secondAttribute="trailing" constant="16" id="iHX-ra-rni"/>
+                            <constraint firstItem="AaP-Mk-sw2" firstAttribute="leading" secondItem="lYp-pj-TVP" secondAttribute="leading" constant="16" id="yqv-3K-1g9"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Filter" id="Z3h-sp-Cuc">
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="fFY-yL-pnd">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="dismissButtonPressed:" destination="iF8-Dr-JrK" id="BOX-ut-8QN"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="💾" id="DvV-5F-AjM">
+                            <connections>
+                                <action selector="dismissButtonPressed:" destination="iF8-Dr-JrK" id="jd1-SD-X7x"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="sortSegControl" destination="W6L-NJ-zHd" id="0VM-DR-pf4"/>
+                        <outlet property="subSwitch" destination="eC4-ei-DkZ" id="Nuo-uo-TEg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Ca-1b-7xM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="103" y="56"/>
+        </scene>
+    </scenes>
+</document>

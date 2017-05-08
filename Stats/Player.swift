@@ -20,6 +20,10 @@ struct Player: Identifiable, Unmarshaling {
     var phone: String?
     var teamId: String
     
+    var nameWithSub: String {
+        guard isSub else { return name }
+        return "\(name) (S)"
+    }
     init(id: String = "", name: String, jerseyNumber: String? = nil, isSub: Bool = false, phone: String? = nil, gender: Gender = .unspecified, teamId: String) {
         self.id = id
         self.name = name
@@ -47,7 +51,7 @@ struct Player: Identifiable, Unmarshaling {
     }
     
     func stat(ofType type: StatType, from atBats: [AtBat]) -> Stat {
-        return Stat(displayName: name, statType: type, value: type.statValue(with: atBats))
+        return Stat(player: self, statType: type, value: type.statValue(with: atBats))
     }
     
 }

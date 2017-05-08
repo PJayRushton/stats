@@ -23,6 +23,10 @@ class StatsTrophiesViewController: Component, AutoStoryboardInitializable {
         adapter.collectionView = collectionView
         adapter.dataSource = self
     }
+    
+    override func update(with state: AppState) {
+        adapter.performUpdates(animated: true)
+    }
 
 }
 
@@ -30,8 +34,14 @@ extension StatsTrophiesViewController: IGListAdapterDataSource {
     
     func objects(for listAdapter: IGListAdapter) -> [IGListDiffable] {
         let allTrophies = Trophy.allValues
-        let allAtBats = Array(core.state.atBatState.allAtBats)
+        var allAtBats = Array(core.state.atBatState.allAtBats)
         
+        if core.state.statState.includeSubs == false {
+            allAtBats = allAtBats.filter({ atBat -> Bool in
+                guard let player = atBat.playerId.statePlayer else { return false }
+                return !player.isSub
+            })
+        }
         var trophySections = [IGListDiffable]()
         
         allTrophies.forEach { trophy in

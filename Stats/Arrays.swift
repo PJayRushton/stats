@@ -37,6 +37,10 @@ extension Sequence where Iterator.Element == AtBat {
         return filter { $0.resultCode == code }
     }
     
+    func withResults(_ codes: [AtBatCode]) -> [AtBat] {
+        return filter { codes.contains($0.resultCode) }
+    }
+    
     var hitCount: Int {
         return self.filter { $0.resultCode.isHit }.count
     }

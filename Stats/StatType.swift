@@ -59,36 +59,36 @@ enum StatType: String {
         }
     }
     
-    var displayString: String {
+    func displayString(singular: Bool = false) -> String {
         switch self {
         case .atBats:
-            return "At Bats"
+            return singular ? "At Bat" : "At Bats"
         case .battingAverage:
             return "BA"
         case .doubles:
-            return "Doubles"
+            return singular ? "Double" : "Doubles"
         case .gamesPlayed:
-            return "Games"
+            return singular ? "Game" : "Games"
         case .grandSlams:
-            return "Grand Slams"
+            return singular ? "Grand Slam" : "Grand Slams"
         case .hits:
-            return "Hits"
+            return singular ? "Hit" : "Hits"
         case .homeRuns:
-            return "Home Runs"
+            return singular ? "Home Run" : "Home Runs"
         case .onBasePercentage:
             return "OBP"
         case .rbis:
-            return "RBIs"
+            return singular ? "RBI" : "RBIs"
         case .reachOnError:
             return "Reached on Error"
         case .singles:
-            return "Singles"
+            return singular ? "Single" : "Singles"
         case .strikeOuts:
-            return "Strike Outs"
+            return singular ? "Strike Out" : "Strike Outs"
         case .triples:
-            return "Triples"
+            return singular ? "Triple" : "Triples"
         case .walks:
-            return "Walks"
+            return singular ? "Walk" : "Walks"
         }
     }
     
@@ -104,12 +104,12 @@ enum StatType: String {
         case .gamesPlayed:
             return Set(atBats.map { $0.gameId }).count.doubleValue
         case .grandSlams:
-            let hrs = atBats.withResult(.hr)
+            let hrs = atBats.withResults([.hr, .hrITP])
             return hrs.filter { $0.rbis == 4 }.count.doubleValue
         case .hits:
             return atBats.hitCount.doubleValue
         case .homeRuns:
-            return atBats.withResult(.hr).count.doubleValue
+            return atBats.withResults([.hr, .hrITP]).count.doubleValue
         case .onBasePercentage:
             let onBaseBatCount = atBats.filter { $0.resultCode.gotOnBase }.count.doubleValue
             return onBaseBatCount / atBats.count.doubleValue
@@ -135,7 +135,10 @@ enum StatType: String {
         playerIds.forEach { playerId in
             guard let player = playerId.statePlayer else { return }
             let playerAtBats = atBats.filter { $0.playerId == playerId }
-            let playerStat = Stat(player: player, statType: self, value: self.statValue(with: playerAtBats))
+            let statValue = self.statValue(with: playerAtBats)
+            
+            guard (self != .battingAverage && statValue > 0) else { return }
+            let playerStat = Stat(player: player, statType: self, value: statValue)
             playerStats.append(playerStat)
         }
         return playerStats

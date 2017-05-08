@@ -16,14 +16,18 @@ class TrophyWinnerCell: UICollectionViewCell, AutoReuseIdentifiable {
     @IBOutlet weak var secondPlaceLabel: UILabel!
     
     func update(withTrophy trophy: Trophy, winner winnerStat: Stat, firstLoser secondStat: Stat?) {
-        winnerLabel.text = "\(winnerStat.player.name) - (\(winnerStat.displayString) \(trophy.statType.displayString))"
+        winnerLabel.text = statString(with: winnerStat, trophy: trophy)
         
-        if let firstLoserStat = secondStat {
-            honorableMentionLabel.isHidden = false
-            secondPlaceLabel.text = "\(firstLoserStat.player.name) - (\(firstLoserStat.displayString) \(trophy.statType.displayString))"
-        } else {
-            honorableMentionLabel.isHidden = true
-        }
+        honorableMentionLabel.isHidden = secondStat == nil
+        secondPlaceLabel.isHidden = secondStat == nil
+        
+        guard let firstLoserStat = secondStat else { return }
+        secondPlaceLabel.text = statString(with: firstLoserStat, trophy: trophy)
+    }
+    
+    private func statString(with stat: Stat, trophy: Trophy) -> String {
+        let format = NSLocalizedString("%@ (%@ %@)", comment: "Player name ({Stat Number} Stat Type) e.g Parker (0.785 BA)")
+        return String.localizedStringWithFormat(format, stat.player.name, stat.displayString, trophy.statType.displayString(singular: stat.value == 1))
     }
     
 }

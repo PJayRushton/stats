@@ -24,5 +24,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         return true
     }
+    
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        if core.state.userState.iCloudId == nil {
+            core.fire(command: LoadICloudUser())
+        }
+    }
 
 }

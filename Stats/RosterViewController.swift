@@ -71,7 +71,7 @@ class RosterViewController: Component, AutoStoryboardInitializable {
         guard let team = state.teamState.currentTeam else { tableView.reloadData(); return }
         if isLineup {
             let newPlayers = state.playerState.players(for: team).filter { !orderedPlayers.contains($0) && !benchedPlayers.contains($0) }
-            benchedPlayers.append(contentsOf: newPlayers)
+            orderedPlayers.append(contentsOf: newPlayers)
         } else {
             orderedPlayers = state.playerState.players(for: team).filter { !benchedPlayers.contains($0) }
             for (index, player) in benchedPlayers.enumerated() {

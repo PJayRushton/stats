@@ -159,7 +159,7 @@ extension RosterViewController {
         }
     }
     
-    fileprivate func editPlayer(_ player: Player) {
+    fileprivate func presentEditPlayer(_ player: Player) {
         let playerEditVC = PlayerCreationViewController.initializeFromStoryboard()
         playerEditVC.editingPlayer = player
         customPresentViewController(modalPresenter(), viewController: playerEditVC, animated: true, completion: nil)
@@ -187,7 +187,7 @@ extension RosterViewController {
     }
     
     fileprivate func textPhoneNumber(_ number: String) {
-        let textVC = MFMessageComposeViewController(rootViewController: self)
+        let textVC = MFMessageComposeViewController()
         textVC.recipients = [number]
         textVC.messageComposeDelegate = self
         present(textVC, animated: true, completion: nil)
@@ -195,16 +195,23 @@ extension RosterViewController {
     
     fileprivate func presentOptions(for player: Player) {
         let alert = UIAlertController(title: "Actions for:", message: player.name, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         if let currentUser = core.state.userState.currentUser, let team = core.state.teamState.currentTeam, currentUser.isOwnerOrManager(of: team) {
             alert.addAction(UIAlertAction(title: "Edit ✏️", style: .default, handler: { _ in
-                self.editPlayer(player)
+                self.presentEditPlayer(player)
             }))
+            if player.phone == nil || (player.phone != nil && player.phone!.isEmpty) {
+                presentEditPlayer(player)
+            }
         }
-        if let phone = player.phone, !phone.isEmpty, let url = URL(string: "tel://\(phone)"), UIApplication.shared.canOpenURL(url){
-            alert.addAction(UIAlertAction(title: "Call 📞", style: .default, handler: { _ in
-                self.callPhoneNumber(phone)
-            }))
+        
+        if let phone = player.phone, !phone.isEmpty {
+            if let url = URL(string: "tel://\(phone)"), UIApplication.shared.canOpenURL(url) {
+                alert.addAction(UIAlertAction(title: "Call 📞", style: .default, handler: { _ in
+                    self.callPhoneNumber(phone)
+                }))
+            }
             if MFMessageComposeViewController.canSendText() {
                 alert.addAction(UIAlertAction(title: "Text 💬", style: .default, handler: { _ in
                     self.textPhoneNumber(phone)
@@ -212,8 +219,6 @@ extension RosterViewController {
             }
         }
         
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        guard alert.actions.count > 1 else { return }
         present(alert, animated: true, completion: nil)
     }
 
@@ -242,7 +247,7 @@ extension RosterViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerCell = tableView.dequeueReusableCell(withIdentifier: BasicHeaderCell.reuseIdentifier) as! BasicHeaderCell
-        let title = section == 0 ? "Roster" : "Bench"
+        let title = section == 0 ? NSLocalizedString("Roster", comment: "Main players on the team") : NSLocalizedString("Bench", comment: "Not currently playing, (on the bench)")
         headerCell.update(with: title, backgroundColor: .flatGrayDark)
         return headerCell.contentView
     }

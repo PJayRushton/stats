@@ -90,7 +90,7 @@ class HomeViewController: Component, AutoStoryboardInitializable {
     override func update(with state: AppState) {
         if state.userState.currentUser == nil, state.userState.isLoaded, !isPresentingOnboarding {
             isPresentingOnboarding = true
-            let usernameVC = UsernameViewController.initializeFromStoryboard().embededInNavigationController
+            let usernameVC = NewUserViewController.initializeFromStoryboard().embededInNavigationController
             usernameVC.modalPresentationStyle = .overFullScreen
             present(usernameVC, animated: true)
         }

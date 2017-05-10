@@ -35,7 +35,9 @@ class MainViewController: Component {
     // MARK: - Subscriber
     
     override func update(with state: AppState) {
-        if let _ = state.userState.iCloudId, state.userState.isLoaded {
+        let userState = state.userState
+        
+        if let _ = userState.iCloudId, userState.isLoaded {
             presentApplication()
         } else {
 //            if state.userState.isLoaded == false {

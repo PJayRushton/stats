@@ -55,51 +55,51 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="X4j-m9-xfy">
                                                 <rect key="frame" x="24" y="88.5" width="327" height="90"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DRs-t2-eal">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="40" translatesAutoresizingMaskIntoConstraints="NO" id="DRs-t2-eal">
                                                         <rect key="frame" x="0.0" y="0.0" width="52.5" height="90"/>
                                                         <nil key="textColor"/>
-                                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="60"/>
-                                                        <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no"/>
+                                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="50"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad"/>
                                                         <connections>
                                                             <action selector="textFieldChanged:" destination="qad-wd-SC7" eventType="editingChanged" id="a3V-9O-Ekv"/>
                                                             <outlet property="delegate" destination="qad-wd-SC7" id="XpI-iu-DC3"/>
                                                         </connections>
                                                     </textField>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ben-iE-4sb">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="40" translatesAutoresizingMaskIntoConstraints="NO" id="Ben-iE-4sb">
                                                         <rect key="frame" x="68.5" y="0.0" width="52.5" height="90"/>
                                                         <nil key="textColor"/>
-                                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="60"/>
-                                                        <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no"/>
+                                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="50"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad"/>
                                                         <connections>
                                                             <action selector="textFieldChanged:" destination="qad-wd-SC7" eventType="editingChanged" id="Lvf-l5-HIm"/>
                                                             <outlet property="delegate" destination="qad-wd-SC7" id="7wf-gc-wQp"/>
                                                         </connections>
                                                     </textField>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n2T-mU-Fzx">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="40" translatesAutoresizingMaskIntoConstraints="NO" id="n2T-mU-Fzx">
                                                         <rect key="frame" x="137" y="0.0" width="53" height="90"/>
                                                         <nil key="textColor"/>
-                                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="60"/>
-                                                        <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no"/>
+                                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="50"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad"/>
                                                         <connections>
                                                             <action selector="textFieldChanged:" destination="qad-wd-SC7" eventType="editingChanged" id="Bid-bF-AE3"/>
                                                             <outlet property="delegate" destination="qad-wd-SC7" id="lh7-Wb-LDi"/>
                                                         </connections>
                                                     </textField>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ca8-ad-V1b">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="40" translatesAutoresizingMaskIntoConstraints="NO" id="ca8-ad-V1b">
                                                         <rect key="frame" x="206" y="0.0" width="52.5" height="90"/>
                                                         <nil key="textColor"/>
-                                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="60"/>
-                                                        <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no"/>
+                                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="50"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad"/>
                                                         <connections>
                                                             <action selector="textFieldChanged:" destination="qad-wd-SC7" eventType="editingChanged" id="elW-c1-Nb4"/>
                                                             <outlet property="delegate" destination="qad-wd-SC7" id="5uy-3z-j1I"/>
                                                         </connections>
                                                     </textField>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SXK-OR-l8R">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="40" translatesAutoresizingMaskIntoConstraints="NO" id="SXK-OR-l8R">
                                                         <rect key="frame" x="274.5" y="0.0" width="52.5" height="90"/>
                                                         <nil key="textColor"/>
-                                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="60"/>
-                                                        <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no"/>
+                                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="50"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad"/>
                                                         <connections>
                                                             <action selector="textFieldChanged:" destination="qad-wd-SC7" eventType="editingChanged" id="Ns0-Fz-Sz5"/>
                                                             <outlet property="delegate" destination="qad-wd-SC7" id="bkl-Th-rg2"/>

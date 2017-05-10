@@ -27,6 +27,7 @@ struct AppState: State {
     var atBatState = AtBatState()
     var statState = StatState()
     
+    
     mutating func react(to event: Event) {
         switch event {
         case let event as Selected<HomeMenuItem>:

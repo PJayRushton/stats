@@ -47,9 +47,8 @@ extension ShareTeamViewController {
         let qrCode = QRCode(shareCode)
         qrImageView.image = qrCode?.image
 
-        let userFacingCode = shareCode.replacingOccurrences(of: " ", with: "")
-        let attributedString = NSMutableAttributedString(string: userFacingCode)
-        attributedString.addAttribute(NSKernAttributeName, value: CGFloat(16), range: NSRange(location: 0, length: userFacingCode.characters.count - 1))
+        let attributedString = NSMutableAttributedString(string: shareCode)
+        attributedString.addAttribute(NSKernAttributeName, value: CGFloat(16), range: NSRange(location: 0, length: shareCode.characters.count - 1))
         shareLabel.attributedText = attributedString
     }
     

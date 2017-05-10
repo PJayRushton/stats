@@ -16,6 +16,7 @@ struct ICloudUserLoaded: Event {
 struct UserState: State {
     
     var iCloudId: String?
+    var iCloudQueried = false
     var currentUser: User?
     var isLoaded = false
     var isSubscribed = false
@@ -24,6 +25,7 @@ struct UserState: State {
         switch event {
         case let event as ICloudUserLoaded:
             iCloudId = event.id
+            iCloudQueried = true
         case let event as Selected<User>:
             currentUser = event.item
             isLoaded = true

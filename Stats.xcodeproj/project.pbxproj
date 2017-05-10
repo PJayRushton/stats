@@ -84,14 +84,10 @@
 		A1868F9D1E802DDD00C191EC /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1868F9C1E802DDD00C191EC /* Result.swift */; };
 		A1868F9F1E802E1600C191EC /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1868F9E1E802E1600C191EC /* AppState.swift */; };
 		A1868FA21E802F5C00C191EC /* Reactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1868FA11E802F5C00C191EC /* Reactor.swift */; };
-		A1A2C35C1E8BF2FB0008274F /* AvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2C35B1E8BF2FB0008274F /* AvatarViewController.swift */; };
 		A1A2C35E1E8BF3680008274F /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2C35D1E8BF3680008274F /* Component.swift */; };
 		A1A2C3631E8BF6020008274F /* TeamHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2C3611E8BF6020008274F /* TeamHeaderCell.swift */; };
 		A1A2C3641E8BF6020008274F /* TeamHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1A2C3621E8BF6020008274F /* TeamHeaderCell.xib */; };
 		A1A2C3691E8C05150008274F /* TeamHeaderSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2C3681E8C05150008274F /* TeamHeaderSectionController.swift */; };
-		A1A2C36F1E8C0F4C0008274F /* AvatarViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1A2C36D1E8C0F4C0008274F /* AvatarViewController.storyboard */; };
-		A1A2C3721E8C11F30008274F /* EmailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1A2C3701E8C11F30008274F /* EmailViewController.storyboard */; };
-		A1A2C3741E8C12080008274F /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2C3731E8C12080008274F /* EmailViewController.swift */; };
 		A1A2C3751E8C135E0008274F /* SaveNewUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17999711E82B6930058A002 /* SaveNewUser.swift */; };
 		A1ABAFF91EA9420F00B28A46 /* AtBatCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1ABAFF81EA9420F00B28A46 /* AtBatCreationViewController.swift */; };
 		A1ABAFFB1EA9463900B28A46 /* AtBatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1ABAFFA1EA9463900B28A46 /* AtBatButton.swift */; };
@@ -129,7 +125,7 @@
 		A1CD9A101E8A9ABC00D3C8F7 /* SeasonState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD9A0F1E8A9ABC00D3C8F7 /* SeasonState.swift */; };
 		A1CD9A121E8A9C2400D3C8F7 /* AtBatState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD9A111E8A9C2400D3C8F7 /* AtBatState.swift */; };
 		A1CD9A141E8A9C6000D3C8F7 /* PlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD9A131E8A9C6000D3C8F7 /* PlayerState.swift */; };
-		A1CD9A171E8AA2F000D3C8F7 /* UsernameViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1CD9A151E8AA2F000D3C8F7 /* UsernameViewController.storyboard */; };
+		A1CD9A171E8AA2F000D3C8F7 /* NewUserViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1CD9A151E8AA2F000D3C8F7 /* NewUserViewController.storyboard */; };
 		A1CD9A191E8AA83D00D3C8F7 /* NewUserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD9A181E8AA83D00D3C8F7 /* NewUserState.swift */; };
 		A1CD9A1B1E8AACAB00D3C8F7 /* CheckUsernameAvailability.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD9A1A1E8AACAB00D3C8F7 /* CheckUsernameAvailability.swift */; };
 		A1CD9A1E1E8ABBBC00D3C8F7 /* Arrays.swift in Sources */ = {isa = PBXBuildFile; fileRef = A179997F1E82B95E0058A002 /* Arrays.swift */; };
@@ -146,7 +142,7 @@
 		A1D67D541E9097E100200B65 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D67D531E9097E100200B65 /* SettingsViewController.swift */; };
 		A1D67D571E92872A00200B65 /* BasicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1D67D551E92872A00200B65 /* BasicCell.xib */; };
 		A1D67D5A1E928A0D00200B65 /* BasicHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1D67D581E928A0C00200B65 /* BasicHeaderCell.xib */; };
-		A1D8054C1E89870B0072AA49 /* UsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D8054B1E89870B0072AA49 /* UsernameViewController.swift */; };
+		A1D8054C1E89870B0072AA49 /* NewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D8054B1E89870B0072AA49 /* NewUserViewController.swift */; };
 		A1DC99D31E7E3E4500C6FF8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DC99D21E7E3E4500C6FF8C /* AppDelegate.swift */; };
 		A1DC99DA1E7E3E4500C6FF8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1DC99D91E7E3E4500C6FF8C /* Assets.xcassets */; };
 		A1E5AE5D1EAA59C70046131B /* Chameleon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E5AE5C1EAA59C70046131B /* Chameleon.swift */; };
@@ -239,14 +235,10 @@
 		A1868F9C1E802DDD00C191EC /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		A1868F9E1E802E1600C191EC /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		A1868FA11E802F5C00C191EC /* Reactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reactor.swift; sourceTree = "<group>"; };
-		A1A2C35B1E8BF2FB0008274F /* AvatarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarViewController.swift; sourceTree = "<group>"; };
 		A1A2C35D1E8BF3680008274F /* Component.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
 		A1A2C3611E8BF6020008274F /* TeamHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamHeaderCell.swift; sourceTree = "<group>"; };
 		A1A2C3621E8BF6020008274F /* TeamHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamHeaderCell.xib; sourceTree = "<group>"; };
 		A1A2C3681E8C05150008274F /* TeamHeaderSectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamHeaderSectionController.swift; sourceTree = "<group>"; };
-		A1A2C36E1E8C0F4C0008274F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AvatarViewController.storyboard; sourceTree = "<group>"; };
-		A1A2C3711E8C11F30008274F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = EmailViewController.storyboard; sourceTree = "<group>"; };
-		A1A2C3731E8C12080008274F /* EmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
 		A1ABAFF81EA9420F00B28A46 /* AtBatCreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtBatCreationViewController.swift; sourceTree = "<group>"; };
 		A1ABAFFA1EA9463900B28A46 /* AtBatButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtBatButton.swift; sourceTree = "<group>"; };
 		A1ABAFFC1EA97AF900B28A46 /* ShowMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowMessage.swift; sourceTree = "<group>"; };
@@ -283,7 +275,7 @@
 		A1CD9A0F1E8A9ABC00D3C8F7 /* SeasonState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeasonState.swift; sourceTree = "<group>"; };
 		A1CD9A111E8A9C2400D3C8F7 /* AtBatState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtBatState.swift; sourceTree = "<group>"; };
 		A1CD9A131E8A9C6000D3C8F7 /* PlayerState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerState.swift; sourceTree = "<group>"; };
-		A1CD9A161E8AA2F000D3C8F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = UsernameViewController.storyboard; sourceTree = "<group>"; };
+		A1CD9A161E8AA2F000D3C8F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = NewUserViewController.storyboard; sourceTree = "<group>"; };
 		A1CD9A181E8AA83D00D3C8F7 /* NewUserState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserState.swift; sourceTree = "<group>"; };
 		A1CD9A1A1E8AACAB00D3C8F7 /* CheckUsernameAvailability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckUsernameAvailability.swift; sourceTree = "<group>"; };
 		A1D67D371E8F081A00200B65 /* TeamActionSectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamActionSectionController.swift; sourceTree = "<group>"; };
@@ -299,7 +291,7 @@
 		A1D67D531E9097E100200B65 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		A1D67D561E92872A00200B65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = BasicCell.xib; sourceTree = "<group>"; };
 		A1D67D591E928A0D00200B65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = BasicHeaderCell.xib; sourceTree = "<group>"; };
-		A1D8054B1E89870B0072AA49 /* UsernameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsernameViewController.swift; sourceTree = "<group>"; };
+		A1D8054B1E89870B0072AA49 /* NewUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserViewController.swift; sourceTree = "<group>"; };
 		A1DC99CF1E7E3E4500C6FF8C /* Stats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1DC99D21E7E3E4500C6FF8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1DC99D91E7E3E4500C6FF8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -413,10 +405,8 @@
 				A14B64E71E8D64A900CBDE92 /* AddTeamViewController.storyboard */,
 				A1426BA01EA85E7200AAABB3 /* AtBatCell.xib */,
 				A1426BAC1EA93C1800AAABB3 /* AtBatCreationViewController.storyboard */,
-				A1A2C36D1E8C0F4C0008274F /* AvatarViewController.storyboard */,
 				A1D67D551E92872A00200B65 /* BasicCell.xib */,
 				A1D67D581E928A0C00200B65 /* BasicHeaderCell.xib */,
-				A1A2C3701E8C11F30008274F /* EmailViewController.storyboard */,
 				A1398B3D1EA6D3DF00A4B830 /* GameCreationViewController.storyboard */,
 				A1C722191EA5696E00A71C51 /* GamesViewController.storyboard */,
 				A1398B461EA7081F00A4B830 /* GameViewController.storyboard */,
@@ -425,6 +415,7 @@
 				A1D67D4B1E8FE8FC00200B65 /* LoadingImageViewController.storyboard */,
 				A1D67D441E8FE8B100200B65 /* Main.storyboard */,
 				A1426BA91EA86CC300AAABB3 /* NewAtBatCell.xib */,
+				A1CD9A151E8AA2F000D3C8F7 /* NewUserViewController.storyboard */,
 				A16D41731E97D1BC00DE01D4 /* PlayerCell.xib */,
 				A16D417C1E97FF7400DE01D4 /* PlayerCreationViewController.storyboard */,
 				A16D41701E97D09E00DE01D4 /* RosterViewController.storyboard */,
@@ -443,7 +434,6 @@
 				A17EF6BA1E930D3100DEE4ED /* TeamListViewController.storyboard */,
 				A1B65DCB1EB07818009983E1 /* TrophyHeaderCell.xib */,
 				A1B65DCE1EB07BFC009983E1 /* TrophyWinnerCell.xib */,
-				A1CD9A151E8AA2F000D3C8F7 /* UsernameViewController.storyboard */,
 			);
 			path = Base.lproj;
 			sourceTree = "<group>";
@@ -454,10 +444,8 @@
 				A14B64E51E8D647B00CBDE92 /* AddTeamViewController.swift */,
 				A1426B9E1EA85E5500AAABB3 /* AtBatCell.swift */,
 				A1ABAFF81EA9420F00B28A46 /* AtBatCreationViewController.swift */,
-				A1A2C35B1E8BF2FB0008274F /* AvatarViewController.swift */,
 				A1D67D401E8FE24C00200B65 /* BasicHeaderCell.swift */,
 				A1D67D3E1E8F253F00200B65 /* BasicTeamCell.swift */,
-				A1A2C3731E8C12080008274F /* EmailViewController.swift */,
 				A1C7221E1EA56A2800A71C51 /* GameCell.swift */,
 				A1B49D8B1EA577AC00DA9FAB /* GameCreationViewController.swift */,
 				A1C7221C1EA5698C00A71C51 /* GamesViewController.swift */,
@@ -468,6 +456,7 @@
 				A1D67D491E8FE8EE00200B65 /* LoadingImageViewController.swift */,
 				A1D67D471E8FE8BF00200B65 /* MainViewController.swift */,
 				A1426BA71EA86C5000AAABB3 /* NewAtBatCell.swift */,
+				A1D8054B1E89870B0072AA49 /* NewUserViewController.swift */,
 				A16D41761E97D1D500DE01D4 /* PlayerCell.swift */,
 				A16D417A1E97FF6000DE01D4 /* PlayerCreationViewController.swift */,
 				A16D416E1E97D08F00DE01D4 /* RosterViewController.swift */,
@@ -487,7 +476,6 @@
 				A17EF6BD1E931A0300DEE4ED /* TeamListViewController.swift */,
 				A1B65DC91EB077A2009983E1 /* TrophyHeaderCell.swift */,
 				A1B65DD11EB07E79009983E1 /* TrophyWinnerCell.swift */,
-				A1D8054B1E89870B0072AA49 /* UsernameViewController.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -678,7 +666,7 @@
 				A1398B3F1EA6D3DF00A4B830 /* GameCreationViewController.storyboard in Resources */,
 				A14B64E41E8D42B000CBDE92 /* StockPhotosViewController.storyboard in Resources */,
 				A16D41751E97D1BC00DE01D4 /* PlayerCell.xib in Resources */,
-				A1CD9A171E8AA2F000D3C8F7 /* UsernameViewController.storyboard in Resources */,
+				A1CD9A171E8AA2F000D3C8F7 /* NewUserViewController.storyboard in Resources */,
 				A16D417E1E97FF7400DE01D4 /* PlayerCreationViewController.storyboard in Resources */,
 				A1F959391E8959C60087B040 /* LemonMilk.otf in Resources */,
 				A14B64EC1E8D65C500CBDE92 /* TeamCreationViewController.storyboard in Resources */,
@@ -697,12 +685,10 @@
 				A11B4D991EAED3BB00798D52 /* StatsPageViewController.storyboard in Resources */,
 				A1D67D521E9097C600200B65 /* SettingsViewController.storyboard in Resources */,
 				A14B64F81E8E9D2300CBDE92 /* GoogleService-Info.plist in Resources */,
-				A1A2C3721E8C11F30008274F /* EmailViewController.storyboard in Resources */,
 				A1C722181EA10D1800A71C51 /* ShareTeamViewController.storyboard in Resources */,
 				A1D67D4D1E8FE8FC00200B65 /* LoadingImageViewController.storyboard in Resources */,
 				A17999971E82DFF00058A002 /* LaunchScreen.storyboard in Resources */,
 				A11B4D9F1EAED86000798D52 /* StatsNumbersViewController.storyboard in Resources */,
-				A1A2C36F1E8C0F4C0008274F /* AvatarViewController.storyboard in Resources */,
 				A1DC99DA1E7E3E4500C6FF8C /* Assets.xcassets in Resources */,
 				A15ACF891EAE3B2200091F9E /* StatsViewController.storyboard in Resources */,
 				A1426BAE1EA93C1800AAABB3 /* AtBatCreationViewController.storyboard in Resources */,
@@ -812,7 +798,6 @@
 				A1868F9F1E802E1600C191EC /* AppState.swift in Sources */,
 				A1D67D4F1E8FE9E700200B65 /* SubscribeToReachability.swift in Sources */,
 				A179996E1E82B64A0058A002 /* User.swift in Sources */,
-				A1A2C3741E8C12080008274F /* EmailViewController.swift in Sources */,
 				A1ABAFFB1EA9463900B28A46 /* AtBatButton.swift in Sources */,
 				A17999921E82DF300058A002 /* HomeMenuItem.swift in Sources */,
 				A1868F9D1E802DDD00C191EC /* Result.swift in Sources */,
@@ -843,7 +828,6 @@
 				A17EF6BE1E931A0300DEE4ED /* TeamListViewController.swift in Sources */,
 				A1D67D431E8FE3A000200B65 /* Appearance.swift in Sources */,
 				A16D417B1E97FF6000DE01D4 /* PlayerCreationViewController.swift in Sources */,
-				A1A2C35C1E8BF2FB0008274F /* AvatarViewController.swift in Sources */,
 				A1B65DC81EB056EB009983E1 /* StatSectionController.swift in Sources */,
 				A17EF6CA1E94040D00DEE4ED /* DeleteObject.swift in Sources */,
 				A11B4D911EAEC4D000798D52 /* StatsNumbersViewController.swift in Sources */,
@@ -857,7 +841,7 @@
 				364FFAF01EA9F1B000CD26F9 /* DeleteGame.swift in Sources */,
 				A1F959341E8953440087B040 /* Season.swift in Sources */,
 				A1B65DC41EB018C6009983E1 /* Stat.swift in Sources */,
-				A1D8054C1E89870B0072AA49 /* UsernameViewController.swift in Sources */,
+				A1D8054C1E89870B0072AA49 /* NewUserViewController.swift in Sources */,
 				A1C7221D1EA5698C00A71C51 /* GamesViewController.swift in Sources */,
 				A1C7221F1EA56A2800A71C51 /* GameCell.swift in Sources */,
 				A179997D1E82B8BD0058A002 /* NSDate+ValueType.swift in Sources */,
@@ -1022,22 +1006,6 @@
 			name = TeamListViewController.storyboard;
 			sourceTree = "<group>";
 		};
-		A1A2C36D1E8C0F4C0008274F /* AvatarViewController.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A1A2C36E1E8C0F4C0008274F /* Base */,
-			);
-			name = AvatarViewController.storyboard;
-			sourceTree = "<group>";
-		};
-		A1A2C3701E8C11F30008274F /* EmailViewController.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A1A2C3711E8C11F30008274F /* Base */,
-			);
-			name = EmailViewController.storyboard;
-			sourceTree = "<group>";
-		};
 		A1B65DC01EB01123009983E1 /* StatCell.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1094,12 +1062,12 @@
 			name = StatFilterViewController.storyboard;
 			sourceTree = "<group>";
 		};
-		A1CD9A151E8AA2F000D3C8F7 /* UsernameViewController.storyboard */ = {
+		A1CD9A151E8AA2F000D3C8F7 /* NewUserViewController.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				A1CD9A161E8AA2F000D3C8F7 /* Base */,
 			);
-			name = UsernameViewController.storyboard;
+			name = NewUserViewController.storyboard;
 			sourceTree = "<group>";
 		};
 		A1D67D441E8FE8B100200B65 /* Main.storyboard */ = {

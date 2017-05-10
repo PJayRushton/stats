@@ -11,6 +11,12 @@ import Marshal
 
 struct SaveNewUser: Command {
     
+    var completion: (Bool) -> Void
+    
+    init(completion: @escaping ((Bool) -> Void)) {
+        self.completion = completion
+    }
+    
     func execute(state: AppState, core: Core<AppState>) {
         guard let newUser = newUser(state: state) else { return }
         networkAccess.setValue(at: newUser.ref, parameters: newUser.marshaled()) { result in

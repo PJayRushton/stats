@@ -99,22 +99,20 @@ class AddTeamViewController: Component, AutoStoryboardInitializable {
 
 extension AddTeamViewController {
     
-    fileprivate func searchForTeam(with metadata: String) {
-        var teamId = metadata
-        var ownershipType = TeamOwnershipType.fan
-        let parts = metadata.components(separatedBy: " ")
-        guard parts.count == 2 else { return }
-        teamId = parts.first!
-        guard let typeString = parts.last, let type = TeamOwnershipType(rawValue: typeString) else { return }
-        ownershipType = type
+    fileprivate func searchForTeam(withCode code: String) {
+        guard let processedCode = processedCode(code) else { presentErrorAlert(); return }
         
-        let ref = StatsRefs.teamsRef.child(teamId)
-        networkAccess.getData(at: ref) { result in
-            let teamResult = result.map(Team.init)
+        let query = StatsRefs.teamsRef.queryOrdered(byChild: shareCodeKey).queryEqual(toValue: processedCode.code)
+        networkAccess.getData(withQuery: query) { result in
+            let teamResult = result.map { (json: JSONObject) -> Team in
+                guard let key = json.keys.first else { throw MarshalError.nullValue(key: "team")}
+                let teamJSON: JSONObject = try json.value(for: key)
+                return try Team(object: teamJSON)
+            }
             switch teamResult {
             case let .success(team):
                 DispatchQueue.main.async {
-                    self.presentConfirmationAlert(withTeam: team, ownershipType: ownershipType)
+                    self.presentConfirmationAlert(withTeam: team, ownershipType: processedCode.type)
                 }
             case let .failure(error):
                 DispatchQueue.main.async {
@@ -125,26 +123,14 @@ extension AddTeamViewController {
         }
     }
     
-    fileprivate func searchForTeam(withCode code: String, ownershipType: TeamOwnershipType) {
-        let query = StatsRefs.teamsRef.queryOrdered(byChild: shareCodeKey).queryEqual(toValue: code)
-        networkAccess.getData(withQuery: query) { result in
-            let teamResult = result.map { (json: JSONObject) -> Team in
-                guard let key = json.keys.first else { throw MarshalError.nullValue(key: "team")}
-                let teamJSON: JSONObject = try json.value(for: key)
-                return try Team(object: teamJSON)
-            }
-            switch teamResult {
-            case let .success(team):
-                DispatchQueue.main.async {
-                    self.presentConfirmationAlert(withTeam: team, ownershipType: ownershipType)
-                }
-            case let .failure(error):
-                DispatchQueue.main.async {
-                    self.presentErrorAlert()
-                }
-                self.core.fire(event: ErrorEvent(error: error, message: nil))
-            }
-        }
+    fileprivate func processedCode(_ code: String) -> (code: String, type: TeamOwnershipType)? {
+        var updatedCode = code
+        guard updatedCode.characters.count == 5 else { return nil }
+        let lastChar = updatedCode.remove(at: updatedCode.index(before: updatedCode.endIndex))
+        guard case let lastNumber = String(lastChar), let ownershipInt = Int(lastNumber) else { return nil }
+        let ownershipType = TeamOwnershipType(hashValue: ownershipInt)
+        
+        return (updatedCode, ownershipType)
     }
     
     fileprivate func presentConfirmationAlert(withTeam team: Team, ownershipType: TeamOwnershipType) {
@@ -195,7 +181,7 @@ extension AddTeamViewController: AVCaptureMetadataOutputObjectsDelegate {
             qrCodeFrameView?.frame = barCodeObject!.bounds
             
             if let metadataString = metadataObj.stringValue {
-                searchForTeam(with: metadataString)
+                searchForTeam(withCode: metadataString)
                 captureSession?.stopRunning()
             }
         }
@@ -256,11 +242,8 @@ extension AddTeamViewController: UITextFieldDelegate {
         } else if textField == textField4 {
             textField5.becomeFirstResponder()
         } else {
-            var strings = allTextFields.flatMap( { $0.text })
-            guard strings.count == 5 else { presentErrorAlert(); return true }
-            guard case let ownershipString = strings.removeLast(), let ownershipInt = Int(ownershipString) else { presentErrorAlert(); return true }
-            let ownershipType = TeamOwnershipType(hashValue: ownershipInt)
-            searchForTeam(withCode: strings.joined(), ownershipType: ownershipType)
+            let shareCode = allTextFields.flatMap( { $0.text?.uppercased() }).joined()
+            searchForTeam(withCode: shareCode)
         }
         
         return true

@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRApp.configure()
         core.fire(command: LoadICloudUser())
         Appearance.setUp()
+        FIRDatabase.database().persistenceEnabled = true
 
         return true
     }

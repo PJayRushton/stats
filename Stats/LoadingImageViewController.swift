@@ -34,11 +34,11 @@ final class LoadingImageViewController: Component, AutoStoryboardInitializable {
     }
     
     fileprivate func presentICloudError() {
-        let alert = Presentr.alertViewController(title: "iCloud Error", body: "St@ uses your iCloud account to facilitate data sync. Make sure you are logged in to iCloud in the settings app")
-        alert.addAction(AlertAction(title: "⚙ Settings ⚙", style: .cancel, handler: {
+        let alert = Presentr.alertViewController(title: "iCloud Error", body: "St@ syncs your data over iCloud. Check your phone's iCloud settings to continue")
+        alert.addAction(AlertAction(title: "⚙", style: .cancel, handler: {
             self.openSettings()
         }))
-        alert.addAction(AlertAction(title: "🔄 Try again 🔄", style: .destructive, handler: {
+        alert.addAction(AlertAction(title: "🔄", style: .destructive, handler: {
             self.core.fire(command: LoadICloudUser())
         }))
         customPresentViewController(alertPresenter, viewController: alert, animated: true, completion: nil)

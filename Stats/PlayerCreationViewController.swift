@@ -38,10 +38,10 @@ class PlayerCreationViewController: Component, AutoStoryboardInitializable {
         
         deleteButton.isHidden = true
         
+        setUpSegControl()
         if let editingPlayer = editingPlayer {
             updateUI(with: editingPlayer)
         }
-        setUpSegControl()
         nameTextField.inputAccessoryView = keyboardView
         jerseyNumberTextField.inputAccessoryView = keyboardView
         phoneTextField.inputAccessoryView = keyboardView
@@ -116,7 +116,7 @@ extension PlayerCreationViewController {
         nameTextField.text = player.name
         jerseyNumberTextField.text = player.jerseyNumber
         phoneTextField.text = player.phone
-        try? genderSegControl.setIndex(UInt(player.gender.rawValue))
+        try? genderSegControl.setIndex(UInt(player.gender.rawValue), animated: false)
         subSwitch.isSelected = player.isSub
         saveAddButton.isHidden = true
         deleteButton.isHidden = false

@@ -60,7 +60,7 @@ extension TeamHeaderSectionController: IGListSectionType {
     
     func cellForItem(at index: Int) -> UICollectionViewCell {
         let cell = collectionContext?.dequeueReusableCell(withNibName: TeamHeaderCell.reuseIdentifier, bundle: nil, for: self, at: index) as! TeamHeaderCell
-        cell.update(with: section.team, canEdit: user.isOwnerOrManager(of:section.team))
+        cell.update(with: section.team, canEdit: user.owns(section.team))
         cell.settingsPressed = settingsPressed
         cell.editPressed = editPressed
         cell.switchTeamPressed = switchTeamPressed

@@ -24,6 +24,7 @@ class MainViewController: Component {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        core.fire(command: GetQuotes())
     }
     
     override func viewDidAppear(_ animated: Bool) {

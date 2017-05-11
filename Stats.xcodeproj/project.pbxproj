@@ -17,6 +17,9 @@
 		A11B4D991EAED3BB00798D52 /* StatsPageViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A11B4D971EAED3BB00798D52 /* StatsPageViewController.storyboard */; };
 		A11B4D9C1EAED7A900798D52 /* StatsTrophiesViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A11B4D9A1EAED7A900798D52 /* StatsTrophiesViewController.storyboard */; };
 		A11B4D9F1EAED86000798D52 /* StatsNumbersViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A11B4D9D1EAED86000798D52 /* StatsNumbersViewController.storyboard */; };
+		A128E8DD1EC3D10F00D4CA6D /* QuotesState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128E8DC1EC3D10F00D4CA6D /* QuotesState.swift */; };
+		A128E8DF1EC3D13800D4CA6D /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128E8DE1EC3D13800D4CA6D /* Quote.swift */; };
+		A128E8E11EC4100100D4CA6D /* GetQuotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128E8E01EC4100100D4CA6D /* GetQuotes.swift */; };
 		A131CC8E1E8EEE6600A5D66B /* SubscribeToCurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A131CC8D1E8EEE6600A5D66B /* SubscribeToCurrentUser.swift */; };
 		A1398B3F1EA6D3DF00A4B830 /* GameCreationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1398B3D1EA6D3DF00A4B830 /* GameCreationViewController.storyboard */; };
 		A1398B411EA6EB3400A4B830 /* CreateGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1398B401EA6EB3400A4B830 /* CreateGame.swift */; };
@@ -165,6 +168,9 @@
 		A11B4D981EAED3BB00798D52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = StatsPageViewController.storyboard; sourceTree = "<group>"; };
 		A11B4D9B1EAED7A900798D52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = StatsTrophiesViewController.storyboard; sourceTree = "<group>"; };
 		A11B4D9E1EAED86000798D52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = StatsNumbersViewController.storyboard; sourceTree = "<group>"; };
+		A128E8DC1EC3D10F00D4CA6D /* QuotesState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuotesState.swift; sourceTree = "<group>"; };
+		A128E8DE1EC3D13800D4CA6D /* Quote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
+		A128E8E01EC4100100D4CA6D /* GetQuotes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetQuotes.swift; sourceTree = "<group>"; };
 		A131CC8D1E8EEE6600A5D66B /* SubscribeToCurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribeToCurrentUser.swift; sourceTree = "<group>"; };
 		A1398B3E1EA6D3DF00A4B830 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = GameCreationViewController.storyboard; sourceTree = "<group>"; };
 		A1398B401EA6EB3400A4B830 /* CreateGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGame.swift; sourceTree = "<group>"; };
@@ -336,6 +342,7 @@
 				A17EF6C91E94040D00DEE4ED /* DeleteObject.swift */,
 				A16D416C1E97364300DE01D4 /* DeleteTeam.swift */,
 				A1BF9C451E8B22B2007341EA /* GetCurrentUser.swift */,
+				A128E8E01EC4100100D4CA6D /* GetQuotes.swift */,
 				A179996F1E82B67C0058A002 /* LoadICloudUser.swift */,
 				A17999711E82B6930058A002 /* SaveNewUser.swift */,
 				A14B64EF1E8D67A100CBDE92 /* SaveTeam.swift */,
@@ -363,6 +370,7 @@
 			isa = PBXGroup;
 			children = (
 				A1B41C291E85A4E300FAC930 /* AtBat.swift */,
+				A128E8DE1EC3D13800D4CA6D /* Quote.swift */,
 				A1B41C271E85A4CD00FAC930 /* Game.swift */,
 				A17DC2421EAC90DD00597063 /* Gender.swift */,
 				A1B41C251E85A4C400FAC930 /* Player.swift */,
@@ -529,6 +537,7 @@
 			isa = PBXGroup;
 			children = (
 				A1868F9E1E802E1600C191EC /* AppState.swift */,
+				A128E8DC1EC3D10F00D4CA6D /* QuotesState.swift */,
 				A1CD9A111E8A9C2400D3C8F7 /* AtBatState.swift */,
 				A1CD9A0B1E89C30400D3C8F7 /* GameState.swift */,
 				A1398B421EA6F4B600A4B830 /* NewGameState.swift */,
@@ -758,6 +767,7 @@
 				A1BF9C401E8AC449007341EA /* GameState.swift in Sources */,
 				A1B65DCA1EB077A2009983E1 /* TrophyHeaderCell.swift in Sources */,
 				A14B64F61E8E0E5400CBDE92 /* FirebaseNetworkAccess.swift in Sources */,
+				A128E8E11EC4100100D4CA6D /* GetQuotes.swift in Sources */,
 				A14B64EE1E8D662900CBDE92 /* TeamCreationViewController.swift in Sources */,
 				A1C722101EA0F71700A71C51 /* ShareTeamRolesViewController.swift in Sources */,
 				A16D416D1E97364300DE01D4 /* DeleteTeam.swift in Sources */,
@@ -769,6 +779,7 @@
 				A15ACF861EAE3AFA00091F9E /* StatsViewController.swift in Sources */,
 				A16D41801E98171600DE01D4 /* CreatePlayer.swift in Sources */,
 				A1A2C3631E8BF6020008274F /* TeamHeaderCell.swift in Sources */,
+				A128E8DD1EC3D10F00D4CA6D /* QuotesState.swift in Sources */,
 				A17999821E82B9780058A002 /* DateHelper.swift in Sources */,
 				A16D41841E9838FD00DE01D4 /* ApplyShadow.swift in Sources */,
 				A17999911E82DF300058A002 /* HomeCollectionViewCell.swift in Sources */,
@@ -842,6 +853,7 @@
 				A1F959341E8953440087B040 /* Season.swift in Sources */,
 				A1B65DC41EB018C6009983E1 /* Stat.swift in Sources */,
 				A1D8054C1E89870B0072AA49 /* NewUserViewController.swift in Sources */,
+				A128E8DF1EC3D13800D4CA6D /* Quote.swift in Sources */,
 				A1C7221D1EA5698C00A71C51 /* GamesViewController.swift in Sources */,
 				A1C7221F1EA56A2800A71C51 /* GameCell.swift in Sources */,
 				A179997D1E82B8BD0058A002 /* NSDate+ValueType.swift in Sources */,

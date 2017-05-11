@@ -23,6 +23,10 @@ enum StatsRefs {
         return rootRef.child(teamsRefKey)
     }
     
+    static var quotesRef: FIRDatabaseReference {
+        return rootRef.child(quotesKey)
+    }
+    
     /// **/users/{userIdKEY}**
     static func userRef(id: String) -> FIRDatabaseReference {
         return rootRef.child(usersRefKey).child(id)

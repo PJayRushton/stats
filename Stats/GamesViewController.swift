@@ -12,9 +12,10 @@ class GamesViewController: Component, AutoStoryboardInitializable {
 
     @IBOutlet weak var plusButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet var emptyStateView: UIView!
+    @IBOutlet weak var emptyStateLabel: UILabel!
 
     var new = false
-    fileprivate var backgroundView = UIView()
     fileprivate var isReadyToShowNewGame = true
     
     fileprivate var ongoingGames: [Game] {
@@ -28,11 +29,10 @@ class GamesViewController: Component, AutoStoryboardInitializable {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        backgroundView.backgroundColor = UIColor.flatRed
         tableView.rowHeight = 100
-        tableView.sectionHeaderHeight = 30
         let headerNib = UINib(nibName: String(describing: BasicHeaderCell.self), bundle: nil)
         tableView.register(headerNib, forCellReuseIdentifier: BasicHeaderCell.reuseIdentifier)
+        emptyStateLabel.text = NSLocalizedString("ooh your first game!\nHow exciting!", comment: "The player is about to create their first game. And that's awesome")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,9 +60,13 @@ class GamesViewController: Component, AutoStoryboardInitializable {
         present(newGameVC, animated: true, completion: nil)
     }
     
+    @IBAction func emptyStateNewGamePressed(_ sender: UIButton) {
+        plusButtonPressed(plusButton)
+    }
+    
     override func update(with state: AppState) {
         navigationController?.navigationBar.barTintColor = HomeMenuItem.games.backgroundColor
-        tableView.backgroundView = games.isEmpty && ongoingGames.isEmpty ? backgroundView : nil
+        tableView.backgroundView = games.isEmpty && ongoingGames.isEmpty ? emptyStateView : nil
         tableView.reloadData()
         
         if core.state.newGameState.isReadyToShow && isReadyToShowNewGame {
@@ -111,10 +115,19 @@ extension GamesViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if ongoingGames.isEmpty && games.isEmpty {
+            return nil
+        }
+            
         let headerCell = tableView.dequeueReusableCell(withIdentifier: BasicHeaderCell.reuseIdentifier) as! BasicHeaderCell
         let headerText = section == 0 ? "Ongoing" : "Past"
         headerCell.update(with: headerText)
         return headerCell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        let isEmpty = ongoingGames.isEmpty && games.isEmpty
+        return isEmpty ? 0 : 30
     }
     
 }

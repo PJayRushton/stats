@@ -20,6 +20,7 @@
 		A128E8DD1EC3D10F00D4CA6D /* QuotesState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128E8DC1EC3D10F00D4CA6D /* QuotesState.swift */; };
 		A128E8DF1EC3D13800D4CA6D /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128E8DE1EC3D13800D4CA6D /* Quote.swift */; };
 		A128E8E11EC4100100D4CA6D /* GetQuotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128E8E01EC4100100D4CA6D /* GetQuotes.swift */; };
+		A128E8E31EC4172100D4CA6D /* UIView+Designable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128E8E21EC4172100D4CA6D /* UIView+Designable.swift */; };
 		A131CC8E1E8EEE6600A5D66B /* SubscribeToCurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A131CC8D1E8EEE6600A5D66B /* SubscribeToCurrentUser.swift */; };
 		A1398B3F1EA6D3DF00A4B830 /* GameCreationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1398B3D1EA6D3DF00A4B830 /* GameCreationViewController.storyboard */; };
 		A1398B411EA6EB3400A4B830 /* CreateGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1398B401EA6EB3400A4B830 /* CreateGame.swift */; };
@@ -171,6 +172,7 @@
 		A128E8DC1EC3D10F00D4CA6D /* QuotesState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuotesState.swift; sourceTree = "<group>"; };
 		A128E8DE1EC3D13800D4CA6D /* Quote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
 		A128E8E01EC4100100D4CA6D /* GetQuotes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetQuotes.swift; sourceTree = "<group>"; };
+		A128E8E21EC4172100D4CA6D /* UIView+Designable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Designable.swift"; sourceTree = "<group>"; };
 		A131CC8D1E8EEE6600A5D66B /* SubscribeToCurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribeToCurrentUser.swift; sourceTree = "<group>"; };
 		A1398B3E1EA6D3DF00A4B830 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = GameCreationViewController.storyboard; sourceTree = "<group>"; };
 		A1398B401EA6EB3400A4B830 /* CreateGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGame.swift; sourceTree = "<group>"; };
@@ -402,6 +404,7 @@
 				A17999831E82B9860058A002 /* SegueHandlerType.swift */,
 				A17999851E82B98E0058A002 /* StoryboardInitializable.swift */,
 				A17999871E82B9A60058A002 /* UIColorExtension.swift */,
+				A128E8E21EC4172100D4CA6D /* UIView+Designable.swift */,
 				A14B64DE1E8D3EC200CBDE92 /* UIViewControllerExtensions.swift */,
 			);
 			name = Helpers;
@@ -807,6 +810,7 @@
 				A17EF6CC1E94044E00DEE4ED /* UpdateObject.swift in Sources */,
 				A1CD9A0A1E89C26200D3C8F7 /* TeamState.swift in Sources */,
 				A1868F9F1E802E1600C191EC /* AppState.swift in Sources */,
+				A128E8E31EC4172100D4CA6D /* UIView+Designable.swift in Sources */,
 				A1D67D4F1E8FE9E700200B65 /* SubscribeToReachability.swift in Sources */,
 				A179996E1E82B64A0058A002 /* User.swift in Sources */,
 				A1ABAFFB1EA9463900B28A46 /* AtBatButton.swift in Sources */,

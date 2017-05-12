@@ -26,6 +26,8 @@ class GameCell: UITableViewCell, AutoReuseIdentifiable {
         
         if let isWin = game.wasWon {
             backgroundColor = isWin ? UIColor.mainAppColor.withAlphaComponent(0.1) : UIColor.flatRed.withAlphaComponent(0.1)
+        } else {
+            backgroundColor = .white
         }
     }
     

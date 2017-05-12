@@ -108,6 +108,10 @@ class GameViewController: Component, AutoStoryboardInitializable {
         updateInning(newInning)
     }
     
+    @IBAction func newAtBatPressed(_ sender: UITapGestureRecognizer) {
+        self.presentAtBatCreation()
+    }
+    
     @IBAction func outButtonPressed(_ sender: UIButton) {
         guard let index = outButtons.index(of: sender) else { return }
         let outs = core.state.gameState.outs
@@ -260,34 +264,20 @@ extension GameViewController: IGListAdapterDataSource {
         for (index, atBat) in currentAtBats.enumerated() {
             objects.append(AtBatSection(atBat: atBat, order: currentAtBats.count - index))
         }
-        if let currentUser = core.state.userState.currentUser, let team = core.state.teamState.currentTeam, currentUser.isOwnerOrManager(of: team), let game = game, !game.isCompleted {
-            let newAtBatSection = NewAtBatSection()
-            objects.insert(newAtBatSection, at: 0)
-        }
-        
         return objects
     }
     
     func listAdapter(_ listAdapter: IGListAdapter, sectionControllerFor object: Any) -> IGListSectionController {
-        switch object {
-        case _ as NewAtBatSection:
-            let newAtBatSectionController = NewAtBatSectionController()
-            newAtBatSectionController.cellSelected = presentAtBatCreation
-            return newAtBatSectionController
-        case _ as AtBatSection:
-            guard let game = game else { fatalError() }
-            let canEdit = hasEditRights && !game.isCompleted
-            let atBatSectionController = AtBatSectionController(canEdit: canEdit)
-            atBatSectionController.didSelectAtBat = { [weak self] atBat in
-                guard let weakSelf = self else { return }
-                guard weakSelf.hasEditRights else { return }
-                weakSelf.presentAtBatEdit(atBat: atBat)
-            }
-            
-            return atBatSectionController
-        default:
-            fatalError()
+        guard let game = game else { fatalError() }
+        let canEdit = hasEditRights && !game.isCompleted
+        let atBatSectionController = AtBatSectionController(canEdit: canEdit)
+        atBatSectionController.didSelectAtBat = { [weak self] atBat in
+            guard let weakSelf = self else { return }
+            guard weakSelf.hasEditRights else { return }
+            weakSelf.presentAtBatEdit(atBat: atBat)
         }
+        
+        return atBatSectionController
     }
     
     func emptyView(for listAdapter: IGListAdapter) -> UIView? {

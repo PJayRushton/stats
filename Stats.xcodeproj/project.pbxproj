@@ -32,9 +32,6 @@
 		A1426B9F1EA85E5500AAABB3 /* AtBatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1426B9E1EA85E5500AAABB3 /* AtBatCell.swift */; };
 		A1426BA21EA85E7200AAABB3 /* AtBatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1426BA01EA85E7200AAABB3 /* AtBatCell.xib */; };
 		A1426BA41EA863AF00AAABB3 /* AtBatSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1426BA31EA863AF00AAABB3 /* AtBatSectionController.swift */; };
-		A1426BA61EA86B3200AAABB3 /* NewAtBatSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1426BA51EA86B3200AAABB3 /* NewAtBatSectionController.swift */; };
-		A1426BA81EA86C5000AAABB3 /* NewAtBatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1426BA71EA86C5000AAABB3 /* NewAtBatCell.swift */; };
-		A1426BAB1EA86CC300AAABB3 /* NewAtBatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1426BA91EA86CC300AAABB3 /* NewAtBatCell.xib */; };
 		A1426BAE1EA93C1800AAABB3 /* AtBatCreationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1426BAC1EA93C1800AAABB3 /* AtBatCreationViewController.storyboard */; };
 		A14B64DF1E8D3EC200CBDE92 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B64DE1E8D3EC200CBDE92 /* UIViewControllerExtensions.swift */; };
 		A14B64E11E8D429800CBDE92 /* StockPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B64E01E8D429800CBDE92 /* StockPhotosViewController.swift */; };
@@ -184,9 +181,6 @@
 		A1426B9E1EA85E5500AAABB3 /* AtBatCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtBatCell.swift; sourceTree = "<group>"; };
 		A1426BA11EA85E7200AAABB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = AtBatCell.xib; sourceTree = "<group>"; };
 		A1426BA31EA863AF00AAABB3 /* AtBatSectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtBatSectionController.swift; sourceTree = "<group>"; };
-		A1426BA51EA86B3200AAABB3 /* NewAtBatSectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewAtBatSectionController.swift; sourceTree = "<group>"; };
-		A1426BA71EA86C5000AAABB3 /* NewAtBatCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewAtBatCell.swift; sourceTree = "<group>"; };
-		A1426BAA1EA86CC300AAABB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = NewAtBatCell.xib; sourceTree = "<group>"; };
 		A1426BAD1EA93C1800AAABB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AtBatCreationViewController.storyboard; sourceTree = "<group>"; };
 		A14B64DE1E8D3EC200CBDE92 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		A14B64E01E8D429800CBDE92 /* StockPhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockPhotosViewController.swift; sourceTree = "<group>"; };
@@ -425,7 +419,6 @@
 				A17999951E82DFF00058A002 /* LaunchScreen.storyboard */,
 				A1D67D4B1E8FE8FC00200B65 /* LoadingImageViewController.storyboard */,
 				A1D67D441E8FE8B100200B65 /* Main.storyboard */,
-				A1426BA91EA86CC300AAABB3 /* NewAtBatCell.xib */,
 				A1CD9A151E8AA2F000D3C8F7 /* NewUserViewController.storyboard */,
 				A16D41731E97D1BC00DE01D4 /* PlayerCell.xib */,
 				A16D417C1E97FF7400DE01D4 /* PlayerCreationViewController.storyboard */,
@@ -466,7 +459,6 @@
 				A17999901E82DF300058A002 /* HomeViewController.swift */,
 				A1D67D491E8FE8EE00200B65 /* LoadingImageViewController.swift */,
 				A1D67D471E8FE8BF00200B65 /* MainViewController.swift */,
-				A1426BA71EA86C5000AAABB3 /* NewAtBatCell.swift */,
 				A1D8054B1E89870B0072AA49 /* NewUserViewController.swift */,
 				A16D41761E97D1D500DE01D4 /* PlayerCell.swift */,
 				A16D417A1E97FF6000DE01D4 /* PlayerCreationViewController.swift */,
@@ -527,7 +519,6 @@
 			isa = PBXGroup;
 			children = (
 				A1426BA31EA863AF00AAABB3 /* AtBatSectionController.swift */,
-				A1426BA51EA86B3200AAABB3 /* NewAtBatSectionController.swift */,
 				A1D67D371E8F081A00200B65 /* TeamActionSectionController.swift */,
 				A1A2C3681E8C05150008274F /* TeamHeaderSectionController.swift */,
 				A1B65DC71EB056EB009983E1 /* StatSectionController.swift */,
@@ -690,7 +681,6 @@
 				A1426BA21EA85E7200AAABB3 /* AtBatCell.xib in Resources */,
 				A1C722131EA0F75500A71C51 /* ShareTeamRolesViewController.storyboard in Resources */,
 				A1B65DC21EB01123009983E1 /* StatCell.xib in Resources */,
-				A1426BAB1EA86CC300AAABB3 /* NewAtBatCell.xib in Resources */,
 				A1A2C3641E8BF6020008274F /* TeamHeaderCell.xib in Resources */,
 				A1D67D461E8FE8B100200B65 /* Main.storyboard in Resources */,
 				A1C7221B1EA5696E00A71C51 /* GamesViewController.storyboard in Resources */,
@@ -763,7 +753,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1426BA81EA86C5000AAABB3 /* NewAtBatCell.swift in Sources */,
 				A1B65DBD1EAF9AF9009983E1 /* StatType.swift in Sources */,
 				A1A2C3691E8C05150008274F /* TeamHeaderSectionController.swift in Sources */,
 				A1CD9A191E8AA83D00D3C8F7 /* NewUserState.swift in Sources */,
@@ -777,7 +766,6 @@
 				A14B64E61E8D647B00CBDE92 /* AddTeamViewController.swift in Sources */,
 				A1BF9C3F1E8AC443007341EA /* Game.swift in Sources */,
 				A11B4D8F1EAEC3D800798D52 /* StatsPageViewController.swift in Sources */,
-				A1426BA61EA86B3200AAABB3 /* NewAtBatSectionController.swift in Sources */,
 				A1D67D481E8FE8BF00200B65 /* MainViewController.swift in Sources */,
 				A15ACF861EAE3AFA00091F9E /* StatsViewController.swift in Sources */,
 				A16D41801E98171600DE01D4 /* CreatePlayer.swift in Sources */,
@@ -924,14 +912,6 @@
 				A1426BA11EA85E7200AAABB3 /* Base */,
 			);
 			name = AtBatCell.xib;
-			sourceTree = "<group>";
-		};
-		A1426BA91EA86CC300AAABB3 /* NewAtBatCell.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A1426BAA1EA86CC300AAABB3 /* Base */,
-			);
-			name = NewAtBatCell.xib;
 			sourceTree = "<group>";
 		};
 		A1426BAC1EA93C1800AAABB3 /* AtBatCreationViewController.storyboard */ = {

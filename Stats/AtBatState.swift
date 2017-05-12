@@ -10,6 +10,8 @@ import Foundation
 
 struct OutAdded: Event { }
 struct OutSubtracted: Event { }
+struct OutsReset: Event { }
+
 
 struct AtBatState: State {
     
@@ -44,6 +46,8 @@ struct AtBatState: State {
             outs += 1
         case _ as OutSubtracted:
             outs -= 1
+        case _ as OutsReset:
+            outs = 0
         default:
             break
         }

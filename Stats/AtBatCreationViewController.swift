@@ -15,6 +15,8 @@ import Whisper
 
 class AtBatCreationViewController: Component, AutoStoryboardInitializable {
     
+    // MARK: - IBOutlets
+
     @IBOutlet weak var previousPlayerLabel: UILabel!
     @IBOutlet weak var currentPlayerLabel: UILabel!
     @IBOutlet weak var nextPlayerLabel: UILabel!
@@ -29,16 +31,22 @@ class AtBatCreationViewController: Component, AutoStoryboardInitializable {
     @IBOutlet weak var strikeOutButton: AtBatButton!
     @IBOutlet weak var outButton: AtBatButton!
     @IBOutlet weak var rbisSegControl: BetterSegmentedControl!
+    @IBOutlet weak var outsStack: UIStackView!
+    @IBOutlet var outButtons: [UIButton]!
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var saveButton: CustomButton!
     @IBOutlet weak var saveNextButton: CustomButton!
     
-    fileprivate var allResultButtons: [AtBatButton] {
-        return [singleButton, doubleButton, tripleButton, hrButton, walkButton, roeButton, strikeOutButton, outButton]
-    }
+    // MARK: - Public Properties
     
     var editingAtBat: AtBat?
     
+    
+    // MARK: - Internal Properties
+    
+    fileprivate var allResultButtons: [AtBatButton] {
+        return [singleButton, doubleButton, tripleButton, hrButton, walkButton, roeButton, strikeOutButton, outButton]
+    }
     fileprivate var rbis = 0
     fileprivate var player: Player? {
         return core.state.gameState.currentPlayer
@@ -64,6 +72,9 @@ class AtBatCreationViewController: Component, AutoStoryboardInitializable {
             toggleITPView(isHidden: !isShowingITPSwitch)
         }
     }
+    fileprivate var isLastOut: Bool {
+        return core.state.atBatState.outs == 3 || (core.state.atBatState.outs == 2 && currentAtBatResult.isOut)
+    }
     
     
     // MARK: - ViewController Lifecycle
@@ -74,6 +85,7 @@ class AtBatCreationViewController: Component, AutoStoryboardInitializable {
         toggleITPView(isHidden: true, animated: false)
         setUpButtons()
         setUpRBISegControl()
+        
         let isEditing = editingAtBat != nil
         deleteButton.isHidden = !isEditing
         saveNextButton.isHidden = isEditing
@@ -105,6 +117,17 @@ class AtBatCreationViewController: Component, AutoStoryboardInitializable {
         rbis = Int(sender.index)
     }
     
+    @IBAction func outButtonPressed(_ sender: UIButton) {
+        guard let index = outButtons.index(of: sender) else { return }
+        let outs = core.state.atBatState.outs
+        
+        if index == outs {
+            core.fire(event: OutAdded())
+        } else {
+            core.fire(event: OutSubtracted())
+        }
+    }
+    
     @IBAction func deleteButtonPressed(_ sender: UIButton) {
         showDeleteConfirmation()
     }
@@ -132,6 +155,19 @@ class AtBatCreationViewController: Component, AutoStoryboardInitializable {
         } else {
             nextPlayerLabel.text = ""
         }
+        
+        let outs = state.atBatState.outs
+        for (index, button) in outButtons.enumerated() {
+            button.isEnabled = index <= outs
+            
+            if index > outs {
+                button.alpha = 0
+            } else if index == outs {
+                button.alpha = 0.4
+            } else {
+                button.alpha = 1
+            }
+        }
     }
     
 }
@@ -157,6 +193,8 @@ extension AtBatCreationViewController {
     }
 
     fileprivate func update(with atBat: AtBat) {
+        outsStack.isHidden = true
+        saveNextButton.isHidden = true
         core.fire(event: Selected<AtBatCode>(atBat.resultCode))
         currentAtBatResult = atBat.resultCode
         isShowingITPSwitch = atBat.resultCode.isHR
@@ -170,6 +208,10 @@ extension AtBatCreationViewController {
         }
         hrButton.isSelected = code.isHR
         isShowingITPSwitch = code.isHR
+        
+        UIView.animate(withDuration: 0.25) {
+            self.saveNextButton.isHidden = self.isLastOut || self.editingAtBat != nil
+        }
     }
     
     fileprivate func toggleITPView(isHidden: Bool, animated: Bool = true) {
@@ -185,7 +227,7 @@ extension AtBatCreationViewController {
     
     fileprivate func setUpRBISegControl() {
         let titles = ["0", "1", "2", "3", "4"]
-        rbisSegControl.setUp(with: titles, fontSize: 18)
+        rbisSegControl.setUp(with: titles, fontSize: 20)
     }
     
     fileprivate func saveAtBat(next: Bool) {
@@ -198,18 +240,29 @@ extension AtBatCreationViewController {
             DispatchQueue.main.async {
                 self.updateGameScore(atBat: atBat)
                 
+                if atBat.resultCode.isOut {
+                    self.core.fire(event: OutAdded())
+                }
+                if self.isLastOut && !next {
+                    self.upInning()
+                    self.core.fire(event: OutsReset())
+                }
+                
                 if next {
                     self.clear()
                     self.moveToNextBatter()
                 } else {
                     self.dismiss(animated: true, completion: nil)
                 }
-                if atBat.resultCode.isOut {
-                    self.core.fire(event: OutAdded())
-                }
             }
         }
         core.fire(command: updateCommand)
+    }
+    
+    fileprivate func upInning() {
+        guard var updatedGame = core.state.gameState.currentGame else { return }
+        updatedGame.inning += 1
+        core.fire(command: UpdateObject(updatedGame))
     }
     
     fileprivate func moveToNextBatter() {

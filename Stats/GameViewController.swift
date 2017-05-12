@@ -149,6 +149,7 @@ extension GameViewController {
         guard var updatedGame = game, hasEditRights else { return }
         updatedGame.inning = inning
         core.fire(command: UpdateObject(updatedGame))
+        core.fire(event: OutsReset())
     }
     
     fileprivate func showOptionsForGame() {

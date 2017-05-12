@@ -73,7 +73,8 @@ class AtBatCreationViewController: Component, AutoStoryboardInitializable {
         }
     }
     fileprivate var isLastOut: Bool {
-        return core.state.atBatState.outs == 3 || (core.state.atBatState.outs == 2 && currentAtBatResult.isOut)
+        let outs = core.state.gameState.outs
+        return outs == 3 || (outs == 2 && currentAtBatResult.isOut)
     }
     
     
@@ -119,7 +120,7 @@ class AtBatCreationViewController: Component, AutoStoryboardInitializable {
     
     @IBAction func outButtonPressed(_ sender: UIButton) {
         guard let index = outButtons.index(of: sender) else { return }
-        let outs = core.state.atBatState.outs
+        let outs = core.state.gameState.outs
         
         if index == outs {
             core.fire(event: OutAdded())
@@ -156,7 +157,7 @@ class AtBatCreationViewController: Component, AutoStoryboardInitializable {
             nextPlayerLabel.text = ""
         }
         
-        let outs = state.atBatState.outs
+        let outs = state.gameState.outs
         for (index, button) in outButtons.enumerated() {
             button.isEnabled = index <= outs
             

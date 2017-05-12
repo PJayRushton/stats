@@ -249,7 +249,7 @@
                                             <constraint firstAttribute="height" constant="30" id="9K5-DK-6yH"/>
                                         </constraints>
                                     </stackView>
-                                    <view contentMode="scaleToFill" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="lig-Pv-rx7">
+                                    <view contentMode="scaleToFill" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="lig-Pv-rx7" userLabel="Outs View">
                                         <rect key="frame" x="0.0" y="428" width="375" height="76"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="HuR-Xx-vOY" userLabel="outs stack">

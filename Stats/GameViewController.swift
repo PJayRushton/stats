@@ -22,6 +22,7 @@ class GameViewController: Component, AutoStoryboardInitializable {
     @IBOutlet weak var nextInningButton: UIButton!
     @IBOutlet weak var playerPickerView: AKPickerView!
     @IBOutlet weak var collectionView: IGListCollectionView!
+    @IBOutlet var outButtons: [UIButton]!
     
     fileprivate lazy var adapter: IGListAdapter = {
         return IGListAdapter(updater: IGListAdapterUpdater(), viewController: self, workingRangeSize: 0)
@@ -107,6 +108,25 @@ class GameViewController: Component, AutoStoryboardInitializable {
         updateInning(newInning)
     }
     
+    @IBAction func outButtonPressed(_ sender: UIButton) {
+        guard let index = outButtons.index(of: sender) else { return }
+        let outs = core.state.gameState.outs
+        if outs == 2 && index == 2 {
+            core.fire(event: OutAdded())
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: { 
+                self.core.fire(event: OutsReset())
+                self.updateInning()
+            })
+        } else if index == outs {
+            core.fire(event: OutAdded())
+        } else {
+            core.fire(event: OutSubtracted())
+        }
+    }
+    
+    
+    // MARK: - Subscriber
+    
     override func update(with state: AppState) {
         if let game = game {
             updateUI(with: game)
@@ -118,7 +138,22 @@ class GameViewController: Component, AutoStoryboardInitializable {
         var playerNames = gamePlayers.map { $0.name }
         playerNames.append("⬅️")
         names = playerNames
+        updateOuts(outs: state.gameState.outs)
         adapter.performUpdates(animated: true)
+    }
+    
+    fileprivate func updateOuts(outs: Int) {
+        for (index, button) in outButtons.enumerated() {
+            button.isEnabled = index <= outs
+            
+            if index > outs {
+                button.alpha = 0
+            } else if index == outs {
+                button.alpha = 0.4
+            } else {
+                button.alpha = 1
+            }
+        }
     }
     
 }
@@ -145,9 +180,10 @@ extension GameViewController {
         playerPickerView.selectItem(index, animated: true, notifySelection: true)
     }
     
-    fileprivate func updateInning(_ inning: Int) {
+    fileprivate func updateInning(_ inning: Int? = nil) {
         guard var updatedGame = game, hasEditRights else { return }
-        updatedGame.inning = inning
+        let newInning = inning ?? updatedGame.inning + 1
+        updatedGame.inning = newInning
         core.fire(command: UpdateObject(updatedGame))
         core.fire(event: OutsReset())
     }

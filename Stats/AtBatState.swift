@@ -8,17 +8,11 @@
 
 import Foundation
 
-struct OutAdded: Event { }
-struct OutSubtracted: Event { }
-struct OutsReset: Event { }
-
-
 struct AtBatState: State {
     
     var currentAtBat: AtBat?
     var allAtBats = Set<AtBat>()
     var currentResult = AtBatCode.single
-    var outs = 0
     
     func atBats(for game: Game) -> [AtBat] {
         return allAtBats.filter { $0.gameId == game.id }
@@ -42,12 +36,6 @@ struct AtBatState: State {
 
         case let event as Selected<AtBatCode>:
             currentResult = event.item ?? .single
-        case _ as OutAdded:
-            outs += 1
-        case _ as OutSubtracted:
-            outs -= 1
-        case _ as OutsReset:
-            outs = 0
         default:
             break
         }

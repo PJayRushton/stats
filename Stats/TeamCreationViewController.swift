@@ -54,13 +54,10 @@ class TeamCreationViewController: Component, AutoStoryboardInitializable {
         setUpSegControl()
         imageView.layer.cornerRadius = 5
 
-        
         if !isDismissable {
             navigationItem.leftBarButtonItem = nil
         }
-        
         core.fire(event: Selected<URL>(editingTeam?.imageURL))
-        
         updateUI(with: editingTeam)
     }
     
@@ -186,9 +183,8 @@ extension TeamCreationViewController {
             
             return editingTeam
         }
-        guard let imageURL = newTeamState.imageURL else { return nil }
-    
-        return Team(id: newRefs.teamRef.key, currentSeasonId: newRefs.seasonRef.key, imageURLString: imageURL.absoluteString, name: name, sport: selectedSport)
+        
+        return Team(id: newRefs.teamRef.key, currentSeasonId: newRefs.seasonRef.key, imageURLString: newTeamState.imageURL?.absoluteString, name: name, sport: selectedSport)
     }
     
     fileprivate func saveTeam() {

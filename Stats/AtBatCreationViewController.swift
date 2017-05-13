@@ -164,7 +164,7 @@ class AtBatCreationViewController: Component, AutoStoryboardInitializable {
             if index > outs {
                 button.alpha = 0
             } else if index == outs {
-                button.alpha = 0.4
+                button.alpha = 0.3
             } else {
                 button.alpha = 1
             }

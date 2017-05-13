@@ -156,7 +156,7 @@
                                         <rect key="frame" x="0.0" y="170" width="375" height="55"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="zU9-2Y-erZ">
-                                                <rect key="frame" x="91.5" y="8" width="192.5" height="39"/>
+                                                <rect key="frame" x="92" y="8" width="192.5" height="39"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus" translatesAutoresizingMaskIntoConstraints="NO" id="oP9-gr-Ytm">
                                                         <rect key="frame" x="0.0" y="4.5" width="60" height="30"/>

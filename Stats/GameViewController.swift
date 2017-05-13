@@ -28,6 +28,15 @@ class GameViewController: Component, AutoStoryboardInitializable {
         return IGListAdapter(updater: IGListAdapterUpdater(), viewController: self, workingRangeSize: 0)
     }()
     
+    fileprivate var scorePresenter: Presentr {
+        let centerPoint = CGPoint(x: view.center.x, y: view.center.y - 100)
+        let customPresentation = PresentationType.custom(width: ModalSize.custom(size: 250), height: .custom(size: 250), center: ModalCenterPosition.custom(centerPoint: centerPoint))
+        let presenter = Presentr(presentationType: customPresentation)
+        presenter.transitionType = TransitionType.coverHorizontalFromRight
+        presenter.dismissTransitionType = TransitionType.coverHorizontalFromRight
+        return presenter
+    }
+    
     var customPresenter: Presentr {
         let customPresentation = PresentationType.custom(width: ModalSize.fluid(percentage: 0.8), height: .fluid(percentage: 0.8), center: .center)
         let presenter = Presentr(presentationType: customPresentation)
@@ -96,9 +105,8 @@ class GameViewController: Component, AutoStoryboardInitializable {
     }
     
     @IBAction func scoreLabelPressed(_ sender: UITapGestureRecognizer) {
-        guard var game = game, !game.isCompleted, hasEditRights else { return }
-        game.opponentScore += 1
-        core.fire(command: UpdateObject(game))
+        let scoreEditVC = OpponentScoreViewController.initializeFromStoryboard()
+        customPresentViewController(scorePresenter, viewController: scoreEditVC, animated: true, completion: nil)
     }
     
     @IBAction func inningArrowPressed(_ sender: UIButton) {
@@ -153,7 +161,7 @@ class GameViewController: Component, AutoStoryboardInitializable {
             if index > outs {
                 button.alpha = 0
             } else if index == outs {
-                button.alpha = 0.4
+                button.alpha = 0.3
             } else {
                 button.alpha = 1
             }

@@ -121,6 +121,8 @@
 		A1C7221F1EA56A2800A71C51 /* GameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C7221E1EA56A2800A71C51 /* GameCell.swift */; };
 		A1C7621D1EBF953600F94E45 /* StatFilterViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1C7621B1EBF953600F94E45 /* StatFilterViewController.storyboard */; };
 		A1C7621F1EBF95CA00F94E45 /* StatFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C7621E1EBF95CA00F94E45 /* StatFilterViewController.swift */; };
+		A1CD59991EC6643400D26FD8 /* OpponentScoreViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1CD59971EC6643400D26FD8 /* OpponentScoreViewController.storyboard */; };
+		A1CD599B1EC6678B00D26FD8 /* OpponentScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD599A1EC6678B00D26FD8 /* OpponentScoreViewController.swift */; };
 		A1CD9A0A1E89C26200D3C8F7 /* TeamState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD9A091E89C26200D3C8F7 /* TeamState.swift */; };
 		A1CD9A0E1E89D05E00D3C8F7 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD9A0D1E89D05E00D3C8F7 /* Keys.swift */; };
 		A1CD9A101E8A9ABC00D3C8F7 /* SeasonState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD9A0F1E8A9ABC00D3C8F7 /* SeasonState.swift */; };
@@ -271,6 +273,8 @@
 		A1C7221E1EA56A2800A71C51 /* GameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCell.swift; sourceTree = "<group>"; };
 		A1C7621C1EBF953600F94E45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = StatFilterViewController.storyboard; sourceTree = "<group>"; };
 		A1C7621E1EBF95CA00F94E45 /* StatFilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatFilterViewController.swift; sourceTree = "<group>"; };
+		A1CD59981EC6643400D26FD8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = OpponentScoreViewController.storyboard; sourceTree = "<group>"; };
+		A1CD599A1EC6678B00D26FD8 /* OpponentScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpponentScoreViewController.swift; sourceTree = "<group>"; };
 		A1CD9A091E89C26200D3C8F7 /* TeamState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamState.swift; sourceTree = "<group>"; };
 		A1CD9A0B1E89C30400D3C8F7 /* GameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
 		A1CD9A0D1E89D05E00D3C8F7 /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
@@ -420,6 +424,7 @@
 				A1D67D4B1E8FE8FC00200B65 /* LoadingImageViewController.storyboard */,
 				A1D67D441E8FE8B100200B65 /* Main.storyboard */,
 				A1CD9A151E8AA2F000D3C8F7 /* NewUserViewController.storyboard */,
+				A1CD59971EC6643400D26FD8 /* OpponentScoreViewController.storyboard */,
 				A16D41731E97D1BC00DE01D4 /* PlayerCell.xib */,
 				A16D417C1E97FF7400DE01D4 /* PlayerCreationViewController.storyboard */,
 				A16D41701E97D09E00DE01D4 /* RosterViewController.storyboard */,
@@ -479,6 +484,7 @@
 				A17EF6BD1E931A0300DEE4ED /* TeamListViewController.swift */,
 				A1B65DC91EB077A2009983E1 /* TrophyHeaderCell.swift */,
 				A1B65DD11EB07E79009983E1 /* TrophyWinnerCell.swift */,
+				A1CD599A1EC6678B00D26FD8 /* OpponentScoreViewController.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -662,6 +668,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1B65DCD1EB07818009983E1 /* TrophyHeaderCell.xib in Resources */,
+				A1CD59991EC6643400D26FD8 /* OpponentScoreViewController.storyboard in Resources */,
 				A1B65DD01EB07BFC009983E1 /* TrophyWinnerCell.xib in Resources */,
 				A1C7621D1EBF953600F94E45 /* StatFilterViewController.storyboard in Resources */,
 				A14B64E91E8D64A900CBDE92 /* AddTeamViewController.storyboard in Resources */,
@@ -835,6 +842,7 @@
 				A17EF6CA1E94040D00DEE4ED /* DeleteObject.swift in Sources */,
 				A11B4D911EAEC4D000798D52 /* StatsNumbersViewController.swift in Sources */,
 				A1D67D3F1E8F253F00200B65 /* BasicTeamCell.swift in Sources */,
+				A1CD599B1EC6678B00D26FD8 /* OpponentScoreViewController.swift in Sources */,
 				A14B64F01E8D67A100CBDE92 /* SaveTeam.swift in Sources */,
 				A1B65DD61EB15EA0009983E1 /* TrophySectionController.swift in Sources */,
 				A17EF6CE1E94148300DEE4ED /* SubscribeToObject.swift in Sources */,
@@ -1056,6 +1064,14 @@
 				A1C7621C1EBF953600F94E45 /* Base */,
 			);
 			name = StatFilterViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		A1CD59971EC6643400D26FD8 /* OpponentScoreViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A1CD59981EC6643400D26FD8 /* Base */,
+			);
+			name = OpponentScoreViewController.storyboard;
 			sourceTree = "<group>";
 		};
 		A1CD9A151E8AA2F000D3C8F7 /* NewUserViewController.storyboard */ = {

@@ -146,6 +146,7 @@ extension AddTeamViewController {
         alert.addAction(AlertAction(title: "Nailed it! 😎", style: .default, handler: { _ in
             self.core.fire(command: AddTeamToUser(team: team, type: ownershipType))
             self.core.fire(command: SubscribeToTeam(withId: team.id))
+            self.core.fire(event: Selected<Team>(team))
             self.dismiss(animated: true, completion: { 
                 self.dismiss(animated: true, completion: nil)
             })

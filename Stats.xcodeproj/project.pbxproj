@@ -123,6 +123,7 @@
 		A1C7621F1EBF95CA00F94E45 /* StatFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C7621E1EBF95CA00F94E45 /* StatFilterViewController.swift */; };
 		A1CD59991EC6643400D26FD8 /* OpponentScoreViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1CD59971EC6643400D26FD8 /* OpponentScoreViewController.storyboard */; };
 		A1CD599B1EC6678B00D26FD8 /* OpponentScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD599A1EC6678B00D26FD8 /* OpponentScoreViewController.swift */; };
+		A1CD599D1EC9EBEC00D26FD8 /* UIImageView+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD599C1EC9EBEC00D26FD8 /* UIImageView+URL.swift */; };
 		A1CD9A0A1E89C26200D3C8F7 /* TeamState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD9A091E89C26200D3C8F7 /* TeamState.swift */; };
 		A1CD9A0E1E89D05E00D3C8F7 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD9A0D1E89D05E00D3C8F7 /* Keys.swift */; };
 		A1CD9A101E8A9ABC00D3C8F7 /* SeasonState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD9A0F1E8A9ABC00D3C8F7 /* SeasonState.swift */; };
@@ -275,6 +276,7 @@
 		A1C7621E1EBF95CA00F94E45 /* StatFilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatFilterViewController.swift; sourceTree = "<group>"; };
 		A1CD59981EC6643400D26FD8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = OpponentScoreViewController.storyboard; sourceTree = "<group>"; };
 		A1CD599A1EC6678B00D26FD8 /* OpponentScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpponentScoreViewController.swift; sourceTree = "<group>"; };
+		A1CD599C1EC9EBEC00D26FD8 /* UIImageView+URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+URL.swift"; sourceTree = "<group>"; };
 		A1CD9A091E89C26200D3C8F7 /* TeamState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamState.swift; sourceTree = "<group>"; };
 		A1CD9A0B1E89C30400D3C8F7 /* GameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
 		A1CD9A0D1E89D05E00D3C8F7 /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
@@ -402,6 +404,7 @@
 				A17999831E82B9860058A002 /* SegueHandlerType.swift */,
 				A17999851E82B98E0058A002 /* StoryboardInitializable.swift */,
 				A17999871E82B9A60058A002 /* UIColorExtension.swift */,
+				A1CD599C1EC9EBEC00D26FD8 /* UIImageView+URL.swift */,
 				A128E8E21EC4172100D4CA6D /* UIView+Designable.swift */,
 				A14B64DE1E8D3EC200CBDE92 /* UIViewControllerExtensions.swift */,
 			);
@@ -764,6 +767,7 @@
 				A1A2C3691E8C05150008274F /* TeamHeaderSectionController.swift in Sources */,
 				A1CD9A191E8AA83D00D3C8F7 /* NewUserState.swift in Sources */,
 				A1BF9C401E8AC449007341EA /* GameState.swift in Sources */,
+				A1CD599D1EC9EBEC00D26FD8 /* UIImageView+URL.swift in Sources */,
 				A1B65DCA1EB077A2009983E1 /* TrophyHeaderCell.swift in Sources */,
 				A14B64F61E8E0E5400CBDE92 /* FirebaseNetworkAccess.swift in Sources */,
 				A128E8E11EC4100100D4CA6D /* GetQuotes.swift in Sources */,

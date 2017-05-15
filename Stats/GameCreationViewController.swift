@@ -167,7 +167,12 @@ extension GameCreationViewController {
     fileprivate func construtedGame() -> Game? {
         guard let opponentText = opponentTextField.text, !opponentText.isEmpty else { print("Opponent can't be empty"); return nil }
         guard let currentTeam = core.state.teamState.currentTeam else { print("current team can't be nil"); return nil }
-        guard let currentSeasonId = currentTeam.currentSeasonId else { print("curentseason can't be nil"); return nil }
+        guard let currentSeasonId = currentTeam.currentSeasonId else { print("curent season can't be nil"); return nil }
+        var locationString = locationTextField.text
+        if let locationText = locationTextField.text, locationText.isEmpty {
+            locationString = nil
+        }
+        
         let isHome = homeAwaySegControl.index == 0
         let isRegularSeason = regSeasonSegControl.index == 0
         guard let lineup = core.state.newGameState.lineup else { return nil }
@@ -176,12 +181,13 @@ extension GameCreationViewController {
         
         if var editingGame = editingGame {
             editingGame.opponent = opponentText
+            editingGame.location = locationString
             editingGame.isHome = isHome
             editingGame.isRegularSeason = isRegularSeason
             editingGame.lineupIds = lineupIds
             return editingGame
         } else {
-            return Game(id: newGameRef.key, date: date, inning: 1, isCompleted: false, isHome: isHome, isRegularSeason: isRegularSeason, lineupIds: lineupIds, location: , opponent: opponentText, seasonId: currentSeasonId, teamId: currentTeam.id)
+            return Game(id: newGameRef.key, date: date, inning: 1, isCompleted: false, isHome: isHome, isRegularSeason: isRegularSeason, lineupIds: lineupIds, location: locationString, opponent: opponentText, seasonId: currentSeasonId, teamId: currentTeam.id)
         }
     }
     

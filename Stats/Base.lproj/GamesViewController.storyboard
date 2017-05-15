@@ -50,8 +50,14 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="184" height="110.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Opponent Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qxB-Mo-89n">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="184" height="69.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="184" height="49"/>
                                                                     <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="21"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wa6-NW-FuP">
+                                                                    <rect key="frame" x="0.0" y="49" width="184" height="20.5"/>
+                                                                    <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="15"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -102,6 +108,7 @@
                                         <connections>
                                             <outlet property="dateLabel" destination="ZFy-Cz-jcH" id="KwF-zC-0h6"/>
                                             <outlet property="gameLabel" destination="rgf-ub-vmL" id="wtZ-nj-mfs"/>
+                                            <outlet property="locationLabel" destination="wa6-NW-FuP" id="gsi-Kd-g1C"/>
                                             <outlet property="opponentLabel" destination="qxB-Mo-89n" id="Dzu-91-gLl"/>
                                             <outlet property="scoreLabel" destination="zJh-wz-nJz" id="TbB-mC-Pw8"/>
                                             <outlet property="statusLabel" destination="LTD-gb-F7c" id="N3z-BT-RCY"/>
@@ -144,22 +151,22 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="pbq-f5-NzL">
-                            <rect key="frame" x="24" y="64" width="313" height="182"/>
+                            <rect key="frame" x="24" y="45.5" width="313" height="219"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="😎" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wu9-XB-ug5">
-                                    <rect key="frame" x="0.0" y="0.0" width="313" height="70"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="313" height="81"/>
                                     <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="60"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ooh your first game!! How exciting!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rry-KQ-EsO">
-                                    <rect key="frame" x="0.0" y="94" width="313" height="20"/>
+                                    <rect key="frame" x="0.0" y="105" width="313" height="46"/>
                                     <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0UU-2C-0Yu">
-                                    <rect key="frame" x="0.0" y="138" width="313" height="44"/>
+                                    <rect key="frame" x="0.0" y="175" width="313" height="44"/>
                                     <color key="backgroundColor" red="0.90195554489999996" green="0.4952987432" blue="0.1308369637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="44" id="3bx-42-QfR"/>

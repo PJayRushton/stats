@@ -217,8 +217,7 @@ extension HomeViewController: IGListAdapterDataSource {
             return headerController
             
         case _ as TeamActionSection:
-            guard let currentUser = core.state.userState.currentUser else { return IGListSectionController() }
-            let actionController = TeamActionSectionController(user: currentUser)
+            let actionController = TeamActionSectionController()
             actionController.didSelectItem = didSelectItem
             return actionController
         default:

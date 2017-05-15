@@ -19,7 +19,7 @@ class TeamActionSection: IGListDiffable {
     }
     
     func diffIdentifier() -> NSObjectProtocol {
-        return menuItem.title as NSString
+        return NSNumber(value: menuItem.rawValue)
     }
     
     func isEqual(toDiffableObject object: IGListDiffable?) -> Bool {
@@ -36,13 +36,10 @@ class TeamActionSection: IGListDiffable {
 class TeamActionSectionController: IGListSectionController {
     
     var section: TeamActionSection!
-    var user: User
     
     var didSelectItem: ((HomeMenuItem) -> Void) = { _ in }
     
-    init(user: User) {
-        self.user = user
-        
+    override init() {
         super.init()
         inset = UIEdgeInsets.zero
     }
@@ -56,14 +53,16 @@ extension TeamActionSectionController: IGListSectionType {
     }
     
     func sizeForItem(at index: Int) -> CGSize {
-        guard let collectionContext = collectionContext else { return .zero }
+        guard let collectionContext = collectionContext, let user = App.core.state.userState.currentUser else { return .zero }
         let fullWidth = collectionContext.containerSize.width
         let headerHeight = collectionContext.containerSize.width * (2 / 3)
         let hasEditRights = user.isOwnerOrManager(of: section.team)
         let rows: CGFloat = hasEditRights ? 3 : 2
+        print("NUMBER OF ROWS ****\(rows)")
         let height = (collectionContext.containerSize.height - headerHeight) / rows
+        print("ROW HEIGHT: ___\(height)")
         let width = fullWidth / section.menuItem.itemsPerRow
-        
+        print("WIDTH: ===\(width)")
         return CGSize(width: width, height: height)
     }
     

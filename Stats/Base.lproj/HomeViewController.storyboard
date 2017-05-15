@@ -135,33 +135,79 @@
                     <rect key="frame" x="0.0" y="0.0" width="348" height="325"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="rjF-uv-1Kb">
-                            <rect key="frame" x="90.5" y="65" width="167" height="195"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="rjF-uv-1Kb">
+                            <rect key="frame" x="0.0" y="0.0" width="348" height="325"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="McE-cl-EKi">
-                                    <rect key="frame" x="0.0" y="0.0" width="167" height="35"/>
-                                    <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
-                                    <state key="normal" title="Coach new team"/>
-                                    <connections>
-                                        <action selector="createTeamButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GDm-sy-53t"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h4m-6b-Rch">
-                                    <rect key="frame" x="0.0" y="160" width="167" height="35"/>
-                                    <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
-                                    <state key="normal" title="Add existing team"/>
-                                    <connections>
-                                        <action selector="addTeamButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e9q-kk-gJn"/>
-                                    </connections>
-                                </button>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e8J-HE-dHc" customClass="GradientView" customModule="Stats" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="348" height="162.5"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="McE-cl-EKi">
+                                            <rect key="frame" x="0.0" y="0.0" width="348" height="162.5"/>
+                                            <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="22"/>
+                                            <state key="normal" title="Coach new team ">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="createTeamButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GDm-sy-53t"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="McE-cl-EKi" secondAttribute="bottom" id="V5b-Rd-xM2"/>
+                                        <constraint firstItem="McE-cl-EKi" firstAttribute="top" secondItem="e8J-HE-dHc" secondAttribute="top" id="Vcl-fZ-C3T"/>
+                                        <constraint firstItem="McE-cl-EKi" firstAttribute="leading" secondItem="e8J-HE-dHc" secondAttribute="leading" id="VkC-hz-9Mv"/>
+                                        <constraint firstAttribute="trailing" secondItem="McE-cl-EKi" secondAttribute="trailing" id="bSC-M7-eFW"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHorizontal" value="NO"/>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                            <color key="value" red="0.64856451749999999" green="0.77474325899999996" blue="0.22945481540000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                            <color key="value" red="0.55803233389999995" green="0.69207900759999996" blue="0.12800171969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T3b-2L-1tX" customClass="GradientView" customModule="Stats" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="162.5" width="348" height="162.5"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h4m-6b-Rch">
+                                            <rect key="frame" x="0.0" y="-0.5" width="348" height="163"/>
+                                            <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="22"/>
+                                            <state key="normal" title="Add existing team">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="addTeamButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e9q-kk-gJn"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="h4m-6b-Rch" firstAttribute="top" secondItem="T3b-2L-1tX" secondAttribute="top" id="Cs3-DT-WbL"/>
+                                        <constraint firstAttribute="bottom" secondItem="h4m-6b-Rch" secondAttribute="bottom" id="DdW-sU-pSX"/>
+                                        <constraint firstItem="h4m-6b-Rch" firstAttribute="leading" secondItem="T3b-2L-1tX" secondAttribute="leading" id="bvd-Lt-kZg"/>
+                                        <constraint firstAttribute="trailing" secondItem="h4m-6b-Rch" secondAttribute="trailing" id="dAg-pb-JR9"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                            <color key="value" red="0.55551326270000001" green="0.44784164430000001" blue="0.36720436810000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                            <color key="value" red="0.63799375300000005" green="0.52634507419999998" blue="0.44157022239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
                             </subviews>
                         </stackView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="rjF-uv-1Kb" firstAttribute="centerX" secondItem="2im-2N-Mvj" secondAttribute="centerX" id="eYY-Rw-gvZ"/>
-                        <constraint firstItem="rjF-uv-1Kb" firstAttribute="centerY" secondItem="2im-2N-Mvj" secondAttribute="centerY" id="i9G-aX-PN6"/>
-                        <constraint firstItem="rjF-uv-1Kb" firstAttribute="height" secondItem="2im-2N-Mvj" secondAttribute="height" multiplier="0.6" id="m05-Sb-VVw"/>
+                        <constraint firstAttribute="trailing" secondItem="rjF-uv-1Kb" secondAttribute="trailing" id="bPs-Xp-VC7"/>
+                        <constraint firstAttribute="bottom" secondItem="rjF-uv-1Kb" secondAttribute="bottom" id="gb0-2e-w8R"/>
+                        <constraint firstItem="rjF-uv-1Kb" firstAttribute="top" secondItem="2im-2N-Mvj" secondAttribute="top" id="oIj-jL-lFW"/>
+                        <constraint firstItem="rjF-uv-1Kb" firstAttribute="leading" secondItem="2im-2N-Mvj" secondAttribute="leading" id="pp1-Ph-OUW"/>
                     </constraints>
                 </view>
             </objects>

@@ -13,7 +13,8 @@ import TextFieldEffects
 
 class GameCreationViewController: Component, AutoStoryboardInitializable {
     
-    @IBOutlet weak var opponentTextField: MadokaTextField!
+    @IBOutlet weak var opponentTextField: HoshiTextField!
+    @IBOutlet weak var locationTextField: HoshiTextField!
     @IBOutlet weak var homeAwaySegControl: BetterSegmentedControl!
     @IBOutlet weak var regSeasonSegControl: BetterSegmentedControl!
     @IBOutlet weak var dateTextField: MadokaTextField!
@@ -69,6 +70,8 @@ class GameCreationViewController: Component, AutoStoryboardInitializable {
     
     @IBAction func downButtonPressed(_ sender: UIButton) {
         if opponentTextField.isFirstResponder {
+            locationTextField.becomeFirstResponder()
+        } else if locationTextField.isFirstResponder {
             dateTextField.becomeFirstResponder()
         } else {
             view.endEditing(false)
@@ -77,6 +80,8 @@ class GameCreationViewController: Component, AutoStoryboardInitializable {
     
     @IBAction func upButtonPressed(_ sender: UIButton) {
         if dateTextField.isFirstResponder {
+            locationTextField.becomeFirstResponder()
+        } else if locationTextField.isFirstResponder {
             opponentTextField.becomeFirstResponder()
         } else {
             view.endEditing(false)
@@ -176,7 +181,7 @@ extension GameCreationViewController {
             editingGame.lineupIds = lineupIds
             return editingGame
         } else {
-            return Game(id: newGameRef.key, date: date, inning: 1, isCompleted: false, isHome: isHome, isRegularSeason: isRegularSeason, lineupIds: lineupIds,opponent: opponentText, seasonId: currentSeasonId, teamId: currentTeam.id)
+            return Game(id: newGameRef.key, date: date, inning: 1, isCompleted: false, isHome: isHome, isRegularSeason: isRegularSeason, lineupIds: lineupIds, location: , opponent: opponentText, seasonId: currentSeasonId, teamId: currentTeam.id)
         }
     }
     

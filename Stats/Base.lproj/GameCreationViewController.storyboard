@@ -40,7 +40,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="yes"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
-                                                <color key="value" red="0.74117647060000003" green="0.76470588240000004" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="value" red="0.55551326270000001" green="0.44784164430000001" blue="0.36720436810000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                 <color key="value" red="0.90195554489999996" green="0.4952987432" blue="0.1308369637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -48,14 +48,50 @@
                                             <userDefinedRuntimeAttribute type="number" keyPath="placeholderFontScale">
                                                 <real key="value" value="0.69999999999999996"/>
                                             </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                <color key="value" red="0.55551326270000001" green="0.44784164430000001" blue="0.36720436810000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                <color key="value" red="0.64856451749999999" green="0.77474325899999996" blue="0.22945481540000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="textFieldChanged:" destination="Jkh-Hx-hEg" eventType="editingChanged" id="lev-x1-OSX"/>
                                             <outlet property="delegate" destination="Jkh-Hx-hEg" id="y0r-cr-gQw"/>
                                         </connections>
                                     </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Location" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nol-P0-EWe" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                        <rect key="frame" x="0.0" y="66" width="343" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="mLI-2Y-m6T"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="yes"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                <color key="value" red="0.55551326270000001" green="0.44784164430000001" blue="0.36720436810000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.90195554489999996" green="0.4952987432" blue="0.1308369637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="placeholderFontScale">
+                                                <real key="value" value="0.69999999999999996"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                <color key="value" red="0.55551326270000001" green="0.44784164430000001" blue="0.36720436810000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                <color key="value" red="0.64856451749999999" green="0.77474325899999996" blue="0.22945481540000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="textFieldChanged:" destination="Jkh-Hx-hEg" eventType="editingChanged" id="oyO-JS-4Cf"/>
+                                            <outlet property="delegate" destination="Jkh-Hx-hEg" id="VK6-7u-N7l"/>
+                                        </connections>
+                                    </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Gb-yP-WeZ" customClass="BetterSegmentedControl" customModule="BetterSegmentedControl">
-                                        <rect key="frame" x="0.0" y="66" width="343" height="44"/>
+                                        <rect key="frame" x="0.0" y="132" width="343" height="44"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="HyH-67-vFs"/>
@@ -70,7 +106,7 @@
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bSd-bC-zHo" customClass="BetterSegmentedControl" customModule="BetterSegmentedControl">
-                                        <rect key="frame" x="0.0" y="126" width="343" height="44"/>
+                                        <rect key="frame" x="0.0" y="192" width="343" height="44"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="Crg-LV-ffx"/>
@@ -85,7 +121,7 @@
                                         </connections>
                                     </view>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Game day" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EXX-et-8KP" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                        <rect key="frame" x="0.0" y="186" width="343" height="50"/>
+                                        <rect key="frame" x="0.0" y="252" width="343" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="tD6-jg-27A"/>
                                         </constraints>
@@ -109,19 +145,19 @@
                                         </connections>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zy8-W4-M51">
-                                        <rect key="frame" x="0.0" y="252" width="343" height="50"/>
+                                        <rect key="frame" x="0.0" y="318" width="343" height="50"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tZd-nm-0n3">
-                                                <rect key="frame" x="16" y="12" width="319" height="27"/>
+                                                <rect key="frame" x="16" y="13.5" width="319" height="23.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Edit Lineup" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="llq-AV-YfB">
-                                                        <rect key="frame" x="0.0" y="0.0" width="290" height="27"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="290" height="23.5"/>
                                                         <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="20"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text=" ▶" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="211-4O-u5N">
-                                                        <rect key="frame" x="290" y="0.0" width="29" height="27"/>
+                                                        <rect key="frame" x="290" y="0.0" width="29" height="23.5"/>
                                                         <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="20"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
@@ -142,7 +178,7 @@
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0V3-Ea-Sze" userLabel="Spacer view">
-                                        <rect key="frame" x="0.0" y="318" width="343" height="187"/>
+                                        <rect key="frame" x="0.0" y="384" width="343" height="121"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CHq-qX-WQn" customClass="CustomButton" customModule="Stats" customModuleProvider="target">
@@ -190,6 +226,7 @@
                         <outlet property="homeAwaySegControl" destination="8Gb-yP-WeZ" id="dnm-X4-E2P"/>
                         <outlet property="keyboardAccessoryView" destination="Una-Ia-iPp" id="nbl-h1-bCx"/>
                         <outlet property="lineupView" destination="zy8-W4-M51" id="kNP-NX-vdg"/>
+                        <outlet property="locationTextField" destination="Nol-P0-EWe" id="1GT-XW-dEO"/>
                         <outlet property="opponentTextField" destination="MDJ-NP-EMZ" id="qVx-Xi-3lA"/>
                         <outlet property="regSeasonSegControl" destination="bSd-bC-zHo" id="5FK-hK-cdl"/>
                         <outlet property="startButton" destination="CHq-qX-WQn" id="G8s-Jh-KSO"/>

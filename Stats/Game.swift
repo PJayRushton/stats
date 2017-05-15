@@ -19,13 +19,14 @@ struct Game: Identifiable, Unmarshaling {
     var isHome: Bool
     var isRegularSeason: Bool
     var lineupIds: [String]
+    var location: String?
     var opponent: String
     var opponentScore: Int
     var score: Int
     var seasonId: String
     var teamId: String
 
-    init(id: String = "", date: Date, inning: Int = 1, isCompleted: Bool = false, isHome: Bool, isRegularSeason: Bool = true, lineupIds: [String] = [], opponent: String, opponentScore: Int = 0, score: Int = 0, seasonId: String, teamId: String) {
+    init(id: String = "", date: Date, inning: Int = 1, isCompleted: Bool = false, isHome: Bool, isRegularSeason: Bool = true, lineupIds: [String] = [], location: String? = nil, opponent: String, opponentScore: Int = 0, score: Int = 0, seasonId: String, teamId: String) {
         self.id = id
         self.date = date
         self.inning = inning
@@ -33,6 +34,7 @@ struct Game: Identifiable, Unmarshaling {
         self.isHome = isHome
         self.isRegularSeason = isRegularSeason
         self.lineupIds = lineupIds
+        self.location = location
         self.opponent = opponent
         self.opponentScore = opponentScore
         self.score = score
@@ -69,6 +71,7 @@ struct Game: Identifiable, Unmarshaling {
         isHome = try object.value(for: isHomeKey)
         isRegularSeason = try object.value(for: isRegularSeasonKey)
         lineupIds = try object.value(for: lineupKey)
+        location = try object.value(for: locationKey)
         opponent = try object.value(for: opponentKey)
         opponentScore = try object.value(for: opponentScoreKey)
         score = try object.value(for: scoreKey)
@@ -98,6 +101,7 @@ extension Game: Marshaling {
         json[isHomeKey] = isHome
         json[isRegularSeasonKey] = isRegularSeason
         json[lineupKey] = lineupIds.marshaledArray()
+        json[locationKey] = location
         json[opponentKey] = opponent
         json[opponentScoreKey] = opponentScore
         json[scoreKey] = score

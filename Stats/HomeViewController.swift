@@ -8,6 +8,7 @@
 
 import UIKit
 import IGListKit
+import Kingfisher
 import Presentr
 
 class HomeViewController: Component, AutoStoryboardInitializable {
@@ -15,7 +16,10 @@ class HomeViewController: Component, AutoStoryboardInitializable {
     // MARK: - IBOutlets
 
     @IBOutlet weak var collectionView: IGListCollectionView!
+    
     @IBOutlet var emptyStateView: UIView!
+    @IBOutlet weak var topImageView: UIImageView!
+    @IBOutlet weak var bottomImageView: UIImageView!
 
     
     // MARK: - Properties
@@ -50,6 +54,12 @@ class HomeViewController: Component, AutoStoryboardInitializable {
         adapter.collectionView = collectionView
         adapter.dataSource = self
         feedbackGenerator.prepare()
+//        let blurRadius: CGFloat = 8
+//        let topBlurredImage = topImageView.image?.kf.blurred(withRadius: blurRadius)
+//        topImageView.image = topBlurredImage
+//        let bottomBlurredImage = bottomImageView.image?.kf.blurred(withRadius: blurRadius)
+//        bottomImageView.image = bottomBlurredImage
+
     }
 
     override func viewWillAppear(_ animated: Bool) {

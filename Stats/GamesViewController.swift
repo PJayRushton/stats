@@ -29,7 +29,7 @@ class GamesViewController: Component, AutoStoryboardInitializable {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.rowHeight = 100
+        tableView.rowHeight = 90
         let headerNib = UINib(nibName: String(describing: BasicHeaderCell.self), bundle: nil)
         tableView.register(headerNib, forCellReuseIdentifier: BasicHeaderCell.reuseIdentifier)
         emptyStateLabel.text = NSLocalizedString("ooh your first game!\nHow exciting!", comment: "The player is about to create their first game. And that's awesome")
@@ -109,8 +109,7 @@ extension GamesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: GameCell.reuseIdentifier) as! GameCell
         let game = indexPath.section == 0 ? ongoingGames[indexPath.row] : games[indexPath.row]
-        let order = core.state.gameState.index(of: game)
-        cell.update(with: game, order: order)
+        cell.update(with: game)
         return cell
     }
     
@@ -120,7 +119,7 @@ extension GamesViewController: UITableViewDataSource {
         }
             
         let headerCell = tableView.dequeueReusableCell(withIdentifier: BasicHeaderCell.reuseIdentifier) as! BasicHeaderCell
-        let headerText = section == 0 ? "Ongoing" : "Past"
+        let headerText = section == 0 ? "Ongoing" : "Finished"
         headerCell.update(with: headerText)
         return headerCell
     }

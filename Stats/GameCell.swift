@@ -17,16 +17,11 @@ class GameCell: UITableViewCell, AutoReuseIdentifiable {
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     
-    func update(with game: Game, order: Int?) {
+    func update(with game: Game) {
         let homeAwayPrefix = game.isHome ? "vs." : "@"
         opponentLabel.text = "\(homeAwayPrefix) \(game.opponent)"
-        if let location = game.location, !location.isEmpty {
-            locationLabel.isHidden = false
-            locationLabel.text = "📍 \(location)"
-        } else {
-            locationLabel.isHidden = true
-        }
-        gameLabel.text = order == nil ? nil : "#️⃣ Game \(order! + 1)"
+        let locationText = game.location ?? "--"
+        locationLabel.text = "📍 \(locationText)"
         dateLabel.text = "🗓 \(game.date.proximityDateTimeString)"
         statusLabel.text = game.status
         scoreLabel.text = "(\(game.scoreString))"

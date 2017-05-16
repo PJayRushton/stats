@@ -51,21 +51,6 @@ enum HomeMenuItem: Int {
         }
     }
     
-    var image: UIImage? {
-        switch self {
-        case .newGame:
-            return UIImage(named: "")
-        case .stats:
-            return UIImage(named: "")
-        case .games:
-            return UIImage(named: "")
-        case .roster:
-            return UIImage(named: "")
-        case .share:
-            return UIImage(named: "")
-        }
-    }
-    
     var backgroundColor: UIColor {
         switch self {
         case .newGame:

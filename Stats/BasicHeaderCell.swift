@@ -12,7 +12,7 @@ class BasicHeaderCell: UITableViewCell, AutoReuseIdentifiable {
     
     @IBOutlet weak var label: UILabel!
     
-    func update(with text: String, backgroundColor: UIColor = .flatGrayDark, alignment: NSTextAlignment = .center, fontSize: CGFloat = 14) {
+    func update(with text: String, backgroundColor: UIColor = .flatCoffee, alignment: NSTextAlignment = .center, fontSize: CGFloat = 14) {
         label.text = text
         label.textColor = .white
         label.textAlignment = alignment

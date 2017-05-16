@@ -85,7 +85,8 @@ struct Game: Identifiable, Unmarshaling {
         isHome == otherGame.isHome &&
         isRegularSeason == otherGame.isRegularSeason &&
         opponent == otherGame.opponent &&
-        lineupIds == otherGame.lineupIds
+        lineupIds == otherGame.lineupIds &&
+        location == otherGame.location
     }
     
 }

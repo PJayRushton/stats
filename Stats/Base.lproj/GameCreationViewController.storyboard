@@ -219,7 +219,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="New Game" id="ceV-bp-CXv">
                         <barButtonItem key="backBarButtonItem" title=" " id="MUg-rC-B3f"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="OiU-Wq-dki">
+                        <barButtonItem key="rightBarButtonItem" image="xBar" id="OiU-Wq-dki">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="dismissButtonPressed:" destination="Jkh-Hx-hEg" id="m6w-aZ-WaL"/>
@@ -301,4 +301,7 @@
             <point key="canvasLocation" x="329" y="117"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="xBar" width="24" height="25"/>
+    </resources>
 </document>

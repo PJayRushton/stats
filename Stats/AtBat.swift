@@ -24,7 +24,7 @@ enum AtBatCode: String {
     var image: UIImage? {
         switch self {
         case .hrITP:
-            return UIImage(named: AtBatCode.hr.rawValue)
+            return #imageLiteral(resourceName: "hr")
         default:
             return UIImage(named: rawValue)
         }
@@ -32,7 +32,7 @@ enum AtBatCode: String {
     var selectedImage: UIImage? {
         switch self {
         case .hrITP:
-            return UIImage(named: "\(AtBatCode.hr.rawValue)-selected")
+            return #imageLiteral(resourceName: "hr-selected")
         default:
             return UIImage(named: "\(rawValue)-selected")
         }

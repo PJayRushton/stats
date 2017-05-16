@@ -21,6 +21,7 @@ class GameViewController: Component, AutoStoryboardInitializable {
     @IBOutlet weak var inningLabel: LTMorphingLabel!
     @IBOutlet weak var nextInningButton: UIButton!
     @IBOutlet weak var playerPickerView: AKPickerView!
+    @IBOutlet weak var newAtBatView: UIView!
     @IBOutlet weak var collectionView: IGListCollectionView!
     @IBOutlet var outButtons: [UIButton]!
     
@@ -89,6 +90,7 @@ class GameViewController: Component, AutoStoryboardInitializable {
         scoreLabel.morphingEffect = .fall
         previousInningButton.isHidden = game.isCompleted || !hasEditRights
         nextInningButton.isHidden = game.isCompleted || !hasEditRights
+        newAtBatView.isHidden = game.isCompleted
         previousInningButton.tintColor = .gray400
         nextInningButton.tintColor = .gray400
         inningLabel.morphingEffect = .scale

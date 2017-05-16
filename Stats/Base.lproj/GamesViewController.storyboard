@@ -43,71 +43,69 @@
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="126.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5xf-me-Oxc">
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Qss-ct-9mH">
                                                     <rect key="frame" x="8" y="8" width="326" height="110.5"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="82b-oB-AhM">
-                                                            <rect key="frame" x="0.0" y="0.0" width="184" height="110.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="vs. " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qxB-Mo-89n">
+                                                            <rect key="frame" x="0.0" y="0.0" width="326" height="57.5"/>
+                                                            <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="21"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5xf-me-Oxc">
+                                                            <rect key="frame" x="0.0" y="57.5" width="326" height="53"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Opponent Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qxB-Mo-89n">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="184" height="49"/>
-                                                                    <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="21"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wa6-NW-FuP">
-                                                                    <rect key="frame" x="0.0" y="49" width="184" height="20.5"/>
-                                                                    <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="15"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rgf-ub-vmL">
-                                                                    <rect key="frame" x="0.0" y="69.5" width="184" height="20.5"/>
-                                                                    <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="15"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DateLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZFy-Cz-jcH">
-                                                                    <rect key="frame" x="0.0" y="90" width="184" height="20.5"/>
-                                                                    <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="15"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="82b-oB-AhM">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="37.5" height="53"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="📍 --" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wa6-NW-FuP">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="37.5" height="32.5"/>
+                                                                            <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="15"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="🗓 --" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZFy-Cz-jcH">
+                                                                            <rect key="frame" x="0.0" y="32.5" width="37.5" height="20.5"/>
+                                                                            <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="15"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                </stackView>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="uTR-Ms-Eia">
+                                                                    <rect key="frame" x="296.5" y="0.0" width="29.5" height="53"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LTD-gb-F7c">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="29.5" height="30"/>
+                                                                            <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="22"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="( - )" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zJh-wz-nJz">
+                                                                            <rect key="frame" x="0.0" y="30" width="29.5" height="23"/>
+                                                                            <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                </stackView>
                                                             </subviews>
-                                                        </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="uTR-Ms-Eia">
-                                                            <rect key="frame" x="208.5" y="32.5" width="117.5" height="46"/>
-                                                            <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LTD-gb-F7c">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="117.5" height="23"/>
-                                                                    <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zJh-wz-nJz">
-                                                                    <rect key="frame" x="0.0" y="23" width="117.5" height="23"/>
-                                                                    <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="82b-oB-AhM" firstAttribute="height" secondItem="5xf-me-Oxc" secondAttribute="height" id="yGl-CJ-eNf"/>
+                                                            </constraints>
                                                         </stackView>
                                                     </subviews>
-                                                    <constraints>
-                                                        <constraint firstItem="82b-oB-AhM" firstAttribute="height" secondItem="5xf-me-Oxc" secondAttribute="height" id="yGl-CJ-eNf"/>
-                                                    </constraints>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="5xf-me-Oxc" secondAttribute="bottom" id="1sC-du-h0u"/>
-                                                <constraint firstItem="5xf-me-Oxc" firstAttribute="leading" secondItem="bN7-Ry-u0b" secondAttribute="leadingMargin" id="QBB-cd-RyN"/>
-                                                <constraint firstItem="5xf-me-Oxc" firstAttribute="top" secondItem="bN7-Ry-u0b" secondAttribute="topMargin" id="XHP-SH-Ily"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="5xf-me-Oxc" secondAttribute="trailing" id="c5u-Jc-Ln7"/>
+                                                <constraint firstItem="Qss-ct-9mH" firstAttribute="leading" secondItem="bN7-Ry-u0b" secondAttribute="leadingMargin" id="Roh-re-AaK"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Qss-ct-9mH" secondAttribute="bottom" id="SkC-Tr-q9C"/>
+                                                <constraint firstItem="Qss-ct-9mH" firstAttribute="top" secondItem="bN7-Ry-u0b" secondAttribute="topMargin" id="Uli-dW-zAh"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Qss-ct-9mH" secondAttribute="trailing" id="ycG-H9-B3i"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="dateLabel" destination="ZFy-Cz-jcH" id="KwF-zC-0h6"/>
-                                            <outlet property="gameLabel" destination="rgf-ub-vmL" id="wtZ-nj-mfs"/>
                                             <outlet property="locationLabel" destination="wa6-NW-FuP" id="gsi-Kd-g1C"/>
                                             <outlet property="opponentLabel" destination="qxB-Mo-89n" id="Dzu-91-gLl"/>
                                             <outlet property="scoreLabel" destination="zJh-wz-nJz" id="TbB-mC-Pw8"/>
@@ -130,8 +128,8 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Games" id="LGt-nQ-gHo">
-                        <barButtonItem key="backBarButtonItem" title="⚾️" id="ukY-M0-0BB"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Prn-s9-OwD">
+                        <barButtonItem key="backBarButtonItem" title="≡" id="ukY-M0-0BB"/>
+                        <barButtonItem key="rightBarButtonItem" image="plusBar" id="Prn-s9-OwD">
                             <connections>
                                 <action selector="plusButtonPressed:" destination="X8O-oI-RP3" id="Mnp-uu-FsF"/>
                             </connections>
@@ -198,4 +196,7 @@
             <point key="canvasLocation" x="160.80000000000001" y="83.208395802098963"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="plusBar" width="28" height="28"/>
+    </resources>
 </document>

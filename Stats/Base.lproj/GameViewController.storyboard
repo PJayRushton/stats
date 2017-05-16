@@ -156,7 +156,7 @@
                                         <rect key="frame" x="0.0" y="170" width="375" height="55"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="zU9-2Y-erZ">
-                                                <rect key="frame" x="92" y="8" width="192.5" height="39"/>
+                                                <rect key="frame" x="91.5" y="8" width="192.5" height="39"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus" translatesAutoresizingMaskIntoConstraints="NO" id="oP9-gr-Ytm">
                                                         <rect key="frame" x="0.0" y="4.5" width="60" height="30"/>
@@ -279,6 +279,7 @@
                         <outlet property="collectionView" destination="Eej-ST-WO7" id="lIZ-sG-uUH"/>
                         <outlet property="homeTeamLabel" destination="cdM-sS-RD6" id="Xi2-Op-8LF"/>
                         <outlet property="inningLabel" destination="iZi-AT-nA1" id="6Sw-0L-1sa"/>
+                        <outlet property="newAtBatView" destination="8Tq-zx-PVJ" id="jVP-DB-IFz"/>
                         <outlet property="nextInningButton" destination="N3Y-am-xXh" id="wW5-2m-Sbt"/>
                         <outlet property="playerPickerView" destination="uF9-DD-9dm" id="mcN-Mf-VeC"/>
                         <outlet property="previousInningButton" destination="16g-hk-PGe" id="hvL-FA-dt4"/>

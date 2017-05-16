@@ -14,7 +14,6 @@ class BasicCell: UITableViewCell, AutoReuseIdentifiable {
     @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var accessoryImageView: UIImageView!
     
-    fileprivate let checkImage = UIImage(named: "check")
     
     func update(withTitle title: String, detail: String? = nil, accessory: UITableViewCellAccessoryType = .none, image: UIImage? = nil, fontSize: CGFloat = 16) {
         titleLabel.text = title
@@ -33,7 +32,7 @@ class BasicCell: UITableViewCell, AutoReuseIdentifiable {
         detailLabel.font = FontType.lemonMilk.font(withSize: fontSize * 0.7)
         accessoryType = .disclosureIndicator
         accessoryType = accessory
-        accessoryImageView.image = isSelected ? checkImage : nil
+        accessoryImageView.image = isSelected ? #imageLiteral(resourceName: "check") : nil
         accessoryImageView.tintColor = .mainAppColor
     }
     

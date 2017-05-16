@@ -76,8 +76,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="4PV-cw-j1y">
                         <barButtonItem key="backBarButtonItem" title="⚙" id="9g4-q5-s8E"/>
-                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="5uF-4R-YbQ">
-                            <color key="tintColor" red="0.1960784314" green="0.30196078430000001" blue="0.35686274509999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <barButtonItem key="leftBarButtonItem" image="xBar" id="5uF-4R-YbQ">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="dismissButtonPressed:" destination="IZ5-oU-L7j" id="tbW-4e-SSp"/>
                             </connections>
@@ -94,4 +94,7 @@
             <point key="canvasLocation" x="140" y="74.212893553223395"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="xBar" width="24" height="25"/>
+    </resources>
 </document>

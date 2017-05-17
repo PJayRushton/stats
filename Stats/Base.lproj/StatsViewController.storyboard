@@ -60,6 +60,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="containerView" destination="1ap-Dd-4uT" id="4sH-MG-bQZ"/>
+                        <outlet property="filterButton" destination="Zu5-ql-bwz" id="rbK-tT-ynA"/>
                         <outlet property="segmentedControl" destination="Knz-yi-x6M" id="1LQ-AG-JFG"/>
                     </connections>
                 </viewController>

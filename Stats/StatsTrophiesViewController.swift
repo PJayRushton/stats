@@ -12,6 +12,7 @@ import IGListKit
 class StatsTrophiesViewController: Component, AutoStoryboardInitializable {
     
     @IBOutlet weak var collectionView: IGListCollectionView!
+    @IBOutlet var emptyView: UIView!
 
     fileprivate lazy var adapter: IGListAdapter = {
         return IGListAdapter(updater: IGListAdapterUpdater(), viewController: self, workingRangeSize: 0)
@@ -26,6 +27,10 @@ class StatsTrophiesViewController: Component, AutoStoryboardInitializable {
     
     override func update(with state: AppState) {
         adapter.performUpdates(animated: true)
+    }
+    
+    @IBAction func emptyStateButtonPressed(_ sender: UIButton) {
+        _ = navigationController?.popViewController(animated: true)
     }
 
 }
@@ -77,7 +82,7 @@ extension StatsTrophiesViewController: IGListAdapterDataSource {
     }
     
     func emptyView(for listAdapter: IGListAdapter) -> UIView? {
-        return nil
+        return emptyView
     }
     
 }

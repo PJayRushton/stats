@@ -6,8 +6,14 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="LemonMilk.otf">
+            <string>LemonMilk</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Roster-->
         <scene sceneID="FTq-tO-xpS">
@@ -55,12 +61,80 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="addButton" destination="a3b-wJ-JGM" id="Wac-uP-ybe"/>
+                        <outlet property="emptyView" destination="oWu-dQ-uVX" id="59a-7k-01h"/>
                         <outlet property="tableView" destination="Cfu-Fp-h6V" id="D84-SS-DpD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sau-NI-lzk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="oWu-dQ-uVX">
+                    <rect key="frame" x="0.0" y="0.0" width="368" height="424"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="fb3-dW-xSV">
+                            <rect key="frame" x="16" y="39.5" width="336" height="345"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bat" translatesAutoresizingMaskIntoConstraints="NO" id="KDn-H3-WZH">
+                                    <rect key="frame" x="77" y="0.0" width="182" height="70"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="70" id="XnW-dV-zy3"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You might have a hard time beating that team by yourself. . ." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C6O-vJ-b4k">
+                                    <rect key="frame" x="0.5" y="94" width="335.5" height="46"/>
+                                    <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="😳" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C2W-GN-diX">
+                                    <rect key="frame" x="141" y="164" width="54" height="60"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's get you some help" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Gw-Fy-RJg">
+                                    <rect key="frame" x="59.5" y="248" width="217.5" height="23"/>
+                                    <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YeN-lz-Dij">
+                                    <rect key="frame" x="42" y="295" width="252" height="50"/>
+                                    <color key="backgroundColor" red="0.65098039220000004" green="0.77647058820000003" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="ZVJ-XP-6WT"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
+                                    <color key="tintColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <state key="normal" title="Add a player!">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="5"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="addPlayerButtonPressed:" destination="vNQ-fo-axD" eventType="touchUpInside" id="P3I-aN-0EO"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="YeN-lz-Dij" firstAttribute="width" secondItem="fb3-dW-xSV" secondAttribute="width" multiplier="0.75" id="16d-yD-wOw"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="fb3-dW-xSV" firstAttribute="centerY" secondItem="oWu-dQ-uVX" secondAttribute="centerY" id="3kM-LK-1bd"/>
+                        <constraint firstItem="fb3-dW-xSV" firstAttribute="leading" secondItem="oWu-dQ-uVX" secondAttribute="leading" constant="16" id="D0k-XJ-usH"/>
+                        <constraint firstAttribute="trailing" secondItem="fb3-dW-xSV" secondAttribute="trailing" constant="16" id="U5b-wq-D3K"/>
+                    </constraints>
+                </view>
             </objects>
             <point key="canvasLocation" x="180" y="149.77511244377811"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bat" width="182" height="183"/>
+    </resources>
 </document>

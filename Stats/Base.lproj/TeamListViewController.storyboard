@@ -39,7 +39,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Teams" id="Wlw-XZ-yW8">
-                        <barButtonItem key="backBarButtonItem" title="≡" id="hh6-v2-L1o"/>
+                        <barButtonItem key="backBarButtonItem" title=" " id="NGm-Jr-f2J"/>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>

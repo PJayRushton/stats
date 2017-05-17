@@ -16,6 +16,7 @@ class RosterViewController: Component, AutoStoryboardInitializable {
     
     @IBOutlet weak var addButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet var emptyView: UIView!
     
     var isLineup = false
     
@@ -61,7 +62,7 @@ class RosterViewController: Component, AutoStoryboardInitializable {
         }
     }
     
-    @IBAction func addPlayerButtonPressed(_ sender: UIBarButtonItem) {
+    @IBAction func addPlayerButtonPressed(_ sender: Any) {
         let playerCreationVC = PlayerCreationViewController.initializeFromStoryboard()
         customPresentViewController(modalPresenter(), viewController: playerCreationVC, animated: true, completion: nil)
     }
@@ -81,6 +82,8 @@ class RosterViewController: Component, AutoStoryboardInitializable {
                 }
             }
         }
+        let isEmpty = orderedPlayers.isEmpty && benchedPlayers.isEmpty
+        tableView.backgroundView = isEmpty ? emptyView : nil
         tableView.reloadData()
     }
     
@@ -253,7 +256,8 @@ extension RosterViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 30
+        let isEmpty = orderedPlayers.isEmpty && benchedPlayers.isEmpty
+        return isEmpty ? 0 : 30
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

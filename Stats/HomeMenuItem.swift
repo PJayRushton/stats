@@ -36,18 +36,18 @@ enum HomeMenuItem: Int {
         }
     }
     
-    var emoji: String {
+    var image: UIImage? {
         switch self {
         case .newGame:
-            return "➕"
+            return #imageLiteral(resourceName: "plusWhite")
         case .stats:
-            return "🏆"
+            return #imageLiteral(resourceName: "trophy")
         case .games:
-            return "⚾️"
+            return #imageLiteral(resourceName: "baseball")
         case .roster:
-            return "👕"
+            return #imageLiteral(resourceName: "roster")
         case .share:
-            return "👥"
+            return #imageLiteral(resourceName: "qrCode")
         }
     }
     

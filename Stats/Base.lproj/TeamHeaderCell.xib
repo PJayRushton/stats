@@ -35,7 +35,7 @@
                                 <color key="backgroundColor" red="0.1960784314" green="0.30196078430000001" blue="0.35686274509999999" alpha="0.25" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="2QG-Zk-YbK" userLabel="Top Stack">
-                                <rect key="frame" x="8" y="16" width="310" height="30"/>
+                                <rect key="frame" x="8" y="20" width="310" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lof-fO-0Q5" userLabel="Settings">
                                         <rect key="frame" x="0.0" y="0.0" width="35" height="30"/>
@@ -93,7 +93,7 @@
                             <constraint firstItem="7pf-G2-Xq9" firstAttribute="leading" secondItem="LXL-x3-7qs" secondAttribute="leading" constant="8" id="x0Q-55-wNT"/>
                             <constraint firstAttribute="trailing" secondItem="Eka-6t-7Ew" secondAttribute="trailing" id="x82-aA-z7x"/>
                             <constraint firstAttribute="bottom" secondItem="PJu-aD-wyy" secondAttribute="bottom" id="xSv-Wa-AK4"/>
-                            <constraint firstItem="2QG-Zk-YbK" firstAttribute="top" secondItem="LXL-x3-7qs" secondAttribute="top" constant="16" id="xu2-Y4-eaw"/>
+                            <constraint firstItem="2QG-Zk-YbK" firstAttribute="top" secondItem="LXL-x3-7qs" secondAttribute="top" constant="20" id="xu2-Y4-eaw"/>
                             <constraint firstAttribute="bottom" secondItem="7pf-G2-Xq9" secondAttribute="bottom" id="z5v-JW-2WM"/>
                         </constraints>
                     </view>

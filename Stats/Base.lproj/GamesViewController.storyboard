@@ -128,7 +128,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Games" id="LGt-nQ-gHo">
-                        <barButtonItem key="backBarButtonItem" title="≡" id="ukY-M0-0BB"/>
+                        <barButtonItem key="backBarButtonItem" title=" " id="FWF-oP-8c0"/>
                         <barButtonItem key="rightBarButtonItem" image="plusBar" id="Prn-s9-OwD">
                             <connections>
                                 <action selector="plusButtonPressed:" destination="X8O-oI-RP3" id="Mnp-uu-FsF"/>
@@ -197,6 +197,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="plusBar" width="28" height="28"/>
+        <image name="plusBar" width="26" height="26"/>
     </resources>
 </document>

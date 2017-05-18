@@ -23,9 +23,6 @@ enum StatsRefs {
         return rootRef.child(teamsRefKey)
     }
     
-    static var quotesRef: FIRDatabaseReference {
-        return rootRef.child(quotesKey)
-    }
     static var stockRef: FIRDatabaseReference {
         return rootRef.child(stockKey)
     }

@@ -48,6 +48,7 @@ class TeamCreationViewController: Component, AutoStoryboardInitializable {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        core.fire(command: GetStockImages())
         setUpColors()
         setUpSegControl()
         teamImageButton.cornerRadius = 5
@@ -143,6 +144,10 @@ extension TeamCreationViewController {
     
     fileprivate func presentImageOptions() {
         let alert = standardImagePickerAlert()
+        alert.addAction(UIAlertAction(title: "Choose from stock photos", style: .default, handler: { _ in
+            let imagePickerVC = PhotoPickerViewController.initializeFromStoryboard()
+            self.navigationController?.pushViewController(imagePickerVC, animated: true)
+        }))
         let deleteAction = UIAlertAction(title: "Remove Photo", style: .destructive, handler: { _ in
             self.core.fire(event: Selected<URL>(nil))
         })

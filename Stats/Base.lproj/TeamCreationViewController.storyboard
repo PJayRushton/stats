@@ -173,6 +173,7 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Create Team" id="o76-dH-Q3l">
+                        <barButtonItem key="backBarButtonItem" title=" " id="zYF-mK-KOa"/>
                         <barButtonItem key="leftBarButtonItem" image="xBar" id="FSW-ct-wz9">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>

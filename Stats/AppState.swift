@@ -16,6 +16,8 @@ enum App {
 struct AppState: State {
     
     var currentMenuItem: HomeMenuItem?
+    var stockImageURLs = [URL]()
+    
     var userState = UserState()
     var newUserState = NewUserState()
     var teamState = TeamState()
@@ -26,12 +28,13 @@ struct AppState: State {
     var playerState = PlayerState()
     var atBatState = AtBatState()
     var statState = StatState()
-    var quotesState = QuotesState()
     
     mutating func react(to event: Event) {
         switch event {
         case let event as Selected<HomeMenuItem>:
             currentMenuItem = event.item
+        case let event as Updated<[URL]>:
+            stockImageURLs = event.payload
         default:
             break
         }
@@ -46,7 +49,6 @@ struct AppState: State {
         playerState.react(to: event)
         atBatState.react(to: event)
         statState.react(to: event)
-        quotesState.react(to: event)
     }
     
 }

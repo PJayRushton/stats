@@ -15,12 +15,12 @@ import TextFieldEffects
 class TeamCreationViewController: Component, AutoStoryboardInitializable {
     
     @IBOutlet weak var deleteTeamButton: UIBarButtonItem!
-    @IBOutlet weak var nameTextField: MadokaTextField!
-    @IBOutlet weak var seasonTextField: MadokaTextField!
+    @IBOutlet weak var nameTextField: HoshiTextField!
+    @IBOutlet weak var seasonTextField: HoshiTextField!
     @IBOutlet weak var sportSegControl: BetterSegmentedControl!
     @IBOutlet weak var imageHolderView: UIView!
+    @IBOutlet weak var teamImageButton: UIButton!
     @IBOutlet weak var loadingImageView: UIImageView!
-    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var editImageButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
 
@@ -39,7 +39,7 @@ class TeamCreationViewController: Component, AutoStoryboardInitializable {
     
     fileprivate var currentImageURL: URL? {
         didSet {
-            imageView.kf.setImage(with: currentImageURL)
+            teamImageButton.kf.setImage(with: currentImageURL, for: .normal, placeholder: #imageLiteral(resourceName: "picture"))
             editImageButton.isHidden = currentImageURL == nil
         }
     }
@@ -50,7 +50,7 @@ class TeamCreationViewController: Component, AutoStoryboardInitializable {
 
         setUpColors()
         setUpSegControl()
-        imageView.layer.cornerRadius = 5
+        teamImageButton.cornerRadius = 5
         editImageButton.cornerRadius = editImageButton.bounds.size.height / 2
 
         if !isDismissable {
@@ -95,6 +95,7 @@ class TeamCreationViewController: Component, AutoStoryboardInitializable {
         currentImageURL = state.newTeamState.imageURL
         updateSaveButton()
         loadingImageView.isHidden = !state.newTeamState.isLoading
+        teamImageButton.imageView?.contentMode = .scaleAspectFill
         
         if !loadingImageView.isHidden {
             loadingImageView.rotate()
@@ -116,11 +117,8 @@ extension TeamCreationViewController {
     }
     
     fileprivate func setUpSegControl() {
-        sportSegControl.titles = TeamSport.allValues.map { $0.stringValue }
-        sportSegControl.titleFont = FontType.lemonMilk.font(withSize: 14)
-        sportSegControl.selectedTitleFont = FontType.lemonMilk.font(withSize: 16)
-        sportSegControl.titleColor = .gray400
-        sportSegControl.indicatorViewBackgroundColor = .secondaryAppColor
+        let titles = TeamSport.allValues.map { $0.stringValue }
+        sportSegControl.setUp(with: titles)
     }
     
     fileprivate func saveSeason() {
@@ -135,7 +133,7 @@ extension TeamCreationViewController {
             nameTextField.text = editingTeam.name
             seasonTextField.isHidden = true
             try? sportSegControl.setIndex(UInt(editingTeam.sport.rawValue), animated:  true)
-            imageView.kf.setImage(with: editingTeam.imageURL)
+            teamImageButton.kf.setImage(with: editingTeam.imageURL, for: .normal)
         } else {
             title = "Create Team"
             navigationItem.rightBarButtonItem = nil

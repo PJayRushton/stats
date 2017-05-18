@@ -96,13 +96,13 @@
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lZR-tm-6PG">
                                         <rect key="frame" x="0.0" y="216" width="343" height="228.5"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stock1" translatesAutoresizingMaskIntoConstraints="NO" id="mog-My-PcO">
+                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gZn-l6-BOZ">
                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="228.5"/>
-                                                <gestureRecognizers/>
+                                                <state key="normal" image="picture"/>
                                                 <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="D0t-kN-kDV" appends="YES" id="uui-Q6-gMM"/>
+                                                    <action selector="imageTapped:" destination="KaG-dX-WZH" eventType="touchUpInside" id="xL5-53-gZR"/>
                                                 </connections>
-                                            </imageView>
+                                            </button>
                                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="baseball" translatesAutoresizingMaskIntoConstraints="NO" id="FVi-ND-DnS">
                                                 <rect key="frame" x="155" y="98" width="32" height="32"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -129,13 +129,13 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="lZR-tm-6PG" secondAttribute="height" multiplier="3/2" id="Bys-Fo-sla"/>
-                                            <constraint firstItem="mog-My-PcO" firstAttribute="leading" secondItem="lZR-tm-6PG" secondAttribute="leading" id="Gy3-AX-qeZ"/>
-                                            <constraint firstItem="jNP-um-FUI" firstAttribute="bottom" secondItem="mog-My-PcO" secondAttribute="bottom" constant="4" id="HBW-bg-Ejl"/>
-                                            <constraint firstItem="jNP-um-FUI" firstAttribute="trailing" secondItem="mog-My-PcO" secondAttribute="trailing" constant="8" id="LAB-45-Hdb"/>
                                             <constraint firstItem="FVi-ND-DnS" firstAttribute="centerX" secondItem="lZR-tm-6PG" secondAttribute="centerX" id="PXb-PR-TR3"/>
-                                            <constraint firstItem="mog-My-PcO" firstAttribute="top" secondItem="lZR-tm-6PG" secondAttribute="top" id="aCZ-QD-LYq"/>
-                                            <constraint firstAttribute="trailing" secondItem="mog-My-PcO" secondAttribute="trailing" id="mW4-kZ-2Uu"/>
-                                            <constraint firstAttribute="bottom" secondItem="mog-My-PcO" secondAttribute="bottom" id="qiu-bU-pXt"/>
+                                            <constraint firstItem="jNP-um-FUI" firstAttribute="trailing" secondItem="gZn-l6-BOZ" secondAttribute="trailing" constant="8" id="QYi-TF-KQP"/>
+                                            <constraint firstItem="jNP-um-FUI" firstAttribute="bottom" secondItem="gZn-l6-BOZ" secondAttribute="bottom" constant="4" id="Z7l-6g-jxL"/>
+                                            <constraint firstItem="gZn-l6-BOZ" firstAttribute="top" secondItem="lZR-tm-6PG" secondAttribute="top" id="ho5-5M-5jP"/>
+                                            <constraint firstItem="gZn-l6-BOZ" firstAttribute="leading" secondItem="lZR-tm-6PG" secondAttribute="leading" id="jt8-wp-xMQ"/>
+                                            <constraint firstAttribute="trailing" secondItem="gZn-l6-BOZ" secondAttribute="trailing" id="nqs-CJ-foD"/>
+                                            <constraint firstAttribute="bottom" secondItem="gZn-l6-BOZ" secondAttribute="bottom" id="tMX-iL-8ja"/>
                                             <constraint firstItem="FVi-ND-DnS" firstAttribute="centerY" secondItem="lZR-tm-6PG" secondAttribute="centerY" id="yEn-Pd-ZGD"/>
                                         </constraints>
                                     </view>
@@ -190,12 +190,12 @@
                         <outlet property="deleteTeamButton" destination="pU9-Xl-KXe" id="brA-yX-y6n"/>
                         <outlet property="editImageButton" destination="jNP-um-FUI" id="IAC-qX-cx0"/>
                         <outlet property="imageHolderView" destination="lZR-tm-6PG" id="OCC-3s-nsH"/>
-                        <outlet property="imageView" destination="mog-My-PcO" id="Mbg-lu-1JL"/>
                         <outlet property="loadingImageView" destination="FVi-ND-DnS" id="dC3-4Z-yKE"/>
                         <outlet property="nameTextField" destination="xHr-Ek-Mow" id="f6H-tO-xji"/>
                         <outlet property="saveButton" destination="ayN-oR-jkr" id="P9P-nf-3v0"/>
                         <outlet property="seasonTextField" destination="OU1-yB-hdE" id="tys-e5-4cc"/>
                         <outlet property="sportSegControl" destination="JUc-SH-7TI" id="Hms-iX-dI4"/>
+                        <outlet property="teamImageButton" destination="gZn-l6-BOZ" id="UA9-Cc-0T6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aQC-Hh-rsB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -204,18 +204,13 @@
                         <action selector="viewTapped:" destination="KaG-dX-WZH" id="NfT-NO-TqV"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="D0t-kN-kDV">
-                    <connections>
-                        <action selector="imageTapped:" destination="KaG-dX-WZH" id="0Ka-Rk-uyU"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="144.80000000000001" y="128.18590704647679"/>
         </scene>
     </scenes>
     <resources>
         <image name="baseball" width="108" height="109"/>
-        <image name="stock1" width="312" height="552"/>
+        <image name="picture" width="652" height="489"/>
         <image name="xBar" width="22" height="23"/>
     </resources>
 </document>

@@ -20,11 +20,7 @@ extension UIColor {
     }
     
     class var secondaryAppColor: UIColor {
-        return .flatOrange
-    }
-    
-    class var tertiaryAppColor: UIColor {
-        return .flatGray
+        return .flatCoffee
     }
     
     class var mainTextColor: UIColor {

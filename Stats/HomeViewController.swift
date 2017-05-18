@@ -54,12 +54,6 @@ class HomeViewController: Component, AutoStoryboardInitializable {
         adapter.collectionView = collectionView
         adapter.dataSource = self
         feedbackGenerator.prepare()
-//        let blurRadius: CGFloat = 8
-//        let topBlurredImage = topImageView.image?.kf.blurred(withRadius: blurRadius)
-//        topImageView.image = topBlurredImage
-//        let bottomBlurredImage = bottomImageView.image?.kf.blurred(withRadius: blurRadius)
-//        bottomImageView.image = bottomBlurredImage
-
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -83,12 +77,14 @@ class HomeViewController: Component, AutoStoryboardInitializable {
     // MARK: - IBActions
 
     @IBAction func createTeamButtonPressed(_ sender: UIButton) {
+        feedbackGenerator.selectionChanged()
         let teamCreationVC = TeamCreationViewController.initializeFromStoryboard().embededInNavigationController
         teamCreationVC.modalPresentationStyle = .overFullScreen
         present(teamCreationVC, animated: true, completion: nil)
     }
     
     @IBAction func addTeamButtonPressed(_ sender: UIButton) {
+        feedbackGenerator.selectionChanged()
         let addTeamVC = AddTeamViewController.initializeFromStoryboard().embededInNavigationController
         addTeamVC.modalPresentationStyle = .overFullScreen
         present(addTeamVC, animated: true, completion: nil)
@@ -112,12 +108,14 @@ class HomeViewController: Component, AutoStoryboardInitializable {
 extension HomeViewController {
     
     func presentSettings() {
+        feedbackGenerator.selectionChanged()
         let settingsVC = SettingsViewController.initializeFromStoryboard().embededInNavigationController
         settingsVC.modalPresentationStyle = .overFullScreen
         present(settingsVC, animated: true, completion: nil)
     }
     
     func presentTeamSwitcher() {
+        feedbackGenerator.selectionChanged()
         let teamListVC = TeamListViewController.initializeFromStoryboard()
         teamListVC.isSwitcher = true
         let teamListInNav = teamListVC.embededInNavigationController
@@ -126,6 +124,7 @@ extension HomeViewController {
     }
     
     func presentTeamEdit() {
+        feedbackGenerator.selectionChanged()
         let creationVC = TeamCreationViewController.initializeFromStoryboard()
         creationVC.editingTeam = currentTeam
         let creationVCWithNav = creationVC.embededInNavigationController
@@ -183,6 +182,7 @@ extension HomeViewController {
     }
     
     func didSelectItem(_ item: HomeMenuItem) {
+        feedbackGenerator.selectionChanged()
         core.fire(event: Selected<HomeMenuItem>(item))
         switch item {
         case .newGame:
@@ -219,8 +219,7 @@ extension HomeViewController: IGListAdapterDataSource {
     func listAdapter(_ listAdapter: IGListAdapter, sectionControllerFor object: Any) -> IGListSectionController {
         switch object {
         case _ as TeamHeaderSection:
-            guard let currentUser = core.state.userState.currentUser else { return IGListSectionController() }
-            let headerController = TeamHeaderSectionController(user: currentUser)
+            let headerController = TeamHeaderSectionController()
             headerController.settingsPressed = presentSettings
             headerController.editPressed = presentTeamEdit
             headerController.switchTeamPressed = presentTeamSwitcher

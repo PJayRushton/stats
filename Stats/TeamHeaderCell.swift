@@ -35,7 +35,7 @@ class TeamHeaderCell: UICollectionViewCell, AutoReuseIdentifiable {
     }
     
     func update(with team: Team, canEdit: Bool) {
-        imageView.kf.setImage(with: team.imageURL)
+        imageView.kf.setImage(with: team.imageURL, placeholder: #imageLiteral(resourceName: "stock5"))
         nameLabel.text = team.name
         editButton.isHidden = !canEdit
     }

@@ -21,8 +21,11 @@ class TeamHeaderSection: IGListDiffable {
     }
     
     func isEqual(toDiffableObject object: IGListDiffable?) -> Bool {
-        guard let other = object as? TeamHeaderSection else { return false }
-        return team.imageURLString == other.team.imageURLString && team.name == other.team.name
+        guard let other = object as? TeamHeaderSection, let currentUser = App.core.state.userState.currentUser else { return false }
+        return team.imageURLString == other.team.imageURLString &&
+            team.name == other.team.name &&
+            currentUser.owns(team) == currentUser.owns(other.team)
+        
     }
     
 }
@@ -31,17 +34,10 @@ class TeamHeaderSection: IGListDiffable {
 class TeamHeaderSectionController: IGListSectionController {
     
     var section: TeamHeaderSection!
-    var user: User
     
     var settingsPressed: () -> Void = { }
     var editPressed: (() -> Void) = { }
     var switchTeamPressed: (() -> Void) = { }
-    
-    init(user: User) {
-        self.user = user
-        super.init()
-        inset = UIEdgeInsets.zero
-    }
     
 }
 
@@ -60,7 +56,13 @@ extension TeamHeaderSectionController: IGListSectionType {
     
     func cellForItem(at index: Int) -> UICollectionViewCell {
         let cell = collectionContext?.dequeueReusableCell(withNibName: TeamHeaderCell.reuseIdentifier, bundle: nil, for: self, at: index) as! TeamHeaderCell
+        guard let user = App.core.state.userState.currentUser else { fatalError() }
         cell.update(with: section.team, canEdit: user.owns(section.team))
+        print("USERS OWNED TEAMS: V")
+        dump(user.ownedTeamIds)
+        print("CUrrent team's id: ***")
+        print("\(section.team.id)")
+        
         cell.settingsPressed = settingsPressed
         cell.editPressed = editPressed
         cell.switchTeamPressed = switchTeamPressed

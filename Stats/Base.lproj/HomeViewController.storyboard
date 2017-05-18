@@ -174,15 +174,6 @@
                                         <constraint firstItem="j9j-pC-5ud" firstAttribute="leading" secondItem="bCt-hb-YAM" secondAttribute="leading" id="mXa-6U-da0"/>
                                         <constraint firstAttribute="bottom" secondItem="j9j-pC-5ud" secondAttribute="bottom" id="pkB-tR-jcU"/>
                                     </constraints>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHorizontal" value="NO"/>
-                                        <userDefinedRuntimeAttribute type="color" keyPath="startColor">
-                                            <color key="value" red="0.64856451749999999" green="0.77474325899999996" blue="0.22945481540000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="color" keyPath="endColor">
-                                            <color key="value" red="0.55803233389999995" green="0.69207900759999996" blue="0.12800171969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e8J-HE-dHc" userLabel="Add Team view">
                                     <rect key="frame" x="0.0" y="227.5" width="360" height="227.5"/>
@@ -220,15 +211,6 @@
                                         <constraint firstItem="h4m-6b-Rch" firstAttribute="leading" secondItem="e8J-HE-dHc" secondAttribute="leading" id="vtf-Cs-jaO"/>
                                         <constraint firstAttribute="trailing" secondItem="5sR-2P-54R" secondAttribute="trailing" id="xqu-hu-3Po"/>
                                     </constraints>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHorizontal" value="NO"/>
-                                        <userDefinedRuntimeAttribute type="color" keyPath="startColor">
-                                            <color key="value" red="0.64856451749999999" green="0.77474325899999996" blue="0.22945481540000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="color" keyPath="endColor">
-                                            <color key="value" red="0.55803233389999995" green="0.69207900759999996" blue="0.12800171969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
                                 </view>
                             </subviews>
                         </stackView>

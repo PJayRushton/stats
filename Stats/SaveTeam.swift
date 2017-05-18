@@ -37,7 +37,7 @@ struct SaveTeam: Command {
             networkAccess.updateObject(at: ref, parameters: ["fake": true], completion: { result in
                 switch result {
                 case .success:
-                    print("SUCCESS!! ---")
+                    break
                 case let .failure(error):
                     core.fire(event: ErrorEvent(error: error, message: nil))
                 }
@@ -46,7 +46,6 @@ struct SaveTeam: Command {
         }
         
         dispatchGroup.notify(queue: .main) {
-            print("ALL DONE")
             core.fire(command: SubscribeToTeam(withId: self.team.id))
         }
     }

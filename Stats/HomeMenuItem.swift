@@ -39,7 +39,7 @@ enum HomeMenuItem: Int {
     var image: UIImage? {
         switch self {
         case .newGame:
-            return #imageLiteral(resourceName: "plusWhite")
+            return #imageLiteral(resourceName: "bat")
         case .stats:
             return #imageLiteral(resourceName: "trophy")
         case .games:

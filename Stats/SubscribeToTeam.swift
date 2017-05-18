@@ -18,6 +18,13 @@ struct SubscribeToTeam: Command {
     }
     
     func execute(state: AppState, core: Core<AppState>) {
+        subscribeToTeam(core: core)
+        subscribeToPlayers(core: core)
+        subscribeToGames(core: core)
+        subscribeToAtBats(core: core)
+    }
+    
+    private func subscribeToTeam(core: Core<AppState>) {
         let ref = StatsRefs.teamsRef.child(teamId)
         
         networkAccess.subscribe(to: ref) { result in
@@ -25,9 +32,6 @@ struct SubscribeToTeam: Command {
             switch teamResult {
             case let .success(team):
                 core.fire(event: Updated<Team>(team))
-                self.subscribeToPlayers(core: core)
-                self.subscribeToGames(core: core)
-                self.subscribeToAtBats(core: core)
             case let .failure(error):
                 core.fire(event: ErrorEvent(error: error, message: nil))
             }

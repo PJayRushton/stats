@@ -26,6 +26,9 @@ enum StatsRefs {
     static var quotesRef: FIRDatabaseReference {
         return rootRef.child(quotesKey)
     }
+    static var stockRef: FIRDatabaseReference {
+        return rootRef.child(stockKey)
+    }
     
     /// **/users/{userIdKEY}**
     static func userRef(id: String) -> FIRDatabaseReference {

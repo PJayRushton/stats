@@ -58,7 +58,7 @@ enum HomeMenuItem: Int {
         case .stats:
             return UIColor.flatRed
         case .games:
-            return UIColor.flatLime
+            return UIColor.mainAppColor
         case .roster:
             return UIColor.flatTeal
         case .share:

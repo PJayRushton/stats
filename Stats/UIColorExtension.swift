@@ -12,7 +12,6 @@ import Marshal
 extension UIColor {
     
     class var mainAppColor: UIColor {
-        //A6C446
         return UIColor.flatLimeDark
     }
     

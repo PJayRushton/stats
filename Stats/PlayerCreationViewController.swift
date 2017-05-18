@@ -146,8 +146,8 @@ extension PlayerCreationViewController {
         }
         saveButton.isEnabled = isSavable
         saveAddButton.isEnabled = isSavable
-        saveButton.backgroundColor = isSavable ? UIColor.flatLime : UIColor.flatLime.withAlphaComponent(0.5)
-        saveAddButton.backgroundColor = isSavable ? UIColor.flatLime : UIColor.flatLime.withAlphaComponent(0.5)
+        saveButton.backgroundColor = isSavable ? UIColor.mainAppColor : UIColor.mainAppColor.withAlphaComponent(0.5)
+        saveAddButton.backgroundColor = isSavable ? UIColor.mainAppColor : UIColor.mainAppColor.withAlphaComponent(0.5)
     }
     
     fileprivate func constructedPlayer(add: Bool = false) -> Player? {

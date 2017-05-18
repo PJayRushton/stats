@@ -50,7 +50,7 @@ class AddTeamViewController: Component, AutoStoryboardInitializable {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        navigationController?.navigationBar.barTintColor = UIColor.flatLime
+        navigationController?.navigationBar.barTintColor = UIColor.mainAppColor
         captureSession?.startRunning()
     }
     
@@ -85,7 +85,7 @@ class AddTeamViewController: Component, AutoStoryboardInitializable {
         qrCodeFrameView = UIView()
         
         if let qrCodeFrameView = qrCodeFrameView {
-            qrCodeFrameView.layer.borderColor = UIColor.flatLime.cgColor
+            qrCodeFrameView.layer.borderColor = UIColor.mainAppColor.cgColor
             qrCodeFrameView.layer.borderWidth = 2
             view.addSubview(qrCodeFrameView)
             view.bringSubview(toFront: qrCodeFrameView)

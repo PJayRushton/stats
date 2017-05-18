@@ -43,10 +43,10 @@
                                                 <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
-                                                <color key="value" red="0.64856451749999999" green="0.77474325899999996" blue="0.22945481540000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="value" red="0.55686274509803924" green="0.68627450980392157" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
-                                                <color key="value" red="0.64856451749999999" green="0.77474325899999996" blue="0.22945481540000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="value" red="0.55686274509803924" green="0.68627450980392157" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
@@ -67,10 +67,10 @@
                                                 <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
-                                                <color key="value" red="0.64856451749999999" green="0.77474325899999996" blue="0.22945481540000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="value" red="0.55686274509803924" green="0.68627450980392157" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
-                                                <color key="value" red="0.64856451749999999" green="0.77474325899999996" blue="0.22945481540000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="value" red="0.55686274509803924" green="0.68627450980392157" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
@@ -93,81 +93,59 @@
                                             <action selector="segControlChanged:" destination="KaG-dX-WZH" eventType="valueChanged" id="2G6-qv-zv5"/>
                                         </connections>
                                     </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="9a3-4n-Kzl">
-                                        <rect key="frame" x="0.0" y="216" width="343" height="188.5"/>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lZR-tm-6PG">
+                                        <rect key="frame" x="0.0" y="216" width="343" height="228.5"/>
                                         <subviews>
-                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lZR-tm-6PG">
-                                                <rect key="frame" x="0.0" y="0.0" width="283" height="188.5"/>
-                                                <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stock1" translatesAutoresizingMaskIntoConstraints="NO" id="mog-My-PcO">
-                                                        <rect key="frame" x="0.0" y="0.0" width="283" height="188.5"/>
-                                                        <gestureRecognizers/>
-                                                        <connections>
-                                                            <outletCollection property="gestureRecognizers" destination="D0t-kN-kDV" appends="YES" id="uui-Q6-gMM"/>
-                                                        </connections>
-                                                    </imageView>
-                                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="baseball" translatesAutoresizingMaskIntoConstraints="NO" id="FVi-ND-DnS">
-                                                        <rect key="frame" x="125" y="78" width="32" height="32"/>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="32" id="gR4-d5-awr"/>
-                                                            <constraint firstAttribute="width" secondItem="FVi-ND-DnS" secondAttribute="height" id="i4i-v8-4TL"/>
-                                                        </constraints>
-                                                    </imageView>
-                                                </subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stock1" translatesAutoresizingMaskIntoConstraints="NO" id="mog-My-PcO">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="228.5"/>
+                                                <gestureRecognizers/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="D0t-kN-kDV" appends="YES" id="uui-Q6-gMM"/>
+                                                </connections>
+                                            </imageView>
+                                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="baseball" translatesAutoresizingMaskIntoConstraints="NO" id="FVi-ND-DnS">
+                                                <rect key="frame" x="155" y="98" width="32" height="32"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="32" id="gR4-d5-awr"/>
+                                                    <constraint firstAttribute="width" secondItem="FVi-ND-DnS" secondAttribute="height" id="i4i-v8-4TL"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jNP-um-FUI">
+                                                <rect key="frame" x="301" y="192.5" width="50" height="40"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" secondItem="lZR-tm-6PG" secondAttribute="height" multiplier="3/2" id="Bys-Fo-sla"/>
-                                                    <constraint firstItem="mog-My-PcO" firstAttribute="leading" secondItem="lZR-tm-6PG" secondAttribute="leading" id="Gy3-AX-qeZ"/>
-                                                    <constraint firstItem="FVi-ND-DnS" firstAttribute="centerX" secondItem="lZR-tm-6PG" secondAttribute="centerX" id="PXb-PR-TR3"/>
-                                                    <constraint firstItem="mog-My-PcO" firstAttribute="top" secondItem="lZR-tm-6PG" secondAttribute="top" id="aCZ-QD-LYq"/>
-                                                    <constraint firstAttribute="trailing" secondItem="mog-My-PcO" secondAttribute="trailing" id="mW4-kZ-2Uu"/>
-                                                    <constraint firstAttribute="bottom" secondItem="mog-My-PcO" secondAttribute="bottom" id="qiu-bU-pXt"/>
-                                                    <constraint firstItem="FVi-ND-DnS" firstAttribute="centerY" secondItem="lZR-tm-6PG" secondAttribute="centerY" id="yEn-Pd-ZGD"/>
+                                                    <constraint firstAttribute="width" constant="50" id="2OD-Hm-GvY"/>
+                                                    <constraint firstAttribute="height" constant="40" id="qVx-BL-hpx"/>
                                                 </constraints>
-                                            </view>
-                                            <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="7VI-NA-uUH">
-                                                <rect key="frame" x="299" y="0.0" width="44" height="188.5"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qqi-XZ-Wga">
-                                                        <rect key="frame" x="0.0" y="0.0" width="44" height="63"/>
-                                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="40"/>
-                                                        <state key="normal" title="📷"/>
-                                                        <connections>
-                                                            <action selector="cameraButtonPressed:" destination="KaG-dX-WZH" eventType="touchUpInside" id="rM1-Sa-cuQ"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KP9-cp-bI2">
-                                                        <rect key="frame" x="0.0" y="63" width="44" height="62.5"/>
-                                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="40"/>
-                                                        <state key="normal" title="📗"/>
-                                                        <connections>
-                                                            <action selector="cameraButtonPressed:" destination="KaG-dX-WZH" eventType="touchUpInside" id="hks-u7-TFK"/>
-                                                            <action selector="stockButtonPressed:" destination="KaG-dX-WZH" eventType="touchUpInside" id="eqq-NQ-NbQ"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="efs-ro-bAO">
-                                                        <rect key="frame" x="0.0" y="125.5" width="44" height="63"/>
-                                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="40"/>
-                                                        <state key="normal" title="🗑"/>
-                                                        <connections>
-                                                            <action selector="deleteImageButtonPressed:" destination="KaG-dX-WZH" eventType="touchUpInside" id="yXf-bO-hv1"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="44" id="Vc2-n2-1HO"/>
-                                                </constraints>
-                                            </stackView>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="0.0"/>
+                                                <state key="normal" title="✏️"/>
+                                                <connections>
+                                                    <action selector="imageTapped:" destination="KaG-dX-WZH" eventType="touchUpInside" id="e9d-s5-4dg"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
-                                    </stackView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="lZR-tm-6PG" secondAttribute="height" multiplier="3/2" id="Bys-Fo-sla"/>
+                                            <constraint firstItem="mog-My-PcO" firstAttribute="leading" secondItem="lZR-tm-6PG" secondAttribute="leading" id="Gy3-AX-qeZ"/>
+                                            <constraint firstItem="jNP-um-FUI" firstAttribute="bottom" secondItem="mog-My-PcO" secondAttribute="bottom" constant="4" id="HBW-bg-Ejl"/>
+                                            <constraint firstItem="jNP-um-FUI" firstAttribute="trailing" secondItem="mog-My-PcO" secondAttribute="trailing" constant="8" id="LAB-45-Hdb"/>
+                                            <constraint firstItem="FVi-ND-DnS" firstAttribute="centerX" secondItem="lZR-tm-6PG" secondAttribute="centerX" id="PXb-PR-TR3"/>
+                                            <constraint firstItem="mog-My-PcO" firstAttribute="top" secondItem="lZR-tm-6PG" secondAttribute="top" id="aCZ-QD-LYq"/>
+                                            <constraint firstAttribute="trailing" secondItem="mog-My-PcO" secondAttribute="trailing" id="mW4-kZ-2Uu"/>
+                                            <constraint firstAttribute="bottom" secondItem="mog-My-PcO" secondAttribute="bottom" id="qiu-bU-pXt"/>
+                                            <constraint firstItem="FVi-ND-DnS" firstAttribute="centerY" secondItem="lZR-tm-6PG" secondAttribute="centerY" id="yEn-Pd-ZGD"/>
+                                        </constraints>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZE1-pB-9yi" userLabel="Spacer view">
-                                        <rect key="frame" x="0.0" y="428.5" width="343" height="60.5"/>
+                                        <rect key="frame" x="0.0" y="468.5" width="343" height="20.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ayN-oR-jkr">
                                         <rect key="frame" x="0.0" y="513" width="343" height="50"/>
-                                        <color key="backgroundColor" red="0.65098039220000004" green="0.76862745099999996" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.55686274509803924" green="0.68627450980392157" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="RVq-NC-tlZ"/>
                                         </constraints>
@@ -195,13 +173,13 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Create Team" id="o76-dH-Q3l">
-                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="FSW-ct-wz9">
+                        <barButtonItem key="leftBarButtonItem" image="xBar" id="FSW-ct-wz9">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="dismissButtonPressed:" destination="KaG-dX-WZH" id="Gme-81-bTC"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="pU9-Xl-KXe">
-                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <barButtonItem key="rightBarButtonItem" title="🗑" id="pU9-Xl-KXe">
                             <connections>
                                 <action selector="deleteTeamButtonPressed:" destination="KaG-dX-WZH" id="M32-Pg-AgN"/>
                             </connections>
@@ -209,9 +187,8 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="cameraButton" destination="qqi-XZ-Wga" id="gCW-As-fui"/>
-                        <outlet property="deleteImageButton" destination="efs-ro-bAO" id="tfT-Dx-kjO"/>
                         <outlet property="deleteTeamButton" destination="pU9-Xl-KXe" id="brA-yX-y6n"/>
+                        <outlet property="editImageButton" destination="jNP-um-FUI" id="IAC-qX-cx0"/>
                         <outlet property="imageHolderView" destination="lZR-tm-6PG" id="OCC-3s-nsH"/>
                         <outlet property="imageView" destination="mog-My-PcO" id="Mbg-lu-1JL"/>
                         <outlet property="loadingImageView" destination="FVi-ND-DnS" id="dC3-4Z-yKE"/>
@@ -219,7 +196,6 @@
                         <outlet property="saveButton" destination="ayN-oR-jkr" id="P9P-nf-3v0"/>
                         <outlet property="seasonTextField" destination="OU1-yB-hdE" id="tys-e5-4cc"/>
                         <outlet property="sportSegControl" destination="JUc-SH-7TI" id="Hms-iX-dI4"/>
-                        <outlet property="stockPhotoButton" destination="KP9-cp-bI2" id="xDu-Yl-FFE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aQC-Hh-rsB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -234,11 +210,12 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="146" y="129"/>
+            <point key="canvasLocation" x="144.80000000000001" y="128.18590704647679"/>
         </scene>
     </scenes>
     <resources>
-        <image name="baseball" width="99" height="100"/>
+        <image name="baseball" width="108" height="109"/>
         <image name="stock1" width="312" height="552"/>
+        <image name="xBar" width="22" height="23"/>
     </resources>
 </document>

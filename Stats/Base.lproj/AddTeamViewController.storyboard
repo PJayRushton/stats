@@ -137,7 +137,8 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Team" id="cVN-cy-8dL">
-                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="G29-pc-vzm">
+                        <barButtonItem key="rightBarButtonItem" image="xBar" id="G29-pc-vzm">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="dismissButtonPressed:" destination="qad-wd-SC7" id="RDF-uv-f82"/>
                             </connections>
@@ -160,4 +161,7 @@
             <point key="canvasLocation" x="1076" y="101.19940029985008"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="xBar" width="22" height="23"/>
+    </resources>
 </document>

@@ -21,9 +21,7 @@ class TeamCreationViewController: Component, AutoStoryboardInitializable {
     @IBOutlet weak var imageHolderView: UIView!
     @IBOutlet weak var loadingImageView: UIImageView!
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var cameraButton: UIButton!
-    @IBOutlet weak var stockPhotoButton: UIButton!
-    @IBOutlet weak var deleteImageButton: UIButton!
+    @IBOutlet weak var editImageButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
 
     var isDismissable = true
@@ -42,7 +40,7 @@ class TeamCreationViewController: Component, AutoStoryboardInitializable {
     fileprivate var currentImageURL: URL? {
         didSet {
             imageView.kf.setImage(with: currentImageURL)
-            deleteImageButton.isHidden = currentImageURL == nil
+            editImageButton.isHidden = currentImageURL == nil
         }
     }
     
@@ -53,6 +51,7 @@ class TeamCreationViewController: Component, AutoStoryboardInitializable {
         setUpColors()
         setUpSegControl()
         imageView.layer.cornerRadius = 5
+        editImageButton.cornerRadius = editImageButton.bounds.size.height / 2
 
         if !isDismissable {
             navigationItem.leftBarButtonItem = nil
@@ -73,22 +72,8 @@ class TeamCreationViewController: Component, AutoStoryboardInitializable {
         updateSaveButton()
     }
     
-    @IBAction func imageTapped(_ sender: UITapGestureRecognizer) {
-        if currentImageURL == nil {
-            cameraButtonPressed(cameraButton)
-        }
-    }
-    
-    @IBAction func cameraButtonPressed(_ sender: UIButton) {
-        let picker = standardImagePickerAlert()
-        present(picker, animated: true, completion: nil)
-    }
-
-    @IBAction func stockButtonPressed(_ sender: UIButton) {
-    }
-
-    @IBAction func deleteImageButtonPressed(_ sender: UIButton) {
-        core.fire(event: Selected<URL>(nil))
+    @IBAction func imageTapped(_ sender: Any) {
+        presentImageOptions()
     }
     
     @IBAction func viewTapped(_ sender: UITapGestureRecognizer) {
@@ -156,6 +141,17 @@ extension TeamCreationViewController {
             navigationItem.rightBarButtonItem = nil
             seasonTextField.text = String.seasonSuggestion
         }
+    }
+    
+    fileprivate func presentImageOptions() {
+        let alert = standardImagePickerAlert()
+        let deleteAction = UIAlertAction(title: "Remove Photo", style: .destructive, handler: { _ in
+            self.core.fire(event: Selected<URL>(nil))
+        })
+        if let _ = currentImageURL {
+            alert.addAction(deleteAction)
+        }
+        present(alert, animated: true, completion: nil)
     }
     
     fileprivate func updateSaveButton() {

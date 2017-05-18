@@ -40,10 +40,14 @@ class AtBatCreationViewController: Component, AutoStoryboardInitializable {
     // MARK: - Public Properties
     
     var editingAtBat: AtBat?
+    var showOpponentScoreEdit: () -> Void = { }
     
     
     // MARK: - Internal Properties
     
+    fileprivate var currentGame: Game? {
+        return core.state.gameState.currentGame
+    }
     fileprivate var allResultButtons: [AtBatButton] {
         return [singleButton, doubleButton, tripleButton, hrButton, walkButton, roeButton, strikeOutButton, outButton]
     }
@@ -73,8 +77,8 @@ class AtBatCreationViewController: Component, AutoStoryboardInitializable {
         }
     }
     fileprivate var isLastOut: Bool {
-        let outs = core.state.gameState.outs
-        return outs == 3 || (outs == 2 && currentAtBatResult.isOut)
+        guard let game = currentGame else { return false }
+        return game.outs == 3 || (game.outs == 2 && currentAtBatResult.isOut)
     }
     
     
@@ -119,13 +123,12 @@ class AtBatCreationViewController: Component, AutoStoryboardInitializable {
     }
     
     @IBAction func outButtonPressed(_ sender: UIButton) {
-        guard let index = outButtons.index(of: sender) else { return }
-        let outs = core.state.gameState.outs
+        guard let index = outButtons.index(of: sender), let game = currentGame else { return }
         
-        if index == outs {
-            core.fire(event: OutAdded())
+        if index == game.outs {
+            updateOuts()
         } else {
-            core.fire(event: OutSubtracted())
+            updateOuts(outs: game.outs - 1)
         }
     }
     
@@ -157,7 +160,7 @@ class AtBatCreationViewController: Component, AutoStoryboardInitializable {
             nextPlayerLabel.text = ""
         }
         
-        let outs = state.gameState.outs
+        let outs = game.outs
         for (index, button) in outButtons.enumerated() {
             button.isEnabled = index <= outs
             
@@ -240,21 +243,25 @@ extension AtBatCreationViewController {
             
             DispatchQueue.main.async {
                 self.updateGameScore(atBat: atBat)
-                
-                if atBat.resultCode.isOut {
-                    self.core.fire(event: OutAdded())
+                if let _ = self.editingAtBat {
+                    self.dismiss(animated: true, completion: nil)
+                    return
                 }
-                if self.isLastOut && !next {
-                    self.upInning()
-                    self.core.fire(event: OutsReset())
+                // Only if this is a new at bat
+                if atBat.resultCode.isOut {
+                    self.updateOuts()
                 }
                 
                 if next {
                     self.clear()
-                    self.moveToNextBatter()
                 } else {
-                    self.dismiss(animated: true, completion: nil)
+                    self.dismiss(animated: true) { [weak self] in
+                        guard let weakSelf = self, weakSelf.isLastOut else { return }
+                        weakSelf.upInning()
+                        weakSelf.showOpponentScoreEdit()
+                    }
                 }
+                self.moveToNextBatter()
             }
         }
         core.fire(command: updateCommand)
@@ -263,7 +270,14 @@ extension AtBatCreationViewController {
     fileprivate func upInning() {
         guard var updatedGame = core.state.gameState.currentGame else { return }
         updatedGame.inning += 1
+        updatedGame.outs = 0
         core.fire(command: UpdateObject(updatedGame))
+    }
+    
+    fileprivate func updateOuts(outs: Int? = nil) {
+        guard var game = currentGame else { return }
+        game.outs = outs ?? game.outs + 1
+        core.fire(command: UpdateObject(game))
     }
     
     fileprivate func moveToNextBatter() {
@@ -274,7 +288,6 @@ extension AtBatCreationViewController {
             nextPlayerId = currentGame.lineupIds[index + 1]
         }
         guard let nextPlayer = nextPlayerId?.statePlayer else { return }
-        print("Selecting player: \(nextPlayer)")
         core.fire(event: Selected<Player>(nextPlayer))
     }
     

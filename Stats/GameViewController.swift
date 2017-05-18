@@ -31,7 +31,7 @@ class GameViewController: Component, AutoStoryboardInitializable {
     
     fileprivate var scorePresenter: Presentr {
         let centerPoint = CGPoint(x: view.center.x, y: view.center.y - 100)
-        let customPresentation = PresentationType.custom(width: ModalSize.custom(size: 250), height: .custom(size: 250), center: ModalCenterPosition.custom(centerPoint: centerPoint))
+        let customPresentation = PresentationType.custom(width: ModalSize.custom(size: 250), height: .custom(size: 300), center: ModalCenterPosition.custom(centerPoint: centerPoint))
         let presenter = Presentr(presentationType: customPresentation)
         presenter.transitionType = TransitionType.coverHorizontalFromRight
         presenter.dismissTransitionType = TransitionType.coverHorizontalFromRight
@@ -106,7 +106,7 @@ class GameViewController: Component, AutoStoryboardInitializable {
         showOptionsForGame()
     }
     
-    @IBAction func scoreLabelPressed(_ sender: UITapGestureRecognizer) {
+    @IBAction func scoreLabelPressed(_ sender: Any) {
         let scoreEditVC = OpponentScoreViewController.initializeFromStoryboard()
         customPresentViewController(scorePresenter, viewController: scoreEditVC, animated: true, completion: nil)
     }
@@ -124,17 +124,17 @@ class GameViewController: Component, AutoStoryboardInitializable {
     
     @IBAction func outButtonPressed(_ sender: UIButton) {
         guard let index = outButtons.index(of: sender) else { return }
-        let outs = core.state.gameState.outs
+        let outs = game?.outs ?? 0
         if outs == 2 && index == 2 {
-            core.fire(event: OutAdded())
+            saveOuts(outs: 3)
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: { 
-                self.core.fire(event: OutsReset())
+                self.saveOuts(outs: 0)
                 self.updateInning()
             })
         } else if index == outs {
-            core.fire(event: OutAdded())
+            saveOuts(outs: outs + 1)
         } else {
-            core.fire(event: OutSubtracted())
+            saveOuts(outs: outs - 1)
         }
     }
     
@@ -152,7 +152,7 @@ class GameViewController: Component, AutoStoryboardInitializable {
         var playerNames = gamePlayers.map { $0.name }
         playerNames.append("⬅️")
         names = playerNames
-        updateOuts(outs: state.gameState.outs)
+        updateOuts(outs: game?.outs ?? 0)
         adapter.performUpdates(animated: true)
     }
     
@@ -198,8 +198,8 @@ extension GameViewController {
         guard var updatedGame = game, hasEditRights else { return }
         let newInning = inning ?? updatedGame.inning + 1
         updatedGame.inning = newInning
+        updatedGame.outs = 0
         core.fire(command: UpdateObject(updatedGame))
-        core.fire(event: OutsReset())
     }
     
     fileprivate func showOptionsForGame() {
@@ -225,6 +225,9 @@ extension GameViewController {
     
     func presentAtBatCreation() {
         let newAtBatVC = AtBatCreationViewController.initializeFromStoryboard()
+        newAtBatVC.showOpponentScoreEdit = {
+            self.scoreLabelPressed(self)
+        }
         customPresentViewController(customPresenter, viewController: newAtBatVC, animated: true, completion: nil)
     }
     
@@ -251,6 +254,12 @@ extension GameViewController {
         if isCompleted {
             navigationController?.popViewController(animated: true)
         }
+    }
+    
+    fileprivate func saveOuts(outs: Int) {
+        guard var game = game, hasEditRights else { return }
+        game.outs = outs
+        core.fire(command: UpdateObject(game))
     }
     
     fileprivate func presentConfirmationAlert() {

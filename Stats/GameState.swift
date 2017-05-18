@@ -8,16 +8,11 @@
 
 import Foundation
 
-struct OutAdded: Event { }
-struct OutSubtracted: Event { }
-struct OutsReset: Event { }
-
 struct GameState: State {
     
     var currentPlayer: Player?
     var currentGame: Game?
     var allGames = Set<Game>()
-    var outs = 0
 
     // MARK: - Computed Properties
     
@@ -48,12 +43,6 @@ struct GameState: State {
             allGames.insert(event.payload)
         case let event as Selected<Player>:
             currentPlayer = event.item
-        case _ as OutAdded:
-            outs += 1
-        case _ as OutSubtracted:
-            outs -= 1
-        case _ as OutsReset:
-            outs = 0
         default:
             break
         }

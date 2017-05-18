@@ -11,9 +11,10 @@ import Presentr
 
 class OpponentScoreViewController: Component, AutoStoryboardInitializable {
     
+    @IBOutlet weak var opponentNameLabel: UILabel!
+    @IBOutlet weak var plusButton: UIButton!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet var accessoryView: UIView!
-    @IBOutlet weak var plusButton: UIButton!
     @IBOutlet weak var minusButton: CustomButton!
     
     fileprivate var currentGame: Game? {
@@ -22,6 +23,7 @@ class OpponentScoreViewController: Component, AutoStoryboardInitializable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        opponentNameLabel.text = currentGame?.opponent ?? "--"
         textField.inputAccessoryView = accessoryView
         plusButton.cornerRadius = 5
         minusButton.cornerRadius = 5

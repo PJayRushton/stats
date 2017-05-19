@@ -74,6 +74,3 @@ class StatFilterViewController: Component, AutoStoryboardInitializable {
     
 }
 
-extension StatFilterViewController {
-
-}

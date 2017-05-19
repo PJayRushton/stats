@@ -174,6 +174,7 @@ extension TeamCreationViewController {
     fileprivate func constructedTeam() -> Team? {
         guard let name = nameTextField.text else { return nil }
         let newTeamState = core.state.newTeamState
+        guard let imageURL = newTeamState.imageURL else { return nil }
         
         if var editingTeam = editingTeam {
             editingTeam.name = name
@@ -183,7 +184,7 @@ extension TeamCreationViewController {
             return editingTeam
         }
         
-        return Team(id: newRefs.teamRef.key, currentSeasonId: newRefs.seasonRef.key, imageURLString: newTeamState.imageURL?.absoluteString, name: name, sport: selectedSport)
+        return Team(id: newRefs.teamRef.key, currentSeasonId: newRefs.seasonRef.key, imageURL: imageURL, name: name, sport: selectedSport)
     }
     
     fileprivate func saveTeam() {

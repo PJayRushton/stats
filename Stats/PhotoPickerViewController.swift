@@ -23,14 +23,15 @@ class PhotoPickerViewController: Component, AutoStoryboardInitializable {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    fileprivate let layout = UICollectionViewFlowLayout()
+    fileprivate let margin: CGFloat = 4.0
+    
     fileprivate var imageURLs: [URL] {
         return core.state.stockImageURLs
     }
     fileprivate var selectedURL: URL? {
         return core.state.newTeamState.imageURL
     }
-    fileprivate let margin: CGFloat = 4.0
-    fileprivate let layout = UICollectionViewFlowLayout()
     fileprivate var viewMode = ViewMode.grid {
         didSet {
             guard viewMode != oldValue else { return }
@@ -41,13 +42,20 @@ class PhotoPickerViewController: Component, AutoStoryboardInitializable {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        _ = ImagePrefetcher(urls: imageURLs)
+
         layout.minimumLineSpacing = 1
         layout.minimumInteritemSpacing = 1
         collectionView.collectionViewLayout = layout
+        collectionView.allowsMultipleSelection = false
         
         if imageURLs.isEmpty {
             core.fire(command: GetStockImages())
         }
+    }
+    
+    override func update(with state: AppState) {
+        collectionView.reloadData()
     }
     
 }
@@ -67,7 +75,10 @@ extension PhotoPickerViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCell.reuseIdentifier, for: indexPath) as! PhotoCell
-        cell.imageURL = imageURLs[indexPath.item]
+        let imageURL = imageURLs[indexPath.item]
+        cell.imageURL = imageURL
+        cell.isSelected = core.state.newTeamState.imageURL == imageURL
+        
         return cell
     }
     
@@ -77,7 +88,12 @@ extension PhotoPickerViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedURL = imageURLs[indexPath.item]
-        core.fire(event: Selected<URL>(selectedURL))
+        if let alreadySelectedURL = core.state.newTeamState.imageURL, alreadySelectedURL == selectedURL {
+            core.fire(event: Selected<URL>(nil))
+            collectionView.deselectItem(at: indexPath, animated: true)
+        } else {
+            core.fire(event: Selected<URL>(selectedURL))
+        }
     }
     
 }
@@ -89,22 +105,6 @@ extension PhotoPickerViewController: UICollectionViewDelegateFlowLayout {
         let width = (fullWidth - (margin * viewMode.margins)) / viewMode.rawValue
         let height = width * 0.7
         return CGSize(width: width, height: height)
-    }
-    
-}
-
-extension PhotoPickerViewController: UICollectionViewDataSourcePrefetching {
-    
-    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
-        guard let firstIP = indexPaths.first, let lastIP = indexPaths.last else { return }
-        var urls = [URL]()
-        
-        if firstIP == lastIP {
-            urls.append(imageURLs[firstIP.item])
-        } else {
-            urls = Array(imageURLs[firstIP.item..<lastIP.item])
-        }
-        _ = ImagePrefetcher(urls: urls)
     }
     
 }

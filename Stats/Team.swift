@@ -48,10 +48,10 @@ struct Team: Identifiable, Unmarshaling {
         return App.core.state.seasonState.allSeasons.first(where: { $0.id == currentSeasonId })
     }
     
-    init(id: String = "", currentSeasonId: String? =  nil, imageURLString: String? = nil, name: String, sport: TeamSport = .slowPitch) {
+    init(id: String = "", currentSeasonId: String? =  nil, imageURL: URL? = nil, name: String, sport: TeamSport = .slowPitch) {
         self.id = id
         self.currentSeasonId = currentSeasonId
-        self.imageURLString = imageURLString
+        self.imageURLString = imageURL?.absoluteString
         self.name = name
         self.shareCode = 4.randomDigitsString
         self.sport = sport

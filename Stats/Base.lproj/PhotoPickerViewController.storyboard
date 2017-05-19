@@ -26,7 +26,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="9uA-XG-D5Y">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="43b-RA-ZZ8">
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" prefetchingEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="43b-RA-ZZ8">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="CV4-qC-cJL">
@@ -54,12 +54,13 @@
                                                                     <subviews>
                                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check" translatesAutoresizingMaskIntoConstraints="NO" id="GBa-7E-9oR">
                                                                             <rect key="frame" x="55.5" y="33.5" width="67.5" height="67.5"/>
+                                                                            <color key="tintColor" red="0.92495459319999995" green="0.94122463460000005" blue="0.94532805679999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="GBa-7E-9oR" secondAttribute="height" id="xmI-Po-nf9"/>
                                                                             </constraints>
                                                                         </imageView>
                                                                     </subviews>
-                                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
+                                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
                                                                     <constraints>
                                                                         <constraint firstItem="GBa-7E-9oR" firstAttribute="centerX" secondItem="BXu-eJ-ohg" secondAttribute="centerX" id="MAC-A4-JZ8"/>
                                                                         <constraint firstItem="GBa-7E-9oR" firstAttribute="height" secondItem="BXu-eJ-ohg" secondAttribute="height" multiplier="0.5" id="MB0-cx-ivt"/>
@@ -88,6 +89,7 @@
                                                     <constraint firstAttribute="bottom" secondItem="d2F-Qf-qVD" secondAttribute="bottom" id="yVG-vg-CSB"/>
                                                 </constraints>
                                                 <connections>
+                                                    <outlet property="checkImageView" destination="GBa-7E-9oR" id="GbR-EI-YLb"/>
                                                     <outlet property="checkView" destination="BXu-eJ-ohg" id="RlN-ik-CeW"/>
                                                     <outlet property="imageView" destination="I7j-KW-gkh" id="HaW-sK-2x9"/>
                                                 </connections>
@@ -96,7 +98,6 @@
                                         <connections>
                                             <outlet property="dataSource" destination="Rb5-Gg-J8i" id="4yd-jX-VSt"/>
                                             <outlet property="delegate" destination="Rb5-Gg-J8i" id="ALU-4o-qy4"/>
-                                            <outlet property="prefetchDataSource" destination="Rb5-Gg-J8i" id="hUw-f0-n81"/>
                                         </connections>
                                     </collectionView>
                                 </subviews>

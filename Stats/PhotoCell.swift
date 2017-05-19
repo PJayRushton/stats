@@ -13,17 +13,23 @@ class PhotoCell: UICollectionViewCell, AutoReuseIdentifiable {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var checkView: UIView!
+    @IBOutlet weak var checkImageView: UIImageView!
     
     override var isSelected: Bool {
         didSet {
             checkView.isHidden = !isSelected
         }
     }
-    
     var imageURL: URL? {
         didSet {
             imageView.kf.setImage(with: imageURL, placeholder: #imageLiteral(resourceName: "picture"))
         }
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        checkView.isHidden = true
+        checkImageView.tintColor = UIColor.mainAppColor
     }
     
 }

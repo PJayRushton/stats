@@ -72,8 +72,9 @@ extension StatsTrophiesViewController: IGListAdapterDataSource {
             if let secondPlaceStat = secondStat, secondPlaceStat.value > 0, secondPlaceStat.statType == winner.statType {
                 firstLoser = secondPlaceStat
             }
-            
-            trophySections.append(TrophySection(trophy: trophy, firstStat: winner, secondStat: firstLoser))
+            let trophySection = TrophySection(trophy: trophy, firstStat: winner, secondStat: firstLoser)
+            dump(trophySection)
+            trophySections.append(trophySection)
         }
         return trophySections
     }

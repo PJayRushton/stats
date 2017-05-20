@@ -235,7 +235,7 @@ extension AtBatCreationViewController {
     }
     
     fileprivate func saveAtBat(next: Bool) {
-        guard let atBat = constructedAtBat() else { print("Could not construct at bat"); return }
+        guard let atBat = constructedAtBat() else { return }
         saveIsEnabled = false
         let updateCommand = UpdateObject(atBat) { success in
             self.saveIsEnabled = true

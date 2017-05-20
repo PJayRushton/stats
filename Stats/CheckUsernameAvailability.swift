@@ -20,9 +20,7 @@ struct CheckUsernameAvailability: Command {
             switch result {
             case .success:
                 core.fire(event: UsernameAvailabilityUpdated(isAvailable: false))
-                print("Username: \(self.username) is TAKEN")
             case .failure:
-                print("Username: \(self.username) is AVAILABLE!! YAY 👍")
                 core.fire(event: UsernameUpdated(username: self.username))
                 core.fire(event: UsernameAvailabilityUpdated(isAvailable: true))
             }

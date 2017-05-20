@@ -136,8 +136,6 @@ enum StatType: String {
             guard let player = playerId.statePlayer else { return }
             let playerAtBats = atBats.filter { $0.playerId == playerId }
             let statValue = self.statValue(with: playerAtBats)
-            
-            guard (self != .battingAverage && statValue > 0) else { return }
             let playerStat = Stat(player: player, statType: self, value: statValue)
             playerStats.append(playerStat)
         }

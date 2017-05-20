@@ -43,7 +43,7 @@ extension StatsNumbersViewController: IGListAdapterDataSource {
         
         if core.state.statState.includeSubs == false {
             allAtBats = allAtBats.filter({ atBat -> Bool in
-                guard let player = atBat.playerId.statePlayer else { print("Filterout out at bat \(atBat))");return false }
+                guard let player = atBat.playerId.statePlayer else { return false }
                 return !player.isSub
             })
         }

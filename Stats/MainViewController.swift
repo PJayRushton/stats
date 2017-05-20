@@ -37,15 +37,9 @@ class MainViewController: Component {
     override func update(with state: AppState) {
         let userState = state.userState
         
-        if let _ = userState.iCloudId, userState.isLoaded {
+        if let _ = userState.iCloudId, userState.isLoaded, state.teamState.isLoaded {
             presentApplication()
         } else {
-//            if state.userState.isLoaded == false {
-//                print("User state is not loaded")
-//            }
-//            if state.teamState.isLoaded == false {
-//                print("TEAM state is not loaded")
-//            }
             showLoadingScreen()
         }
     }

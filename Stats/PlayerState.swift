@@ -10,15 +10,18 @@ import Foundation
 
 struct PlayerState: State {
     
-    var allPlayers = Set<Player>()
+    var allPlayersDict = [String: [Player]]()
     
     mutating func react(to event: Event) {
         switch event {
         case let event as Updated<Player>:
-            allPlayers.remove(event.payload)
-            allPlayers.insert(event.payload)
+            let teamId = event.payload.teamId
+            guard var teamPlayers = allPlayersDict[teamId], let index = teamPlayers.index(of: event.payload) else { return }
+            teamPlayers[index] = event.payload
+            allPlayersDict[teamId] = teamPlayers
         case let event as Updated<[Player]>:
-            allPlayers = Set(event.payload)
+            guard let first = event.payload.first else { return }
+            allPlayersDict[first.teamId] = event.payload
         default:
             break
         }
@@ -34,7 +37,8 @@ struct PlayerState: State {
     }
     
     func players(for teamId: String) -> [Player] {
-        return allPlayers.filter { $0.teamId == teamId }.sorted(by: { $0.order < $1.order })
+        guard let teamPlayers = allPlayersDict[teamId] else { return [] }
+        return teamPlayers.sorted(by: { $0.order < $1.order })
     }
     
 }

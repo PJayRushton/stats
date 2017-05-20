@@ -39,10 +39,11 @@ extension StatsTrophiesViewController: IGListAdapterDataSource {
     
     func objects(for listAdapter: IGListAdapter) -> [IGListDiffable] {
         let allTrophies = Trophy.allValues
-        var allAtBats = Array(core.state.atBatState.allAtBats)
+        guard let currentTeam = core.state.teamState.currentTeam else { return [] }
+        var teamAtBats = core.state.atBatState.atBats(for: currentTeam)
         
         if core.state.statState.includeSubs == false {
-            allAtBats = allAtBats.filter({ atBat -> Bool in
+            teamAtBats = teamAtBats.filter({ atBat -> Bool in
                 guard let player = atBat.playerId.statePlayer else { return false }
                 return !player.isSub
             })
@@ -50,7 +51,7 @@ extension StatsTrophiesViewController: IGListAdapterDataSource {
         var trophySections = [IGListDiffable]()
         
         allTrophies.forEach { trophy in
-            let trophyStats = trophy.statType.allStats(with: allAtBats).sorted(by: { $0.value > $1.value })
+            let trophyStats = trophy.statType.allStats(with: teamAtBats).sorted(by: { $0.value > $1.value })
             var winnerStat: Stat?
             var secondStat: Stat?
             

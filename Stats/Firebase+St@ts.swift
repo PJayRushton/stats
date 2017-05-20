@@ -53,11 +53,11 @@ enum StatsRefs {
     }
     
     static func userAvatarStorageRef(userId id: String) -> FIRStorageReference {
-        return storageRef.child("avatars").child(id)
+        return storageRef.child(avatarsKey).child(id)
     }
     
     static func teamImageStorageRef(teamId id: String) -> FIRStorageReference {
-        return storageRef.child("teams").child(id)
+        return storageRef.child(teamsRefKey).child(id)
     }
 
 }
@@ -65,6 +65,10 @@ enum StatsRefs {
 extension String {
     
     var statePlayer: Player? {
-        return App.core.state.playerState.allPlayers.first(where: { $0.id == self })
+        let state = App.core.state
+        guard let currentTeam = state.teamState.currentTeam else { return nil }
+        let teamPlayers = state.playerState.players(for: currentTeam)
+        return teamPlayers.first(where: { $0.id == self })
     }
+    
 }

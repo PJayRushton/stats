@@ -38,7 +38,8 @@ class StatsNumbersViewController: Component, AutoStoryboardInitializable {
 extension StatsNumbersViewController: IGListAdapterDataSource {
     
     func objects(for listAdapter: IGListAdapter) -> [IGListDiffable] {
-        var allAtBats = Array(core.state.atBatState.allAtBats)
+        guard let currentTeam = core.state.teamState.currentTeam else { return [] }
+        var allAtBats = core.state.atBatState.atBats(for: currentTeam)
         
         if core.state.statState.includeSubs == false {
             allAtBats = allAtBats.filter({ atBat -> Bool in

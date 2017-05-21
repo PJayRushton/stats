@@ -137,6 +137,7 @@ extension GameCreationViewController {
     fileprivate func updateUI(with game: Game?) {
         navigationController?.navigationBar.barTintColor = HomeMenuItem.newGame.backgroundColor
         opponentTextField.inputAccessoryView = keyboardAccessoryView
+        locationTextField.inputAccessoryView = keyboardAccessoryView
         setUpSegmentedControls()
         setUpDatePicker()
         date = Date().nearestHalfHour

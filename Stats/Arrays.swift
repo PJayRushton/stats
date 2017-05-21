@@ -45,6 +45,10 @@ extension Sequence where Iterator.Element == AtBat {
         return self.filter { $0.resultCode.isHit }.count
     }
     
+    var battingAverageCount: Int {
+        return self.filter { $0.resultCode.countsForBA || ($0.resultCode == .out && $0.rbis > 0) }.count
+    }
+    
 }
 
 extension UUID {

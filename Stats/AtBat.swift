@@ -15,6 +15,7 @@ enum AtBatCode: String {
     case roe
     case k
     case w
+    case hbp
     case single
     case double
     case triple
@@ -39,7 +40,7 @@ enum AtBatCode: String {
     }
     var tintColor: UIColor {
         switch self {
-        case .w, .single, .double, .triple, .hr, .hrITP:
+        case .hbp, .w, .single, .double, .triple, .hr, .hrITP:
             return .mainAppColor
         case .out, .roe, .k:
             return .flatCoffee
@@ -51,11 +52,14 @@ enum AtBatCode: String {
     var isHit: Bool {
         return self == .single || self == .double || self == .triple || self == .hr || self == .hrITP
     }
+    var countsForBA: Bool {
+        return self != .w && self != .hbp
+    }
     var isHR: Bool {
         return self == .hr || self == .hrITP
     }
     var gotOnBase: Bool {
-        return isHit || self == .w || self == .roe
+        return isHit || self == .w || self == .hbp || self == .roe
     }
     
 }
@@ -117,28 +121,6 @@ extension AtBat {
     
     var ref: FIRDatabaseReference {
         return StatsRefs.atBatsRef(teamId: teamId).child(id)
-    }
-    
-}
-
-extension Int {
-    
-    var emojiString: String {
-        switch self {
-        case 0: return "0️⃣"
-        case 1: return "1️⃣"
-        case 2: return "2️⃣"
-        case 3: return "3️⃣"
-        case 4: return "4️⃣"
-        case 5: return "5️⃣"
-        case 6: return "6️⃣"
-        case 7: return "7️⃣"
-        case 8: return "8️⃣"
-        case 9: return "9️⃣"
-        case 10: return "🔟"
-        default:
-            fatalError()
-        }
     }
     
 }

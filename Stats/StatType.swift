@@ -15,6 +15,7 @@ enum StatType: String {
     case gamesPlayed
     case grandSlams
     case hits
+    case hitByPitches
     case homeRuns
     case onBasePercentage
     case rbis
@@ -24,7 +25,7 @@ enum StatType: String {
     case triples
     case walks
     
-    static let allValues = [StatType.battingAverage, .onBasePercentage, .hits, .atBats, .singles, .doubles, .triples, .homeRuns, .grandSlams, .rbis, .walks, .strikeOuts, .reachOnError, .gamesPlayed]
+    static let allValues = [StatType.battingAverage, .onBasePercentage, .hits, .atBats, .singles, .doubles, .triples, .homeRuns, .grandSlams, .rbis, .walks, .strikeOuts, .reachOnError]
     
     var abbreviation: String {
         switch self {
@@ -98,7 +99,7 @@ enum StatType: String {
             return atBats.count.doubleValue
         case .battingAverage:
             let hits = atBats.hitCount.doubleValue
-            return hits / atBats.count.doubleValue
+            return hits / atBats.battingAverageCount.doubleValue
         case .doubles:
             return atBats.withResult(.double).count.doubleValue
         case .gamesPlayed:
@@ -108,6 +109,8 @@ enum StatType: String {
             return hrs.filter { $0.rbis == 4 }.count.doubleValue
         case .hits:
             return atBats.hitCount.doubleValue
+        case .hitByPitches:
+            return atBats.withResult(.hbp).count.doubleValue
         case .homeRuns:
             return atBats.withResults([.hr, .hrITP]).count.doubleValue
         case .onBasePercentage:

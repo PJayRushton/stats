@@ -16,6 +16,7 @@ enum Trophy {
     case grandSlams
     case rbis
     case walks
+    case hitByPitches
     case onBasePercentage
     case reachedOnErrors
     case doubles
@@ -38,6 +39,8 @@ enum Trophy {
             return "🏡 HIT ME IN! 🏡"
         case .walks:
             return "🤠WALKER TEXAS RANGER 🤠"
+        case .hitByPitches:
+            return "⚾️ PITCH SLAPPED 🤕"
         case .onBasePercentage:
             return "😎 MR. RELIABLE 😎"
         case .reachedOnErrors:
@@ -47,7 +50,7 @@ enum Trophy {
         case .triples:
             return "⚡️⚡️⚡️TRIPLE THREAT ⚡️⚡️⚡️"
         case .worseBattingAverage:
-            return "😅 DON'T GIVE UP 😒"
+            return "😅 DON'T GIVE UP 😞"
         }
     }
     
@@ -65,6 +68,8 @@ enum Trophy {
             return "(Most RBIs)"
         case .walks:
             return "(Most Walks)"
+        case .hitByPitches:
+            return "(Most Times Hit By Pitch)"
         case .onBasePercentage:
             return "(Best On-Base Percentage)"
         case .reachedOnErrors:
@@ -91,6 +96,8 @@ enum Trophy {
         case .rbis:
             return UIColor.mainAppColor
         case .walks:
+            return UIColor.mainAppColor
+        case .hitByPitches:
             return UIColor.mainAppColor
         case .onBasePercentage:
             return UIColor.mainAppColor
@@ -119,6 +126,8 @@ enum Trophy {
             return .rbis
         case .walks:
             return .walks
+        case .hitByPitches:
+            return .hitByPitches
         case .onBasePercentage:
             return .onBasePercentage
         case .reachedOnErrors:

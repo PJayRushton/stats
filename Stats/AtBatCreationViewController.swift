@@ -212,6 +212,8 @@ extension AtBatCreationViewController {
         }
         hrButton.isSelected = code.isHR
         isShowingITPSwitch = code.isHR
+        let defaultRBIs = code.isHR ? 1 : 0
+        try? rbisSegControl.setIndex(UInt(defaultRBIs))
         
         UIView.animate(withDuration: 0.25) {
             self.saveNextButton.isHidden = self.isLastOut || self.editingAtBat != nil

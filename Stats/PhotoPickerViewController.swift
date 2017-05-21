@@ -24,7 +24,7 @@ class PhotoPickerViewController: Component, AutoStoryboardInitializable {
     @IBOutlet weak var collectionView: UICollectionView!
     
     fileprivate let layout = UICollectionViewFlowLayout()
-    fileprivate let margin: CGFloat = 4.0
+    fileprivate let margin: CGFloat = 1.0
     
     fileprivate var imageURLs: [URL] {
         return core.state.stockImageURLs

@@ -13,6 +13,7 @@ enum Trophy {
     case battingAverage
     case hits
     case homeRuns
+    case inTheParkers
     case grandSlams
     case rbis
     case walks
@@ -23,7 +24,7 @@ enum Trophy {
     case triples
     case worseBattingAverage
     
-    static let allValues = [Trophy.battingAverage, .hits, .homeRuns, .grandSlams, .rbis, .walks, .onBasePercentage, .reachedOnErrors, .doubles, .triples, .worseBattingAverage]
+    static let allValues = [Trophy.battingAverage, .hits, .homeRuns, .inTheParkers, .grandSlams, .rbis, .walks, .onBasePercentage, .reachedOnErrors, .doubles, .triples, .worseBattingAverage]
     
     var displayName: String {
         switch self {
@@ -33,6 +34,8 @@ enum Trophy {
             return "☠️ HITMAN ☠️"
         case .homeRuns:
             return "💣 LONG BOMBER 💣"
+        case .inTheParkers:
+            return "👟 RUN FOREST, RUN! 🏃"
         case .grandSlams:
             return "🍗 SANDWICH MAKER 🍗"
         case .rbis:
@@ -62,6 +65,8 @@ enum Trophy {
             return "(Most Hits)"
         case .homeRuns:
             return "(Most Home Runs)"
+        case .inTheParkers:
+            return "(Most In-The-Park HRs)"
         case .grandSlams:
             return "(Most Grand Slams)"
         case .rbis:
@@ -91,6 +96,8 @@ enum Trophy {
             return UIColor.mainAppColor
         case .homeRuns:
             return UIColor.mainAppColor
+        case .inTheParkers:
+            return UIColor.mainAppColor
         case .grandSlams:
             return UIColor.mainAppColor
         case .rbis:
@@ -119,6 +126,8 @@ enum Trophy {
         case .hits:
             return .hits
         case .homeRuns:
+            return .homeRuns
+        case .inTheParkers:
             return .homeRuns
         case .grandSlams:
             return .grandSlams

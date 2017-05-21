@@ -17,6 +17,7 @@ enum StatType: String {
     case hits
     case hitByPitches
     case homeRuns
+    case itpHRs
     case onBasePercentage
     case rbis
     case reachOnError
@@ -25,7 +26,7 @@ enum StatType: String {
     case triples
     case walks
     
-    static let allValues = [StatType.battingAverage, .onBasePercentage, .hits, .atBats, .singles, .doubles, .triples, .homeRuns, .grandSlams, .rbis, .walks, .strikeOuts, .reachOnError]
+    static let allValues = [StatType.battingAverage, .onBasePercentage, .hits, .atBats, .singles, .doubles, .triples, .homeRuns, .itpHRs, .grandSlams, .rbis, .walks, .strikeOuts, .reachOnError]
     
     var abbreviation: String {
         switch self {
@@ -41,8 +42,12 @@ enum StatType: String {
             return "GS"
         case .hits:
             return "H"
+        case .hitByPitches:
+            return "HBP"
         case .homeRuns:
             return "HR"
+        case .itpHRs:
+            return "HR(ITP)"
         case .onBasePercentage:
             return "OBP"
         case .rbis:
@@ -60,36 +65,40 @@ enum StatType: String {
         }
     }
     
-    func displayString(singular: Bool = false) -> String {
+    func displayString(isSingular: Bool = false) -> String {
         switch self {
         case .atBats:
-            return singular ? "At Bat" : "At Bats"
+            return isSingular ? "At Bat" : "At Bats"
         case .battingAverage:
             return "BA"
         case .doubles:
-            return singular ? "Double" : "Doubles"
+            return isSingular ? "Double" : "Doubles"
         case .gamesPlayed:
-            return singular ? "Game" : "Games"
+            return isSingular ? "Game" : "Games"
         case .grandSlams:
-            return singular ? "Grand Slam" : "Grand Slams"
+            return isSingular ? "Grand Slam" : "Grand Slams"
         case .hits:
-            return singular ? "Hit" : "Hits"
+            return isSingular ? "Hit" : "Hits"
+        case .hitByPitches:
+            return isSingular ? "Hit by Pitch" : "Hit by Pitches"
         case .homeRuns:
-            return singular ? "Home Run" : "Home Runs"
+            return isSingular ? "Home Run" : "Home Runs"
+        case .itpHRs:
+            return isSingular ? "HR (ITP)" : "HRs (ITP)"
         case .onBasePercentage:
             return "OBP"
         case .rbis:
-            return singular ? "RBI" : "RBIs"
+            return isSingular ? "RBI" : "RBIs"
         case .reachOnError:
             return "Reached on Error"
         case .singles:
-            return singular ? "Single" : "Singles"
+            return isSingular ? "Single" : "Singles"
         case .strikeOuts:
-            return singular ? "Strike Out" : "Strike Outs"
+            return isSingular ? "Strike Out" : "Strike Outs"
         case .triples:
-            return singular ? "Triple" : "Triples"
+            return isSingular ? "Triple" : "Triples"
         case .walks:
-            return singular ? "Walk" : "Walks"
+            return isSingular ? "Walk" : "Walks"
         }
     }
     
@@ -113,6 +122,8 @@ enum StatType: String {
             return atBats.withResult(.hbp).count.doubleValue
         case .homeRuns:
             return atBats.withResults([.hr, .hrITP]).count.doubleValue
+        case .itpHRs:
+            return atBats.withResult(.hrITP).count.doubleValue
         case .onBasePercentage:
             let onBaseBatCount = atBats.filter { $0.resultCode.gotOnBase }.count.doubleValue
             return onBaseBatCount / atBats.count.doubleValue

@@ -44,6 +44,8 @@ class TeamHeaderCell: UICollectionViewCell, AutoReuseIdentifiable {
         nameButton.setTitle(team.name, for: .normal)
         let seasonText = team.currentSeason?.name ?? "--"
         seasonButton.setTitle(seasonText + " 🔽", for: .normal)
+        nameButton.isEnabled = canEdit
+        seasonButton.isEnabled = canEdit
         editButton.isHidden = !canEdit
     }
     

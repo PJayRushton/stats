@@ -38,7 +38,7 @@ class TeamHeaderSectionController: IGListSectionController {
     var settingsPressed: () -> Void = { }
     var editPressed: (() -> Void) = { }
     var switchTeamPressed: (() -> Void) = { }
-    
+    var seasonPressed: (() -> Void) = { }
 }
 
 extension TeamHeaderSectionController: IGListSectionType {
@@ -61,7 +61,7 @@ extension TeamHeaderSectionController: IGListSectionType {
         cell.settingsPressed = settingsPressed
         cell.editPressed = editPressed
         cell.switchTeamPressed = switchTeamPressed
-        
+        cell.seasonPressed = seasonPressed
         return cell
     }
     

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="sed-BJ-6mt">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="LemonMilk.otf">
+            <string>LemonMilk</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Seasons-->
+        <scene sceneID="VU7-jD-g7W">
+            <objects>
+                <viewController storyboardIdentifier="SeasonsViewController" title="Seasons" automaticallyAdjustsScrollViewInsets="NO" id="sed-BJ-6mt" customClass="SeasonsViewController" customModule="Stats" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aq6-6p-1US"/>
+                        <viewControllerLayoutGuide type="bottom" id="utc-Ga-cSO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ewh-ls-ddU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="92" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Luf-XF-K68">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="bEP-zV-DyA">
+                                    <rect key="frame" x="0.0" y="120" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SeasonTableCell" rowHeight="92" id="1Nd-j2-hxm" customClass="SeasonTableCell" customModule="Stats" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="92"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1Nd-j2-hxm" id="zto-KM-03m">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="91.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xdl-RS-625">
+                                                    <rect key="frame" x="16" y="8" width="351" height="75.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Season Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NfL-fl-ww9">
+                                                            <rect key="frame" x="0.0" y="27.5" width="311.5" height="21"/>
+                                                            <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="18"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h0K-Hl-kMy" customClass="AIFlatSwitch" customModule="AIFlatSwitch">
+                                                            <rect key="frame" x="311.5" y="18" width="39.5" height="40"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="h0K-Hl-kMy" secondAttribute="height" id="mEd-Aa-ogM"/>
+                                                                <constraint firstAttribute="height" constant="40" id="mid-rz-uXZ"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
+                                                                    <real key="value" value="3"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="strokeColor">
+                                                                    <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="trailStrokeColor">
+                                                                    <color key="value" red="0.55803233389999995" green="0.69207900759999996" blue="0.12800171969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSelected" value="NO"/>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="xdl-RS-625" firstAttribute="leading" secondItem="zto-KM-03m" secondAttribute="leadingMargin" constant="8" id="C7i-lC-i12"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="xdl-RS-625" secondAttribute="bottom" id="RnY-UA-0R9"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="xdl-RS-625" secondAttribute="trailing" id="h17-3X-mKi"/>
+                                                <constraint firstItem="xdl-RS-625" firstAttribute="top" secondItem="zto-KM-03m" secondAttribute="topMargin" id="wWN-r6-eQA"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="isCurrentSwitch" destination="h0K-Hl-kMy" id="jVg-p5-5zN"/>
+                                            <outlet property="nameLabel" destination="NfL-fl-ww9" id="JY7-dj-fGi"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="sed-BJ-6mt" id="TgA-Ls-eMI"/>
+                                    <outlet property="delegate" destination="sed-BJ-6mt" id="leV-p1-XMT"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Luf-XF-K68" firstAttribute="top" secondItem="aq6-6p-1US" secondAttribute="bottom" id="BzW-sf-Qww"/>
+                            <constraint firstItem="Luf-XF-K68" firstAttribute="leading" secondItem="ewh-ls-ddU" secondAttribute="leading" id="I7f-J7-zic"/>
+                            <constraint firstAttribute="trailing" secondItem="Luf-XF-K68" secondAttribute="trailing" id="yeL-oQ-xmd"/>
+                            <constraint firstItem="utc-Ga-cSO" firstAttribute="top" secondItem="Luf-XF-K68" secondAttribute="bottom" id="zmu-sG-Rhz"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Seasons" id="KNO-KR-abw">
+                        <barButtonItem key="leftBarButtonItem" image="xBar" id="LGu-B2-J1m">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="xButtonPressed:" destination="sed-BJ-6mt" id="wbD-Na-Ngx"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="plusBar" id="Mj7-0A-2sN">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="plusButtonPressed:" destination="sed-BJ-6mt" id="tZk-pr-9PW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="plusButton" destination="Mj7-0A-2sN" id="bT8-M9-dsu"/>
+                        <outlet property="tableView" destination="Luf-XF-K68" id="VeW-yM-7hW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Btb-NS-P0x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="181.59999999999999" y="161.46926536731635"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="plusBar" width="26" height="26"/>
+        <image name="xBar" width="22" height="23"/>
+    </resources>
+</document>

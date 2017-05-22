@@ -60,13 +60,13 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="7pf-G2-Xq9" userLabel="Bottom stack">
-                                <rect key="frame" x="8" y="104" width="310" height="69"/>
+                                <rect key="frame" x="8" y="109" width="310" height="64"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="h8F-71-HZJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="67" height="69"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="58" height="64"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Xu-QS-IWj">
-                                                <rect key="frame" x="0.0" y="0.0" width="67" height="45"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="58" height="40"/>
                                                 <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="24"/>
                                                 <state key="normal" title="Team">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -76,7 +76,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uAa-pn-TJw">
-                                                <rect key="frame" x="0.0" y="45" width="67" height="24"/>
+                                                <rect key="frame" x="0.0" y="40" width="58" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="24" id="3bH-oP-aFh"/>
                                                 </constraints>
@@ -91,7 +91,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lqc-C1-Ime">
-                                        <rect key="frame" x="278" y="0.0" width="32" height="69"/>
+                                        <rect key="frame" x="278" y="0.0" width="32" height="64"/>
                                         <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="32"/>
                                         <state key="normal" title="✏️"/>
                                         <connections>

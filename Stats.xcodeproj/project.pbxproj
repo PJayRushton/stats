@@ -151,6 +151,9 @@
 		A1DC99D31E7E3E4500C6FF8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DC99D21E7E3E4500C6FF8C /* AppDelegate.swift */; };
 		A1DC99DA1E7E3E4500C6FF8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1DC99D91E7E3E4500C6FF8C /* Assets.xcassets */; };
 		A1E5AE5D1EAA59C70046131B /* Chameleon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E5AE5C1EAA59C70046131B /* Chameleon.swift */; };
+		A1EC56F11ED3228B00A9B592 /* SeasonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC56F01ED3228B00A9B592 /* SeasonsViewController.swift */; };
+		A1EC56F41ED322EA00A9B592 /* SeasonsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1EC56F21ED322EA00A9B592 /* SeasonsViewController.storyboard */; };
+		A1EC56F61ED3248900A9B592 /* SeasonTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC56F51ED3248900A9B592 /* SeasonTableCell.swift */; };
 		A1F959341E8953440087B040 /* Season.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F959331E8953440087B040 /* Season.swift */; };
 		A1F959391E8959C60087B040 /* LemonMilk.otf in Resources */ = {isa = PBXBuildFile; fileRef = A1F959381E8959C60087B040 /* LemonMilk.otf */; };
 		E550D9575E4FFE68382F160D /* Pods_Stats.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 097AB2DA5C7A85576113EB29 /* Pods_Stats.framework */; };
@@ -307,6 +310,9 @@
 		A1DC99D91E7E3E4500C6FF8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1DC99DE1E7E3E4500C6FF8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1E5AE5C1EAA59C70046131B /* Chameleon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chameleon.swift; sourceTree = "<group>"; };
+		A1EC56F01ED3228B00A9B592 /* SeasonsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeasonsViewController.swift; sourceTree = "<group>"; };
+		A1EC56F31ED322EA00A9B592 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SeasonsViewController.storyboard; sourceTree = "<group>"; };
+		A1EC56F51ED3248900A9B592 /* SeasonTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeasonTableCell.swift; sourceTree = "<group>"; };
 		A1F959331E8953440087B040 /* Season.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Season.swift; sourceTree = "<group>"; };
 		A1F959381E8959C60087B040 /* LemonMilk.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LemonMilk.otf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -448,6 +454,7 @@
 				A17EF6BA1E930D3100DEE4ED /* TeamListViewController.storyboard */,
 				A1B65DCB1EB07818009983E1 /* TrophyHeaderCell.xib */,
 				A1B65DCE1EB07BFC009983E1 /* TrophyWinnerCell.xib */,
+				A1EC56F21ED322EA00A9B592 /* SeasonsViewController.storyboard */,
 			);
 			path = Base.lproj;
 			sourceTree = "<group>";
@@ -476,6 +483,8 @@
 				A16D41761E97D1D500DE01D4 /* PlayerCell.swift */,
 				A16D417A1E97FF6000DE01D4 /* PlayerCreationViewController.swift */,
 				A16D416E1E97D08F00DE01D4 /* RosterViewController.swift */,
+				A1EC56F01ED3228B00A9B592 /* SeasonsViewController.swift */,
+				A1EC56F51ED3248900A9B592 /* SeasonTableCell.swift */,
 				A1A2C36A1E8C05190008274F /* SectionControllers */,
 				A1D67D531E9097E100200B65 /* SettingsViewController.swift */,
 				A1C7220F1EA0F71700A71C51 /* ShareTeamRolesViewController.swift */,
@@ -701,6 +710,7 @@
 				A11B4D991EAED3BB00798D52 /* StatsPageViewController.storyboard in Resources */,
 				A1D67D521E9097C600200B65 /* SettingsViewController.storyboard in Resources */,
 				A14B64F81E8E9D2300CBDE92 /* GoogleService-Info.plist in Resources */,
+				A1EC56F41ED322EA00A9B592 /* SeasonsViewController.storyboard in Resources */,
 				A1C722181EA10D1800A71C51 /* ShareTeamViewController.storyboard in Resources */,
 				A1D67D4D1E8FE8FC00200B65 /* LoadingImageViewController.storyboard in Resources */,
 				A17999971E82DFF00058A002 /* LaunchScreen.storyboard in Resources */,
@@ -768,11 +778,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1B65DBD1EAF9AF9009983E1 /* StatType.swift in Sources */,
+				A1EC56F11ED3228B00A9B592 /* SeasonsViewController.swift in Sources */,
 				A1A2C3691E8C05150008274F /* TeamHeaderSectionController.swift in Sources */,
 				A1CD599F1EC9F2D100D26FD8 /* GradientView.swift in Sources */,
 				A1CD9A191E8AA83D00D3C8F7 /* NewUserState.swift in Sources */,
 				A1BF9C401E8AC449007341EA /* GameState.swift in Sources */,
 				A1CD599D1EC9EBEC00D26FD8 /* UIImageView+URL.swift in Sources */,
+				A1EC56F61ED3248900A9B592 /* SeasonTableCell.swift in Sources */,
 				A1B65DCA1EB077A2009983E1 /* TrophyHeaderCell.swift in Sources */,
 				A14B64F61E8E0E5400CBDE92 /* FirebaseNetworkAccess.swift in Sources */,
 				A14B64EE1E8D662900CBDE92 /* TeamCreationViewController.swift in Sources */,
@@ -1136,6 +1148,14 @@
 				A1D67D591E928A0D00200B65 /* Base */,
 			);
 			name = BasicHeaderCell.xib;
+			sourceTree = "<group>";
+		};
+		A1EC56F21ED322EA00A9B592 /* SeasonsViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A1EC56F31ED322EA00A9B592 /* Base */,
+			);
+			name = SeasonsViewController.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

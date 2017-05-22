@@ -132,6 +132,13 @@ extension HomeViewController {
         present(creationVCWithNav, animated: true, completion: nil)
     }
     
+    func presentSeasonManager() {
+        feedbackGenerator.selectionChanged()
+        let seasonsVC = SeasonsViewController.initializeFromStoryboard().embededInNavigationController
+        seasonsVC.modalPresentationStyle = .overFullScreen
+        present(seasonsVC, animated: true, completion: nil)
+    }
+    
     fileprivate func pushGames(new: Bool = false) {
         let gamesVC = GamesViewController.initializeFromStoryboard()
         gamesVC.new = new
@@ -223,6 +230,7 @@ extension HomeViewController: IGListAdapterDataSource {
             headerController.settingsPressed = presentSettings
             headerController.editPressed = presentTeamEdit
             headerController.switchTeamPressed = presentTeamSwitcher
+            headerController.seasonPressed = presentSeasonManager
             return headerController
             
         case _ as TeamActionSection:

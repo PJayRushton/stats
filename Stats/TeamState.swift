@@ -19,6 +19,10 @@ struct TeamState: State {
         case let event as Selected<Team>:
             currentTeam = event.item
             isLoaded = true
+            
+            if let selectedTeam = event.item {
+                UserDefaults.standard.lastUsedTeamId = selectedTeam.id
+            }
         case let event as Updated<Team>:
             allTeams.remove(event.payload)
             allTeams.insert(event.payload)
@@ -27,18 +31,21 @@ struct TeamState: State {
             if event.payload == currentTeam {
                 currentTeam = event.payload
             }
-            
-            if let user = App.core.state.userState.currentUser, currentTeam == nil, allTeams.count == user.allTeamIds.count {
-                currentTeam = allTeams.sorted { $0.touchDate > $1.touchDate }.first
+            if let lastUsedId = UserDefaults.standard.lastUsedTeamId, event.payload.id == lastUsedId {
+                currentTeam = event.payload
+            }
+            if let currentUser = App.core.state.userState.currentUser, allTeams.count == currentUser.allTeamIds.count, currentTeam == nil { // Data migration. Switched from using touch date to defaults. First launch didn't select a team.
+                currentTeam = event.payload
             }
         case let event as Selected<User>:
-            if let user = event.item, user.allTeamIds.isEmpty {
+            if let _ = event.item {
                 isLoaded = true
             }
         case let event as Delete<Team>:
             allTeams.remove(event.object)
-            if currentTeam == event.object {
-                currentTeam = allTeams.sorted { $0.touchDate > $1.touchDate }.first
+            
+            if currentTeam == event.object, let first = allTeams.first {
+                currentTeam = first
             }
         default:
             break
@@ -57,4 +64,17 @@ struct TeamState: State {
         }
     }
     
+}
+
+extension UserDefaults {
+    
+    var lastUsedTeamId: String? {
+        get {
+            return string(forKey: #function)
+        }
+        set {
+            set(newValue, forKey: #function)
+            synchronize()
+        }
+    }
 }

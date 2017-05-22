@@ -70,7 +70,6 @@
 		A17DC2431EAC90DD00597063 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17DC2421EAC90DD00597063 /* Gender.swift */; };
 		A17EF6BC1E930D3100DEE4ED /* TeamListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A17EF6BA1E930D3100DEE4ED /* TeamListViewController.storyboard */; };
 		A17EF6BE1E931A0300DEE4ED /* TeamListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17EF6BD1E931A0300DEE4ED /* TeamListViewController.swift */; };
-		A17EF6C01E93256000DEE4ED /* TouchObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17EF6BF1E93256000DEE4ED /* TouchObject.swift */; };
 		A17EF6C41E93E8D200DEE4ED /* NewTeamState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17EF6C31E93E8D200DEE4ED /* NewTeamState.swift */; };
 		A17EF6C61E93EDEC00DEE4ED /* UploadToStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17EF6C51E93EDEC00DEE4ED /* UploadToStorage.swift */; };
 		A17EF6C81E93FC6D00DEE4ED /* CreateSeason.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17EF6C71E93FC6D00DEE4ED /* CreateSeason.swift */; };
@@ -227,7 +226,6 @@
 		A17DC2421EAC90DD00597063 /* Gender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
 		A17EF6BB1E930D3100DEE4ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = TeamListViewController.storyboard; sourceTree = "<group>"; };
 		A17EF6BD1E931A0300DEE4ED /* TeamListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamListViewController.swift; sourceTree = "<group>"; };
-		A17EF6BF1E93256000DEE4ED /* TouchObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchObject.swift; sourceTree = "<group>"; };
 		A17EF6C31E93E8D200DEE4ED /* NewTeamState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTeamState.swift; sourceTree = "<group>"; };
 		A17EF6C51E93EDEC00DEE4ED /* UploadToStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadToStorage.swift; sourceTree = "<group>"; };
 		A17EF6C71E93FC6D00DEE4ED /* CreateSeason.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateSeason.swift; sourceTree = "<group>"; };
@@ -358,7 +356,6 @@
 				A17EF6CD1E94148300DEE4ED /* SubscribeToObject.swift */,
 				A1D67D4E1E8FE9E700200B65 /* SubscribeToReachability.swift */,
 				A17EF6CF1E941D8700DEE4ED /* SubscribeToTeam.swift */,
-				A17EF6BF1E93256000DEE4ED /* TouchObject.swift */,
 				A17EF6CB1E94044E00DEE4ED /* UpdateObject.swift */,
 				A17EF6C51E93EDEC00DEE4ED /* UploadToStorage.swift */,
 			);
@@ -833,7 +830,6 @@
 				A1868FA21E802F5C00C191EC /* Reactor.swift in Sources */,
 				A17EF6C61E93EDEC00DEE4ED /* UploadToStorage.swift in Sources */,
 				A1D67D4A1E8FE8EE00200B65 /* LoadingImageViewController.swift in Sources */,
-				A17EF6C01E93256000DEE4ED /* TouchObject.swift in Sources */,
 				A1B65DBF1EB010E1009983E1 /* StatCell.swift in Sources */,
 				A14B64DF1E8D3EC200CBDE92 /* UIViewControllerExtensions.swift in Sources */,
 				A1CD9A101E8A9ABC00D3C8F7 /* SeasonState.swift in Sources */,

@@ -150,7 +150,6 @@ extension TeamListViewController: UITableViewDelegate {
         let selectedTeam = teams(for: indexPath.section)[indexPath.row]
         
         if isSwitcher {
-            core.fire(command: TouchObject(selectedTeam))
             core.fire(event: Selected<Team>(selectedTeam))
             
             if isDismissable {

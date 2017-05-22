@@ -19,6 +19,7 @@ struct SubscribeToTeam: Command {
     
     func execute(state: AppState, core: Core<AppState>) {
         subscribeToTeam(core: core)
+        subscribeToSeasons(core: core)
         subscribeToPlayers(core: core)
         subscribeToGames(core: core)
         subscribeToAtBats(core: core)
@@ -38,6 +39,22 @@ struct SubscribeToTeam: Command {
         }
     }
     
+    private func subscribeToSeasons(core: Core<AppState>) {
+        let ref = StatsRefs.seasonsRef(teamId: self.teamId)
+        networkAccess.subscribe(to: ref) { result in
+            let seasonsResult = result.map { (json: JSONObject) -> [Season] in
+                return json.parsedObjects()
+            }
+            
+            switch seasonsResult {
+            case let .success(seasons):
+                core.fire(event: Updated<[Season]>(seasons))
+            case let .failure(error):
+                core.fire(event: ErrorEvent(error: error, message: nil))
+            }
+        }
+    }
+
     private func subscribeToPlayers(core: Core<AppState>) {
         networkAccess.subscribe(to: StatsRefs.playersRef(teamId: self.teamId)) { result in
             let playersResult = result.map { (json: JSONObject) -> [Player] in

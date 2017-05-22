@@ -38,14 +38,13 @@ struct Team: Identifiable, Unmarshaling {
     var name: String
     var shareCode: String
     var sport: TeamSport
-    var touchDate: Date
     
     var imageURL: URL? {
         guard let imageURLString = imageURLString else { return nil }
         return URL(string: imageURLString)
     }
     var currentSeason: Season? {
-        return App.core.state.seasonState.allSeasons.first(where: { $0.id == currentSeasonId })
+        return App.core.state.seasonState.seasons(for: self).first(where: { $0.id == currentSeasonId })
     }
     
     init(id: String = "", currentSeasonId: String? =  nil, imageURL: URL? = nil, name: String, sport: TeamSport = .slowPitch) {
@@ -55,7 +54,6 @@ struct Team: Identifiable, Unmarshaling {
         self.name = name
         self.shareCode = 4.randomDigitsString
         self.sport = sport
-        self.touchDate = Date()
     }
     
     init(object: MarshaledObject) throws {
@@ -65,7 +63,6 @@ struct Team: Identifiable, Unmarshaling {
         name = try object.value(for: nameKey)
         shareCode = try object.value(for: shareCodeKey)
         sport = try object.value(for: sportKey)
-        touchDate = try object.value(for: touchDateKey)
     }
     
     func shareCodeString(ownershipType: TeamOwnershipType) -> String {
@@ -84,7 +81,6 @@ extension Team: Marshaling {
         json[nameKey] = name
         json[shareCodeKey] = shareCode
         json[sportKey] = sport.rawValue
-        json[touchDateKey] = touchDate.iso8601String
         return json
     }
     

@@ -48,7 +48,6 @@ let sourceKey = "source"
 let sportKey = "sport"
 let teamIdKey = "teamId"
 let textKey = "text"
-let touchDateKey = "touchDate"
 let usernameKey = "username"
 let iCloudIdKey = "iCloudId"
 

@@ -19,13 +19,13 @@ struct SaveTeam: Command {
                 
                 if let user = state.userState.currentUser, !user.allTeamIds.contains(self.team.id) {
                     core.fire(command: AddTeamToUser(team: self.team, type: .owned))
-                    self.addFakeStuffAndSubscribe(core: core)
+                    self.addFakeDataAndSubscribe(core: core)
                 }
             }
         }
     }
     
-    fileprivate func addFakeStuffAndSubscribe(core: Core<AppState>) {
+    fileprivate func addFakeDataAndSubscribe(core: Core<AppState>) {
         let dispatchGroup = DispatchGroup()
         let fakePlayerRef = StatsRefs.playersRef(teamId: team.id)
         let fakeGameRef = StatsRefs.gamesRef(teamId: team.id)

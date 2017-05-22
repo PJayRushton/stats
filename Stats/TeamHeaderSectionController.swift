@@ -24,8 +24,8 @@ class TeamHeaderSection: IGListDiffable {
         guard let other = object as? TeamHeaderSection, let currentUser = App.core.state.userState.currentUser else { return false }
         return team.imageURLString == other.team.imageURLString &&
             team.name == other.team.name &&
-            currentUser.owns(team) == currentUser.owns(other.team)
-        
+            currentUser.owns(team) == currentUser.owns(other.team) &&
+            team.currentSeason == other.team.currentSeason
     }
     
 }

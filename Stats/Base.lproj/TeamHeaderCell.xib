@@ -60,16 +60,38 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="7pf-G2-Xq9" userLabel="Bottom stack">
-                                <rect key="frame" x="8" y="118" width="310" height="55"/>
+                                <rect key="frame" x="8" y="104" width="310" height="69"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Team" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m4e-vH-0LG">
-                                        <rect key="frame" x="0.0" y="0.0" width="126.5" height="55"/>
-                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="24"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="h8F-71-HZJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="67" height="69"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Xu-QS-IWj">
+                                                <rect key="frame" x="0.0" y="0.0" width="67" height="45"/>
+                                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="24"/>
+                                                <state key="normal" title="Team">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="teamButtonPressed:" destination="gTV-IL-0wX" eventType="touchUpInside" id="d6J-cO-ewn"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uAa-pn-TJw">
+                                                <rect key="frame" x="0.0" y="45" width="67" height="24"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="24" id="3bH-oP-aFh"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="13"/>
+                                                <state key="normal" title="-- ">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="teamButtonPressed:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Kl0-9a-bqN"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lqc-C1-Ime">
-                                        <rect key="frame" x="278" y="0.0" width="32" height="55"/>
+                                        <rect key="frame" x="278" y="0.0" width="32" height="69"/>
                                         <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="32"/>
                                         <state key="normal" title="✏️"/>
                                         <connections>
@@ -109,7 +131,8 @@
             <connections>
                 <outlet property="editButton" destination="Lqc-C1-Ime" id="qmg-1o-tdm"/>
                 <outlet property="imageView" destination="PJu-aD-wyy" id="Rno-U0-96Z"/>
-                <outlet property="nameLabel" destination="m4e-vH-0LG" id="Q10-6n-pah"/>
+                <outlet property="nameButton" destination="8Xu-QS-IWj" id="Cbs-SM-8a5"/>
+                <outlet property="seasonButton" destination="uAa-pn-TJw" id="oGU-fq-gz8"/>
                 <outlet property="settingsButton" destination="lof-fO-0Q5" id="Twi-Oj-l4S"/>
                 <outlet property="switchTeamButton" destination="LwT-PU-ala" id="t0T-W2-U5a"/>
             </connections>

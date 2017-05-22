@@ -12,7 +12,8 @@ import Kingfisher
 class TeamHeaderCell: UICollectionViewCell, AutoReuseIdentifiable {
 
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var nameButton: UIButton!
+    @IBOutlet weak var seasonButton: UIButton!
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var settingsButton: UIButton!
     @IBOutlet weak var switchTeamButton: UIButton!
@@ -20,7 +21,7 @@ class TeamHeaderCell: UICollectionViewCell, AutoReuseIdentifiable {
     var settingsPressed: (() -> Void) = { }
     var editPressed: (() -> Void) = { }
     var switchTeamPressed: (() -> Void) = { }
-    
+    var seasonPressed: (() -> Void) = { }
     
     @IBAction func settingsButtonPressed(_ sender: UIButton) {
         settingsPressed()
@@ -34,9 +35,15 @@ class TeamHeaderCell: UICollectionViewCell, AutoReuseIdentifiable {
         switchTeamPressed()
     }
     
+    @IBAction func teamButtonPressed(_ sender: Any) {
+        seasonPressed()
+    }
+    
     func update(with team: Team, canEdit: Bool) {
         imageView.kf.setImage(with: team.imageURL, placeholder: #imageLiteral(resourceName: "stock5"))
-        nameLabel.text = team.name
+        nameButton.setTitle(team.name, for: .normal)
+        let seasonText = team.currentSeason?.name ?? "--"
+        seasonButton.setTitle(seasonText + " 🔽", for: .normal)
         editButton.isHidden = !canEdit
     }
     

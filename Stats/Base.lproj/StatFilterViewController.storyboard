@@ -109,6 +109,7 @@
                                 <constraints>
                                     <constraint firstItem="lzc-dl-vpK" firstAttribute="width" secondItem="AaP-Mk-sw2" secondAttribute="width" id="Hb8-HT-PuK"/>
                                     <constraint firstItem="7ck-AI-umm" firstAttribute="width" secondItem="AaP-Mk-sw2" secondAttribute="width" constant="-32" id="Wd2-lf-QOl"/>
+                                    <constraint firstItem="mAV-YS-3a6" firstAttribute="width" secondItem="AaP-Mk-sw2" secondAttribute="width" id="e41-TI-eWf"/>
                                     <constraint firstItem="1rD-Qd-Vk4" firstAttribute="width" secondItem="AaP-Mk-sw2" secondAttribute="width" id="eYn-kT-Ggi"/>
                                 </constraints>
                             </stackView>

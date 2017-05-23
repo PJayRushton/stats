@@ -55,9 +55,7 @@ extension StatsNumbersViewController: IGListAdapterDataSource {
             let atBats = core.state.atBatState.atBats(for: player)
             allStats.append(player.stat(ofType: currentStatType, from: atBats))
         }
-        dump(allStats.map { $0.player.name })
         let sortedStats = allStats.sorted(by: core.state.statState.sortType.sort)
-        dump(sortedStats.map { $0.player.name })
         return sortedStats.map { StatSection(stat: $0) }
     }
     

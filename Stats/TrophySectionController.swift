@@ -57,7 +57,7 @@ extension TrophySectionController: IGListSectionType {
             return CGSize(width: context.containerSize.width, height: 80)
         case 1:
             if let _ = section.secondStat {
-                return CGSize(width: context.containerSize.width, height: 100)
+                return CGSize(width: context.containerSize.width, height: 90)
             } else {
                 return CGSize(width: context.containerSize.width, height: 70)
             }

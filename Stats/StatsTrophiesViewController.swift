@@ -59,12 +59,28 @@ extension StatsTrophiesViewController: IGListAdapterDataSource {
                 winnerStat = trophyStats.last
                 if trophyStats.count > 1 {
                     secondStat = trophyStats[trophyStats.count - 2]
+                    
+                    if currentTeam.isCoed {
+                        let otherGender: Gender = winnerStat?.player.gender == .male ? .female : .male
+                        let otherGenderStats = trophyStats.filter { $0.player.gender == otherGender }
+                        if let otherGenderStat = otherGenderStats.last {
+                            secondStat = otherGenderStat
+                        }
+                    }
                 }
             } else {
                 winnerStat = trophyStats.first
                 if trophyStats.count > 1 {
                     secondStat = trophyStats[1]
+                    if currentTeam.isCoed {
+                        let otherGender: Gender = winnerStat?.player.gender == .male ? .female : .male
+                        let otherGenderStats = trophyStats.filter { $0.player.gender == otherGender }
+                        if let otherGenderStat = otherGenderStats.first {
+                            secondStat = otherGenderStat
+                        }
+                    }
                 }
+                
             }
             guard let winner = winnerStat, winner.value > 0 else { return }
             var firstLoser: Stat?
@@ -73,7 +89,6 @@ extension StatsTrophiesViewController: IGListAdapterDataSource {
                 firstLoser = secondPlaceStat
             }
             let trophySection = TrophySection(trophy: trophy, firstStat: winner, secondStat: firstLoser)
-            dump(trophySection)
             trophySections.append(trophySection)
         }
         return trophySections

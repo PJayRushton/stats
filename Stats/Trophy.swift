@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum Trophy {
+enum Trophy: Int {
     
     case battingAverage
     case hits
@@ -35,17 +35,17 @@ enum Trophy {
         case .homeRuns:
             return "💣 LONG BOMBER 💣"
         case .inTheParkers:
-            return "👟 RUN FOREST, RUN! 🏃"
+            return "👟 HIT & RUN 🏃"
         case .grandSlams:
-            return "🍗 SANDWICH MAKER 🍗"
+            return "🍗 SALAMI SANDWICH MAKER 🍗"
         case .rbis:
-            return "🏡 HIT ME IN! 🏡"
+            return "🏠 HIT ME IN! 🏠"
         case .walks:
-            return "🤠WALKER TEXAS RANGER 🤠"
+            return "🤠 WALKER TEXAS RANGER 🤠"
         case .hitByPitches:
             return "⚾️ PITCH SLAPPED 🤕"
         case .onBasePercentage:
-            return "😎 MR. RELIABLE 😎"
+            return "😎 MR(S). RELIABLE 😎"
         case .reachedOnErrors:
             return "🦆 LUCKY DUCK 🦆"
         case .doubles:
@@ -93,27 +93,27 @@ enum Trophy {
         case .battingAverage:
             return UIColor.mainAppColor
         case .hits:
-            return UIColor.mainAppColor
+            return UIColor.flatBlack
         case .homeRuns:
-            return UIColor.mainAppColor
+            return UIColor.flatSkyBlue
         case .inTheParkers:
-            return UIColor.mainAppColor
+            return UIColor.flatRed
         case .grandSlams:
-            return UIColor.mainAppColor
+            return UIColor.flatTeal
         case .rbis:
-            return UIColor.mainAppColor
+            return UIColor.flatOrange
         case .walks:
             return UIColor.mainAppColor
         case .hitByPitches:
-            return UIColor.mainAppColor
+            return UIColor.flatBlack
         case .onBasePercentage:
-            return UIColor.mainAppColor
+            return UIColor.flatSkyBlue
         case .reachedOnErrors:
-            return UIColor.mainAppColor
+            return UIColor.flatRed
         case .doubles:
-            return UIColor.mainAppColor
+            return UIColor.flatTeal
         case .triples:
-            return UIColor.mainAppColor
+            return UIColor.flatOrange
         case .worseBattingAverage:
             return UIColor.mainAppColor
         }
@@ -128,7 +128,7 @@ enum Trophy {
         case .homeRuns:
             return .homeRuns
         case .inTheParkers:
-            return .homeRuns
+            return .itpHRs
         case .grandSlams:
             return .grandSlams
         case .rbis:

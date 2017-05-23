@@ -53,7 +53,8 @@ class StatsViewController: Component, AutoStoryboardInitializable {
         try? segmentedControl.setIndex(UInt(state.statState.currentViewType.rawValue))
         let atBatsAreEmpty = state.atBatState.allAtBats.isEmpty
         segmentedControl.isHidden = atBatsAreEmpty
-        navigationItem.rightBarButtonItem = atBatsAreEmpty ? nil : filterBarButton
+        let shouldShowFilter = !atBatsAreEmpty && state.statState.currentViewType == .stats
+        navigationItem.rightBarButtonItem = shouldShowFilter ? filterBarButton : nil
     }
     
     func filterButtonPressed() {

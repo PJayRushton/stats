@@ -84,13 +84,13 @@ enum StatType: String {
         case .homeRuns:
             return isSingular ? "Home Run" : "Home Runs"
         case .itpHRs:
-            return isSingular ? "HR (ITP)" : "HRs (ITP)"
+            return isSingular ? "HR-ITP" : "HRs-ITP"
         case .onBasePercentage:
             return "OBP"
         case .rbis:
             return isSingular ? "RBI" : "RBIs"
         case .reachOnError:
-            return "Reached on Error"
+            return "ROE"
         case .singles:
             return isSingular ? "Single" : "Singles"
         case .strikeOuts:

@@ -46,6 +46,11 @@ struct Team: Identifiable, Unmarshaling {
     var currentSeason: Season? {
         return App.core.state.seasonState.seasons(for: self).first(where: { $0.id == currentSeasonId })
     }
+    var isCoed: Bool {
+        let teamPlayers = App.core.state.playerState.players(for: self)
+        let genders = teamPlayers.map { $0.gender }
+        return genders.contains(.male) && genders.contains(.female)
+    }
     
     init(id: String = "", currentSeasonId: String? =  nil, imageURL: URL? = nil, name: String, sport: TeamSport = .slowPitch) {
         self.id = id

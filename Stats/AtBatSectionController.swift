@@ -8,7 +8,7 @@
 
 import IGListKit
 
-class AtBatSection: IGListDiffable {
+class AtBatSection: ListDiffable {
     
     var atBat: AtBat
     var order: Int
@@ -22,7 +22,7 @@ class AtBatSection: IGListDiffable {
         return atBat.id as NSString
     }
     
-    func isEqual(toDiffableObject object: IGListDiffable?) -> Bool {
+    func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
         guard let other = object as? AtBatSection else { return false }
         return atBat == other.atBat &&
             order == other.order &&
@@ -36,9 +36,9 @@ class AtBatSection: IGListDiffable {
     
 }
 
-class AtBatSectionController: IGListSectionController {
+class AtBatSectionController: ListSectionController {
     
-    var section: AtBatSection!
+    var atBatSection: AtBatSection!
     var canEdit: Bool
     var didSelectAtBat: ((AtBat) -> Void) = { _ in }
     
@@ -50,29 +50,25 @@ class AtBatSectionController: IGListSectionController {
     
 }
 
-extension AtBatSectionController: IGListSectionType {
-
-    func numberOfItems() -> Int {
-        return 1
-    }
+extension AtBatSectionController {
     
-    func sizeForItem(at index: Int) -> CGSize {
+    override func sizeForItem(at index: Int) -> CGSize {
         guard let context = collectionContext else { return .zero }
         return CGSize(width: context.containerSize.width, height: 80)
     }
     
-    func cellForItem(at index: Int) -> UICollectionViewCell {
+    override func cellForItem(at index: Int) -> UICollectionViewCell {
         let cell = collectionContext?.dequeueReusableCell(withNibName: AtBatCell.reuseIdentifier, bundle: nil, for: self, at: index) as! AtBatCell
-        cell.update(with: section.atBat, order: section.order, canEdit: canEdit)
+        cell.update(with: atBatSection.atBat, order: atBatSection.order, canEdit: canEdit)
         return cell
     }
     
-    func didUpdate(to object: Any) {
-        section = object as? AtBatSection
+    override func didUpdate(to object: Any) {
+        atBatSection = object as? AtBatSection
     }
     
-    func didSelectItem(at index: Int) {
-        didSelectAtBat(section.atBat)
+    override func didSelectItem(at index: Int) {
+        didSelectAtBat(atBatSection.atBat)
     }
     
 }

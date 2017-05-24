@@ -27,7 +27,7 @@ class TeamCreationViewController: Component, AutoStoryboardInitializable {
     var isDismissable = true
     var editingTeam: Team?
     
-    fileprivate lazy var newRefs: (teamRef: FIRDatabaseReference, seasonRef: FIRDatabaseReference) = {
+    fileprivate lazy var newRefs: (teamRef: DatabaseReference, seasonRef: DatabaseReference) = {
         let teamRef = StatsRefs.teamsRef.childByAutoId()
         let seasonRef = StatsRefs.seasonsRef(teamId: teamRef.key).childByAutoId()
         return (teamRef, seasonRef)

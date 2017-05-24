@@ -119,7 +119,7 @@ extension AtBat: Marshaling {
 
 extension AtBat {
     
-    var ref: FIRDatabaseReference {
+    var ref: DatabaseReference {
         return StatsRefs.atBatsRef(teamId: teamId).child(id)
     }
     

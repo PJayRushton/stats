@@ -12,7 +12,7 @@ import Marshal
 
 protocol Identifiable: Equatable, Marshaling, Unmarshaling, Hashable {
     var id: String { get set }
-    var ref: FIRDatabaseReference { get }
+    var ref: DatabaseReference { get }
 }
 
 

@@ -25,7 +25,7 @@ enum Place: Int {
     }
 }
 
-class StatSection: IGListDiffable {
+class StatSection: ListDiffable {
     
     var stat: Stat
     var place: Place?
@@ -39,7 +39,7 @@ class StatSection: IGListDiffable {
         return stat.player.id as NSString
     }
     
-    func isEqual(toDiffableObject object: IGListDiffable?) -> Bool {
+    func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
         guard let other = object as? StatSection else { return false }
         return stat.player == other.stat.player &&
         stat.statType == other.stat.statType &&
@@ -48,9 +48,9 @@ class StatSection: IGListDiffable {
     
 }
 
-class StatSectionController: IGListSectionController {
+class StatSectionController: ListSectionController {
     
-    var section: StatSection!
+    var statSection: StatSection!
     var didSelectStat: ((Stat) -> Void) = { _ in }
     
     override init() {
@@ -60,29 +60,25 @@ class StatSectionController: IGListSectionController {
     
 }
 
-extension StatSectionController: IGListSectionType {
+extension StatSectionController {
     
-    func numberOfItems() -> Int {
-        return 1
-    }
-    
-    func sizeForItem(at index: Int) -> CGSize {
+    override func sizeForItem(at index: Int) -> CGSize {
         guard let context = collectionContext else { return .zero }
         return CGSize(width: context.containerSize.width, height: 60)
     }
     
-    func cellForItem(at index: Int) -> UICollectionViewCell {
+    override func cellForItem(at index: Int) -> UICollectionViewCell {
         let cell = collectionContext?.dequeueReusableCell(withNibName: StatCell.reuseIdentifier, bundle: nil, for: self, at: index) as! StatCell
-        cell.update(with: section.stat, place: section.place)
+        cell.update(with: statSection.stat, place: statSection.place)
         return cell
     }
     
-    func didUpdate(to object: Any) {
-        section = object as? StatSection
+    override func didUpdate(to object: Any) {
+        statSection = object as? StatSection
     }
     
-    func didSelectItem(at index: Int) {
-        didSelectStat(section.stat)
+    override func didSelectItem(at index: Int) {
+        didSelectStat(statSection.stat)
     }
     
 }

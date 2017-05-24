@@ -15,7 +15,7 @@ class HomeViewController: Component, AutoStoryboardInitializable {
 
     // MARK: - IBOutlets
 
-    @IBOutlet weak var collectionView: IGListCollectionView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet var emptyStateView: UIView!
     @IBOutlet weak var topImageView: UIImageView!
@@ -24,7 +24,7 @@ class HomeViewController: Component, AutoStoryboardInitializable {
     
     // MARK: - Properties
     
-    fileprivate let gridLayout = IGListGridCollectionViewLayout()
+    fileprivate let gridLayout = ListCollectionViewLayout(stickyHeaders: false, topContentInset: 0, stretchToEdge: false)
     fileprivate let feedbackGenerator = UISelectionFeedbackGenerator()
     
     var isPresentingOnboarding = false
@@ -32,8 +32,8 @@ class HomeViewController: Component, AutoStoryboardInitializable {
     var currentTeam: Team? {
         return core.state.teamState.currentTeam
     }
-    fileprivate lazy var adapter: IGListAdapter = {
-        return IGListAdapter(updater: IGListAdapterUpdater(), viewController: self, workingRangeSize: 0)
+    fileprivate lazy var adapter: ListAdapter = {
+        return ListAdapter(updater: ListAdapterUpdater(), viewController: self, workingRangeSize: 0)
     }()
     
     let presenter: Presentr = {
@@ -48,8 +48,6 @@ class HomeViewController: Component, AutoStoryboardInitializable {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        gridLayout.minimumLineSpacing = 0
-        gridLayout.minimumInteritemSpacing = 0
         collectionView.collectionViewLayout = gridLayout
         adapter.collectionView = collectionView
         adapter.dataSource = self
@@ -210,11 +208,11 @@ extension HomeViewController {
 
 // MARK: - IGListKitDataSource
 
-extension HomeViewController: IGListAdapterDataSource {
+extension HomeViewController: ListAdapterDataSource {
     
-    func objects(for listAdapter: IGListAdapter) -> [IGListDiffable] {
+    func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
         guard let currentTeam = currentTeam, let currentUser = core.state.userState.currentUser else { return [] }
-        var objects: [IGListDiffable] = [TeamHeaderSection(team: currentTeam)]
+        var objects: [ListDiffable] = [TeamHeaderSection(team: currentTeam)]
         let items = currentUser.isOwnerOrManager(of: currentTeam) ? HomeMenuItem.managerItems : HomeMenuItem.fanItems
         
         items.forEach { item in
@@ -223,7 +221,7 @@ extension HomeViewController: IGListAdapterDataSource {
         return objects
     }
     
-    func listAdapter(_ listAdapter: IGListAdapter, sectionControllerFor object: Any) -> IGListSectionController {
+    func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
         switch object {
         case _ as TeamHeaderSection:
             let headerController = TeamHeaderSectionController()
@@ -242,7 +240,7 @@ extension HomeViewController: IGListAdapterDataSource {
         }
     }
     
-    func emptyView(for listAdapter: IGListAdapter) -> UIView? {
+    func emptyView(for listAdapter: ListAdapter) -> UIView? {
         return emptyStateView
     }
     

@@ -55,7 +55,7 @@ class AtBatCreationViewController: Component, AutoStoryboardInitializable {
     fileprivate var player: Player? {
         return core.state.gameState.currentPlayer
     }
-    fileprivate var newAtBatRef: FIRDatabaseReference {
+    fileprivate var newAtBatRef: DatabaseReference {
         return StatsRefs.atBatsRef(teamId: core.state.teamState.currentTeam!.id).childByAutoId()
     }
     

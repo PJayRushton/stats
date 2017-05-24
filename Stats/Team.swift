@@ -94,7 +94,7 @@ extension Team: Marshaling {
 
 extension Team {
     
-    var ref: FIRDatabaseReference {
+    var ref: DatabaseReference {
         return StatsRefs.teamsRef.child(id)
     }
     

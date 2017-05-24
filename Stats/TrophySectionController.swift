@@ -8,7 +8,7 @@
 
 import IGListKit
 
-class TrophySection: IGListDiffable {
+class TrophySection: ListDiffable {
     
     var trophy: Trophy
     var firstStat: Stat
@@ -24,7 +24,7 @@ class TrophySection: IGListDiffable {
         return trophy.displayName as NSString
     }
     
-    func isEqual(toDiffableObject object: IGListDiffable?) -> Bool {
+    func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
         guard let other = object as? TrophySection else { return false }
         return trophy == other.trophy &&
         firstStat == other.firstStat &&
@@ -33,9 +33,9 @@ class TrophySection: IGListDiffable {
     
 }
 
-class TrophySectionController: IGListSectionController {
+class TrophySectionController: ListSectionController {
     
-    var section: TrophySection!
+    var trophySection: TrophySection!
     
     override init() {
         super.init()
@@ -44,19 +44,19 @@ class TrophySectionController: IGListSectionController {
     
 }
 
-extension TrophySectionController: IGListSectionType {
+extension TrophySectionController {
     
-    func numberOfItems() -> Int {
+    override func numberOfItems() -> Int {
         return 2
     }
     
-    func sizeForItem(at index: Int) -> CGSize {
+    override func sizeForItem(at index: Int) -> CGSize {
         guard let context = collectionContext else { return .zero }
         switch index {
         case 0:
             return CGSize(width: context.containerSize.width, height: 80)
         case 1:
-            if let _ = section.secondStat {
+            if let _ = trophySection.secondStat {
                 return CGSize(width: context.containerSize.width, height: 90)
             } else {
                 return CGSize(width: context.containerSize.width, height: 70)
@@ -66,27 +66,23 @@ extension TrophySectionController: IGListSectionType {
         }
     }
     
-    func cellForItem(at index: Int) -> UICollectionViewCell {
+    override func cellForItem(at index: Int) -> UICollectionViewCell {
         switch index {
         case 0:
             let cell = collectionContext?.dequeueReusableCell(withNibName: TrophyHeaderCell.reuseIdentifier, bundle: nil, for: self, at: index) as! TrophyHeaderCell
-            cell.update(with: section.trophy)
+            cell.update(with: trophySection.trophy)
             return cell
         case 1:
             let cell = collectionContext?.dequeueReusableCell(withNibName: TrophyWinnerCell.reuseIdentifier, bundle: nil, for: self, at: index) as! TrophyWinnerCell
-            cell.update(withTrophy: section.trophy, winner: section.firstStat, firstLoser: section.secondStat)
+            cell.update(withTrophy: trophySection.trophy, winner: trophySection.firstStat, firstLoser: trophySection.secondStat)
             return cell
         default:
             fatalError()
         }
     }
     
-    func didUpdate(to object: Any) {
-        section = object as? TrophySection
-    }
-    
-    func didSelectItem(at index: Int) {
-        return
+    override func didUpdate(to object: Any) {
+        trophySection = object as? TrophySection
     }
     
 }

@@ -48,7 +48,7 @@ extension Season: Marshaling {
 
 extension Season {
     
-    var ref: FIRDatabaseReference {
+    var ref: DatabaseReference {
         return StatsRefs.seasonsRef(teamId: teamId).child(id)
     }
     

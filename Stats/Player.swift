@@ -76,7 +76,7 @@ extension Player: Marshaling {
 
 extension Player {
     
-    var ref: FIRDatabaseReference {
+    var ref: DatabaseReference {
         return StatsRefs.playersRef(teamId: teamId).child(id)
     }
     

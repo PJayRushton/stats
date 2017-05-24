@@ -79,7 +79,7 @@ extension User: Marshaling {
 
 extension User {
     
-    var ref: FIRDatabaseReference {
+    var ref: DatabaseReference {
         return StatsRefs.usersRef.child(id)
     }
     

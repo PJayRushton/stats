@@ -27,14 +27,14 @@ struct UploadToStorage: Command {
     }
     
     func execute(state: AppState, core: Core<AppState>) {
-        var ref: FIRStorageReference
+        var ref: StorageReference
         switch type {
         case .avatar:
             ref = StatsRefs.userAvatarStorageRef(userId: objectId)
         case .team:
             ref = StatsRefs.teamImageStorageRef(teamId: objectId)
         }
-        let metadata = FIRStorageMetadata()
+        let metadata = StorageMetadata()
         metadata.contentType = "image/jpeg"
         core.fire(event: Loading<URL>(nil))
         

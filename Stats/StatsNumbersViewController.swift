@@ -11,11 +11,11 @@ import IGListKit
 
 class StatsNumbersViewController: Component, AutoStoryboardInitializable {
 
-    @IBOutlet weak var collectionView: IGListCollectionView!
+    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var pickerView: AKPickerView!
     
-    fileprivate lazy var adapter: IGListAdapter = {
-        return IGListAdapter(updater: IGListAdapterUpdater(), viewController: self, workingRangeSize: 0)
+    fileprivate lazy var adapter: ListAdapter = {
+        return ListAdapter(updater: ListAdapterUpdater(), viewController: self, workingRangeSize: 0)
     }()
     
     var currentStatType: StatType {
@@ -35,9 +35,9 @@ class StatsNumbersViewController: Component, AutoStoryboardInitializable {
     }
 }
 
-extension StatsNumbersViewController: IGListAdapterDataSource {
+extension StatsNumbersViewController: ListAdapterDataSource {
     
-    func objects(for listAdapter: IGListAdapter) -> [IGListDiffable] {
+    func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
         guard let currentTeam = core.state.teamState.currentTeam else { return [] }
         var allAtBats = core.state.atBatState.atBats(for: currentTeam)
         
@@ -59,11 +59,11 @@ extension StatsNumbersViewController: IGListAdapterDataSource {
         return sortedStats.map { StatSection(stat: $0) }
     }
     
-    func listAdapter(_ listAdapter: IGListAdapter, sectionControllerFor object: Any) -> IGListSectionController {
+    func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
         return StatSectionController()
     }
     
-    func emptyView(for listAdapter: IGListAdapter) -> UIView? {
+    func emptyView(for listAdapter: ListAdapter) -> UIView? {
         return nil
     }
     

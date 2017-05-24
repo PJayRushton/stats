@@ -14,7 +14,7 @@ struct DeleteImage<T: Identifiable>: Command {
     var object: T
     
     func execute(state: AppState, core: Core<AppState>) {
-        var ref: FIRStorageReference = FIRStorageReference()
+        var ref: StorageReference = StorageReference()
         if object is Team {
             ref = StatsRefs.teamImageStorageRef(teamId: object.id)
         } else if object is User {

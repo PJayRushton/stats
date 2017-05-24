@@ -22,11 +22,11 @@ struct FirebaseNetworkAccess {
     
     // MARK: - Properties
     
-    let storageRef = FIRStorage.storage().reference()
-    let rootRef = FIRDatabase.database().reference()
+    let storageRef = Storage.storage().reference()
+    let rootRef = Database.database().reference()
     var core = App.core
     
-    func setValue(at ref: FIRDatabaseReference, parameters: JSONObject, completion: ResultCompletion?) {
+    func setValue(at ref: DatabaseReference, parameters: JSONObject, completion: ResultCompletion?) {
         ref.setValue(parameters) { error, ref in
             if let error = error {
                 completion?(Result.failure(error))
@@ -36,7 +36,7 @@ struct FirebaseNetworkAccess {
         }
     }
     
-    func createNewAutoChild(at ref: FIRDatabaseReference, parameters: JSONObject, completion: @escaping ResultCompletion) {
+    func createNewAutoChild(at ref: DatabaseReference, parameters: JSONObject, completion: @escaping ResultCompletion) {
         ref.childByAutoId().setValue(parameters) { error, ref in
             if let error = error {
                 completion(Result.failure(error))
@@ -50,7 +50,7 @@ struct FirebaseNetworkAccess {
     
     // Retrieve
     
-    func getData(at ref: FIRDatabaseReference, completion: ResultCompletion?) {
+    func getData(at ref: DatabaseReference, completion: ResultCompletion?) {
         ref.observeSingleEvent(of: .value, with: { snap in
             if let snapJSON = snap.value as? JSONObject , snap.exists() {
                 completion?(Result.success(snapJSON))
@@ -60,7 +60,7 @@ struct FirebaseNetworkAccess {
         })
     }
     
-    func getObject<T: Identifiable>(at ref: FIRDatabaseReference, completion: ((Result<T>) -> Void)?) {
+    func getObject<T: Identifiable>(at ref: DatabaseReference, completion: ((Result<T>) -> Void)?) {
         ref.observeSingleEvent(of: .value, with: { snap in
             if let snapJSON = snap.value as? JSONObject, let object = try? T(object: snapJSON) {
                 completion?(Result.success(object))
@@ -70,8 +70,8 @@ struct FirebaseNetworkAccess {
         })
     }
     
-    func getKeys(at ref: FIRDatabaseReference, completion: @escaping ((Result<[String]>) -> Void)) {
-        ref.observeSingleEvent(of: FIRDataEventType.value, with: { snap in
+    func getKeys(at ref: DatabaseReference, completion: @escaping ((Result<[String]>) -> Void)) {
+        ref.observeSingleEvent(of: .value, with: { snap in
             if let usernames = (snap.value as AnyObject).allKeys as? [String] , snap.exists() {
                 completion(Result.success(usernames))
             } else {
@@ -80,7 +80,7 @@ struct FirebaseNetworkAccess {
         })
     }
     
-    func getData(withQuery query: FIRDatabaseQuery, completion: ResultCompletion?) {
+    func getData(withQuery query: DatabaseQuery, completion: ResultCompletion?) {
         query.observeSingleEvent(of: .value, with: { snap in
             if snap.exists(), let json = snap.value as? JSONObject {
                 completion?(.success(json))
@@ -93,7 +93,7 @@ struct FirebaseNetworkAccess {
     
     // Update
     
-    func updateObject(at ref: FIRDatabaseReference, parameters: JSONObject, completion: ResultCompletion?) {
+    func updateObject(at ref: DatabaseReference, parameters: JSONObject, completion: ResultCompletion?) {
         ref.updateChildValues(parameters) { error, firebase in
             if let error = error {
                 completion?(Result.failure(error))
@@ -103,7 +103,7 @@ struct FirebaseNetworkAccess {
         }
     }
     
-    func addObject(at ref: FIRDatabaseReference, parameters: JSONObject, completion: ResultCompletion?) {
+    func addObject(at ref: DatabaseReference, parameters: JSONObject, completion: ResultCompletion?) {
         ref.updateChildValues(parameters) { error, ref in
             if let error = error {
                 completion?(Result.failure(error))
@@ -116,7 +116,7 @@ struct FirebaseNetworkAccess {
     
     // Delete
     
-    func deleteObject(at ref: FIRDatabaseReference, completion: ResultCompletion?) {
+    func deleteObject(at ref: DatabaseReference, completion: ResultCompletion?) {
         ref.removeValue { error, ref in
             if let error = error {
                 completion?(Result.failure(error))
@@ -129,7 +129,7 @@ struct FirebaseNetworkAccess {
     
     // MARK: - Subscriptions
     
-    func subscribe(to ref: FIRDatabaseReference, completion: @escaping ResultCompletion) {
+    func subscribe(to ref: DatabaseReference, completion: @escaping ResultCompletion) {
         ref.observe(.value, with: { snap in
             if let snapJSON = snap.value as? JSONObject, snap.exists() {
                 completion(Result.success(snapJSON))
@@ -139,7 +139,7 @@ struct FirebaseNetworkAccess {
         })
     }
     
-    func subscribe(to query: FIRDatabaseQuery, completion: @escaping ResultCompletion) {
+    func subscribe(to query: DatabaseQuery, completion: @escaping ResultCompletion) {
         query.observe(.value, with: { snap in
             if let snapJSON = snap.value as? JSONObject, snap.exists() {
                 completion(Result.success(snapJSON))
@@ -150,19 +150,19 @@ struct FirebaseNetworkAccess {
     }
     
     func subscribeToReachability(completion: @escaping (Bool?) -> Void) {
-        FIRDatabase.database().reference(withPath: ".info/connected").observe(.value, with: { snapshot in
+        Database.database().reference(withPath: ".info/connected").observe(.value, with: { snapshot in
             completion(snapshot.value as? Bool)
         })
     }
     
-    func unsubscribe(from ref: FIRDatabaseReference) {
+    func unsubscribe(from ref: DatabaseReference) {
         ref.removeAllObservers()
     }
     
     // MARK: Storage
     
-    func uploadData(_ data: Data, toRef ref: FIRStorageReference, with metadata: FIRStorageMetadata? = nil, completion: @escaping (Result<URL>) -> Void) {
-        ref.put(data, metadata: metadata) { metadata, error in
+    func uploadData(_ data: Data, toRef ref: StorageReference, with metadata: StorageMetadata? = nil, completion: @escaping (Result<URL>) -> Void) {
+        ref.putData(data, metadata: metadata) { metadata, error in
             if let url = metadata?.downloadURL(), error == nil {
                 completion(.success(url))
             } else {

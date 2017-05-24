@@ -30,7 +30,7 @@ class GameCreationViewController: Component, AutoStoryboardInitializable {
         }
     }
     fileprivate let datePicker = UIDatePicker()
-    fileprivate lazy var newGameRef: FIRDatabaseReference = {
+    fileprivate lazy var newGameRef: DatabaseReference = {
         return StatsRefs.gamesRef(teamId: App.core.state.teamState.currentTeam!.id).childByAutoId()
     }()
     

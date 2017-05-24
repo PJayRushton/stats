@@ -24,7 +24,11 @@ struct GetCurrentUser: Command {
                 user.allTeamIds.forEach { id in
                     core.fire(command: SubscribeToTeam(withId: id))
                 }
+                if user.allTeamIds.isEmpty {
+                    core.fire(event: Subscribed<Team>(nil))
+                }
             case let .failure(error):
+                core.fire(event: Subscribed<Team>(nil))
                 core.fire(event: Selected<User>(nil))
                 core.fire(event: ErrorEvent(error: error, message: "Unable to find user with iCloudId: \(self.iCloudId)"))
             }

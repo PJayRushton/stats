@@ -12,13 +12,13 @@ struct TeamState: State {
     
     var currentTeam: Team?
     var allTeams = Set<Team>()
-    var isLoaded = false
+    var isSubscribed = false
     
     mutating func react(to event: Event) {
         switch event {
         case let event as Selected<Team>:
             currentTeam = event.item
-            isLoaded = true
+            isSubscribed = true
             
             if let selectedTeam = event.item {
                 UserDefaults.standard.lastUsedTeamId = selectedTeam.id
@@ -26,7 +26,7 @@ struct TeamState: State {
         case let event as Updated<Team>:
             allTeams.remove(event.payload)
             allTeams.insert(event.payload)
-            isLoaded = true
+            isSubscribed = true
             
             if event.payload == currentTeam {
                 currentTeam = event.payload
@@ -37,10 +37,8 @@ struct TeamState: State {
             if let currentUser = App.core.state.userState.currentUser, allTeams.count == currentUser.allTeamIds.count, currentTeam == nil { // Data migration. Switched from using touch date to defaults. First launch didn't select a team.
                 currentTeam = event.payload
             }
-        case let event as Selected<User>:
-            if let _ = event.item {
-                isLoaded = true
-            }
+        case _ as Subscribed<Team>:
+            isSubscribed = true
         case let event as Delete<Team>:
             allTeams.remove(event.object)
             
@@ -77,4 +75,5 @@ extension UserDefaults {
             synchronize()
         }
     }
+    
 }

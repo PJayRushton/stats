@@ -37,7 +37,7 @@ class MainViewController: Component {
     override func update(with state: AppState) {
         let userState = state.userState
         
-        if let _ = userState.iCloudId, userState.isLoaded, state.teamState.isLoaded {
+        if let _ = userState.iCloudId, userState.isLoaded, state.teamState.isSubscribed {
             presentApplication()
         } else {
             showLoadingScreen()

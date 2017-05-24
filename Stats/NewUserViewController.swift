@@ -13,12 +13,15 @@ import TextFieldEffects
 class NewUserViewController: Component, AutoStoryboardInitializable {
     
     @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var usernameErrorLabel: UILabel!
     @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var emailErrorLabel: UILabel!
     @IBOutlet weak var doneButton: CustomButton!
 
+    
+    
     fileprivate let disabledColor = UIColor.flatGray.withAlphaComponent(0.5)
     fileprivate let enabledColor = UIColor.secondaryAppColor
     fileprivate let thumbsUp = "👍"
@@ -28,7 +31,8 @@ class NewUserViewController: Component, AutoStoryboardInitializable {
     fileprivate var formIsComplete: Bool {
         guard let username = usernameTextField.text, !username.isEmpty else { return false }
         guard let _ = core.state.newUserState.username, core.state.newUserState.usernameIsAvailable else { return false }
-        return emailTextField.text == nil || emailTextField.text!.isEmpty || emailTextField.text!.isValidEmail
+        guard let _ = core.state.newUserState.email, core.state.newUserState.emailIsAvailable else { return false }
+        return emailTextField.text != nil && emailTextField.text!.isValidEmail
     }
     
     override func viewDidLoad() {
@@ -48,6 +52,7 @@ class NewUserViewController: Component, AutoStoryboardInitializable {
             checkUsernameAvailability()
             hasTypedUsername = true
         } else {
+            checkEmailAvailability()
             updateEmail()
         }
     }
@@ -98,16 +103,23 @@ extension NewUserViewController {
         } else if usernameIsValid {
             usernameErrorLabel.text = nil
             usernameLabel.text = glasses
+        }
+        if formIsComplete {
             doneButton.isEnabled = true
         }
     }
     
     fileprivate func updateEmail() {
+        emailErrorLabel.text = ""
         guard let email = emailTextField.text else { emailLabel.text = nil; return }
         if email.isEmpty {
             emailLabel.text = nil
-        } else if !email.isValidEmail {
+        } else if !email.isValidEmail || core.state.newUserState.email == nil || !core.state.newUserState.email!.isValidEmail {
             emailLabel.text = redX
+            emailErrorLabel.text = "Invalid Email"
+        } else if !core.state.newUserState.emailIsAvailable {
+            emailLabel.text = redX
+            emailErrorLabel.text = "Already taken"
         } else {
             emailLabel.text = thumbsUp
             core.fire(event: EmailUpdated(email: email))
@@ -119,6 +131,11 @@ extension NewUserViewController {
             guard username.characters.count > 2  && username.characters.count < 14 else { core.fire(event: NoOp()); return }
             core.fire(command: CheckUsernameAvailability(username: username.lowercased()))
         }
+    }
+    
+    fileprivate func checkEmailAvailability() {
+        guard let email = emailTextField.text, email.isValidEmail else { core.fire(event: NoOp()); return }
+        core.fire(command: CheckEmailAvailability(email: email.lowercased()))
     }
     
     fileprivate func updateDoneButton() {

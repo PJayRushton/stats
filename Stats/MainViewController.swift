@@ -26,11 +26,6 @@ class MainViewController: Component {
         super.viewDidLoad()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        core.fire(command: SubscribeToReachability())
-    }
     
     // MARK: - Subscriber
     

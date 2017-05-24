@@ -46,11 +46,11 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="dCh-0s-bMg" userLabel="Spacer view">
-                                        <rect key="frame" x="57.5" y="105" width="240" height="74"/>
+                                        <rect key="frame" x="57.5" y="105" width="240" height="56"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="PB4-H0-g35">
-                                        <rect key="frame" x="0.0" y="195" width="355" height="44"/>
+                                        <rect key="frame" x="0.0" y="177" width="355" height="44"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="at4-DI-rER">
                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="44"/>
@@ -93,7 +93,7 @@
                                         </constraints>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nkd-Np-3Zm">
-                                        <rect key="frame" x="0.0" y="255" width="355" height="20"/>
+                                        <rect key="frame" x="0.0" y="237" width="355" height="20"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DeP-7B-Xjt">
                                                 <rect key="frame" x="0.0" y="0.0" width="355" height="20"/>
@@ -114,7 +114,7 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="FOH-va-8WA" userLabel="Email stack">
-                                        <rect key="frame" x="0.0" y="291" width="355" height="44"/>
+                                        <rect key="frame" x="0.0" y="273" width="355" height="44"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Osb-oo-Tla">
                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="44"/>
@@ -154,15 +154,24 @@
                                             <constraint firstItem="E6R-8S-VCx" firstAttribute="width" secondItem="Osb-oo-Tla" secondAttribute="width" id="mPT-ZG-sgf"/>
                                         </constraints>
                                     </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6lz-Zf-IZK">
+                                        <rect key="frame" x="0.0" y="333" width="355" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="aWM-Ib-cYi"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="12"/>
+                                        <color key="textColor" red="0.90747958419999997" green="0.29695275430000001" blue="0.23558339480000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a4Z-UM-Jx3">
-                                        <rect key="frame" x="0.0" y="351" width="355" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="369" width="355" height="0.0"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" id="lm9-sx-Qsm"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Nh-22-sv0" customClass="CustomButton" customModule="Stats" customModuleProvider="target">
-                                        <rect key="frame" x="77.5" y="367" width="200" height="44"/>
+                                        <rect key="frame" x="77.5" y="385" width="200" height="44"/>
                                         <color key="backgroundColor" red="0.1960784314" green="0.30196078430000001" blue="0.35686274509999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="jHm-1I-5On"/>
@@ -182,12 +191,13 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="kuU-rr-oAp" userLabel="Spacer view">
-                                        <rect key="frame" x="57.5" y="427" width="240" height="73.5"/>
+                                        <rect key="frame" x="57.5" y="445" width="240" height="55.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="FOH-va-8WA" firstAttribute="height" secondItem="PB4-H0-g35" secondAttribute="height" id="5JW-eb-FqL"/>
+                                    <constraint firstItem="6lz-Zf-IZK" firstAttribute="width" secondItem="Lhl-3Z-31s" secondAttribute="width" id="JUY-S0-2EZ"/>
                                     <constraint firstItem="Nkd-Np-3Zm" firstAttribute="width" secondItem="PB4-H0-g35" secondAttribute="width" id="Ja1-MZ-Pv0"/>
                                     <constraint firstItem="a4Z-UM-Jx3" firstAttribute="width" secondItem="Lhl-3Z-31s" secondAttribute="width" id="KgR-cl-cur"/>
                                     <constraint firstItem="FOH-va-8WA" firstAttribute="width" secondItem="PB4-H0-g35" secondAttribute="width" id="OWI-Sg-CPa"/>
@@ -215,6 +225,7 @@
                     </view>
                     <connections>
                         <outlet property="doneButton" destination="7Nh-22-sv0" id="C6m-xn-7OT"/>
+                        <outlet property="emailErrorLabel" destination="6lz-Zf-IZK" id="Atn-8F-fBb"/>
                         <outlet property="emailLabel" destination="E6R-8S-VCx" id="zPZ-cv-MN4"/>
                         <outlet property="emailTextField" destination="3aV-JT-0Z8" id="AqU-1w-f6i"/>
                         <outlet property="usernameErrorLabel" destination="DeP-7B-Xjt" id="hbA-Im-2cl"/>

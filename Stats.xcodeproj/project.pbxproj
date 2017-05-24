@@ -17,6 +17,7 @@
 		A11B4D991EAED3BB00798D52 /* StatsPageViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A11B4D971EAED3BB00798D52 /* StatsPageViewController.storyboard */; };
 		A11B4D9C1EAED7A900798D52 /* StatsTrophiesViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A11B4D9A1EAED7A900798D52 /* StatsTrophiesViewController.storyboard */; };
 		A11B4D9F1EAED86000798D52 /* StatsNumbersViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A11B4D9D1EAED86000798D52 /* StatsNumbersViewController.storyboard */; };
+		A11F0C801ED5C70100F716DA /* CheckEmailAvailability.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11F0C7F1ED5C70100F716DA /* CheckEmailAvailability.swift */; };
 		A128E8E31EC4172100D4CA6D /* UIView+Designable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128E8E21EC4172100D4CA6D /* UIView+Designable.swift */; };
 		A131CC8E1E8EEE6600A5D66B /* SubscribeToCurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A131CC8D1E8EEE6600A5D66B /* SubscribeToCurrentUser.swift */; };
 		A1398B3F1EA6D3DF00A4B830 /* GameCreationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1398B3D1EA6D3DF00A4B830 /* GameCreationViewController.storyboard */; };
@@ -142,7 +143,6 @@
 		A1D67D481E8FE8BF00200B65 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D67D471E8FE8BF00200B65 /* MainViewController.swift */; };
 		A1D67D4A1E8FE8EE00200B65 /* LoadingImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D67D491E8FE8EE00200B65 /* LoadingImageViewController.swift */; };
 		A1D67D4D1E8FE8FC00200B65 /* LoadingImageViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1D67D4B1E8FE8FC00200B65 /* LoadingImageViewController.storyboard */; };
-		A1D67D4F1E8FE9E700200B65 /* SubscribeToReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D67D4E1E8FE9E700200B65 /* SubscribeToReachability.swift */; };
 		A1D67D521E9097C600200B65 /* SettingsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1D67D501E9097C600200B65 /* SettingsViewController.storyboard */; };
 		A1D67D541E9097E100200B65 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D67D531E9097E100200B65 /* SettingsViewController.swift */; };
 		A1D67D571E92872A00200B65 /* BasicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1D67D551E92872A00200B65 /* BasicCell.xib */; };
@@ -173,6 +173,7 @@
 		A11B4D981EAED3BB00798D52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = StatsPageViewController.storyboard; sourceTree = "<group>"; };
 		A11B4D9B1EAED7A900798D52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = StatsTrophiesViewController.storyboard; sourceTree = "<group>"; };
 		A11B4D9E1EAED86000798D52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = StatsNumbersViewController.storyboard; sourceTree = "<group>"; };
+		A11F0C7F1ED5C70100F716DA /* CheckEmailAvailability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckEmailAvailability.swift; sourceTree = "<group>"; };
 		A128E8E21EC4172100D4CA6D /* UIView+Designable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Designable.swift"; sourceTree = "<group>"; };
 		A131CC8D1E8EEE6600A5D66B /* SubscribeToCurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribeToCurrentUser.swift; sourceTree = "<group>"; };
 		A1398B3E1EA6D3DF00A4B830 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = GameCreationViewController.storyboard; sourceTree = "<group>"; };
@@ -299,7 +300,6 @@
 		A1D67D471E8FE8BF00200B65 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A1D67D491E8FE8EE00200B65 /* LoadingImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingImageViewController.swift; sourceTree = "<group>"; };
 		A1D67D4C1E8FE8FC00200B65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LoadingImageViewController.storyboard; sourceTree = "<group>"; };
-		A1D67D4E1E8FE9E700200B65 /* SubscribeToReachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribeToReachability.swift; sourceTree = "<group>"; };
 		A1D67D511E9097C600200B65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SettingsViewController.storyboard; sourceTree = "<group>"; };
 		A1D67D531E9097E100200B65 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		A1D67D561E92872A00200B65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = BasicCell.xib; sourceTree = "<group>"; };
@@ -343,6 +343,7 @@
 			isa = PBXGroup;
 			children = (
 				A14B64F11E8D696800CBDE92 /* AddTeamToUser.swift */,
+				A11F0C7F1ED5C70100F716DA /* CheckEmailAvailability.swift */,
 				A1CD9A1A1E8AACAB00D3C8F7 /* CheckUsernameAvailability.swift */,
 				A1398B401EA6EB3400A4B830 /* CreateGame.swift */,
 				A16D417F1E98171600DE01D4 /* CreatePlayer.swift */,
@@ -360,7 +361,6 @@
 				A1ABAFFC1EA97AF900B28A46 /* ShowMessage.swift */,
 				A131CC8D1E8EEE6600A5D66B /* SubscribeToCurrentUser.swift */,
 				A17EF6CD1E94148300DEE4ED /* SubscribeToObject.swift */,
-				A1D67D4E1E8FE9E700200B65 /* SubscribeToReachability.swift */,
 				A17EF6CF1E941D8700DEE4ED /* SubscribeToTeam.swift */,
 				A17EF6CB1E94044E00DEE4ED /* UpdateObject.swift */,
 				A17EF6C51E93EDEC00DEE4ED /* UploadToStorage.swift */,
@@ -825,7 +825,6 @@
 				A1CD9A0A1E89C26200D3C8F7 /* TeamState.swift in Sources */,
 				A1868F9F1E802E1600C191EC /* AppState.swift in Sources */,
 				A128E8E31EC4172100D4CA6D /* UIView+Designable.swift in Sources */,
-				A1D67D4F1E8FE9E700200B65 /* SubscribeToReachability.swift in Sources */,
 				A179996E1E82B64A0058A002 /* User.swift in Sources */,
 				A1ABAFFB1EA9463900B28A46 /* AtBatButton.swift in Sources */,
 				A17999921E82DF300058A002 /* HomeMenuItem.swift in Sources */,
@@ -873,6 +872,7 @@
 				364FFAF01EA9F1B000CD26F9 /* DeleteGame.swift in Sources */,
 				A1F959341E8953440087B040 /* Season.swift in Sources */,
 				A1B65DC41EB018C6009983E1 /* Stat.swift in Sources */,
+				A11F0C801ED5C70100F716DA /* CheckEmailAvailability.swift in Sources */,
 				A1D8054C1E89870B0072AA49 /* NewUserViewController.swift in Sources */,
 				A1C7221D1EA5698C00A71C51 /* GamesViewController.swift in Sources */,
 				A1C7221F1EA56A2800A71C51 /* GameCell.swift in Sources */,

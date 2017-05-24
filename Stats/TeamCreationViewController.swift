@@ -199,7 +199,7 @@ extension TeamCreationViewController {
     
     fileprivate func showDeleteConfirmationAlert() {
         guard let editingTeam = editingTeam else { return }
-        let alert = UIAlertController(title: "Delete \(editingTeam.name)?", message: "This will also delete all the team's data including its players and stats\nThis cannot be undone", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "Delete \(editingTeam.name)?", message: "This will also delete all the team's data including games, players, and stats\nThis cannot be undone", preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Cancel! 😳", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "☠️", style: .destructive, handler: { _ in
             self.destruct()

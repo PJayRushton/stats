@@ -42,8 +42,12 @@ struct TeamState: State {
         case let event as Delete<Team>:
             allTeams.remove(event.object)
             
-            if currentTeam == event.object, let first = allTeams.first {
-                currentTeam = first
+            if currentTeam == event.object {
+                currentTeam = nil
+                
+                if let first = allTeams.first {
+                    currentTeam = first
+                }
             }
         default:
             break

@@ -30,7 +30,8 @@ struct SaveTeam: Command {
         let fakePlayerRef = StatsRefs.playersRef(teamId: team.id)
         let fakeGameRef = StatsRefs.gamesRef(teamId: team.id)
         let fakeAtBatRef = StatsRefs.atBatsRef(teamId: team.id)
-        let refs = [fakePlayerRef, fakeGameRef, fakeAtBatRef]
+        let fakeSeasonRef = StatsRefs.seasonsRef(teamId: team.id)
+        let refs = [fakePlayerRef, fakeGameRef, fakeAtBatRef, fakeSeasonRef]
         
         for ref in refs {
             dispatchGroup.enter()

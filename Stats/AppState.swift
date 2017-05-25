@@ -9,7 +9,7 @@
 import Foundation
 
 enum App {
-    static let core = Core(state: AppState())
+    static let core = Core(state: AppState(), middlewares: [AnalyticsMiddleware()])
 }
 
 

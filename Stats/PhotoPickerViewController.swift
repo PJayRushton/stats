@@ -67,17 +67,18 @@ class PhotoPickerViewController: Component, AutoStoryboardInitializable {
         navigationItem.rightBarButtonItem?.tintColor = .white
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+    }
+    
     override func update(with state: AppState) {
         collectionView.reloadData()
     }
     
     func flipLayout(_ sender: UIBarButtonItem) {
         viewMode = viewMode == .grid ? .list : .grid
+        core.fire(event: LogAnalyticsAction(action: .stockPhotoLayoutChanged))
     }
-    
-}
-
-extension PhotoPickerViewController {
     
 }
 
@@ -110,6 +111,7 @@ extension PhotoPickerViewController: UICollectionViewDelegate {
             collectionView.deselectItem(at: indexPath, animated: true)
         } else {
             core.fire(event: Selected<URL>(selectedURL))
+            core.fire(event: LogAnalyticsAction(action: .stockPhotoUsed))
         }
     }
     

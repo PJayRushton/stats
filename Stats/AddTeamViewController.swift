@@ -15,13 +15,12 @@ import Presentr
 class AddTeamViewController: Component, AutoStoryboardInitializable {
     
     @IBOutlet weak var topStack: UIStackView!
-    @IBOutlet weak var videoHolderView: UIView!
-    @IBOutlet weak var codeHolderView: UIView!
     @IBOutlet weak var textField1: UITextField!
     @IBOutlet weak var textField2: UITextField!
     @IBOutlet weak var textField3: UITextField!
     @IBOutlet weak var textField4: UITextField!
     @IBOutlet weak var textField5: UITextField!
+    @IBOutlet var keyboardView: UIView!
     
     fileprivate var captureSession: AVCaptureSession?
     fileprivate var videoPreviewLayer: AVCaptureVideoPreviewLayer?
@@ -34,6 +33,7 @@ class AddTeamViewController: Component, AutoStoryboardInitializable {
         return [textField1, textField2, textField3, textField4, textField5]
     }
     fileprivate var keyboardIsUp = false
+    fileprivate var isSearching = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,21 +42,31 @@ class AddTeamViewController: Component, AutoStoryboardInitializable {
         setUpQRFramer()
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        videoPreviewLayer?.frame = videoHolderView.frame
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        navigationController?.navigationBar.barTintColor = UIColor.mainAppColor
         captureSession?.startRunning()
+        navigationController?.navigationBar.barTintColor = UIColor.mainAppColor
     }
     
     @IBAction func dismissButtonPressed(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func viewTapped(_ sender: UITapGestureRecognizer) {
+        view.endEditing(false)
+    }
+    
+    @IBAction func keyboardButtonPressed(_ sender: UIButton) {
+        view.endEditing(false)
+    }
+    
+}
+
+
+// MARK: - Fileprivate
+
+extension AddTeamViewController {
     
     fileprivate func setUpCaptureSession() {
         let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
@@ -73,8 +83,9 @@ class AddTeamViewController: Component, AutoStoryboardInitializable {
             
             videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
             videoPreviewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
-            videoPreviewLayer?.frame = videoHolderView.frame
+            videoPreviewLayer?.frame = view.layer.bounds
             view.layer.addSublayer(videoPreviewLayer!)
+            view.bringSubview(toFront: topStack)
         } catch {
             print(error)
             return
@@ -91,17 +102,11 @@ class AddTeamViewController: Component, AutoStoryboardInitializable {
             view.bringSubview(toFront: qrCodeFrameView)
         }
     }
-
-}
-
-
-// MARK: - Fileprivate 
-
-extension AddTeamViewController {
     
     fileprivate func searchForTeam(withCode code: String) {
         guard let processedCode = processedCode(code) else { presentErrorAlert(); return }
         
+        isSearching = true
         let query = StatsRefs.teamsRef.queryOrdered(byChild: shareCodeKey).queryEqual(toValue: processedCode.code)
         networkAccess.getData(withQuery: query) { result in
             let teamResult = result.map { (json: JSONObject) -> Team in
@@ -109,20 +114,18 @@ extension AddTeamViewController {
                 let teamJSON: JSONObject = try json.value(for: key)
                 return try Team(object: teamJSON)
             }
-            switch teamResult {
-            case let .success(team):
-                DispatchQueue.main.async {
+            DispatchQueue.main.async {
+                switch teamResult {
+                case let .success(team):
                     self.presentConfirmationAlert(withTeam: team, ownershipType: processedCode.type)
-                }
-            case let .failure(error):
-                DispatchQueue.main.async {
+                case let .failure(error):
                     self.presentErrorAlert()
+                    self.core.fire(event: ErrorEvent(error: error, message: nil))
                 }
-                self.core.fire(event: ErrorEvent(error: error, message: nil))
             }
         }
     }
-    
+
     fileprivate func processedCode(_ code: String) -> (code: String, type: TeamOwnershipType)? {
         var updatedCode = code
         guard updatedCode.characters.count == 5 else { return nil }
@@ -147,10 +150,11 @@ extension AddTeamViewController {
             self.core.fire(command: AddTeamToUser(team: team, type: ownershipType))
             self.core.fire(command: SubscribeToTeam(withId: team.id))
             self.core.fire(event: Selected<Team>(team))
-            self.dismiss(animated: true, completion: { 
+            self.dismiss(animated: true, completion: {
                 self.dismiss(animated: true, completion: nil)
             })
         }))
+        isSearching = false
         customPresentViewController(alertPresenter, viewController: alert, animated: true, completion: nil)
     }
     
@@ -163,25 +167,26 @@ extension AddTeamViewController {
                 self.clearTextFields()
             }
         }))
-        
+        isSearching = false
         customPresentViewController(alertPresenter, viewController: alert, animated: true, completion: nil)
     }
-
+    
 }
 
 extension AddTeamViewController: AVCaptureMetadataOutputObjectsDelegate {
     
     func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
-        guard let objects = metadataObjects, objects.isEmpty == false else {
+        guard let objects = metadataObjects, !objects.isEmpty else {
             qrCodeFrameView?.frame = CGRect.zero
             return
         }
         
-        if let metadataObj = metadataObjects.first as? AVMetadataMachineReadableCodeObject, supportedBarCodes.contains(metadataObj.type) {
-            let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
-            qrCodeFrameView?.frame = barCodeObject!.bounds
+        if let metadataObject = metadataObjects.first as? AVMetadataMachineReadableCodeObject, supportedBarCodes.contains(metadataObject.type) {
+            if let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObject) {
+                qrCodeFrameView?.frame = barCodeObject.bounds
+            }
             
-            if let metadataString = metadataObj.stringValue {
+            if let metadataString = metadataObject.stringValue, !isSearching {
                 searchForTeam(withCode: metadataString)
                 captureSession?.stopRunning()
             }
@@ -224,7 +229,7 @@ extension AddTeamViewController: UITextFieldDelegate {
         guard let text = textField.text else { return true }
         let newLength = text.characters.count + string.characters.count - range.length
         return newLength <= 1
-
+        
     }
     
     @IBAction func textFieldChanged(_ sender: UITextField) {

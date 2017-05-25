@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -27,36 +27,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="VHE-zs-ZM0">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="VHE-zs-ZM0">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="You can either scan the team code if your your friend is nearby." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aVa-8x-DAh">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="70" id="yyW-yS-Eyv"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7CN-f0-xNv">
-                                        <rect key="frame" x="0.0" y="70" width="375" height="266.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="301.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="You can either scan the team code if your your friend is nearby." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aVa-8x-DAh">
+                                                <rect key="frame" x="8" y="8" width="359" height="70"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="70" id="yyW-yS-Eyv"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailingMargin" secondItem="aVa-8x-DAh" secondAttribute="trailing" id="Af1-Id-7CF"/>
+                                            <constraint firstItem="aVa-8x-DAh" firstAttribute="leading" secondItem="7CN-f0-xNv" secondAttribute="leadingMargin" id="Iqx-Qs-gaO"/>
+                                            <constraint firstItem="aVa-8x-DAh" firstAttribute="top" secondItem="7CN-f0-xNv" secondAttribute="topMargin" id="MbP-RO-KmM"/>
+                                        </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ztA-xl-xU9">
-                                        <rect key="frame" x="0.0" y="336.5" width="375" height="266.5"/>
+                                        <rect key="frame" x="0.0" y="301.5" width="375" height="301.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Or input the 5 digit share code here:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="FPk-Au-OWf">
-                                                <rect key="frame" x="0.0" y="8" width="375" height="64.5"/>
+                                                <rect key="frame" x="0.0" y="8" width="375" height="82"/>
                                                 <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="X4j-m9-xfy">
-                                                <rect key="frame" x="24" y="88.5" width="327" height="90"/>
+                                                <rect key="frame" x="24" y="106" width="327" height="90"/>
                                                 <subviews>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="40" translatesAutoresizingMaskIntoConstraints="NO" id="DRs-t2-eal">
                                                         <rect key="frame" x="0.0" y="0.0" width="52.5" height="90"/>
+                                                        <color key="backgroundColor" white="1" alpha="0.85056796395705525" colorSpace="calibratedWhite"/>
+                                                        <color key="tintColor" red="0.55803233389999995" green="0.69207900759999996" blue="0.12800171969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="50"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad"/>
@@ -67,6 +76,8 @@
                                                     </textField>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="40" translatesAutoresizingMaskIntoConstraints="NO" id="Ben-iE-4sb">
                                                         <rect key="frame" x="68.5" y="0.0" width="52.5" height="90"/>
+                                                        <color key="backgroundColor" white="1" alpha="0.85056796395705525" colorSpace="calibratedWhite"/>
+                                                        <color key="tintColor" red="0.55803233389999995" green="0.69207900759999996" blue="0.12800171969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="50"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad"/>
@@ -77,6 +88,8 @@
                                                     </textField>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="40" translatesAutoresizingMaskIntoConstraints="NO" id="n2T-mU-Fzx">
                                                         <rect key="frame" x="137" y="0.0" width="53" height="90"/>
+                                                        <color key="backgroundColor" white="1" alpha="0.85056796395705525" colorSpace="calibratedWhite"/>
+                                                        <color key="tintColor" red="0.55803233389999995" green="0.69207900759999996" blue="0.12800171969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="50"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad"/>
@@ -87,6 +100,8 @@
                                                     </textField>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="40" translatesAutoresizingMaskIntoConstraints="NO" id="ca8-ad-V1b">
                                                         <rect key="frame" x="206" y="0.0" width="52.5" height="90"/>
+                                                        <color key="backgroundColor" white="1" alpha="0.85056796395705525" colorSpace="calibratedWhite"/>
+                                                        <color key="tintColor" red="0.55803233389999995" green="0.69207900759999996" blue="0.12800171969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="50"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad"/>
@@ -97,6 +112,8 @@
                                                     </textField>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="40" translatesAutoresizingMaskIntoConstraints="NO" id="SXK-OR-l8R">
                                                         <rect key="frame" x="274.5" y="0.0" width="52.5" height="90"/>
+                                                        <color key="backgroundColor" white="1" alpha="0.85056796395705525" colorSpace="calibratedWhite"/>
+                                                        <color key="tintColor" red="0.55803233389999995" green="0.69207900759999996" blue="0.12800171969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="50"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad"/>
@@ -111,7 +128,7 @@
                                                 </constraints>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="1" alpha="0.60126294095092025" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="FPk-Au-OWf" firstAttribute="top" secondItem="ztA-xl-xU9" secondAttribute="topMargin" id="IL3-NK-SfX"/>
                                             <constraint firstAttribute="trailing" secondItem="X4j-m9-xfy" secondAttribute="trailing" constant="24" id="PLa-od-zmg"/>
@@ -123,18 +140,19 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="ztA-xl-xU9" firstAttribute="height" secondItem="7CN-f0-xNv" secondAttribute="height" id="lIR-mM-K07"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="cwX-Jh-FUy" firstAttribute="top" secondItem="VHE-zs-ZM0" secondAttribute="bottom" id="YIz-y3-h1C"/>
                             <constraint firstItem="VHE-zs-ZM0" firstAttribute="top" secondItem="ug2-m9-Uh2" secondAttribute="bottom" id="gzJ-0U-6nV"/>
                             <constraint firstAttribute="trailing" secondItem="VHE-zs-ZM0" secondAttribute="trailing" id="mdK-FW-2Nl"/>
                             <constraint firstItem="VHE-zs-ZM0" firstAttribute="leading" secondItem="4Gw-vw-UcK" secondAttribute="leading" id="vnA-vi-aEq"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Jyj-QU-Nb1" appends="YES" id="9Vf-9M-o8T"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Add Team" id="cVN-cy-8dL">
                         <barButtonItem key="rightBarButtonItem" image="xBar" id="G29-pc-vzm">
@@ -146,17 +164,47 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="codeHolderView" destination="ztA-xl-xU9" id="Mka-tk-wWh"/>
+                        <outlet property="keyboardView" destination="c0U-0L-eye" id="pyw-Aj-npA"/>
                         <outlet property="textField1" destination="DRs-t2-eal" id="dQH-ko-vUJ"/>
                         <outlet property="textField2" destination="Ben-iE-4sb" id="4Y7-Pr-S0W"/>
                         <outlet property="textField3" destination="n2T-mU-Fzx" id="tm0-PT-CRZ"/>
                         <outlet property="textField4" destination="ca8-ad-V1b" id="zIg-EL-Zqn"/>
                         <outlet property="textField5" destination="SXK-OR-l8R" id="LNW-cu-i4c"/>
                         <outlet property="topStack" destination="VHE-zs-ZM0" id="7CY-wk-pD1"/>
-                        <outlet property="videoHolderView" destination="7CN-f0-xNv" id="5dG-MW-po9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2ih-fR-Kt8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Jyj-QU-Nb1">
+                    <connections>
+                        <action selector="viewTapped:" destination="qad-wd-SC7" id="1ij-Yt-5rG"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <view contentMode="scaleToFill" id="c0U-0L-eye">
+                    <rect key="frame" x="0.0" y="0.0" width="370" height="48"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="o02-vh-4d9">
+                            <rect key="frame" x="8" y="0.0" width="354" height="48"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bKz-Jo-Lcw">
+                                    <rect key="frame" x="304" y="0.0" width="50" height="48"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                    <state key="normal" title="⌨️"/>
+                                    <connections>
+                                        <action selector="keyboardButtonPressed:" destination="qad-wd-SC7" eventType="touchUpInside" id="cjp-c1-CIK"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailingMargin" secondItem="o02-vh-4d9" secondAttribute="trailing" id="3OA-47-Hdp"/>
+                        <constraint firstItem="o02-vh-4d9" firstAttribute="leading" secondItem="c0U-0L-eye" secondAttribute="leadingMargin" id="Bkt-kO-5QR"/>
+                        <constraint firstItem="o02-vh-4d9" firstAttribute="top" secondItem="c0U-0L-eye" secondAttribute="top" id="VP9-FG-Qtw"/>
+                        <constraint firstAttribute="bottom" secondItem="o02-vh-4d9" secondAttribute="bottom" id="exl-ZC-Lcs"/>
+                    </constraints>
+                </view>
             </objects>
             <point key="canvasLocation" x="1076" y="101.19940029985008"/>
         </scene>

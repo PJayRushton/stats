@@ -120,7 +120,7 @@ extension Game: Marshaling {
 
 extension Game {
     
-    var ref: FIRDatabaseReference {
+    var ref: DatabaseReference {
         return StatsRefs.gamesRef(teamId: teamId).child(id)
     }
     

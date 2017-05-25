@@ -11,11 +11,11 @@ import IGListKit
 
 class StatsTrophiesViewController: Component, AutoStoryboardInitializable {
     
-    @IBOutlet weak var collectionView: IGListCollectionView!
+    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet var emptyView: UIView!
 
-    fileprivate lazy var adapter: IGListAdapter = {
-        return IGListAdapter(updater: IGListAdapterUpdater(), viewController: self, workingRangeSize: 0)
+    fileprivate lazy var adapter: ListAdapter = {
+        return ListAdapter(updater: ListAdapterUpdater(), viewController: self, workingRangeSize: 0)
     }()
 
     override func viewDidLoad() {
@@ -35,9 +35,9 @@ class StatsTrophiesViewController: Component, AutoStoryboardInitializable {
 
 }
 
-extension StatsTrophiesViewController: IGListAdapterDataSource {
+extension StatsTrophiesViewController: ListAdapterDataSource {
     
-    func objects(for listAdapter: IGListAdapter) -> [IGListDiffable] {
+    func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
         let allTrophies = Trophy.allValues
         guard let currentTeam = core.state.teamState.currentTeam else { return [] }
         var teamAtBats = core.state.atBatState.atBats(for: currentTeam)
@@ -48,7 +48,7 @@ extension StatsTrophiesViewController: IGListAdapterDataSource {
                 return !player.isSub
             })
         }
-        var trophySections = [IGListDiffable]()
+        var trophySections = [ListDiffable]()
         
         allTrophies.forEach { trophy in
             let trophyStats = trophy.statType.allStats(with: teamAtBats).sorted(by: { $0.value > $1.value })
@@ -94,11 +94,11 @@ extension StatsTrophiesViewController: IGListAdapterDataSource {
         return trophySections
     }
     
-    func listAdapter(_ listAdapter: IGListAdapter, sectionControllerFor object: Any) -> IGListSectionController {
+    func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
         return TrophySectionController()
     }
     
-    func emptyView(for listAdapter: IGListAdapter) -> UIView? {
+    func emptyView(for listAdapter: ListAdapter) -> UIView? {
         return emptyView
     }
     

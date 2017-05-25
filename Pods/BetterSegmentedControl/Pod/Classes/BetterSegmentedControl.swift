@@ -83,6 +83,7 @@ import UIKit
                 titleLabel.layer.borderWidth = titleBorderWidth
                 titleLabel.layer.borderColor = titleBorderColor
                 titleLabel.layer.cornerRadius = indicatorView.cornerRadius
+                titleLabel.numberOfLines = titleNumberOfLines
                 
                 let selectedTitleLabel = UILabel()
                 selectedTitleLabel.textColor = selectedTitleColor
@@ -90,6 +91,7 @@ import UIKit
                 selectedTitleLabel.lineBreakMode = .byTruncatingTail
                 selectedTitleLabel.textAlignment = .center
                 selectedTitleLabel.font = selectedTitleFont
+                selectedTitleLabel.numberOfLines = titleNumberOfLines
                 
                 return (titleLabel, selectedTitleLabel)
             }
@@ -183,6 +185,13 @@ import UIKit
     public var titleBorderWidth: CGFloat = 0.0 {
         didSet {
             titleLabels.forEach { $0.layer.borderWidth = titleBorderWidth }
+        }
+    }
+    /// The titles' number of lines
+    public var titleNumberOfLines: Int = 1 {
+        didSet {
+            titleLabels.forEach { $0.numberOfLines = titleNumberOfLines }
+            selectedTitleLabels.forEach { $0.numberOfLines = titleNumberOfLines }
         }
     }
     /// The titles' border color
@@ -289,7 +298,7 @@ import UIKit
     }
     
     // MARK: Index Setting
-    /*!
+    /**
      Sets the control's index.
      
      - parameter index:    The new index
@@ -304,6 +313,19 @@ import UIKit
         let oldIndex = self.index
         self.index = index
         moveIndicatorViewToIndex(animated, shouldSendEvent: (self.index != oldIndex || alwaysAnnouncesValue))
+    }
+
+    // MARK: Indicator View Customization
+
+    /**
+     Adds the passed view as a subview to the indicator view
+     
+     - parameter view: The view to be added to the indicator view
+     
+     - note: The added view must be able to layout & size itself and will not be autoresized.
+     */
+    public func addSubviewToIndicator(_ view: UIView) {
+        indicatorView.addSubview(view)
     }
     
     // MARK: Animations
@@ -320,10 +342,10 @@ import UIKit
                            animations: {
                             () -> Void in
                             self.moveIndicatorView()
-                }, completion: { (finished) -> Void in
-                    if finished && shouldSendEvent && !self.announcesValueImmediately {
-                        self.sendActions(for: .valueChanged)
-                    }
+            }, completion: { (finished) -> Void in
+                if finished && shouldSendEvent && !self.announcesValueImmediately {
+                    self.sendActions(for: .valueChanged)
+                }
             })
         } else {
             moveIndicatorView()

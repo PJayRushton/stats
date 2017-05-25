@@ -22,11 +22,11 @@ class GameViewController: Component, AutoStoryboardInitializable {
     @IBOutlet weak var nextInningButton: UIButton!
     @IBOutlet weak var playerPickerView: AKPickerView!
     @IBOutlet weak var newAtBatView: UIView!
-    @IBOutlet weak var collectionView: IGListCollectionView!
+    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet var outButtons: [UIButton]!
     
-    fileprivate lazy var adapter: IGListAdapter = {
-        return IGListAdapter(updater: IGListAdapterUpdater(), viewController: self, workingRangeSize: 0)
+    fileprivate lazy var adapter: ListAdapter = {
+        return ListAdapter(updater: ListAdapterUpdater(), viewController: self, workingRangeSize: 0)
     }()
     
     fileprivate var scorePresenter: Presentr {
@@ -276,17 +276,17 @@ extension GameViewController {
 }
 
 
-extension GameViewController: IGListAdapterDataSource {
+extension GameViewController: ListAdapterDataSource {
     
-    func objects(for listAdapter: IGListAdapter) -> [IGListDiffable] {
-        var objects = [IGListDiffable]()
+    func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
+        var objects = [ListDiffable]()
         for (index, atBat) in currentAtBats.enumerated() {
             objects.append(AtBatSection(atBat: atBat, order: currentAtBats.count - index))
         }
         return objects
     }
     
-    func listAdapter(_ listAdapter: IGListAdapter, sectionControllerFor object: Any) -> IGListSectionController {
+    func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
         guard let game = game else { fatalError() }
         let canEdit = hasEditRights && !game.isCompleted
         let atBatSectionController = AtBatSectionController(canEdit: canEdit)
@@ -299,7 +299,7 @@ extension GameViewController: IGListAdapterDataSource {
         return atBatSectionController
     }
     
-    func emptyView(for listAdapter: IGListAdapter) -> UIView? {
+    func emptyView(for listAdapter: ListAdapter) -> UIView? {
         return nil
     }
     

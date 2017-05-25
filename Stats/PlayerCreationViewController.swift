@@ -29,7 +29,7 @@ class PlayerCreationViewController: Component, AutoStoryboardInitializable {
     
     var editingPlayer: Player?
     
-    fileprivate lazy var newPlayerRef: FIRDatabaseReference = {
+    fileprivate lazy var newPlayerRef: DatabaseReference = {
         return StatsRefs.playersRef(teamId: App.core.state.teamState.currentTeam!.id).childByAutoId()
     }()
 

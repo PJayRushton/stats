@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Crashlytics
+import Fabric
 import Firebase
 
 @UIApplicationMain
@@ -17,10 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var core = App.core
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        FIRApp.configure()
+        FirebaseApp.configure()
         core.fire(command: LoadICloudUser())
         Appearance.setUp()
-        FIRDatabase.database().persistenceEnabled = true
+        Database.database().isPersistenceEnabled = true
+        Fabric.with([Crashlytics.self])
         
         return true
     }

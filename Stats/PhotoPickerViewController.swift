@@ -12,11 +12,14 @@ import Kingfisher
 class PhotoPickerViewController: Component, AutoStoryboardInitializable {
     
     enum ViewMode: CGFloat {
-        case list = 1
+        case list
         case grid
         
-        var margins: CGFloat {
-            return rawValue - 1
+        var numberOfMargins: CGFloat {
+            return rawValue
+        }
+        var columns: CGFloat {
+            return rawValue + 1
         }
         
     }
@@ -25,22 +28,30 @@ class PhotoPickerViewController: Component, AutoStoryboardInitializable {
     
     fileprivate let layout = UICollectionViewFlowLayout()
     fileprivate let margin: CGFloat = 1.0
-    
+    fileprivate var gridBarButton: UIBarButtonItem?
+    fileprivate var linesBarButton: UIBarButtonItem?
+
     fileprivate var imageURLs: [URL] {
         return core.state.stockImageURLs
     }
     fileprivate var selectedURL: URL? {
         return core.state.newTeamState.imageURL
     }
-    fileprivate var viewMode = ViewMode.grid {
+    fileprivate var viewMode = ViewMode.list {
         didSet {
             guard viewMode != oldValue else { return }
-            collectionView.collectionViewLayout.invalidateLayout()
+            navigationItem.rightBarButtonItem = viewMode == .grid ? gridBarButton : linesBarButton
+            collectionView.performBatchUpdates({ 
+                self.collectionView.collectionViewLayout.invalidateLayout()
+            }, completion: nil)
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        gridBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "grid"), style: .plain, target: self, action: #selector(flipLayout(_:)))
+        linesBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "lines"), style: .plain, target: self, action: #selector(flipLayout(_:)))
         
         _ = ImagePrefetcher(urls: imageURLs)
 
@@ -52,10 +63,16 @@ class PhotoPickerViewController: Component, AutoStoryboardInitializable {
         if imageURLs.isEmpty {
             core.fire(command: GetStockImages())
         }
+        viewMode = .grid
+        navigationItem.rightBarButtonItem?.tintColor = .white
     }
     
     override func update(with state: AppState) {
         collectionView.reloadData()
+    }
+    
+    func flipLayout(_ sender: UIBarButtonItem) {
+        viewMode = viewMode == .grid ? .list : .grid
     }
     
 }
@@ -102,7 +119,7 @@ extension PhotoPickerViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let fullWidth = collectionView.bounds.width
-        let width = (fullWidth - (margin * viewMode.margins)) / viewMode.rawValue
+        let width = (fullWidth - (margin * viewMode.numberOfMargins)) / viewMode.columns
         let height = width * 0.7
         return CGSize(width: width, height: height)
     }

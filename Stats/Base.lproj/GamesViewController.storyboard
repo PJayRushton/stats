@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="X8O-oI-RP3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="X8O-oI-RP3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -55,17 +55,17 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5xf-me-Oxc">
                                                             <rect key="frame" x="0.0" y="57.5" width="326" height="53"/>
                                                             <subviews>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="82b-oB-AhM">
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="82b-oB-AhM">
                                                                     <rect key="frame" x="0.0" y="0.0" width="37.5" height="53"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="📍 --" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wa6-NW-FuP">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="37.5" height="32.5"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="📍 --" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wa6-NW-FuP">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="37.5" height="26.5"/>
                                                                             <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="15"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="🗓 --" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZFy-Cz-jcH">
-                                                                            <rect key="frame" x="0.0" y="32.5" width="37.5" height="20.5"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🗓 --" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZFy-Cz-jcH">
+                                                                            <rect key="frame" x="0.0" y="26.5" width="37.5" height="26.5"/>
                                                                             <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="15"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
@@ -139,8 +139,11 @@
                     <connections>
                         <outlet property="emptyStateLabel" destination="rry-KQ-EsO" id="Kvb-R9-Bru"/>
                         <outlet property="emptyStateView" destination="Rk8-1c-uPs" id="Eij-Hn-COB"/>
+                        <outlet property="lossCountLabel" destination="vQ1-na-Pd6" id="fRF-E4-xt3"/>
                         <outlet property="plusButton" destination="Prn-s9-OwD" id="W7y-Sb-wh6"/>
                         <outlet property="tableView" destination="cFx-X9-Ysy" id="oYI-Iw-L45"/>
+                        <outlet property="teamRecordHeaderView" destination="vPJ-Dy-My2" id="dDn-et-xFZ"/>
+                        <outlet property="winCountLabel" destination="qLK-sK-eC5" id="wOf-Ng-gNh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k28-ec-XUI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -190,6 +193,44 @@
                         <constraint firstItem="pbq-f5-NzL" firstAttribute="centerY" secondItem="Rk8-1c-uPs" secondAttribute="centerY" id="oDF-t4-8Uv"/>
                         <constraint firstAttribute="trailing" secondItem="pbq-f5-NzL" secondAttribute="trailing" constant="32" id="q8c-XI-c7W"/>
                         <constraint firstItem="pbq-f5-NzL" firstAttribute="leading" secondItem="Rk8-1c-uPs" secondAttribute="leading" constant="24" id="y87-j9-Utn"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" id="vPJ-Dy-My2">
+                    <rect key="frame" x="0.0" y="0.0" width="318" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="vhz-ry-Q3p">
+                            <rect key="frame" x="127.5" y="0.0" width="63" height="50"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qLK-sK-eC5">
+                                    <rect key="frame" x="0.0" y="0.0" width="13" height="50"/>
+                                    <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="30"/>
+                                    <color key="textColor" red="0.55803233389999995" green="0.69207900759999996" blue="0.12800171969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CdR-Yp-Bdt">
+                                    <rect key="frame" x="25" y="0.0" width="13" height="50"/>
+                                    <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="30"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vQ1-na-Pd6">
+                                    <rect key="frame" x="50" y="0.0" width="13" height="50"/>
+                                    <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="30"/>
+                                    <color key="textColor" red="0.75313061479999999" green="0.22272729869999999" blue="0.17054736609999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="vQ1-na-Pd6" firstAttribute="width" secondItem="qLK-sK-eC5" secondAttribute="width" id="lpT-g8-tJT"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="vhz-ry-Q3p" secondAttribute="bottom" id="C4n-zI-Fpu"/>
+                        <constraint firstItem="vhz-ry-Q3p" firstAttribute="top" secondItem="vPJ-Dy-My2" secondAttribute="top" id="cDh-AD-j07"/>
+                        <constraint firstItem="vhz-ry-Q3p" firstAttribute="centerX" secondItem="vPJ-Dy-My2" secondAttribute="centerX" id="dou-p8-Psn"/>
                     </constraints>
                 </view>
             </objects>

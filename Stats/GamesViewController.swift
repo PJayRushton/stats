@@ -12,6 +12,9 @@ class GamesViewController: Component, AutoStoryboardInitializable {
 
     @IBOutlet weak var plusButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet var teamRecordHeaderView: UIView!
+    @IBOutlet weak var winCountLabel: UILabel!
+    @IBOutlet weak var lossCountLabel: UILabel!
     @IBOutlet var emptyStateView: UIView!
     @IBOutlet weak var emptyStateLabel: UILabel!
 
@@ -33,6 +36,7 @@ class GamesViewController: Component, AutoStoryboardInitializable {
         let headerNib = UINib(nibName: String(describing: BasicHeaderCell.self), bundle: nil)
         tableView.register(headerNib, forCellReuseIdentifier: BasicHeaderCell.reuseIdentifier)
         emptyStateLabel.text = NSLocalizedString("ooh your first game!\nHow exciting!", comment: "The player is about to create their first game. And that's awesome")
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -74,8 +78,12 @@ class GamesViewController: Component, AutoStoryboardInitializable {
             let gameVC = GameViewController.initializeFromStoryboard()
             navigationController?.pushViewController(gameVC, animated: true)
         }
+        tableView.tableHeaderView = games.isEmpty ? nil : teamRecordHeaderView
+        let wonGames = games.filter { $0.wasWon != nil && $0.wasWon! }
+        winCountLabel.text = "\(wonGames.count)"
+        lossCountLabel.text = "\(games.count - wonGames.count)"
     }
-
+    
 }
 
 extension GamesViewController: UITableViewDataSource {

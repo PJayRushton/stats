@@ -34,7 +34,12 @@ struct GameState: State {
         case let event as Selected<Game>:
             currentGame = event.item
         case let event as Updated<[Game]>:
-            guard let first = event.payload.first else { return }
+            guard let first = event.payload.first else {
+                guard let currentTeam = App.core.state.teamState.currentTeam else { return }
+                allGamesDict[currentTeam.id] = []
+                currentGame = nil
+                return
+            }
             allGamesDict[first.teamId] = event.payload
             if let game = currentGame, let index = event.payload.index(of: game) {
                 currentGame = event.payload[index]

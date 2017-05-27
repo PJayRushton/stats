@@ -33,7 +33,11 @@ struct AtBatState: State {
     mutating func react(to event: Event) {
         switch event {
         case let event as Updated<[AtBat]>:
-            guard let first = event.payload.first else { return }
+            guard let first = event.payload.first else {
+                allAtBats.removeAll()
+                currentAtBat = nil
+                return
+            }
             allAtBats[first.teamId] = event.payload
             
             if let atBat = currentAtBat, let index = event.payload.index(of: atBat) {

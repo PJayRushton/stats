@@ -203,7 +203,7 @@ extension AtBatCreationViewController {
         currentAtBatResult = atBat.resultCode
         isShowingITPSwitch = atBat.resultCode.isHR
         inTheParkSwitch.isSelected = atBat.resultCode == .hrITP
-        try? rbisSegControl.setIndex(UInt(atBat.rbis), animated: true)
+        try? rbisSegControl.setIndex(UInt(atBat.rbis))
     }
     
     fileprivate func updateUI(with code: AtBatCode) {
@@ -244,31 +244,28 @@ extension AtBatCreationViewController {
         let updateCommand = UpdateObject(atBat) { success in
             self.saveIsEnabled = true
             guard success else { return }
-            
-            DispatchQueue.main.async {
-                self.updateGameScore(atBat: atBat)
-                if let _ = self.editingAtBat {
-                    self.dismiss(animated: true, completion: nil)
-                    return
-                }
-                // Only if this is a new at bat
-                if atBat.resultCode.isOut {
-                    self.updateOuts()
-                }
-                
-                if next {
-                    self.clear()
-                } else {
-                    self.dismiss(animated: true) { [weak self] in
-                        guard let weakSelf = self, weakSelf.isLastOut else { return }
-                        weakSelf.upInning()
-                        weakSelf.showOpponentScoreEdit()
-                    }
-                }
-                self.moveToNextBatter()
-            }
+            self.handleAtBatSavedSuccessfully(atBat: atBat, next: next)
         }
         core.fire(command: updateCommand)
+    }
+    
+    fileprivate func handleAtBatSavedSuccessfully(atBat: AtBat, next: Bool) {
+        updateGameScore(atBat: atBat)
+        if let _ = self.editingAtBat {
+            self.dismiss(animated: true, completion: nil)
+            return
+        }
+        
+        if next {
+            clear()
+        } else {
+            dismiss(animated: true) { [weak self] in
+                guard let weakSelf = self, weakSelf.isLastOut else { return }
+                weakSelf.upInning()
+                weakSelf.showOpponentScoreEdit()
+            }
+        }
+        moveToNextBatter()
     }
     
     fileprivate func upInning() {
@@ -332,11 +329,22 @@ extension AtBatCreationViewController {
         guard var currentGame = core.state.gameState.currentGame else { return }
         
         if let editingAtBat = editingAtBat {
-            currentGame.score += atBat.rbis - editingAtBat.rbis
+            if delete {
+                currentGame.score -= atBat.rbis
+            } else {
+                currentGame.score += atBat.rbis - editingAtBat.rbis
+            }
         } else {
             currentGame.score = delete ? currentGame.score - atBat.rbis : currentGame.score + atBat.rbis
         }
-        core.fire(command: UpdateObject(currentGame))
+        //Catch all
+        currentGame.score = max(currentGame.score, 0)
+        
+        let updateCommand = UpdateObject(currentGame) { success in
+            guard success && atBat.resultCode.isOut && !delete else { return }
+            self.updateOuts()
+        }
+        core.fire(command: updateCommand)
     }
     
 }

@@ -24,10 +24,16 @@ struct UpdateObject<T: Identifiable>: Command {
             switch result {
             case .success:
                 core.fire(event: Updated(self.object))
-                self.completion?(true)
+                
+                DispatchQueue.main.async {
+                    self.completion?(true)
+                }
             case let .failure(error):
-                self.completion?(false)
                 core.fire(event: ErrorEvent(error: error, message: "Failed to update object \(self.object)"))
+                
+                DispatchQueue.main.async {
+                    self.completion?(false)
+                }
             }
         }
     }

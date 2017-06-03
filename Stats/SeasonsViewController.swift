@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Presentr
 
 class SeasonsViewController: Component, AutoStoryboardInitializable {
     
@@ -41,6 +42,52 @@ class SeasonsViewController: Component, AutoStoryboardInitializable {
         }
         
         tableView.reloadData()
+    }
+    
+}
+
+
+extension SeasonsViewController {
+    
+    fileprivate func showOptions(for season: Season ) {
+        let alert = UIAlertController(title: "Options for \(season.name)", message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Set as current", style: .default, handler: { _ in
+//            self.setCurrentSeason(season)
+        }))
+        alert.addAction(UIAlertAction(title: "Edit ✏️", style: .default, handler: { _ in
+            self.editSeason(season)
+        }))
+        alert.addAction(UIAlertAction(title: "Delete ☠️", style: .destructive, handler: { _ in
+            self.showDeleteConfirmation(for: season)
+        }))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    fileprivate func setCurrentSeaons(_ season: Season) {
+        guard var currentTeam = core.state.teamState.currentTeam else { return }
+        currentTeam.currentSeasonId = season.id
+        core.fire(command: UpdateObject(currentTeam))
+    }
+    
+    fileprivate func editSeason(_ season: Season) {
+        let textEditVC = TextEditViewController.initializeFromStoryboard()
+        textEditVC.topText = "Edit Season Name"
+//        textEditVC.savePressed =
+//        present(textEditVC, animated: true, completion: nil)
+    }
+    
+    func savePressed(newName: String) {
+        
+    }
+    
+    fileprivate func showDeleteConfirmation(for season: Season) {
+        let alert = Presentr.alertViewController(title: "ARE YOU SURE??", body: "This will delete all the GAMES & STATS for this season! 😱")
+        alert.addAction(AlertAction(title: "Cancel 😳", style: .cancel, handler: nil))
+        alert.addAction(AlertAction(title: "☠️", style: .destructive, handler: {
+            self.core.fire(command: DeleteSeason(season))
+        }))
+        customPresentViewController(alertPresenter, viewController: alert, animated: true, completion: nil)
     }
     
 }

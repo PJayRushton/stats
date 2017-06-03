@@ -111,6 +111,9 @@
 		A1B65DD21EB07E79009983E1 /* TrophyWinnerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B65DD11EB07E79009983E1 /* TrophyWinnerCell.swift */; };
 		A1B65DD41EB0FB0E009983E1 /* Trophy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B65DD31EB0FB0E009983E1 /* Trophy.swift */; };
 		A1B65DD61EB15EA0009983E1 /* TrophySectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B65DD51EB15EA0009983E1 /* TrophySectionController.swift */; };
+		A1BA83B91ED9EDDC0074A8DD /* DeleteSeason.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BA83B81ED9EDDC0074A8DD /* DeleteSeason.swift */; };
+		A1BA83BB1ED9F3480074A8DD /* TextEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BA83BA1ED9F3480074A8DD /* TextEditViewController.swift */; };
+		A1BA83BE1ED9FB470074A8DD /* TextEditViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1BA83BC1ED9FB470074A8DD /* TextEditViewController.storyboard */; };
 		A1BF9C3F1E8AC443007341EA /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B41C271E85A4CD00FAC930 /* Game.swift */; };
 		A1BF9C401E8AC449007341EA /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD9A0B1E89C30400D3C8F7 /* GameState.swift */; };
 		A1BF9C441E8B2172007341EA /* UserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BF9C431E8B2172007341EA /* UserState.swift */; };
@@ -272,6 +275,9 @@
 		A1B65DD11EB07E79009983E1 /* TrophyWinnerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrophyWinnerCell.swift; sourceTree = "<group>"; };
 		A1B65DD31EB0FB0E009983E1 /* Trophy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trophy.swift; sourceTree = "<group>"; };
 		A1B65DD51EB15EA0009983E1 /* TrophySectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrophySectionController.swift; sourceTree = "<group>"; };
+		A1BA83B81ED9EDDC0074A8DD /* DeleteSeason.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteSeason.swift; sourceTree = "<group>"; };
+		A1BA83BA1ED9F3480074A8DD /* TextEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextEditViewController.swift; sourceTree = "<group>"; };
+		A1BA83BD1ED9FB470074A8DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = TextEditViewController.storyboard; sourceTree = "<group>"; };
 		A1BF9C431E8B2172007341EA /* UserState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserState.swift; sourceTree = "<group>"; };
 		A1BF9C451E8B22B2007341EA /* GetCurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCurrentUser.swift; sourceTree = "<group>"; };
 		A1C7220F1EA0F71700A71C51 /* ShareTeamRolesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareTeamRolesViewController.swift; sourceTree = "<group>"; };
@@ -355,6 +361,7 @@
 				364FFAEF1EA9F1B000CD26F9 /* DeleteGame.swift */,
 				A17EF6D81E954A6500DEE4ED /* DeleteImage.swift */,
 				A17EF6C91E94040D00DEE4ED /* DeleteObject.swift */,
+				A1BA83B81ED9EDDC0074A8DD /* DeleteSeason.swift */,
 				A16D416C1E97364300DE01D4 /* DeleteTeam.swift */,
 				A1BF9C451E8B22B2007341EA /* GetCurrentUser.swift */,
 				A18F68B51ECDE37200407E89 /* GetStockImages.swift */,
@@ -445,6 +452,7 @@
 				A16D41731E97D1BC00DE01D4 /* PlayerCell.xib */,
 				A16D417C1E97FF7400DE01D4 /* PlayerCreationViewController.storyboard */,
 				A16D41701E97D09E00DE01D4 /* RosterViewController.storyboard */,
+				A1EC56F21ED322EA00A9B592 /* SeasonsViewController.storyboard */,
 				A1D67D501E9097C600200B65 /* SettingsViewController.storyboard */,
 				A1C722111EA0F75500A71C51 /* ShareTeamRolesViewController.storyboard */,
 				A1C722161EA10D1800A71C51 /* ShareTeamViewController.storyboard */,
@@ -458,9 +466,9 @@
 				A14B64EA1E8D65C500CBDE92 /* TeamCreationViewController.storyboard */,
 				A1A2C3621E8BF6020008274F /* TeamHeaderCell.xib */,
 				A17EF6BA1E930D3100DEE4ED /* TeamListViewController.storyboard */,
+				A1BA83BC1ED9FB470074A8DD /* TextEditViewController.storyboard */,
 				A1B65DCB1EB07818009983E1 /* TrophyHeaderCell.xib */,
 				A1B65DCE1EB07BFC009983E1 /* TrophyWinnerCell.xib */,
-				A1EC56F21ED322EA00A9B592 /* SeasonsViewController.storyboard */,
 			);
 			path = Base.lproj;
 			sourceTree = "<group>";
@@ -505,6 +513,7 @@
 				A14B64ED1E8D662900CBDE92 /* TeamCreationViewController.swift */,
 				A1A2C3611E8BF6020008274F /* TeamHeaderCell.swift */,
 				A17EF6BD1E931A0300DEE4ED /* TeamListViewController.swift */,
+				A1BA83BA1ED9F3480074A8DD /* TextEditViewController.swift */,
 				A1B65DC91EB077A2009983E1 /* TrophyHeaderCell.swift */,
 				A1B65DD11EB07E79009983E1 /* TrophyWinnerCell.swift */,
 			);
@@ -711,6 +720,7 @@
 				A1C722131EA0F75500A71C51 /* ShareTeamRolesViewController.storyboard in Resources */,
 				A1B65DC21EB01123009983E1 /* StatCell.xib in Resources */,
 				A1A2C3641E8BF6020008274F /* TeamHeaderCell.xib in Resources */,
+				A1BA83BE1ED9FB470074A8DD /* TextEditViewController.storyboard in Resources */,
 				A18F68B01ECD716300407E89 /* PhotoPickerViewController.storyboard in Resources */,
 				A1D67D461E8FE8B100200B65 /* Main.storyboard in Resources */,
 				A1C7221B1EA5696E00A71C51 /* GamesViewController.storyboard in Resources */,
@@ -817,6 +827,7 @@
 				A1D67D481E8FE8BF00200B65 /* MainViewController.swift in Sources */,
 				A15ACF861EAE3AFA00091F9E /* StatsViewController.swift in Sources */,
 				A16D41801E98171600DE01D4 /* CreatePlayer.swift in Sources */,
+				A1BA83B91ED9EDDC0074A8DD /* DeleteSeason.swift in Sources */,
 				A1A2C3631E8BF6020008274F /* TeamHeaderCell.swift in Sources */,
 				A17999821E82B9780058A002 /* DateHelper.swift in Sources */,
 				A16D41841E9838FD00DE01D4 /* ApplyShadow.swift in Sources */,
@@ -898,6 +909,7 @@
 				A11F0C801ED5C70100F716DA /* CheckEmailAvailability.swift in Sources */,
 				A1D8054C1E89870B0072AA49 /* NewUserViewController.swift in Sources */,
 				A1C7221D1EA5698C00A71C51 /* GamesViewController.swift in Sources */,
+				A1BA83BB1ED9F3480074A8DD /* TextEditViewController.swift in Sources */,
 				A1C7221F1EA56A2800A71C51 /* GameCell.swift in Sources */,
 				A179997D1E82B8BD0058A002 /* NSDate+ValueType.swift in Sources */,
 				A1D67D381E8F081A00200B65 /* TeamActionSectionController.swift in Sources */,
@@ -1083,6 +1095,14 @@
 				A1B65DCF1EB07BFC009983E1 /* Base */,
 			);
 			name = TrophyWinnerCell.xib;
+			sourceTree = "<group>";
+		};
+		A1BA83BC1ED9FB470074A8DD /* TextEditViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A1BA83BD1ED9FB470074A8DD /* Base */,
+			);
+			name = TextEditViewController.storyboard;
 			sourceTree = "<group>";
 		};
 		A1C722111EA0F75500A71C51 /* ShareTeamRolesViewController.storyboard */ = {

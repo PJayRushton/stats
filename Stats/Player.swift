@@ -54,6 +54,10 @@ struct Player: Identifiable, Unmarshaling {
         return Stat(player: self, statType: type, value: type.statValue(with: atBats))
     }
     
+    var hasCell: Bool {
+        return phone != nil && phone!.isValidPhoneNumber
+    }
+    
 }
 
 extension Player: Marshaling {

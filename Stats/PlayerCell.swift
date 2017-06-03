@@ -15,9 +15,9 @@ class PlayerCell: UITableViewCell, AutoReuseIdentifiable {
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     
-    var isLineup = false {
+    var showCheck = false {
         didSet {
-            selectedSwitch.isHidden = !isLineup
+            selectedSwitch.isHidden = !showCheck
         }
     }
     override var isSelected: Bool {

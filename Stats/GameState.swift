@@ -28,6 +28,10 @@ struct GameState: State {
     func index(of game: Game) -> Int? {
         return teamGames.index(of: game)
     }
+    func games(of season: Season) -> [Game] {
+        guard let gamesOfTeam = allGamesDict[season.teamId] else { return [] }
+        return gamesOfTeam.filter { $0.seasonId == season.id }
+    }
     
     mutating func react(to event: Event) {
         switch event {

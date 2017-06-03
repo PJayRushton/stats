@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vNQ-fo-axD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vNQ-fo-axD">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -27,42 +28,75 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Cfu-Fp-h6V">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="soz-CM-4jj">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <color key="backgroundColor" red="0.96862745100000003" green="0.97647058819999999" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <view key="tableFooterView" contentMode="scaleToFill" id="SZX-ph-RzD">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="8"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                                <connections>
-                                    <outlet property="dataSource" destination="vNQ-fo-axD" id="sYv-dC-K3Q"/>
-                                    <outlet property="delegate" destination="vNQ-fo-axD" id="CSm-q6-IKd"/>
-                                </connections>
-                            </tableView>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Cfu-Fp-h6V">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                        <color key="backgroundColor" red="0.96862745100000003" green="0.97647058819999999" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <view key="tableFooterView" contentMode="scaleToFill" id="SZX-ph-RzD">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="8"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <connections>
+                                            <outlet property="dataSource" destination="vNQ-fo-axD" id="sYv-dC-K3Q"/>
+                                            <outlet property="delegate" destination="vNQ-fo-axD" id="CSm-q6-IKd"/>
+                                        </connections>
+                                    </tableView>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lKb-HV-XfY" customClass="CustomButton" customModule="Stats" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="603" width="375" height="0.0"/>
+                                        <color key="backgroundColor" red="0.55803233389999995" green="0.69207900759999996" blue="0.12800171969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="sJZ-O8-Xdv"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
+                                        <state key="normal" title="💬  Text  💬">
+                                            <color key="titleColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="disabledBackgroundColor">
+                                                <color key="value" red="0.55803233389999995" green="0.69207900759999996" blue="0.12800171969999999" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="launchTextButtonPressed:" destination="vNQ-fo-axD" eventType="touchUpInside" id="LdT-1Y-07O"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="XIN-fG-YTi" firstAttribute="top" secondItem="Cfu-Fp-h6V" secondAttribute="bottom" id="1Fh-sb-yvx"/>
-                            <constraint firstItem="Cfu-Fp-h6V" firstAttribute="top" secondItem="wYt-kJ-wbM" secondAttribute="bottom" id="4vc-7K-ye0"/>
-                            <constraint firstAttribute="trailing" secondItem="Cfu-Fp-h6V" secondAttribute="trailing" id="8L5-R4-eVX"/>
-                            <constraint firstItem="Cfu-Fp-h6V" firstAttribute="leading" secondItem="e6R-fx-h2d" secondAttribute="leading" id="rGt-Vy-0TP"/>
+                            <constraint firstAttribute="bottom" secondItem="soz-CM-4jj" secondAttribute="bottom" id="6G6-ci-Omw"/>
+                            <constraint firstItem="soz-CM-4jj" firstAttribute="top" secondItem="wYt-kJ-wbM" secondAttribute="bottom" id="8Ud-sR-7dA"/>
+                            <constraint firstAttribute="trailing" secondItem="soz-CM-4jj" secondAttribute="trailing" id="9D7-Zk-rrl"/>
+                            <constraint firstItem="soz-CM-4jj" firstAttribute="leading" secondItem="e6R-fx-h2d" secondAttribute="leading" id="Zaj-RW-cNa"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Roster" id="EvN-qc-zcY">
                         <barButtonItem key="backBarButtonItem" title=" " id="enb-RA-JAC"/>
-                        <barButtonItem key="rightBarButtonItem" image="plusBar" id="a3b-wJ-JGM">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <action selector="addPlayerButtonPressed:" destination="vNQ-fo-axD" id="DD3-sT-4Dy"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem image="plusBar" id="a3b-wJ-JGM">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="addPlayerButtonPressed:" destination="vNQ-fo-axD" id="DD3-sT-4Dy"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="💬" id="clg-M1-vlJ">
+                                <connections>
+                                    <action selector="textBarButtonPressed:" destination="vNQ-fo-axD" id="8qE-Jp-1sp"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="addButton" destination="a3b-wJ-JGM" id="Wac-uP-ybe"/>
                         <outlet property="emptyView" destination="oWu-dQ-uVX" id="59a-7k-01h"/>
                         <outlet property="tableView" destination="Cfu-Fp-h6V" id="D84-SS-DpD"/>
+                        <outlet property="textBarButton" destination="clg-M1-vlJ" id="CDA-OV-dvz"/>
+                        <outlet property="textButton" destination="lKb-HV-XfY" id="lSd-CF-Xae"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sau-NI-lzk" userLabel="First Responder" sceneMemberID="firstResponder"/>

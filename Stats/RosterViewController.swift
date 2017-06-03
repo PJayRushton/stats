@@ -14,14 +14,41 @@ import MessageUI
 
 class RosterViewController: Component, AutoStoryboardInitializable {
     
-    @IBOutlet weak var addButton: UIBarButtonItem!
+    @IBOutlet var addButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet var emptyView: UIView!
+    @IBOutlet var textBarButton: UIBarButtonItem!
+    @IBOutlet weak var textButton: CustomButton!
     
     var isLineup = false
     
     fileprivate var orderedPlayers = [Player]()
     fileprivate var benchedPlayers = [Player]()
+    fileprivate var playersWithCell: [Player] {
+        return allPlayers.filter { $0.hasCell }
+    }
+    fileprivate var playersToText = [Player]() {
+        didSet {
+            textButton.isEnabled = !playersToText.isEmpty
+            tableView.reloadData()
+        }
+    }
+    fileprivate var isTexting = false {
+        didSet {
+            tableView.isEditing = !isTexting
+            textBarButton.title = isTexting ? "👕" : "💬"
+            if playersWithCell.isEmpty {
+                navigationItem.rightBarButtonItems = [addButton]
+            } else {
+                navigationItem.rightBarButtonItems = isTexting ? [textBarButton] : [addButton, textBarButton]
+            }
+            tableView.reloadData()
+            guard isTexting != oldValue else { return }
+            UIView.animate(withDuration: 0.25) {
+                self.textButton.isHidden = !self.isTexting
+            }
+        }
+    }
     
     fileprivate var allPlayers: [Player] {
         guard let currentTeam = currentTeam else { return [] }
@@ -48,6 +75,7 @@ class RosterViewController: Component, AutoStoryboardInitializable {
             orderedPlayers = allPlayers.filter { $0.order >= 0 }.sorted { $0.order < $1.order }
             benchedPlayers = allPlayers.filter { $0.order < 0 }.sorted { $0.name < $1.name }
         }
+        playersToText = playersWithCell // auto select all players with phone numbers to start
         feedbackGenerator.prepare()
         registerNibs()
     }
@@ -61,14 +89,32 @@ class RosterViewController: Component, AutoStoryboardInitializable {
             updateRosterOrder(all: true)
         }
     }
+
+    
+    // MARK: - IBActions
     
     @IBAction func addPlayerButtonPressed(_ sender: Any) {
+        feedbackGenerator.selectionChanged()
         let playerCreationVC = PlayerCreationViewController.initializeFromStoryboard()
         customPresentViewController(modalPresenter(), viewController: playerCreationVC, animated: true, completion: nil)
     }
     
+    @IBAction func launchTextButtonPressed(_ sender: UIButton) {
+        feedbackGenerator.selectionChanged()
+        textPhoneNumbers(playersToText.flatMap { $0.phone })
+    }
+    
+    @IBAction func textBarButtonPressed(_ sender: Any) {
+        feedbackGenerator.selectionChanged()
+        isTexting = !isTexting
+    }
+    
+    
+    // MARK: - Reactor
+    
     override func update(with state: AppState) {
         navigationController?.navigationBar.barTintColor = state.currentMenuItem?.backgroundColor
+        self.isTexting = isTexting ? true : false // to not duplicate bar button item logic
         guard let team = state.teamState.currentTeam else { tableView.reloadData(); return }
         if isLineup {
             let newPlayers = state.playerState.players(for: team).filter { !orderedPlayers.contains($0) && !benchedPlayers.contains($0) }
@@ -100,10 +146,14 @@ extension RosterViewController {
     }
     
     fileprivate func player(at indexPath: IndexPath) -> Player {
-        if indexPath.section == 1 {
-            return benchedPlayers[indexPath.row]
+        if isTexting {
+            return playersWithCell[indexPath.row]
         } else {
-            return orderedPlayers[indexPath.row]
+            if indexPath.section == 1 {
+                return benchedPlayers[indexPath.row]
+            } else {
+                return orderedPlayers[indexPath.row]
+            }
         }
     }
     
@@ -189,9 +239,9 @@ extension RosterViewController {
         UIApplication.shared.open(phoneURL, options: [:], completionHandler: nil)
     }
     
-    fileprivate func textPhoneNumber(_ number: String) {
+    fileprivate func textPhoneNumbers(_ numbers: [String]) {
         let textVC = MFMessageComposeViewController()
-        textVC.recipients = [number]
+        textVC.recipients = numbers
         textVC.messageComposeDelegate = self
         present(textVC, animated: true, completion: nil)
     }
@@ -217,7 +267,7 @@ extension RosterViewController {
             }
             if MFMessageComposeViewController.canSendText() {
                 alert.addAction(UIAlertAction(title: "Text 💬", style: .default, handler: { _ in
-                    self.textPhoneNumber(phone)
+                    self.textPhoneNumbers([phone])
                 }))
             }
         }
@@ -230,17 +280,23 @@ extension RosterViewController {
 extension RosterViewController: UITableViewDataSource, UITableViewDelegate {
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return isTexting ? 1 : 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isTexting {
+            return playersWithCell.count
+        }
         return section == 0 ? orderedPlayers.count : benchedPlayers.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: PlayerCell.reuseIdentifier) as! PlayerCell
-        cell.isLineup = isLineup
-        configure(cell: cell, with: player(at: indexPath), atIndex: indexPath, isSelected: indexPath.section == 0)
+        cell.showCheck = isLineup || isTexting
+        let playerAtRow = player(at: indexPath)
+        let isSelected = isTexting ? playersToText.contains(playerAtRow) : indexPath.section == 0
+        configure(cell: cell, with: playerAtRow, atIndex: indexPath, isSelected: isSelected)
+        
         return cell
     }
     
@@ -249,6 +305,7 @@ extension RosterViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard !isTexting else { return nil }
         let headerCell = tableView.dequeueReusableCell(withIdentifier: BasicHeaderCell.reuseIdentifier) as! BasicHeaderCell
         let title = section == 0 ? NSLocalizedString("Roster", comment: "Main players on the team") : NSLocalizedString("Bench", comment: "Not currently playing, (on the bench)")
         headerCell.update(with: title, backgroundColor: .flatGrayDark)
@@ -256,18 +313,25 @@ extension RosterViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        let isEmpty = orderedPlayers.isEmpty && benchedPlayers.isEmpty
+        let isEmpty = orderedPlayers.isEmpty && benchedPlayers.isEmpty || isTexting
         return isEmpty ? 0 : 30
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-
-        if isLineup {
-            switchPlayerSection(at: indexPath)
+        feedbackGenerator.selectionChanged()
+        let selectedPlayer = player(at: indexPath)
+        if isTexting {
+            if let index = playersToText.index(of: selectedPlayer) {
+                playersToText.remove(at: index)
+            } else {
+                playersToText.append(selectedPlayer)
+            }
         } else {
-            let selectedPlayer = player(at: indexPath)
-            presentOptions(for: selectedPlayer)
+            if isLineup {
+                switchPlayerSection(at: indexPath)
+            } else {
+                presentOptions(for: selectedPlayer)
+            }
         }
     }
     

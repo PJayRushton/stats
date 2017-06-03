@@ -31,8 +31,9 @@ extension Optional where Wrapped: MarshaledObject {
     
 }
 
-extension Sequence where Iterator.Element == AtBat {
-    
+//extension Sequence where Iterator.Element == AtBat {
+extension Array where Iterator.Element == AtBat {
+
     func withResult(_ code: AtBatCode) -> [AtBat] {
         return filter { $0.resultCode == code }
     }

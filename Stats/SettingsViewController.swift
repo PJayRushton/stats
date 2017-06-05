@@ -188,6 +188,8 @@ extension SettingsViewController: UITableViewDelegate {
         let theRow = section.rows[indexPath.row]
         
         switch theRow {
+        case .username, .email, .seasons:
+        return // FIXME:
         case .manageTeams:
             let teamManagerVC = TeamListViewController.initializeFromStoryboard()
             teamManagerVC.isDismissable = false

@@ -33,27 +33,27 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="472"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="New Player" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U2A-uy-k0o">
-                                        <rect key="frame" x="83.5" y="0.0" width="153" height="34"/>
+                                        <rect key="frame" x="96.5" y="0.0" width="127" height="29.5"/>
                                         <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="GQc-go-ecY" userLabel="Spacer View">
-                                        <rect key="frame" x="0.0" y="42" width="320" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="37.5" width="320" height="0.0"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" id="nr0-1J-r1X"/>
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="NEI-KO-G84" userLabel="Name stack">
-                                        <rect key="frame" x="16" y="50" width="288" height="54"/>
+                                        <rect key="frame" x="16" y="45.5" width="288" height="58.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VK3-XC-SO4" userLabel="Spacer view">
-                                                <rect key="frame" x="0.0" y="2" width="34" height="50"/>
+                                                <rect key="frame" x="0.0" y="4.5" width="34" height="50"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pbN-jM-Zx4" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                                <rect key="frame" x="42" y="2" width="204" height="50"/>
+                                                <rect key="frame" x="42" y="4.5" width="204" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="4Sw-Yc-xPC"/>
                                                 </constraints>
@@ -77,7 +77,7 @@
                                                 </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bah-nF-0LZ">
-                                                <rect key="frame" x="254" y="10" width="34" height="34"/>
+                                                <rect key="frame" x="254" y="12.5" width="34" height="34"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="bah-nF-0LZ" secondAttribute="height" multiplier="1:1" id="5Gj-w0-uvU"/>
                                                     <constraint firstAttribute="height" constant="34" id="eWV-7s-Thf"/>
@@ -93,7 +93,7 @@
                                         </constraints>
                                     </stackView>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Jersey #" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FzI-Sm-Z0X" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                        <rect key="frame" x="118" y="112" width="84.5" height="50"/>
+                                        <rect key="frame" x="124" y="112" width="72" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="61R-3Y-djV"/>
                                         </constraints>
@@ -176,7 +176,7 @@
                                         <rect key="frame" x="15.5" y="276" width="289" height="34"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This player is a substitute" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1l-L4-ME3">
-                                                <rect key="frame" x="0.0" y="0.0" width="211" height="34"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="170.5" height="34"/>
                                                 <gestureRecognizers/>
                                                 <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="15"/>
                                                 <nil key="textColor"/>

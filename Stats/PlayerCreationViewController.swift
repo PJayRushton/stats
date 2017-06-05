@@ -9,6 +9,7 @@
 import UIKit
 import AIFlatSwitch
 import BetterSegmentedControl
+import ContactsUI
 import Firebase
 import Presentr
 import TextFieldEffects
@@ -16,26 +17,42 @@ import TextFieldEffects
 class PlayerCreationViewController: Component, AutoStoryboardInitializable {
     
     @IBOutlet weak var topLabel: UILabel!
-    @IBOutlet weak var nameTextField: MadokaTextField!
-    @IBOutlet weak var jerseyNumberTextField: MadokaTextField!
-    @IBOutlet weak var phoneTextField: MadokaTextField!
+    @IBOutlet weak var nameTextField: HoshiTextField!
+    @IBOutlet weak var jerseyNumberTextField: HoshiTextField!
+    @IBOutlet weak var phoneTextField: HoshiTextField!
     @IBOutlet weak var genderSegControl: BetterSegmentedControl!
     @IBOutlet weak var subSwitch: AIFlatSwitch!
     @IBOutlet weak var cancelButton: UIButton!
-    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var saveButton: CustomButton!
     @IBOutlet weak var deleteButton: UIButton!
-    @IBOutlet weak var saveAddButton: UIButton!
+    @IBOutlet weak var saveAddButton: CustomButton!
+    
     @IBOutlet var keyboardView: UIView!
+    @IBOutlet weak var keyboardNextButton: UIButton!
+    @IBOutlet weak var keyboardPreviousButton: UIButton!
+    @IBOutlet weak var keyboardSaveButton: UIButton!
+    @IBOutlet weak var keyboardSaveAddButton: UIButton!
+    @IBOutlet weak var keyboardSpacerView: UIView!
+    @IBOutlet var saveButtonsWidthConstraint: NSLayoutConstraint!
     
     var editingPlayer: Player?
     
+    fileprivate var contactHelper: ContactsHelper!
     fileprivate lazy var newPlayerRef: DatabaseReference = {
         return StatsRefs.playersRef(teamId: App.core.state.teamState.currentTeam!.id).childByAutoId()
     }()
+    fileprivate var saveButtons: [UIButton] {
+        return [saveButton, saveAddButton, keyboardSaveButton, keyboardSaveAddButton]
+    }
+
+    
+    // MARK: - ViewController Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        contactHelper = ContactsHelper(viewController: self)
+        contactHelper.contactSelected = contactSelected
         deleteButton.isHidden = true
         
         setUpSegControl()
@@ -52,6 +69,13 @@ class PlayerCreationViewController: Component, AutoStoryboardInitializable {
         if editingPlayer == nil {
             nameTextField.becomeFirstResponder()
         }
+    }
+    
+    
+    // MARK: - IBActions
+    
+    @IBAction func addressBookPressed(_ sender: UIButton) {
+        contactHelper.addressButtonPressed()
     }
     
     @IBAction func genderChanged(_ sender: BetterSegmentedControl) {
@@ -86,6 +110,7 @@ class PlayerCreationViewController: Component, AutoStoryboardInitializable {
     
     @IBAction func subLabelTapped(_ sender: UITapGestureRecognizer) {
         subSwitch.setSelected(!subSwitch.isSelected, animated: true)
+        updateSaveButtons()
     }
     
     @IBAction func nextButtonPressed(_ sender: UIButton) {
@@ -97,9 +122,12 @@ class PlayerCreationViewController: Component, AutoStoryboardInitializable {
     }
     
     @IBAction func dismissKeyboardButtonPressed(_ sender: UIButton) {
-        view.endEditing(true)
+        view.endEditing(false)
     }
     
+    @IBAction func viewTapped(_ sender: UITapGestureRecognizer) {
+        view.endEditing(false)
+    }
     
     // MARK: - Subscriber 
     
@@ -108,6 +136,9 @@ class PlayerCreationViewController: Component, AutoStoryboardInitializable {
     }
     
 }
+
+
+// MARK: - Fileprivate 
 
 extension PlayerCreationViewController {
     
@@ -134,20 +165,19 @@ extension PlayerCreationViewController {
     }
     
     fileprivate func updateSaveButtons() {
-        var isSavable = constructedPlayer() != nil
+        let newPlayer = constructedPlayer()
+        var isSavable = newPlayer != nil
+        
         if let editingPlayer = editingPlayer {
-            guard let nameText = nameTextField.text, let jerseyText = jerseyNumberTextField.text, let phoneText = phoneTextField.text else { return }
-            let nameIsSame = !nameText.isEmpty && nameText == editingPlayer.name
-            let jerseyIsSame = jerseyText == editingPlayer.jerseyNumber
-            let phoneIsSame = phoneText == editingPlayer.phone
-            let genderIsSame = editingPlayer.gender.rawValue == Int(genderSegControl.index)
-            let subIsSame = editingPlayer.isSub == subSwitch.isSelected
-            isSavable = constructedPlayer() != nil && !nameIsSame || !jerseyIsSame || !phoneIsSame || !genderIsSame || !subIsSame
+            isSavable = newPlayer != nil && !newPlayer!.isSame(as: editingPlayer)
         }
         saveButton.isEnabled = isSavable
         saveAddButton.isEnabled = isSavable
-        saveButton.backgroundColor = isSavable ? UIColor.mainAppColor : UIColor.mainAppColor.withAlphaComponent(0.5)
-        saveAddButton.backgroundColor = isSavable ? UIColor.mainAppColor : UIColor.mainAppColor.withAlphaComponent(0.5)
+        
+        keyboardSaveButton.isHidden = !isSavable
+        keyboardSaveAddButton.isHidden = !isSavable || editingPlayer != nil
+        keyboardSpacerView.isHidden = isSavable
+        saveButtonsWidthConstraint.isActive = !keyboardSaveButton.isHidden && !keyboardSaveAddButton.isHidden
     }
     
     fileprivate func constructedPlayer(add: Bool = false) -> Player? {
@@ -158,7 +188,8 @@ extension PlayerCreationViewController {
         let id = StatsRefs.playersRef(teamId: team.id).childByAutoId().key
         
         var phone: String?
-        if let phoneText = phoneTextField.text, !phoneText.isEmpty, phoneText.isValidPhoneNumber {
+        if let phoneText = phoneTextField.text, !phoneText.isEmpty {
+            guard phoneText.isValidPhoneNumber else { return nil }
             phone = phoneText
         }
         if var editingPlayer = editingPlayer {
@@ -224,7 +255,32 @@ extension PlayerCreationViewController {
 }
 
 
+// MARK: - Contacts
+
+extension PlayerCreationViewController {
+
+    func contactSelected(result: Result<(String, String)>) {
+        switch result {
+        case let .success(name, phone):
+            if let nameText = nameTextField.text, nameText.isEmpty {
+                nameTextField.text = name
+            }
+            phoneTextField.text = phone
+        case let .failure(error):
+            contactHelper.presentErrorAlert()
+            dump(error)
+        }
+    }
+
+    
+}
+
 extension PlayerCreationViewController: UITextFieldDelegate {
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        keyboardPreviousButton.isHidden = textField == nameTextField
+        keyboardNextButton.isHidden = textField == phoneTextField
+    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == nameTextField {

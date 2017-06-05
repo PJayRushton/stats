@@ -32,45 +32,68 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="JSo-Mp-Yfh">
                                 <rect key="frame" x="0.0" y="28" width="320" height="472"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Player" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U2A-uy-k0o">
-                                        <rect key="frame" x="83.5" y="0.0" width="153" height="16.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="New Player" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U2A-uy-k0o">
+                                        <rect key="frame" x="83.5" y="0.0" width="153" height="34"/>
                                         <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="GQc-go-ecY" userLabel="Spacer View">
-                                        <rect key="frame" x="0.0" y="24.5" width="320" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="42" width="320" height="0.0"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" id="nr0-1J-r1X"/>
                                         </constraints>
                                     </view>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pbN-jM-Zx4" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                        <rect key="frame" x="32" y="32.5" width="256" height="50"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="NEI-KO-G84" userLabel="Name stack">
+                                        <rect key="frame" x="16" y="50" width="288" height="54"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VK3-XC-SO4" userLabel="Spacer view">
+                                                <rect key="frame" x="0.0" y="2" width="34" height="50"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pbN-jM-Zx4" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                                <rect key="frame" x="42" y="2" width="204" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="4Sw-Yc-xPC"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                        <color key="value" red="0.65098039220000004" green="0.77647058820000003" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                        <color key="value" red="0.55551326270000001" green="0.44784164430000001" blue="0.36720436810000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                        <color key="value" red="0.55551326270000001" green="0.44784164430000001" blue="0.36720436810000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="textFieldChanged:" destination="JCe-SB-1of" eventType="editingChanged" id="gKb-ry-P3s"/>
+                                                    <outlet property="delegate" destination="JCe-SB-1of" id="OVB-1E-ayD"/>
+                                                </connections>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bah-nF-0LZ">
+                                                <rect key="frame" x="254" y="10" width="34" height="34"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="bah-nF-0LZ" secondAttribute="height" multiplier="1:1" id="5Gj-w0-uvU"/>
+                                                    <constraint firstAttribute="height" constant="34" id="eWV-7s-Thf"/>
+                                                </constraints>
+                                                <state key="normal" image="contacts"/>
+                                                <connections>
+                                                    <action selector="addressBookPressed:" destination="JCe-SB-1of" eventType="touchUpInside" id="Uco-Bl-2Ea"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="4Sw-Yc-xPC"/>
+                                            <constraint firstItem="bah-nF-0LZ" firstAttribute="width" secondItem="VK3-XC-SO4" secondAttribute="width" id="JgE-gY-apX"/>
                                         </constraints>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
-                                                <color key="value" red="0.65098039220000004" green="0.77647058820000003" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
-                                                <color key="value" red="0.55551326270000001" green="0.44784164430000001" blue="0.36720436810000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
-                                                <color key="value" red="0.55551326270000001" green="0.44784164430000001" blue="0.36720436810000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="textFieldChanged:" destination="JCe-SB-1of" eventType="editingChanged" id="gKb-ry-P3s"/>
-                                            <outlet property="delegate" destination="JCe-SB-1of" id="OVB-1E-ayD"/>
-                                        </connections>
-                                    </textField>
+                                    </stackView>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Jersey #" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FzI-Sm-Z0X" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                        <rect key="frame" x="96" y="90.5" width="128" height="50"/>
+                                        <rect key="frame" x="118" y="112" width="84.5" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="61R-3Y-djV"/>
                                         </constraints>
@@ -89,36 +112,58 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="textFieldChanged:" destination="JCe-SB-1of" eventType="editingDidEnd" id="bdk-cv-nYD"/>
+                                            <action selector="textFieldChanged:" destination="JCe-SB-1of" eventType="editingChanged" id="4Bw-NM-B4t"/>
                                             <outlet property="delegate" destination="JCe-SB-1of" id="CT0-yn-Fva"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone #" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4hN-kV-uPH" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                        <rect key="frame" x="32" y="148.5" width="256" height="50"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="VXa-Sm-CrP" userLabel="Phone stack">
+                                        <rect key="frame" x="16" y="170" width="288" height="50"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l0u-gb-uNl" userLabel="Spacer view">
+                                                <rect key="frame" x="0.0" y="0.0" width="34" height="50"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone #" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4hN-kV-uPH" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                                <rect key="frame" x="42" y="0.0" width="204" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="Aj1-bo-SwV"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="phonePad"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                        <color key="value" red="0.55551326270000001" green="0.44784164430000001" blue="0.36720436810000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                        <color key="value" red="0.55803233389999995" green="0.69207900759999996" blue="0.12800171969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                        <color key="value" red="0.55551326270000001" green="0.44784164430000001" blue="0.36720436810000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="textFieldChanged:" destination="JCe-SB-1of" eventType="editingChanged" id="dmO-9a-uSD"/>
+                                                    <outlet property="delegate" destination="JCe-SB-1of" id="xhO-NC-76W"/>
+                                                </connections>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wg6-E9-s6K">
+                                                <rect key="frame" x="254" y="8" width="34" height="34"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="wg6-E9-s6K" secondAttribute="height" multiplier="1:1" id="AbS-2P-OzR"/>
+                                                </constraints>
+                                                <state key="normal" image="contacts"/>
+                                                <connections>
+                                                    <action selector="addressBookPressed:" destination="JCe-SB-1of" eventType="touchUpInside" id="DrQ-iY-5o1"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="Aj1-bo-SwV"/>
+                                            <constraint firstItem="wg6-E9-s6K" firstAttribute="width" secondItem="l0u-gb-uNl" secondAttribute="width" id="36o-IA-fGe"/>
                                         </constraints>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="phonePad"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
-                                                <color key="value" red="0.55551326270000001" green="0.44784164430000001" blue="0.36720436810000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
-                                                <color key="value" red="0.55803233389999995" green="0.69207900759999996" blue="0.12800171969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
-                                                <color key="value" red="0.55551326270000001" green="0.44784164430000001" blue="0.36720436810000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="textFieldChanged:" destination="JCe-SB-1of" eventType="editingDidEnd" id="4p8-1f-ECG"/>
-                                            <outlet property="delegate" destination="JCe-SB-1of" id="xhO-NC-76W"/>
-                                        </connections>
-                                    </textField>
+                                    </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A4o-rE-hsc" customClass="BetterSegmentedControl" customModule="BetterSegmentedControl">
-                                        <rect key="frame" x="16" y="206.5" width="288" height="40"/>
+                                        <rect key="frame" x="16" y="228" width="288" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="cs6-EF-646"/>
@@ -128,7 +173,7 @@
                                         </connections>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="l8J-fs-joE">
-                                        <rect key="frame" x="15.5" y="254.5" width="289" height="34"/>
+                                        <rect key="frame" x="15.5" y="276" width="289" height="34"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This player is a substitute" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1l-L4-ME3">
                                                 <rect key="frame" x="0.0" y="0.0" width="211" height="34"/>
@@ -136,9 +181,6 @@
                                                 <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
-                                                <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="Dou-Kd-Pnz" appends="YES" id="dKQ-er-Hcr"/>
-                                                </connections>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qSv-Iv-A9s" customClass="AIFlatSwitch" customModule="AIFlatSwitch">
                                                 <rect key="frame" x="254" y="0.0" width="35" height="34"/>
@@ -157,30 +199,34 @@
                                                 </connections>
                                             </view>
                                         </subviews>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="7SV-ef-NIe" appends="YES" id="czY-1T-vHK"/>
+                                        </connections>
                                     </stackView>
-                                    <view contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="sS6-56-bAQ" userLabel="Spacer View">
-                                        <rect key="frame" x="0.0" y="296.5" width="320" height="132.5"/>
+                                    <view contentMode="scaleToFill" verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="sS6-56-bAQ" userLabel="Spacer View">
+                                        <rect key="frame" x="0.0" y="318" width="320" height="106"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="pHD-Z1-Ud5" userLabel="Buttons Stack">
-                                        <rect key="frame" x="0.0" y="437" width="320" height="35"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="pHD-Z1-Ud5" userLabel="Buttons Stack">
+                                        <rect key="frame" x="0.0" y="432" width="320" height="40"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rIr-6h-phC">
-                                                <rect key="frame" x="0.0" y="0.0" width="74" height="35"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="74" height="40"/>
                                                 <color key="backgroundColor" red="0.74509803919999995" green="0.2274509804" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
-                                                <state key="normal" title="Cancel">
+                                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="20"/>
+                                                <state key="normal" title="🔽">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="cancelButtonPressed:" destination="JCe-SB-1of" eventType="touchUpInside" id="LpI-aI-cw4"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HEZ-F2-Ah4">
-                                                <rect key="frame" x="82" y="0.0" width="74" height="35"/>
-                                                <color key="backgroundColor" red="0.65098039220000004" green="0.77647058820000003" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
-                                                <state key="normal" title="Save">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HEZ-F2-Ah4" customClass="CustomButton" customModule="Stats" customModuleProvider="target">
+                                                <rect key="frame" x="82" y="0.0" width="74" height="40"/>
+                                                <color key="backgroundColor" red="0.55803233389999995" green="0.69207900759999996" blue="0.12800171969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="20"/>
+                                                <state key="normal" title="💾">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -188,21 +234,21 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HVK-sP-LVU">
-                                                <rect key="frame" x="164" y="0.0" width="74" height="35"/>
+                                                <rect key="frame" x="164" y="0.0" width="74" height="40"/>
                                                 <color key="backgroundColor" red="0.74509803919999995" green="0.2274509804" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
-                                                <state key="normal" title="Delete">
+                                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="19"/>
+                                                <state key="normal" title="🗑">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="deleteButtonPressed:" destination="JCe-SB-1of" eventType="touchUpInside" id="haP-73-N9P"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FlP-pA-9el">
-                                                <rect key="frame" x="246" y="0.0" width="74" height="35"/>
-                                                <color key="backgroundColor" red="0.65098039220000004" green="0.76862745099999996" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
-                                                <state key="normal" title="Save + 1">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FlP-pA-9el" customClass="CustomButton" customModule="Stats" customModuleProvider="target">
+                                                <rect key="frame" x="246" y="0.0" width="74" height="40"/>
+                                                <color key="backgroundColor" red="0.55803233389999995" green="0.69207900759999996" blue="0.12800171969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="20"/>
+                                                <state key="normal" title="💾 ➕">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -210,15 +256,18 @@
                                                 </connections>
                                             </button>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="UEp-Y6-iok"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="VXa-Sm-CrP" firstAttribute="width" secondItem="JSo-Mp-Yfh" secondAttribute="width" constant="-32" id="0fN-pE-7iD"/>
                                     <constraint firstItem="A4o-rE-hsc" firstAttribute="width" secondItem="JSo-Mp-Yfh" secondAttribute="width" multiplier="0.9" id="1Za-kT-9mf"/>
                                     <constraint firstItem="pHD-Z1-Ud5" firstAttribute="width" secondItem="JSo-Mp-Yfh" secondAttribute="width" id="5Q9-hl-dmF"/>
-                                    <constraint firstItem="pbN-jM-Zx4" firstAttribute="width" secondItem="JSo-Mp-Yfh" secondAttribute="width" multiplier="0.8" id="7hy-yz-RrV"/>
-                                    <constraint firstItem="4hN-kV-uPH" firstAttribute="width" secondItem="pbN-jM-Zx4" secondAttribute="width" id="KLL-AE-BNA"/>
                                     <constraint firstItem="sS6-56-bAQ" firstAttribute="width" secondItem="JSo-Mp-Yfh" secondAttribute="width" id="Lb0-sW-sqL"/>
-                                    <constraint firstItem="FzI-Sm-Z0X" firstAttribute="width" secondItem="pbN-jM-Zx4" secondAttribute="width" multiplier="0.5" id="cUI-aW-kNb"/>
+                                    <constraint firstItem="wg6-E9-s6K" firstAttribute="height" secondItem="bah-nF-0LZ" secondAttribute="height" id="c51-dP-poM"/>
+                                    <constraint firstItem="NEI-KO-G84" firstAttribute="width" secondItem="JSo-Mp-Yfh" secondAttribute="width" constant="-32" id="mEi-ll-XTm"/>
                                     <constraint firstItem="l8J-fs-joE" firstAttribute="width" secondItem="JSo-Mp-Yfh" secondAttribute="width" multiplier="0.9" constant="0.90000000000000002" id="xWT-94-uSY"/>
                                     <constraint firstItem="GQc-go-ecY" firstAttribute="width" secondItem="JSo-Mp-Yfh" secondAttribute="width" id="zaf-yM-gdh"/>
                                 </constraints>
@@ -232,6 +281,9 @@
                             <constraint firstItem="JSo-Mp-Yfh" firstAttribute="leading" secondItem="wyg-nP-1Fs" secondAttribute="leading" id="yyU-cv-SUK"/>
                             <constraint firstItem="nGB-S1-9O4" firstAttribute="top" secondItem="JSo-Mp-Yfh" secondAttribute="bottom" id="zEY-1d-I0O"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="KY9-au-nQK" appends="YES" id="4mS-BO-Lsx"/>
+                        </connections>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="500"/>
@@ -240,32 +292,33 @@
                         <outlet property="deleteButton" destination="HVK-sP-LVU" id="avz-za-YlL"/>
                         <outlet property="genderSegControl" destination="A4o-rE-hsc" id="D2e-7q-gLQ"/>
                         <outlet property="jerseyNumberTextField" destination="FzI-Sm-Z0X" id="SLh-dr-LXC"/>
+                        <outlet property="keyboardNextButton" destination="tjB-km-cDB" id="lo4-o6-yT8"/>
+                        <outlet property="keyboardPreviousButton" destination="pf3-ut-bNh" id="0FT-PD-k3i"/>
+                        <outlet property="keyboardSaveAddButton" destination="0fP-Z4-ho0" id="iM2-aK-DiZ"/>
+                        <outlet property="keyboardSaveButton" destination="Kom-30-Skk" id="ue3-Rf-lpC"/>
+                        <outlet property="keyboardSpacerView" destination="NdN-lf-0u7" id="hxp-Di-8TE"/>
                         <outlet property="keyboardView" destination="Ycx-FJ-m6g" id="1t6-Ro-Pab"/>
                         <outlet property="nameTextField" destination="pbN-jM-Zx4" id="eae-Tu-NBS"/>
                         <outlet property="phoneTextField" destination="4hN-kV-uPH" id="109-xK-VtX"/>
                         <outlet property="saveAddButton" destination="FlP-pA-9el" id="94t-Nh-Ndm"/>
                         <outlet property="saveButton" destination="HEZ-F2-Ah4" id="mBw-vg-JHy"/>
+                        <outlet property="saveButtonsWidthConstraint" destination="FOs-y7-zLF" id="VrH-bO-Hed"/>
                         <outlet property="subSwitch" destination="qSv-Iv-A9s" id="SDV-GH-KNF"/>
                         <outlet property="topLabel" destination="U2A-uy-k0o" id="77B-QL-VRt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Rv-cv-IP1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="Dou-Kd-Pnz">
-                    <connections>
-                        <action selector="subLabelTapped:" destination="JCe-SB-1of" id="IcC-SY-Oj0"/>
-                    </connections>
-                </tapGestureRecognizer>
                 <view contentMode="scaleToFill" id="Ycx-FJ-m6g">
                     <rect key="frame" x="0.0" y="0.0" width="311" height="49"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="42g-s8-YZY">
-                            <rect key="frame" x="8" y="8" width="295" height="33"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="42g-s8-YZY">
+                            <rect key="frame" x="8" y="0.0" width="295" height="49"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tjB-km-cDB">
-                                    <rect key="frame" x="0.0" y="0.0" width="40" height="33"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="36" height="49"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="40" id="2pe-1b-Zlv"/>
+                                        <constraint firstAttribute="width" constant="36" id="2pe-1b-Zlv"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                     <state key="normal" title="⬇️"/>
@@ -274,19 +327,38 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pf3-ut-bNh">
-                                    <rect key="frame" x="40" y="0.0" width="40" height="33"/>
+                                    <rect key="frame" x="44" y="0.0" width="36" height="49"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="36" id="nFG-HP-UiP"/>
+                                    </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                     <state key="normal" title="⬆️"/>
                                     <connections>
                                         <action selector="previousButtonPressed:" destination="JCe-SB-1of" eventType="touchUpInside" id="zve-Ld-cgs"/>
                                     </connections>
                                 </button>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="54L-Jw-Sjn">
-                                    <rect key="frame" x="80" y="0.0" width="175" height="33"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kom-30-Skk">
+                                    <rect key="frame" x="88" y="0.0" width="0.0" height="49"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                    <state key="normal" title="💾"/>
+                                    <connections>
+                                        <action selector="saveButtonPressed:" destination="JCe-SB-1of" eventType="touchUpInside" id="bon-mS-pI4"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0fP-Z4-ho0">
+                                    <rect key="frame" x="96" y="0.0" width="0.0" height="49"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                    <state key="normal" title="💾➕"/>
+                                    <connections>
+                                        <action selector="saveAndAddButtonPressed:" destination="JCe-SB-1of" eventType="touchUpInside" id="i7U-RE-UKb"/>
+                                    </connections>
+                                </button>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NdN-lf-0u7">
+                                    <rect key="frame" x="104" y="0.0" width="183" height="49"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DU5-Px-BIE">
-                                    <rect key="frame" x="255" y="0.0" width="40" height="33"/>
+                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DU5-Px-BIE">
+                                    <rect key="frame" x="295" y="0.0" width="0.0" height="49"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                     <state key="normal" title="⌨️"/>
                                     <connections>
@@ -295,8 +367,7 @@
                                 </button>
                             </subviews>
                             <constraints>
-                                <constraint firstItem="pf3-ut-bNh" firstAttribute="width" secondItem="tjB-km-cDB" secondAttribute="width" id="1ML-3X-CZ3"/>
-                                <constraint firstItem="DU5-Px-BIE" firstAttribute="width" secondItem="tjB-km-cDB" secondAttribute="width" id="Klx-PV-ezF"/>
+                                <constraint firstItem="Kom-30-Skk" firstAttribute="width" secondItem="0fP-Z4-ho0" secondAttribute="width" id="FOs-y7-zLF"/>
                             </constraints>
                         </stackView>
                     </subviews>
@@ -304,12 +375,25 @@
                     <constraints>
                         <constraint firstItem="42g-s8-YZY" firstAttribute="leading" secondItem="Ycx-FJ-m6g" secondAttribute="leadingMargin" id="7ls-Vu-0a8"/>
                         <constraint firstAttribute="trailingMargin" secondItem="42g-s8-YZY" secondAttribute="trailing" id="Hhl-Nc-j2z"/>
-                        <constraint firstAttribute="bottomMargin" secondItem="42g-s8-YZY" secondAttribute="bottom" id="Jxc-bJ-acf"/>
-                        <constraint firstItem="42g-s8-YZY" firstAttribute="top" secondItem="Ycx-FJ-m6g" secondAttribute="topMargin" id="eGo-IW-ye6"/>
+                        <constraint firstAttribute="bottom" secondItem="42g-s8-YZY" secondAttribute="bottom" id="Jxc-bJ-acf"/>
+                        <constraint firstItem="42g-s8-YZY" firstAttribute="top" secondItem="Ycx-FJ-m6g" secondAttribute="top" id="eGo-IW-ye6"/>
                     </constraints>
                 </view>
+                <tapGestureRecognizer id="7SV-ef-NIe">
+                    <connections>
+                        <action selector="subLabelTapped:" destination="JCe-SB-1of" id="jXt-5u-gpp"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="KY9-au-nQK" userLabel="View tappe">
+                    <connections>
+                        <action selector="viewTapped:" destination="JCe-SB-1of" id="72O-Fc-9rw"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="54" y="139"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="contacts" width="50" height="50"/>
+    </resources>
 </document>

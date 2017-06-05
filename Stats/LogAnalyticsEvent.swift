@@ -12,6 +12,8 @@ import Firebase
 enum AnalyticsAction: String {
     case stockPhotoUsed
     case stockPhotoLayoutChanged
+    case playerCreatedFromContacts
+    case playerNumberAddedFromContacts
 }
 
 struct LogAnalyticsAction: Event {

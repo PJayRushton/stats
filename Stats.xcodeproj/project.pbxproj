@@ -26,6 +26,7 @@
 		A1398B451EA707F500A4B830 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1398B441EA707F500A4B830 /* GameViewController.swift */; };
 		A1398B481EA7081F00A4B830 /* GameViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1398B461EA7081F00A4B830 /* GameViewController.storyboard */; };
 		A1398B4A1EA7097700A4B830 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1398B491EA7097700A4B830 /* CustomButton.swift */; };
+		A13AAFE81EE59ACD007D41C3 /* Diffable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AAFE71EE59ACD007D41C3 /* Diffable.swift */; };
 		A1426B9D1EA8586E00AAABB3 /* AKPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1426B9C1EA8586E00AAABB3 /* AKPickerView.swift */; };
 		A1426B9F1EA85E5500AAABB3 /* AtBatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1426B9E1EA85E5500AAABB3 /* AtBatCell.swift */; };
 		A1426BA21EA85E7200AAABB3 /* AtBatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1426BA01EA85E7200AAABB3 /* AtBatCell.xib */; };
@@ -46,6 +47,7 @@
 		A14B64FC1E8EB99B00CBDE92 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B64FB1E8EB99B00CBDE92 /* Identifiable.swift */; };
 		A15ACF861EAE3AFA00091F9E /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15ACF851EAE3AFA00091F9E /* StatsViewController.swift */; };
 		A15ACF891EAE3B2200091F9E /* StatsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A15ACF871EAE3B2200091F9E /* StatsViewController.storyboard */; };
+		A16CA85D1EE301FB002AABBF /* ContactsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16CA85C1EE301FB002AABBF /* ContactsHelper.swift */; };
 		A16D416D1E97364300DE01D4 /* DeleteTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16D416C1E97364300DE01D4 /* DeleteTeam.swift */; };
 		A16D416F1E97D08F00DE01D4 /* RosterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16D416E1E97D08F00DE01D4 /* RosterViewController.swift */; };
 		A16D41721E97D09E00DE01D4 /* RosterViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A16D41701E97D09E00DE01D4 /* RosterViewController.storyboard */; };
@@ -187,6 +189,7 @@
 		A1398B441EA707F500A4B830 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		A1398B471EA7081F00A4B830 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = GameViewController.storyboard; sourceTree = "<group>"; };
 		A1398B491EA7097700A4B830 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		A13AAFE71EE59ACD007D41C3 /* Diffable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Diffable.swift; sourceTree = "<group>"; };
 		A1426B9C1EA8586E00AAABB3 /* AKPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKPickerView.swift; sourceTree = "<group>"; };
 		A1426B9E1EA85E5500AAABB3 /* AtBatCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtBatCell.swift; sourceTree = "<group>"; };
 		A1426BA11EA85E7200AAABB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = AtBatCell.xib; sourceTree = "<group>"; };
@@ -207,6 +210,7 @@
 		A14B64FB1E8EB99B00CBDE92 /* Identifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
 		A15ACF851EAE3AFA00091F9E /* StatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
 		A15ACF881EAE3B2200091F9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = StatsViewController.storyboard; sourceTree = "<group>"; };
+		A16CA85C1EE301FB002AABBF /* ContactsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsHelper.swift; sourceTree = "<group>"; };
 		A16D416C1E97364300DE01D4 /* DeleteTeam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteTeam.swift; sourceTree = "<group>"; };
 		A16D416E1E97D08F00DE01D4 /* RosterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosterViewController.swift; sourceTree = "<group>"; };
 		A16D41711E97D09E00DE01D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = RosterViewController.storyboard; sourceTree = "<group>"; };
@@ -407,7 +411,6 @@
 		A179997E1E82B9540058A002 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				A1A451A01ED69D0400965BE4 /* LogAnalyticsEvent.swift */,
 				A1426B9C1EA8586E00AAABB3 /* AKPickerView.swift */,
 				A1D67D421E8FE3A000200B65 /* Appearance.swift */,
 				A16D41831E9838FD00DE01D4 /* ApplyShadow.swift */,
@@ -415,11 +418,14 @@
 				A1ABAFFA1EA9463900B28A46 /* AtBatButton.swift */,
 				A1E5AE5C1EAA59C70046131B /* Chameleon.swift */,
 				A1A2C35D1E8BF3680008274F /* Component.swift */,
+				A16CA85C1EE301FB002AABBF /* ContactsHelper.swift */,
 				A1398B491EA7097700A4B830 /* CustomButton.swift */,
 				A17999811E82B9780058A002 /* DateHelper.swift */,
+				A13AAFE71EE59ACD007D41C3 /* Diffable.swift */,
 				364FFAED1EA9A15600CD26F9 /* EventBetterSegmentedControl.swift */,
 				A1CD599E1EC9F2D100D26FD8 /* GradientView.swift */,
 				A1CD9A0D1E89D05E00D3C8F7 /* Keys.swift */,
+				A1A451A01ED69D0400965BE4 /* LogAnalyticsEvent.swift */,
 				A179997C1E82B8BD0058A002 /* NSDate+ValueType.swift */,
 				A17999831E82B9860058A002 /* SegueHandlerType.swift */,
 				A17999851E82B98E0058A002 /* StoryboardInitializable.swift */,
@@ -811,6 +817,7 @@
 				A1B65DBD1EAF9AF9009983E1 /* StatType.swift in Sources */,
 				A1EC56F11ED3228B00A9B592 /* SeasonsViewController.swift in Sources */,
 				A1A2C3691E8C05150008274F /* TeamHeaderSectionController.swift in Sources */,
+				A13AAFE81EE59ACD007D41C3 /* Diffable.swift in Sources */,
 				A1CD599F1EC9F2D100D26FD8 /* GradientView.swift in Sources */,
 				A1CD9A191E8AA83D00D3C8F7 /* NewUserState.swift in Sources */,
 				A1BF9C401E8AC449007341EA /* GameState.swift in Sources */,
@@ -858,6 +865,7 @@
 				A17EF6CC1E94044E00DEE4ED /* UpdateObject.swift in Sources */,
 				A1CD9A0A1E89C26200D3C8F7 /* TeamState.swift in Sources */,
 				A1868F9F1E802E1600C191EC /* AppState.swift in Sources */,
+				A16CA85D1EE301FB002AABBF /* ContactsHelper.swift in Sources */,
 				A128E8E31EC4172100D4CA6D /* UIView+Designable.swift in Sources */,
 				A179996E1E82B64A0058A002 /* User.swift in Sources */,
 				A1ABAFFB1EA9463900B28A46 /* AtBatButton.swift in Sources */,

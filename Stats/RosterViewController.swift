@@ -96,7 +96,7 @@ class RosterViewController: Component, AutoStoryboardInitializable {
     @IBAction func addPlayerButtonPressed(_ sender: Any) {
         feedbackGenerator.selectionChanged()
         let playerCreationVC = PlayerCreationViewController.initializeFromStoryboard()
-        customPresentViewController(modalPresenter(), viewController: playerCreationVC, animated: true, completion: nil)
+        present(playerCreationVC, animated: true, completion: nil)
     }
     
     @IBAction func launchTextButtonPressed(_ sender: UIButton) {
@@ -123,7 +123,7 @@ class RosterViewController: Component, AutoStoryboardInitializable {
             orderedPlayers = state.playerState.players(for: team).filter { !benchedPlayers.contains($0) }
             for (index, player) in benchedPlayers.enumerated() {
                 let teamPlayers = state.playerState.players(for: team)
-                if let statePlayerIndex = teamPlayers.index(of: player), case let statePlayer = teamPlayers[statePlayerIndex], !player.isTheSameAs(statePlayer) {
+                if let statePlayerIndex = teamPlayers.index(of: player), case let statePlayer = teamPlayers[statePlayerIndex], !player.isSame(as: statePlayer) {
                     benchedPlayers[index] = statePlayer
                 }
             }
@@ -215,7 +215,7 @@ extension RosterViewController {
     fileprivate func presentEditPlayer(_ player: Player) {
         let playerEditVC = PlayerCreationViewController.initializeFromStoryboard()
         playerEditVC.editingPlayer = player
-        customPresentViewController(modalPresenter(), viewController: playerEditVC, animated: true, completion: nil)
+        present(playerEditVC, animated: true, completion: nil)
     }
     
     fileprivate func updateRosterOrder(all: Bool = false) {

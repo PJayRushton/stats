@@ -20,9 +20,9 @@ import UIKit
         originalBackgroundColor = backgroundColor
     }
     
-    var originalBackgroundColor: UIColor?
+    var originalBackgroundColor: UIColor? = UIColor.flatLimeDark
     
-    @IBInspectable var disabledBackgroundColor: UIColor =  UIColor.lightGray.withAlphaComponent(0.5) {
+    @IBInspectable var disabledBackgroundColor: UIColor =  UIColor.flatLimeDark.withAlphaComponent(0.5) {
         didSet {
             backgroundColor = isEnabled ? originalBackgroundColor : disabledBackgroundColor
             setNeedsLayout()

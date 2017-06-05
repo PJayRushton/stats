@@ -11,78 +11,104 @@ import UIKit
 class SettingsViewController: Component, AutoStoryboardInitializable {
     
     enum SettingsSection: Int {
+        case profile
         case teams
         
         var rows: [SettingsRow] {
             switch self {
+            case .profile:
+                return [.username, .email]
             case .teams:
-                return [.manageTeams, .switchTeam]
+                return [.manageTeams, .switchTeam, .seasons]
             }
         }
         
         var title: String? {
             switch self {
+            case .profile:
+                return NSLocalizedString("Profile", comment: "")
             case .teams:
-                return "Team Management"
+                return NSLocalizedString("Team Management", comment: "")
             }
         }
-        static let allValues = [SettingsSection.teams]
+        static let allValues = [SettingsSection.profile, .teams]
     }
     
     enum SettingsRow: Int {
+        case username
+        case email
         case manageTeams
         case switchTeam
+        case seasons
         
         var title: String {
             switch self {
+            case .username:
+                return NSLocalizedString("Username", comment: "")
+            case .email:
+                return NSLocalizedString("Email", comment: "")
             case .manageTeams:
-                return "Manage Teams"
+                return NSLocalizedString("Manage Teams", comment: "")
             case .switchTeam:
-                return "Switch Team"
+                return NSLocalizedString("Switch Team", comment: "")
+            case .seasons:
+                return NSLocalizedString("Manage Seasons", comment: "")
             }
         }
-        var detail: String? {
-            switch self {
-            case .manageTeams:
-                return nil
-            case .switchTeam:
-                return App.core.state.teamState.currentTeam?.name
-            }
-        }
-        
         var accessory: UITableViewCellAccessoryType {
             switch self {
-            case .manageTeams, .switchTeam:
+            case .username, .email:
+                return .none
+            case .manageTeams, .switchTeam, .seasons:
                 return .disclosureIndicator
             }
         }
         
     }
+
     
+    // MARK: - IBActions
+
     @IBOutlet weak var versionLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+
+    
+    // MARK: - ViewController Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         navigationController?.navigationBar.barTintColor = UIColor.mainNavBarColor
         navigationItem.leftBarButtonItem?.tintColor =  .white
         Appearance.setUp(navTextColor: .white)
+        tableView.sectionHeaderHeight = 32
         registerCells()
         
-        if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
-            versionLabel.text = "Version: \(version)"
+        var versionString = ""
+        if let version = Bundle.main.releaseVersionNumber {
+            versionString = "Version: \(version)"
         }
+        if let buildString = Bundle.main.buildVersionNumber {
+            versionString += "(\(buildString))"
+        }
+        versionLabel.text = versionString
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         Appearance.setUp()
     }
+
+    
+    // MARK: - IBActions
     
     @IBAction func dismissButtonPressed(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
+    
+    
+    // MARK: - Subscriber
     
     override func update(with: AppState) {
         tableView.reloadData()
@@ -121,11 +147,26 @@ extension SettingsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let section = SettingsSection(rawValue: indexPath.section)!
-        let row = section.rows[indexPath.row]
+        let theRow = section.rows[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: BasicCell.reuseIdentifier) as! BasicCell
-        cell.update(withTitle: row.title, detail: row.detail, accessory: row.accessory)
+        cell.update(withTitle: theRow.title, detail: detail(for: theRow), accessory: theRow.accessory)
         
         return cell
+    }
+    
+    fileprivate func detail(for row: SettingsRow) -> String? {
+        switch row {
+        case .username:
+            return core.state.userState.currentUser?.username
+        case .email:
+            return core.state.userState.currentUser?.email
+        case .manageTeams:
+            return nil
+        case .switchTeam:
+            return core.state.teamState.currentTeam?.name
+        case .seasons:
+            return core.state.teamState.currentTeam?.currentSeason?.name
+        }
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -133,11 +174,8 @@ extension SettingsViewController: UITableViewDataSource {
         let header = tableView.dequeueReusableCell(withIdentifier: BasicHeaderCell.reuseIdentifier) as! BasicHeaderCell
         guard let title = theSection.title else { return nil }
         header.update(with: title, backgroundColor: .flatCoffee, alignment: .center)
+        
         return header
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 32
     }
     
 }

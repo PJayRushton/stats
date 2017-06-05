@@ -141,7 +141,7 @@
 		A1CD9A171E8AA2F000D3C8F7 /* NewUserViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1CD9A151E8AA2F000D3C8F7 /* NewUserViewController.storyboard */; };
 		A1CD9A191E8AA83D00D3C8F7 /* NewUserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD9A181E8AA83D00D3C8F7 /* NewUserState.swift */; };
 		A1CD9A1B1E8AACAB00D3C8F7 /* CheckUsernameAvailability.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD9A1A1E8AACAB00D3C8F7 /* CheckUsernameAvailability.swift */; };
-		A1CD9A1E1E8ABBBC00D3C8F7 /* Arrays.swift in Sources */ = {isa = PBXBuildFile; fileRef = A179997F1E82B95E0058A002 /* Arrays.swift */; };
+		A1CD9A1E1E8ABBBC00D3C8F7 /* SharedExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A179997F1E82B95E0058A002 /* SharedExtensions.swift */; };
 		A1D67D381E8F081A00200B65 /* TeamActionSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D67D371E8F081A00200B65 /* TeamActionSectionController.swift */; };
 		A1D67D3F1E8F253F00200B65 /* BasicTeamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D67D3E1E8F253F00200B65 /* BasicTeamCell.swift */; };
 		A1D67D411E8FE24C00200B65 /* BasicHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D67D401E8FE24C00200B65 /* BasicHeaderCell.swift */; };
@@ -224,7 +224,7 @@
 		A179996F1E82B67C0058A002 /* LoadICloudUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadICloudUser.swift; sourceTree = "<group>"; };
 		A17999711E82B6930058A002 /* SaveNewUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveNewUser.swift; sourceTree = "<group>"; };
 		A179997C1E82B8BD0058A002 /* NSDate+ValueType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+ValueType.swift"; sourceTree = "<group>"; };
-		A179997F1E82B95E0058A002 /* Arrays.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Arrays.swift; sourceTree = "<group>"; };
+		A179997F1E82B95E0058A002 /* SharedExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedExtensions.swift; sourceTree = "<group>"; };
 		A17999811E82B9780058A002 /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		A17999831E82B9860058A002 /* SegueHandlerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueHandlerType.swift; sourceTree = "<group>"; };
 		A17999851E82B98E0058A002 /* StoryboardInitializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardInitializable.swift; sourceTree = "<group>"; };
@@ -414,7 +414,6 @@
 				A1426B9C1EA8586E00AAABB3 /* AKPickerView.swift */,
 				A1D67D421E8FE3A000200B65 /* Appearance.swift */,
 				A16D41831E9838FD00DE01D4 /* ApplyShadow.swift */,
-				A179997F1E82B95E0058A002 /* Arrays.swift */,
 				A1ABAFFA1EA9463900B28A46 /* AtBatButton.swift */,
 				A1E5AE5C1EAA59C70046131B /* Chameleon.swift */,
 				A1A2C35D1E8BF3680008274F /* Component.swift */,
@@ -428,6 +427,7 @@
 				A1A451A01ED69D0400965BE4 /* LogAnalyticsEvent.swift */,
 				A179997C1E82B8BD0058A002 /* NSDate+ValueType.swift */,
 				A17999831E82B9860058A002 /* SegueHandlerType.swift */,
+				A179997F1E82B95E0058A002 /* SharedExtensions.swift */,
 				A17999851E82B98E0058A002 /* StoryboardInitializable.swift */,
 				A17999871E82B9A60058A002 /* UIColorExtension.swift */,
 				A1CD599C1EC9EBEC00D26FD8 /* UIImageView+URL.swift */,
@@ -887,7 +887,7 @@
 				A14B64DF1E8D3EC200CBDE92 /* UIViewControllerExtensions.swift in Sources */,
 				A1CD9A101E8A9ABC00D3C8F7 /* SeasonState.swift in Sources */,
 				A16D41771E97D1D500DE01D4 /* PlayerCell.swift in Sources */,
-				A1CD9A1E1E8ABBBC00D3C8F7 /* Arrays.swift in Sources */,
+				A1CD9A1E1E8ABBBC00D3C8F7 /* SharedExtensions.swift in Sources */,
 				A17EF6C81E93FC6D00DEE4ED /* CreateSeason.swift in Sources */,
 				A17999701E82B67C0058A002 /* LoadICloudUser.swift in Sources */,
 				A1E5AE5D1EAA59C70046131B /* Chameleon.swift in Sources */,

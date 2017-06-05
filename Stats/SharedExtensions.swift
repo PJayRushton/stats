@@ -9,6 +9,16 @@
 import UIKit
 import Marshal
 
+extension Bundle {
+    
+    var releaseVersionNumber: String? {
+        return infoDictionary?["CFBundleShortVersionString"] as? String
+    }
+    var buildVersionNumber: String? {
+        return infoDictionary?["CFBundleVersion"] as? String
+    }
+}
+
 extension Collection where Self: ExpressibleByDictionaryLiteral, Self.Key == String, Self.Value == Any {
     
     func parsedObjects<T: Identifiable>() -> [T] {

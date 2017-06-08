@@ -132,9 +132,11 @@ extension HomeViewController {
     
     func presentSeasonManager() {
         feedbackGenerator.selectionChanged()
-        let seasonsVC = SeasonsViewController.initializeFromStoryboard().embededInNavigationController
-        seasonsVC.modalPresentationStyle = .overFullScreen
-        present(seasonsVC, animated: true, completion: nil)
+        let seasonsVC = SeasonsViewController.initializeFromStoryboard()
+        seasonsVC.isModal = true
+        let seasonsNav = seasonsVC.embededInNavigationController
+        seasonsNav.modalPresentationStyle = .overFullScreen
+        present(seasonsNav, animated: true, completion: nil)
     }
     
     fileprivate func pushGames(new: Bool = false) {

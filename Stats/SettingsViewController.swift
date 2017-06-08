@@ -10,6 +10,8 @@ import UIKit
 
 class SettingsViewController: Component, AutoStoryboardInitializable {
     
+    // MARK: - Types
+
     enum SettingsSection: Int {
         case profile
         case teams
@@ -73,6 +75,11 @@ class SettingsViewController: Component, AutoStoryboardInitializable {
     @IBOutlet weak var tableView: UITableView!
 
     
+    // MARK: - Constants
+
+    fileprivate let settingsCellId = "SettingsCell"
+    
+    
     // MARK: - ViewController Lifecycle
     
     override func viewDidLoad() {
@@ -124,9 +131,6 @@ extension SettingsViewController {
     fileprivate func registerCells() {
         let headerNib = UINib(nibName: BasicHeaderCell.reuseIdentifier, bundle: nil)
         tableView.register(headerNib, forCellReuseIdentifier: BasicHeaderCell.reuseIdentifier)
-        
-        let nib = UINib(nibName: TeamSelectionCell.reuseIdentifier, bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: TeamSelectionCell.reuseIdentifier)
     }
     
 }
@@ -148,8 +152,10 @@ extension SettingsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let section = SettingsSection(rawValue: indexPath.section)!
         let theRow = section.rows[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: TeamSelectionCell.reuseIdentifier) as! TeamSelectionCell
-        cell.update(withTitle: theRow.title, detail: detail(for: theRow), accessory: theRow.accessory)
+        let cell = tableView.dequeueReusableCell(withIdentifier: settingsCellId, for: indexPath)
+        cell.textLabel?.text = theRow.title
+        cell.accessoryType = theRow.accessory
+        cell.detailTextLabel?.text = detail(for: theRow)
         
         return cell
     }
@@ -188,7 +194,7 @@ extension SettingsViewController: UITableViewDelegate {
         let theRow = section.rows[indexPath.row]
         
         switch theRow {
-        case .username, .email, .seasons:
+        case .username, .email:
         return // FIXME:
         case .manageTeams:
             let teamManagerVC = TeamListViewController.initializeFromStoryboard()
@@ -200,6 +206,10 @@ extension SettingsViewController: UITableViewDelegate {
             teamSwitcherVC.isDismissable = false
             teamSwitcherVC.isSwitcher = true
             navigationController?.pushViewController(teamSwitcherVC, animated: true)
+        case .seasons:
+            let seasonsVC = SeasonsViewController.initializeFromStoryboard()
+            seasonsVC.isModal = false
+            navigationController?.pushViewController(seasonsVC, animated: true)
         }
     }
     

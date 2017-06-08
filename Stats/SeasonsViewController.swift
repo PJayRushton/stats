@@ -13,6 +13,9 @@ class SeasonsViewController: Component, AutoStoryboardInitializable {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var plusButton: UIBarButtonItem!
+    @IBOutlet weak var dismissButton: UIBarButtonItem!
+    
+    var isModal = false
     
     fileprivate var currentTeam: Team? {
         return core.state.teamState.currentTeam
@@ -24,7 +27,9 @@ class SeasonsViewController: Component, AutoStoryboardInitializable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         navigationController?.navigationBar.barTintColor = UIColor.mainAppColor
+        navigationItem.leftBarButtonItem = isModal ? dismissButton : nil
     }
     
     @IBAction func plusButtonPressed(_ sender: Any) {

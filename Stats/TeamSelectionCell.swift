@@ -1,5 +1,5 @@
 //
-//  BasicCell.swift
+//  TeamSelectionCell.swift
 //  Stats
 //
 //  Created by Parker Rushton on 3/31/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BasicCell: UITableViewCell, AutoReuseIdentifiable {
+class TeamSelectionCell: UITableViewCell, AutoReuseIdentifiable {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!

@@ -90,7 +90,7 @@ class SettingsViewController: Component, AutoStoryboardInitializable {
             versionString = "Version: \(version)"
         }
         if let buildString = Bundle.main.buildVersionNumber {
-            versionString += "(\(buildString))"
+            versionString += " (\(buildString))"
         }
         versionLabel.text = versionString
     }
@@ -125,8 +125,8 @@ extension SettingsViewController {
         let headerNib = UINib(nibName: BasicHeaderCell.reuseIdentifier, bundle: nil)
         tableView.register(headerNib, forCellReuseIdentifier: BasicHeaderCell.reuseIdentifier)
         
-        let nib = UINib(nibName: BasicCell.reuseIdentifier, bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: BasicCell.reuseIdentifier)
+        let nib = UINib(nibName: TeamSelectionCell.reuseIdentifier, bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: TeamSelectionCell.reuseIdentifier)
     }
     
 }
@@ -148,7 +148,7 @@ extension SettingsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let section = SettingsSection(rawValue: indexPath.section)!
         let theRow = section.rows[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: BasicCell.reuseIdentifier) as! BasicCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: TeamSelectionCell.reuseIdentifier) as! TeamSelectionCell
         cell.update(withTitle: theRow.title, detail: detail(for: theRow), accessory: theRow.accessory)
         
         return cell

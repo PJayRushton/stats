@@ -55,8 +55,8 @@ class TeamListViewController: Component, AutoStoryboardInitializable {
 extension TeamListViewController {
     
     fileprivate func registerCells() {
-        let nib = UINib(nibName: BasicCell.reuseIdentifier, bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: BasicCell.reuseIdentifier)
+        let nib = UINib(nibName: TeamSelectionCell.reuseIdentifier, bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: TeamSelectionCell.reuseIdentifier)
         let headerNib = UINib(nibName: BasicHeaderCell.reuseIdentifier, bundle: nil)
         tableView.register(headerNib, forCellReuseIdentifier: BasicHeaderCell.reuseIdentifier)
     }
@@ -123,7 +123,7 @@ extension TeamListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: BasicCell.reuseIdentifier) as! BasicCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: TeamSelectionCell.reuseIdentifier) as! TeamSelectionCell
         let team = teams(for: indexPath.section)[indexPath.row]
         let accessory = isSwitcher ? UITableViewCellAccessoryType.none : .disclosureIndicator
         cell.update(with: team, isSelected: team == selectedTeam && isSwitcher, accessory: accessory)

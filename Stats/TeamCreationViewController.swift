@@ -22,7 +22,7 @@ class TeamCreationViewController: Component, AutoStoryboardInitializable {
     @IBOutlet weak var teamImageButton: UIButton!
     @IBOutlet weak var loadingImageView: UIImageView!
     @IBOutlet weak var editImageButton: UIButton!
-    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var saveButton: CustomButton!
 
     var isDismissable = true
     var editingTeam: Team?
@@ -158,21 +158,17 @@ extension TeamCreationViewController {
     }
     
     fileprivate func updateSaveButton() {
-        let isConstructable = constructedTeam() != nil
+        let newTeam = constructedTeam()
+        let isConstructable = newTeam != nil
         saveButton.isEnabled = isConstructable
         
         if let editingTeam = editingTeam {
-            let isSame = nameTextField.text! == editingTeam.name &&
-                selectedSport == editingTeam.sport &&
-                core.state.newTeamState.imageURL == editingTeam.imageURL
-            
-            saveButton.isEnabled = isConstructable && !isSame
+            saveButton.isEnabled = isConstructable && newTeam!.isSame(as: editingTeam) == false
         }
-        saveButton.backgroundColor = saveButton.isEnabled ? UIColor.mainAppColor : UIColor.mainAppColor.withAlphaComponent(0.5)
     }
     
     fileprivate func constructedTeam() -> Team? {
-        guard let name = nameTextField.text else { return nil }
+        guard let name = nameTextField.text, !name.isEmpty else { return nil }
         let newTeamState = core.state.newTeamState
         guard let imageURL = newTeamState.imageURL else { return nil }
         

@@ -91,6 +91,16 @@ extension Team: Marshaling {
     
 }
 
+extension Team: Diffable {
+    
+    func isSame(as other: Team) -> Bool {
+        return id == other.id &&
+        imageURLString == other.imageURLString &&
+        name == other.name &&
+        sport == other.sport
+    }
+    
+}
 
 extension Team {
     

@@ -23,11 +23,11 @@
                         <viewControllerLayoutGuide type="bottom" id="bsM-zR-CUi"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="jXY-lV-Q3U">
-                        <rect key="frame" x="0.0" y="0.0" width="300" height="400"/>
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="YvH-fS-Wdi">
-                                <rect key="frame" x="16" y="36" width="268" height="348"/>
+                                <rect key="frame" x="16" y="36" width="268" height="248"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TopLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9So-T7-iR7">
                                         <rect key="frame" x="0.0" y="0.0" width="268" height="27"/>
@@ -35,13 +35,13 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="brt-JC-6sE" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                        <rect key="frame" x="0.0" y="140.5" width="268" height="50"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="brt-JC-6sE" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                        <rect key="frame" x="0.0" y="90.5" width="268" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="cUN-BV-XsI"/>
                                         </constraints>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
@@ -59,8 +59,8 @@
                                             <outlet property="delegate" destination="oYP-Jc-MBG" id="8Ef-MB-dzq"/>
                                         </connections>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nwy-x2-83d" customClass="CustomButton" customModule="Stats" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="304" width="268" height="44"/>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nwy-x2-83d" customClass="CustomButton" customModule="Stats" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="204" width="268" height="44"/>
                                         <color key="backgroundColor" red="0.55803233389999995" green="0.69207900759999996" blue="0.12800171969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="30k-Pf-9mZ"/>
@@ -70,9 +70,6 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="disabledBackgroundColor">
-                                                <color key="value" red="0.55803233389999995" green="0.69207900759999996" blue="0.12800171969999999" alpha="0.45568922546012269" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
@@ -85,22 +82,57 @@
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="YvH-fS-Wdi" firstAttribute="leading" secondItem="jXY-lV-Q3U" secondAttribute="leading" constant="16" id="Ogq-vG-ac4"/>
                             <constraint firstAttribute="trailing" secondItem="YvH-fS-Wdi" secondAttribute="trailing" constant="16" id="SxM-tT-udv"/>
                             <constraint firstItem="bsM-zR-CUi" firstAttribute="top" secondItem="YvH-fS-Wdi" secondAttribute="bottom" constant="16" id="e7q-jx-mWB"/>
                             <constraint firstItem="YvH-fS-Wdi" firstAttribute="top" secondItem="9KS-ix-T9z" secondAttribute="bottom" constant="16" id="m3D-Ql-Pna"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="n8d-hB-lgv" appends="YES" id="q7n-Lz-0Ip"/>
+                        </connections>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="300" height="400"/>
+                    <size key="freeformSize" width="300" height="300"/>
                     <connections>
-                        <outlet property="saveButton" destination="Nwy-x2-83d" id="wQe-WG-dA5"/>
+                        <outlet property="keyboardSaveButton" destination="huN-Az-Kgq" id="7sR-oa-v0K"/>
+                        <outlet property="keyboardView" destination="P4R-11-bFF" id="6Xc-fD-CHr"/>
+                        <outlet property="saveButton" destination="Nwy-x2-83d" id="VIa-1T-8fY"/>
                         <outlet property="textField" destination="brt-JC-6sE" id="WBR-bE-Mv4"/>
                         <outlet property="topLabel" destination="9So-T7-iR7" id="gz2-fJ-CIG"/>
                     </connections>
                 </viewController>
+                <view contentMode="scaleToFill" id="P4R-11-bFF" userLabel="Accessory view">
+                    <rect key="frame" x="0.0" y="0.0" width="294" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="huN-Az-Kgq" customClass="CustomButton" customModule="Stats" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="294" height="44"/>
+                            <color key="backgroundColor" red="0.55803233389999995" green="0.69207900759999996" blue="0.12800171969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
+                            <state key="normal" title="Button">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="oYP-Jc-MBG" eventType="touchUpInside" id="iJg-7L-B4U"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="huN-Az-Kgq" firstAttribute="leading" secondItem="P4R-11-bFF" secondAttribute="leading" id="72S-Rp-27H"/>
+                        <constraint firstAttribute="bottom" secondItem="huN-Az-Kgq" secondAttribute="bottom" id="E1K-UR-0ut"/>
+                        <constraint firstAttribute="trailing" secondItem="huN-Az-Kgq" secondAttribute="trailing" id="JXA-YN-uba"/>
+                        <constraint firstItem="huN-Az-Kgq" firstAttribute="top" secondItem="P4R-11-bFF" secondAttribute="top" id="cYF-hc-80e"/>
+                    </constraints>
+                </view>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FXY-qo-2Vp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="n8d-hB-lgv">
+                    <connections>
+                        <action selector="viewTapped:" destination="oYP-Jc-MBG" id="Uh9-i5-VU2"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="191" y="81"/>
         </scene>

@@ -26,7 +26,9 @@ class GamesViewController: Component, AutoStoryboardInitializable {
     }
     
     fileprivate var games: [Game] {
-        return core.state.gameState.teamGames.filter { $0.isCompleted }.sorted { $0.date > $1.date }
+        guard let currentSeason = core.state.teamState.currentTeam?.currentSeason else { return [] }
+        let seasonGames = core.state.gameState.games(of: currentSeason)
+        return seasonGames.filter { $0.isCompleted }.sorted { $0.date > $1.date }
     }
     
     override func viewDidLoad() {

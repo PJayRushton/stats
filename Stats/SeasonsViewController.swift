@@ -11,11 +11,19 @@ import Presentr
 
 class SeasonsViewController: Component, AutoStoryboardInitializable {
     
+    // MARK: - IBOutlets
+
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var plusButton: UIBarButtonItem!
     @IBOutlet weak var dismissButton: UIBarButtonItem!
+
+    
+    // MARK: - Public
     
     var isModal = false
+    
+    
+    // MARK: - Properties
     
     fileprivate var currentTeam: Team? {
         return core.state.teamState.currentTeam
@@ -25,19 +33,29 @@ class SeasonsViewController: Component, AutoStoryboardInitializable {
         return core.state.seasonState.seasons(for: team)
     }
     
+    
+    // MARK: - ViewController Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationController?.navigationBar.barTintColor = UIColor.mainAppColor
         navigationItem.leftBarButtonItem = isModal ? dismissButton : nil
     }
+
+    
+    // MARK: - IBActions
     
     @IBAction func plusButtonPressed(_ sender: Any) {
+        createSeason()
     }
     
     @IBAction func xButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+    
+    
+    // MARK: - Subscriber
     
     override func update(with state: AppState) {
         if let currentTeam = state.teamState.currentTeam, let user = state.userState.currentUser, user.isOwnerOrManager(of: currentTeam) {
@@ -52,14 +70,20 @@ class SeasonsViewController: Component, AutoStoryboardInitializable {
 }
 
 
+// MARK: - Private
+
 extension SeasonsViewController {
     
     fileprivate func showOptions(for season: Season ) {
         let alert = UIAlertController(title: "Options for \(season.name)", message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "Set as current", style: .default, handler: { _ in
-//            self.setCurrentSeason(season)
-        }))
+        
+        let setCurrentAction = UIAlertAction(title: "Set as current", style: .default, handler: { _ in
+            self.setCurrentSeason(season)
+        })
+        if currentTeam?.currentSeasonId != season.id {
+            alert.addAction(setCurrentAction)
+        }
         alert.addAction(UIAlertAction(title: "Edit ✏️", style: .default, handler: { _ in
             self.editSeason(season)
         }))
@@ -69,21 +93,40 @@ extension SeasonsViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    fileprivate func setCurrentSeaons(_ season: Season) {
+    fileprivate func setCurrentSeason(_ season: Season) {
         guard var currentTeam = core.state.teamState.currentTeam else { return }
         currentTeam.currentSeasonId = season.id
         core.fire(command: UpdateObject(currentTeam))
     }
     
-    fileprivate func editSeason(_ season: Season) {
+    fileprivate func createSeason() {
         let textEditVC = TextEditViewController.initializeFromStoryboard()
-        textEditVC.topText = "Edit Season Name"
-//        textEditVC.savePressed =
-//        present(textEditVC, animated: true, completion: nil)
+        textEditVC.topLabelText = NSLocalizedString("New Season", comment: "")
+        textEditVC.placeholder = "Season name"
+        textEditVC.savePressed = { text in
+            self.saveSeason(name: text)
+        }
+        customPresentViewController(TextEditViewController.presenter, viewController: textEditVC, animated: true, completion: nil)
     }
     
-    func savePressed(newName: String) {
-        
+    fileprivate func editSeason(_ season: Season) {
+        let textEditVC = TextEditViewController.initializeFromStoryboard()
+        textEditVC.topLabelText = NSLocalizedString("Edit Season Name", comment: "")
+        textEditVC.editingText = season.name
+        textEditVC.placeholder = "Season name"
+        textEditVC.savePressed = { text in
+            self.saveSeason(season, name: text)
+        }
+        customPresentViewController(TextEditViewController.presenter, viewController: textEditVC, animated: true, completion: nil)
+    }
+    
+    fileprivate func saveSeason(_ season: Season? = nil, name: String) {
+        if var updatedSeason = season {
+            updatedSeason.name = name
+            core.fire(command: UpdateObject(updatedSeason))
+        } else if let currentTeam = core.state.teamState.currentTeam {
+            core.fire(command: CreateSeason(name: name, teamId: currentTeam.id))
+        }
     }
     
     fileprivate func showDeleteConfirmation(for season: Season) {
@@ -97,6 +140,9 @@ extension SeasonsViewController {
     
 }
 
+
+// MARK: - Tableview
+
 extension SeasonsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -108,19 +154,21 @@ extension SeasonsViewController: UITableViewDataSource {
         let season = seasons[indexPath.row]
         let isCurrent = currentTeam?.currentSeasonId == season.id
         cell.update(with: seasons[indexPath.row], isCurrent: isCurrent)
+        
         return cell
     }
     
 }
 
+
+// MARK: - Tableview Delegate
+
 extension SeasonsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if seasons.count == 1 {
-            tableView.deselectRow(at: indexPath, animated: true)
-        }
+        tableView.deselectRow(at: indexPath, animated: true)
         let selectedSeason = seasons[indexPath.row]
-        core.fire(event: Selected<Season>(selectedSeason))
+        showOptions(for: selectedSeason)
     }
     
 }

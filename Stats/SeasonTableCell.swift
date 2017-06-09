@@ -14,9 +14,16 @@ class SeasonTableCell: UITableViewCell, AutoReuseIdentifiable {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var isCurrentSwitch: AIFlatSwitch!
     
+    private var isCurrent = false {
+        didSet {
+            guard isCurrent != oldValue else { return }
+            isCurrentSwitch.setSelected(isCurrent, animated: true)
+        }
+    }
+    
     func update(with season: Season, isCurrent: Bool) {
         nameLabel.text = season.name
-        isCurrentSwitch.isSelected = isCurrent
+        self.isCurrent = isCurrent
     }
 
 }

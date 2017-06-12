@@ -30,7 +30,7 @@ enum Gender: Int {
         case .male:
             return UIColor.flatSkyBlue.withAlphaComponent(0.1)
         case .female:
-            return UIColor.flatLimeDark.withAlphaComponent(0.1)
+            return UIColor.flatWatermelonDark.withAlphaComponent(0.1)
         }
     }
     

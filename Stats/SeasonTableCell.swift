@@ -12,18 +12,29 @@ import AIFlatSwitch
 class SeasonTableCell: UITableViewCell, AutoReuseIdentifiable {
 
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var isCurrentSwitch: AIFlatSwitch!
+    @IBOutlet weak var isViewingSwitch: AIFlatSwitch!
+    @IBOutlet weak var isCurrentLabel: UILabel!
     
-    private var isCurrent = false {
+    private var isViewing = false {
         didSet {
-            guard isCurrent != oldValue else { return }
-            isCurrentSwitch.setSelected(isCurrent, animated: true)
+            guard isViewing != oldValue else { return }
+            isViewingSwitch.setSelected(isViewing, animated: true)
         }
     }
     
-    func update(with season: Season, isCurrent: Bool) {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        isViewingSwitch.isSelected = false
+    }
+    
+    func update(with season: Season, isCurrent: Bool, isViewing: Bool) {
         nameLabel.text = season.name
-        self.isCurrent = isCurrent
+        self.isViewing = isViewing
+        isCurrentLabel.isHidden = !isCurrent
     }
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        isCurrentLabel.isHidden = true
+    }
 }

@@ -10,7 +10,7 @@ import Foundation
 import Firebase
 import Marshal
 
-struct Game: Identifiable, Unmarshaling {
+struct Game: Identifiable, Unmarshaling, DateComparable {
 
     var id: String
     var date: Date
@@ -82,16 +82,6 @@ struct Game: Identifiable, Unmarshaling {
         teamId = try object.value(for: teamIdKey)
     }
     
-    func isTheSame(as otherGame: Game) -> Bool {
-        return id == otherGame.id &&
-        date == otherGame.date &&
-        isHome == otherGame.isHome &&
-        isRegularSeason == otherGame.isRegularSeason &&
-        opponent == otherGame.opponent &&
-        lineupIds == otherGame.lineupIds &&
-        location == otherGame.location
-    }
-    
 }
 
 extension Game: Marshaling {
@@ -117,6 +107,26 @@ extension Game: Marshaling {
     }
     
 }
+
+
+// MARK: - Diffable
+
+extension Game: Diffable {
+    
+    func isSame(as other: Game) -> Bool {
+        return id == other.id &&
+            date == other.date &&
+            isHome == other.isHome &&
+            isRegularSeason == other.isRegularSeason &&
+            opponent == other.opponent &&
+            lineupIds == other.lineupIds &&
+            location == other.location
+    }
+    
+}
+
+
+// MARK: - Identifiable
 
 extension Game {
     

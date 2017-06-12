@@ -78,19 +78,34 @@ extension SeasonsViewController {
         let alert = UIAlertController(title: "Options for \(season.name)", message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
-        let setCurrentAction = UIAlertAction(title: "Set as current", style: .default, handler: { _ in
-            self.setCurrentSeason(season)
-        })
-        if currentTeam?.currentSeasonId != season.id {
-            alert.addAction(setCurrentAction)
+        let viewAction = UIAlertAction(title: "View season", style: .default) { _ in
+            self.core.fire(event: Selected<Season>(season))
         }
-        alert.addAction(UIAlertAction(title: "Edit ✏️", style: .default, handler: { _ in
+        let setCurrentAction = UIAlertAction(title: "Set as current", style: .default) { _ in
+            self.setCurrentSeason(season)
+        }
+        let editAction = UIAlertAction(title: "Edit ✏️", style: .default) { _ in
             self.editSeason(season)
-        }))
-        alert.addAction(UIAlertAction(title: "Delete ☠️", style: .destructive, handler: { _ in
+        }
+        let deleteAction = UIAlertAction(title: "Delete ☠️", style: .destructive) { _ in
             self.showDeleteConfirmation(for: season)
-        }))
-        present(alert, animated: true, completion: nil)
+        }
+        
+        guard let currentUser = core.state.userState.currentUser, let currentTeam = currentTeam else { return }
+        
+        if currentUser.owns(currentTeam) {
+            alert.addAction(viewAction)
+            
+            if currentTeam.currentSeasonId != season.id {
+                alert.addAction(setCurrentAction)
+            }
+            alert.addAction(editAction)
+            alert.addAction(deleteAction)
+            
+            present(alert, animated: true, completion: nil)
+        } else {
+            core.fire(event: Selected<Season>(season))
+        }
     }
     
     fileprivate func setCurrentSeason(_ season: Season) {
@@ -153,7 +168,8 @@ extension SeasonsViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: SeasonTableCell.reuseIdentifier) as! SeasonTableCell
         let season = seasons[indexPath.row]
         let isCurrent = currentTeam?.currentSeasonId == season.id
-        cell.update(with: seasons[indexPath.row], isCurrent: isCurrent)
+        let isViewing = core.state.seasonState.currentSeasonId == season.id
+        cell.update(with: seasons[indexPath.row], isCurrent: isCurrent, isViewing: isViewing)
         
         return cell
     }

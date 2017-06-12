@@ -13,6 +13,8 @@ import TextFieldEffects
 
 class GameCreationViewController: Component, AutoStoryboardInitializable {
     
+    // MARK: - IBOutlets
+
     @IBOutlet weak var opponentTextField: HoshiTextField!
     @IBOutlet weak var locationTextField: HoshiTextField!
     @IBOutlet weak var homeAwaySegControl: BetterSegmentedControl!
@@ -21,6 +23,9 @@ class GameCreationViewController: Component, AutoStoryboardInitializable {
     @IBOutlet weak var lineupView: UIView!
     @IBOutlet weak var startButton: CustomButton!
     @IBOutlet var keyboardAccessoryView: UIView!
+    
+    
+    // MARK: - Public
     
     var editingGame: Game?
     
@@ -34,12 +39,16 @@ class GameCreationViewController: Component, AutoStoryboardInitializable {
         return StatsRefs.gamesRef(teamId: App.core.state.teamState.currentTeam!.id).childByAutoId()
     }()
     
+    
+    // MARK: - ViewController Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         updateUI(with: editingGame)
         if let editingGame = editingGame {
-            core.fire(event: LineupUpdated(players: editingGame.lineupIds.flatMap { $0.statePlayer }))
+            let lineupPlayers = editingGame.lineupIds.flatMap { core.state.playerState.player(withId: $0) }
+            core.fire(event: LineupUpdated(players: lineupPlayers))
         }
     }
     
@@ -48,6 +57,9 @@ class GameCreationViewController: Component, AutoStoryboardInitializable {
         updateSaveButton()
     }
     
+    
+    // MARK: - IBActions
+
     @IBAction func dismissButtonPressed(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
@@ -108,6 +120,9 @@ class GameCreationViewController: Component, AutoStoryboardInitializable {
         date = sender.date
     }
     
+    
+    // MARK: - Subscriber
+    
     override func update(with state: AppState) {
         navigationController?.navigationBar.barTintColor = state.currentMenuItem?.backgroundColor
         updateSaveButton()
@@ -115,6 +130,8 @@ class GameCreationViewController: Component, AutoStoryboardInitializable {
     
 }
 
+
+// MARK: - Private
 
 extension GameCreationViewController {
     
@@ -156,7 +173,7 @@ extension GameCreationViewController {
     fileprivate func updateSaveButton() {
         let newGame = construtedGame()
         if let editingGame = editingGame {
-            startButton.isEnabled = newGame != nil && !newGame!.isTheSame(as: editingGame)
+            startButton.isEnabled = newGame != nil && !newGame!.isSame(as: editingGame)
         } else {
             startButton.isEnabled = newGame != nil
         }
@@ -194,6 +211,8 @@ extension GameCreationViewController {
     
 }
 
+
+// MARK: - TextField 
 
 extension GameCreationViewController: UITextFieldDelegate {
     

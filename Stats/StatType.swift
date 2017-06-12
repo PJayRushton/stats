@@ -102,7 +102,7 @@ enum StatType: String {
         }
     }
     
-    func statValue(with atBats: [AtBat]) -> Double {
+    func statValue(from atBats: [AtBat]) -> Double {
         switch self {
         case .atBats:
             return atBats.count.doubleValue
@@ -140,20 +140,6 @@ enum StatType: String {
         case .walks:
             return atBats.withResult(.w).count.doubleValue
         }
-    }
-    
-    func allStats(with atBats: [AtBat]) -> [Stat] {
-        let playerIds = Set(atBats.map { $0.playerId })
-        
-        var playerStats = [Stat]()
-        playerIds.forEach { playerId in
-            guard let player = playerId.statePlayer else { return }
-            let playerAtBats = atBats.filter { $0.playerId == playerId }
-            let statValue = self.statValue(with: playerAtBats)
-            let playerStat = Stat(player: player, statType: self, value: statValue)
-            playerStats.append(playerStat)
-        }
-        return playerStats
     }
     
 }

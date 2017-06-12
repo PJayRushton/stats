@@ -39,10 +39,10 @@ class TeamHeaderCell: UICollectionViewCell, AutoReuseIdentifiable {
         seasonPressed()
     }
     
-    func update(with team: Team, canEdit: Bool) {
+    func update(with team: Team, season: Season?, canEdit: Bool) {
         imageView.kf.setImage(with: team.imageURL, placeholder: #imageLiteral(resourceName: "stock2"))
         nameButton.setTitle(team.name, for: .normal)
-        let seasonText = team.currentSeason?.name ?? "--"
+        let seasonText = season?.name ?? "--"
         seasonButton.setTitle(seasonText + " 🔽", for: .normal)
         nameButton.isEnabled = canEdit
         seasonButton.isEnabled = canEdit

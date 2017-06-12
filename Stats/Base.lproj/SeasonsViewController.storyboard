@@ -47,12 +47,34 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xdl-RS-625">
                                                     <rect key="frame" x="16" y="8" width="351" height="75.5"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Season Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NfL-fl-ww9">
-                                                            <rect key="frame" x="0.0" y="25.5" width="311.5" height="24.5"/>
-                                                            <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="18"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C7J-59-vPz" userLabel="Labels view">
+                                                            <rect key="frame" x="0.0" y="0.0" width="311.5" height="75.5"/>
+                                                            <subviews>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ZS4-uU-Te9">
+                                                                    <rect key="frame" x="0.0" y="25.5" width="303.5" height="40.5"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Season Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NfL-fl-ww9">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="303.5" height="21"/>
+                                                                            <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="18"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NJe-tk-cL7">
+                                                                            <rect key="frame" x="0.0" y="25" width="303.5" height="15.5"/>
+                                                                            <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="13"/>
+                                                                            <color key="textColor" red="0.55803233389999995" green="0.69207900759999996" blue="0.12800171969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                </stackView>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="trailing" secondItem="ZS4-uU-Te9" secondAttribute="trailing" constant="8" id="0NA-rD-hZe"/>
+                                                                <constraint firstItem="ZS4-uU-Te9" firstAttribute="centerY" secondItem="C7J-59-vPz" secondAttribute="centerY" constant="8" id="9Pm-97-ic9"/>
+                                                                <constraint firstItem="ZS4-uU-Te9" firstAttribute="leading" secondItem="C7J-59-vPz" secondAttribute="leading" id="bEW-Sb-IY5"/>
+                                                            </constraints>
+                                                        </view>
                                                         <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h0K-Hl-kMy" customClass="AIFlatSwitch" customModule="AIFlatSwitch">
                                                             <rect key="frame" x="311.5" y="18" width="39.5" height="40"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -62,7 +84,7 @@
                                                             </constraints>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
-                                                                    <real key="value" value="3"/>
+                                                                    <real key="value" value="5"/>
                                                                 </userDefinedRuntimeAttribute>
                                                                 <userDefinedRuntimeAttribute type="color" keyPath="strokeColor">
                                                                     <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -70,10 +92,12 @@
                                                                 <userDefinedRuntimeAttribute type="color" keyPath="trailStrokeColor">
                                                                     <color key="value" red="0.55803233389999995" green="0.69207900759999996" blue="0.12800171969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </userDefinedRuntimeAttribute>
-                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSelected" value="NO"/>
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="C7J-59-vPz" firstAttribute="height" secondItem="xdl-RS-625" secondAttribute="height" id="A6T-da-rov"/>
+                                                    </constraints>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
@@ -84,7 +108,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="isCurrentSwitch" destination="h0K-Hl-kMy" id="jVg-p5-5zN"/>
+                                            <outlet property="isCurrentLabel" destination="NJe-tk-cL7" id="ekg-41-4s4"/>
+                                            <outlet property="isViewingSwitch" destination="h0K-Hl-kMy" id="S26-7P-Gyh"/>
                                             <outlet property="nameLabel" destination="NfL-fl-ww9" id="JY7-dj-fGi"/>
                                         </connections>
                                     </tableViewCell>

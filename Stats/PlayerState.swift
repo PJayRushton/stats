@@ -14,14 +14,8 @@ struct PlayerState: State {
     
     mutating func react(to event: Event) {
         switch event {
-        case let event as Updated<Player>:
-            let teamId = event.payload.teamId
-            guard var teamPlayers = allPlayersDict[teamId], let index = teamPlayers.index(of: event.payload) else { return }
-            teamPlayers[index] = event.payload
-            allPlayersDict[teamId] = teamPlayers
-        case let event as Updated<[Player]>:
-            guard let first = event.payload.first else { return }
-            allPlayersDict[first.teamId] = event.payload
+        case let event as TeamEntitiesUpdated<Player>:
+            allPlayersDict[event.teamId] = event.entities
         default:
             break
         }
@@ -39,6 +33,13 @@ struct PlayerState: State {
     func players(for teamId: String) -> [Player] {
         guard let teamPlayers = allPlayersDict[teamId] else { return [] }
         return teamPlayers.sorted(by: { $0.order < $1.order })
+    }
+    
+    func player(withId id: String) -> Player? {
+        let state = App.core.state
+        guard let currentTeam = state.teamState.currentTeam else { return nil }
+        let teamPlayers = state.playerState.players(for: currentTeam)
+        return teamPlayers.first(where: { $0.id == id })
     }
     
 }

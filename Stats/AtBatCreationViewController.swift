@@ -52,7 +52,7 @@ class AtBatCreationViewController: Component, AutoStoryboardInitializable {
         return [singleButton, doubleButton, tripleButton, hrButton, walkButton, roeButton, strikeOutButton, outButton]
     }
     fileprivate var rbis = 0
-    fileprivate var player: Player? {
+    fileprivate var currentPlayer: Player? {
         return core.state.gameState.currentPlayer
     }
     fileprivate var newAtBatRef: DatabaseReference {
@@ -145,20 +145,25 @@ class AtBatCreationViewController: Component, AutoStoryboardInitializable {
     }
     
     override func update(with state: AppState) {
-        currentPlayerLabel.text = player?.name
         currentAtBatResult = state.atBatState.currentResult
         
+        // Player labels
         guard let game = state.gameState.currentGame else { return }
-        if let player = player, let index = game.lineupIds.index(of: player.id), index > 0, let previousPlayer = game.lineupIds[index - 1].statePlayer {
-            previousPlayerLabel.text = previousPlayer.name
-        } else {
-            previousPlayerLabel.text = ""
+        currentPlayerLabel.text = currentPlayer?.name
+        let lineup =  game.lineupIds.flatMap { state.playerState.player(withId: $0) }
+        previousPlayerLabel.text = ""
+        nextPlayerLabel.text = ""
+        
+        if let player = currentPlayer, let index = lineup.index(of: player) {
+            if index > 0, case let previousPlayer = lineup[index - 1] {
+                previousPlayerLabel.text = previousPlayer.name
+            }
+            if index < lineup.count - 1, case let nextPlayer = lineup[index + 1] {
+                nextPlayerLabel.text = nextPlayer.name
+            }
         }
-        if let player = player, let index = game.lineupIds.index(of: player.id), index < game.lineupIds.count - 1, let nextPlayer = game.lineupIds[index + 1].statePlayer {
-            nextPlayerLabel.text = nextPlayer.name
-        } else {
-            nextPlayerLabel.text = ""
-        }
+        
+        // Outs
         
         let outs = game.outs
         for (index, button) in outButtons.enumerated() {
@@ -282,13 +287,13 @@ extension AtBatCreationViewController {
     }
     
     fileprivate func moveToNextBatter() {
-        guard let currentGame = core.state.gameState.currentGame, let player = player else { return }
+        guard let currentGame = core.state.gameState.currentGame, let player = currentPlayer else { return }
         var nextPlayerId = currentGame.lineupIds.first
         
         if player.id != currentGame.lineupIds.last, let index = currentGame.lineupIds.index(of: player.id) {
             nextPlayerId = currentGame.lineupIds[index + 1]
         }
-        guard let nextPlayer = nextPlayerId?.statePlayer else { return }
+        guard let nextId = nextPlayerId, let nextPlayer = core.state.playerState.player(withId: nextId) else { return }
         core.fire(event: Selected<Player>(nextPlayer))
     }
     
@@ -298,7 +303,7 @@ extension AtBatCreationViewController {
         } else {
             let id = newAtBatRef.key
             guard let game = core.state.gameState.currentGame else { return nil }
-            guard let player = player else { return nil }
+            guard let player = currentPlayer else { return nil }
             guard let team = core.state.teamState.currentTeam else { return nil }
             guard let seasonId = team.currentSeasonId else { return nil }
             return AtBat(id: id, gameId: game.id, playerId: player.id, rbis: rbis, resultCode: currentAtBatResult, seasonId: seasonId, teamId: team.id)

@@ -214,7 +214,7 @@ extension HomeViewController: ListAdapterDataSource {
     
     func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
         guard let currentTeam = currentTeam, let currentUser = core.state.userState.currentUser else { return [] }
-        var objects: [ListDiffable] = [TeamHeaderSection(team: currentTeam)]
+        var objects: [ListDiffable] = [TeamHeaderSection(team: currentTeam, season: core.state.seasonState.currentSeason)]
         let items = currentUser.isOwnerOrManager(of: currentTeam) ? HomeMenuItem.managerItems : HomeMenuItem.fanItems
         
         items.forEach { item in

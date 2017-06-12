@@ -14,8 +14,8 @@ struct AtBatState: State {
     var currentAtBat: AtBat?
     var currentResult = AtBatCode.single
     
-    func atBats(for team: Team) -> [AtBat] {
-        return allAtBats[team.id] ?? []
+    func atBats(for team: Team) -> [AtBat]? {
+        return allAtBats[team.id]
     }
     
     func atBats(for game: Game) -> [AtBat] {
@@ -30,18 +30,18 @@ struct AtBatState: State {
         return playerABs.filter { $0.gameId == filteringGame.id }
     }
     
+    func atBats(for season: Season) -> [AtBat] {
+        let all = allAtBats.flatMap { $0.value }
+        return all.filter { $0.seasonId == season.id }
+    }
+    
     mutating func react(to event: Event) {
         switch event {
-        case let event as Updated<[AtBat]>:
-            guard let first = event.payload.first else {
-                allAtBats.removeAll()
-                currentAtBat = nil
-                return
-            }
-            allAtBats[first.teamId] = event.payload
+        case let event as TeamEntitiesUpdated<AtBat>:
+            allAtBats[event.teamId] = event.entities
             
-            if let atBat = currentAtBat, let index = event.payload.index(of: atBat) {
-                currentAtBat = event.payload[index]
+            if let atBat = currentAtBat, let index = event.entities.index(of: atBat) {
+                currentAtBat = event.entities[index]
             }
         case let event as Selected<AtBatCode>:
             currentResult = event.item ?? .single

@@ -51,7 +51,7 @@ class GameViewController: Component, AutoStoryboardInitializable {
     }
     var gamePlayers: [Player] {
         guard let game = game else { return [] }
-        return game.lineupIds.flatMap { $0.statePlayer }
+        return game.lineupIds.flatMap { core.state.playerState.player(withId: $0) }
     }
     var currentAtBats: [AtBat] {
         guard let player = currentPlayer, let game = game else { return [] }
@@ -82,7 +82,7 @@ class GameViewController: Component, AutoStoryboardInitializable {
         
         guard let game = game else { return }
         
-        if let firstPlayerId = game.lineupIds.first, let player = firstPlayerId.statePlayer {
+        if let player = gamePlayers.first {
             core.fire(event: Selected<Player>(player))
         }
         

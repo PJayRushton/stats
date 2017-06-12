@@ -20,7 +20,7 @@ extension UIColor {
     }
     
     class var secondaryAppColor: UIColor {
-        return .flatCoffee
+        return .flatCoffeeDark
     }
     
     class var mainTextColor: UIColor {

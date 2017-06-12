@@ -33,6 +33,10 @@ struct SubscribeToTeam: Command {
             switch teamResult {
             case let .success(team):
                 core.fire(event: Updated<Team>(team))
+                
+                if let lastUsedId = UserDefaults.standard.lastUsedTeamId, team.id == lastUsedId {
+                    core.fire(event: Selected<Team>(team))
+                }
             case let .failure(error):
                 core.fire(event: ErrorEvent(error: error, message: nil))
             }
@@ -48,7 +52,7 @@ struct SubscribeToTeam: Command {
             
             switch seasonsResult {
             case let .success(seasons):
-                core.fire(event: Updated<[Season]>(seasons))
+                core.fire(event: TeamEntitiesUpdated<Season>(teamId: self.teamId, entities: seasons))
             case let .failure(error):
                 core.fire(event: ErrorEvent(error: error, message: nil))
             }
@@ -63,7 +67,7 @@ struct SubscribeToTeam: Command {
 
             switch playersResult {
             case let .success(players):
-                core.fire(event: Updated<[Player]>(players))
+                core.fire(event: TeamEntitiesUpdated<Player>(teamId: self.teamId, entities: players))
             case let .failure(error):
                 core.fire(event: ErrorEvent(error: error, message: nil))
             }
@@ -78,7 +82,7 @@ struct SubscribeToTeam: Command {
             
             switch gamesResult {
             case let .success(games):
-                core.fire(event: Updated<[Game]>(games))
+                core.fire(event: TeamEntitiesUpdated<Game>(teamId: self.teamId, entities: games))
             case let .failure(error):
                 core.fire(event: ErrorEvent(error: error, message: nil))
             }
@@ -93,7 +97,7 @@ struct SubscribeToTeam: Command {
             
             switch atBatsResult {
             case let .success(atBats):
-                core.fire(event: Updated<[AtBat]>(atBats))
+                core.fire(event: TeamEntitiesUpdated<AtBat>(teamId: self.teamId, entities: atBats))
             case let .failure(error):
                 core.fire(event: ErrorEvent(error: error, message: nil))
             }

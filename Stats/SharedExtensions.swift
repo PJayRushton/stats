@@ -41,7 +41,17 @@ extension Optional where Wrapped: MarshaledObject {
     
 }
 
-//extension Sequence where Iterator.Element == AtBat {
+extension Array where Iterator.Element == Game {
+    
+    var record: TeamRecord {
+        let wasWonBools = self.flatMap { $0.wasWon }
+        let winCount = wasWonBools.filter { $0 == true }.count
+        let lostCount = wasWonBools.filter { $0 == false }.count
+        return TeamRecord(gamesWon: winCount, gamesLost: lostCount)
+    }
+    
+}
+
 extension Array where Iterator.Element == AtBat {
 
     func withResult(_ code: AtBatCode) -> [AtBat] {

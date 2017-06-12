@@ -38,25 +38,10 @@ class StatsNumbersViewController: Component, AutoStoryboardInitializable {
 extension StatsNumbersViewController: ListAdapterDataSource {
     
     func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
-        guard let currentTeam = core.state.teamState.currentTeam else { return [] }
-        var allAtBats = core.state.atBatState.atBats(for: currentTeam)
-        
-        if core.state.statState.includeSubs == false {
-            allAtBats = allAtBats.filter({ atBat -> Bool in
-                guard let player = atBat.playerId.statePlayer else { return false }
-                return !player.isSub
-            })
-        }
-        
-        let players = allAtBats.flatMap { $0.playerId.statePlayer }
-        var allStats = [Stat]()
-        
-        players.forEach { player in
-            let atBats = core.state.atBatState.atBats(for: player)
-            allStats.append(player.stat(ofType: currentStatType, from: atBats))
-        }
-        let sortedStats = allStats.sorted(by: core.state.statState.sortType.sort)
-        return sortedStats.map { StatSection(stat: $0) }
+        let currentAtBats = core.state.currentAtBats
+        var stats = core.state.allStats(ofType: currentStatType, from: currentAtBats)
+        stats.sort(by: core.state.statState.sortType.sort)
+        return stats.map { StatSection(stat: $0) }
     }
     
     func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {

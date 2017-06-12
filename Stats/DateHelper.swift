@@ -67,6 +67,13 @@ extension String {
     
 }
 
+protocol DateComparable: Comparable, Identifiable {
+    var date: Date { get set }
+}
+
+func <<T: DateComparable>(lhs: T, rhs: T) -> Bool {
+    return lhs.date < rhs.date
+}
 
 extension Date {
     

@@ -11,9 +11,11 @@ import IGListKit
 class TeamHeaderSection: ListDiffable {
     
     var team: Team
+    var season: Season?
     
-    init(team: Team) {
+    init(team: Team, season: Season?) {
         self.team = team
+        self.season = season
     }
     
     func diffIdentifier() -> NSObjectProtocol {
@@ -25,7 +27,7 @@ class TeamHeaderSection: ListDiffable {
         return team.imageURLString == other.team.imageURLString &&
             team.name == other.team.name &&
             currentUser.owns(team) == currentUser.owns(other.team) &&
-            team.currentSeason == other.team.currentSeason
+            season == other.season
     }
     
 }
@@ -53,7 +55,7 @@ extension TeamHeaderSectionController {
     override func cellForItem(at index: Int) -> UICollectionViewCell {
         let cell = collectionContext?.dequeueReusableCell(withNibName: TeamHeaderCell.reuseIdentifier, bundle: nil, for: self, at: index) as! TeamHeaderCell
         guard let user = App.core.state.userState.currentUser else { fatalError() }
-        cell.update(with: headerSection.team, canEdit: user.owns(headerSection.team))
+        cell.update(with: headerSection.team, season: headerSection.season, canEdit: user.owns(headerSection.team))
         cell.settingsPressed = settingsPressed
         cell.editPressed = editPressed
         cell.switchTeamPressed = switchTeamPressed

@@ -10,8 +10,17 @@ import Foundation
 
 struct SeasonState: State {
     
-    var currentSeason: Season?
+    var currentSeasonId: String? {
+        return App.core.state.statState.currentSeasonId ?? App.core.state.teamState.currentTeam?.currentSeasonId
+    }
     var allSeasonsDict = [String: [Season]]()
+    
+    var currentSeason: Season? {
+        return allSeasons.first(where: { $0.id == currentSeasonId })
+    }
+    fileprivate var allSeasons: [Season] {
+        return Array(allSeasonsDict.values.joined())
+    }
     
     func seasons(for team: Team) -> [Season] {
         return allSeasonsDict[team.id] ?? []
@@ -19,15 +28,8 @@ struct SeasonState: State {
     
     mutating func react(to event: Event) {
         switch event {
-        case let event as Selected<Season>:
-            currentSeason = event.item
-        case let event as Updated<[Season]>:
-            guard let first = event.payload.first else { return }
-            allSeasonsDict[first.teamId] = event.payload
-            
-            if let season = currentSeason, let index = event.payload.index(of: season) {
-                currentSeason = event.payload[index]
-            }
+        case let event as TeamEntitiesUpdated<Season>:
+            allSeasonsDict[event.teamId] = event.entities
         default:
             break
         }

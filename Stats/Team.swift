@@ -74,6 +74,12 @@ struct Team: Identifiable, Unmarshaling {
         return shareCode + String(ownershipType.hashValue)
     }
     
+    func record(from games: [Game]) -> TeamRecord {
+        let gamesWon = games.filter { $0.isCompleted && $0.wasWon! }.count
+        let gamesLost = games.count - gamesWon
+        return TeamRecord(gamesWon: gamesWon, gamesLost: gamesLost)
+    }
+    
 }
 
 extension Team: Marshaling {

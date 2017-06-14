@@ -26,34 +26,34 @@
                         <viewControllerLayoutGuide type="bottom" id="nGB-S1-9O4"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="wyg-nP-1Fs">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="500"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="JSo-Mp-Yfh">
-                                <rect key="frame" x="0.0" y="28" width="320" height="472"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="JSo-Mp-Yfh">
+                                <rect key="frame" x="0.0" y="28" width="375" height="639"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="New Player" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U2A-uy-k0o">
-                                        <rect key="frame" x="96.5" y="0.0" width="127" height="29.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="New Player" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U2A-uy-k0o">
+                                        <rect key="frame" x="111" y="0.0" width="153" height="34"/>
                                         <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="GQc-go-ecY" userLabel="Spacer View">
-                                        <rect key="frame" x="0.0" y="37.5" width="320" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="50" width="375" height="0.0"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" id="nr0-1J-r1X"/>
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="NEI-KO-G84" userLabel="Name stack">
-                                        <rect key="frame" x="16" y="45.5" width="288" height="58.5"/>
+                                        <rect key="frame" x="16" y="66" width="343" height="50"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VK3-XC-SO4" userLabel="Spacer view">
-                                                <rect key="frame" x="0.0" y="4.5" width="34" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="34" height="50"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pbN-jM-Zx4" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                                <rect key="frame" x="42" y="4.5" width="204" height="50"/>
+                                                <rect key="frame" x="42" y="0.0" width="259" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="4Sw-Yc-xPC"/>
                                                 </constraints>
@@ -77,7 +77,7 @@
                                                 </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bah-nF-0LZ">
-                                                <rect key="frame" x="254" y="12.5" width="34" height="34"/>
+                                                <rect key="frame" x="309" y="8" width="34" height="34"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="bah-nF-0LZ" secondAttribute="height" multiplier="1:1" id="5Gj-w0-uvU"/>
                                                     <constraint firstAttribute="height" constant="34" id="eWV-7s-Thf"/>
@@ -90,10 +90,11 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="bah-nF-0LZ" firstAttribute="width" secondItem="VK3-XC-SO4" secondAttribute="width" id="JgE-gY-apX"/>
+                                            <constraint firstItem="pbN-jM-Zx4" firstAttribute="height" secondItem="NEI-KO-G84" secondAttribute="height" id="aEf-g8-1hP"/>
                                         </constraints>
                                     </stackView>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Jersey #" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FzI-Sm-Z0X" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                        <rect key="frame" x="124" y="112" width="72" height="50"/>
+                                        <rect key="frame" x="145.5" y="132" width="84.5" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="61R-3Y-djV"/>
                                         </constraints>
@@ -117,14 +118,14 @@
                                         </connections>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="VXa-Sm-CrP" userLabel="Phone stack">
-                                        <rect key="frame" x="16" y="170" width="288" height="50"/>
+                                        <rect key="frame" x="16" y="198" width="343" height="50"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l0u-gb-uNl" userLabel="Spacer view">
                                                 <rect key="frame" x="0.0" y="0.0" width="34" height="50"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone #" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4hN-kV-uPH" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                                <rect key="frame" x="42" y="0.0" width="204" height="50"/>
+                                                <rect key="frame" x="42" y="0.0" width="259" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="Aj1-bo-SwV"/>
                                                 </constraints>
@@ -148,7 +149,7 @@
                                                 </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wg6-E9-s6K">
-                                                <rect key="frame" x="254" y="8" width="34" height="34"/>
+                                                <rect key="frame" x="309" y="8" width="34" height="34"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="wg6-E9-s6K" secondAttribute="height" multiplier="1:1" id="AbS-2P-OzR"/>
                                                 </constraints>
@@ -160,10 +161,11 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="wg6-E9-s6K" firstAttribute="width" secondItem="l0u-gb-uNl" secondAttribute="width" id="36o-IA-fGe"/>
+                                            <constraint firstItem="4hN-kV-uPH" firstAttribute="height" secondItem="VXa-Sm-CrP" secondAttribute="height" id="kTm-C1-5BV"/>
                                         </constraints>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A4o-rE-hsc" customClass="BetterSegmentedControl" customModule="BetterSegmentedControl">
-                                        <rect key="frame" x="16" y="228" width="288" height="40"/>
+                                        <rect key="frame" x="19" y="264" width="337.5" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="cs6-EF-646"/>
@@ -173,25 +175,28 @@
                                         </connections>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="l8J-fs-joE">
-                                        <rect key="frame" x="15.5" y="276" width="289" height="34"/>
+                                        <rect key="frame" x="18.5" y="320" width="338.5" height="38"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This player is a substitute" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1l-L4-ME3">
-                                                <rect key="frame" x="0.0" y="0.0" width="170.5" height="34"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="211" height="38"/>
                                                 <gestureRecognizers/>
                                                 <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qSv-Iv-A9s" customClass="AIFlatSwitch" customModule="AIFlatSwitch">
-                                                <rect key="frame" x="254" y="0.0" width="35" height="34"/>
+                                                <rect key="frame" x="299.5" y="0.0" width="39" height="38"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="qSv-Iv-A9s" secondAttribute="height" constant="1" id="efj-dY-g7j"/>
-                                                    <constraint firstAttribute="height" constant="34" id="sN0-03-NNf"/>
+                                                    <constraint firstAttribute="height" constant="38" id="sN0-03-NNf"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="trailStrokeColor">
                                                         <color key="value" red="0.65098039220000004" green="0.76862745099999996" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
+                                                        <real key="value" value="4"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
@@ -204,18 +209,18 @@
                                             <outletCollection property="gestureRecognizers" destination="7SV-ef-NIe" appends="YES" id="czY-1T-vHK"/>
                                         </connections>
                                     </stackView>
-                                    <view contentMode="scaleToFill" verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="sS6-56-bAQ" userLabel="Spacer View">
-                                        <rect key="frame" x="0.0" y="318" width="320" height="106"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sS6-56-bAQ" userLabel="Spacer View">
+                                        <rect key="frame" x="0.0" y="374" width="375" height="209"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="pHD-Z1-Ud5" userLabel="Buttons Stack">
-                                        <rect key="frame" x="0.0" y="432" width="320" height="40"/>
+                                        <rect key="frame" x="0.0" y="599" width="375" height="40"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rIr-6h-phC">
-                                                <rect key="frame" x="0.0" y="0.0" width="74" height="40"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="88" height="40"/>
                                                 <color key="backgroundColor" red="0.74509803919999995" green="0.2274509804" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="20"/>
-                                                <state key="normal" title="🔽">
+                                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="18"/>
+                                                <state key="normal" title="Cancel">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -223,21 +228,20 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HEZ-F2-Ah4" customClass="CustomButton" customModule="Stats" customModuleProvider="target">
-                                                <rect key="frame" x="82" y="0.0" width="74" height="40"/>
+                                                <rect key="frame" x="96" y="0.0" width="87.5" height="40"/>
                                                 <color key="backgroundColor" red="0.55803233389999995" green="0.69207900759999996" blue="0.12800171969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="20"/>
-                                                <state key="normal" title="💾">
+                                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="18"/>
+                                                <state key="normal" title="Save">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="saveButtonPressed:" destination="JCe-SB-1of" eventType="touchUpInside" id="rpn-Qx-BZU"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HVK-sP-LVU">
-                                                <rect key="frame" x="164" y="0.0" width="74" height="40"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HVK-sP-LVU">
+                                                <rect key="frame" x="191.5" y="0.0" width="88" height="40"/>
                                                 <color key="backgroundColor" red="0.74509803919999995" green="0.2274509804" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="19"/>
-                                                <state key="normal" title="🗑">
+                                                <state key="normal" image="trash">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -245,10 +249,11 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FlP-pA-9el" customClass="CustomButton" customModule="Stats" customModuleProvider="target">
-                                                <rect key="frame" x="246" y="0.0" width="74" height="40"/>
+                                                <rect key="frame" x="287.5" y="0.0" width="87.5" height="40"/>
                                                 <color key="backgroundColor" red="0.55803233389999995" green="0.69207900759999996" blue="0.12800171969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="20"/>
-                                                <state key="normal" title="💾 ➕">
+                                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="18"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <state key="normal" title="Save ➕">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -285,8 +290,6 @@
                             <outletCollection property="gestureRecognizers" destination="KY9-au-nQK" appends="YES" id="4mS-BO-Lsx"/>
                         </connections>
                     </view>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="500"/>
                     <connections>
                         <outlet property="cancelButton" destination="rIr-6h-phC" id="MWB-SX-ZyI"/>
                         <outlet property="deleteButton" destination="HVK-sP-LVU" id="avz-za-YlL"/>
@@ -395,5 +398,6 @@
     </scenes>
     <resources>
         <image name="contacts" width="50" height="50"/>
+        <image name="trash" width="24" height="27"/>
     </resources>
 </document>

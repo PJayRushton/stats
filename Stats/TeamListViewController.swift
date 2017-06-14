@@ -33,7 +33,7 @@ class TeamListViewController: Component, AutoStoryboardInitializable {
         navigationItem.rightBarButtonItem = isSwitcher || isDismissable ? xBarButton : plusBarButton
         
         registerCells()
-        tableView.rowHeight = 60
+        tableView.rowHeight = 120
         tableView.sectionHeaderHeight = 32
         tableView.tableFooterView = UIView()
     }
@@ -130,8 +130,7 @@ extension TeamListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TeamSelectionCell.reuseIdentifier) as! TeamSelectionCell
         let team = teams(for: indexPath.section)[indexPath.row]
-        let accessory = isSwitcher ? UITableViewCellAccessoryType.none : .disclosureIndicator
-        cell.update(with: team, isSelected: team == selectedTeam && isSwitcher, accessory: accessory)
+        cell.update(with: team, isSelected: team == selectedTeam && isSwitcher)
         
         return cell
     }
@@ -139,7 +138,7 @@ extension TeamListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableCell(withIdentifier: BasicHeaderCell.reuseIdentifier) as! BasicHeaderCell
         let title = currentTypes[section].sectionTitle
-        header.update(with:title, backgroundColor: .flatCoffee, alignment: .center)
+        header.update(with:title)
         return header
     }
     

@@ -10,28 +10,18 @@ import UIKit
 
 class TeamSelectionCell: UITableViewCell, AutoReuseIdentifiable {
     
+    @IBOutlet weak var backgroundImageView: UIImageView!
+    @IBOutlet weak var transparentView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var accessoryImageView: UIImageView!
     
-    
-    func update(withTitle title: String, detail: String? = nil, accessory: UITableViewCellAccessoryType = .none, image: UIImage? = nil, fontSize: CGFloat = 16) {
-        titleLabel.text = title
-        titleLabel.font = FontType.lemonMilk.font(withSize: fontSize)
-        detailLabel.text = detail
-        detailLabel.font = FontType.lemonMilk.font(withSize: fontSize * 0.7)
-        accessoryType = accessory
-        accessoryImageView.image = image
-        accessoryImageView.tintColor = .mainAppColor
-    }
-    
-    func update(with team: Team, isSelected: Bool = false, accessory: UITableViewCellAccessoryType = .none, fontSize: CGFloat = 16) {
+    func update(with team: Team, isSelected: Bool = false, fontSize: CGFloat = 30) {
+        guard let teamURL = team.imageURL else { return }
+        backgroundImageView.kf.setImage(with: teamURL)
+        titleLabel.textColor = .white
+        transparentView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         titleLabel.text = team.name
         titleLabel.font = FontType.lemonMilk.font(withSize: fontSize)
-        detailLabel.text = nil
-        detailLabel.font = FontType.lemonMilk.font(withSize: fontSize * 0.7)
-        accessoryType = .disclosureIndicator
-        accessoryType = accessory
         accessoryImageView.image = isSelected ? #imageLiteral(resourceName: "check") : nil
         accessoryImageView.tintColor = .mainAppColor
     }

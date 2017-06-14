@@ -96,16 +96,16 @@
                                                                         </stackView>
                                                                     </subviews>
                                                                 </stackView>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="uTR-Ms-Eia">
+                                                                <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="251" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="uTR-Ms-Eia">
                                                                     <rect key="frame" x="296.5" y="0.0" width="29.5" height="52"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LTD-gb-F7c">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LTD-gb-F7c">
                                                                             <rect key="frame" x="0.0" y="0.0" width="29.5" height="25"/>
                                                                             <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="22"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="( - )" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zJh-wz-nJz">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="( - )" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zJh-wz-nJz">
                                                                             <rect key="frame" x="0.0" y="29" width="29.5" height="23"/>
                                                                             <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
                                                                             <nil key="textColor"/>

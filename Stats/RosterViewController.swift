@@ -36,7 +36,7 @@ class RosterViewController: Component, AutoStoryboardInitializable {
     fileprivate var isTexting = false {
         didSet {
             tableView.isEditing = !isTexting
-            textBarButton.title = isTexting ? "👕" : "💬"
+            textBarButton.image = isTexting ? #imageLiteral(resourceName: "rosterBar") : #imageLiteral(resourceName: "textMessage")
             if playersWithCell.isEmpty {
                 navigationItem.rightBarButtonItems = [addButton]
             } else {
@@ -251,7 +251,7 @@ extension RosterViewController {
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         if let currentUser = core.state.userState.currentUser, let team = core.state.teamState.currentTeam, currentUser.isOwnerOrManager(of: team) {
-            alert.addAction(UIAlertAction(title: "Edit ✏️", style: .default, handler: { _ in
+            alert.addAction(UIAlertAction(title: "Edit", style: .default, handler: { _ in
                 self.presentEditPlayer(player)
             }))
             if player.phone == nil || (player.phone != nil && player.phone!.isEmpty) {
@@ -261,12 +261,12 @@ extension RosterViewController {
         
         if let phone = player.phone, !phone.isEmpty {
             if let url = URL(string: "tel://\(phone)"), UIApplication.shared.canOpenURL(url) {
-                alert.addAction(UIAlertAction(title: "Call 📞", style: .default, handler: { _ in
+                alert.addAction(UIAlertAction(title: "Call", style: .default, handler: { _ in
                     self.callPhoneNumber(phone)
                 }))
             }
             if MFMessageComposeViewController.canSendText() {
-                alert.addAction(UIAlertAction(title: "Text 💬", style: .default, handler: { _ in
+                alert.addAction(UIAlertAction(title: "Text", style: .default, handler: { _ in
                     self.textPhoneNumbers([phone])
                 }))
             }

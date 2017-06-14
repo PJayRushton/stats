@@ -44,14 +44,14 @@
                                             <outlet property="delegate" destination="vNQ-fo-axD" id="CSm-q6-IKd"/>
                                         </connections>
                                     </tableView>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lKb-HV-XfY" customClass="CustomButton" customModule="Stats" customModuleProvider="target">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lKb-HV-XfY" customClass="CustomButton" customModule="Stats" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="603" width="375" height="0.0"/>
                                         <color key="backgroundColor" red="0.55803233389999995" green="0.69207900759999996" blue="0.12800171969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="sJZ-O8-Xdv"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
-                                        <state key="normal" title="💬  Text  💬">
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="Text" image="textMessage">
                                             <color key="titleColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -83,7 +83,8 @@
                                     <action selector="addPlayerButtonPressed:" destination="vNQ-fo-axD" id="DD3-sT-4Dy"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="💬" id="clg-M1-vlJ">
+                            <barButtonItem image="textMessage" id="clg-M1-vlJ">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <action selector="textBarButtonPressed:" destination="vNQ-fo-axD" id="8qE-Jp-1sp"/>
                                 </connections>
@@ -105,34 +106,28 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="fb3-dW-xSV">
-                            <rect key="frame" x="16" y="39.5" width="336" height="345"/>
+                            <rect key="frame" x="16" y="86.5" width="336" height="251"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bat" translatesAutoresizingMaskIntoConstraints="NO" id="KDn-H3-WZH">
-                                    <rect key="frame" x="77" y="0.0" width="182" height="70"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="70" id="XnW-dV-zy3"/>
-                                    </constraints>
-                                </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You might have a hard time beating that team by yourself. . ." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C6O-vJ-b4k">
-                                    <rect key="frame" x="0.5" y="94" width="335.5" height="46"/>
+                                    <rect key="frame" x="0.5" y="0.0" width="335.5" height="46"/>
                                     <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="😳" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C2W-GN-diX">
-                                    <rect key="frame" x="141" y="164" width="54" height="60"/>
+                                    <rect key="frame" x="141" y="70" width="54" height="60"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's get you some help" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Gw-Fy-RJg">
-                                    <rect key="frame" x="59.5" y="248" width="217.5" height="23"/>
+                                    <rect key="frame" x="59.5" y="154" width="217.5" height="23"/>
                                     <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YeN-lz-Dij">
-                                    <rect key="frame" x="42" y="295" width="252" height="50"/>
+                                    <rect key="frame" x="42" y="201" width="252" height="50"/>
                                     <color key="backgroundColor" red="0.65098039220000004" green="0.77647058820000003" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="ZVJ-XP-6WT"/>
@@ -169,7 +164,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bat" width="182" height="183"/>
-        <image name="plusBar" width="26" height="26"/>
+        <image name="plusBar" width="29" height="29"/>
+        <image name="textMessage" width="26" height="25"/>
     </resources>
 </document>

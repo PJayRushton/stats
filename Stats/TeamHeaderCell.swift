@@ -43,7 +43,7 @@ class TeamHeaderCell: UICollectionViewCell, AutoReuseIdentifiable {
         imageView.kf.setImage(with: team.imageURL, placeholder: #imageLiteral(resourceName: "stock2"))
         nameButton.setTitle(team.name, for: .normal)
         let seasonText = season?.name ?? "--"
-        seasonButton.setTitle(seasonText + " 🔽", for: .normal)
+        seasonButton.setTitle(seasonText + " ", for: .normal)
         nameButton.isEnabled = canEdit
         seasonButton.isEnabled = canEdit
         editButton.isHidden = !canEdit

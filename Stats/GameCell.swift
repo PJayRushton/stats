@@ -20,9 +20,8 @@ class GameCell: UITableViewCell, AutoReuseIdentifiable {
     func update(with game: Game) {
         let homeAwayPrefix = game.isHome ? "vs." : "@"
         opponentLabel.text = "\(homeAwayPrefix) \(game.opponent)"
-        let locationText = game.location ?? "--"
-        locationLabel.text = "📍 \(locationText)"
-        dateLabel.text = "🗓 " + game.date.proximityDateTimeString
+        locationLabel.text = game.location ?? "--"
+        dateLabel.text = game.date.proximityDateTimeString
         statusLabel.text = game.status
         scoreLabel.text = game.scoreString
         

@@ -42,7 +42,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="St@" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BO3-Fx-4zT">
-                                            <rect key="frame" x="349" y="31" width="18" height="20"/>
+                                            <rect key="frame" x="345" y="31" width="22" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="0Si-82-ccc"/>
                                             </constraints>
@@ -101,7 +101,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="4PV-cw-j1y">
-                        <barButtonItem key="backBarButtonItem" title="⚙" id="9g4-q5-s8E"/>
+                        <barButtonItem key="backBarButtonItem" title=" " id="W84-nr-tgb"/>
                         <barButtonItem key="leftBarButtonItem" image="xBar" id="5uF-4R-YbQ">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -121,6 +121,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="xBar" width="22" height="23"/>
+        <image name="xBar" width="22" height="22"/>
     </resources>
 </document>

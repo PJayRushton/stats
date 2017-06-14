@@ -93,11 +93,11 @@
                                             <action selector="segControlChanged:" destination="KaG-dX-WZH" eventType="valueChanged" id="2G6-qv-zv5"/>
                                         </connections>
                                     </view>
-                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lZR-tm-6PG">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lZR-tm-6PG">
                                         <rect key="frame" x="0.0" y="216" width="343" height="228.5"/>
                                         <subviews>
-                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gZn-l6-BOZ">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="228.5"/>
+                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gZn-l6-BOZ">
+                                                <rect key="frame" x="0.0" y="0.0" width="331" height="222.5"/>
                                                 <state key="normal" image="picture"/>
                                                 <connections>
                                                     <action selector="imageTapped:" destination="KaG-dX-WZH" eventType="touchUpInside" id="xL5-53-gZR"/>
@@ -111,16 +111,14 @@
                                                     <constraint firstAttribute="width" secondItem="FVi-ND-DnS" secondAttribute="height" id="i4i-v8-4TL"/>
                                                 </constraints>
                                             </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jNP-um-FUI">
-                                                <rect key="frame" x="301" y="192.5" width="50" height="40"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="right" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jNP-um-FUI">
+                                                <rect key="frame" x="291" y="176.5" width="60" height="60"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="50" id="2OD-Hm-GvY"/>
-                                                    <constraint firstAttribute="height" constant="40" id="qVx-BL-hpx"/>
+                                                    <constraint firstAttribute="width" constant="60" id="2OD-Hm-GvY"/>
+                                                    <constraint firstAttribute="width" secondItem="jNP-um-FUI" secondAttribute="height" id="kMI-uC-vsD"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="0.0"/>
-                                                <state key="normal" title="✏️"/>
+                                                <state key="normal" image="pencilCircle"/>
                                                 <connections>
                                                     <action selector="imageTapped:" destination="KaG-dX-WZH" eventType="touchUpInside" id="e9d-s5-4dg"/>
                                                 </connections>
@@ -130,12 +128,12 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="lZR-tm-6PG" secondAttribute="height" multiplier="3/2" id="Bys-Fo-sla"/>
                                             <constraint firstItem="FVi-ND-DnS" firstAttribute="centerX" secondItem="lZR-tm-6PG" secondAttribute="centerX" id="PXb-PR-TR3"/>
-                                            <constraint firstItem="jNP-um-FUI" firstAttribute="trailing" secondItem="gZn-l6-BOZ" secondAttribute="trailing" constant="8" id="QYi-TF-KQP"/>
-                                            <constraint firstItem="jNP-um-FUI" firstAttribute="bottom" secondItem="gZn-l6-BOZ" secondAttribute="bottom" constant="4" id="Z7l-6g-jxL"/>
+                                            <constraint firstItem="jNP-um-FUI" firstAttribute="trailing" secondItem="gZn-l6-BOZ" secondAttribute="trailing" constant="20" id="QYi-TF-KQP"/>
+                                            <constraint firstItem="jNP-um-FUI" firstAttribute="bottom" secondItem="gZn-l6-BOZ" secondAttribute="bottom" constant="14" id="Z7l-6g-jxL"/>
+                                            <constraint firstAttribute="trailing" secondItem="jNP-um-FUI" secondAttribute="trailing" constant="-8" id="aBs-Nl-sbl"/>
                                             <constraint firstItem="gZn-l6-BOZ" firstAttribute="top" secondItem="lZR-tm-6PG" secondAttribute="top" id="ho5-5M-5jP"/>
                                             <constraint firstItem="gZn-l6-BOZ" firstAttribute="leading" secondItem="lZR-tm-6PG" secondAttribute="leading" id="jt8-wp-xMQ"/>
-                                            <constraint firstAttribute="trailing" secondItem="gZn-l6-BOZ" secondAttribute="trailing" id="nqs-CJ-foD"/>
-                                            <constraint firstAttribute="bottom" secondItem="gZn-l6-BOZ" secondAttribute="bottom" id="tMX-iL-8ja"/>
+                                            <constraint firstAttribute="bottom" secondItem="jNP-um-FUI" secondAttribute="bottom" constant="-8" id="tRg-5S-Hl0"/>
                                             <constraint firstItem="FVi-ND-DnS" firstAttribute="centerY" secondItem="lZR-tm-6PG" secondAttribute="centerY" id="yEn-Pd-ZGD"/>
                                         </constraints>
                                     </view>
@@ -180,7 +178,8 @@
                                 <action selector="dismissButtonPressed:" destination="KaG-dX-WZH" id="Gme-81-bTC"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="🗑" id="pU9-Xl-KXe">
+                        <barButtonItem key="rightBarButtonItem" image="trash" id="pU9-Xl-KXe">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="deleteTeamButtonPressed:" destination="KaG-dX-WZH" id="M32-Pg-AgN"/>
                             </connections>
@@ -210,8 +209,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="baseball" width="108" height="109"/>
-        <image name="picture" width="652" height="489"/>
-        <image name="xBar" width="22" height="23"/>
+        <image name="baseball" width="238" height="238"/>
+        <image name="pencilCircle" width="80" height="80"/>
+        <image name="picture" width="470" height="311"/>
+        <image name="trash" width="24" height="27"/>
+        <image name="xBar" width="22" height="22"/>
     </resources>
 </document>

@@ -10,7 +10,7 @@ import UIKit
 
 enum Appearance {
     
-    static let backButtonImage = #imageLiteral(resourceName: "leftChevron").withRenderingMode(.alwaysTemplate)
+    static let backButtonImage = #imageLiteral(resourceName: "leftChevronWhite").withRenderingMode(.alwaysTemplate)
     
     static func setUp(navTextColor: UIColor = UIColor.white) {
         let navTitleAttributes = [NSFontAttributeName: FontType.lemonMilk.font(withSize: 20), NSForegroundColorAttributeName: navTextColor]

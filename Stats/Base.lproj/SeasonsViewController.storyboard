@@ -51,16 +51,16 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="311.5" height="75.5"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ZS4-uU-Te9">
-                                                                    <rect key="frame" x="0.0" y="25.5" width="303.5" height="40.5"/>
+                                                                    <rect key="frame" x="0.0" y="23" width="303.5" height="46"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Season Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NfL-fl-ww9">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="303.5" height="21"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="303.5" height="24.5"/>
                                                                             <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="18"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NJe-tk-cL7">
-                                                                            <rect key="frame" x="0.0" y="25" width="303.5" height="15.5"/>
+                                                                            <rect key="frame" x="0.0" y="28.5" width="303.5" height="17.5"/>
                                                                             <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="13"/>
                                                                             <color key="textColor" red="0.55803233389999995" green="0.69207900759999996" blue="0.12800171969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <nil key="highlightedColor"/>
@@ -84,7 +84,7 @@
                                                             </constraints>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
-                                                                    <real key="value" value="5"/>
+                                                                    <real key="value" value="4"/>
                                                                 </userDefinedRuntimeAttribute>
                                                                 <userDefinedRuntimeAttribute type="color" keyPath="strokeColor">
                                                                     <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -155,7 +155,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="plusBar" width="26" height="26"/>
-        <image name="xBar" width="22" height="23"/>
+        <image name="plusBar" width="29" height="29"/>
+        <image name="xBar" width="22" height="22"/>
     </resources>
 </document>

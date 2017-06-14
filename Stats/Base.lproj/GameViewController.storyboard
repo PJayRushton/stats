@@ -36,13 +36,13 @@
                                         <rect key="frame" x="19" y="0.0" width="337.5" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OP" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="2W3-Nk-rAB">
-                                                <rect key="frame" x="0.0" y="0.0" width="101.5" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="101" height="50"/>
                                                 <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="SPf-WQ-mH5" customClass="LTMorphingLabel" customModule="LTMorphingLabel">
-                                                <rect key="frame" x="117.5" y="0.0" width="102" height="50"/>
+                                                <rect key="frame" x="117" y="0.0" width="102.5" height="50"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="J5y-mq-mNo"/>
@@ -75,44 +75,42 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="YZz-sW-GRL" userLabel="Inning stack">
-                                        <rect key="frame" x="133.5" y="66" width="108" height="30"/>
+                                        <rect key="frame" x="140" y="66" width="95" height="26"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="16g-hk-PGe">
-                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                <state key="normal" title="◀"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="16g-hk-PGe">
+                                                <rect key="frame" x="0.0" y="0.0" width="31" height="26"/>
+                                                <state key="normal" title="◀" image="leftChevron"/>
                                                 <connections>
                                                     <action selector="inningArrowPressed:" destination="Fe0-L2-bmy" eventType="touchUpInside" id="uki-JS-yR7"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iZi-AT-nA1" customClass="LTMorphingLabel" customModule="LTMorphingLabel">
-                                                <rect key="frame" x="50" y="0.0" width="8" height="30"/>
+                                                <rect key="frame" x="51" y="0.0" width="9" height="26"/>
                                                 <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N3Y-am-xXh">
-                                                <rect key="frame" x="78" y="0.0" width="30" height="30"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                <state key="normal" title="▶"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N3Y-am-xXh">
+                                                <rect key="frame" x="80" y="0.0" width="15" height="26"/>
+                                                <state key="normal" image="rightChevron"/>
                                                 <connections>
                                                     <action selector="inningArrowPressed:" destination="Fe0-L2-bmy" eventType="touchUpInside" id="qgG-VS-rOp"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="Ijm-Xd-0Vf"/>
+                                            <constraint firstAttribute="height" constant="26" id="Ijm-Xd-0Vf"/>
                                         </constraints>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b7g-xC-dch" userLabel="Spacer view">
-                                        <rect key="frame" x="0.0" y="96" width="375" height="16"/>
+                                        <rect key="frame" x="0.0" y="92" width="375" height="16"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="r6i-Hi-VgG"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Oa-dL-ZFd" userLabel="Player picker holder">
-                                        <rect key="frame" x="0.0" y="112" width="375" height="42"/>
+                                        <rect key="frame" x="0.0" y="108" width="375" height="42"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uF9-DD-9dm" customClass="AKPickerView" customModule="Stats" customModuleProvider="target">
                                                 <rect key="frame" x="16" y="0.0" width="343" height="36"/>
@@ -146,19 +144,19 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OWD-bd-57B" userLabel="Spacer view">
-                                        <rect key="frame" x="0.0" y="154" width="375" height="16"/>
+                                        <rect key="frame" x="0.0" y="150" width="375" height="16"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="Tgj-K1-M3j"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Tq-zx-PVJ" userLabel="New at bat view">
-                                        <rect key="frame" x="0.0" y="170" width="375" height="55"/>
+                                        <rect key="frame" x="0.0" y="166" width="375" height="55"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="zU9-2Y-erZ">
-                                                <rect key="frame" x="103.5" y="8" width="169" height="39"/>
+                                                <rect key="frame" x="91.5" y="8" width="192.5" height="39"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus" translatesAutoresizingMaskIntoConstraints="NO" id="oP9-gr-Ytm">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="swing" translatesAutoresizingMaskIntoConstraints="NO" id="oP9-gr-Ytm">
                                                         <rect key="frame" x="0.0" y="4.5" width="60" height="30"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -168,7 +166,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Next At Bat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AsS-xm-jys">
-                                                        <rect key="frame" x="76" y="9" width="93" height="21"/>
+                                                        <rect key="frame" x="76" y="7.5" width="116.5" height="24.5"/>
                                                         <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
@@ -189,7 +187,7 @@
                                         </connections>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Eej-ST-WO7">
-                                        <rect key="frame" x="0.0" y="225" width="375" height="310"/>
+                                        <rect key="frame" x="0.0" y="221" width="375" height="314"/>
                                         <color key="backgroundColor" red="0.92495459319999995" green="0.94122463460000005" blue="0.94532805679999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8Rr-kv-Tf2">
                                             <size key="itemSize" width="50" height="50"/>
@@ -206,31 +204,28 @@
                                                 <rect key="frame" x="16" y="4" width="343" height="36"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Outs:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vum-Rm-j0t">
-                                                        <rect key="frame" x="0.0" y="8" width="86" height="20"/>
+                                                        <rect key="frame" x="0.0" y="6.5" width="86" height="23"/>
                                                         <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ris-2r-5uO">
+                                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ris-2r-5uO">
                                                         <rect key="frame" x="86" y="0.0" width="85.5" height="36"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="37"/>
-                                                        <state key="normal" title="😦"/>
+                                                        <state key="normal" image="fist"/>
                                                         <connections>
                                                             <action selector="outButtonPressed:" destination="Fe0-L2-bmy" eventType="touchUpInside" id="okB-6x-hai"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xXd-Y1-guu">
+                                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xXd-Y1-guu">
                                                         <rect key="frame" x="171.5" y="0.0" width="86" height="36"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="37"/>
-                                                        <state key="normal" title="😠"/>
+                                                        <state key="normal" image="fist"/>
                                                         <connections>
                                                             <action selector="outButtonPressed:" destination="Fe0-L2-bmy" eventType="touchUpInside" id="lgr-mB-yOw"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eHy-Oi-aIv">
+                                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eHy-Oi-aIv">
                                                         <rect key="frame" x="257.5" y="0.0" width="85.5" height="36"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="37"/>
-                                                        <state key="normal" title="☠️"/>
+                                                        <state key="normal" image="fist"/>
                                                         <connections>
                                                             <action selector="outButtonPressed:" destination="Fe0-L2-bmy" eventType="touchUpInside" id="C8M-Ph-g9C"/>
                                                         </connections>
@@ -268,7 +263,8 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Game" id="6U3-qI-jnJ">
-                        <barButtonItem key="rightBarButtonItem" title="⚙️" id="ITS-cb-Tgo">
+                        <barButtonItem key="rightBarButtonItem" image="settings" id="ITS-cb-Tgo">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="settingsTapped:" destination="Fe0-L2-bmy" id="tRK-fT-v35"/>
                             </connections>
@@ -307,6 +303,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="plus" width="59" height="59"/>
+        <image name="fist" width="30" height="47"/>
+        <image name="leftChevron" width="15" height="26"/>
+        <image name="rightChevron" width="15" height="26"/>
+        <image name="settings" width="32" height="32"/>
+        <image name="swing" width="238" height="238"/>
     </resources>
 </document>

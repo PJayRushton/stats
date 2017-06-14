@@ -11,12 +11,17 @@ import UIKit
 class HomeCollectionViewCell: UICollectionViewCell, AutoReuseIdentifiable {
     
     @IBOutlet weak var colorView: UIView!
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var leftImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     
-    func update(with menuItem: HomeMenuItem ) {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+//        leftImageView.tintColor = .white
+    }
+    
+    func update(with menuItem: HomeMenuItem) {
         colorView.backgroundColor = menuItem.backgroundColor
-        imageView.image = menuItem.image
+        leftImageView.image = menuItem.image
         titleLabel.text = menuItem.title
     }
     

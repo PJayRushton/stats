@@ -39,15 +39,15 @@ enum HomeMenuItem: Int {
     var image: UIImage? {
         switch self {
         case .newGame:
-            return #imageLiteral(resourceName: "bat")
+            return #imageLiteral(resourceName: "diamond")
         case .stats:
             return #imageLiteral(resourceName: "trophy")
         case .games:
-            return #imageLiteral(resourceName: "baseball")
+            return #imageLiteral(resourceName: "scoreboard")
         case .roster:
             return #imageLiteral(resourceName: "roster")
         case .share:
-            return #imageLiteral(resourceName: "qrCode")
+            return #imageLiteral(resourceName: "qr-code")
         }
     }
     
@@ -58,21 +58,23 @@ enum HomeMenuItem: Int {
         case .stats:
             return UIColor.flatRed
         case .games:
-            return UIColor.mainAppColor
+            return UIColor.flatLimeDark
         case .roster:
             return UIColor.flatTeal
         case .share:
-            return UIColor.flatOrange
+            return UIColor.flatCoffeeDark
         }
     }
     
     var itemsPerRow: CGFloat {
-        switch self {
-        case  .newGame:
-            return 1
-        case .stats, .games, .roster, .share:
-            return 2
-        }
+        return 1
     }
+//        switch self {
+//        case  .newGame:
+//            return 1
+//        case .stats, .games, .roster, .share:
+//            return 2
+//        }
+//    }
     
 }

@@ -53,8 +53,8 @@ extension TeamActionSectionController {
         let fullWidth = collectionContext.containerSize.width
         let headerHeight = collectionContext.containerSize.width * (2 / 3)
         let hasEditRights = user.isOwnerOrManager(of: actionSection.team)
-        let rows: CGFloat = hasEditRights ? 3 : 2
-        let height = (collectionContext.containerSize.height - headerHeight) / rows
+        let rows = hasEditRights ? HomeMenuItem.allValues.count : HomeMenuItem.fanItems.count
+        let height = (collectionContext.containerSize.height - headerHeight) / CGFloat(rows)
         let width = fullWidth / actionSection.menuItem.itemsPerRow
         return CGSize(width: width, height: height)
     }

@@ -34,11 +34,16 @@ class TeamListViewController: Component, AutoStoryboardInitializable {
         
         registerCells()
         tableView.rowHeight = 60
+        tableView.sectionHeaderHeight = 32
         tableView.tableFooterView = UIView()
     }
     
     func close() {
-        dismiss(animated: true, completion: nil)
+        if isDismissable {
+            dismiss(animated: true, completion: nil)
+        } else {
+            navigationController?.popViewController(animated: true)
+        }
     }
     
     // MARK: - Subscriber
@@ -138,10 +143,6 @@ extension TeamListViewController: UITableViewDataSource {
         return header
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 32
-    }
-    
 }
 
 extension TeamListViewController: UITableViewDelegate {
@@ -152,11 +153,9 @@ extension TeamListViewController: UITableViewDelegate {
         if isSwitcher {
             core.fire(event: Selected<Team>(selectedTeam))
             
-            if isDismissable {
-                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.6, execute: {
-                    self.dismiss(animated: true, completion: nil)
-                })
-            }
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.4, execute: {
+                self.close()
+            })
         } else {
             guard let currentUser = core.state.userState.currentUser else { return }
             if currentUser.owns(selectedTeam) {

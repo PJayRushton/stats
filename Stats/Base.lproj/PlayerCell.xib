@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -18,36 +19,35 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" showsReorderControl="YES" indentationWidth="10" shouldIndentWhileEditing="NO" reuseIdentifier="PlayerCell" rowHeight="40" id="SHl-qf-CpF" customClass="PlayerCell" customModule="Stats" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="46"/>
+            <rect key="frame" x="0.0" y="0.0" width="466" height="46"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SHl-qf-CpF" id="cod-Ey-uvi">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="45.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="466" height="45.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="otn-Eo-Oph">
-                        <rect key="frame" x="8" y="8" width="359" height="29.5"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="otn-Eo-Oph">
+                        <rect key="frame" x="8" y="8" width="450" height="29.5"/>
                         <subviews>
-                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Sx-wB-xzE" customClass="AIFlatSwitch" customModule="AIFlatSwitch">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B13-DV-i6q" customClass="AIFlatSwitch" customModule="AIFlatSwitch">
                                 <rect key="frame" x="0.0" y="0.0" width="29.5" height="29.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="6Sx-wB-xzE" secondAttribute="height" id="CMN-WF-BRQ"/>
+                                    <constraint firstAttribute="width" secondItem="B13-DV-i6q" secondAttribute="height" id="JNt-4b-fs5"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
                                         <real key="value" value="3"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="animatesOnTouch" value="YES"/>
                                     <userDefinedRuntimeAttribute type="color" keyPath="strokeColor">
-                                        <color key="value" red="0.32156862749999998" green="0.34901960780000002" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="trailStrokeColor">
-                                        <color key="value" red="0.65268194680000002" green="0.77056586739999999" blue="0.27349492910000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="value" red="0.55803233389999995" green="0.69207900759999996" blue="0.12800171969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSelected" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="1)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="fML-SC-xmb">
-                                <rect key="frame" x="45.5" y="0.0" width="30" height="29.5"/>
+                                <rect key="frame" x="41.5" y="3" width="30" height="23.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="Z1I-Ij-dzO"/>
                                 </constraints>
@@ -55,13 +55,27 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" horizontalCompressionResistancePriority="999" text="Amanda Rushton(00)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VcC-eY-xGx">
-                                <rect key="frame" x="91.5" y="0.0" width="267.5" height="29.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Amanda Rushton(00)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VcC-eY-xGx">
+                                <rect key="frame" x="83.5" y="3" width="187.5" height="23.5"/>
                                 <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="subArrows" translatesAutoresizingMaskIntoConstraints="NO" id="vkt-J5-icM">
+                                <rect key="frame" x="283" y="3" width="23.5" height="23.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="vkt-J5-icM" secondAttribute="height" id="3X4-cN-PmY"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" horizontalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="SSU-Wo-qjS">
+                                <rect key="frame" x="318.5" y="0.0" width="131.5" height="29.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="B13-DV-i6q" firstAttribute="height" secondItem="otn-Eo-Oph" secondAttribute="height" id="HM9-2y-z7h"/>
+                            <constraint firstItem="vkt-J5-icM" firstAttribute="height" secondItem="otn-Eo-Oph" secondAttribute="height" multiplier="0.8" id="dA6-Pc-Ulg"/>
+                        </constraints>
                     </stackView>
                 </subviews>
                 <constraints>
@@ -72,11 +86,15 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="isSelectedSwitch" destination="B13-DV-i6q" id="mGX-gH-9Zw"/>
                 <outlet property="nameLabel" destination="VcC-eY-xGx" id="ZPm-R8-uzR"/>
-                <outlet property="numberLabel" destination="fML-SC-xmb" id="9kR-R8-WmX"/>
-                <outlet property="selectedSwitch" destination="6Sx-wB-xzE" id="oCg-sv-Joo"/>
+                <outlet property="orderLabel" destination="fML-SC-xmb" id="Wy0-Y7-FuA"/>
+                <outlet property="subImageView" destination="vkt-J5-icM" id="rJU-ZV-Vf3"/>
             </connections>
-            <point key="canvasLocation" x="355.5" y="74"/>
+            <point key="canvasLocation" x="214" y="82"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="subArrows" width="50" height="50"/>
+    </resources>
 </document>

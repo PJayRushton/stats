@@ -208,7 +208,7 @@ extension RosterViewController {
         indexPaths.forEach { indexPath in
             guard let cell = tableView.cellForRow(at: indexPath) as? PlayerCell else { return }
             cell.contentView.fadeTransition(duration: 0.3)
-            configure(cell: cell, with: player(at: indexPath), atIndex: indexPath, isSelected: indexPath.section == 0)
+            configure(cell: cell, with: player(at: indexPath), atIndex: indexPath, isActive: indexPath.section == 0)
         }
     }
     
@@ -234,11 +234,6 @@ extension RosterViewController {
         }
     }
     
-    fileprivate func callPhoneNumber(_ number: String) {
-        guard let phoneURL = URL(string: "tel://\(number)"), UIApplication.shared.canOpenURL(phoneURL) else { return }
-        UIApplication.shared.open(phoneURL, options: [:], completionHandler: nil)
-    }
-    
     fileprivate func textPhoneNumbers(_ numbers: [String]) {
         let textVC = MFMessageComposeViewController()
         textVC.recipients = numbers
@@ -247,7 +242,7 @@ extension RosterViewController {
     }
     
     fileprivate func presentOptions(for player: Player) {
-        let alert = UIAlertController(title: "Actions for:", message: player.name, preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "Actions for: \(player.name)", message: player.phone, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         if let currentUser = core.state.userState.currentUser, let team = core.state.teamState.currentTeam, currentUser.isOwnerOrManager(of: team) {
@@ -260,9 +255,9 @@ extension RosterViewController {
         }
         
         if let phone = player.phone, !phone.isEmpty {
-            if let url = URL(string: "tel://\(phone)"), UIApplication.shared.canOpenURL(url) {
+            if let phoneURL = player.phoneURL, UIApplication.shared.canOpenURL(phoneURL) {
                 alert.addAction(UIAlertAction(title: "Call", style: .default, handler: { _ in
-                    self.callPhoneNumber(phone)
+                    UIApplication.shared.open(phoneURL, options: [:], completionHandler: nil)
                 }))
             }
             if MFMessageComposeViewController.canSendText() {
@@ -292,16 +287,16 @@ extension RosterViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: PlayerCell.reuseIdentifier) as! PlayerCell
-        cell.showCheck = isLineup || isTexting
+        cell.isTexting = isTexting
         let playerAtRow = player(at: indexPath)
-        let isSelected = isTexting ? playersToText.contains(playerAtRow) : indexPath.section == 0
-        configure(cell: cell, with: playerAtRow, atIndex: indexPath, isSelected: isSelected)
+        let playerIsActive = isTexting && playersToText.contains(playerAtRow)
+        configure(cell: cell, with: playerAtRow, atIndex: indexPath, isActive: playerIsActive)
         
         return cell
     }
     
-    func configure(cell: PlayerCell, with player: Player, atIndex index: IndexPath, isSelected: Bool) {
-        cell.update(with: player, index: index, isSelected: isSelected)
+    func configure(cell: PlayerCell, with player: Player, atIndex index: IndexPath, isActive: Bool) {
+        cell.update(with: player, index: index, isActive: isActive)
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -319,6 +314,8 @@ extension RosterViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         feedbackGenerator.selectionChanged()
+        tableView.deselectRow(at: indexPath, animated: true)
+        
         let selectedPlayer = player(at: indexPath)
         if isTexting {
             if let index = playersToText.index(of: selectedPlayer) {

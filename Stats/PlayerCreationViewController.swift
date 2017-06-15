@@ -277,11 +277,6 @@ extension PlayerCreationViewController {
 
 extension PlayerCreationViewController: UITextFieldDelegate {
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        keyboardPreviousButton.isHidden = textField == nameTextField
-        keyboardNextButton.isHidden = textField == phoneTextField
-    }
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == nameTextField {
             jerseyNumberTextField.becomeFirstResponder()

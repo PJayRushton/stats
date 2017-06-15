@@ -45,6 +45,8 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>LemonMilk.otf</string>
+		<string>Sports World-Regular.otf</string>
+		<string>Scoreboard.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

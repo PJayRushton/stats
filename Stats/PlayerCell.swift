@@ -11,43 +11,39 @@ import AIFlatSwitch
 
 class PlayerCell: UITableViewCell, AutoReuseIdentifiable {
 
-    @IBOutlet weak var selectedSwitch: AIFlatSwitch!
-    @IBOutlet weak var numberLabel: UILabel!
+    @IBOutlet weak var isSelectedSwitch: AIFlatSwitch!
+    @IBOutlet weak var orderLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var subImageView: UIImageView!
     
-    var showCheck = false {
+    var isTexting: Bool = false {
         didSet {
-            selectedSwitch.isHidden = !showCheck
-        }
-    }
-    override var isSelected: Bool {
-        didSet {
-            guard oldValue != isSelected else { return }
-            selectedSwitch.setSelected(!isSelected, animated: true)
+            isSelectedSwitch.isHidden = !isTexting
         }
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        selectedSwitch.isSelected = true
+    private var isActive: Bool = false {
+        didSet {
+            guard isActive != oldValue else { return }
+            isSelectedSwitch.setSelected(isActive, animated: true)
+        }
     }
     
-    func update(with player: Player, index: IndexPath, isSelected: Bool = true) {
+    
+    func update(with player: Player, index: IndexPath, isActive: Bool) {
         backgroundColor = player.gender.color
-        selectedSwitch.setSelected(isSelected, animated: false)
-        numberLabel.text = index.section == 0 ? "\(index.row + 1))" : nil
-        numberLabel.isHidden = !isSelected
+        orderLabel.text = index.section == 0 ? "\(index.row + 1))" : nil
+        orderLabel.isHidden = index.section != 0 || isTexting
+        subImageView.isHidden = !player.isSub
         
         var nameText = player.name
-        if player.isSub {
-            nameText += " (S)"
-        } else if let jerseyNumber = player.jerseyNumber, !jerseyNumber.isEmpty {
-            nameText += " (\(jerseyNumber))"
+        if let jerseyString = player.jerseyNumber {
+            nameText += " (\(jerseyString))"
         }
         if let phone = player.phone, !phone.isEmpty {
             nameText += " 📱"
         }
-        nameLabel.text = nameText
+        nameLabel.attributedText = nameText.attributedNumberFontString
     }
     
 }

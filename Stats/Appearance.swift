@@ -21,12 +21,21 @@ enum Appearance {
         UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: FontType.lemonMilk.font(withSize: 15)], for: .normal)
         UINavigationBar.appearance().isTranslucent = false
         UIApplication.shared.statusBarStyle = .lightContent
+//        
+//        for family in UIFont.familyNames.sorted() {
+//            print("\(family)")
+//            for names in UIFont.fontNames(forFamilyName: family) {
+//                print("== \(names)")
+//            }
+//        }
     }
     
 }
 
 enum FontType: String {
     case lemonMilk = "Lemon/Milk"
+    case jersey = "SportsWorld"
+    case scoreboard = "ScoreBoardSt"
     
     func font(withSize size: CGFloat) -> UIFont {
         return UIFont(name: self.rawValue, size: size)!

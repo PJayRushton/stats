@@ -24,6 +24,12 @@ struct Player: Identifiable, Unmarshaling {
         guard isSub else { return name }
         return "\(name) (S)"
     }
+    
+    var phoneURL: URL? {
+        guard let phone = phone, !phone.isEmpty else { return nil }
+        return URL(string: "tel://\(phone.digits)")
+    }
+    
     init(id: String = "", name: String, jerseyNumber: String? = nil, isSub: Bool = false, phone: String? = nil, gender: Gender = .unspecified, teamId: String) {
         self.id = id
         self.name = name

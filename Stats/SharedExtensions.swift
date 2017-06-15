@@ -126,6 +126,10 @@ extension String {
         }
     }
     
+    var digits: String {
+        return components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
+    }
+    
     static var seasonSuggestion: String {
         let currentMonth = Calendar.current.component(.month, from: Date())
         let currentYear = Calendar.current.component(.year, from: Date())
@@ -142,6 +146,22 @@ extension String {
             break
         }
         return "\(season) \(currentYear)"
+    }
+    
+    var attributedNumberFontString: NSAttributedString {
+        let components = self.characters.flatMap { String($0) }
+        let numbers = components.filter { Int($0) != nil }
+        guard !numbers.isEmpty else { return NSAttributedString(string: self) }
+        
+        let nsSelf = self as NSString
+        let ranges = numbers.flatMap { nsSelf.range(of: $0) }
+        
+        let attributedString = NSMutableAttributedString(string: self)
+        ranges.forEach { range in
+            attributedString.addAttributes([NSFontAttributeName: FontType.jersey.font(withSize: 22)], range: range)
+        }
+        
+        return attributedString
     }
     
 }

@@ -99,6 +99,8 @@
 		A1ABAFF91EA9420F00B28A46 /* AtBatCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1ABAFF81EA9420F00B28A46 /* AtBatCreationViewController.swift */; };
 		A1ABAFFB1EA9463900B28A46 /* AtBatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1ABAFFA1EA9463900B28A46 /* AtBatButton.swift */; };
 		A1ABAFFD1EA97AF900B28A46 /* ShowMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1ABAFFC1EA97AF900B28A46 /* ShowMessage.swift */; };
+		A1AD6E8E1EF237BC00C4D246 /* Sports World-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = A1AD6E8D1EF237BC00C4D246 /* Sports World-Regular.otf */; };
+		A1AD6E921EF2382C00C4D246 /* Scoreboard.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1AD6E911EF2382C00C4D246 /* Scoreboard.ttf */; };
 		A1B41C241E85A4B300FAC930 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B41C231E85A4B300FAC930 /* Team.swift */; };
 		A1B41C261E85A4C400FAC930 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B41C251E85A4C400FAC930 /* Player.swift */; };
 		A1B41C2A1E85A4E300FAC930 /* AtBat.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B41C291E85A4E300FAC930 /* AtBat.swift */; };
@@ -265,6 +267,8 @@
 		A1ABAFF81EA9420F00B28A46 /* AtBatCreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtBatCreationViewController.swift; sourceTree = "<group>"; };
 		A1ABAFFA1EA9463900B28A46 /* AtBatButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtBatButton.swift; sourceTree = "<group>"; };
 		A1ABAFFC1EA97AF900B28A46 /* ShowMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowMessage.swift; sourceTree = "<group>"; };
+		A1AD6E8D1EF237BC00C4D246 /* Sports World-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sports World-Regular.otf"; sourceTree = "<group>"; };
+		A1AD6E911EF2382C00C4D246 /* Scoreboard.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Scoreboard.ttf; sourceTree = "<group>"; };
 		A1B41C231E85A4B300FAC930 /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		A1B41C251E85A4C400FAC930 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		A1B41C271E85A4CD00FAC930 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
@@ -535,6 +539,8 @@
 				A14B64F71E8E9D2300CBDE92 /* GoogleService-Info.plist */,
 				A1DC99D91E7E3E4500C6FF8C /* Assets.xcassets */,
 				A1F959381E8959C60087B040 /* LemonMilk.otf */,
+				A1AD6E8D1EF237BC00C4D246 /* Sports World-Regular.otf */,
+				A1AD6E911EF2382C00C4D246 /* Scoreboard.ttf */,
 				A1DC99DE1E7E3E4500C6FF8C /* Info.plist */,
 			);
 			name = Misc;
@@ -719,6 +725,7 @@
 				A1CD9A171E8AA2F000D3C8F7 /* NewUserViewController.storyboard in Resources */,
 				A16D417E1E97FF7400DE01D4 /* PlayerCreationViewController.storyboard in Resources */,
 				A1F959391E8959C60087B040 /* LemonMilk.otf in Resources */,
+				A1AD6E8E1EF237BC00C4D246 /* Sports World-Regular.otf in Resources */,
 				A14B64EC1E8D65C500CBDE92 /* TeamCreationViewController.storyboard in Resources */,
 				A1398B481EA7081F00A4B830 /* GameViewController.storyboard in Resources */,
 				A1D67D5A1E928A0D00200B65 /* BasicHeaderCell.xib in Resources */,
@@ -736,6 +743,7 @@
 				A11B4D991EAED3BB00798D52 /* StatsPageViewController.storyboard in Resources */,
 				A1D67D521E9097C600200B65 /* SettingsViewController.storyboard in Resources */,
 				A14B64F81E8E9D2300CBDE92 /* GoogleService-Info.plist in Resources */,
+				A1AD6E921EF2382C00C4D246 /* Scoreboard.ttf in Resources */,
 				A1EC56F41ED322EA00A9B592 /* SeasonsViewController.storyboard in Resources */,
 				A1C722181EA10D1800A71C51 /* ShareTeamViewController.storyboard in Resources */,
 				A1D67D4D1E8FE8FC00200B65 /* LoadingImageViewController.storyboard in Resources */,

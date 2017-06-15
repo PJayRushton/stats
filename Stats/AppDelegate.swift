@@ -20,9 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
+        Database.database().isPersistenceEnabled = true
         core.fire(command: LoadICloudUser())
         Appearance.setUp()
-        Database.database().isPersistenceEnabled = true
         Fabric.with([Crashlytics.self])
         
         return true

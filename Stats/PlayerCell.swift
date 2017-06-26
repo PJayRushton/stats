@@ -33,7 +33,7 @@ class PlayerCell: UITableViewCell, AutoReuseIdentifiable {
     func update(with player: Player, index: IndexPath, isActive: Bool) {
         backgroundColor = player.gender.color
         self.isActive = isActive
-        orderLabel.text = index.section == 0 ? "\(index.row + 1))" : nil
+        orderLabel.text = index.section == RosterViewController.RosterSection.ordered.rawValue ? "\(index.row + 1))" : nil
         orderLabel.isHidden = index.section != 0 || isTexting
 //        subImageView.isHidden = !player.isSub
         subImageView.isHidden = true

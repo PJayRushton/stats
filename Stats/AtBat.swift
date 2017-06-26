@@ -11,16 +11,17 @@ import Firebase
 import Marshal
 
 enum AtBatCode: String {
-    case out
-    case roe
     case k
+    case out
+    case sac
     case w
     case hbp
+    case roe
     case single
     case double
     case triple
-    case hr
     case hrITP
+    case hr
     
     var image: UIImage? {
         switch self {
@@ -40,20 +41,20 @@ enum AtBatCode: String {
     }
     var tintColor: UIColor {
         switch self {
-        case .hbp, .w, .single, .double, .triple, .hr, .hrITP:
+        case .hbp, .w, .roe, .single, .double, .triple, .hr, .hrITP:
             return .mainAppColor
-        case .out, .roe, .k:
+        case .k, .out, .sac:
             return .flatCoffee
         }
     }
     var isOut: Bool {
-        return self == .k || self == .out
+        return self == .k || self == .out || self == .sac
     }
     var isHit: Bool {
         return self == .single || self == .double || self == .triple || self == .hr || self == .hrITP
     }
     var countsForBA: Bool {
-        return self != .w && self != .hbp
+        return self != .w && self != .hbp && self != .sac
     }
     var isHR: Bool {
         return self == .hr || self == .hrITP

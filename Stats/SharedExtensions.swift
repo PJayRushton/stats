@@ -67,7 +67,7 @@ extension Array where Iterator.Element == AtBat {
     }
     
     var battingAverageCount: Int {
-        return self.filter { $0.resultCode.countsForBA || ($0.resultCode == .out && $0.rbis > 0) }.count
+        return self.filter { $0.resultCode.countsForBA }.count
     }
     
 }

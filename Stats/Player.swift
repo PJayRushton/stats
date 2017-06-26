@@ -20,9 +20,9 @@ struct Player: Identifiable, Unmarshaling {
     var phone: String?
     var teamId: String
     
-    var nameWithSub: String {
+    var displayName: String {
         guard isSub else { return name }
-        return "\(name) (S)"
+        return "*\(name)"
     }
     
     var phoneURL: URL? {

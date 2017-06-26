@@ -14,7 +14,7 @@ class StatCell: UICollectionViewCell, AutoReuseIdentifiable {
     @IBOutlet weak var numberLabel: UILabel!
     
     func update(with stat: Stat, place: Place?) {
-        var name = stat.player.nameWithSub
+        var name = stat.player.displayName
         if let place = place {
             name += place.emoji
         }

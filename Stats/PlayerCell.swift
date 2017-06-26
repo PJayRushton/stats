@@ -36,7 +36,7 @@ class PlayerCell: UITableViewCell, AutoReuseIdentifiable {
         orderLabel.isHidden = index.section != 0 || isTexting
         subImageView.isHidden = !player.isSub
         
-        var nameText = player.name
+        var nameText = player.displayName
         if let jerseyString = player.jerseyNumber {
             nameText += " (\(jerseyString))"
         }

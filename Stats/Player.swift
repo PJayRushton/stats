@@ -69,10 +69,10 @@ extension Player: Marshaling {
         json[idKey] = id
         json[genderKey] = gender.rawValue
         json[isSubKey] = isSub
-        json[jerseyNumberKey] = jerseyNumber
+        json[jerseyNumberKey] = jerseyNumber ?? NSNull()
         json[nameKey] = name
         json[orderKey] = order
-        json[phoneKey] = phone
+        json[phoneKey] = phone ?? NSNull()
         json[teamIdKey] = teamId
         
         return json

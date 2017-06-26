@@ -164,6 +164,21 @@ extension String {
         return attributedString
     }
     
+    var jerseyNumberFontString: NSAttributedString {
+        let nsSelf = self as NSString
+        let firstRange = nsSelf.localizedStandardRange(of: "(")
+        let secondRange = nsSelf.localizedStandardRange(of: ")")
+        guard firstRange.length == 1 && secondRange.length == 1 else { return NSAttributedString(string: self) }
+        
+        let length = secondRange.location - (firstRange.location + 1)
+        guard length > 0 else { return NSAttributedString(string: self) }
+        let numbersRange = NSRange(location: firstRange.location + 1, length: length)
+        let attributedString = NSMutableAttributedString(string: self)
+        attributedString.addAttributes([NSFontAttributeName: FontType.jersey.font(withSize: 22)], range: numbersRange)
+        
+        return attributedString
+    }
+    
 }
 
 extension Double {

@@ -43,7 +43,7 @@ class PlayerCell: UITableViewCell, AutoReuseIdentifiable {
         if let phone = player.phone, !phone.isEmpty {
             nameText += " 📱"
         }
-        nameLabel.attributedText = nameText.attributedNumberFontString
+        nameLabel.attributedText = nameText.jerseyNumberFontString
     }
     
 }

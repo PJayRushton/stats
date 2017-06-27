@@ -127,10 +127,10 @@
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lqc-C1-Ime">
-                                        <rect key="frame" x="276" y="21.5" width="34" height="34"/>
+                                        <rect key="frame" x="282" y="24.5" width="28" height="28"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Lqc-C1-Ime" secondAttribute="height" multiplier="1:1" id="GNs-k4-tDX"/>
-                                            <constraint firstAttribute="height" constant="34" id="Sr8-tm-JIu"/>
+                                            <constraint firstAttribute="height" constant="28" id="Sr8-tm-JIu"/>
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" image="pencil"/>

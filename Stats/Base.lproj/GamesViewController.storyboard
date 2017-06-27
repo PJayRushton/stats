@@ -57,19 +57,20 @@
                                                             <rect key="frame" x="0.0" y="58.5" width="326" height="52"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="82b-oB-AhM">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="67.5" height="52"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="43" height="52"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="sYV-yR-zuv">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="67.5" height="24"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="43" height="24"/>
                                                                             <subviews>
                                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diamond" translatesAutoresizingMaskIntoConstraints="NO" id="bYf-7L-LOZ">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                                                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" secondItem="bYf-7L-LOZ" secondAttribute="height" id="c3a-PA-s7X"/>
                                                                                     </constraints>
                                                                                 </imageView>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="📍 --" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wa6-NW-FuP">
-                                                                                    <rect key="frame" x="30" y="0.0" width="37.5" height="24"/>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wa6-NW-FuP">
+                                                                                    <rect key="frame" x="30" y="0.0" width="13" height="24"/>
                                                                                     <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="15"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
@@ -77,17 +78,18 @@
                                                                             </subviews>
                                                                         </stackView>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="jt1-RA-Lms" userLabel="Date stack">
-                                                                            <rect key="frame" x="0.0" y="28" width="67.5" height="24"/>
+                                                                            <rect key="frame" x="0.0" y="28" width="43" height="24"/>
                                                                             <subviews>
                                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar" translatesAutoresizingMaskIntoConstraints="NO" id="DWq-15-S4f">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                                                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="24" id="YoT-5h-5nR"/>
                                                                                         <constraint firstAttribute="width" secondItem="DWq-15-S4f" secondAttribute="height" multiplier="1:1" id="uQa-8q-VAh"/>
                                                                                     </constraints>
                                                                                 </imageView>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🗓 --" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZFy-Cz-jcH">
-                                                                                    <rect key="frame" x="30" y="0.0" width="37.5" height="24"/>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZFy-Cz-jcH">
+                                                                                    <rect key="frame" x="30" y="0.0" width="13" height="24"/>
                                                                                     <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="15"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>

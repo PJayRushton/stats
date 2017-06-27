@@ -13,7 +13,7 @@ class AtBatCell: UICollectionViewCell, AutoReuseIdentifiable {
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var atBatImageView: UIImageView!
     @IBOutlet weak var rbisLabel: UILabel!
-    @IBOutlet weak var editLabel: UILabel!
+    @IBOutlet weak var pencilImageView: UIImageView!
     
     func update(with atBat: AtBat, order: Int, canEdit: Bool) {
         numberLabel.text = "\(order)."
@@ -25,7 +25,7 @@ class AtBatCell: UICollectionViewCell, AutoReuseIdentifiable {
         } else {
             rbisLabel.text = nil
         }
-        editLabel.isHidden = !canEdit
+        pencilImageView.isHidden = !canEdit
     }
     
 }

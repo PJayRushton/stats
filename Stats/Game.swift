@@ -60,7 +60,7 @@ struct Game: Identifiable, Unmarshaling, DateComparable {
             guard let wasWon = wasWon else { return "🚫" }
             return wasWon ? "W" : "L"
         } else {
-            let inningPrefix = isHome ? "⬇️" : "⬆️"
+            let inningPrefix = isHome ? "⬇" : "⬆"
             return "\(inningPrefix) \(inning)"
         }
     }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -47,24 +47,22 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="2 RBIs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybM-v6-wlh">
-                                        <rect key="frame" x="127" y="0.0" width="71.5" height="65"/>
+                                        <rect key="frame" x="127" y="0.0" width="70.5" height="65"/>
                                         <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" horizontalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="9Jq-4d-gKX">
-                                        <rect key="frame" x="214.5" y="0.0" width="99.5" height="65"/>
+                                        <rect key="frame" x="213.5" y="0.0" width="100.5" height="65"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="✏️" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nCU-2p-ztA">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pencil" translatesAutoresizingMaskIntoConstraints="NO" id="V8w-hh-lEM">
                                         <rect key="frame" x="330" y="0.0" width="30" height="65"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="G1L-c9-eNC"/>
+                                            <constraint firstAttribute="width" constant="30" id="PkB-lC-erB"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="28"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    </imageView>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -87,11 +85,14 @@
             <size key="customSize" width="376" height="81"/>
             <connections>
                 <outlet property="atBatImageView" destination="F94-rf-wTN" id="8jM-r6-8GN"/>
-                <outlet property="editLabel" destination="nCU-2p-ztA" id="FcF-4r-Yrs"/>
                 <outlet property="numberLabel" destination="daM-Vt-OVK" id="bbh-as-UfI"/>
+                <outlet property="pencilImageView" destination="V8w-hh-lEM" id="Rvz-DJ-mud"/>
                 <outlet property="rbisLabel" destination="ybM-v6-wlh" id="yPg-nq-kSn"/>
             </connections>
             <point key="canvasLocation" x="171" y="-219.5"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="pencil" width="99" height="99"/>
+    </resources>
 </document>

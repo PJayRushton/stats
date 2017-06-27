@@ -35,7 +35,7 @@ enum Appearance {
 enum FontType: String {
     case lemonMilk = "Lemon/Milk"
     case jersey = "SportsWorld"
-    case scoreboard = "ScoreBoardSt"
+    case scoreboard = "ScoreBoard"
     
     func font(withSize size: CGFloat) -> UIFont {
         return UIFont(name: self.rawValue, size: size)!

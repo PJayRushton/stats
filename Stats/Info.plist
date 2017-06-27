@@ -46,7 +46,7 @@
 	<array>
 		<string>LemonMilk.otf</string>
 		<string>Sports World-Regular.otf</string>
-		<string>Scoreboard.ttf</string>
+		<string>scoreboard.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

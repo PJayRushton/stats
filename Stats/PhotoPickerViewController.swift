@@ -112,6 +112,7 @@ extension PhotoPickerViewController: UICollectionViewDelegate {
         } else {
             core.fire(event: Selected<URL>(selectedURL))
             core.fire(event: LogAnalyticsAction(action: .stockPhotoUsed))
+            navigationController?.popViewController(animated: true)
         }
     }
     

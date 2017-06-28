@@ -56,14 +56,10 @@ class GamesViewController: Component, AutoStoryboardInitializable {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         isReadyToShowNewGame = true
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         
         if new {
             new = false
-            plusButtonPressed(plusButton)
+            presentNewGameVC(animated: true)
         }
     }
     
@@ -77,9 +73,7 @@ class GamesViewController: Component, AutoStoryboardInitializable {
 
     @IBAction func plusButtonPressed(_ sender: UIBarButtonItem) {
         tapper.selectionChanged()
-        let newGameVC = GameCreationViewController.initializeFromStoryboard().embededInNavigationController
-        newGameVC.modalPresentationStyle = .overFullScreen
-        present(newGameVC, animated: true, completion: nil)
+        presentNewGameVC(animated: true)
     }
     
     @IBAction func emptyStateNewGamePressed(_ sender: UIButton) {
@@ -108,6 +102,12 @@ class GamesViewController: Component, AutoStoryboardInitializable {
 
 extension GamesViewController {
  
+    fileprivate func presentNewGameVC(animated: Bool) {
+        let newGameVC = GameCreationViewController.initializeFromStoryboard().embededInNavigationController
+        newGameVC.modalPresentationStyle = .overFullScreen
+        present(newGameVC, animated: animated, completion: nil)
+    }
+
     fileprivate func pushDetail() {
         tapper.selectionChanged()
         let gameVC = GameViewController.initializeFromStoryboard()

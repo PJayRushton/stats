@@ -55,7 +55,9 @@ extension TeamHeaderSectionController {
     override func cellForItem(at index: Int) -> UICollectionViewCell {
         let cell = collectionContext?.dequeueReusableCell(withNibName: TeamHeaderCell.reuseIdentifier, bundle: nil, for: self, at: index) as! TeamHeaderCell
         guard let user = App.core.state.userState.currentUser else { fatalError() }
-        cell.update(with: headerSection.team, season: headerSection.season, canEdit: user.owns(headerSection.team))
+        let userCanEdit = user.owns(headerSection.team)
+        let userCanSwitchTeams = user.allTeamIds.count > 1
+        cell.update(with: headerSection.team, season: headerSection.season, canEdit: userCanEdit, canSwitch: userCanSwitchTeams)
         cell.settingsPressed = settingsPressed
         cell.editPressed = editPressed
         cell.switchTeamPressed = switchTeamPressed

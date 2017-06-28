@@ -13,10 +13,10 @@ class TeamHeaderCell: UICollectionViewCell, AutoReuseIdentifiable {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameButton: UIButton!
+    @IBOutlet weak var teamSwitcherArrow: UIImageView!
     @IBOutlet weak var seasonButton: UIButton!
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var settingsButton: UIButton!
-    @IBOutlet weak var switchTeamButton: UIButton!
     
     var settingsPressed: (() -> Void) = { }
     var editPressed: (() -> Void) = { }
@@ -31,20 +31,21 @@ class TeamHeaderCell: UICollectionViewCell, AutoReuseIdentifiable {
         editPressed()
     }
     
-    @IBAction func switchTeamButtonPressed(_ sender: UIButton) {
+    @IBAction func teamNameButtonPressed(_ sender: UIButton) {
         switchTeamPressed()
     }
     
-    @IBAction func teamButtonPressed(_ sender: Any) {
+    @IBAction func seasonButtonPressed(_ sender: Any) {
         seasonPressed()
     }
     
-    func update(with team: Team, season: Season?, canEdit: Bool) {
+    func update(with team: Team, season: Season?, canEdit: Bool, canSwitch: Bool) {
         imageView.kf.setImage(with: team.imageURL, placeholder: #imageLiteral(resourceName: "stock2"))
         nameButton.setTitle(team.name, for: .normal)
+        teamSwitcherArrow.isHidden = !canSwitch
+        nameButton.isEnabled = canSwitch && canEdit
         let seasonText = season?.name ?? "--"
         seasonButton.setTitle(seasonText + " ", for: .normal)
-        nameButton.isEnabled = canEdit
         seasonButton.isEnabled = canEdit
         editButton.isHidden = !canEdit
     }

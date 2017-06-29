@@ -29,9 +29,8 @@ class StatsViewController: Component, AutoStoryboardInitializable {
     
     @IBOutlet weak var segmentedControl: BetterSegmentedControl!
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var filterBarButton: UIBarButtonItem!
     
-    let filterImage = #imageLiteral(resourceName: "filterBar").withRenderingMode(.alwaysOriginal)
-    var filterBarButton: UIBarButtonItem?
     
     var currentViewType: StatsViewType {
         return core.state.statState.currentViewType
@@ -39,7 +38,7 @@ class StatsViewController: Component, AutoStoryboardInitializable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        filterBarButton = UIBarButtonItem(image: filterImage, style: .plain, target: self, action: #selector(filterButtonPressed))
+        navigationController?.navigationBar.barTintColor = core.state.currentMenuItem?.backgroundColor
         segmentedControl.setUp(with: StatsViewType.allValues.map { $0.title }, indicatorColor: UIColor.mainAppColor)
     }
     
@@ -53,11 +52,9 @@ class StatsViewController: Component, AutoStoryboardInitializable {
         try? segmentedControl.setIndex(UInt(state.statState.currentViewType.rawValue))
         let atBatsAreEmpty = state.atBatState.allAtBats.isEmpty
         segmentedControl.isHidden = atBatsAreEmpty
-        let shouldShowFilter = !atBatsAreEmpty && state.statState.currentViewType == .stats
-        navigationItem.rightBarButtonItem = shouldShowFilter ? filterBarButton : nil
     }
     
-    func filterButtonPressed() {
+    @IBAction func filterButtonPressed(_ sender: UIBarButtonItem) {
         let filterVC = StatFilterViewController.initializeFromStoryboard().embededInNavigationController
         filterVC.modalPresentationStyle = .popover
         present(filterVC, animated: true, completion: nil)

@@ -112,15 +112,17 @@ extension AppState {
     
     private func winningStats(from stats: [Stat], isWorst: Bool = false) -> (first: Stat?, second: Stat?) {
         guard !stats.isEmpty, let currentTeam = teamState.currentTeam else { return (nil, nil) }
-        var allStats = stats.sorted(by: { $0.value > $1.value })
-        let winnerStat = isWorst ? allStats.removeLast() : allStats.removeFirst()
+        var allStats = isWorst ? stats.sorted() : stats.sorted().reversed()
+        let winnerStat = allStats.removeFirst()
+        guard winnerStat.value > 0 else { return (nil, nil) }
         guard stats.count > 1 else { return (winnerStat, nil) }
 
         let otherGender: Gender = winnerStat.player.gender == .male ? .female : .male
         let otherGenderStats = stats.filter { $0.player.gender == otherGender }
         let statsForSecond = currentTeam.isCoed ? otherGenderStats : allStats
-        let secondStat = isWorst ? statsForSecond.last : statsForSecond.first
-        return (first: winnerStat, second: secondStat)
+        let secondStat = statsForSecond.first
+        guard let second = secondStat, second.value > 0 else { return (winnerStat, nil) }
+        return (first: winnerStat, second: second)
     }
 
 }

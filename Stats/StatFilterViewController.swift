@@ -41,18 +41,37 @@ enum SortType: Int {
     
 }
 
-class StatFilterViewController: Component, AutoStoryboardInitializable {
+class StatFilterViewController: UITableViewController, AutoStoryboardInitializable {
     
-    @IBOutlet weak var subSwitch: AIFlatSwitch!
+    @IBOutlet var headerViews: [UIView]!
     @IBOutlet weak var sortSegControl: BetterSegmentedControl!
+    @IBOutlet weak var subSwitch: AIFlatSwitch!
+    @IBOutlet weak var seasonLabel: UILabel!
+    
+    
+    var core = App.core
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let sortTitles = SortType.allValues.map { $0.title }
-        sortSegControl.setUp(with: sortTitles, indicatorColor: UIColor.secondaryAppColor, fontSize: 18)
+        sortSegControl.setUp(with: sortTitles, indicatorColor: UIColor.mainAppColor, fontSize: 18)
         subSwitch.isSelected = core.state.statState.includeSubs
         try? sortSegControl.setIndex(UInt(core.state.statState.sortType.rawValue))
+        
+        headerViews.forEach { view in
+            view.backgroundColor = .secondaryAppColor
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        core.add(subscriber: self)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        core.remove(subscriber: self)
     }
     
     @IBAction func subSwitchFlipped(_ sender: AIFlatSwitch) {
@@ -68,9 +87,32 @@ class StatFilterViewController: Component, AutoStoryboardInitializable {
         dismiss(animated: true, completion: nil)
     }
     
-    override func update(with state: AppState) {
+}
+
+extension StatFilterViewController: Subscriber {
+    
+    func update(with state: AppState) {
         navigationController?.navigationBar.barTintColor = UIColor.mainAppColor
     }
     
 }
 
+extension StatFilterViewController {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch (indexPath.section, indexPath.row) {
+        case (0, 1):
+            sortTypeChanged(sortSegControl)
+        case (1, 1):
+            subSwitchFlipped(subSwitch)
+        case (1, 2):
+            pushSeasonPicker()
+        }
+    }
+    
+    fileprivate func pushSeasonPicker() {
+        let seasonsVC = SeasonsViewController.initializeFromStoryboard()
+        navigationController?.push(seasonsVC, animated: true, completion: nil)
+    }
+    
+}

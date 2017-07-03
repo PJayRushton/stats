@@ -53,8 +53,6 @@ class PhotoPickerViewController: Component, AutoStoryboardInitializable {
         gridBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "grid"), style: .plain, target: self, action: #selector(flipLayout(_:)))
         linesBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "lines"), style: .plain, target: self, action: #selector(flipLayout(_:)))
         
-        _ = ImagePrefetcher(urls: imageURLs)
-
         layout.minimumLineSpacing = 1
         layout.minimumInteritemSpacing = 1
         collectionView.collectionViewLayout = layout

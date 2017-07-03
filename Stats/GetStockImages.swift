@@ -17,6 +17,7 @@ struct GetStockImages: Command {
             if let urlStrings = snap.value as? [String] {
                 let urls = urlStrings.flatMap(URL.init)
                 core.fire(event: Updated<[URL]>(urls))
+                core.fire(command: Prefetch(urls))
             }
         })
     }

@@ -22,7 +22,8 @@ class PhotoCell: UICollectionViewCell, AutoReuseIdentifiable {
     }
     var imageURL: URL? {
         didSet {
-            imageView.kf.setImage(with: imageURL, placeholder: #imageLiteral(resourceName: "picture"))
+            imageView.kf.indicatorType = .activity
+            imageView.kf.setImage(with: imageURL)
         }
     }
     

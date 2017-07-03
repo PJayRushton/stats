@@ -99,7 +99,7 @@ extension StatFilterViewController: Subscriber {
 
 extension StatFilterViewController {
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch (indexPath.section, indexPath.row) {
         case (0, 1):
             sortTypeChanged(sortSegControl)
@@ -107,12 +107,14 @@ extension StatFilterViewController {
             subSwitchFlipped(subSwitch)
         case (1, 2):
             pushSeasonPicker()
+        default:
+            break
         }
     }
     
     fileprivate func pushSeasonPicker() {
         let seasonsVC = SeasonsViewController.initializeFromStoryboard()
-        navigationController?.push(seasonsVC, animated: true, completion: nil)
+        navigationController?.pushViewController(seasonsVC, animated: true)
     }
     
 }

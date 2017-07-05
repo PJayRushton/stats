@@ -29,7 +29,7 @@ class TeamListViewController: Component, AutoStoryboardInitializable {
         
         navigationController?.navigationBar.barTintColor = .mainAppColor
         plusBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "plusBar"), style: .plain, target: self, action: #selector(showAddTeamOptionsAlert))
-        xBarButton = isDismissable ? UIBarButtonItem(image: #imageLiteral(resourceName: "xBar"), style: .plain, target: self, action: #selector(close)) : nil
+        xBarButton = isDismissable ? UIBarButtonItem(image: #imageLiteral(resourceName: "rightChevron"), style: .plain, target: self, action: #selector(close)) : nil
         navigationItem.rightBarButtonItem = isSwitcher || isDismissable ? xBarButton : plusBarButton
         
         registerCells()

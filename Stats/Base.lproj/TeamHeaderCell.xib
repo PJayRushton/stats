@@ -30,14 +30,35 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PJu-aD-wyy">
                                 <rect key="frame" x="0.0" y="0.0" width="326" height="173"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eka-6t-7Ew">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eka-6t-7Ew" customClass="GradientView" customModule="Stats" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="326" height="173"/>
-                                <color key="backgroundColor" red="0.1960784314" green="0.30196078430000001" blue="0.35686274509999999" alpha="0.25" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isHorizontal" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                        <color key="value" white="0.0" alpha="0.046527511503067484" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                        <color key="value" white="0.0" alpha="0.70109998082822089" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lof-fO-0Q5" userLabel="Settings">
-                                <rect key="frame" x="8" y="16" width="32" height="32"/>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1v2-sR-YnI" userLabel="Switcher">
+                                <rect key="frame" x="8" y="16" width="26" height="26"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="32" id="UgB-Xe-7Xy"/>
+                                    <constraint firstAttribute="width" constant="26" id="PMo-DV-MKV"/>
+                                    <constraint firstAttribute="width" secondItem="1v2-sR-YnI" secondAttribute="height" id="pB7-U6-tvk"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="leftChevron"/>
+                                <connections>
+                                    <action selector="teamSwitcherButtonPressed:" destination="gTV-IL-0wX" eventType="touchUpInside" id="fLb-wn-B2e"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lof-fO-0Q5" userLabel="Settings">
+                                <rect key="frame" x="290" y="16" width="28" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="28" id="UgB-Xe-7Xy"/>
                                     <constraint firstAttribute="width" secondItem="lof-fO-0Q5" secondAttribute="height" id="iMz-Xw-ekC"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -47,34 +68,40 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="7pf-G2-Xq9" userLabel="Bottom stack">
-                                <rect key="frame" x="8" y="113" width="310" height="54"/>
+                                <rect key="frame" x="8" y="102.5" width="310" height="62.5"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="h8F-71-HZJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="101" height="54"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" axis="vertical" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="h8F-71-HZJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="310" height="62.5"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" horizontalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="Srf-4j-AQG" userLabel="Team name view">
-                                                <rect key="frame" x="0.0" y="0.0" width="101" height="24"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="by4-q0-L99">
+                                                <rect key="frame" x="121" y="0.0" width="68.5" height="32.5"/>
+                                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="24"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" horizontalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="Srf-4j-AQG" userLabel="Season view">
+                                                <rect key="frame" x="121" y="38.5" width="68" height="24"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="999" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8yO-ha-fE4">
-                                                        <rect key="frame" x="0.0" y="0.0" width="101" height="24"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="68" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="24" id="Oag-Y2-ryp"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="30"/>
+                                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="15"/>
                                                         <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="18" maxY="0.0"/>
-                                                        <state key="normal" title="Team">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <state key="normal" title="Season">
+                                                            <color key="titleColor" red="0.55803233389999995" green="0.69207900759999996" blue="0.12800171969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="teamNameButtonPressed:" destination="gTV-IL-0wX" eventType="touchUpInside" id="2Mt-N7-YLO"/>
+                                                            <action selector="seasonButtonPressed:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Pum-6d-Kg8"/>
                                                         </connections>
                                                     </button>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="downChevronWhite" translatesAutoresizingMaskIntoConstraints="NO" id="fgV-uQ-dul">
-                                                        <rect key="frame" x="87" y="1" width="22" height="22"/>
-                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="downChevron" translatesAutoresizingMaskIntoConstraints="NO" id="fgV-uQ-dul">
+                                                        <rect key="frame" x="58" y="3" width="18" height="18"/>
+                                                        <color key="tintColor" red="0.55803233389999995" green="0.69207900759999996" blue="0.12800171969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="fgV-uQ-dul" secondAttribute="height" id="IXc-jY-xBd"/>
-                                                            <constraint firstAttribute="height" constant="22" id="LmM-OK-ZsF"/>
+                                                            <constraint firstAttribute="height" constant="18" id="LmM-OK-ZsF"/>
                                                         </constraints>
                                                     </imageView>
                                                 </subviews>
@@ -88,58 +115,28 @@
                                                     <constraint firstAttribute="bottom" secondItem="8yO-ha-fE4" secondAttribute="bottom" id="rcR-t8-rr0"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uAa-pn-TJw">
-                                                <rect key="frame" x="0.0" y="30" width="101" height="24"/>
-                                                <color key="backgroundColor" red="0.55803233389999995" green="0.69207900759999996" blue="0.12800171969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="24" id="3bH-oP-aFh"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="14"/>
-                                                <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
-                                                <state key="normal" title="Spring 2017">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="5"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="seasonButtonPressed:" destination="gTV-IL-0wX" eventType="touchUpInside" id="IVA-i6-zoh"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lqc-C1-Ime">
-                                        <rect key="frame" x="282" y="13" width="28" height="28"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="Lqc-C1-Ime" secondAttribute="height" multiplier="1:1" id="GNs-k4-tDX"/>
-                                            <constraint firstAttribute="height" constant="28" id="Sr8-tm-JIu"/>
-                                        </constraints>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <state key="normal" image="pencil"/>
-                                        <connections>
-                                            <action selector="editButtonPressed:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Rpm-Q3-KqZ"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="lof-fO-0Q5" firstAttribute="leading" secondItem="LXL-x3-7qs" secondAttribute="leading" constant="8" id="3hE-sP-pnv"/>
                             <constraint firstItem="PJu-aD-wyy" firstAttribute="top" secondItem="LXL-x3-7qs" secondAttribute="top" id="4p2-x9-beT"/>
-                            <constraint firstItem="lof-fO-0Q5" firstAttribute="top" secondItem="LXL-x3-7qs" secondAttribute="top" constant="16" id="Bwq-d9-cmT"/>
                             <constraint firstAttribute="bottom" secondItem="Eka-6t-7Ew" secondAttribute="bottom" id="O9Z-hw-F50"/>
                             <constraint firstItem="Eka-6t-7Ew" firstAttribute="top" secondItem="LXL-x3-7qs" secondAttribute="top" id="cvi-Pe-56K"/>
+                            <constraint firstAttribute="trailing" secondItem="lof-fO-0Q5" secondAttribute="trailing" constant="8" id="dFp-62-XYw"/>
                             <constraint firstAttribute="trailing" secondItem="7pf-G2-Xq9" secondAttribute="trailing" constant="8" id="dyV-Ql-OSO"/>
                             <constraint firstItem="Eka-6t-7Ew" firstAttribute="leading" secondItem="LXL-x3-7qs" secondAttribute="leading" id="e09-Xe-Dr6"/>
                             <constraint firstAttribute="trailing" secondItem="PJu-aD-wyy" secondAttribute="trailing" id="e63-DQ-K0Z"/>
                             <constraint firstItem="PJu-aD-wyy" firstAttribute="leading" secondItem="LXL-x3-7qs" secondAttribute="leading" id="ivW-rH-Db0"/>
+                            <constraint firstItem="1v2-sR-YnI" firstAttribute="top" secondItem="LXL-x3-7qs" secondAttribute="top" constant="16" id="ohM-Rq-tOd"/>
+                            <constraint firstItem="lof-fO-0Q5" firstAttribute="top" secondItem="LXL-x3-7qs" secondAttribute="top" constant="16" id="pEL-BP-h8D"/>
+                            <constraint firstItem="1v2-sR-YnI" firstAttribute="leading" secondItem="LXL-x3-7qs" secondAttribute="leading" constant="8" id="qXc-k6-Bnd"/>
                             <constraint firstItem="7pf-G2-Xq9" firstAttribute="leading" secondItem="LXL-x3-7qs" secondAttribute="leading" constant="8" id="x0Q-55-wNT"/>
                             <constraint firstAttribute="trailing" secondItem="Eka-6t-7Ew" secondAttribute="trailing" id="x82-aA-z7x"/>
                             <constraint firstAttribute="bottom" secondItem="PJu-aD-wyy" secondAttribute="bottom" id="xSv-Wa-AK4"/>
-                            <constraint firstAttribute="bottom" secondItem="7pf-G2-Xq9" secondAttribute="bottom" constant="6" id="z5v-JW-2WM"/>
+                            <constraint firstAttribute="bottom" secondItem="7pf-G2-Xq9" secondAttribute="bottom" constant="8" id="z5v-JW-2WM"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -152,19 +149,19 @@
             </constraints>
             <size key="customSize" width="326" height="173"/>
             <connections>
-                <outlet property="editButton" destination="Lqc-C1-Ime" id="qmg-1o-tdm"/>
                 <outlet property="imageView" destination="PJu-aD-wyy" id="Rno-U0-96Z"/>
-                <outlet property="nameButton" destination="8yO-ha-fE4" id="48U-Rz-Af6"/>
-                <outlet property="seasonButton" destination="uAa-pn-TJw" id="oGU-fq-gz8"/>
+                <outlet property="nameLabel" destination="by4-q0-L99" id="O4z-pC-kzL"/>
+                <outlet property="seasonButton" destination="8yO-ha-fE4" id="8yC-bZ-1n9"/>
+                <outlet property="seasonSwitcherArrow" destination="fgV-uQ-dul" id="gg5-MW-4JN"/>
                 <outlet property="settingsButton" destination="lof-fO-0Q5" id="Twi-Oj-l4S"/>
-                <outlet property="teamSwitcherArrow" destination="fgV-uQ-dul" id="e8G-Dl-xPz"/>
+                <outlet property="teamSwitcherButton" destination="1v2-sR-YnI" id="6ME-7C-PVa"/>
             </connections>
             <point key="canvasLocation" x="172" y="165.5"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="downChevronWhite" width="26" height="15"/>
-        <image name="pencil" width="99" height="99"/>
+        <image name="downChevron" width="26" height="15"/>
+        <image name="leftChevron" width="15" height="26"/>
         <image name="settings" width="32" height="32"/>
     </resources>
 </document>

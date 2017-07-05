@@ -42,6 +42,11 @@ class StatsViewController: Component, AutoStoryboardInitializable {
         segmentedControl.setUp(with: StatsViewType.allValues.map { $0.title }, indicatorColor: UIColor.mainAppColor)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
     @IBAction func viewTypeChanged(_ sender: BetterSegmentedControl) {
         guard let newViewType = StatsViewType(rawValue: Int(sender.index)) else { return }
         core.fire(event: Updated<StatsViewType>(newViewType))

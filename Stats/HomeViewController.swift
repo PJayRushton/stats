@@ -61,11 +61,6 @@ class HomeViewController: Component, AutoStoryboardInitializable {
         adapter.performUpdates(animated: true)
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
-    }
-    
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         collectionView.collectionViewLayout.invalidateLayout()
@@ -117,7 +112,8 @@ extension HomeViewController {
         let teamListVC = TeamListViewController.initializeFromStoryboard()
         teamListVC.isSwitcher = true
         let teamListInNav = teamListVC.embededInNavigationController
-        teamListInNav.modalPresentationStyle = .overFullScreen
+        teamListInNav.modalTransitionStyle = .flipHorizontal
+        teamListInNav.modalPresentationStyle = .fullScreen
         present(teamListInNav, animated: true)
     }
     
@@ -228,7 +224,6 @@ extension HomeViewController: ListAdapterDataSource {
         case _ as TeamHeaderSection:
             let headerController = TeamHeaderSectionController()
             headerController.settingsPressed = presentSettings
-            headerController.editPressed = presentTeamEdit
             headerController.switchTeamPressed = presentTeamSwitcher
             headerController.seasonPressed = presentSeasonManager
             return headerController

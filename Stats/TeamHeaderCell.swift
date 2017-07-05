@@ -12,14 +12,13 @@ import Kingfisher
 class TeamHeaderCell: UICollectionViewCell, AutoReuseIdentifiable {
 
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var nameButton: UIButton!
-    @IBOutlet weak var teamSwitcherArrow: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var seasonSwitcherArrow: UIImageView!
     @IBOutlet weak var seasonButton: UIButton!
-    @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var teamSwitcherButton: UIButton!
     @IBOutlet weak var settingsButton: UIButton!
     
     var settingsPressed: (() -> Void) = { }
-    var editPressed: (() -> Void) = { }
     var switchTeamPressed: (() -> Void) = { }
     var seasonPressed: (() -> Void) = { }
     
@@ -27,11 +26,7 @@ class TeamHeaderCell: UICollectionViewCell, AutoReuseIdentifiable {
         settingsPressed()
     }
     
-    @IBAction func editButtonPressed(_ sender: UIButton) {
-        editPressed()
-    }
-    
-    @IBAction func teamNameButtonPressed(_ sender: UIButton) {
+    @IBAction func teamSwitcherButtonPressed(_ sender: UIButton) {
         switchTeamPressed()
     }
     
@@ -39,15 +34,13 @@ class TeamHeaderCell: UICollectionViewCell, AutoReuseIdentifiable {
         seasonPressed()
     }
     
-    func update(with team: Team, season: Season?, canEdit: Bool, canSwitch: Bool) {
+    func update(with team: Team, season: Season?, canSwitch: Bool) {
         imageView.kf.setImage(with: team.imageURL, placeholder: #imageLiteral(resourceName: "stock2"))
-        nameButton.setTitle(team.name, for: .normal)
-        teamSwitcherArrow.isHidden = !canSwitch
-        nameButton.isEnabled = canSwitch && canEdit
+        nameLabel.text = team.name
+        teamSwitcherButton.isHidden = !canSwitch
         let seasonText = season?.name ?? "--"
         seasonButton.setTitle(seasonText + " ", for: .normal)
-        seasonButton.isEnabled = canEdit
-        editButton.isHidden = !canEdit
+        seasonSwitcherArrow.tintColor = .mainAppColor
     }
     
 }

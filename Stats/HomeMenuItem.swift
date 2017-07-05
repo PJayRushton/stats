@@ -15,11 +15,7 @@ enum HomeMenuItem: Int {
     case roster
     case share
     
-    static let allValues = [HomeMenuItem.newGame, .stats, .games, .roster, .share]
-    static let fanItems = [HomeMenuItem.stats, .games, .roster, .share]
-    static var managerItems: [HomeMenuItem] {
-        return allValues
-    }
+    static let allValues = [HomeMenuItem.stats, .games, .roster, .share]
     
     var title: String {
         switch self {
@@ -69,12 +65,5 @@ enum HomeMenuItem: Int {
     var itemsPerRow: CGFloat {
         return 1
     }
-//        switch self {
-//        case  .newGame:
-//            return 1
-//        case .stats, .games, .roster, .share:
-//            return 2
-//        }
-//    }
     
 }

@@ -108,7 +108,7 @@ class TeamCreationViewController: Component, AutoStoryboardInitializable {
 extension TeamCreationViewController {
     
     fileprivate func setUpColors() {
-        navigationController?.navigationBar.barTintColor = .mainAppColor
+        navigationController?.navigationBar.barTintColor = UIColor.mainNavBarColor
         deleteTeamButton.tintColor = .red
         nameTextField.borderColor = .secondaryAppColor
         nameTextField.layer.cornerRadius = 5

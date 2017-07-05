@@ -24,11 +24,7 @@ class TeamActionSection: ListDiffable {
     
     func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
         guard let other = object as? TeamActionSection else { return false }
-        var isSameOwnership = true
-        if let user = App.core.state.userState.currentUser {
-            isSameOwnership = user.isOwnerOrManager(of: team) == user.isOwnerOrManager(of: other.team)
-        }
-        return team == other.team && menuItem.title == other.menuItem.title && isSameOwnership
+        return team == other.team && menuItem.title == other.menuItem.title
     }
     
 }
@@ -52,8 +48,7 @@ extension TeamActionSectionController {
         guard let collectionContext = collectionContext, let user = App.core.state.userState.currentUser else { return .zero }
         let fullWidth = collectionContext.containerSize.width
         let headerHeight = collectionContext.containerSize.width * (2 / 3)
-        let hasEditRights = user.isOwnerOrManager(of: actionSection.team)
-        let rows = hasEditRights ? HomeMenuItem.allValues.count : HomeMenuItem.fanItems.count
+        let rows = HomeMenuItem.allValues.count
         let height = (collectionContext.containerSize.height - headerHeight) / CGFloat(rows)
         let width = fullWidth / actionSection.menuItem.itemsPerRow
         return CGSize(width: width, height: height)

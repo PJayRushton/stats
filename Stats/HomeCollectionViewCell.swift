@@ -14,15 +14,13 @@ class HomeCollectionViewCell: UICollectionViewCell, AutoReuseIdentifiable {
     @IBOutlet weak var leftImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-//        leftImageView.tintColor = .white
-    }
-    
     func update(with menuItem: HomeMenuItem) {
-        colorView.backgroundColor = menuItem.backgroundColor
+        colorView.backgroundColor = .white
+        colorView.layer.applyShadow()
         leftImageView.image = menuItem.image
+        leftImageView.tintColor = .black
         titleLabel.text = menuItem.title
+        titleLabel.textColor = .black
     }
     
 }

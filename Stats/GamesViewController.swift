@@ -55,7 +55,9 @@ class GamesViewController: Component, AutoStoryboardInitializable {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         navigationController?.setNavigationBarHidden(false, animated: animated)
+        navigationController?.navigationBar.barTintColor = .mainAppColor
 
         isReadyToShowNewGame = true
         
@@ -87,7 +89,6 @@ class GamesViewController: Component, AutoStoryboardInitializable {
     // MARK: - Subscriber
     
     override func update(with state: AppState) {
-        navigationController?.navigationBar.barTintColor = HomeMenuItem.games.backgroundColor
         tableView.backgroundView = tableIsEmpty ? emptyStateView : nil
         tableView.reloadData()
         

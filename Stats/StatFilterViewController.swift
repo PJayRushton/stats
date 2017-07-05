@@ -66,12 +66,7 @@ class StatFilterViewController: UITableViewController, AutoStoryboardInitializab
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        core.add(subscriber: self)
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        core.remove(subscriber: self)
+        navigationController?.navigationBar.barTintColor = UIColor.mainNavBarColor
     }
     
     @IBAction func subSwitchFlipped(_ sender: AIFlatSwitch) {
@@ -85,14 +80,6 @@ class StatFilterViewController: UITableViewController, AutoStoryboardInitializab
     
     @IBAction func dismissButtonPressed(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
-    }
-    
-}
-
-extension StatFilterViewController: Subscriber {
-    
-    func update(with state: AppState) {
-        navigationController?.navigationBar.barTintColor = UIColor.mainAppColor
     }
     
 }

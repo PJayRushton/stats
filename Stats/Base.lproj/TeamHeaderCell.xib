@@ -97,11 +97,11 @@
                                                         </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="downChevron" translatesAutoresizingMaskIntoConstraints="NO" id="fgV-uQ-dul">
-                                                        <rect key="frame" x="58" y="3" width="18" height="18"/>
+                                                        <rect key="frame" x="62" y="5" width="14" height="14"/>
                                                         <color key="tintColor" red="0.55803233389999995" green="0.69207900759999996" blue="0.12800171969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="fgV-uQ-dul" secondAttribute="height" id="IXc-jY-xBd"/>
-                                                            <constraint firstAttribute="height" constant="18" id="LmM-OK-ZsF"/>
+                                                            <constraint firstAttribute="height" constant="14" id="LmM-OK-ZsF"/>
                                                         </constraints>
                                                     </imageView>
                                                 </subviews>

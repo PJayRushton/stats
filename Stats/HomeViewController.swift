@@ -20,6 +20,7 @@ class HomeViewController: Component, AutoStoryboardInitializable {
     @IBOutlet var emptyStateView: UIView!
     @IBOutlet weak var topImageView: UIImageView!
     @IBOutlet weak var bottomImageView: UIImageView!
+    @IBOutlet weak var newGameButton: UIButton!
 
     
     // MARK: - Properties
@@ -83,6 +84,10 @@ class HomeViewController: Component, AutoStoryboardInitializable {
         present(addTeamVC, animated: true, completion: nil)
     }
     
+    @IBAction func newTeamButtonPressed(_ sender: UIButton) {
+        pushGames(new: true)
+    }
+    
     
     // MARK: - Subscriber
     
@@ -92,6 +97,10 @@ class HomeViewController: Component, AutoStoryboardInitializable {
             let usernameVC = NewUserViewController.initializeFromStoryboard().embededInNavigationController
             usernameVC.modalPresentationStyle = .overFullScreen
             present(usernameVC, animated: true)
+        }
+        
+        if let user = state.userState.currentUser, let currentTeam = currentTeam {
+            newGameButton.isHidden = !user.isOwnerOrManager(of: currentTeam)
         }
         adapter.performUpdates(animated: true)
     }
@@ -211,7 +220,7 @@ extension HomeViewController: ListAdapterDataSource {
     func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
         guard let currentTeam = currentTeam, let currentUser = core.state.userState.currentUser else { return [] }
         var objects: [ListDiffable] = [TeamHeaderSection(team: currentTeam, season: core.state.seasonState.currentSeason)]
-        let items = currentUser.isOwnerOrManager(of: currentTeam) ? HomeMenuItem.managerItems : HomeMenuItem.fanItems
+        let items = HomeMenuItem.allValues
         
         items.forEach { item in
             objects.append(TeamActionSection(team: currentTeam, menuItem: item))

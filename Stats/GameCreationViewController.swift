@@ -54,6 +54,8 @@ class GameCreationViewController: Component, AutoStoryboardInitializable {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        navigationController?.navigationBar.barTintColor = .mainAppColor
         updateSaveButton()
     }
     
@@ -124,7 +126,6 @@ class GameCreationViewController: Component, AutoStoryboardInitializable {
     // MARK: - Subscriber
     
     override func update(with state: AppState) {
-        navigationController?.navigationBar.barTintColor = state.currentMenuItem?.backgroundColor
         updateSaveButton()
     }
     
@@ -152,7 +153,6 @@ extension GameCreationViewController {
     }
     
     fileprivate func updateUI(with game: Game?) {
-        navigationController?.navigationBar.barTintColor = HomeMenuItem.newGame.backgroundColor
         opponentTextField.inputAccessoryView = keyboardAccessoryView
         locationTextField.inputAccessoryView = keyboardAccessoryView
         setUpSegmentedControls()

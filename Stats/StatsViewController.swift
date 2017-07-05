@@ -38,13 +38,14 @@ class StatsViewController: Component, AutoStoryboardInitializable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.barTintColor = core.state.currentMenuItem?.backgroundColor
+        
         segmentedControl.setUp(with: StatsViewType.allValues.map { $0.title }, indicatorColor: UIColor.mainAppColor)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
+        navigationController?.navigationBar.barTintColor = UIColor.mainNavBarColor
     }
     
     @IBAction func viewTypeChanged(_ sender: BetterSegmentedControl) {
@@ -53,7 +54,6 @@ class StatsViewController: Component, AutoStoryboardInitializable {
     }
     
     override func update(with state: AppState) {
-        navigationController?.navigationBar.barTintColor = state.currentMenuItem?.backgroundColor
         try? segmentedControl.setIndex(UInt(state.statState.currentViewType.rawValue))
         let atBatsAreEmpty = state.atBatState.allAtBats.isEmpty
         segmentedControl.isHidden = atBatsAreEmpty

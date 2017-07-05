@@ -33,7 +33,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" prefetchingEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IkZ-dz-FFW">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="zj3-kT-Iya">
                                             <size key="itemSize" width="381" height="126"/>
@@ -50,20 +50,20 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q5z-lF-WpD" userLabel="Color view">
-                                                            <rect key="frame" x="0.0" y="0.0" width="381" height="126"/>
+                                                            <rect key="frame" x="16" y="16" width="349" height="94"/>
                                                             <subviews>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="LCM-ht-SLT">
-                                                                    <rect key="frame" x="16" y="31.5" width="349" height="63"/>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="LCM-ht-SLT">
+                                                                    <rect key="frame" x="16" y="23.5" width="317" height="47"/>
                                                                     <subviews>
                                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oD8-ZN-2a5">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="62.5" height="63"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="46.5" height="47"/>
                                                                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="oD8-ZN-2a5" secondAttribute="height" id="QS1-XB-Efg"/>
                                                                             </constraints>
                                                                         </imageView>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="kqr-GQ-twJ">
-                                                                            <rect key="frame" x="78.5" y="0.0" width="270.5" height="63"/>
+                                                                            <rect key="frame" x="129" y="0.0" width="59.5" height="47"/>
                                                                             <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="20"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                             <nil key="highlightedColor"/>
@@ -71,7 +71,14 @@
                                                                                 <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="32"/>
                                                                             </variation>
                                                                         </label>
+                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yQo-cC-VOQ">
+                                                                            <rect key="frame" x="270.5" y="0.0" width="46.5" height="47"/>
+                                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                        </view>
                                                                     </subviews>
+                                                                    <constraints>
+                                                                        <constraint firstItem="yQo-cC-VOQ" firstAttribute="width" secondItem="oD8-ZN-2a5" secondAttribute="width" id="ou6-qH-bKX"/>
+                                                                    </constraints>
                                                                 </stackView>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -86,10 +93,10 @@
                                                     </subviews>
                                                 </view>
                                                 <constraints>
-                                                    <constraint firstItem="q5z-lF-WpD" firstAttribute="top" secondItem="RUs-Df-cIm" secondAttribute="top" id="TQL-bH-BAE"/>
-                                                    <constraint firstItem="q5z-lF-WpD" firstAttribute="leading" secondItem="RUs-Df-cIm" secondAttribute="leading" id="hLd-Se-eaH"/>
-                                                    <constraint firstAttribute="bottom" secondItem="q5z-lF-WpD" secondAttribute="bottom" id="t5K-fv-o2f"/>
-                                                    <constraint firstAttribute="trailing" secondItem="q5z-lF-WpD" secondAttribute="trailing" id="vZs-7Y-2QD"/>
+                                                    <constraint firstItem="q5z-lF-WpD" firstAttribute="top" secondItem="RUs-Df-cIm" secondAttribute="top" constant="16" id="TQL-bH-BAE"/>
+                                                    <constraint firstItem="q5z-lF-WpD" firstAttribute="leading" secondItem="RUs-Df-cIm" secondAttribute="leading" constant="16" id="hLd-Se-eaH"/>
+                                                    <constraint firstAttribute="bottom" secondItem="q5z-lF-WpD" secondAttribute="bottom" constant="16" id="t5K-fv-o2f"/>
+                                                    <constraint firstAttribute="trailing" secondItem="q5z-lF-WpD" secondAttribute="trailing" constant="16" id="vZs-7Y-2QD"/>
                                                 </constraints>
                                                 <connections>
                                                     <outlet property="colorView" destination="q5z-lF-WpD" id="vkW-OA-jWk"/>
@@ -103,6 +110,20 @@
                                             <outlet property="delegate" destination="BYZ-38-t0r" id="79n-Lf-sn9"/>
                                         </connections>
                                     </collectionView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g5J-mL-zAA">
+                                        <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                        <color key="backgroundColor" red="0.55803233389999995" green="0.69207900759999996" blue="0.12800171969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="xye-Y6-aTd"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="20"/>
+                                        <state key="normal" title="New Game">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="newTeamButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jAg-2e-FO5"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -122,6 +143,7 @@
                         <outlet property="bottomImageView" destination="aeU-Ar-16j" id="cF8-Zf-W1O"/>
                         <outlet property="collectionView" destination="IkZ-dz-FFW" id="vPN-VU-KVa"/>
                         <outlet property="emptyStateView" destination="2im-2N-Mvj" id="H2Z-2Y-qd7"/>
+                        <outlet property="newGameButton" destination="g5J-mL-zAA" id="3Nd-FX-sZl"/>
                         <outlet property="topImageView" destination="j9j-pC-5ud" id="yMf-Gj-l1V"/>
                     </connections>
                 </viewController>

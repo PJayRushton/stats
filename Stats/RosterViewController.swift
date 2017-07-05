@@ -94,6 +94,7 @@ class RosterViewController: Component, AutoStoryboardInitializable {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
+        navigationController?.navigationBar.barTintColor = .mainAppColor
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -129,7 +130,6 @@ class RosterViewController: Component, AutoStoryboardInitializable {
     // MARK: - Reactor
     
     override func update(with state: AppState) {
-        navigationController?.navigationBar.barTintColor = state.currentMenuItem?.backgroundColor
         self.isTexting = isTexting ? true : false // to not duplicate bar button item logic
         guard let team = state.teamState.currentTeam else { tableView.reloadData(); return }
         if isLineup {
@@ -317,7 +317,7 @@ extension RosterViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerCell = tableView.dequeueReusableCell(withIdentifier: BasicHeaderCell.reuseIdentifier) as! BasicHeaderCell
         let title = section == 0 ? NSLocalizedString("Roster", comment: "Main players on the team") : NSLocalizedString("Bench", comment: "Not currently playing, (on the bench)")
-        headerCell.update(with: title, backgroundColor: .flatGrayDark)
+        headerCell.update(with: title)
         return headerCell.contentView
     }
     

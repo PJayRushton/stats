@@ -90,16 +90,23 @@ struct SubscribeToTeam: Command {
     }
     
     private func subscribeToAtBats(core: Core<AppState>) {
-        networkAccess.subscribe(to: StatsRefs.atBatsRef(teamId: self.teamId)) { result in
-            let atBatsResult = result.map { (json: JSONObject) -> [AtBat] in
-                return json.parsedObjects()
-            }
+        networkAccess.fullySubscribe(to: StatsRefs.atBatsRef(teamId: self.teamId)) { result, eventType in
+            let atBatResult = result.map(AtBat.init)
             
-            switch atBatsResult {
-            case let .success(atBats):
-                core.fire(event: TeamEntitiesUpdated<AtBat>(teamId: self.teamId, entities: atBats))
+            switch atBatResult {
+            case let .success(atBat):
+                switch eventType {
+                case .childAdded:
+                    core.fire(event: TeamObjectAdded<AtBat>(object: atBat, teamId: self.teamId))
+                case .childChanged:
+                    core.fire(event: TeamObjectChanged<AtBat>(object: atBat, teamId: self.teamId))
+                case .childRemoved:
+                    core.fire(event: TeamObjectRemoved<AtBat>(object: atBat, teamId: self.teamId))
+                default:
+                    fatalError()
+                }
             case let .failure(error):
-                core.fire(event: ErrorEvent(error: error, message: nil))
+                core.fire(event: TeamObjectErrored(error: error))
             }
         }
     }

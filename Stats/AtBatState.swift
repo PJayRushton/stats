@@ -37,12 +37,33 @@ struct AtBatState: State {
     
     mutating func react(to event: Event) {
         switch event {
-        case let event as TeamEntitiesUpdated<AtBat>:
-            allAtBats[event.teamId] = event.entities
+        case let event as TeamObjectAdded<AtBat>:
+            var updatedTeamAtBats = allAtBats[event.teamId] ?? [AtBat]()
+            updatedTeamAtBats.append(event.object)
+            allAtBats[event.teamId] = updatedTeamAtBats
             
-            if let atBat = currentAtBat, let index = event.entities.index(of: atBat) {
-                currentAtBat = event.entities[index]
-            }
+            guard let current = currentAtBat, current == event.object else { return }
+            currentAtBat = current
+            
+        case let event as TeamObjectChanged<AtBat>:
+            var updatedTeamAtBats = allAtBats[event.teamId] ?? [AtBat]()
+            guard let index = updatedTeamAtBats.index(of: event.object) else { return }
+            updatedTeamAtBats.remove(at: index)
+            updatedTeamAtBats.append(event.object)
+            allAtBats[event.teamId] = updatedTeamAtBats
+            
+            guard let current = currentAtBat, current == event.object else { return }
+            currentAtBat = current
+            
+        case let event as TeamObjectRemoved<AtBat>:
+            var updatedTeamAtBats = allAtBats[event.teamId] ?? [AtBat]()
+            guard let index = updatedTeamAtBats.index(of: event.object) else { return }
+            updatedTeamAtBats.remove(at: index)
+            allAtBats[event.teamId] = updatedTeamAtBats
+            
+            guard let current = currentAtBat, current == event.object else { return }
+            currentAtBat = nil
+            
         case let event as Selected<AtBatCode>:
             currentResult = event.item ?? .single
         default:

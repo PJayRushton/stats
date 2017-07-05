@@ -88,11 +88,11 @@ class GameViewController: Component, AutoStoryboardInitializable {
         
         updateUI(with: game)
         scoreLabel.morphingEffect = .fall
-        previousInningButton.isHidden = game.isCompleted || !hasEditRights
-        nextInningButton.isHidden = game.isCompleted || !hasEditRights
+        previousInningButton?.isHidden = game.isCompleted || !hasEditRights
+        nextInningButton?.isHidden = game.isCompleted || !hasEditRights
         newAtBatView.isHidden = game.isCompleted
-        previousInningButton.tintColor = .gray400
-        nextInningButton.tintColor = .gray400
+        previousInningButton?.tintColor = .gray400
+        nextInningButton?.tintColor = .gray400
         inningLabel.morphingEffect = .scale
         setUpPickerView()
     }
@@ -182,8 +182,8 @@ extension GameViewController {
             navigationItem.rightBarButtonItem = hasEditRights ? settingsButton : nil
         }
         inningLabel.text = game.status
-        previousInningButton.tintColor = game.inning == 1 ? .white : .gray400
-        previousInningButton.isEnabled = game.inning > 1
+        previousInningButton?.tintColor = game.inning == 1 ? .white : .gray400
+        previousInningButton?.isEnabled = game.inning > 1
         
     }
     

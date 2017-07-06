@@ -85,7 +85,7 @@ extension AppState {
     
     func allStats(ofType type: StatType, from atBats: [AtBat]) -> [Stat] {
         let playerIds = Set(atBats.map { $0.playerId })
-        let players  = playerIds.flatMap { playerState.player(withId: $0) }
+        let players = playerIds.flatMap { playerState.player(withId: $0) }
         
         var playerStats = [Stat]()
         

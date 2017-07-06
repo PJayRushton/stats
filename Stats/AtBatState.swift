@@ -35,6 +35,17 @@ struct AtBatState: State {
         return all.filter { $0.seasonId == season.id }
     }
     
+    func currentAtBats(for player: Player) -> [AtBat] {
+        let allPlayerAtBats = atBats(for: player)
+        if let currentGame = App.core.state.gameState.currentGame {
+            return allPlayerAtBats.filter { $0.gameId == currentGame.id }
+        } else if let currentSeason = App.core.state.seasonState.currentSeason {
+            return allPlayerAtBats.filter { $0.seasonId == currentSeason.id }
+        } else {
+            return allPlayerAtBats
+        }
+    }
+    
     mutating func react(to event: Event) {
         switch event {
         case let event as TeamObjectAdded<AtBat>:

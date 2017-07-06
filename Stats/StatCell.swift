@@ -10,16 +10,16 @@ import UIKit
 
 class StatCell: UICollectionViewCell, AutoReuseIdentifiable {
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var numberLabel: UILabel!
+    @IBOutlet weak var colorView: UIView!
+    @IBOutlet weak var textLabel: UILabel!
+    
+    func update(with title: String) {
+        textLabel.text = title
+    }
     
     func update(with stat: Stat, place: Place?) {
-        var name = stat.player.displayName
-        if let place = place {
-            name += place.emoji
-        }
-        titleLabel.text = name
-        numberLabel.text = stat.displayString
+        colorView.backgroundColor = place?.color ?? .white
+        textLabel.text = stat.displayString
     }
     
 }

@@ -27,9 +27,9 @@ class StatsLayout: UICollectionViewLayout {
     fileprivate var cellWidth: CGFloat {
         return regularSize
     }
-    fileprivate let regularSize: CGFloat = 68.0
-    fileprivate let compactSize: CGFloat = 52.0
-    fileprivate let playerHeaderWidth: CGFloat = 187.0
+    fileprivate let regularSize: CGFloat = 100.0
+    fileprivate let compactSize: CGFloat = 80.0
+    fileprivate let playerHeaderWidth: CGFloat = 150.0
     
     fileprivate let cellZIndex = 5
     fileprivate let supplementaryDecorationZIndex = 10
@@ -40,21 +40,26 @@ class StatsLayout: UICollectionViewLayout {
     fileprivate let cellKey = "cell"
     
     fileprivate enum DecorationViewKind: String {
-        case Header = "HistoryRoundDecorationView"
-        case Row = "HistoryRowDecorationView"
+        case header = "StatsLayoutPlayerDecoration"
+        case row = "StatsLayoutTypeDecoration"
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        register(UINib(nibName: DecorationViewKind.Header.rawValue, bundle: nil), forDecorationViewOfKind: DecorationViewKind.Header.rawValue)
-        register(UINib(nibName: DecorationViewKind.Row.rawValue, bundle: nil), forDecorationViewOfKind: DecorationViewKind.Row.rawValue)
+        register(UINib(nibName: DecorationViewKind.header.rawValue, bundle: nil), forDecorationViewOfKind: DecorationViewKind.header.rawValue)
+        register(UINib(nibName: DecorationViewKind.row.rawValue, bundle: nil), forDecorationViewOfKind: DecorationViewKind.row.rawValue)
+    }
+    
+    override init() {
+        super.init()
     }
     
     override func prepare() {
         guard let collectionView = collectionView else { preconditionFailure("Must have sections to prepare layout") }
         let numberOfSections = collectionView.numberOfSections
         let numberOfPlayerSections = numberOfSections - 1
+        guard numberOfPlayerSections > 0 else { return }
         
         maxColumns = 0
         var cellInformation = [IndexPath: UICollectionViewLayoutAttributes]()
@@ -65,8 +70,8 @@ class StatsLayout: UICollectionViewLayout {
         for section in 0...numberOfPlayerSections {
             let numberOfItems = collectionView.numberOfItems(inSection: section)
             var columnsInRow = 0
-            let yOrigin = section == 0 ? 0 : rowHeight * CGFloat(section - 1) + HistoryLayout.headerHeight
-            let height = section == 0 ? HistoryLayout.headerHeight : rowHeight
+            let yOrigin = section == 0 ? 0 : rowHeight * CGFloat(section - 1) + StatsLayout.headerHeight
+            let height = section == 0 ? StatsLayout.headerHeight : rowHeight
             let zIndex = section == 0 ? supplementaryRoundHeaderZIndex : supplementaryZIndex
             let indexPath = IndexPath(item: 0, section: section)
             let headerAttributes = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, with: indexPath)
@@ -75,7 +80,7 @@ class StatsLayout: UICollectionViewLayout {
             headerInformation[indexPath] = headerAttributes
             
             if section != 0 {
-                let rowAttributes = UICollectionViewLayoutAttributes(forDecorationViewOfKind: DecorationViewKind.Row.rawValue, with: indexPath)
+                let rowAttributes = UICollectionViewLayoutAttributes(forDecorationViewOfKind: DecorationViewKind.row.rawValue, with: indexPath)
                 rowAttributes.frame = CGRect(x: playerHeaderWidth, y: yOrigin, width: collectionView.bounds.size.width - playerHeaderWidth, height: height)
                 decorationInformation[indexPath] = rowAttributes
             }
@@ -98,23 +103,23 @@ class StatsLayout: UICollectionViewLayout {
             }
         }
         let indexPath = IndexPath(item: 0, section: 0)
-        let headerDecorationAttributes = UICollectionViewLayoutAttributes(forDecorationViewOfKind: DecorationViewKind.Header.rawValue, with: indexPath)
-        headerDecorationAttributes.frame = CGRect(x: 0, y: 0, width: collectionView.bounds.size.width, height: HistoryLayout.headerHeight)
+        let headerDecorationAttributes = UICollectionViewLayoutAttributes(forDecorationViewOfKind: DecorationViewKind.header.rawValue, with: indexPath)
+        headerDecorationAttributes.frame = CGRect(x: 0, y: 0, width: collectionView.bounds.size.width, height: StatsLayout.headerHeight)
         headerDecorationAttributes.zIndex = roundHeaderDecorationZIndex
-        layoutInformation[DecorationViewKind.Header.rawValue] = [indexPath : headerDecorationAttributes]
+        layoutInformation[DecorationViewKind.header.rawValue] = [indexPath : headerDecorationAttributes]
 
         layoutInformation[cellKey] = cellInformation
         layoutInformation[UICollectionElementKindSectionHeader] = headerInformation
-        layoutInformation[DecorationViewKind.Row.rawValue] = decorationInformation
+        layoutInformation[DecorationViewKind.row.rawValue] = decorationInformation
         self.layoutInformation = layoutInformation
     }
     
-    override var collectionViewContentSize : CGSize {
+    override var collectionViewContentSize: CGSize {
         guard let collectionView = collectionView else { preconditionFailure("Must have collection view to prepare layout") }
         let numberOfSections = collectionView.numberOfSections
         let width = CGFloat(maxColumns) * cellWidth + playerHeaderWidth
         let maxWidth = width > collectionView.bounds.size.width ? width : collectionView.bounds.size.width
-        let height = CGFloat(numberOfSections - 1) * rowHeight + HistoryLayout.headerHeight
+        let height = CGFloat(numberOfSections - 1) * rowHeight + StatsLayout.headerHeight
         return CGSize(width: maxWidth, height: height)
     }
     
@@ -123,12 +128,15 @@ class StatsLayout: UICollectionViewLayout {
     }
     
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-        guard let layoutInformation = layoutInformation, let collectionView = collectionView else { preconditionFailure("Must have layout information to return attributes") }
+        guard let layoutInformation = layoutInformation, let collectionView = collectionView else {
+            return []
+//            preconditionFailure("Must have layout information to return attributes") }
+        }
         let allAttributes = [UICollectionViewLayoutAttributes]()
         
         for (_, attributesDictionary) in layoutInformation {
             for (indexPath, attributes) in attributesDictionary {
-                if (indexPath as NSIndexPath).section == 0 {
+                if indexPath.section == 0 {
                     var top = collectionView.contentOffset.y
                     if collectionView.contentOffset.y < 0 {
                         top = 0
@@ -139,13 +147,13 @@ class StatsLayout: UICollectionViewLayout {
                     attributes.frame = CGRect(x: collectionView.contentOffset.x, y: attributes.frame.origin.y, width: attributes.frame.size.width, height: attributes.frame.size.height)
                 } else if let elementKind = attributes.representedElementKind, let decorationKind = DecorationViewKind(rawValue: elementKind) {
                     switch decorationKind {
-                    case .Header:
-                        var height = HistoryLayout.headerHeight
+                    case .header:
+                        var height = StatsLayout.headerHeight
                         if collectionView.contentOffset.y < 0 {
-                            height = abs(collectionView.contentOffset.y) + HistoryLayout.headerHeight
+                            height = abs(collectionView.contentOffset.y) + StatsLayout.headerHeight
                         }
                         attributes.frame = CGRect(x: collectionView.contentOffset.x, y: collectionView.contentOffset.y, width: collectionView.bounds.size.width, height: height)
-                    case .Row:
+                    case .row:
                         attributes.frame = CGRect(x: playerHeaderWidth + collectionView.contentOffset.x, y: attributes.frame.origin.y, width: attributes.frame.size.width, height: attributes.frame.size.height)
                     }
                 }
@@ -175,12 +183,12 @@ class StatsLayout: UICollectionViewLayout {
     override func layoutAttributesForDecorationView(ofKind elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         guard let layoutInformation = layoutInformation else { return nil }
         switch DecorationViewKind(rawValue: elementKind)! {
-        case .Header:
-            if let attributesDictionary = layoutInformation[DecorationViewKind.Header.rawValue], let attributes = attributesDictionary.values.first {
+        case .header:
+            if let attributesDictionary = layoutInformation[DecorationViewKind.header.rawValue], let attributes = attributesDictionary.values.first {
                 return attributes
             }
-        case .Row:
-            if let attributesDictionary = layoutInformation[DecorationViewKind.Row.rawValue], let attributes = attributesDictionary[indexPath] {
+        case .row:
+            if let attributesDictionary = layoutInformation[DecorationViewKind.row.rawValue], let attributes = attributesDictionary[indexPath] {
                 return attributes
             }
         }

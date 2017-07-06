@@ -8,23 +8,6 @@
 
 import IGListKit
 
-enum Place: Int {
-    case first
-    case second
-    case third
-    
-    var emoji: String {
-        switch self {
-        case .first:
-            return "🥇"
-        case .second:
-            return "🥈"
-        case .third:
-            return "🥉"
-        }
-    }
-}
-
 class StatSection: ListDiffable {
     
     var stat: Stat

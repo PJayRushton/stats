@@ -21,9 +21,20 @@ struct PlayerState: State {
         }
     }
     
-    var currentPlayers: [Player]? {
-        guard let currentTeam = App.core.state.teamState.currentTeam else { return nil }
-        return players(for: currentTeam.id)
+    var currentStatPlayers: [Player] {
+        if let currentGame = App.core.state.statState.currentGame {
+            return currentGame.lineupIds.flatMap { player(withId: $0) }
+        } else if let currentSeason = App.core.state.seasonState.currentSeason {
+            let currentSeasonPlayerIds = Set(App.core.state.atBatState.atBats(for: currentSeason).map { $0.playerId })
+            var currentSeasonPlayers = currentSeasonPlayerIds.flatMap { player(withId: $0) }
+            
+            if !App.core.state.statState.includeSubs {
+                currentSeasonPlayers = currentSeasonPlayers.filter { !$0.isSub }
+            }
+            return currentSeasonPlayers
+        } else {
+            return []
+        }
     }
     
     func players(for team: Team) -> [Player] {

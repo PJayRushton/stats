@@ -86,6 +86,7 @@
 		A1868F9D1E802DDD00C191EC /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1868F9C1E802DDD00C191EC /* Result.swift */; };
 		A1868F9F1E802E1600C191EC /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1868F9E1E802E1600C191EC /* AppState.swift */; };
 		A1868FA21E802F5C00C191EC /* Reactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1868FA11E802F5C00C191EC /* Reactor.swift */; };
+		A188E2FD1F0EC84100F75D32 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = A188E2FC1F0EC84100F75D32 /* Place.swift */; };
 		A18F68AD1ECD703A00407E89 /* PhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18F68AC1ECD703A00407E89 /* PhotoPickerViewController.swift */; };
 		A18F68B01ECD716300407E89 /* PhotoPickerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A18F68AE1ECD716300407E89 /* PhotoPickerViewController.storyboard */; };
 		A18F68B41ECD726D00407E89 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18F68B31ECD726D00407E89 /* PhotoCell.swift */; };
@@ -107,9 +108,7 @@
 		A1B49D8C1EA577AC00DA9FAB /* GameCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B49D8B1EA577AC00DA9FAB /* GameCreationViewController.swift */; };
 		A1B65DBD1EAF9AF9009983E1 /* StatType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B65DBC1EAF9AF9009983E1 /* StatType.swift */; };
 		A1B65DBF1EB010E1009983E1 /* StatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B65DBE1EB010E1009983E1 /* StatCell.swift */; };
-		A1B65DC21EB01123009983E1 /* StatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1B65DC01EB01123009983E1 /* StatCell.xib */; };
 		A1B65DC41EB018C6009983E1 /* Stat.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B65DC31EB018C6009983E1 /* Stat.swift */; };
-		A1B65DC81EB056EB009983E1 /* StatSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B65DC71EB056EB009983E1 /* StatSectionController.swift */; };
 		A1B65DCA1EB077A2009983E1 /* TrophyHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B65DC91EB077A2009983E1 /* TrophyHeaderCell.swift */; };
 		A1B65DCD1EB07818009983E1 /* TrophyHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1B65DCB1EB07818009983E1 /* TrophyHeaderCell.xib */; };
 		A1B65DD01EB07BFC009983E1 /* TrophyWinnerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1B65DCE1EB07BFC009983E1 /* TrophyWinnerCell.xib */; };
@@ -255,6 +254,7 @@
 		A1868F9C1E802DDD00C191EC /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		A1868F9E1E802E1600C191EC /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		A1868FA11E802F5C00C191EC /* Reactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reactor.swift; sourceTree = "<group>"; };
+		A188E2FC1F0EC84100F75D32 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		A18F68AC1ECD703A00407E89 /* PhotoPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.swift; sourceTree = "<group>"; };
 		A18F68AF1ECD716300407E89 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = PhotoPickerViewController.storyboard; sourceTree = "<group>"; };
 		A18F68B31ECD726D00407E89 /* PhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
@@ -276,9 +276,7 @@
 		A1B49D8B1EA577AC00DA9FAB /* GameCreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCreationViewController.swift; sourceTree = "<group>"; };
 		A1B65DBC1EAF9AF9009983E1 /* StatType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatType.swift; sourceTree = "<group>"; };
 		A1B65DBE1EB010E1009983E1 /* StatCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatCell.swift; sourceTree = "<group>"; };
-		A1B65DC11EB01123009983E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = StatCell.xib; sourceTree = "<group>"; };
 		A1B65DC31EB018C6009983E1 /* Stat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stat.swift; sourceTree = "<group>"; };
-		A1B65DC71EB056EB009983E1 /* StatSectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatSectionController.swift; sourceTree = "<group>"; };
 		A1B65DC91EB077A2009983E1 /* TrophyHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrophyHeaderCell.swift; sourceTree = "<group>"; };
 		A1B65DCC1EB07818009983E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = TrophyHeaderCell.xib; sourceTree = "<group>"; };
 		A1B65DCF1EB07BFC009983E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = TrophyWinnerCell.xib; sourceTree = "<group>"; };
@@ -469,7 +467,6 @@
 				A1D67D501E9097C600200B65 /* SettingsViewController.storyboard */,
 				A1C722111EA0F75500A71C51 /* ShareTeamRolesViewController.storyboard */,
 				A1C722161EA10D1800A71C51 /* ShareTeamViewController.storyboard */,
-				A1B65DC01EB01123009983E1 /* StatCell.xib */,
 				A1C7621B1EBF953600F94E45 /* StatFilterViewController.storyboard */,
 				A11B4D9D1EAED86000798D52 /* StatsNumbersViewController.storyboard */,
 				A11B4D971EAED3BB00798D52 /* StatsPageViewController.storyboard */,
@@ -495,6 +492,7 @@
 				A1D67D401E8FE24C00200B65 /* BasicHeaderCell.swift */,
 				A1C7221E1EA56A2800A71C51 /* GameCell.swift */,
 				A1B49D8B1EA577AC00DA9FAB /* GameCreationViewController.swift */,
+				A10AF81E1EEC969100A6E00E /* GamesHeaderCell.swift */,
 				A1C7221C1EA5698C00A71C51 /* GamesViewController.swift */,
 				A1398B441EA707F500A4B830 /* GameViewController.swift */,
 				A179998E1E82DF300058A002 /* HomeCollectionViewCell.swift */,
@@ -506,6 +504,7 @@
 				A1CD599A1EC6678B00D26FD8 /* OpponentScoreViewController.swift */,
 				A18F68B31ECD726D00407E89 /* PhotoCell.swift */,
 				A18F68AC1ECD703A00407E89 /* PhotoPickerViewController.swift */,
+				A188E2FC1F0EC84100F75D32 /* Place.swift */,
 				A16D41761E97D1D500DE01D4 /* PlayerCell.swift */,
 				A16D417A1E97FF6000DE01D4 /* PlayerCreationViewController.swift */,
 				A16D416E1E97D08F00DE01D4 /* RosterViewController.swift */,
@@ -528,7 +527,6 @@
 				A1BA83BA1ED9F3480074A8DD /* TextEditViewController.swift */,
 				A1B65DC91EB077A2009983E1 /* TrophyHeaderCell.swift */,
 				A1B65DD11EB07E79009983E1 /* TrophyWinnerCell.swift */,
-				A10AF81E1EEC969100A6E00E /* GamesHeaderCell.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -573,7 +571,6 @@
 				A1426BA31EA863AF00AAABB3 /* AtBatSectionController.swift */,
 				A1D67D371E8F081A00200B65 /* TeamActionSectionController.swift */,
 				A1A2C3681E8C05150008274F /* TeamHeaderSectionController.swift */,
-				A1B65DC71EB056EB009983E1 /* StatSectionController.swift */,
 				A1B65DD51EB15EA0009983E1 /* TrophySectionController.swift */,
 			);
 			name = SectionControllers;
@@ -734,7 +731,6 @@
 				A17EF6BC1E930D3100DEE4ED /* TeamListViewController.storyboard in Resources */,
 				A1426BA21EA85E7200AAABB3 /* AtBatCell.xib in Resources */,
 				A1C722131EA0F75500A71C51 /* ShareTeamRolesViewController.storyboard in Resources */,
-				A1B65DC21EB01123009983E1 /* StatCell.xib in Resources */,
 				A1A2C3641E8BF6020008274F /* TeamHeaderCell.xib in Resources */,
 				A1BA83BE1ED9FB470074A8DD /* TextEditViewController.storyboard in Resources */,
 				A18F68B01ECD716300407E89 /* PhotoPickerViewController.storyboard in Resources */,
@@ -877,6 +873,7 @@
 				A1CD9A0A1E89C26200D3C8F7 /* TeamState.swift in Sources */,
 				A1868F9F1E802E1600C191EC /* AppState.swift in Sources */,
 				A16CA85D1EE301FB002AABBF /* ContactsHelper.swift in Sources */,
+				A188E2FD1F0EC84100F75D32 /* Place.swift in Sources */,
 				A128E8E31EC4172100D4CA6D /* UIView+Designable.swift in Sources */,
 				A179996E1E82B64A0058A002 /* User.swift in Sources */,
 				A1ABAFFB1EA9463900B28A46 /* AtBatButton.swift in Sources */,
@@ -909,7 +906,6 @@
 				A17EF6BE1E931A0300DEE4ED /* TeamListViewController.swift in Sources */,
 				A1D67D431E8FE3A000200B65 /* Appearance.swift in Sources */,
 				A16D417B1E97FF6000DE01D4 /* PlayerCreationViewController.swift in Sources */,
-				A1B65DC81EB056EB009983E1 /* StatSectionController.swift in Sources */,
 				A17EF6CA1E94040D00DEE4ED /* DeleteObject.swift in Sources */,
 				A11B4D911EAEC4D000798D52 /* StatsNumbersViewController.swift in Sources */,
 				A1D67D3F1E8F253F00200B65 /* TeamSelectionCell.swift in Sources */,
@@ -1083,14 +1079,6 @@
 				A18F68AF1ECD716300407E89 /* Base */,
 			);
 			name = PhotoPickerViewController.storyboard;
-			sourceTree = "<group>";
-		};
-		A1B65DC01EB01123009983E1 /* StatCell.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A1B65DC11EB01123009983E1 /* Base */,
-			);
-			name = StatCell.xib;
 			sourceTree = "<group>";
 		};
 		A1B65DCB1EB07818009983E1 /* TrophyHeaderCell.xib */ = {

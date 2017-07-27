@@ -58,19 +58,15 @@ struct AppState: State {
 
 extension AppState {
 
+    func stats(for player: Player) -> [Stat] {
+        let playerAtBats = atBatState.currentAtBats(for: player)
+        return allPlayerStats(from: playerAtBats)
+    }
+    
     var currentAtBats: [AtBat] {
         guard let currentTeam = teamState.currentTeam else { return [] }
         guard let teamAtBats = atBatState.atBats(for: currentTeam) else { return [] }
         var allAtBats = teamAtBats
-        
-        if let currentSeason = seasonState.currentSeason {
-            allAtBats = allAtBats.filter { $0.seasonId == currentSeason.id }
-        }
-        
-        if case let currentGames = statState.currentGames, !currentGames.isEmpty {
-            let gameIds = currentGames.map { $0.id }
-            allAtBats = allAtBats.filter { gameIds.contains($0.gameId) }
-        }
         
         if !statState.includeSubs {
             allAtBats = allAtBats.filter { atBat in
@@ -79,13 +75,26 @@ extension AppState {
             }
         }
         
+        if let currentGame = statState.currentGame {
+            return allAtBats.filter { $0.gameId == currentGame.id }
+        } else if let currentSeason = seasonState.currentSeason {
+            return allAtBats.filter { $0.seasonId == currentSeason.id }
+        }
+        
         return allAtBats
     }
     
+    fileprivate func allPlayerStats(from atBats: [AtBat]) -> [Stat] {
+        guard let playerId = atBats.first?.playerId, let player = playerState.player(withId: playerId) else { return [] }
+        return StatType.allValues.flatMap({ type -> Stat? in
+            let statValue = type.statValue(from: atBats)
+            return Stat(player: player, statType: type, value: statValue)
+        })
+    }
     
     func allStats(ofType type: StatType, from atBats: [AtBat]) -> [Stat] {
         let playerIds = Set(atBats.map { $0.playerId })
-        let players  = playerIds.flatMap { playerState.player(withId: $0) }
+        let players = playerIds.flatMap { playerState.player(withId: $0) }
         
         var playerStats = [Stat]()
         

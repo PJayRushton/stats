@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,35 +22,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="gos-8t-0wd">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yjQ-gU-5dQ" customClass="SpreadsheetView" customModule="SpreadsheetView">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <subviews>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" prefetchingEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qEr-Bx-A9l">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <collectionViewLayout key="collectionViewLayout" id="7ci-CK-6We" customClass="StatsLayout" customModule="Stats" customModuleProvider="target"/>
-                                        <connections>
-                                            <outlet property="dataSource" destination="Ct7-ih-ejK" id="sLe-4A-ROf"/>
-                                            <outlet property="delegate" destination="Ct7-ih-ejK" id="58c-YY-qha"/>
-                                        </connections>
-                                    </collectionView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="qEr-Bx-A9l" firstAttribute="width" secondItem="gos-8t-0wd" secondAttribute="width" id="MSq-t0-Smp"/>
-                                </constraints>
-                            </stackView>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Kkr-e0-EJe" firstAttribute="top" secondItem="gos-8t-0wd" secondAttribute="bottom" id="CSX-xZ-81h"/>
-                            <constraint firstAttribute="trailing" secondItem="gos-8t-0wd" secondAttribute="trailing" id="FlI-iW-Fiz"/>
-                            <constraint firstItem="gos-8t-0wd" firstAttribute="leading" secondItem="kSj-OZ-J4g" secondAttribute="leading" id="U4r-dq-sxg"/>
-                            <constraint firstItem="gos-8t-0wd" firstAttribute="top" secondItem="tvp-6L-8pX" secondAttribute="bottom" id="w7T-Cf-JIG"/>
+                            <constraint firstItem="Kkr-e0-EJe" firstAttribute="top" secondItem="yjQ-gU-5dQ" secondAttribute="bottom" id="5kN-4e-mCz"/>
+                            <constraint firstItem="yjQ-gU-5dQ" firstAttribute="leading" secondItem="kSj-OZ-J4g" secondAttribute="leading" id="End-rv-LPj"/>
+                            <constraint firstItem="yjQ-gU-5dQ" firstAttribute="top" secondItem="tvp-6L-8pX" secondAttribute="bottom" id="P6I-al-J15"/>
+                            <constraint firstAttribute="trailing" secondItem="yjQ-gU-5dQ" secondAttribute="trailing" id="pgQ-Mh-xdw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="J24-II-8m4"/>
                     <connections>
-                        <outlet property="collectionView" destination="qEr-Bx-A9l" id="xsg-i8-E5m"/>
+                        <outlet property="spreadsheetView" destination="yjQ-gU-5dQ" id="Oe7-VX-ZTw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VC6-jk-9ZT" userLabel="First Responder" sceneMemberID="firstResponder"/>

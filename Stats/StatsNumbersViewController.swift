@@ -7,136 +7,108 @@
 //
 
 import UIKit
-//import IGListKit
+import IGListKit
+import SpreadsheetView
 
 class StatsNumbersViewController: Component, AutoStoryboardInitializable {
 
-    @IBOutlet weak var collectionView: UICollectionView!
-
-    var layout = StatsLayout()
-    var statDict = [Player: [Stat]]()
-    var players = [Player]()
-
-    fileprivate var verticalSizeClass: UIUserInterfaceSizeClass = UIUserInterfaceSizeClass.unspecified {
+    @IBOutlet weak var spreadsheetView: SpreadsheetView!
+    
+    var allStats = [StatType: [Stat]]() {
         didSet {
-            guard verticalSizeClass != oldValue else { return }
-            layout.verticalSizeClass = verticalSizeClass
-            collectionView.collectionViewLayout.invalidateLayout()
+            spreadsheetView.reloadData()
         }
     }
+    var currentPlayers = [Player]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setUpLayout()
+        spreadsheetView.dataSource = self
+        spreadsheetView.delegate = self
+        spreadsheetView.register(StatCell.self, forCellWithReuseIdentifier: StatCell.reuseIdentifier)
     }
     
     override func update(with state: AppState) {
-        let currentPlayers = state.playerState.currentStatPlayers
-        players = currentPlayers
-        
-        var statDict = [Player: [Stat]]()
-        currentPlayers.forEach { player in
-            statDict[player] = state.stats(for: player)
+        currentPlayers = state.currentPlayers
+        StatType.allValues.forEach { statType in
+            let stats = state.allStats(ofType: statType, from: state.currentAtBats)
+            allStats[statType] = stats
         }
-        self.statDict = statDict
-        collectionView.reloadData()
-    }
-    
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-        verticalSizeClass = traitCollection.verticalSizeClass
     }
     
 }
 
-extension StatsNumbersViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension StatsNumbersViewController {
     
-    func stats(forSection section: Int) -> [Stat] {
-        let playerForSection = players[section]
-        return statDict[playerForSection] ?? []
+}
+
+extension StatsNumbersViewController: SpreadsheetViewDataSource {
+    
+    func numberOfColumns(in spreadsheetView: SpreadsheetView) -> Int {
+        return StatType.allValues.count + 1
     }
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return players.count
+    func numberOfRows(in spreadsheetView: SpreadsheetView) -> Int {
+        return currentPlayers.count + 1
+    }
+
+    func spreadsheetView(_ spreadsheetView: SpreadsheetView, widthForColumn column: Int) -> CGFloat {
+        return column == 0 ? 130 : 80
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return StatType.allValues.count
+    func spreadsheetView(_ spreadsheetView: SpreadsheetView, heightForRow row: Int) -> CGFloat {
+        return 60
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StatCell.reuseIdentifier, for: indexPath) as! StatCell
-        let playerStats = stats(forSection: indexPath.section)
-        cell.update(with: playerStats[indexPath.row], place: nil) // FIXME:
+    func statType(for section: Int) -> StatType {
+        return StatType.allValues[section - 1]
+    }
+    
+    func player(forRow row: Int) -> Player {
+        return currentPlayers[row - 1]
+    }
+    
+    func stat(at indexPath: IndexPath) -> Stat {
+        guard indexPath.section != 0 || indexPath.row != 0 else { fatalError() }
+        let statTypeAtSection = statType(for: indexPath.section)
+        guard let stats = allStats[statTypeAtSection] else { fatalError() }
+        let playerForRow = player(forRow: indexPath.row)
+        return stats.first(where: { $0.player == playerForRow })!
+    }
+    
+    func spreadsheetView(_ spreadsheetView: SpreadsheetView, cellForItemAt indexPath: IndexPath) -> Cell? {
+        var title = ""
+        let alignment = NSTextAlignment.center
+        let fontSize: CGFloat = indexPath.section == 0 || indexPath.row == 0 ? 20 : 17
         
+        switch (indexPath.section, indexPath.row) {
+        case (0, 0):
+            title = "Player"
+        case (0, _):
+            title = player(forRow: indexPath.row).displayName
+        case (_, 0):
+            title = statType(for: indexPath.section).abbreviation
+        default:
+            title = stat(at: indexPath).displayString
+        }
+        let cell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: StatCell.reuseIdentifier, for: indexPath) as! StatCell
+        cell.update(with: title, alignment: alignment, fontSize: fontSize)
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        guard kind == UICollectionElementKindSectionHeader else { fatalError(); return UICollectionReusableView() }
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: StatsHeaderCell.reuseIdentifier, for: indexPath) as! StatsHeaderCell
-        header.update(with: "\(indexPath)", backgroundColor: .white)
-        
-        return header
+    func frozenColumns(in spreadsheetView: SpreadsheetView) -> Int {
+        return 1
     }
     
-    func setUpLayout() {
-        let statCellNib = UINib(nibName: StatCell.reuseIdentifier, bundle: nil)
-        collectionView.register(statCellNib, forCellWithReuseIdentifier: StatCell.reuseIdentifier)
-        let headerNib = UINib(nibName: StatsHeaderCell.reuseIdentifier, bundle: nil)
-        collectionView.register(headerNib, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: StatsHeaderCell.reuseIdentifier)
-        collectionView.collectionViewLayout = layout
+    func frozenRows(in spreadsheetView: SpreadsheetView) -> Int {
+        return 1
     }
+
+}
+
+extension StatsNumbersViewController: SpreadsheetViewDelegate {
+    
     
 }
 
-//extension StatsNumbersViewController: ListAdapterDataSource {
-//    
-//    func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
-//        let currentAtBats = core.state.currentAtBats
-//        var stats = core.state.allStats(ofType: currentStatType, from: currentAtBats)
-//        stats.sort(by: core.state.statState.sortType.sort)
-//        return stats.map { StatSection(stat: $0) }
-//    }
-//    
-//    func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
-//        return StatSectionController()
-//    }
-//    
-//    func emptyView(for listAdapter: ListAdapter) -> UIView? {
-//        return nil
-//    }
-//    
-//}
-
-//extension StatsNumbersViewController: AKPickerViewDelegate, AKPickerViewDataSource {
-//    
-//    func setUpPickerView() {
-//        pickerView.delegate = self
-//        pickerView.dataSource = self
-//        pickerView.font = FontType.lemonMilk.font(withSize: 15)
-//        pickerView.highlightedFont = FontType.lemonMilk.font(withSize: 16)
-//        pickerView.highlightedTextColor = UIColor.mainAppColor
-//        pickerView.interitemSpacing = 55
-//        pickerView.pickerViewStyle = .flat
-//    }
-//    
-//    func numberOfItemsInPickerView(_ pickerView: AKPickerView) -> Int {
-//        return StatType.allValues.count + 1
-//    }
-//    
-//    func pickerView(_ pickerView: AKPickerView, titleForItem item: Int) -> String {
-//        return item == StatType.allValues.count ? "⬅️" : StatType.allValues[item].abbreviation
-//    }
-//    
-//    func pickerView(_ pickerView: AKPickerView, didSelectItem item: Int) {
-//        if item == StatType.allValues.count {
-//            pickerView.selectItem(0, animated: true, notifySelection: true)
-//        } else {
-//            let selectedStat = StatType.allValues[item]
-//            core.fire(event: Updated<StatType>(selectedStat))
-//        }
-//    }
-//    
-//}

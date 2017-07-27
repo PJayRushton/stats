@@ -63,6 +63,14 @@ extension AppState {
         return allPlayerStats(from: playerAtBats)
     }
     
+    var currentPlayers: [Player] {
+        var players = playerState.currentPlayers!
+        if !statState.includeSubs {
+            players = players.filter { !$0.isSub }
+        }
+        return players
+    }
+    
     var currentAtBats: [AtBat] {
         guard let currentTeam = teamState.currentTeam else { return [] }
         guard let teamAtBats = atBatState.atBats(for: currentTeam) else { return [] }

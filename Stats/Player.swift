@@ -101,3 +101,9 @@ extension Player {
     }
     
 }
+
+extension Player: Comparable { }
+
+func <(lhs: Player, rhs: Player) -> Bool {
+    return lhs.name < rhs.name
+}

@@ -14,12 +14,24 @@ class StatsNumbersViewController: Component, AutoStoryboardInitializable {
 
     @IBOutlet weak var spreadsheetView: SpreadsheetView!
     
-    var allStats = [StatType: [Stat]]() {
+    fileprivate let selectedBackground = UIColor.mainAppColor.withAlphaComponent(0.2)
+
+    fileprivate var allStats = [StatType: [Stat]]() {
         didSet {
             spreadsheetView.reloadData()
         }
     }
-    var currentPlayers = [Player]()
+    fileprivate var currentPlayers = [Player]() {
+        didSet {
+            spreadsheetView.reloadData()
+        }
+    }
+    
+    fileprivate var sortSection = 0 {
+        didSet {
+            updatePlayerOrder()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +43,7 @@ class StatsNumbersViewController: Component, AutoStoryboardInitializable {
     
     override func update(with state: AppState) {
         currentPlayers = state.playerState.currentStatPlayers
+        updatePlayerOrder()
         StatType.allValues.forEach { statType in
             let stats = state.allStats(ofType: statType, from: state.currentAtBats)
             allStats[statType] = stats
@@ -41,6 +54,17 @@ class StatsNumbersViewController: Component, AutoStoryboardInitializable {
 
 extension StatsNumbersViewController {
     
+    fileprivate func updatePlayerOrder() {
+        if sortSection == 0 {
+            currentPlayers.sort()
+            return
+        }
+        let selectedStatType = statType(for: sortSection)
+        guard var selectedStats = allStats[selectedStatType] else { return }
+        selectedStats.sort(by: >)
+        currentPlayers = selectedStats.map { $0.player }
+
+    }
 }
 
 extension StatsNumbersViewController: SpreadsheetViewDataSource {
@@ -82,17 +106,19 @@ extension StatsNumbersViewController: SpreadsheetViewDataSource {
         let alignment = NSTextAlignment.center
         let fontSize: CGFloat = indexPath.section == 0 || indexPath.row == 0 ? 20 : 17
         
+        let cell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: StatCell.reuseIdentifier, for: indexPath) as! StatCell
         switch (indexPath.section, indexPath.row) {
         case (0, 0):
             title = "Player"
+            cell.backgroundColor = sortSection == 0 ? selectedBackground : .white
         case (0, _):
             title = player(forRow: indexPath.row).displayName
         case (_, 0):
             title = statType(for: indexPath.section).abbreviation
+            cell.backgroundColor = sortSection == indexPath.section ? selectedBackground : .white
         default:
             title = stat(at: indexPath).displayString
         }
-        let cell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: StatCell.reuseIdentifier, for: indexPath) as! StatCell
         cell.update(with: title, alignment: alignment, fontSize: fontSize)
         return cell
     }
@@ -109,6 +135,9 @@ extension StatsNumbersViewController: SpreadsheetViewDataSource {
 
 extension StatsNumbersViewController: SpreadsheetViewDelegate {
     
+    func spreadsheetView(_ spreadsheetView: SpreadsheetView, didSelectItemAt indexPath: IndexPath) {
+        guard indexPath.row == 0 else { return }
+        sortSection = indexPath.section
+    }
     
 }
-

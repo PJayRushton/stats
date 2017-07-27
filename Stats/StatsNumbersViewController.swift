@@ -30,7 +30,7 @@ class StatsNumbersViewController: Component, AutoStoryboardInitializable {
     }
     
     override func update(with state: AppState) {
-        currentPlayers = state.currentPlayers
+        currentPlayers = state.playerState.currentStatPlayers
         StatType.allValues.forEach { statType in
             let stats = state.allStats(ofType: statType, from: state.currentAtBats)
             allStats[statType] = stats

@@ -68,19 +68,19 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="7pf-G2-Xq9" userLabel="Bottom stack">
-                                <rect key="frame" x="8" y="102.5" width="310" height="62.5"/>
+                                <rect key="frame" x="8" y="107" width="310" height="58"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" axis="vertical" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="h8F-71-HZJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="310" height="62.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="310" height="58"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="by4-q0-L99">
-                                                <rect key="frame" x="121" y="0.0" width="68.5" height="32.5"/>
+                                                <rect key="frame" x="123" y="0.0" width="64" height="28"/>
                                                 <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="24"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" horizontalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="Srf-4j-AQG" userLabel="Season view">
-                                                <rect key="frame" x="121" y="38.5" width="68" height="24"/>
+                                                <rect key="frame" x="121" y="34" width="68" height="24"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="999" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8yO-ha-fE4">
                                                         <rect key="frame" x="0.0" y="0.0" width="68" height="24"/>
@@ -88,7 +88,7 @@
                                                             <constraint firstAttribute="height" constant="24" id="Oag-Y2-ryp"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="15"/>
-                                                        <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="18" maxY="0.0"/>
+                                                        <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="24" maxY="0.0"/>
                                                         <state key="normal" title="Season">
                                                             <color key="titleColor" red="0.55803233389999995" green="0.69207900759999996" blue="0.12800171969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
@@ -97,7 +97,7 @@
                                                         </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="downChevron" translatesAutoresizingMaskIntoConstraints="NO" id="fgV-uQ-dul">
-                                                        <rect key="frame" x="62" y="5" width="14" height="14"/>
+                                                        <rect key="frame" x="50" y="5" width="14" height="14"/>
                                                         <color key="tintColor" red="0.55803233389999995" green="0.69207900759999996" blue="0.12800171969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="fgV-uQ-dul" secondAttribute="height" id="IXc-jY-xBd"/>
@@ -110,7 +110,7 @@
                                                     <constraint firstItem="fgV-uQ-dul" firstAttribute="centerY" secondItem="8yO-ha-fE4" secondAttribute="centerY" id="2r5-LK-BPq"/>
                                                     <constraint firstItem="8yO-ha-fE4" firstAttribute="top" secondItem="Srf-4j-AQG" secondAttribute="top" id="FHo-du-F25"/>
                                                     <constraint firstItem="8yO-ha-fE4" firstAttribute="leading" secondItem="Srf-4j-AQG" secondAttribute="leading" id="OYD-M8-bYi"/>
-                                                    <constraint firstItem="fgV-uQ-dul" firstAttribute="trailing" secondItem="8yO-ha-fE4" secondAttribute="trailing" constant="8" id="UUi-uk-nK4"/>
+                                                    <constraint firstItem="fgV-uQ-dul" firstAttribute="trailing" secondItem="8yO-ha-fE4" secondAttribute="trailing" constant="-4" id="UUi-uk-nK4"/>
                                                     <constraint firstAttribute="trailing" secondItem="8yO-ha-fE4" secondAttribute="trailing" id="ZRp-wn-T50"/>
                                                     <constraint firstAttribute="bottom" secondItem="8yO-ha-fE4" secondAttribute="bottom" id="rcR-t8-rr0"/>
                                                 </constraints>

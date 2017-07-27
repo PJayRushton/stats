@@ -7,19 +7,34 @@
 //
 
 import UIKit
+import SpreadsheetView
 
-class StatCell: UICollectionViewCell, AutoReuseIdentifiable {
+class StatCell: Cell, AutoReuseIdentifiable {
     
-    @IBOutlet weak var colorView: UIView!
-    @IBOutlet weak var textLabel: UILabel!
+    let titleLabel = UILabel()
     
-    func update(with title: String) {
-        textLabel.text = title
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        titleLabel.frame = bounds
+        titleLabel.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        contentView.addSubview(titleLabel)
     }
     
-    func update(with stat: Stat, place: Place?) {
-        colorView.backgroundColor = place?.color ?? .white
-        textLabel.text = stat.displayString
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+
+    func update(with title: String, alignment: NSTextAlignment = .left, fontSize: CGFloat = 17) {
+        titleLabel.text = title
+        titleLabel.textAlignment = alignment
+        titleLabel.font = FontType.lemonMilk.font(withSize: fontSize)
+    }
+    
+    func update(with stat: Stat, alignment: NSTextAlignment = .center, fontSize: CGFloat = 17) {
+        titleLabel.text = stat.displayString
+        titleLabel.textAlignment = alignment
+        titleLabel.font = FontType.lemonMilk.font(withSize: fontSize)
     }
     
 }

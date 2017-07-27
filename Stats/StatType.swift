@@ -19,6 +19,7 @@ enum StatType: String {
     case homeRuns
     case itpHRs
     case onBasePercentage
+    case plateAppearances
     case rbis
     case reachOnError
     case singles
@@ -26,7 +27,7 @@ enum StatType: String {
     case triples
     case walks
     
-    static let allValues = [StatType.battingAverage, .onBasePercentage, .hits, .atBats, .singles, .doubles, .triples, .homeRuns, .itpHRs, .grandSlams, .rbis, .walks, .strikeOuts, .reachOnError]
+    static let allValues = [StatType.battingAverage, .onBasePercentage, .hits, .atBats, .plateAppearances, .singles, .doubles, .triples, .homeRuns, .itpHRs, .grandSlams, .rbis, .walks, .strikeOuts, .reachOnError]
     
     var abbreviation: String {
         switch self {
@@ -50,6 +51,8 @@ enum StatType: String {
             return "HR(ITP)"
         case .onBasePercentage:
             return "OBP"
+        case .plateAppearances:
+            return "PA"
         case .rbis:
             return "RBIs"
         case .reachOnError:
@@ -87,6 +90,8 @@ enum StatType: String {
             return isSingular ? "HR-ITP" : "HRs-ITP"
         case .onBasePercentage:
             return "OBP"
+        case .plateAppearances:
+            return isSingular ? "Plate Appearance" : "Plate Appearances"
         case .rbis:
             return isSingular ? "RBI" : "RBIs"
         case .reachOnError:
@@ -105,7 +110,7 @@ enum StatType: String {
     func statValue(from atBats: [AtBat]) -> Double {
         switch self {
         case .atBats:
-            return atBats.count.doubleValue
+            return atBats.battingAverageCount.doubleValue
         case .battingAverage:
             let hits = atBats.hitCount.doubleValue
             return hits / atBats.battingAverageCount.doubleValue
@@ -127,6 +132,8 @@ enum StatType: String {
         case .onBasePercentage:
             let onBaseBatCount = atBats.filter { $0.resultCode.gotOnBase }.count.doubleValue
             return onBaseBatCount / atBats.count.doubleValue
+        case .plateAppearances:
+            return atBats.count.doubleValue
         case .rbis:
             return atBats.reduce(0, { $0 + $1.rbis }).doubleValue
         case .reachOnError:

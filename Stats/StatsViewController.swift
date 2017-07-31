@@ -38,7 +38,7 @@ class StatsViewController: Component, AutoStoryboardInitializable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        core.fire(command: UpdateStats())
+//        core.fire(command: UpdateStats())
         segmentedControl.setUp(with: StatsViewType.allValues.map { $0.title }, indicatorColor: UIColor.mainAppColor)
     }
     

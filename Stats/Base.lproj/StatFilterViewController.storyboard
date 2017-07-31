@@ -67,7 +67,7 @@
                                                     <rect key="frame" x="16" y="16" width="351" height="39.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Include Subs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wln-X8-Guv">
-                                                            <rect key="frame" x="0.0" y="0.0" width="136" height="39.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="117" height="39.5"/>
                                                             <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -112,13 +112,13 @@
                                                     <rect key="frame" x="16" y="16" width="351" height="39.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Season:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X3V-qb-3Q7">
-                                                            <rect key="frame" x="0.0" y="6.5" width="230.5" height="27"/>
+                                                            <rect key="frame" x="0.0" y="8" width="242" height="23.5"/>
                                                             <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Season:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ma6-MT-lKk">
-                                                            <rect key="frame" x="238.5" y="6.5" width="84.5" height="27"/>
+                                                            <rect key="frame" x="250" y="8" width="73" height="23.5"/>
                                                             <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>

@@ -19,7 +19,12 @@ struct StatState: State {
     var includeSubs = false
     var currentGame: Game?
     var currentSeasonId: String?
-    var atBatCount = 0
+    var atBatCount = 0 {
+        didSet {
+            guard atBatCount != oldValue, atBatCount > 0 else { return }
+            updateStatsIfNeeded()
+        }
+    }
     var currentTrophySections = [TrophySection]()
     var allStats = [StatType: [Stat]]()
     
@@ -31,17 +36,18 @@ struct StatState: State {
             currentStatType = event.payload
         case let event as SubFilterUpdated:
             includeSubs = event.includeSubs
-        case let event as Selected<Game>:
-            currentGame = event.item
+        case let event as StatGameUpdated:
+            currentGame = event.game
         case let event as Selected<Season>:
             currentSeasonId = event.item?.id
         case let event as Selected<Team>:
-            guard let _ = event.item else { return }
             currentGame = nil
             currentSeasonId = event.item?.currentSeasonId
+            atBatCount = 0
+            currentTrophySections = []
+            allStats = [:]
         case let event as AtBatCountUpdated:
             atBatCount = event.count
-            updateStatsIfNeeded()
         case let event as TeamObjectAdded<AtBat>:
             updateStatsIfNeeded(with: event.object)
         case let event as TeamObjectChanged<AtBat>:
@@ -52,6 +58,8 @@ struct StatState: State {
             allStats = event.payload
         case let event as Updated<[TrophySection]>:
             currentTrophySections = event.payload
+        case let event as StatGameUpdated:
+            currentGame = event.game
         default:
             break
         }
@@ -66,7 +74,6 @@ struct StatState: State {
     }
     
     func allStats(ofType type: StatType, from atBats: [AtBat]) -> [Stat] {
-        let start = Date()
         let players = App.core.state.playerState.currentStatPlayers
         
         var playerStats = [Stat]()
@@ -77,9 +84,6 @@ struct StatState: State {
             let playerStat = Stat(player: player, statType: type, value: statValue)
             playerStats.append(playerStat)
         }
-        let end = Date()
-        let time = end.timeIntervalSince(start)
-        print("All Stats of type \(type): -> \(time)")
         
         return playerStats.sorted(by: >)
     }
@@ -88,4 +92,8 @@ struct StatState: State {
 
 struct AtBatCountUpdated: Event {
     var count = 0
+}
+
+struct StatGameUpdated: Event {
+    var game: Game?
 }

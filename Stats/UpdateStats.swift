@@ -33,7 +33,6 @@ struct UpdateStats: Command {
     }
     
     func trophySections(from state: AppState) -> [TrophySection] {
-        let start = Date()
         let sections = Trophy.allValues.flatMap { trophy -> TrophySection? in
             let trophyStats = state.statState.allStats(ofType: trophy.statType, from: state.currentAtBats)
             let isWorst = trophy == Trophy.worseBattingAverage
@@ -42,9 +41,7 @@ struct UpdateStats: Command {
             
             return TrophySection(trophy: trophy, firstStat: winner, secondStat: winners.second)
         }
-        let end = Date()
-        let time = end.timeIntervalSince(start)
-        print("Current Trophy Sections: -> \(time)")
+        
         return sections
     }
     

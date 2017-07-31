@@ -18,7 +18,11 @@ class TeamListViewController: Component, AutoStoryboardInitializable {
     
     fileprivate var plusBarButton: UIBarButtonItem?
     fileprivate var xBarButton: UIBarButtonItem?
-    fileprivate var currentTypes = [TeamOwnershipType]()
+    fileprivate var currentTypes = [TeamOwnershipType]() {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     
     fileprivate var selectedTeam: Team? {
         return core.state.teamState.currentTeam
@@ -36,6 +40,7 @@ class TeamListViewController: Component, AutoStoryboardInitializable {
         tableView.rowHeight = 120
         tableView.sectionHeaderHeight = 32
         tableView.tableFooterView = UIView()
+        currentTypes = TeamOwnershipType.allValues.filter { !core.state.teamState.currentUserTeams(forType: $0).isEmpty }
     }
     
     func close() {
@@ -151,7 +156,7 @@ extension TeamListViewController: UITableViewDelegate {
         
         if isSwitcher {
             core.fire(event: Selected<Team>(selectedTeam))
-            
+            core.fire(command: UpdateAtBatCount())
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.4, execute: {
                 self.close()
             })

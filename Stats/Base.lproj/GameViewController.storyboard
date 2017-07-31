@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Fe0-L2-bmy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13168.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Fe0-L2-bmy">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13147.4"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -32,19 +32,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9ql-Cu-9WG">
-                                <rect key="frame" x="0.0" y="88" width="375" height="579"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="6Mu-gt-bXw" userLabel="Team &amp; Score stack">
                                         <rect key="frame" x="16" y="0.0" width="343" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OP" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="2W3-Nk-rAB">
-                                                <rect key="frame" x="0.0" y="0.0" width="103.5" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="50"/>
                                                 <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="SPf-WQ-mH5" customClass="LTMorphingLabel" customModule="LTMorphingLabel">
-                                                <rect key="frame" x="119.5" y="0.0" width="104" height="50"/>
+                                                <rect key="frame" x="-16" y="0.0" width="0.0" height="50"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="J5y-mq-mNo"/>
@@ -54,7 +54,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="cdM-sS-RD6">
-                                                <rect key="frame" x="239.5" y="0.0" width="103.5" height="50"/>
+                                                <rect key="frame" x="-16" y="0.0" width="0.0" height="50"/>
                                                 <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -76,21 +76,21 @@
                                             <constraint firstAttribute="height" constant="16" id="3kG-an-BRy"/>
                                         </constraints>
                                     </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6Tk-eg-njL">
-                                        <rect key="frame" x="9" y="66" width="357" height="69"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="6Tk-eg-njL">
+                                        <rect key="frame" x="17.5" y="66" width="340.5" height="113"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="YZz-sW-GRL" userLabel="Inning stack">
-                                                <rect key="frame" x="0.0" y="22" width="153" height="25"/>
+                                                <rect key="frame" x="0.0" y="44" width="128.5" height="25"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Inning" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C0J-18-7tR" customClass="LTMorphingLabel" customModule="LTMorphingLabel">
-                                                        <rect key="frame" x="0.0" y="0.0" width="82.5" height="25"/>
-                                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="24"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="69" height="25"/>
+                                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="⬆ 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iZi-AT-nA1" customClass="LTMorphingLabel" customModule="LTMorphingLabel">
-                                                        <rect key="frame" x="102.5" y="0.0" width="50.5" height="25"/>
-                                                        <fontDescription key="fontDescription" name="ScoreBoard" family="Score Board" pointSize="24"/>
+                                                        <rect key="frame" x="89" y="0.0" width="39.5" height="25"/>
+                                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="24"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -99,52 +99,69 @@
                                                     <constraint firstAttribute="height" constant="25" id="Ijm-Xd-0Vf"/>
                                                 </constraints>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="G3j-PF-5QQ" userLabel="outs stack">
-                                                <rect key="frame" x="153" y="0.0" width="204" height="69"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="G3j-PF-5QQ" userLabel="outs stack">
+                                                <rect key="frame" x="160.5" y="43" width="180" height="27"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Outs:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vum-Rm-j0t">
-                                                        <rect key="frame" x="0.0" y="23" width="51" height="23"/>
-                                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="27"/>
+                                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ris-2r-5uO">
-                                                        <rect key="frame" x="51" y="0.0" width="51" height="69"/>
-                                                        <fontDescription key="fontDescription" name="ScoreBoard" family="Score Board" pointSize="87"/>
-                                                        <state key="normal" title="."/>
-                                                        <connections>
-                                                            <action selector="outButtonPressed:" destination="Fe0-L2-bmy" eventType="touchUpInside" id="okB-6x-hai"/>
-                                                        </connections>
-                                                    </button>
                                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xXd-Y1-guu">
-                                                        <rect key="frame" x="102" y="0.0" width="51" height="69"/>
+                                                        <rect key="frame" x="76" y="1.5" width="24" height="24"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="xXd-Y1-guu" secondAttribute="height" id="RNn-lU-N3s"/>
+                                                            <constraint firstAttribute="height" constant="24" id="eLq-Yh-S5t"/>
+                                                        </constraints>
                                                         <fontDescription key="fontDescription" name="ScoreBoard" family="Score Board" pointSize="87"/>
-                                                        <state key="normal" title="."/>
+                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <state key="normal" title="." image="x"/>
                                                         <connections>
                                                             <action selector="outButtonPressed:" destination="Fe0-L2-bmy" eventType="touchUpInside" id="lgr-mB-yOw"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eHy-Oi-aIv">
-                                                        <rect key="frame" x="153" y="0.0" width="51" height="69"/>
+                                                        <rect key="frame" x="116" y="1.5" width="24" height="24"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="eHy-Oi-aIv" secondAttribute="height" id="XeF-ny-euV"/>
+                                                        </constraints>
                                                         <fontDescription key="fontDescription" name="ScoreBoard" family="Score Board" pointSize="87"/>
-                                                        <state key="normal" title="."/>
+                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <state key="normal" title="." image="x"/>
                                                         <connections>
                                                             <action selector="outButtonPressed:" destination="Fe0-L2-bmy" eventType="touchUpInside" id="C8M-Ph-g9C"/>
                                                         </connections>
                                                     </button>
+                                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ris-2r-5uO">
+                                                        <rect key="frame" x="156" y="1.5" width="24" height="24"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="Ris-2r-5uO" secondAttribute="height" id="eha-2a-Pfa"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="ScoreBoard" family="Score Board" pointSize="87"/>
+                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <state key="normal" title="." image="x"/>
+                                                        <connections>
+                                                            <action selector="outButtonPressed:" destination="Fe0-L2-bmy" eventType="touchUpInside" id="okB-6x-hai"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="Ris-2r-5uO" firstAttribute="width" secondItem="xXd-Y1-guu" secondAttribute="width" id="PN8-pn-LMN"/>
+                                                    <constraint firstItem="eHy-Oi-aIv" firstAttribute="width" secondItem="xXd-Y1-guu" secondAttribute="width" id="f0b-Zh-OXd"/>
+                                                </constraints>
                                             </stackView>
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b7g-xC-dch" userLabel="Spacer view">
-                                        <rect key="frame" x="0.0" y="135" width="375" height="16"/>
+                                        <rect key="frame" x="0.0" y="179" width="375" height="16"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="r6i-Hi-VgG"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Oa-dL-ZFd" userLabel="Player picker holder">
-                                        <rect key="frame" x="0.0" y="151" width="375" height="42"/>
+                                        <rect key="frame" x="0.0" y="195" width="375" height="42"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uF9-DD-9dm" customClass="AKPickerView" customModule="Stats" customModuleProvider="target">
                                                 <rect key="frame" x="16" y="0.0" width="343" height="36"/>
@@ -178,14 +195,14 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OWD-bd-57B" userLabel="Spacer view">
-                                        <rect key="frame" x="0.0" y="193" width="375" height="16"/>
+                                        <rect key="frame" x="0.0" y="237" width="375" height="16"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="Tgj-K1-M3j"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Tq-zx-PVJ" userLabel="New at bat view">
-                                        <rect key="frame" x="0.0" y="209" width="375" height="55"/>
+                                        <rect key="frame" x="0.0" y="253" width="375" height="55"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="zU9-2Y-erZ">
                                                 <rect key="frame" x="92" y="8" width="192.5" height="39"/>
@@ -221,7 +238,7 @@
                                         </connections>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Eej-ST-WO7">
-                                        <rect key="frame" x="0.0" y="264" width="375" height="315"/>
+                                        <rect key="frame" x="0.0" y="308" width="375" height="315"/>
                                         <color key="backgroundColor" red="0.92495459319999995" green="0.94122463460000005" blue="0.94532805679999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8Rr-kv-Tf2">
                                             <size key="itemSize" width="50" height="50"/>
@@ -291,5 +308,6 @@
     <resources>
         <image name="settings" width="32" height="32"/>
         <image name="swing" width="238" height="238"/>
+        <image name="x" width="50" height="50"/>
     </resources>
 </document>

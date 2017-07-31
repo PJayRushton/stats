@@ -10,6 +10,8 @@
 		361B76C61F0AD2DA00CFC0DA /* Prefetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361B76C51F0AD2DA00CFC0DA /* Prefetch.swift */; };
 		364FFAEE1EA9A15600CD26F9 /* EventBetterSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364FFAED1EA9A15600CD26F9 /* EventBetterSegmentedControl.swift */; };
 		364FFAF01EA9F1B000CD26F9 /* DeleteGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364FFAEF1EA9F1B000CD26F9 /* DeleteGame.swift */; };
+		369094291F2F78AA00D11D3F /* UpdateStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369094281F2F78AA00D11D3F /* UpdateStats.swift */; };
+		3690942B1F2F894A00D11D3F /* UpdateAtBatCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3690942A1F2F894A00D11D3F /* UpdateAtBatCount.swift */; };
 		36AB0AAC1EB3CAA90058F0E4 /* SetObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AB0AAB1EB3CAA90058F0E4 /* SetObject.swift */; };
 		A10359991EAE4259009365F4 /* StatState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10359981EAE4259009365F4 /* StatState.swift */; };
 		A10AF81F1EEC969100A6E00E /* GamesHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10AF81E1EEC969100A6E00E /* GamesHeaderCell.swift */; };
@@ -174,6 +176,8 @@
 		361B76C51F0AD2DA00CFC0DA /* Prefetch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prefetch.swift; sourceTree = "<group>"; };
 		364FFAED1EA9A15600CD26F9 /* EventBetterSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventBetterSegmentedControl.swift; sourceTree = "<group>"; };
 		364FFAEF1EA9F1B000CD26F9 /* DeleteGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteGame.swift; sourceTree = "<group>"; };
+		369094281F2F78AA00D11D3F /* UpdateStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateStats.swift; sourceTree = "<group>"; };
+		3690942A1F2F894A00D11D3F /* UpdateAtBatCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAtBatCount.swift; sourceTree = "<group>"; };
 		36AB0AAB1EB3CAA90058F0E4 /* SetObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetObject.swift; sourceTree = "<group>"; };
 		3EB00BD85F52BB91F956360D /* Pods-Stats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stats.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stats/Pods-Stats.release.xcconfig"; sourceTree = "<group>"; };
 		A10359981EAE4259009365F4 /* StatState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatState.swift; sourceTree = "<group>"; };
@@ -383,7 +387,9 @@
 				A17EF6CD1E94148300DEE4ED /* SubscribeToObject.swift */,
 				A17EF6CF1E941D8700DEE4ED /* SubscribeToTeam.swift */,
 				A17EF6CB1E94044E00DEE4ED /* UpdateObject.swift */,
+				369094281F2F78AA00D11D3F /* UpdateStats.swift */,
 				A17EF6C51E93EDEC00DEE4ED /* UploadToStorage.swift */,
+				3690942A1F2F894A00D11D3F /* UpdateAtBatCount.swift */,
 			);
 			name = Commands;
 			sourceTree = "<group>";
@@ -870,6 +876,7 @@
 				A1426B9D1EA8586E00AAABB3 /* AKPickerView.swift in Sources */,
 				A1ABAFFD1EA97AF900B28A46 /* ShowMessage.swift in Sources */,
 				A17EF6CC1E94044E00DEE4ED /* UpdateObject.swift in Sources */,
+				3690942B1F2F894A00D11D3F /* UpdateAtBatCount.swift in Sources */,
 				A1CD9A0A1E89C26200D3C8F7 /* TeamState.swift in Sources */,
 				A1868F9F1E802E1600C191EC /* AppState.swift in Sources */,
 				A16CA85D1EE301FB002AABBF /* ContactsHelper.swift in Sources */,
@@ -938,6 +945,7 @@
 				A1B49D8C1EA577AC00DA9FAB /* GameCreationViewController.swift in Sources */,
 				A1426B9F1EA85E5500AAABB3 /* AtBatCell.swift in Sources */,
 				A10AF81F1EEC969100A6E00E /* GamesHeaderCell.swift in Sources */,
+				369094291F2F78AA00D11D3F /* UpdateStats.swift in Sources */,
 				A17EF6C41E93E8D200DEE4ED /* NewTeamState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

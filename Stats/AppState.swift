@@ -29,6 +29,7 @@ struct AppState: State {
     var atBatState = AtBatState()
     var statState = StatState()
     
+    
     mutating func react(to event: Event) {
         switch event {
         case let event as Selected<HomeMenuItem>:
@@ -90,48 +91,6 @@ extension AppState {
             let statValue = type.statValue(from: atBats)
             return Stat(player: player, statType: type, value: statValue)
         })
-    }
-    
-    func allStats(ofType type: StatType, from atBats: [AtBat]) -> [Stat] {
-        let playerIds = Set(atBats.map { $0.playerId })
-        let players = playerIds.flatMap { playerState.player(withId: $0) }
-        
-        var playerStats = [Stat]()
-        
-        players.forEach { player in
-            let playerAtBats = atBats.filter { $0.playerId == player.id }
-            let statValue = type.statValue(from: playerAtBats)
-            let playerStat = Stat(player: player, statType: type, value: statValue)
-            playerStats.append(playerStat)
-        }
-        
-        return playerStats.sorted(by: statState.sortType.sort)
-    }
-    
-    var currentTrophySections: [TrophySection] {
-        return Trophy.allValues.flatMap { trophy -> TrophySection? in
-            let trophyStats = allStats(ofType: trophy.statType, from: currentAtBats)
-            let isWorst = trophy == Trophy.worseBattingAverage
-            let winners = winningStats(from: trophyStats, isWorst: isWorst)
-            guard let winner = winners.first else { return nil }
-            
-            return TrophySection(trophy: trophy, firstStat: winner, secondStat: winners.second)
-        }
-    }
-    
-    private func winningStats(from stats: [Stat], isWorst: Bool = false) -> (first: Stat?, second: Stat?) {
-        guard !stats.isEmpty, let currentTeam = teamState.currentTeam else { return (nil, nil) }
-        var allStats = isWorst ? stats.sorted() : stats.sorted().reversed()
-        let winnerStat = allStats.removeFirst()
-        guard winnerStat.value > 0 else { return (nil, nil) }
-        guard stats.count > 1 else { return (winnerStat, nil) }
-
-        let otherGender: Gender = winnerStat.player.gender == .male ? .female : .male
-        let otherGenderStats = stats.filter { $0.player.gender == otherGender }
-        let statsForSecond = currentTeam.isCoed ? otherGenderStats : allStats
-        let secondStat = statsForSecond.first
-        guard let second = secondStat, second.value > 0 else { return (winnerStat, nil) }
-        return (first: winnerStat, second: second)
     }
 
 }

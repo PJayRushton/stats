@@ -38,7 +38,7 @@ class StatsViewController: Component, AutoStoryboardInitializable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        core.fire(command: UpdateStats())
         segmentedControl.setUp(with: StatsViewType.allValues.map { $0.title }, indicatorColor: UIColor.mainAppColor)
     }
     
@@ -49,7 +49,7 @@ class StatsViewController: Component, AutoStoryboardInitializable {
     }
     
     @IBAction func viewTypeChanged(_ sender: BetterSegmentedControl) {
-        guard let newViewType = StatsViewType(rawValue: Int(sender.index)) else { return }
+        guard let newViewType = StatsViewType(rawValue: Int(sender.index)), newViewType != currentViewType else { return }
         core.fire(event: Updated<StatsViewType>(newViewType))
     }
     

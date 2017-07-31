@@ -60,6 +60,9 @@ class HomeViewController: Component, AutoStoryboardInitializable {
         
         navigationController?.setNavigationBarHidden(true, animated: true)
         adapter.performUpdates(animated: true)
+        
+        core.fire(command: UpdateAtBatCount())
+        core.fire(command: UpdateStats())
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {

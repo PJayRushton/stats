@@ -16,10 +16,8 @@ class StatsNumbersViewController: Component, AutoStoryboardInitializable {
     
     fileprivate let selectedBackground = UIColor.mainAppColor.withAlphaComponent(0.2)
 
-    fileprivate var allStats = [StatType: [Stat]]() {
-        didSet {
-            spreadsheetView.reloadData()
-        }
+    fileprivate var allStats: [StatType: [Stat]] {
+        return App.core.state.statState.allStats
     }
     fileprivate var currentPlayers = [Player]() {
         didSet {
@@ -44,13 +42,12 @@ class StatsNumbersViewController: Component, AutoStoryboardInitializable {
     override func update(with state: AppState) {
         currentPlayers = state.playerState.currentStatPlayers
         updatePlayerOrder()
-        StatType.allValues.forEach { statType in
-            let stats = state.allStats(ofType: statType, from: state.currentAtBats)
-            allStats[statType] = stats
-        }
     }
     
 }
+
+
+// MARK: - Internal
 
 extension StatsNumbersViewController {
     
@@ -63,9 +60,12 @@ extension StatsNumbersViewController {
         guard var selectedStats = allStats[selectedStatType] else { return }
         selectedStats.sort(by: >)
         currentPlayers = selectedStats.map { $0.player }
-
     }
+    
 }
+
+
+// MARK: - SpreadsheetView
 
 extension StatsNumbersViewController: SpreadsheetViewDataSource {
     
@@ -113,13 +113,16 @@ extension StatsNumbersViewController: SpreadsheetViewDataSource {
             cell.backgroundColor = sortSection == 0 ? selectedBackground : .white
         case (0, _):
             title = player(forRow: indexPath.row).displayName
+            cell.backgroundColor = .white
         case (_, 0):
             title = statType(for: indexPath.section).abbreviation
             cell.backgroundColor = sortSection == indexPath.section ? selectedBackground : .white
         default:
             title = stat(at: indexPath).displayString
+            cell.backgroundColor = .white
         }
         cell.update(with: title, alignment: alignment, fontSize: fontSize)
+        
         return cell
     }
     

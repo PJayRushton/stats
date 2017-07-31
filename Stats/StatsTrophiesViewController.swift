@@ -40,7 +40,7 @@ class StatsTrophiesViewController: Component, AutoStoryboardInitializable {
 extension StatsTrophiesViewController: ListAdapterDataSource {
     
     func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
-        return core.state.currentTrophySections
+        return core.state.statState.currentTrophySections
     }
     
     func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {

@@ -30,6 +30,7 @@ struct SeasonState: State {
         switch event {
         case let event as TeamEntitiesUpdated<Season>:
             allSeasonsDict[event.teamId] = event.entities
+            App.core.fire(command: UpdateStats())
         default:
             break
         }

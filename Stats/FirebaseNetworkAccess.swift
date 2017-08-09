@@ -151,6 +151,18 @@ struct FirebaseNetworkAccess {
         }
     }
     
+    func fullySubscribe(to query: DatabaseQuery, completion: @escaping ((Result<JSONObject>, DataEventType) -> Void)) {
+        for eventType in [DataEventType.childAdded, .childChanged, .childRemoved] {
+            query.observe(eventType, with: { snap in
+                if snap.exists(), let snapJSON = snap.value as? JSONObject {
+                    completion(Result.success(snapJSON), eventType)
+                } else {
+                    completion(Result.failure(FirebaseError.incorrectlyFormedData), eventType)
+                }
+            })
+        }
+    }
+
     func subscribe(to query: DatabaseQuery, completion: @escaping ResultCompletion) {
         query.observe(.value, with: { snap in
             if let snapJSON = snap.value as? JSONObject, snap.exists() {

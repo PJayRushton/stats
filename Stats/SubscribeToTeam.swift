@@ -22,7 +22,6 @@ struct SubscribeToTeam: Command {
         subscribeToSeasons(core: core)
         subscribeToPlayers(core: core)
         subscribeToGames(core: core)
-        subscribeToAtBats(core: core)
     }
     
     private func subscribeToTeam(core: Core<AppState>) {
@@ -33,7 +32,8 @@ struct SubscribeToTeam: Command {
             switch teamResult {
             case let .success(team):
                 core.fire(event: Updated<Team>(team))
-                
+                core.fire(command: SubscribeToAtBats(of: team))
+
                 if let lastUsedId = UserDefaults.standard.lastUsedTeamId, team.id == lastUsedId {
                     core.fire(event: Selected<Team>(team))
                 }
@@ -85,28 +85,6 @@ struct SubscribeToTeam: Command {
                 core.fire(event: TeamEntitiesUpdated<Game>(teamId: self.teamId, entities: games))
             case let .failure(error):
                 core.fire(event: ErrorEvent(error: error, message: nil))
-            }
-        }
-    }
-    
-    private func subscribeToAtBats(core: Core<AppState>) {
-        networkAccess.fullySubscribe(to: StatsRefs.atBatsRef(teamId: self.teamId)) { result, eventType in
-            let atBatResult = result.map(AtBat.init)
-            
-            switch atBatResult {
-            case let .success(atBat):
-                switch eventType {
-                case .childAdded:
-                    core.fire(event: TeamObjectAdded<AtBat>(object: atBat, teamId: self.teamId))
-                case .childChanged:
-                    core.fire(event: TeamObjectChanged<AtBat>(object: atBat, teamId: self.teamId))
-                case .childRemoved:
-                    core.fire(event: TeamObjectRemoved<AtBat>(object: atBat, teamId: self.teamId))
-                default:
-                    fatalError()
-                }
-            case let .failure(error):
-                core.fire(event: TeamObjectErrored(error: error))
             }
         }
     }

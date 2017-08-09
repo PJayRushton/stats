@@ -8,6 +8,17 @@
 
 import Foundation
 
+struct PlayerStatsUpdated: Event {
+    
+    var player: Player
+    var stats: [Stat]
+    
+    init(for player: Player, stats: [Stat]) {
+        self.player = player
+        self.stats = stats
+    }
+}
+
 struct UpdateStats: Command {
     
     var atBat: AtBat?
@@ -17,35 +28,52 @@ struct UpdateStats: Command {
     }
     
     func execute(state: AppState, core: Core<AppState>) {
-        let stats = currentTypeStats(from: state)
-        core.fire(event: Updated<[StatType: [Stat]]>(stats))
-        let sections = trophySections(from: state)
-        core.fire(event: Updated<[TrophySection]>(sections))
-    }
-    
-    func currentTypeStats(from state: AppState) -> [StatType: [Stat]] {
-        var allStats = [StatType: [Stat]]()
-        StatType.allValues.forEach { statType in
-            let stats = state.statState.allStats(ofType: statType, from: state.currentAtBats)
-            allStats[statType] = stats
+        if let playerId = atBat?.playerId, let player = state.playerState.player(withId: playerId) {
+            calculateStats(for: player, core: core)
+        } else {
+            calculateStats(core: core)
         }
-        return allStats
+        calculateTrophySections(core: core)
     }
     
-    func trophySections(from state: AppState) -> [TrophySection] {
-        let sections = Trophy.allValues.flatMap { trophy -> TrophySection? in
-            let trophyStats = state.statState.allStats(ofType: trophy.statType, from: state.currentAtBats)
-            let isWorst = trophy == Trophy.worseBattingAverage
-            let winners = winningStats(from: trophyStats, isWorst: isWorst)
-            guard let winner = winners.first else { return nil }
+    func calculateTrophySections(core: Core<AppState>) {
+        DispatchQueue.global().async {
+            let sections = Trophy.allValues.flatMap { trophy -> TrophySection? in
+                let trophyStats = core.state.statState.allStats(ofType: trophy.statType)
+                let isWorst = trophy == Trophy.worseBattingAverage
+                let winners = self.winningStats(from: trophyStats, isWorst: isWorst)
+                guard let winner = winners.first else { return nil }
+                
+                return TrophySection(trophy: trophy, firstStat: winner, secondStat: winners.second)
+            }
             
-            return TrophySection(trophy: trophy, firstStat: winner, secondStat: winners.second)
+            core.fire(event: Updated<[TrophySection]>(sections))
         }
-        
-        return sections
     }
+
+}
+
+
+// MARK - Private
+
+extension UpdateStats {
     
-    private func winningStats(from stats: [Stat], isWorst: Bool = false) -> (first: Stat?, second: Stat?) {
+    func calculateStats(for player: Player? = nil, core: Core<AppState>) {
+        DispatchQueue.global().async {
+            let allPlayers = player != nil ? [player!] : core.state.playerState.currentStatPlayers
+            
+            allPlayers.forEach { player in
+                let playerAtBats = App.core.state.atBatState.currentAtBats(for: player)
+                let stats = StatType.allValues.flatMap({ type -> Stat? in
+                    let statValue = type.statValue(from: playerAtBats)
+                    return Stat(player: player, type: type, value: statValue)
+                })
+                core.fire(event: PlayerStatsUpdated(for: player, stats: stats))
+            }
+        }
+    }
+
+    func winningStats(from stats: [Stat], isWorst: Bool = false) -> (first: Stat?, second: Stat?) {
         guard !stats.isEmpty, let currentTeam = App.core.state.teamState.currentTeam else { return (nil, nil) }
         var allStats = isWorst ? stats.sorted() : stats.sorted().reversed()
         let winnerStat = allStats.removeFirst()

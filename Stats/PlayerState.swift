@@ -24,16 +24,14 @@ struct PlayerState: State {
     var currentStatPlayers: [Player] {
         if let currentGame = App.core.state.statState.currentGame {
             return currentGame.lineupIds.flatMap { player(withId: $0) }
-        } else if let currentSeason = App.core.state.seasonState.currentSeason {
-            let currentSeasonPlayerIds = Set(App.core.state.atBatState.atBats(for: currentSeason).map { $0.playerId })
+        } else {
+            let currentSeasonPlayerIds = Set(App.core.state.atBatState.atBats.map { $0.playerId })
             var currentSeasonPlayers = currentSeasonPlayerIds.flatMap { player(withId: $0) }
             
             if !App.core.state.statState.includeSubs {
                 currentSeasonPlayers = currentSeasonPlayers.filter { !$0.isSub }
             }
             return currentSeasonPlayers
-        } else {
-            return []
         }
     }
     

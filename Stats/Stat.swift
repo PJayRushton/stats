@@ -11,11 +11,11 @@ import Foundation
 struct Stat: Equatable {
     
     var player: Player
-    var statType: StatType
+    var type: StatType
     var value: Double
     
     var displayString: String {
-        switch statType {
+        switch type {
         case .battingAverage, .onBasePercentage:
             return value.displayString
         default:
@@ -32,5 +32,5 @@ func <(lhs: Stat, rhs: Stat) -> Bool {
 }
 
 func ==(lhs: Stat, rhs: Stat) -> Bool {
-    return lhs.player == rhs.player && lhs.statType == rhs.statType && lhs.value == rhs.value
+    return lhs.player == rhs.player && lhs.type == rhs.type && lhs.value == rhs.value
 }

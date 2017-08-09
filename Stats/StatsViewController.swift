@@ -55,7 +55,7 @@ class StatsViewController: Component, AutoStoryboardInitializable {
     
     override func update(with state: AppState) {
         try? segmentedControl.setIndex(UInt(state.statState.currentViewType.rawValue))
-        let atBatsAreEmpty = state.atBatState.allAtBats.isEmpty
+        let atBatsAreEmpty = state.atBatState.atBats.isEmpty
         segmentedControl.isHidden = atBatsAreEmpty
     }
     

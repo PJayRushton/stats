@@ -59,15 +59,9 @@ struct AppState: State {
 
 extension AppState {
 
-    func stats(for player: Player) -> [Stat] {
-        let playerAtBats = atBatState.currentAtBats(for: player)
-        return allPlayerStats(from: playerAtBats)
-    }
     
     var currentAtBats: [AtBat] {
-        guard let currentTeam = teamState.currentTeam else { return [] }
-        guard let teamAtBats = atBatState.atBats(for: currentTeam) else { return [] }
-        var allAtBats = teamAtBats
+        var allAtBats = atBatState.atBats
         
         if !statState.includeSubs {
             allAtBats = allAtBats.filter { atBat in

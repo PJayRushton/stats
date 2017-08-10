@@ -19,7 +19,7 @@ extension SpreadsheetView: UIScrollViewDelegate {
             tableView.delegate = self
         }
 
-        if tableView.contentOffset.x < 0 {
+        if tableView.contentOffset.x < 0 && !stickyColumnHeader {
             let offset = tableView.contentOffset.x * -1
             cornerView.frame.origin.x = offset
             columnHeaderView.frame.origin.x = offset
@@ -27,7 +27,7 @@ extension SpreadsheetView: UIScrollViewDelegate {
             cornerView.frame.origin.x = 0
             columnHeaderView.frame.origin.x = 0
         }
-        if tableView.contentOffset.y < 0 {
+        if tableView.contentOffset.y < 0 && !stickyRowHeader {
             let offset = tableView.contentOffset.y * -1
             cornerView.frame.origin.y = offset
             rowHeaderView.frame.origin.y = offset
@@ -51,5 +51,11 @@ extension SpreadsheetView: UIScrollViewDelegate {
         cellsForItem(at: indexPath).forEach { $0.setSelected(true, animated: true) }
         delegate?.spreadsheetView(self, didSelectItemAt: indexPath)
         pendingSelectionIndexPath = nil
+    }
+
+    @available(iOS 11.0, *)
+    public func scrollViewDidChangeAdjustedContentInset(_ scrollView: UIScrollView) {
+        adjustScrollViewSizes()
+        adjustOverlayViewContentSize()
     }
 }

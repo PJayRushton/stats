@@ -219,6 +219,20 @@ public class SpreadsheetView: UIView {
             tableView.alwaysBounceHorizontal = newValue
         }
     }
+    
+    /// A Boolean value that determines wheather the row header always sticks to the top.
+    /// - Note: `bounces` has to be `true` and there has to be at least one `frozenRow`.
+    /// The default value is `false`.
+    ///
+    /// - SeeAlso: `stickyColumnHeader`
+    public var stickyRowHeader: Bool = false
+    
+    /// A Boolean value that determines wheather the column header always sticks to the top.
+    /// - Note: `bounces` has to be `true` and there has to be at least one `frozenColumn`.
+    /// The default value is `false`.
+    ///
+    /// - SeeAlso: `stickyRowHeader`
+    public var stickyColumnHeader: Bool = false
 
     /// A Boolean value that determines whether paging is enabled for the scroll view.
     /// - Note: If the value of this property is `true`, the scroll view stops on multiples of the scroll view’s bounds when the user scrolls.
@@ -325,6 +339,7 @@ public class SpreadsheetView: UIView {
         rootView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         rootView.showsHorizontalScrollIndicator = false
         rootView.showsVerticalScrollIndicator = false
+        rootView.delegate = self
         super.addSubview(rootView)
 
         tableView.frame = bounds
@@ -573,6 +588,13 @@ public class SpreadsheetView: UIView {
         }
         if verticalGroupCount > 1 {
             fatalError("attempt to use a scroll position with multiple vertical positioning styles")
+        }
+
+        if contentOffset.x < 0 {
+            contentOffset.x = 0
+        }
+        if contentOffset.y < 0 {
+            contentOffset.y = 0
         }
 
         return contentOffset

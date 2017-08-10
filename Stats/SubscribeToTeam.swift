@@ -32,7 +32,10 @@ struct SubscribeToTeam: Command {
             switch teamResult {
             case let .success(team):
                 core.fire(event: Updated<Team>(team))
-                core.fire(command: SubscribeToAtBats(of: team))
+                
+                if let newSeasonId = team.currentSeasonId {
+                    core.fire(command: SubscribeToAtBats(of: team, newSeasonId: newSeasonId))
+                }
 
                 if let lastUsedId = UserDefaults.standard.lastUsedTeamId, team.id == lastUsedId {
                     core.fire(event: Selected<Team>(team))

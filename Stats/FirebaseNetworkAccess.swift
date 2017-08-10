@@ -80,6 +80,16 @@ struct FirebaseNetworkAccess {
         })
     }
     
+    func getKeys(at query: DatabaseQuery, completion: @escaping ((Result<[String]>) -> Void)) {
+        query.observeSingleEvent(of: .value, with: { snap in
+            if let usernames = (snap.value as AnyObject).allKeys as? [String] , snap.exists() {
+                completion(Result.success(usernames))
+            } else {
+                completion(Result.failure(FirebaseError.incorrectlyFormedData))
+            }
+        })
+    }
+    
     func getData(withQuery query: DatabaseQuery, completion: ResultCompletion?) {
         query.observeSingleEvent(of: .value, with: { snap in
             if snap.exists(), let json = snap.value as? JSONObject {

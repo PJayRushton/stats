@@ -39,7 +39,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>St@ needs access to your camera to take sweet pics of you and your team!</string>
 	<key>NSContactsUsageDescription</key>
-	<string>St@ needs access to your contacts to easily add team members</string>
+	<string>St@ needs access to your contacts in order to easily add team members</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>St@ needs access to your photo library to upload sweet pics of you and your team!</string>
 	<key>UIAppFonts</key>

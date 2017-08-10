@@ -47,7 +47,7 @@ struct AtBatState: State {
             if let current = currentAtBat, current == event.object {
                 currentAtBat = event.object
             }
-            
+
         case let event as TeamObjectRemoved<AtBat>:
             guard let index = atBats.index(of: event.object) else { return }
             atBats.remove(at: index)

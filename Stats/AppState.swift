@@ -83,7 +83,7 @@ extension AppState {
         guard let playerId = atBats.first?.playerId, let player = playerState.player(withId: playerId) else { return [] }
         return StatType.allValues.flatMap({ type -> Stat? in
             let statValue = type.statValue(from: atBats)
-            return Stat(player: player, statType: type, value: statValue)
+            return Stat(player: player, type: type, value: statValue)
         })
     }
 

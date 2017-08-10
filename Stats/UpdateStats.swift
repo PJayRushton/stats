@@ -46,7 +46,7 @@ struct UpdateStats: Command {
                 
                 return TrophySection(trophy: trophy, firstStat: winner, secondStat: winners.second)
             }
-            
+            guard !sections.isEmpty else { return }
             core.fire(event: Updated<[TrophySection]>(sections))
         }
     }
@@ -80,12 +80,20 @@ extension UpdateStats {
         guard winnerStat.value > 0 else { return (nil, nil) }
         guard stats.count > 1 else { return (winnerStat, nil) }
         
-        let otherGender: Gender = winnerStat.player.gender == .male ? .female : .male
-        let otherGenderStats = stats.filter { $0.player.gender == otherGender }
-        let statsForSecond = currentTeam.isCoed ? otherGenderStats : allStats
-        let secondStat = statsForSecond.first
-        guard let second = secondStat, second.value > 0 else { return (winnerStat, nil) }
-        return (first: winnerStat, second: second)
+        var secondStat: Stat?
+        
+        if currentTeam.isCoed {
+            var otherGenderStats = stats.filter { $0.player.gender !=  winnerStat.player.gender }
+            otherGenderStats = isWorst ? otherGenderStats.sorted() : otherGenderStats.sorted().reversed()
+            secondStat = otherGenderStats.first
+        } else {
+            secondStat = allStats.first
+        }
+        if !isWorst {
+            guard let second = secondStat, second.value > 0 else { return (winnerStat, nil) }
+        }
+        
+        return (first: winnerStat, second: secondStat)
     }
     
 }

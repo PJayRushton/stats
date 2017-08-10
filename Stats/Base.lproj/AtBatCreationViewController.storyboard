@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Hhr-ev-fTh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13168.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Hhr-ev-fTh">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13147.4"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -252,40 +252,47 @@
                                     <view contentMode="scaleToFill" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="lig-Pv-rx7" userLabel="Outs View">
                                         <rect key="frame" x="0.0" y="428" width="375" height="76"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="HuR-Xx-vOY" userLabel="outs stack">
-                                                <rect key="frame" x="16" y="5" width="343" height="66"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="HuR-Xx-vOY" userLabel="outs stack">
+                                                <rect key="frame" x="16" y="20" width="343" height="36"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Outs:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hih-cn-tqi">
-                                                        <rect key="frame" x="0.0" y="21.5" width="86" height="23"/>
+                                                        <rect key="frame" x="0.0" y="6.5" width="51" height="23"/>
                                                         <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MUD-M1-E50">
-                                                        <rect key="frame" x="86" y="0.0" width="85.5" height="66"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="45"/>
-                                                        <state key="normal" title="😦"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MUD-M1-E50">
+                                                        <rect key="frame" x="112.5" y="0.0" width="36" height="36"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="MUD-M1-E50" secondAttribute="height" id="a86-pW-e57"/>
+                                                            <constraint firstAttribute="height" constant="36" id="ya1-Y6-mZ3"/>
+                                                        </constraints>
+                                                        <state key="normal" image="x"/>
                                                         <connections>
                                                             <action selector="outButtonPressed:" destination="Hhr-ev-fTh" eventType="touchUpInside" id="2FG-cZ-9vW"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ieP-9M-HbA">
-                                                        <rect key="frame" x="171.5" y="0.0" width="86" height="66"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="45"/>
-                                                        <state key="normal" title="😠"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ieP-9M-HbA">
+                                                        <rect key="frame" x="209.5" y="0.0" width="36" height="36"/>
+                                                        <state key="normal" image="x"/>
                                                         <connections>
                                                             <action selector="outButtonPressed:" destination="Hhr-ev-fTh" eventType="touchUpInside" id="HRZ-4G-b6S"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pis-wM-JqY">
-                                                        <rect key="frame" x="257.5" y="0.0" width="85.5" height="66"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="45"/>
-                                                        <state key="normal" title="☠️"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pis-wM-JqY">
+                                                        <rect key="frame" x="307" y="0.0" width="36" height="36"/>
+                                                        <state key="normal" image="x"/>
                                                         <connections>
                                                             <action selector="outButtonPressed:" destination="Hhr-ev-fTh" eventType="touchUpInside" id="fvV-jm-29E"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="pis-wM-JqY" firstAttribute="width" secondItem="MUD-M1-E50" secondAttribute="width" id="5cC-tR-RVN"/>
+                                                    <constraint firstItem="pis-wM-JqY" firstAttribute="height" secondItem="MUD-M1-E50" secondAttribute="height" id="M3L-3p-qbJ"/>
+                                                    <constraint firstItem="ieP-9M-HbA" firstAttribute="width" secondItem="MUD-M1-E50" secondAttribute="width" id="M64-rU-cRE"/>
+                                                    <constraint firstItem="ieP-9M-HbA" firstAttribute="height" secondItem="MUD-M1-E50" secondAttribute="height" id="rwj-Ve-R9j"/>
+                                                </constraints>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -359,7 +366,7 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="0.90000000000000002" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="0.93000000000000005" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wty-cU-Wcf" firstAttribute="top" secondItem="xz9-1y-zVm" secondAttribute="bottom" id="SmY-2K-2Xf"/>
                             <constraint firstItem="xz9-1y-zVm" firstAttribute="leading" secondItem="cMV-K2-ca8" secondAttribute="leading" id="lBl-Q3-gqr"/>
@@ -407,5 +414,6 @@
         <image name="single" width="122" height="122"/>
         <image name="triple" width="122" height="122"/>
         <image name="w" width="88" height="88"/>
+        <image name="x" width="50" height="50"/>
     </resources>
 </document>

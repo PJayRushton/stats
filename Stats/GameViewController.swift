@@ -37,14 +37,6 @@ class GameViewController: Component, AutoStoryboardInitializable {
         presenter.dismissTransitionType = TransitionType.coverHorizontalFromRight
         return presenter
     }
-    
-    var customPresenter: Presentr {
-        let customPresentation = PresentationType.custom(width: ModalSize.fluid(percentage: 0.8), height: .fluid(percentage: 0.8), center: .center)
-        let presenter = Presentr(presentationType: customPresentation)
-        presenter.transitionType = TransitionType.coverHorizontalFromRight
-        presenter.dismissTransitionType = TransitionType.coverHorizontalFromRight
-        return presenter
-    }
 
     var currentPlayer: Player? {
         return core.state.gameState.currentPlayer
@@ -228,14 +220,16 @@ extension GameViewController {
         newAtBatVC.showOpponentScoreEdit = {
             self.scoreLabelPressed(self)
         }
-        customPresentViewController(customPresenter, viewController: newAtBatVC, animated: true, completion: nil)
+        newAtBatVC.modalPresentationStyle = .overCurrentContext
+        present(newAtBatVC, animated: false, completion: nil)
     }
     
     func presentAtBatEdit(atBat: AtBat) {
         guard let game = game, !game.isCompleted else { return }
         let newAtBatVC = AtBatCreationViewController.initializeFromStoryboard()
         newAtBatVC.editingAtBat = atBat
-        customPresentViewController(customPresenter, viewController: newAtBatVC, animated: true, completion: nil)
+        newAtBatVC.modalPresentationStyle = .overCurrentContext
+        present(newAtBatVC, animated: false, completion: nil)
     }
     
     fileprivate func presentGameEditVC() {
@@ -305,6 +299,9 @@ extension GameViewController: ListAdapterDataSource {
     
 }
 
+
+// MARK: - AKPickerView
+
 extension GameViewController: AKPickerViewDelegate, AKPickerViewDataSource {
     
     func setUpPickerView() {
@@ -331,6 +328,17 @@ extension GameViewController: AKPickerViewDelegate, AKPickerViewDataSource {
         } else {
             core.fire(event: Selected<Player>(gamePlayers[item]))
         }
+    }
+    
+}
+
+
+// MARK: - SegueHandling
+
+extension GameViewController: SegueHandling {
+    
+    enum SegueIdentifier: String {
+        case presentAtBatCreation
     }
     
 }

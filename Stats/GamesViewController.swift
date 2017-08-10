@@ -65,6 +65,7 @@ class GamesViewController: Component, AutoStoryboardInitializable {
             new = false
             presentNewGameVC(animated: true)
         }
+        core.fire(command: UpdateStats())
     }
     
     override func viewDidDisappear(_ animated: Bool) {

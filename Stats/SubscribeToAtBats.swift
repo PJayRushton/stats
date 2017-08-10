@@ -11,19 +11,21 @@ import Foundation
 struct SubscribeToAtBats: Command {
     
     var team: Team
-    var previousSeason: String?
+    var newSeasonId: String
+    var previousSeasonId: String?
     
-    init(of team: Team, previousSeason: String? = nil) {
+    init(of team: Team, newSeasonId: String, previousSeasonId: String? = nil) {
         self.team = team
-        self.previousSeason = previousSeason
+        self.newSeasonId = newSeasonId
+        self.previousSeasonId = previousSeasonId
     }
     
     func execute(state: AppState, core: Core<AppState>) {
-        guard let newSeasonId = team.currentSeasonId else { return }
         core.fire(event: ClearAtBats())
+        core.fire(command: UpdateAtBatCount())
         let atBatRef = StatsRefs.atBatsRef(teamId: team.id)
         
-        if let oldSeason = previousSeason {
+        if let oldSeason = previousSeasonId {
             atBatRef.queryOrdered(byChild: seasonIdKey).queryEqual(toValue: oldSeason).removeAllObservers()
         }
         

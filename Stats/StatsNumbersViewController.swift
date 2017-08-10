@@ -16,7 +16,7 @@ class StatsNumbersViewController: Component, AutoStoryboardInitializable {
     
     fileprivate let selectedBackground = UIColor.mainAppColor.withAlphaComponent(0.2)
 
-    fileprivate var allStats: [StatType: [Stat]] {
+    fileprivate var allStats: [Stat] {
         return App.core.state.statState.allStats
     }
     fileprivate var currentPlayers = [Player]() {
@@ -57,9 +57,13 @@ extension StatsNumbersViewController {
             return
         }
         let selectedStatType = statType(for: sortSection)
-        guard var selectedStats = allStats[selectedStatType] else { return }
+        var selectedStats = stats(ofType: selectedStatType)
         selectedStats.sort(by: >)
         currentPlayers = selectedStats.map { $0.player }
+    }
+    
+    fileprivate func stats(ofType type: StatType) -> [Stat] {
+        return allStats.filter { $0.type == type }
     }
     
 }
@@ -93,12 +97,12 @@ extension StatsNumbersViewController: SpreadsheetViewDataSource {
         return currentPlayers[row - 1]
     }
     
-    func stat(at indexPath: IndexPath) -> Stat {
+    func stat(at indexPath: IndexPath) -> Stat? {
         guard indexPath.section != 0 || indexPath.row != 0 else { fatalError() }
         let statTypeAtSection = statType(for: indexPath.section)
-        guard let stats = allStats[statTypeAtSection] else { fatalError() }
+        let stats = self.stats(ofType: statTypeAtSection)
         let playerForRow = player(forRow: indexPath.row)
-        return stats.first(where: { $0.player == playerForRow })!
+        return stats.first(where: { $0.player == playerForRow })
     }
     
     func spreadsheetView(_ spreadsheetView: SpreadsheetView, cellForItemAt indexPath: IndexPath) -> Cell? {
@@ -118,7 +122,7 @@ extension StatsNumbersViewController: SpreadsheetViewDataSource {
             title = statType(for: indexPath.section).abbreviation
             cell.backgroundColor = sortSection == indexPath.section ? selectedBackground : .white
         default:
-            title = stat(at: indexPath).displayString
+            title = stat(at: indexPath)?.displayString ?? ""
             cell.backgroundColor = .white
         }
         cell.update(with: title, alignment: alignment, fontSize: fontSize)

@@ -17,7 +17,7 @@ class StatsNumbersViewController: Component, AutoStoryboardInitializable {
     fileprivate let selectedBackground = UIColor.mainAppColor.withAlphaComponent(0.2)
 
     fileprivate var allStats: [Stat] {
-        return App.core.state.statState.allStats
+        return App.core.state.statState.currentStats
     }
     fileprivate var currentPlayers = [Player]() {
         didSet {

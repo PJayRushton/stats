@@ -11,13 +11,28 @@ import Foundation
 struct PlayerStatsUpdated: Event {
     
     var player: Player
+    var game: Game?
     var stats: [Stat]
     
-    init(for player: Player, stats: [Stat]) {
+    init(for player: Player, game: Game? = nil, stats: [Stat]) {
         self.player = player
+        self.game = game
         self.stats = stats
     }
 }
+
+struct TrophySectionsUpdated: Event {
+    
+    var sections: [TrophySection]
+    var game: Game?
+    
+    init(_ sections: [TrophySection], game: Game? = nil) {
+        self.sections = sections
+        self.game = game
+    }
+    
+}
+
 
 struct UpdateStats: Command {
     
@@ -35,21 +50,7 @@ struct UpdateStats: Command {
         }
         calculateTrophySections(core: core)
     }
-    
-    func calculateTrophySections(core: Core<AppState>) {
-        DispatchQueue.global().async {
-            let sections = Trophy.allValues.flatMap { trophy -> TrophySection? in
-                let trophyStats = core.state.statState.allStats(ofType: trophy.statType)
-                let isWorst = trophy == Trophy.worseBattingAverage
-                let winners = self.winningStats(from: trophyStats, isWorst: isWorst)
-                guard let winner = winners.first else { return nil }
-                
-                return TrophySection(trophy: trophy, firstStat: winner, secondStat: winners.second)
-            }
-            guard !sections.isEmpty else { return }
-            core.fire(event: Updated<[TrophySection]>(sections))
-        }
-    }
+
 
 }
 
@@ -62,14 +63,32 @@ extension UpdateStats {
         DispatchQueue.global().async {
             let allPlayers = player != nil ? [player!] : core.state.playerState.currentStatPlayers
             
+            let statGame = core.state.statState.currentGame
             allPlayers.forEach { player in
-                let playerAtBats = App.core.state.atBatState.currentAtBats(for: player)
+                let playerAtBats = core.state.atBatState.atBats(for: player, in: statGame)
                 let stats = StatType.allValues.flatMap({ type -> Stat? in
                     let statValue = type.statValue(from: playerAtBats)
                     return Stat(player: player, type: type, value: statValue)
                 })
-                core.fire(event: PlayerStatsUpdated(for: player, stats: stats))
+                core.fire(event: PlayerStatsUpdated(for: player, game: statGame, stats: stats))
             }
+            self.calculateTrophySections(core: core)
+        }
+    }
+    
+    func calculateTrophySections(core: Core<AppState>) {
+        DispatchQueue.global().async {
+            let statGame = core.state.statState.currentGame
+            let sections = Trophy.allValues.flatMap { trophy -> TrophySection? in
+                let trophyStats = core.state.statState.allStats(ofType: trophy.statType)
+                let isWorst = trophy == Trophy.worseBattingAverage
+                let winners = self.winningStats(from: trophyStats, isWorst: isWorst)
+                guard let winner = winners.first else { return nil }
+                
+                return TrophySection(trophy: trophy, firstStat: winner, secondStat: winners.second)
+            }
+            guard !sections.isEmpty else { return }
+            core.fire(event: TrophySectionsUpdated(sections, game: statGame))
         }
     }
 

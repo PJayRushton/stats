@@ -45,11 +45,11 @@ class TeamActionSectionController: ListSectionController {
 extension TeamActionSectionController {
     
     override func sizeForItem(at index: Int) -> CGSize {
-        guard let collectionContext = collectionContext, let user = App.core.state.userState.currentUser else { return .zero }
+        guard let collectionContext = collectionContext else { return .zero }
         let fullWidth = collectionContext.containerSize.width
         let headerHeight = collectionContext.containerSize.width * (2 / 3)
-        let rows = HomeMenuItem.allValues.count
-        let height = (collectionContext.containerSize.height - headerHeight) / CGFloat(rows)
+        let rows = CGFloat(HomeMenuItem.allValues.count) / actionSection.menuItem.itemsPerRow
+        let height = (collectionContext.containerSize.height - headerHeight) / rows
         let width = fullWidth / actionSection.menuItem.itemsPerRow
         return CGSize(width: width, height: height)
     }

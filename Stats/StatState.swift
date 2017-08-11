@@ -20,11 +20,30 @@ struct StatState: State {
     var currentGame: Game?
     var currentSeasonId: String?
     var atBatCount = 0
-    var currentTrophySections = [TrophySection]()
+    var allTrophySections = [TrophySection]()
     var playerStats = [Player: [Stat]]()
     var allStats: [Stat] {
         return Array(playerStats.values.joined())
     }
+    var gameStats = [String: [Stat]]()
+    var gameTrophySections = [String: [TrophySection]]()
+    
+    
+    var currentTrophySections: [TrophySection] {
+        if let statGame = currentGame, let sections = gameTrophySections[statGame.id] {
+            return sections
+        } else {
+            return allTrophySections
+        }
+    }
+    var currentStats: [Stat] {
+        if let currentGame = currentGame, let gameStats = gameStats[currentGame.id] {
+            return gameStats
+        } else {
+            return allStats
+        }
+    }
+    
     
     mutating func react(to event: Event) {
         switch event {
@@ -42,19 +61,30 @@ struct StatState: State {
             currentGame = nil
             currentSeasonId = event.item?.currentSeasonId
             atBatCount = 0
-            currentTrophySections = []
+            allTrophySections = []
+            gameTrophySections = [:]
             playerStats = [:]
         case let event as StatGameUpdated:
             currentGame = event.game
         case let event as AtBatCountUpdated:
             atBatCount = event.count
-        case let event as Updated<[Player: [Stat]]>:
-            playerStats = event.payload
-        case let event as Updated<[TrophySection]>:
-            currentTrophySections = event.payload
+            
         case let event as PlayerStatsUpdated:
-            playerStats[event.player] = event.stats
-        case let event as TeamObjectAdded<AtBat>:
+            if let game = event.game {
+                var currentGameStats = gameStats[game.id] ?? []
+                currentGameStats = currentGameStats.filter { $0.player != event.player }
+                currentGameStats.append(contentsOf: event.stats)
+                gameStats[game.id] = currentGameStats
+            } else {
+                playerStats[event.player] = event.stats
+            }
+        case let event as TrophySectionsUpdated:
+            if let game = event.game {
+                gameTrophySections[game.id] = event.sections
+            } else {
+                allTrophySections = event.sections
+            }
+        case _ as TeamObjectAdded<AtBat>:
             if App.core.state.atBatState.atBats.count - 1 >= atBatCount {
                 App.core.fire(command: UpdateStats())
             }
@@ -71,8 +101,13 @@ struct StatState: State {
     }
     
     func allStats(ofType type: StatType) -> [Stat] {
-        return allStats.filter { $0.type == type }
+        if let statGame = currentGame, let gameStats = gameStats[statGame.id] {
+            return gameStats.filter { $0.type == type }
+        } else {
+            return allStats.filter { $0.type == type }
+        }
     }
+    
 }
 
 struct AtBatCountUpdated: Event {

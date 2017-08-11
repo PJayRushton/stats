@@ -221,7 +221,7 @@ extension HomeViewController {
 extension HomeViewController: ListAdapterDataSource {
     
     func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
-        guard let currentTeam = currentTeam, let currentUser = core.state.userState.currentUser else { return [] }
+        guard let currentTeam = currentTeam else { return [] }
         var objects: [ListDiffable] = [TeamHeaderSection(team: currentTeam, season: core.state.seasonState.currentSeason)]
         let items = HomeMenuItem.allValues
         

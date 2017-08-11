@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="SEj-IR-cX0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="SEj-IR-cX0">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="LemonMilk.otf">
+            <string>LemonMilk</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Stats-->
         <scene sceneID="nib-l2-ZwG">
@@ -22,32 +26,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Knz-yi-x6M" customClass="BetterSegmentedControl" customModule="BetterSegmentedControl">
-                                <rect key="frame" x="16" y="80" width="343" height="44"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="U2h-yh-DgU">
+                                <rect key="frame" x="0.0" y="76" width="375" height="591"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dq6-mK-ecR">
+                                        <rect key="frame" x="168" y="0.0" width="39" height="17.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="17.5" id="6RR-6D-Thp"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="13"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Knz-yi-x6M" customClass="BetterSegmentedControl" customModule="BetterSegmentedControl">
+                                        <rect key="frame" x="16" y="29.5" width="343" height="44"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="iex-Ei-Jpu"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="viewTypeChanged:" destination="SEj-IR-cX0" eventType="valueChanged" id="0AW-OQ-nBJ"/>
+                                        </connections>
+                                    </view>
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ap-Dd-4uT">
+                                        <rect key="frame" x="0.0" y="85.5" width="375" height="505.5"/>
+                                        <connections>
+                                            <segue destination="qBZ-JN-iCS" kind="embed" id="uBF-L8-4tY"/>
+                                        </connections>
+                                    </containerView>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="iex-Ei-Jpu"/>
+                                    <constraint firstItem="Knz-yi-x6M" firstAttribute="width" secondItem="U2h-yh-DgU" secondAttribute="width" constant="-32" id="Knm-1f-0GZ"/>
+                                    <constraint firstItem="1ap-Dd-4uT" firstAttribute="width" secondItem="U2h-yh-DgU" secondAttribute="width" id="a0A-A5-yq6"/>
                                 </constraints>
-                                <connections>
-                                    <action selector="viewTypeChanged:" destination="SEj-IR-cX0" eventType="valueChanged" id="0AW-OQ-nBJ"/>
-                                </connections>
-                            </view>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ap-Dd-4uT">
-                                <rect key="frame" x="0.0" y="147" width="375" height="520"/>
-                                <connections>
-                                    <segue destination="qBZ-JN-iCS" kind="embed" id="uBF-L8-4tY"/>
-                                </connections>
-                            </containerView>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="1ap-Dd-4uT" firstAttribute="leading" secondItem="Oaz-Wy-Sbz" secondAttribute="leading" id="97D-nE-Auy"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Knz-yi-x6M" secondAttribute="trailing" id="KZV-BK-g28"/>
-                            <constraint firstItem="1ap-Dd-4uT" firstAttribute="top" secondItem="Knz-yi-x6M" secondAttribute="bottom" constant="23" id="Ro6-GD-9nM"/>
-                            <constraint firstAttribute="trailing" secondItem="1ap-Dd-4uT" secondAttribute="trailing" id="Tof-pN-gLv"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="Knz-yi-x6M" secondAttribute="leading" id="VyA-PR-FP5"/>
-                            <constraint firstItem="Knz-yi-x6M" firstAttribute="top" secondItem="bGK-vJ-077" secondAttribute="bottom" constant="16" id="ttT-9G-wa4"/>
-                            <constraint firstItem="gJs-3v-X14" firstAttribute="top" secondItem="1ap-Dd-4uT" secondAttribute="bottom" id="zDX-MA-Z0B"/>
+                            <constraint firstAttribute="trailing" secondItem="U2h-yh-DgU" secondAttribute="trailing" id="jOd-q9-LZB"/>
+                            <constraint firstItem="gJs-3v-X14" firstAttribute="top" secondItem="U2h-yh-DgU" secondAttribute="bottom" id="jWT-LG-xFV"/>
+                            <constraint firstItem="U2h-yh-DgU" firstAttribute="top" secondItem="bGK-vJ-077" secondAttribute="bottom" constant="12" id="qIC-IE-sBv"/>
+                            <constraint firstItem="U2h-yh-DgU" firstAttribute="leading" secondItem="Oaz-Wy-Sbz" secondAttribute="leading" id="uWm-qJ-Ukh"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Stats" id="Fge-gg-s29">
@@ -63,6 +82,7 @@
                         <outlet property="containerView" destination="1ap-Dd-4uT" id="4sH-MG-bQZ"/>
                         <outlet property="filterBarButton" destination="vJh-W3-xnG" id="hhi-PA-yur"/>
                         <outlet property="segmentedControl" destination="Knz-yi-x6M" id="1LQ-AG-JFG"/>
+                        <outlet property="topLabel" destination="Dq6-mK-ecR" id="M5L-Hc-PEQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EPp-Pj-NsQ" userLabel="First Responder" sceneMemberID="firstResponder"/>

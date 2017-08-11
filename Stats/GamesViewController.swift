@@ -118,6 +118,23 @@ extension GamesViewController {
         navigationController?.pushViewController(gameVC, animated: true)
     }
     
+    fileprivate func presentOptionsAlert() {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Show Game", style: .default, handler: { _ in
+            self.pushDetail()
+        }))
+        alert.addAction(UIAlertAction(title: "Show Stats", style: .default, handler: { _ in
+            self.pushStats()
+        }))
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    fileprivate func pushStats() {
+        let statsVC = StatsViewController.initializeFromStoryboard()
+        navigationController?.pushViewController(statsVC, animated: true)
+    }
+    
 }
 
 
@@ -207,6 +224,7 @@ extension GamesViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: GameCell.reuseIdentifier) as! GameCell
         let gameAtIndex = game(at: indexPath)
         cell.update(with: gameAtIndex)
+        cell.accessoryType = sectionType(for: indexPath.section) == .ongoing ? .disclosureIndicator : .none
         
         return cell
     }
@@ -236,7 +254,13 @@ extension GamesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedGame = game(at: indexPath)
         core.fire(event: Selected<Game>(selectedGame))
-        pushDetail()
+        core.fire(event: StatGameUpdated(game: selectedGame))
+        
+        if sectionType(for: indexPath.section) == .ongoing {
+            pushDetail()
+        } else {
+            presentOptionsAlert()
+        }
     }
     
 }

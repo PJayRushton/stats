@@ -27,9 +27,10 @@ enum StatsViewType: Int {
 
 class StatsViewController: Component, AutoStoryboardInitializable {
     
+    @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var segmentedControl: BetterSegmentedControl!
     @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var filterBarButton: UIBarButtonItem!
+    @IBOutlet var filterBarButton: UIBarButtonItem!
     
     
     var currentViewType: StatsViewType {
@@ -54,9 +55,19 @@ class StatsViewController: Component, AutoStoryboardInitializable {
     }
     
     override func update(with state: AppState) {
+        topLabel.isHidden = false
+        if let currentStatGame = state.statState.currentGame {
+            topLabel.text = "St@ts for game vs. \(currentStatGame.opponent)"
+        } else if let season = state.seasonState.currentSeason {
+            topLabel.text = "St@ts for \(season.name)"
+        } else {
+            topLabel.isHidden = true
+        }
+        
         try? segmentedControl.setIndex(UInt(state.statState.currentViewType.rawValue))
         let atBatsAreEmpty = state.atBatState.atBats.isEmpty
         segmentedControl.isHidden = atBatsAreEmpty
+        navigationItem.rightBarButtonItem = state.statState.currentGame == nil ? filterBarButton : nil
     }
     
     @IBAction func filterButtonPressed(_ sender: UIBarButtonItem) {

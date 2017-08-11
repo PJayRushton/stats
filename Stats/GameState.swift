@@ -7,13 +7,17 @@
 //
 
 import Foundation
+struct UpdateRecentlyCompletedGame: Event {
+    var game: Game?
+}
 
 struct GameState: State {
     
     var currentPlayer: Player?
     var currentGame: Game?
     var allGamesDict = [String: [Game]]()
-
+    var recentlyCompletedGame: Game?
+    
     mutating func react(to event: Event) {
         switch event {
         case let event as Selected<Game>:
@@ -31,6 +35,8 @@ struct GameState: State {
             allGamesDict[game.teamId] = teamGames
         case let event as Selected<Player>:
             currentPlayer = event.item
+        case let event as UpdateRecentlyCompletedGame:
+            recentlyCompletedGame = event.game
         default:
             break
         }

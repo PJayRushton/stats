@@ -17,6 +17,7 @@ class GameViewController: Component, AutoStoryboardInitializable {
     @IBOutlet weak var awayTeamLabel: UILabel!
     @IBOutlet weak var scoreLabel: LTMorphingLabel!
     @IBOutlet weak var homeTeamLabel: UILabel!
+    @IBOutlet weak var inningOutStack: UIStackView!
     @IBOutlet weak var previousInningButton: UIButton!
     @IBOutlet weak var inningLabel: LTMorphingLabel!
     @IBOutlet weak var nextInningButton: UIButton!
@@ -82,7 +83,6 @@ class GameViewController: Component, AutoStoryboardInitializable {
         scoreLabel.morphingEffect = .fall
         previousInningButton?.isHidden = game.isCompleted || !hasEditRights
         nextInningButton?.isHidden = game.isCompleted || !hasEditRights
-        newAtBatView.isHidden = game.isCompleted
         previousInningButton?.tintColor = .gray400
         nextInningButton?.tintColor = .gray400
         inningLabel.morphingEffect = .scale
@@ -173,6 +173,8 @@ extension GameViewController {
             homeTeamLabel.text = game.isHome ? team.name : game.opponent
             navigationItem.rightBarButtonItem = hasEditRights ? settingsButton : nil
         }
+        inningOutStack.isHidden = game.isCompleted
+        newAtBatView.isHidden = game.isCompleted
         inningLabel.text = game.status
         previousInningButton?.tintColor = game.inning == 1 ? .white : .gray400
         previousInningButton?.isEnabled = game.inning > 1
@@ -197,8 +199,7 @@ extension GameViewController {
     fileprivate func showOptionsForGame() {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Edit Game ✏️", style: .default, handler: { _ in
-            self.changeGameCompletion(isCompleted: false)
-            self.presentGameEditVC()
+            self.editGamePressed()
         }))
         let emojiForStatus = game!.score > game!.opponentScore ? "😎" : "😞"
         
@@ -213,6 +214,15 @@ extension GameViewController {
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
+    }
+    
+    fileprivate func editGamePressed() {
+        guard let game = game else { return }
+        if game.isCompleted {
+            self.changeGameCompletion(isCompleted: false)
+        } else {
+            self.presentGameEditVC()
+        }
     }
     
     func presentAtBatCreation() {
@@ -244,8 +254,8 @@ extension GameViewController {
         guard var game = game, hasEditRights else { return }
         game.isCompleted = isCompleted
         core.fire(command: UpdateObject(game))
-        
         if isCompleted {
+            core.fire(event: UpdateRecentlyCompletedGame(game: game))
             navigationController?.popViewController(animated: true)
         }
     }

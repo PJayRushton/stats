@@ -22,6 +22,7 @@ class GamesViewController: Component, AutoStoryboardInitializable {
     
     var new = false
     fileprivate var isReadyToShowNewGame = true
+    fileprivate var isReadytoShowStats = true
     
     fileprivate var ongoingGames: [Game] {
         return core.state.gameState.currentOngoingGames
@@ -60,6 +61,7 @@ class GamesViewController: Component, AutoStoryboardInitializable {
         navigationController?.navigationBar.barTintColor = .mainAppColor
 
         isReadyToShowNewGame = true
+        isReadytoShowStats = true
         
         if new {
             new = false
@@ -96,6 +98,12 @@ class GamesViewController: Component, AutoStoryboardInitializable {
         if core.state.newGameState.isReadyToShow && isReadyToShowNewGame {
             isReadyToShowNewGame = false
             pushDetail()
+        }
+        if let recentlyCompletedGame = state.gameState.recentlyCompletedGame, isReadytoShowStats {
+            isReadytoShowStats = false
+            core.fire(event: UpdateRecentlyCompletedGame(game: nil))
+            core.fire(event: StatGameUpdated(game: recentlyCompletedGame))
+            pushStats()
         }
     }
     

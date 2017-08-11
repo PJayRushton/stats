@@ -35,7 +35,6 @@ class PlayerCell: UITableViewCell, AutoReuseIdentifiable {
         self.isActive = isActive
         orderLabel.text = index.section == RosterViewController.RosterSection.ordered.rawValue ? "\(index.row + 1))" : nil
         orderLabel.isHidden = index.section != 0 || isTexting
-//        subImageView.isHidden = !player.isSub
         subImageView.isHidden = true
         
         var nameText = player.displayName

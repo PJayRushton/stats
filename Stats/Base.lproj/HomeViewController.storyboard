@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -33,7 +33,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" prefetchingEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IkZ-dz-FFW">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="612"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="zj3-kT-Iya">
                                             <size key="itemSize" width="381" height="126"/>
@@ -53,17 +53,17 @@
                                                             <rect key="frame" x="16" y="16" width="349" height="94"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="LCM-ht-SLT">
-                                                                    <rect key="frame" x="16" y="23.5" width="317" height="47"/>
+                                                                    <rect key="frame" x="16" y="16.5" width="317" height="61"/>
                                                                     <subviews>
                                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oD8-ZN-2a5">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="46.5" height="47"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="61" height="61"/>
                                                                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="oD8-ZN-2a5" secondAttribute="height" id="QS1-XB-Efg"/>
                                                                             </constraints>
                                                                         </imageView>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="kqr-GQ-twJ">
-                                                                            <rect key="frame" x="129" y="0.0" width="59.5" height="47"/>
+                                                                            <rect key="frame" x="137.5" y="0.0" width="42.5" height="61"/>
                                                                             <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="20"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                             <nil key="highlightedColor"/>
@@ -72,7 +72,7 @@
                                                                             </variation>
                                                                         </label>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yQo-cC-VOQ">
-                                                                            <rect key="frame" x="270.5" y="0.0" width="46.5" height="47"/>
+                                                                            <rect key="frame" x="256" y="0.0" width="61" height="61"/>
                                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                         </view>
                                                                     </subviews>
@@ -84,7 +84,7 @@
                                                             <color key="backgroundColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                                             <gestureRecognizers/>
                                                             <constraints>
-                                                                <constraint firstItem="LCM-ht-SLT" firstAttribute="height" secondItem="q5z-lF-WpD" secondAttribute="height" multiplier="0.5" id="ODZ-Fs-2Xd"/>
+                                                                <constraint firstItem="LCM-ht-SLT" firstAttribute="height" secondItem="q5z-lF-WpD" secondAttribute="height" multiplier="0.65" id="ODZ-Fs-2Xd"/>
                                                                 <constraint firstItem="LCM-ht-SLT" firstAttribute="leading" secondItem="q5z-lF-WpD" secondAttribute="leadingMargin" constant="8" id="W9L-H6-JBi"/>
                                                                 <constraint firstAttribute="trailingMargin" secondItem="LCM-ht-SLT" secondAttribute="trailing" constant="8" id="Y9T-TN-XWi"/>
                                                                 <constraint firstItem="LCM-ht-SLT" firstAttribute="centerY" secondItem="q5z-lF-WpD" secondAttribute="centerY" id="f5L-bZ-iY0"/>
@@ -111,10 +111,10 @@
                                         </connections>
                                     </collectionView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g5J-mL-zAA">
-                                        <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="612" width="375" height="55"/>
                                         <color key="backgroundColor" red="0.55803233389999995" green="0.69207900759999996" blue="0.12800171969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="xye-Y6-aTd"/>
+                                            <constraint firstAttribute="height" constant="55" id="xye-Y6-aTd"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="20"/>
                                         <state key="normal" title="New Game">

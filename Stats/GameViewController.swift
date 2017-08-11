@@ -230,7 +230,7 @@ extension GameViewController {
         newAtBatVC.showOpponentScoreEdit = {
             self.scoreLabelPressed(self)
         }
-        newAtBatVC.modalPresentationStyle = .overCurrentContext
+        newAtBatVC.modalPresentationStyle = .overFullScreen
         present(newAtBatVC, animated: false, completion: nil)
     }
     
@@ -238,7 +238,7 @@ extension GameViewController {
         guard let game = game, !game.isCompleted else { return }
         let newAtBatVC = AtBatCreationViewController.initializeFromStoryboard()
         newAtBatVC.editingAtBat = atBat
-        newAtBatVC.modalPresentationStyle = .overCurrentContext
+        newAtBatVC.modalPresentationStyle = .overFullScreen
         present(newAtBatVC, animated: false, completion: nil)
     }
     

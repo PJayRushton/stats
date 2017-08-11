@@ -13,6 +13,7 @@ import Marshal
 enum AtBatCode: String {
     case k
     case out
+    case fc
     case sac
     case w
     case hbp
@@ -43,12 +44,12 @@ enum AtBatCode: String {
         switch self {
         case .hbp, .w, .roe, .single, .double, .triple, .hr, .hrITP:
             return .mainAppColor
-        case .k, .out, .sac:
+        case .k, .out, .sac, .fc:
             return .flatCoffee
         }
     }
     var isOut: Bool {
-        return self == .k || self == .out || self == .sac
+        return self == .k || self == .out || self == .sac || self == .fc || self == .sac
     }
     var isHit: Bool {
         return self == .single || self == .double || self == .triple || self == .hr || self == .hrITP

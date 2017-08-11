@@ -24,6 +24,8 @@ class AtBatCreationViewController: Component, AutoStoryboardInitializable {
     @IBOutlet weak var doubleButton: AtBatButton!
     @IBOutlet weak var tripleButton: AtBatButton!
     @IBOutlet weak var hrButton: AtBatButton!
+    @IBOutlet weak var fieldersChoiceButton: AtBatButton!
+    @IBOutlet weak var sacButton: AtBatButton!
     @IBOutlet weak var inTheParkView: UIView!
     @IBOutlet weak var inTheParkSwitch: AIFlatSwitch!
     @IBOutlet weak var walkButton: AtBatButton!
@@ -49,7 +51,7 @@ class AtBatCreationViewController: Component, AutoStoryboardInitializable {
         return core.state.gameState.currentGame
     }
     fileprivate var allResultButtons: [AtBatButton] {
-        return [singleButton, doubleButton, tripleButton, hrButton, walkButton, roeButton, strikeOutButton, outButton]
+        return [singleButton, doubleButton, tripleButton, hrButton, walkButton, roeButton, strikeOutButton, outButton, fieldersChoiceButton, sacButton]
     }
     fileprivate var rbis = 0
     fileprivate var currentPlayer: Player? {
@@ -144,6 +146,11 @@ class AtBatCreationViewController: Component, AutoStoryboardInitializable {
         saveAtBat(next: true)
     }
     
+    @IBAction func bottomViewTapped(_ sender: UITapGestureRecognizer) {
+        dismiss(animated: false, completion: nil)
+    }
+    
+    
     override func update(with state: AppState) {
         currentAtBatResult = state.atBatState.currentResult
         
@@ -192,6 +199,8 @@ extension AtBatCreationViewController {
         tripleButton.code = .triple
         hrButton.code = .hr
         walkButton.code = .w
+        fieldersChoiceButton.code = .fc
+        sacButton.code = .sac
         roeButton.code = .roe
         strikeOutButton.code = .k
         outButton.code = .out
@@ -218,7 +227,7 @@ extension AtBatCreationViewController {
         hrButton.isSelected = code.isHR
         isShowingITPSwitch = code.isHR
         
-        if code.isHR && rbisSegControl.index == 0 {
+        if (code.isHR || code == .sac) && rbisSegControl.index == 0 {
             try? rbisSegControl.setIndex(1, animated: true)
         }
         

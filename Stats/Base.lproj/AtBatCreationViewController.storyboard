@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13168.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Hhr-ev-fTh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Hhr-ev-fTh">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13147.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -25,11 +25,11 @@
                         <viewControllerLayoutGuide type="bottom" id="wty-cU-Wcf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="cMV-K2-ca8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="xz9-1y-zVm">
-                                <rect key="frame" x="0.0" y="36" width="375" height="564"/>
+                                <rect key="frame" x="0.0" y="36" width="375" height="631"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hsr-yZ-orh" userLabel="Player stack">
                                         <rect key="frame" x="8" y="0.0" width="359" height="24"/>
@@ -57,87 +57,192 @@
                                             <constraint firstAttribute="height" constant="24" id="1dp-Zh-wQ8"/>
                                         </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="10t-Cj-b9M" userLabel="Diamond stack">
-                                        <rect key="frame" x="84.5" y="40" width="206" height="209"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="MHV-P8-CMV">
+                                        <rect key="frame" x="20" y="40" width="335" height="209"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aet-91-cO3" customClass="AtBatButton" customModule="Stats" customModuleProvider="target">
-                                                <rect key="frame" x="71" y="0.0" width="64" height="64"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="aet-91-cO3" secondAttribute="height" id="Yiz-tg-4BV"/>
-                                                    <constraint firstAttribute="height" constant="64" id="nKa-s9-gNi"/>
-                                                </constraints>
-                                                <state key="normal" image="double">
-                                                    <color key="titleColor" red="0.32156862745098036" green="0.34901960784313724" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="resultButtonPressed:" destination="Hhr-ev-fTh" eventType="touchUpInside" id="PbP-zq-Vaz"/>
-                                                </connections>
-                                            </button>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="25n-5K-B3x" userLabel="3b 1b stack">
-                                                <rect key="frame" x="0.0" y="68" width="206" height="64"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="10t-Cj-b9M" userLabel="Diamond stack">
+                                                <rect key="frame" x="0.0" y="0.0" width="184" height="209"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="38c-Qz-rYm" customClass="AtBatButton" customModule="Stats" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aet-91-cO3" customClass="AtBatButton" customModule="Stats" customModuleProvider="target">
+                                                        <rect key="frame" x="60" y="0.0" width="64" height="64"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" secondItem="38c-Qz-rYm" secondAttribute="height" id="7lq-gZ-Nqt"/>
+                                                            <constraint firstAttribute="width" secondItem="aet-91-cO3" secondAttribute="height" id="Yiz-tg-4BV"/>
+                                                            <constraint firstAttribute="height" constant="64" id="nKa-s9-gNi"/>
                                                         </constraints>
-                                                        <state key="normal" image="triple">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <state key="normal" image="double">
+                                                            <color key="titleColor" red="0.32156862745098036" green="0.34901960784313724" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="resultButtonPressed:" destination="Hhr-ev-fTh" eventType="touchUpInside" id="ren-Jq-xXJ"/>
+                                                            <action selector="resultButtonPressed:" destination="Hhr-ev-fTh" eventType="touchUpInside" id="PbP-zq-Vaz"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1AZ-hK-u4a" customClass="AtBatButton" customModule="Stats" customModuleProvider="target">
-                                                        <rect key="frame" x="142" y="0.0" width="64" height="64"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="25n-5K-B3x" userLabel="3b 1b stack">
+                                                        <rect key="frame" x="0.0" y="68" width="184" height="63.5"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="38c-Qz-rYm" customClass="AtBatButton" customModule="Stats" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="63.5" height="63.5"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="38c-Qz-rYm" secondAttribute="height" id="7lq-gZ-Nqt"/>
+                                                                </constraints>
+                                                                <state key="normal" image="triple">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="resultButtonPressed:" destination="Hhr-ev-fTh" eventType="touchUpInside" id="ren-Jq-xXJ"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1AZ-hK-u4a" customClass="AtBatButton" customModule="Stats" customModuleProvider="target">
+                                                                <rect key="frame" x="120.5" y="0.0" width="63.5" height="63.5"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="1AZ-hK-u4a" secondAttribute="height" id="ImM-XK-l8e"/>
+                                                                </constraints>
+                                                                <state key="normal" image="single">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="resultButtonPressed:" destination="Hhr-ev-fTh" eventType="touchUpInside" id="Eeh-IH-yeR"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" secondItem="1AZ-hK-u4a" secondAttribute="height" id="ImM-XK-l8e"/>
+                                                            <constraint firstItem="1AZ-hK-u4a" firstAttribute="width" secondItem="38c-Qz-rYm" secondAttribute="width" id="EUT-zc-9tV"/>
                                                         </constraints>
-                                                        <state key="normal" image="single">
+                                                    </stackView>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ha1-if-hMr" userLabel="Spacer view">
+                                                        <rect key="frame" x="61.5" y="135.5" width="61" height="8"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="8" id="PfV-HO-iAx"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L10-Sc-SsQ" customClass="AtBatButton" customModule="Stats" customModuleProvider="target">
+                                                        <rect key="frame" x="61.5" y="147.5" width="61" height="61.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="L10-Sc-SsQ" secondAttribute="height" id="LA9-tQ-SoS"/>
+                                                        </constraints>
+                                                        <state key="normal" image="hr">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="resultButtonPressed:" destination="Hhr-ev-fTh" eventType="touchUpInside" id="Eeh-IH-yeR"/>
+                                                            <action selector="resultButtonPressed:" destination="Hhr-ev-fTh" eventType="touchUpInside" id="m4w-fP-5Ax"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="1AZ-hK-u4a" firstAttribute="width" secondItem="38c-Qz-rYm" secondAttribute="width" id="EUT-zc-9tV"/>
+                                                    <constraint firstItem="L10-Sc-SsQ" firstAttribute="height" secondItem="aet-91-cO3" secondAttribute="height" multiplier="0.95" id="6ck-0I-Ra6"/>
+                                                    <constraint firstItem="25n-5K-B3x" firstAttribute="width" secondItem="10t-Cj-b9M" secondAttribute="width" id="GLD-dQ-u6K"/>
+                                                    <constraint firstItem="38c-Qz-rYm" firstAttribute="height" secondItem="aet-91-cO3" secondAttribute="height" id="MrA-ba-3uU"/>
+                                                    <constraint firstItem="25n-5K-B3x" firstAttribute="height" secondItem="aet-91-cO3" secondAttribute="height" id="eRx-Yc-CoY"/>
+                                                    <constraint firstItem="1AZ-hK-u4a" firstAttribute="height" secondItem="aet-91-cO3" secondAttribute="height" id="ebO-ng-J0f"/>
                                                 </constraints>
                                             </stackView>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ha1-if-hMr" userLabel="Spacer view">
-                                                <rect key="frame" x="0.0" y="136" width="206" height="8"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="8" id="PfV-HO-iAx"/>
-                                                </constraints>
-                                            </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L10-Sc-SsQ" customClass="AtBatButton" customModule="Stats" customModuleProvider="target">
-                                                <rect key="frame" x="72.5" y="148" width="61" height="61"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="L10-Sc-SsQ" secondAttribute="height" id="LA9-tQ-SoS"/>
-                                                </constraints>
-                                                <state key="normal" image="hr">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="resultButtonPressed:" destination="Hhr-ev-fTh" eventType="touchUpInside" id="m4w-fP-5Ax"/>
-                                                </connections>
-                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="M5w-FW-YCJ">
+                                                <rect key="frame" x="223" y="0.0" width="112" height="209"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="cCr-Mt-K2O" userLabel="W ROE stack">
+                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="209"/>
+                                                        <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qjz-Kv-kfB">
+                                                                <rect key="frame" x="0.0" y="0.0" width="50" height="97"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </view>
+                                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s8E-ce-FaX" customClass="AtBatButton" customModule="Stats" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="113" width="50" height="40"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="s8E-ce-FaX" secondAttribute="height" multiplier="1.25" id="U1w-WV-P1p"/>
+                                                                </constraints>
+                                                                <state key="normal" image="w">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="resultButtonPressed:" destination="Hhr-ev-fTh" eventType="touchUpInside" id="W65-v1-HHb"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1RR-MV-Rs4" userLabel="roe" customClass="AtBatButton" customModule="Stats" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="169" width="50" height="40"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="1RR-MV-Rs4" secondAttribute="height" multiplier="1.25" id="A5e-Le-91f"/>
+                                                                </constraints>
+                                                                <state key="normal" image="roe">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="resultButtonPressed:" destination="Hhr-ev-fTh" eventType="touchUpInside" id="fHg-O4-Aa0"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="50" id="5hk-sW-OA9"/>
+                                                        </constraints>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="2Da-fR-7gg" userLabel="K O FC SAC stack">
+                                                        <rect key="frame" x="62" y="0.0" width="50" height="209"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ay4-aH-TVW" customClass="AtBatButton" customModule="Stats" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="50" height="40"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="Ay4-aH-TVW" secondAttribute="height" multiplier="1.25" id="ILd-iZ-ccu"/>
+                                                                </constraints>
+                                                                <state key="normal" image="k">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="resultButtonPressed:" destination="Hhr-ev-fTh" eventType="touchUpInside" id="mjj-X7-NTU"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lck-Lo-UDN" customClass="AtBatButton" customModule="Stats" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="56" width="50" height="41.5"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="Lck-Lo-UDN" secondAttribute="height" multiplier="1.2" id="xpb-cM-sI3"/>
+                                                                </constraints>
+                                                                <state key="normal" image="out">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="resultButtonPressed:" destination="Hhr-ev-fTh" eventType="touchUpInside" id="mUb-eW-dGG"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A99-DD-Joy" userLabel="FC Button" customClass="AtBatButton" customModule="Stats" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="113" width="50" height="40"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="A99-DD-Joy" secondAttribute="height" multiplier="1.25" id="uHG-q6-hvP"/>
+                                                                </constraints>
+                                                                <state key="normal" image="fc">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="resultButtonPressed:" destination="Hhr-ev-fTh" eventType="touchUpInside" id="QXx-Bb-nMS"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fPK-d4-csV" userLabel="Sac Button" customClass="AtBatButton" customModule="Stats" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="169" width="50" height="40"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="fPK-d4-csV" secondAttribute="height" multiplier="1.25" id="sox-4S-ieP"/>
+                                                                </constraints>
+                                                                <state key="normal" image="sac">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="resultButtonPressed:" destination="Hhr-ev-fTh" eventType="touchUpInside" id="2wQ-sU-hFg"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="50" id="4HY-TS-G9S"/>
+                                                        </constraints>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="L10-Sc-SsQ" firstAttribute="height" secondItem="aet-91-cO3" secondAttribute="height" multiplier="0.95" id="6ck-0I-Ra6"/>
-                                            <constraint firstItem="25n-5K-B3x" firstAttribute="width" secondItem="10t-Cj-b9M" secondAttribute="width" id="GLD-dQ-u6K"/>
-                                            <constraint firstItem="38c-Qz-rYm" firstAttribute="height" secondItem="aet-91-cO3" secondAttribute="height" id="MrA-ba-3uU"/>
-                                            <constraint firstItem="25n-5K-B3x" firstAttribute="height" secondItem="aet-91-cO3" secondAttribute="height" id="eRx-Yc-CoY"/>
-                                            <constraint firstItem="1AZ-hK-u4a" firstAttribute="height" secondItem="aet-91-cO3" secondAttribute="height" id="ebO-ng-J0f"/>
+                                            <constraint firstItem="10t-Cj-b9M" firstAttribute="width" secondItem="MHV-P8-CMV" secondAttribute="width" multiplier="0.55" id="uc1-t7-gI1"/>
                                         </constraints>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w9B-lg-Nks" userLabel="ITP view">
                                         <rect key="frame" x="0.0" y="265" width="375" height="40"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CBF-UJ-TsX">
-                                                <rect key="frame" x="16" y="0.0" width="351" height="40"/>
+                                                <rect key="frame" x="16" y="0.5" width="351" height="40"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In the park?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdu-1k-dJv">
                                                         <rect key="frame" x="0.0" y="0.0" width="311" height="40"/>
@@ -154,6 +259,9 @@
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="trailStrokeColor">
                                                                 <color key="value" red="0.64856451749999999" green="0.77474325899999996" blue="0.22945481540000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
+                                                                <real key="value" value="3"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
@@ -172,61 +280,8 @@
                                             <constraint firstItem="CBF-UJ-TsX" firstAttribute="leading" secondItem="w9B-lg-Nks" secondAttribute="leading" constant="16" id="yYy-Zj-vl5"/>
                                         </constraints>
                                     </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="2Da-fR-7gg" userLabel="WKOutROE stack">
-                                        <rect key="frame" x="19" y="321" width="337.5" height="45"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s8E-ce-FaX" customClass="AtBatButton" customModule="Stats" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="54" height="45"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="s8E-ce-FaX" secondAttribute="height" multiplier="1.2" id="U1w-WV-P1p"/>
-                                                </constraints>
-                                                <state key="normal" image="w">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="resultButtonPressed:" destination="Hhr-ev-fTh" eventType="touchUpInside" id="W65-v1-HHb"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1RR-MV-Rs4" userLabel="roe" customClass="AtBatButton" customModule="Stats" customModuleProvider="target">
-                                                <rect key="frame" x="90.5" y="0.0" width="60" height="45"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="1RR-MV-Rs4" secondAttribute="height" multiplier="4/3" id="A5e-Le-91f"/>
-                                                </constraints>
-                                                <state key="normal" image="roe">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="resultButtonPressed:" destination="Hhr-ev-fTh" eventType="touchUpInside" id="fHg-O4-Aa0"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ay4-aH-TVW" customClass="AtBatButton" customModule="Stats" customModuleProvider="target">
-                                                <rect key="frame" x="187" y="0.0" width="53.5" height="45"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="Ay4-aH-TVW" secondAttribute="height" multiplier="1.2" id="ILd-iZ-ccu"/>
-                                                </constraints>
-                                                <state key="normal" image="k">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="resultButtonPressed:" destination="Hhr-ev-fTh" eventType="touchUpInside" id="mjj-X7-NTU"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lck-Lo-UDN" customClass="AtBatButton" customModule="Stats" customModuleProvider="target">
-                                                <rect key="frame" x="277.5" y="0.0" width="60" height="45"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="Lck-Lo-UDN" secondAttribute="height" multiplier="4/3" id="xpb-cM-sI3"/>
-                                                </constraints>
-                                                <state key="normal" image="out">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="resultButtonPressed:" destination="Hhr-ev-fTh" eventType="touchUpInside" id="mUb-eW-dGG"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="QQ4-ef-Bh8" userLabel="rbis stack">
-                                        <rect key="frame" x="16" y="382" width="343" height="30"/>
+                                        <rect key="frame" x="16" y="321" width="343" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="RBIs:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exg-aX-EEf">
                                                 <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
@@ -249,31 +304,33 @@
                                             <constraint firstAttribute="height" constant="30" id="9K5-DK-6yH"/>
                                         </constraints>
                                     </stackView>
-                                    <view contentMode="scaleToFill" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="lig-Pv-rx7" userLabel="Outs View">
-                                        <rect key="frame" x="0.0" y="428" width="375" height="76"/>
+                                    <view contentMode="scaleToFill" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lig-Pv-rx7" userLabel="Outs View">
+                                        <rect key="frame" x="0.0" y="367" width="375" height="68"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="HuR-Xx-vOY" userLabel="outs stack">
-                                                <rect key="frame" x="16" y="20" width="343" height="36"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="HuR-Xx-vOY" userLabel="outs stack">
+                                                <rect key="frame" x="16" y="16" width="343" height="36"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Outs:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hih-cn-tqi">
-                                                        <rect key="frame" x="0.0" y="6.5" width="51" height="23"/>
-                                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="36"/>
+                                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MUD-M1-E50">
-                                                        <rect key="frame" x="112.5" y="0.0" width="36" height="36"/>
+                                                        <rect key="frame" x="118.5" y="0.0" width="36" height="36"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="MUD-M1-E50" secondAttribute="height" id="a86-pW-e57"/>
                                                             <constraint firstAttribute="height" constant="36" id="ya1-Y6-mZ3"/>
                                                         </constraints>
+                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                         <state key="normal" image="x"/>
                                                         <connections>
                                                             <action selector="outButtonPressed:" destination="Hhr-ev-fTh" eventType="touchUpInside" id="2FG-cZ-9vW"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ieP-9M-HbA">
-                                                        <rect key="frame" x="209.5" y="0.0" width="36" height="36"/>
+                                                        <rect key="frame" x="212.5" y="0.0" width="36" height="36"/>
+                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                         <state key="normal" image="x"/>
                                                         <connections>
                                                             <action selector="outButtonPressed:" destination="Hhr-ev-fTh" eventType="touchUpInside" id="HRZ-4G-b6S"/>
@@ -281,6 +338,7 @@
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pis-wM-JqY">
                                                         <rect key="frame" x="307" y="0.0" width="36" height="36"/>
+                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                         <state key="normal" image="x"/>
                                                         <connections>
                                                             <action selector="outButtonPressed:" destination="Hhr-ev-fTh" eventType="touchUpInside" id="fvV-jm-29E"/>
@@ -298,12 +356,21 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="HuR-Xx-vOY" secondAttribute="trailing" constant="16" id="0Tk-gX-FoL"/>
+                                            <constraint firstAttribute="bottom" secondItem="HuR-Xx-vOY" secondAttribute="bottom" constant="16" id="PT0-Sw-6jN"/>
                                             <constraint firstItem="HuR-Xx-vOY" firstAttribute="leading" secondItem="lig-Pv-rx7" secondAttribute="leading" constant="16" id="Zlx-tb-sab"/>
-                                            <constraint firstItem="HuR-Xx-vOY" firstAttribute="centerY" secondItem="lig-Pv-rx7" secondAttribute="centerY" id="xNx-aQ-yb1"/>
+                                            <constraint firstItem="HuR-Xx-vOY" firstAttribute="top" secondItem="lig-Pv-rx7" secondAttribute="top" constant="16" id="vlb-HM-YmA"/>
                                         </constraints>
                                     </view>
+                                    <view contentMode="scaleToFill" verticalHuggingPriority="200" translatesAutoresizingMaskIntoConstraints="NO" id="OfN-QA-A90">
+                                        <rect key="frame" x="0.0" y="451" width="375" height="120"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="ZMc-2R-Xq4" appends="YES" id="CSU-0T-VGb"/>
+                                        </connections>
+                                    </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="XuV-qA-7Qf" userLabel="Bottom stack">
-                                        <rect key="frame" x="0.0" y="520" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="587" width="375" height="44"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ryf-Qd-WIv">
                                                 <rect key="frame" x="0.0" y="0.0" width="122.5" height="44"/>
@@ -355,12 +422,11 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="2Da-fR-7gg" firstAttribute="height" secondItem="aet-91-cO3" secondAttribute="height" multiplier="0.7" id="5af-Cm-yaO"/>
-                                    <constraint firstItem="2Da-fR-7gg" firstAttribute="width" secondItem="xz9-1y-zVm" secondAttribute="width" multiplier="0.9" id="Gou-a7-sKO"/>
-                                    <constraint firstItem="10t-Cj-b9M" firstAttribute="width" secondItem="xz9-1y-zVm" secondAttribute="width" multiplier="0.55" id="IoF-6Z-iV4"/>
+                                    <constraint firstItem="MHV-P8-CMV" firstAttribute="width" secondItem="xz9-1y-zVm" secondAttribute="width" constant="-40" id="Hz1-8x-CP8"/>
                                     <constraint firstItem="XuV-qA-7Qf" firstAttribute="width" secondItem="xz9-1y-zVm" secondAttribute="width" id="JL3-cN-b1z"/>
                                     <constraint firstItem="hsr-yZ-orh" firstAttribute="width" secondItem="xz9-1y-zVm" secondAttribute="width" constant="-16" id="QhL-JK-Qza"/>
                                     <constraint firstItem="w9B-lg-Nks" firstAttribute="width" secondItem="xz9-1y-zVm" secondAttribute="width" id="VXj-Vy-H3V"/>
+                                    <constraint firstItem="OfN-QA-A90" firstAttribute="width" secondItem="xz9-1y-zVm" secondAttribute="width" id="WTn-cv-KCI"/>
                                     <constraint firstItem="QQ4-ef-Bh8" firstAttribute="width" secondItem="xz9-1y-zVm" secondAttribute="width" constant="-32" id="cCj-1z-Lv2"/>
                                     <constraint firstItem="lig-Pv-rx7" firstAttribute="width" secondItem="xz9-1y-zVm" secondAttribute="width" id="i6r-Zj-STc"/>
                                 </constraints>
@@ -374,12 +440,11 @@
                             <constraint firstItem="xz9-1y-zVm" firstAttribute="top" secondItem="F6g-Sd-PS3" secondAttribute="bottom" constant="16" id="yMa-kk-X2a"/>
                         </constraints>
                     </view>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="600"/>
                     <connections>
                         <outlet property="currentPlayerLabel" destination="x4Y-ev-Yur" id="nIz-c0-Nc6"/>
                         <outlet property="deleteButton" destination="ryf-Qd-WIv" id="5LV-vr-gmr"/>
                         <outlet property="doubleButton" destination="aet-91-cO3" id="a9B-T7-SxQ"/>
+                        <outlet property="fieldersChoiceButton" destination="A99-DD-Joy" id="FBn-Fv-P4K"/>
                         <outlet property="hrButton" destination="L10-Sc-SsQ" id="s5g-SK-iKA"/>
                         <outlet property="inTheParkSwitch" destination="Ase-Ba-IWG" id="40a-dA-x8q"/>
                         <outlet property="inTheParkView" destination="w9B-lg-Nks" id="K00-Wr-pcS"/>
@@ -389,6 +454,7 @@
                         <outlet property="previousPlayerLabel" destination="P4E-Op-Po7" id="bAp-b6-E6D"/>
                         <outlet property="rbisSegControl" destination="XR1-0e-nT5" id="PZ3-1i-umo"/>
                         <outlet property="roeButton" destination="1RR-MV-Rs4" id="fbU-6J-9Sj"/>
+                        <outlet property="sacButton" destination="fPK-d4-csV" id="5uX-8g-Re0"/>
                         <outlet property="saveButton" destination="SLb-Bl-f4t" id="lkw-PA-Uxi"/>
                         <outlet property="saveNextButton" destination="re8-1O-Nog" id="n3n-lH-MJh"/>
                         <outlet property="singleButton" destination="1AZ-hK-u4a" id="LXh-EH-Nai"/>
@@ -401,16 +467,23 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Idb-b9-Ymv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ZMc-2R-Xq4">
+                    <connections>
+                        <action selector="bottomViewTapped:" destination="Hhr-ev-fTh" id="mM9-cV-46f"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-55.200000000000003" y="256.37181409295357"/>
         </scene>
     </scenes>
     <resources>
         <image name="double" width="122" height="122"/>
+        <image name="fc" width="98" height="88"/>
         <image name="hr" width="100" height="100"/>
         <image name="k" width="88" height="88"/>
         <image name="out" width="113" height="88"/>
         <image name="roe" width="113" height="88"/>
+        <image name="sac" width="113" height="88"/>
         <image name="single" width="122" height="122"/>
         <image name="triple" width="122" height="122"/>
         <image name="w" width="88" height="88"/>

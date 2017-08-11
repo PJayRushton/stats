@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13168.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Fe0-L2-bmy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Fe0-L2-bmy">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13147.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -32,19 +32,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9ql-Cu-9WG">
-                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="579"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="6Mu-gt-bXw" userLabel="Team &amp; Score stack">
                                         <rect key="frame" x="16" y="0.0" width="343" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OP" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="2W3-Nk-rAB">
-                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="103.5" height="50"/>
                                                 <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="SPf-WQ-mH5" customClass="LTMorphingLabel" customModule="LTMorphingLabel">
-                                                <rect key="frame" x="-16" y="0.0" width="0.0" height="50"/>
+                                                <rect key="frame" x="119.5" y="0.0" width="104" height="50"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="J5y-mq-mNo"/>
@@ -54,7 +54,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="cdM-sS-RD6">
-                                                <rect key="frame" x="-16" y="0.0" width="0.0" height="50"/>
+                                                <rect key="frame" x="239.5" y="0.0" width="103.5" height="50"/>
                                                 <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -77,10 +77,10 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="6Tk-eg-njL">
-                                        <rect key="frame" x="17.5" y="66" width="340.5" height="113"/>
+                                        <rect key="frame" x="17.5" y="66" width="340.5" height="69"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="YZz-sW-GRL" userLabel="Inning stack">
-                                                <rect key="frame" x="0.0" y="44" width="128.5" height="25"/>
+                                                <rect key="frame" x="0.0" y="22" width="128.5" height="25"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Inning" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C0J-18-7tR" customClass="LTMorphingLabel" customModule="LTMorphingLabel">
                                                         <rect key="frame" x="0.0" y="0.0" width="69" height="25"/>
@@ -100,7 +100,7 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="G3j-PF-5QQ" userLabel="outs stack">
-                                                <rect key="frame" x="160.5" y="43" width="180" height="27"/>
+                                                <rect key="frame" x="160.5" y="21" width="180" height="27"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Outs:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vum-Rm-j0t">
                                                         <rect key="frame" x="0.0" y="0.0" width="60" height="27"/>
@@ -154,14 +154,14 @@
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b7g-xC-dch" userLabel="Spacer view">
-                                        <rect key="frame" x="0.0" y="179" width="375" height="16"/>
+                                        <rect key="frame" x="0.0" y="135" width="375" height="16"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="r6i-Hi-VgG"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Oa-dL-ZFd" userLabel="Player picker holder">
-                                        <rect key="frame" x="0.0" y="195" width="375" height="42"/>
+                                        <rect key="frame" x="0.0" y="151" width="375" height="42"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uF9-DD-9dm" customClass="AKPickerView" customModule="Stats" customModuleProvider="target">
                                                 <rect key="frame" x="16" y="0.0" width="343" height="36"/>
@@ -195,14 +195,14 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OWD-bd-57B" userLabel="Spacer view">
-                                        <rect key="frame" x="0.0" y="237" width="375" height="16"/>
+                                        <rect key="frame" x="0.0" y="193" width="375" height="16"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="Tgj-K1-M3j"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Tq-zx-PVJ" userLabel="New at bat view">
-                                        <rect key="frame" x="0.0" y="253" width="375" height="55"/>
+                                        <rect key="frame" x="0.0" y="209" width="375" height="55"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="zU9-2Y-erZ">
                                                 <rect key="frame" x="91.5" y="8" width="192.5" height="39"/>
@@ -238,7 +238,7 @@
                                         </connections>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Eej-ST-WO7">
-                                        <rect key="frame" x="0.0" y="308" width="375" height="315"/>
+                                        <rect key="frame" x="0.0" y="264" width="375" height="315"/>
                                         <color key="backgroundColor" red="0.92495459319999995" green="0.94122463460000005" blue="0.94532805679999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8Rr-kv-Tf2">
                                             <size key="itemSize" width="50" height="50"/>
@@ -281,6 +281,7 @@
                         <outlet property="collectionView" destination="Eej-ST-WO7" id="lIZ-sG-uUH"/>
                         <outlet property="homeTeamLabel" destination="cdM-sS-RD6" id="Xi2-Op-8LF"/>
                         <outlet property="inningLabel" destination="iZi-AT-nA1" id="6Sw-0L-1sa"/>
+                        <outlet property="inningOutStack" destination="6Tk-eg-njL" id="BWW-QU-if4"/>
                         <outlet property="newAtBatView" destination="8Tq-zx-PVJ" id="jVP-DB-IFz"/>
                         <outlet property="playerPickerView" destination="uF9-DD-9dm" id="mcN-Mf-VeC"/>
                         <outlet property="scoreLabel" destination="SPf-WQ-mH5" id="dEP-nB-PJH"/>

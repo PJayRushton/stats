@@ -255,7 +255,7 @@ extension RosterViewController {
     }
     
     fileprivate func presentOptions(for player: Player) {
-        let alert = UIAlertController(title: "Actions for: \(player.name)", message: player.phone, preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: player.name, message: player.phone, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         if let currentUser = core.state.userState.currentUser, let team = core.state.teamState.currentTeam, currentUser.isOwnerOrManager(of: team) {

@@ -36,6 +36,7 @@ class AtBatCreationViewController: Component, AutoStoryboardInitializable {
     @IBOutlet weak var outsStack: UIStackView!
     @IBOutlet var outButtons: [UIButton]!
     @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var saveButton: CustomButton!
     @IBOutlet weak var saveNextButton: CustomButton!
     
@@ -146,7 +147,7 @@ class AtBatCreationViewController: Component, AutoStoryboardInitializable {
         saveAtBat(next: true)
     }
     
-    @IBAction func bottomViewTapped(_ sender: UITapGestureRecognizer) {
+    @IBAction func dismiss(_ sender: Any) {
         dismiss(animated: false, completion: nil)
     }
     

@@ -20,11 +20,8 @@ import Presentr
 
 final class LoadingImageViewController: Component, AutoStoryboardInitializable {
     
-    @IBOutlet weak var atLabel: UILabel!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        atLabel.rotate()
     }
     
     override func update(with state: AppState) {

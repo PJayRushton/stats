@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="LemonMilk.otf">
-            <string>LemonMilk</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Loading Image View Controller-->
         <scene sceneID="24X-WG-V2m">
@@ -28,50 +22,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stock1" translatesAutoresizingMaskIntoConstraints="NO" id="7dL-JM-Uez">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch" translatesAutoresizingMaskIntoConstraints="NO" id="7dL-JM-Uez">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ClA-TE-LLa">
-                                <rect key="frame" x="135" y="20" width="105" height="140.5"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pyq-0d-nXJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="105" height="80"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yZR-HS-GTH">
-                                        <rect key="frame" x="0.0" y="80" width="105" height="60.5"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" text="St" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDH-sv-0qX">
-                                                <rect key="frame" x="0.0" y="0.0" width="58" height="60.5"/>
-                                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="50"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" text="@" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Iq-65-fwt">
-                                                <rect key="frame" x="58" y="0.0" width="47" height="60.5"/>
-                                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="45"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="ClA-TE-LLa" firstAttribute="centerX" secondItem="b2u-qD-HKY" secondAttribute="centerX" id="45Q-TJ-bYy"/>
                             <constraint firstItem="7dL-JM-Uez" firstAttribute="leading" secondItem="b2u-qD-HKY" secondAttribute="leading" id="Avl-Dn-hzE"/>
                             <constraint firstItem="60c-kk-M3F" firstAttribute="top" secondItem="7dL-JM-Uez" secondAttribute="bottom" id="EO1-6a-opa"/>
                             <constraint firstItem="7dL-JM-Uez" firstAttribute="top" secondItem="b2u-qD-HKY" secondAttribute="topMargin" id="ax3-So-QhM"/>
-                            <constraint firstItem="pyq-0d-nXJ" firstAttribute="height" secondItem="b2u-qD-HKY" secondAttribute="height" multiplier="0.12" constant="0.10000000000000001" id="euM-Ig-9Qa"/>
                             <constraint firstAttribute="trailing" secondItem="7dL-JM-Uez" secondAttribute="trailing" id="hnY-Fw-JQs"/>
-                            <constraint firstItem="ClA-TE-LLa" firstAttribute="top" secondItem="EKP-mk-bmS" secondAttribute="bottom" id="iW4-Dj-P8e"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="atLabel" destination="4Iq-65-fwt" id="gw2-K0-zv0"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vcv-2m-DvR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -79,6 +41,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="stock1" width="312" height="552"/>
+        <image name="launch" width="416" height="736"/>
     </resources>
 </document>

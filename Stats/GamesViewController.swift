@@ -12,7 +12,6 @@ class GamesViewController: Component, AutoStoryboardInitializable {
 
     // MARK: - IBOutlets
 
-    @IBOutlet weak var plusButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet var emptyStateView: UIView!
     @IBOutlet weak var emptyStateLabel: UILabel!
@@ -65,7 +64,7 @@ class GamesViewController: Component, AutoStoryboardInitializable {
         
         if new {
             new = false
-            presentNewGameVC(animated: true)
+            presentNewGameVC()
         }
         core.fire(command: UpdateStats())
         core.fire(event: StatGameUpdated(game: nil))
@@ -79,14 +78,14 @@ class GamesViewController: Component, AutoStoryboardInitializable {
 
     // MARK: - IBActions
 
-    @IBAction func plusButtonPressed(_ sender: UIBarButtonItem) {
+    @IBAction func createNewGame() {
         tapper.selectionChanged()
-        presentNewGameVC(animated: true)
+        presentNewGameVC()
     }
     
     @IBAction func emptyStateNewGamePressed(_ sender: UIButton) {
         tapper.selectionChanged()
-        plusButtonPressed(plusButton)
+        createNewGame()
     }
     
     
@@ -115,10 +114,10 @@ class GamesViewController: Component, AutoStoryboardInitializable {
 
 extension GamesViewController {
  
-    fileprivate func presentNewGameVC(animated: Bool) {
+    fileprivate func presentNewGameVC() {
         let newGameVC = GameCreationViewController.initializeFromStoryboard().embededInNavigationController
         newGameVC.modalPresentationStyle = .overFullScreen
-        present(newGameVC, animated: animated, completion: nil)
+        present(newGameVC, animated: true, completion: nil)
     }
 
     fileprivate func pushDetail() {

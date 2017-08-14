@@ -39,7 +39,7 @@ class PlayerCell: UITableViewCell, AutoReuseIdentifiable {
         
         var nameText = player.displayName
         if let jerseyString = player.jerseyNumber {
-            nameText += " (\(jerseyString))"
+            nameText += " - \(jerseyString)"
         }
         if let phone = player.phone, !phone.isEmpty {
             nameText += " 📱"

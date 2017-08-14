@@ -68,6 +68,7 @@ class GamesViewController: Component, AutoStoryboardInitializable {
             presentNewGameVC(animated: true)
         }
         core.fire(command: UpdateStats())
+        core.fire(event: StatGameUpdated(game: nil))
     }
     
     override func viewDidDisappear(_ animated: Bool) {

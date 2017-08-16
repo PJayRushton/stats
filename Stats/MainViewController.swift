@@ -35,7 +35,7 @@ class MainViewController: Component {
         if let _ = userState.iCloudId, userState.isLoaded, state.teamState.isSubscribed {
             if let currentUser = userState.currentUser, !currentUser.allTeamIds.isEmpty, state.teamState.currentTeam == nil {
                 showLoadingScreen()
-            } else {
+            } else { 
                 presentApplication()
             }
         } else {

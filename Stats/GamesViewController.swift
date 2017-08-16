@@ -26,7 +26,6 @@ class GamesViewController: Component, AutoStoryboardInitializable {
     fileprivate var ongoingGames: [Game] {
         return core.state.gameState.currentOngoingGames
     }
-    
     fileprivate var regularSeasonGames: [Game] {
         return core.state.gameState.currentGames(regularSeason: true)
     }
@@ -89,7 +88,8 @@ class GamesViewController: Component, AutoStoryboardInitializable {
     }
     
     @IBAction func calendarButtonPressed(_ sender: Any) {
-        core.fire(command: AddGamesToCalendar(games: regularSeasonGames))
+        let gamesToAdd = core.state.gameState.currentGames
+        core.fire(command: AddGamesToCalendar(games: gamesToAdd))
     }
     
     

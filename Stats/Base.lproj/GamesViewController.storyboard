@@ -233,6 +233,12 @@
                     </view>
                     <navigationItem key="navigationItem" title="Games" id="LGt-nQ-gHo">
                         <barButtonItem key="backBarButtonItem" title=" " id="FWF-oP-8c0"/>
+                        <barButtonItem key="rightBarButtonItem" image="calendar" id="9mq-NU-3og">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="calendarButtonPressed:" destination="X8O-oI-RP3" id="bSb-mJ-NxS"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>

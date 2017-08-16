@@ -88,6 +88,10 @@ class GamesViewController: Component, AutoStoryboardInitializable {
         createNewGame()
     }
     
+    @IBAction func calendarButtonPressed(_ sender: Any) {
+        core.fire(command: AddGamesToCalendar(games: regularSeasonGames))
+    }
+    
     
     // MARK: - Subscriber
     

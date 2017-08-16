@@ -36,6 +36,8 @@
 	</dict>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCalendarsUsageDescription</key>
+	<string>St@s needs access to your calendar to be able to add games to your schedule</string>
 	<key>NSCameraUsageDescription</key>
 	<string>St@ needs access to your camera to take sweet pics of you and your team!</string>
 	<key>NSContactsUsageDescription</key>

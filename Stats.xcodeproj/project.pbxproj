@@ -10,6 +10,7 @@
 		361B76C61F0AD2DA00CFC0DA /* Prefetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361B76C51F0AD2DA00CFC0DA /* Prefetch.swift */; };
 		364FFAEE1EA9A15600CD26F9 /* EventBetterSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364FFAED1EA9A15600CD26F9 /* EventBetterSegmentedControl.swift */; };
 		364FFAF01EA9F1B000CD26F9 /* DeleteGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364FFAEF1EA9F1B000CD26F9 /* DeleteGame.swift */; };
+		368350111F43C80700800B08 /* AddGamesToCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368350101F43C80700800B08 /* AddGamesToCalendar.swift */; };
 		369094291F2F78AA00D11D3F /* UpdateStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369094281F2F78AA00D11D3F /* UpdateStats.swift */; };
 		3690942B1F2F894A00D11D3F /* UpdateAtBatCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3690942A1F2F894A00D11D3F /* UpdateAtBatCount.swift */; };
 		36AB0AAC1EB3CAA90058F0E4 /* SetObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AB0AAB1EB3CAA90058F0E4 /* SetObject.swift */; };
@@ -178,6 +179,7 @@
 		361B76C51F0AD2DA00CFC0DA /* Prefetch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prefetch.swift; sourceTree = "<group>"; };
 		364FFAED1EA9A15600CD26F9 /* EventBetterSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventBetterSegmentedControl.swift; sourceTree = "<group>"; };
 		364FFAEF1EA9F1B000CD26F9 /* DeleteGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteGame.swift; sourceTree = "<group>"; };
+		368350101F43C80700800B08 /* AddGamesToCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddGamesToCalendar.swift; sourceTree = "<group>"; };
 		369094281F2F78AA00D11D3F /* UpdateStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateStats.swift; sourceTree = "<group>"; };
 		3690942A1F2F894A00D11D3F /* UpdateAtBatCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAtBatCount.swift; sourceTree = "<group>"; };
 		36AB0AAB1EB3CAA90058F0E4 /* SetObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetObject.swift; sourceTree = "<group>"; };
@@ -428,6 +430,7 @@
 		A179997E1E82B9540058A002 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				368350101F43C80700800B08 /* AddGamesToCalendar.swift */,
 				A1426B9C1EA8586E00AAABB3 /* AKPickerView.swift */,
 				A1D67D421E8FE3A000200B65 /* Appearance.swift */,
 				A16D41831E9838FD00DE01D4 /* ApplyShadow.swift */,
@@ -914,6 +917,7 @@
 				A17999701E82B67C0058A002 /* LoadICloudUser.swift in Sources */,
 				A1E5AE5D1EAA59C70046131B /* Chameleon.swift in Sources */,
 				A1CD9A121E8A9C2400D3C8F7 /* AtBatState.swift in Sources */,
+				368350111F43C80700800B08 /* AddGamesToCalendar.swift in Sources */,
 				A1A2C35E1E8BF3680008274F /* Component.swift in Sources */,
 				A17EF6D01E941D8700DEE4ED /* SubscribeToTeam.swift in Sources */,
 				A1B65DD41EB0FB0E009983E1 /* Trophy.swift in Sources */,

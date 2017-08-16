@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import EventKit
 import Firebase
 import Marshal
 
@@ -134,4 +135,27 @@ extension Game {
         return StatsRefs.gamesRef(teamId: teamId).child(id)
     }
     
+}
+
+extension Game: EventRepresentable {
+    
+    func calendarEvent() -> EKEvent {
+        let store = CalendarHelper.shared.eventStore
+        let event = EKEvent(eventStore: store)
+        event.startDate = date
+        event.location = location
+        event.calendar  = store.defaultCalendarForNewEvents
+        guard let team = App.core.state.teamState.currentTeam else { return event }
+        let endDate = Calendar.current.date(byAdding: .minute, value: team.normalDuration, to: date)!
+        event.endDate = endDate
+        let homeAwayString = isHome ? "Home" : "Visitor"
+        event.title = "\(team.name) game against \(opponent) - \(homeAwayString)"
+        
+        return event
+    }
+    
+}
+
+protocol EventRepresentable {
+    func calendarEvent() -> EKEvent
 }

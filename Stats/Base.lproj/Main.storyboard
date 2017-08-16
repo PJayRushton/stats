@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hDZ-v0-TRa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hDZ-v0-TRa">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="LemonMilk.otf">
-            <string>LemonMilk</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Main View Controller-->
         <scene sceneID="478-BR-gSK">
@@ -27,34 +22,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stock1" translatesAutoresizingMaskIntoConstraints="NO" id="bIl-2g-nVT">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch" translatesAutoresizingMaskIntoConstraints="NO" id="bIl-2g-nVT">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" red="0.90747958419999997" green="0.29695275430000001" blue="0.23558339480000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="u30-Aa-mWP">
-                                <rect key="frame" x="133" y="20" width="110" height="147.5"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F24-IL-mnO">
-                                        <rect key="frame" x="0.0" y="0.0" width="110" height="80"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="80" id="gZ1-Hb-k1x"/>
-                                        </constraints>
-                                    </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="St@" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IlR-Xn-dxZ">
-                                        <rect key="frame" x="0.0" y="80" width="110" height="67.5"/>
-                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="50"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="bIl-2g-nVT" firstAttribute="top" secondItem="HIe-jo-sx8" secondAttribute="topMargin" id="EgK-QV-ih1"/>
-                            <constraint firstItem="u30-Aa-mWP" firstAttribute="centerX" secondItem="HIe-jo-sx8" secondAttribute="centerX" id="Gzg-vW-hkE"/>
-                            <constraint firstItem="u30-Aa-mWP" firstAttribute="top" secondItem="gDR-92-1eY" secondAttribute="bottom" id="RaA-vd-25i"/>
                             <constraint firstItem="bIl-2g-nVT" firstAttribute="leading" secondItem="HIe-jo-sx8" secondAttribute="leading" id="b8U-kC-vGQ"/>
                             <constraint firstAttribute="trailing" secondItem="bIl-2g-nVT" secondAttribute="trailing" id="gXz-Md-KFk"/>
                             <constraint firstItem="ePY-Cb-KZ5" firstAttribute="top" secondItem="bIl-2g-nVT" secondAttribute="bottom" id="z8g-hs-2ak"/>
@@ -67,6 +42,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="stock1" width="312" height="552"/>
+        <image name="launch" width="416" height="736"/>
     </resources>
 </document>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -25,13 +25,19 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch" translatesAutoresizingMaskIntoConstraints="NO" id="7dL-JM-Uez">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="IXc-ai-eu0">
+                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                                <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="7dL-JM-Uez" firstAttribute="leading" secondItem="b2u-qD-HKY" secondAttribute="leading" id="Avl-Dn-hzE"/>
                             <constraint firstItem="60c-kk-M3F" firstAttribute="top" secondItem="7dL-JM-Uez" secondAttribute="bottom" id="EO1-6a-opa"/>
                             <constraint firstItem="7dL-JM-Uez" firstAttribute="top" secondItem="b2u-qD-HKY" secondAttribute="topMargin" id="ax3-So-QhM"/>
+                            <constraint firstItem="IXc-ai-eu0" firstAttribute="centerY" secondItem="7dL-JM-Uez" secondAttribute="centerY" id="bHn-Z3-D3E"/>
                             <constraint firstAttribute="trailing" secondItem="7dL-JM-Uez" secondAttribute="trailing" id="hnY-Fw-JQs"/>
+                            <constraint firstItem="IXc-ai-eu0" firstAttribute="centerX" secondItem="7dL-JM-Uez" secondAttribute="centerX" id="sqC-gj-YLY"/>
                         </constraints>
                     </view>
                 </viewController>

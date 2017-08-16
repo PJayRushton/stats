@@ -70,7 +70,7 @@ struct Team: Identifiable, Unmarshaling {
         name = try object.value(for: nameKey)
         shareCode = try object.value(for: shareCodeKey)
         sport = try object.value(for: sportKey)
-        normalDuration = try object.value(for: durationKey)
+        normalDuration = try object.value(for: durationKey) ?? 60
     }
     
     func shareCodeString(ownershipType: TeamOwnershipType) -> String {

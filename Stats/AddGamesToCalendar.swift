@@ -43,7 +43,7 @@ struct AddGamesToCalendar: Command {
             if status == .authorized {
                 do {
                     let events = self.games.flatMap { $0.calendarEvent() }
-                    events.forEach { event in
+                    try events.forEach { event in
                         try self.calendarHelper.eventStore.save(event, span: .thisEvent)
                     }
                 } catch {

@@ -10,6 +10,7 @@ import Foundation
 
 let avatarKey = "avatar"
 let avatarsKey = "avatars"
+let calendarIdKey = "calendarId"
 let currentSeasonIdKey = "currentSeasonId"
 let creationDateKey = "creationDate"
 let dateKey = "date"

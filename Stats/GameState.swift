@@ -7,8 +7,18 @@
 //
 
 import Foundation
+
 struct UpdateRecentlyCompletedGame: Event {
     var game: Game?
+}
+
+struct CalendarGames {
+    var gamesToSave = [Game]()
+    var gamesToEdit = [Game]()
+    
+    var hasSavableGames: Bool {
+        return !gamesToSave.isEmpty || !gamesToEdit.isEmpty
+    }
 }
 
 struct GameState: State {
@@ -17,6 +27,7 @@ struct GameState: State {
     var currentGame: Game?
     var allGamesDict = [String: [Game]]()
     var recentlyCompletedGame: Game?
+    var processedGames: CalendarGames?
     
     mutating func react(to event: Event) {
         switch event {
@@ -33,6 +44,8 @@ struct GameState: State {
             guard var teamGames = allGamesDict[game.teamId], let index = teamGames.index(of: game) else { return }
             teamGames[index] = game
             allGamesDict[game.teamId] = teamGames
+        case let event as Updated<CalendarGames>:
+            processedGames = event.payload
         case let event as Selected<Player>:
             currentPlayer = event.item
         case let event as UpdateRecentlyCompletedGame:

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		361B76C61F0AD2DA00CFC0DA /* Prefetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361B76C51F0AD2DA00CFC0DA /* Prefetch.swift */; };
+		3622C68B1F45D7E000BBCD9E /* UpdateGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3622C68A1F45D7E000BBCD9E /* UpdateGame.swift */; };
+		3622C68D1F45D9C200BBCD9E /* CalendarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3622C68C1F45D9C200BBCD9E /* CalendarService.swift */; };
+		3622C68F1F45D9EF00BBCD9E /* UIAlertAction+Cancel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3622C68E1F45D9EF00BBCD9E /* UIAlertAction+Cancel.swift */; };
 		364FFAEE1EA9A15600CD26F9 /* EventBetterSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364FFAED1EA9A15600CD26F9 /* EventBetterSegmentedControl.swift */; };
 		364FFAF01EA9F1B000CD26F9 /* DeleteGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364FFAEF1EA9F1B000CD26F9 /* DeleteGame.swift */; };
 		368350111F43C80700800B08 /* AddGamesToCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368350101F43C80700800B08 /* AddGamesToCalendar.swift */; };
@@ -177,6 +180,9 @@
 		097AB2DA5C7A85576113EB29 /* Pods_Stats.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stats.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		23340C3D14A1D9E6B1878846 /* Pods-Stats.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stats.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Stats/Pods-Stats.debug.xcconfig"; sourceTree = "<group>"; };
 		361B76C51F0AD2DA00CFC0DA /* Prefetch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prefetch.swift; sourceTree = "<group>"; };
+		3622C68A1F45D7E000BBCD9E /* UpdateGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateGame.swift; sourceTree = "<group>"; };
+		3622C68C1F45D9C200BBCD9E /* CalendarService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarService.swift; sourceTree = "<group>"; };
+		3622C68E1F45D9EF00BBCD9E /* UIAlertAction+Cancel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertAction+Cancel.swift"; sourceTree = "<group>"; };
 		364FFAED1EA9A15600CD26F9 /* EventBetterSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventBetterSegmentedControl.swift; sourceTree = "<group>"; };
 		364FFAEF1EA9F1B000CD26F9 /* DeleteGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteGame.swift; sourceTree = "<group>"; };
 		368350101F43C80700800B08 /* AddGamesToCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddGamesToCalendar.swift; sourceTree = "<group>"; };
@@ -398,6 +404,7 @@
 				3690942A1F2F894A00D11D3F /* UpdateAtBatCount.swift */,
 				A17694A81F3A791700043DAE /* ChangeSeason.swift */,
 				A17694AA1F3A79F900043DAE /* SubscribeToAtBats.swift */,
+				3622C68A1F45D7E000BBCD9E /* UpdateGame.swift */,
 			);
 			name = Commands;
 			sourceTree = "<group>";
@@ -435,6 +442,7 @@
 				A1D67D421E8FE3A000200B65 /* Appearance.swift */,
 				A16D41831E9838FD00DE01D4 /* ApplyShadow.swift */,
 				A1ABAFFA1EA9463900B28A46 /* AtBatButton.swift */,
+				3622C68C1F45D9C200BBCD9E /* CalendarService.swift */,
 				A1E5AE5C1EAA59C70046131B /* Chameleon.swift */,
 				A1A2C35D1E8BF3680008274F /* Component.swift */,
 				A16CA85C1EE301FB002AABBF /* ContactsHelper.swift */,
@@ -452,6 +460,7 @@
 				A17999851E82B98E0058A002 /* StoryboardInitializable.swift */,
 				A17999871E82B9A60058A002 /* UIColorExtension.swift */,
 				A1CD599C1EC9EBEC00D26FD8 /* UIImageView+URL.swift */,
+				3622C68E1F45D9EF00BBCD9E /* UIAlertAction+Cancel.swift */,
 				A128E8E21EC4172100D4CA6D /* UIView+Designable.swift */,
 				A14B64DE1E8D3EC200CBDE92 /* UIViewControllerExtensions.swift */,
 			);
@@ -837,6 +846,7 @@
 			files = (
 				A1B65DBD1EAF9AF9009983E1 /* StatType.swift in Sources */,
 				A1EC56F11ED3228B00A9B592 /* SeasonsViewController.swift in Sources */,
+				3622C68F1F45D9EF00BBCD9E /* UIAlertAction+Cancel.swift in Sources */,
 				A1A2C3691E8C05150008274F /* TeamHeaderSectionController.swift in Sources */,
 				A13AAFE81EE59ACD007D41C3 /* Diffable.swift in Sources */,
 				A1CD599F1EC9F2D100D26FD8 /* GradientView.swift in Sources */,
@@ -882,6 +892,7 @@
 				A1ABAFF91EA9420F00B28A46 /* AtBatCreationViewController.swift in Sources */,
 				A17DC2431EAC90DD00597063 /* Gender.swift in Sources */,
 				A17999881E82B9A60058A002 /* UIColorExtension.swift in Sources */,
+				3622C68B1F45D7E000BBCD9E /* UpdateGame.swift in Sources */,
 				A1CD9A141E8A9C6000D3C8F7 /* PlayerState.swift in Sources */,
 				A1426B9D1EA8586E00AAABB3 /* AKPickerView.swift in Sources */,
 				A1ABAFFD1EA97AF900B28A46 /* ShowMessage.swift in Sources */,
@@ -937,6 +948,7 @@
 				A1A2C3751E8C135E0008274F /* SaveNewUser.swift in Sources */,
 				A14B64F21E8D696800CBDE92 /* AddTeamToUser.swift in Sources */,
 				364FFAF01EA9F1B000CD26F9 /* DeleteGame.swift in Sources */,
+				3622C68D1F45D9C200BBCD9E /* CalendarService.swift in Sources */,
 				A1F959341E8953440087B040 /* Season.swift in Sources */,
 				A1B65DC41EB018C6009983E1 /* Stat.swift in Sources */,
 				A11F0C801ED5C70100F716DA /* CheckEmailAvailability.swift in Sources */,

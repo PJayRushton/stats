@@ -9,48 +9,58 @@
 import Foundation
 import EventKit
 
-struct CalendarHelper {
+struct AddGamesToCalendar: Command {
     
-    static let shared = CalendarHelper()
+    var games: [Game]
     
-    let eventStore = EKEventStore()
-    
-    var authorizationStatus: EKAuthorizationStatus {
-        return EKEventStore.authorizationStatus(for: .event)
+    init(_ games: [Game]) {
+        self.games = games
     }
     
-    func requestCalendarPermission(completion: @escaping (EKAuthorizationStatus) -> Void) {
-        guard authorizationStatus != .authorized else { completion(.authorized); return }
-        eventStore.requestAccess(to: .event) { (granted, error) in
-            if error == nil && granted {
-                completion(.authorized)
-            } else {
-                completion(.denied)
+    func execute(state: AppState, core: Core<AppState>) {
+        do {
+            try games.forEach { game in
+                let calendarEvent = game.calendarEvent()
+                try CalendarService.eventStore.save(calendarEvent, span: .thisEvent)
+                core.fire(command: UpdateGame(game, calendarId: calendarEvent.eventIdentifier))
             }
+        } catch {
+            print("error saving event")
         }
     }
     
 }
 
-struct AddGamesToCalendar: Command {
+struct EditCalendarEventForGames: Command {
     
     var games: [Game]
     
-    private let calendarHelper = CalendarHelper.shared
+    init(_ games: [Game]) {
+        self.games = games
+    }
     
     func execute(state: AppState, core: Core<AppState>) {
-        calendarHelper.requestCalendarPermission { status in
-            if status == .authorized {
-                do {
-                    let events = self.games.flatMap { $0.calendarEvent() }
-                    try events.forEach { event in
-                        try self.calendarHelper.eventStore.save(event, span: .thisEvent)
-                    }
-                } catch {
-                    print("error saving event")
-                }
+        games.forEach { game in
+            guard let calendarId = game.calendarId, let event = CalendarService.eventStore.event(withIdentifier: calendarId) else { return }
+            let updatedEvent = game.calendarEvent(from: event)
+            do {
+                try CalendarService.eventStore.save(updatedEvent, span: .thisEvent)
+            } catch {
+                print("error saving event to calendar")
             }
         }
+    }
+
+}
+
+extension EKEvent: Diffable {
+    
+    func isSame(as other: EKEvent) -> Bool {
+        return startDate == other.startDate &&
+        location == other.location &&
+        calendar == other.calendar &&
+        endDate == other.endDate &&
+        title == other.title
     }
     
 }

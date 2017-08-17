@@ -14,6 +14,7 @@ import Marshal
 struct Game: Identifiable, Unmarshaling, DateComparable {
 
     var id: String
+    var calendarId: String?
     var date: Date
     var inning: Int
     var isCompleted: Bool
@@ -68,6 +69,7 @@ struct Game: Identifiable, Unmarshaling, DateComparable {
     
     init(object: MarshaledObject) throws {
         id = try object.value(for: idKey)
+        calendarId = try object.value(for: calendarIdKey)
         date = try object.value(for: dateKey)
         inning = try object.value(for: inningKey)
         isCompleted = try object.value(for: isCompletedKey)
@@ -90,6 +92,7 @@ extension Game: Marshaling {
     func marshaled() ->JSONObject {
         var json = JSONObject()
         json[idKey] = id
+        json[calendarIdKey] = calendarId
         json[dateKey] = date.iso8601String
         json[inningKey] = inning
         json[isCompletedKey] = isCompleted
@@ -137,14 +140,13 @@ extension Game {
     
 }
 
-extension Game: EventRepresentable {
+extension Game {
     
-    func calendarEvent() -> EKEvent {
-        let store = CalendarHelper.shared.eventStore
-        let event = EKEvent(eventStore: store)
+    func calendarEvent(from event: EKEvent? = nil) -> EKEvent {
+        let event =  event ?? EKEvent(eventStore: CalendarService.eventStore)
         event.startDate = date
         event.location = location
-        event.calendar  = store.defaultCalendarForNewEvents
+        event.calendar  = CalendarService.eventStore.defaultCalendarForNewEvents
         guard let team = App.core.state.teamState.currentTeam else { return event }
         let endDate = Calendar.current.date(byAdding: .minute, value: team.normalDuration, to: date)!
         event.endDate = endDate
@@ -154,8 +156,4 @@ extension Game: EventRepresentable {
         return event
     }
     
-}
-
-protocol EventRepresentable {
-    func calendarEvent() -> EKEvent
 }

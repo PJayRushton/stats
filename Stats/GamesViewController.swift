@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import Presentr
 
 class GamesViewController: Component, AutoStoryboardInitializable {
 
     // MARK: - IBOutlets
-
+    
+    @IBOutlet var calendarButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet var emptyStateView: UIView!
     @IBOutlet weak var emptyStateLabel: UILabel!
@@ -39,7 +41,7 @@ class GamesViewController: Component, AutoStoryboardInitializable {
         return core.state.gameState.currentGames(regularSeason: false).count > 0
     }
     fileprivate let tapper = UISelectionFeedbackGenerator()
-
+    
     
     // MARK: - ViewController Lifecycle
 
@@ -67,6 +69,7 @@ class GamesViewController: Component, AutoStoryboardInitializable {
         }
         core.fire(command: UpdateStats())
         core.fire(event: StatGameUpdated(game: nil))
+        core.fire(command: ProcessGamesForCalendar(from: self))
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -88,14 +91,23 @@ class GamesViewController: Component, AutoStoryboardInitializable {
     }
     
     @IBAction func calendarButtonPressed(_ sender: Any) {
-        let gamesToAdd = core.state.gameState.currentGames
-        core.fire(command: AddGamesToCalendar(games: gamesToAdd))
+        if CalendarService.hasCalendarPermission, let processedGames = core.state.gameState.processedGames {
+            showCalendarResponseAlert(saveGames: processedGames.gamesToSave, dirtyGames: processedGames.gamesToEdit)
+        } else {
+            CalendarService.requestCalendarAccess(completion: { granted in
+                self.core.fire(command: ProcessGamesForCalendar(from: self, completion: { calendarGames in
+                    self.showCalendarResponseAlert(saveGames: calendarGames.gamesToSave, dirtyGames: calendarGames.gamesToEdit)
+                }))
+            })
+        }
     }
     
     
     // MARK: - Subscriber
     
     override func update(with state: AppState) {
+        let hasCalendarAction = !CalendarService.hasCalendarPermission || state.gameState.processedGames?.hasSavableGames == true
+        navigationItem.rightBarButtonItem = hasCalendarAction ? calendarButton : nil
         tableView.backgroundView = tableIsEmpty ? emptyStateView : nil
         tableView.reloadData()
         
@@ -145,6 +157,67 @@ extension GamesViewController {
     fileprivate func pushStats() {
         let statsVC = StatsViewController.initializeFromStoryboard()
         navigationController?.pushViewController(statsVC, animated: true)
+    }
+    
+    fileprivate func showCalendarResponseAlert(saveGames: [Game], dirtyGames: [Game]) {
+        if saveGames.isEmpty && dirtyGames.isEmpty {
+            showCalendarUpToDateAlert()
+            return
+        }
+        var message = "I found "
+        let hasGamesToSave = !saveGames.isEmpty
+        let hasDirtyGames = !dirtyGames.isEmpty
+        
+        if hasGamesToSave {
+            message += "\(saveGames.count) new games to add"
+        }
+        if hasDirtyGames {
+            if !saveGames.isEmpty {
+                message += " & "
+            }
+            message += "\(dirtyGames.count) games that need to be updated"
+        }
+        
+        let alert = UIAlertController(title: "Calendar updates", message: message, preferredStyle: .actionSheet)
+        
+        if hasGamesToSave {
+            alert.addAction(UIAlertAction(title: "Save \(saveGames.count) New Games", style: .default, handler: { _ in
+                self.core.fire(command: AddGamesToCalendar(saveGames))
+                self.showSuccessAlert()
+            }))
+        }
+        
+        if hasDirtyGames {
+            alert.addAction(UIAlertAction(title: "Update \(dirtyGames.count) games", style: .default, handler: { _ in
+                self.core.fire(command: EditCalendarEventForGames(dirtyGames))
+                self.showSuccessAlert()
+            }))
+        }
+        if hasGamesToSave && hasDirtyGames {
+            alert.addAction(UIAlertAction(title: "Save & Update All", style: .default, handler: { _ in
+                self.core.fire(command: AddGamesToCalendar(saveGames))
+                self.core.fire(command: EditCalendarEventForGames(dirtyGames))
+                self.showSuccessAlert()
+            }))
+        }
+        
+        guard !alert.actions.isEmpty else { return }
+        alert.addAction(UIAlertAction.cancel)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    fileprivate func showCalendarUpToDateAlert() {
+        let alert = UIAlertController(title: "You're good to go!", message: "All these games are already in your calendar", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "😎", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    fileprivate func showSuccessAlert() {
+        let alert = UIAlertController(title: "Success!", message: "Games were successfully saved to your default calendar", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "👍", style: .cancel, handler: { _ in
+            self.core.fire(command: ProcessGamesForCalendar(from: self))
+        }))
+        present(alert, animated: true, completion: nil)
     }
     
 }

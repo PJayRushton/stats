@@ -458,9 +458,9 @@
 				A17999831E82B9860058A002 /* SegueHandlerType.swift */,
 				A179997F1E82B95E0058A002 /* SharedExtensions.swift */,
 				A17999851E82B98E0058A002 /* StoryboardInitializable.swift */,
+				3622C68E1F45D9EF00BBCD9E /* UIAlertAction+Cancel.swift */,
 				A17999871E82B9A60058A002 /* UIColorExtension.swift */,
 				A1CD599C1EC9EBEC00D26FD8 /* UIImageView+URL.swift */,
-				3622C68E1F45D9EF00BBCD9E /* UIAlertAction+Cancel.swift */,
 				A128E8E21EC4172100D4CA6D /* UIView+Designable.swift */,
 				A14B64DE1E8D3EC200CBDE92 /* UIViewControllerExtensions.swift */,
 			);

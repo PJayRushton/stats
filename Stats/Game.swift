@@ -75,7 +75,7 @@ struct Game: Identifiable, Unmarshaling, DateComparable {
         isCompleted = try object.value(for: isCompletedKey)
         isHome = try object.value(for: isHomeKey)
         isRegularSeason = try object.value(for: isRegularSeasonKey)
-        lineupIds = try object.value(for: lineupKey)
+        lineupIds = try object.value(for: lineupKey) ?? []
         location = try? object.value(for: locationKey)
         opponent = try object.value(for: opponentKey)
         opponentScore = try object.value(for: opponentScoreKey)

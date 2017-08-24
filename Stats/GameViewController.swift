@@ -21,11 +21,13 @@ class GameViewController: Component, AutoStoryboardInitializable {
     @IBOutlet weak var previousInningButton: UIButton!
     @IBOutlet weak var inningLabel: LTMorphingLabel!
     @IBOutlet weak var nextInningButton: UIButton!
+    @IBOutlet weak var playerHolderView: UIView!
     @IBOutlet weak var playerPickerView: AKPickerView!
     @IBOutlet weak var newAtBatView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet var outButtons: [UIButton]!
     
+    @IBOutlet weak var emptyLineupView: UIView!
     fileprivate lazy var adapter: ListAdapter = {
         return ListAdapter(updater: ListAdapterUpdater(), viewController: self, workingRangeSize: 0)
     }()
@@ -130,6 +132,10 @@ class GameViewController: Component, AutoStoryboardInitializable {
         }
     }
     
+    @IBAction func emptyLineupButtonPressed(_ sender: Any) {
+        presentGameEditVC(lineup: true)
+    }
+    
     
     // MARK: - Subscriber
     
@@ -142,7 +148,9 @@ class GameViewController: Component, AutoStoryboardInitializable {
             }
         }
         var playerNames = gamePlayers.map { $0.name }
-        playerNames.append("⬅️")
+        if playerNames.count > 1 {
+            playerNames.append("⬅️")
+        }
         names = playerNames
         updateOuts(outs: game?.outs ?? 0)
         adapter.performUpdates(animated: true)
@@ -173,12 +181,15 @@ extension GameViewController {
             homeTeamLabel.text = game.isHome ? team.name : game.opponent
             navigationItem.rightBarButtonItem = hasEditRights ? settingsButton : nil
         }
+        let hasLineupPlayers = !game.lineupIds.isEmpty
         inningOutStack.isHidden = game.isCompleted
-        newAtBatView.isHidden = game.isCompleted
+        newAtBatView.isHidden = game.isCompleted || !hasLineupPlayers
         inningLabel.text = game.status
         previousInningButton?.tintColor = game.inning == 1 ? .white : .gray400
         previousInningButton?.isEnabled = game.inning > 1
-        
+        playerHolderView.isHidden = !hasLineupPlayers
+        emptyLineupView.isHidden = hasLineupPlayers
+        collectionView.isHidden = !hasLineupPlayers
     }
     
     fileprivate func updatePicker(game: Game) {
@@ -201,7 +212,7 @@ extension GameViewController {
         alert.addAction(UIAlertAction(title: "Edit Game ✏️", style: .default, handler: { _ in
             self.editGamePressed()
         }))
-        let emojiForStatus = game!.score > game!.opponentScore ? "😎" : "😞"
+        let emojiForStatus = game != nil && game!.score > game!.opponentScore ? "😎" : "😞"
         
         let endGameAction = UIAlertAction(title: "End Game \(emojiForStatus)", style: .default, handler: { _ in
             self.changeGameCompletion(isCompleted: true)
@@ -242,9 +253,10 @@ extension GameViewController {
         present(newAtBatVC, animated: false, completion: nil)
     }
     
-    fileprivate func presentGameEditVC() {
+    fileprivate func presentGameEditVC(lineup: Bool = false) {
         let gameCreationVC = GameCreationViewController.initializeFromStoryboard()
         gameCreationVC.editingGame = game
+        gameCreationVC.showLineup = lineup
         let gameCreationNav = gameCreationVC.embededInNavigationController
         gameCreationVC.modalPresentationStyle = .overFullScreen
         present(gameCreationNav, animated: true, completion: nil)

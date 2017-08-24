@@ -29,6 +29,7 @@ class GameCreationViewController: Component, AutoStoryboardInitializable {
     // MARK: - Public
     
     var editingGame: Game?
+    var showLineup = false
     
     fileprivate var date = Date() {
         didSet {
@@ -51,6 +52,9 @@ class GameCreationViewController: Component, AutoStoryboardInitializable {
             let lineupPlayers = editingGame.lineupIds.flatMap { core.state.playerState.player(withId: $0) }
             core.fire(event: LineupUpdated(players: lineupPlayers))
         }
+        if showLineup {
+            lineupViewPressed(animated: false)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,10 +71,10 @@ class GameCreationViewController: Component, AutoStoryboardInitializable {
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func lineupViewPressed(_ sender: UITapGestureRecognizer) {
+    @IBAction func lineupViewPressed(animated: Bool = true) {
         let rosterVC = RosterViewController.initializeFromStoryboard()
         rosterVC.isLineup = true
-        navigationController?.pushViewController(rosterVC, animated: true)
+        navigationController?.pushViewController(rosterVC, animated: animated)
     }
     
     @IBAction func startButtonPressed(_ sender: UIButton) {
@@ -178,7 +182,7 @@ extension GameCreationViewController {
         } else {
             startButton.isEnabled = newGame != nil
         }
-        let currentLineup = core.state.newGameState.lineup
+        guard let currentLineup = core.state.newGameState.lineup else { return }
         lineupLabel.text = currentLineup.isEmpty ? "Set Lineup" : "Edit Lineup (\(currentLineup.count))"
     }
     

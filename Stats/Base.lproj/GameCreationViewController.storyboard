@@ -297,7 +297,7 @@
                 </view>
                 <tapGestureRecognizer id="K7F-O4-qLJ">
                     <connections>
-                        <action selector="lineupViewPressed:" destination="Jkh-Hx-hEg" id="vrh-2X-743"/>
+                        <action selector="lineupViewPressed" destination="Jkh-Hx-hEg" id="XJ5-UV-1pW"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

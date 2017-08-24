@@ -21,6 +21,7 @@ class GameCreationViewController: Component, AutoStoryboardInitializable {
     @IBOutlet weak var regSeasonSegControl: BetterSegmentedControl!
     @IBOutlet weak var dateTextField: MadokaTextField!
     @IBOutlet weak var lineupView: UIView!
+    @IBOutlet weak var lineupLabel: UILabel!
     @IBOutlet weak var startButton: CustomButton!
     @IBOutlet var keyboardAccessoryView: UIView!
     
@@ -177,9 +178,8 @@ extension GameCreationViewController {
         } else {
             startButton.isEnabled = newGame != nil
         }
-        
-        let hasValidLineup = core.state.newGameState.lineup != nil && !core.state.newGameState.lineup!.isEmpty
-        lineupView.backgroundColor = hasValidLineup ? UIColor.mainAppColor : UIColor.mainAppColor.withAlphaComponent(0.5)
+        let currentLineup = core.state.newGameState.lineup
+        lineupLabel.text = currentLineup.isEmpty ? "Set Lineup" : "Edit Lineup (\(currentLineup.count))"
     }
     
     fileprivate func construtedGame() -> Game? {
@@ -193,9 +193,7 @@ extension GameCreationViewController {
         
         let isHome = homeAwaySegControl.index == 0
         let isRegularSeason = regSeasonSegControl.index == 0
-        guard let lineup = core.state.newGameState.lineup else { return nil }
-        let lineupIds = lineup.map { $0.id }
-        guard !lineupIds.isEmpty else { print("Lineup can't be empty"); return nil }
+        let lineupIds = core.state.newGameState.lineup?.flatMap { $0.id } ?? []
         
         if var editingGame = editingGame {
             editingGame.opponent = opponentText

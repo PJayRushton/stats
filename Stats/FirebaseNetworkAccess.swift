@@ -26,7 +26,7 @@ struct FirebaseNetworkAccess {
     let rootRef = Database.database().reference()
     var core = App.core
     
-    func setValue(at ref: DatabaseReference, parameters: JSONObject, completion: ResultCompletion?) {
+    func setValue(at ref: DatabaseReference, parameters: JSONObject, completion: ResultCompletion? = nil) {
         ref.setValue(parameters) { error, ref in
             if let error = error {
                 completion?(Result.failure(error))

@@ -8,11 +8,20 @@
 
 import Foundation
 
-struct Stat: Equatable {
+struct Stat {
     
-    var player: Player
+    var playerId: String
     var type: StatType
     var value: Double
+    
+    init(playerId: String, type: StatType, value: Double) {
+        self.playerId = playerId
+        self.type = type
+        self.value = value
+    }
+    var player: Player? {
+        return App.core.state.playerState.player(withId: playerId)
+    }
     
     var displayString: String {
         switch type {
@@ -25,12 +34,15 @@ struct Stat: Equatable {
     
 }
 
+extension Stat: Equatable { }
+
+func ==(lhs: Stat, rhs: Stat) -> Bool {
+    return lhs.playerId == rhs.playerId && lhs.type == rhs.type && lhs.value == rhs.value
+}
+
+
 extension Stat: Comparable { }
 
 func <(lhs: Stat, rhs: Stat) -> Bool {
     return lhs.value < rhs.value
-}
-
-func ==(lhs: Stat, rhs: Stat) -> Bool {
-    return lhs.player == rhs.player && lhs.type == rhs.type && lhs.value == rhs.value
 }

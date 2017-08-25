@@ -22,7 +22,6 @@ struct SubscribeToAtBats: Command {
     
     func execute(state: AppState, core: Core<AppState>) {
         core.fire(event: ClearAtBats())
-        core.fire(command: UpdateAtBatCount())
         let atBatRef = StatsRefs.atBatsRef(teamId: team.id)
         
         if let oldSeason = previousSeasonId {

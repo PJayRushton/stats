@@ -67,7 +67,6 @@ class GamesViewController: Component, AutoStoryboardInitializable {
             new = false
             presentNewGameVC()
         }
-        core.fire(command: UpdateStats())
         core.fire(event: StatGameUpdated(game: nil))
         core.fire(command: ProcessGamesForCalendar(from: self))
     }
@@ -142,21 +141,32 @@ extension GamesViewController {
         navigationController?.pushViewController(gameVC, animated: true)
     }
     
-    fileprivate func presentOptionsAlert() {
+    fileprivate func presentOptionsAlert(for game: Game) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Show Game", style: .default, handler: { _ in
             self.pushDetail()
         }))
         alert.addAction(UIAlertAction(title: "Show Stats", style: .default, handler: { _ in
-            self.pushStats()
+            self.pushStats(for: game)
         }))
         alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
     }
     
-    fileprivate func pushStats() {
+    fileprivate func pushStats(for game: Game? = nil) {
         let statsVC = StatsViewController.initializeFromStoryboard()
         navigationController?.pushViewController(statsVC, animated: true)
+        if let game = game {
+            saveStatsIfNeeded(for: game)
+        }
+    }
+    
+    fileprivate func saveStatsIfNeeded(for game: Game) {
+        core.fire(command: UpdateStats(for: game))
+        
+        if core.state.statState.stats(for: game) == nil {
+            core.fire(command: SaveGameStats(for: game))
+        }
     }
     
     fileprivate func showCalendarResponseAlert(saveGames: [Game], dirtyGames: [Game]) {
@@ -344,7 +354,7 @@ extension GamesViewController: UITableViewDelegate {
         if sectionType(for: indexPath.section) == .ongoing {
             pushDetail()
         } else {
-            presentOptionsAlert()
+            presentOptionsAlert(for: selectedGame)
         }
     }
     

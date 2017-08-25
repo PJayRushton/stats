@@ -17,8 +17,9 @@ class StatsNumbersViewController: Component, AutoStoryboardInitializable {
     fileprivate let selectedBackground = UIColor.mainAppColor.withAlphaComponent(0.2)
 
     fileprivate var allStats: [Stat] {
-        return App.core.state.statState.currentStats
+        return App.core.state.statState.currentStats?.stats.values.flatMap { $0 } ?? []
     }
+    
     fileprivate var currentPlayers = [Player]() {
         didSet {
             spreadsheetView.reloadData()
@@ -59,7 +60,7 @@ extension StatsNumbersViewController {
         let selectedStatType = statType(for: sortSection)
         var selectedStats = stats(ofType: selectedStatType)
         selectedStats.sort(by: >)
-        currentPlayers = selectedStats.map { $0.player }
+        currentPlayers = selectedStats.flatMap { $0.player }
     }
     
     fileprivate func stats(ofType type: StatType) -> [Stat] {

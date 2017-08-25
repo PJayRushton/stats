@@ -61,7 +61,7 @@ enum AtBatCode: String {
         return self == .hr || self == .hrITP
     }
     var gotOnBase: Bool {
-        return isHit || self == .w || self == .hbp || self == .roe
+        return isHit || self == .w || self == .hbp
     }
     
 }

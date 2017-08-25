@@ -53,7 +53,7 @@ struct Player: Identifiable, Unmarshaling {
     }
     
     func stat(ofType type: StatType, from atBats: [AtBat]) -> Stat {
-        return Stat(player: self, type: type, value: type.statValue(from: atBats))
+        return Stat(playerId: id, type: type, value: type.statValue(from: atBats))
     }
     
     var hasCell: Bool {

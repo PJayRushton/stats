@@ -112,6 +112,7 @@ enum StatType: String {
         case .atBats:
             return atBats.battingAverageCount.doubleValue
         case .battingAverage:
+            guard atBats.battingAverageCount > 0 else { return 0 }
             let hits = atBats.hitCount.doubleValue
             return hits / atBats.battingAverageCount.doubleValue
         case .doubles:
@@ -130,6 +131,7 @@ enum StatType: String {
         case .itpHRs:
             return atBats.withResult(.hrITP).count.doubleValue
         case .onBasePercentage:
+            guard atBats.count > 0 else { return 0 }
             let onBaseBatCount = atBats.filter { $0.resultCode.gotOnBase }.count.doubleValue
             return onBaseBatCount / atBats.count.doubleValue
         case .plateAppearances:

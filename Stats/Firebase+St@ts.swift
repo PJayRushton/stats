@@ -27,22 +27,22 @@ enum StatsRefs {
         return rootRef.child(stockKey)
     }
     
-    /// **/users/{userIdKEY}**
+    /// **/users/{userIdId}**
     static func userRef(id: String) -> DatabaseReference {
         return rootRef.child(usersRefKey).child(id)
     }
     
-    /// **/seasons/{teamKEY}**
+    /// **/seasons/{teamId}**
     static func seasonsRef(teamId: String) -> DatabaseReference {
         return rootRef.child(seasonsRefKey).child(teamId)
     }
     
-    /// **/players/{teamKEY}**
+    /// **/players/{teamId}**
     static func playersRef(teamId: String) -> DatabaseReference {
         return rootRef.child(playersRefKey).child(teamId)
     }
     
-    /// **/games/{teamKEY}**
+    /// **/games/{teamId}**
     static func gamesRef(teamId: String) -> DatabaseReference {
         return rootRef.child(gamesRefKey).child(teamId)
     }
@@ -50,6 +50,11 @@ enum StatsRefs {
     /// **/atBats/{teamId}**
     static func atBatsRef(teamId: String) -> DatabaseReference {
         return rootRef.child(atBatsRefKey).child(teamId)
+    }
+    
+    /// **/stats/{teamId}*
+    static func gameStatsRef(teamId: String) -> DatabaseReference {
+        return rootRef.child(statsKey).child(teamId)
     }
     
     static func userAvatarStorageRef(userId id: String) -> StorageReference {

@@ -66,6 +66,9 @@ struct Game: Identifiable, Unmarshaling, DateComparable {
             return "\(inningPrefix) \(inning)"
         }
     }
+    var lineup: [Player] {
+        return lineupIds.flatMap { App.core.state.playerState.player(withId: $0) }
+    }
     
     init(object: MarshaledObject) throws {
         id = try object.value(for: idKey)

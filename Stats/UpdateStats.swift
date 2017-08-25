@@ -8,19 +8,6 @@
 
 import Foundation
 
-struct PlayerStatsUpdated: Event {
-    
-    var player: Player
-    var game: Game?
-    var stats: [Stat]
-    
-    init(for player: Player, game: Game? = nil, stats: [Stat]) {
-        self.player = player
-        self.game = game
-        self.stats = stats
-    }
-}
-
 struct TrophySectionsUpdated: Event {
     
     var sections: [TrophySection]
@@ -36,19 +23,16 @@ struct TrophySectionsUpdated: Event {
 
 struct UpdateStats: Command {
     
-    var atBat: AtBat?
+    var game: Game?
     
-    init(after atBat: AtBat? = nil) {
-        self.atBat = atBat
+    init(for game: Game) {
+        self.game = game
     }
     
     func execute(state: AppState, core: Core<AppState>) {
-        if let playerId = atBat?.playerId, let player = state.playerState.player(withId: playerId) {
-            calculateStats(for: player, core: core)
-        } else {
-            calculateStats(core: core)
-        }
-        calculateTrophySections(core: core)
+        calculateStats(core: core)
+        guard let game = game else { return }
+        calculateTrophySections(for: game, core: core)
     }
 
 
@@ -59,28 +43,25 @@ struct UpdateStats: Command {
 
 extension UpdateStats {
     
-    func calculateStats(for player: Player? = nil, core: Core<AppState>) {
-        DispatchQueue.global().async {
-            let allPlayers = player != nil ? [player!] : core.state.playerState.currentStatPlayers
-            
-            let statGame = core.state.statState.currentGame
-            allPlayers.forEach { player in
-                let playerAtBats = core.state.atBatState.atBats(for: player, in: statGame)
-                let stats = StatType.allValues.flatMap({ type -> Stat? in
-                    let statValue = type.statValue(from: playerAtBats)
-                    return Stat(player: player, type: type, value: statValue)
-                })
-                core.fire(event: PlayerStatsUpdated(for: player, game: statGame, stats: stats))
-            }
-            self.calculateTrophySections(core: core)
-        }
+    func calculateStats(core: Core<AppState>) {
+//        let allPlayers = player != nil ? [player!] : core.state.playerState.currentStatPlayers
+//        
+//        let statGame = core.state.statState.currentGame
+//        allPlayers.forEach { player in
+//            let playerAtBats = core.state.atBatState.atBats(for: player, in: statGame)
+//            let stats = StatType.allValues.flatMap({ type -> Stat? in
+//                let statValue = type.statValue(from: playerAtBats)
+//                return Stat(playerId: player.id, type: type, value: statValue)
+//            })
+//            core.fire(event: PlayerStatsUpdated(for: player, game: statGame, stats: stats))
+//        }
     }
     
-    func calculateTrophySections(core: Core<AppState>) {
+    func calculateTrophySections(for game: Game, core: Core<AppState>) {
         DispatchQueue.global().async {
-            let statGame = core.state.statState.currentGame
+            let statGame = game
             let sections = Trophy.allValues.flatMap { trophy -> TrophySection? in
-                let trophyStats = core.state.statState.allStats(ofType: trophy.statType)
+                let trophyStats = core.state.statState.stats(for: game, ofType: trophy.statType)
                 let isWorst = trophy == Trophy.worseBattingAverage
                 let winners = self.winningStats(from: trophyStats, isWorst: isWorst)
                 guard let winner = winners.first else { return nil }
@@ -102,7 +83,7 @@ extension UpdateStats {
         var secondStat: Stat?
         
         if currentTeam.isCoed {
-            var otherGenderStats = stats.filter { $0.player.gender !=  winnerStat.player.gender }
+            var otherGenderStats = stats.filter { $0.player?.gender !=  winnerStat.player?.gender }
             otherGenderStats = isWorst ? otherGenderStats.sorted() : otherGenderStats.sorted().reversed()
             secondStat = otherGenderStats.first
         } else {

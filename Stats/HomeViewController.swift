@@ -53,8 +53,6 @@ class HomeViewController: Component, AutoStoryboardInitializable {
         adapter.collectionView = collectionView
         adapter.dataSource = self
         feedbackGenerator.prepare()
-        core.fire(command: UpdateAtBatCount())
-        core.fire(command: UpdateStats())
     }
 
     override func viewWillAppear(_ animated: Bool) {

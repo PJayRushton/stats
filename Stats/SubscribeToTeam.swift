@@ -22,6 +22,7 @@ struct SubscribeToTeam: Command {
         subscribeToSeasons(core: core)
         subscribeToPlayers(core: core)
         subscribeToGames(core: core)
+        subscribeToStats(core: core)
     }
     
     private func subscribeToTeam(core: Core<AppState>) {
@@ -86,6 +87,27 @@ struct SubscribeToTeam: Command {
             switch gamesResult {
             case let .success(games):
                 core.fire(event: TeamEntitiesUpdated<Game>(teamId: self.teamId, entities: games))
+            case let .failure(error):
+                core.fire(event: ErrorEvent(error: error, message: nil))
+            }
+        }
+    }
+    
+    private func subscribeToStats(core: Core<AppState>) {
+        let ref = StatsRefs.gameStatsRef(teamId: self.teamId)
+        networkAccess.fullySubscribe(to: ref) { result, eventType in
+            let gameStatResult = result.map(GameStats.init)
+            switch gameStatResult {
+            case let .success(gameStats):
+                switch eventType {
+                case .childAdded:
+                    core.fire(event: TeamObjectAdded<GameStats>(object: gameStats, teamId: self.teamId))
+                case .childChanged:
+                    core.fire(event: TeamObjectChanged<GameStats>(object: gameStats, teamId: self.teamId))
+                case .childRemoved:
+                    core.fire(event: TeamObjectRemoved<GameStats>(object: gameStats, teamId: self.teamId))
+                default: break
+                }
             case let .failure(error):
                 core.fire(event: ErrorEvent(error: error, message: nil))
             }

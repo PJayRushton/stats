@@ -23,7 +23,7 @@ class TrophyWinnerCell: UICollectionViewCell, AutoReuseIdentifiable {
     
     private func statString(with stat: Stat, trophy: Trophy) -> String {
         let format = NSLocalizedString("%@ (%@ %@)", comment: "Player name ({Stat Number} Stat Type) e.g Parker (0.785 BA)")
-        return String.localizedStringWithFormat(format, stat.player.name, stat.displayString, trophy.statType.displayString(isSingular: stat.value == 1))
+        return String.localizedStringWithFormat(format, stat.player!.name, stat.displayString, trophy.statType.displayString(isSingular: stat.value == 1))
     }
     
 }

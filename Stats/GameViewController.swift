@@ -266,6 +266,9 @@ extension GameViewController {
         guard var game = game, hasEditRights else { return }
         game.isCompleted = isCompleted
         core.fire(command: UpdateObject(game))
+        core.fire(command: SaveGameStats(for: game))
+        core.fire(command: UpdateStats(for: game))
+        
         if isCompleted {
             core.fire(event: UpdateRecentlyCompletedGame(game: game))
             navigationController?.popViewController(animated: true)

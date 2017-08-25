@@ -156,7 +156,6 @@ extension TeamListViewController: UITableViewDelegate {
         
         if isSwitcher {
             core.fire(event: Selected<Team>(selectedTeam))
-            core.fire(command: UpdateAtBatCount())
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.4, execute: {
                 self.close()
             })

@@ -19,7 +19,7 @@ struct CreateSeason: Command {
         networkAccess.updateObject(at: ref, parameters: season.marshaled()) { result in
             switch result {
             case .success:
-                core.fire(event: Updated<Season>(season))
+                self.saveSeasonToPlayers(seasonId: season.id, core: core)
                 core.fire(event: Selected<Season>(season))
                 self.setSeasonAsCurrent(season, core: core)
             case let .failure(error):
@@ -32,6 +32,15 @@ struct CreateSeason: Command {
         guard var currentTeam = core.state.teamState.currentTeam else { return }
         currentTeam.currentSeasonId = season.id
         core.fire(command: UpdateObject(currentTeam))
+    }
+    
+    private func saveSeasonToPlayers(seasonId: String, core: Core<AppState>) {
+        let players = core.state.playerState.players(for: teamId)
+        players.forEach { player in
+            var updatedPlayer = player
+            updatedPlayer.seasons[seasonId] = player.isSubForCurrentSeason
+            core.fire(command: UpdateObject(updatedPlayer))
+        }
     }
     
 }

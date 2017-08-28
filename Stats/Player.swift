@@ -70,12 +70,10 @@ struct Player: Identifiable, Unmarshaling {
         phone = try object.value(for: phoneKey)
         if let seasonsObject: [String: Bool] = try object.value(for: seasonsRefKey) {
             seasons = seasonsObject
+        } else if let currentTeam = App.core.state.teamState.currentTeam, let currentSeasonId = currentTeam.currentSeasonId {
+            seasons = [currentSeasonId: false]
         } else {
             seasons = [:]
-            UserDefaults.standard.needsUserSeasonsMigration = true
-            if let isSub: Bool = try object.value(for: isSubKey), isSub {
-                UserDefaults.standard.currentSeasonSubs.append(id)
-            }
         }
         teamId = try object.value(for: teamIdKey)
     }
@@ -136,30 +134,4 @@ extension Player: Comparable { }
 
 func <(lhs: Player, rhs: Player) -> Bool {
     return lhs.name < rhs.name
-}
-
-extension UserDefaults {
-    
-    var needsUserSeasonsMigration: Bool {
-        get {
-            return bool(forKey: #function)
-        }
-        set {
-            set(newValue, forKey: #function)
-            synchronize()
-        }
-    }
-    var currentSeasonSubs: [String] {
-        get {
-            guard let subsDict = object(forKey: #function) as? [String: Any] else { return [] }
-            return Array(subsDict.keys)
-        }
-        set {
-            var object = [String: Any]()
-            newValue.forEach { object[$0] = true }
-            set(object, forKey: #function)
-            synchronize()
-        }
-        
-    }
 }

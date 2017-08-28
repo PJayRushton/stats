@@ -25,6 +25,9 @@ struct SeasonState: State {
     func seasons(for team: Team) -> [Season] {
         return allSeasonsDict[team.id] ?? []
     }
+    func seasons(for teamId: String) -> [Season] {
+        return allSeasonsDict[teamId] ?? []
+    }
     
     mutating func react(to event: Event) {
         switch event {

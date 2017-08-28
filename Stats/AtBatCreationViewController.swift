@@ -331,7 +331,7 @@ extension AtBatCreationViewController {
         let alert = Presentr.alertViewController(title: "Delete this at bat?", body: "This cannot be undone")
         alert.addAction(AlertAction(title: "Cancel 😳", style: .cancel, handler: nil))
         alert.addAction(AlertAction(title: "☠️", style: .destructive, handler: {
-            self.core.fire(command: DeleteObject(object: editingAtBat))
+            self.core.fire(command: DeleteObject(editingAtBat))
             self.updateGameScore(atBat: editingAtBat, delete: true)
             self.dismiss(animated: true, completion: {
                 self.dismiss(animated: true, completion: nil)

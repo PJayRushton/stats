@@ -12,6 +12,10 @@ struct DeleteObject<T: Identifiable>: Command {
     
     var object: T
     
+    init(_ object: T) {
+        self.object = object
+    }
+    
     func execute(state: AppState, core: Core<AppState>) {
         networkAccess.deleteObject(at: object.ref, completion: nil)
     }

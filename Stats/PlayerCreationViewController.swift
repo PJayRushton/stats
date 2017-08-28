@@ -244,7 +244,7 @@ extension PlayerCreationViewController {
         let alert = Presentr.alertViewController(title: "Delete \(editingPlayer.name)?", body: "This cannot be undone")
         alert.addAction(AlertAction(title: "Cancel 😳", style: .cancel, handler: nil))
         alert.addAction(AlertAction(title: "☠️", style: .destructive, handler: {
-            self.core.fire(command: DeleteObject(object: editingPlayer))
+            self.core.fire(command: DeleteObject(editingPlayer))
             self.dismiss(animated: true, completion: { 
                 self.dismiss(animated: true, completion: nil)
             })

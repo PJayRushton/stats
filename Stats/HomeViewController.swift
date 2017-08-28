@@ -104,6 +104,13 @@ class HomeViewController: Component, AutoStoryboardInitializable {
             newGameButton.isHidden = !user.isOwnerOrManager(of: currentTeam)
         }
         adapter.performUpdates(animated: true)
+        
+        if state.playerState.playersAreLoaded && UserDefaults.standard.needsUserSeasonsMigration {
+            UserDefaults.standard.needsUserSeasonsMigration = false
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                self.core.fire(command: MigrateUsersToSeasons())
+            }
+        }
     }
     
 }

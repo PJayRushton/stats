@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3608188F1F545C4C0013856C /* MigrateUsersToSeasons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3608188E1F545C4C0013856C /* MigrateUsersToSeasons.swift */; };
 		361B76C61F0AD2DA00CFC0DA /* Prefetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361B76C51F0AD2DA00CFC0DA /* Prefetch.swift */; };
 		3622C68B1F45D7E000BBCD9E /* UpdateGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3622C68A1F45D7E000BBCD9E /* UpdateGame.swift */; };
 		3622C68D1F45D9C200BBCD9E /* CalendarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3622C68C1F45D9C200BBCD9E /* CalendarService.swift */; };
@@ -180,6 +181,7 @@
 /* Begin PBXFileReference section */
 		097AB2DA5C7A85576113EB29 /* Pods_Stats.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stats.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		23340C3D14A1D9E6B1878846 /* Pods-Stats.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stats.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Stats/Pods-Stats.debug.xcconfig"; sourceTree = "<group>"; };
+		3608188E1F545C4C0013856C /* MigrateUsersToSeasons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MigrateUsersToSeasons.swift; sourceTree = "<group>"; };
 		361B76C51F0AD2DA00CFC0DA /* Prefetch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prefetch.swift; sourceTree = "<group>"; };
 		3622C68A1F45D7E000BBCD9E /* UpdateGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateGame.swift; sourceTree = "<group>"; };
 		3622C68C1F45D9C200BBCD9E /* CalendarService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarService.swift; sourceTree = "<group>"; };
@@ -393,6 +395,7 @@
 				A1BF9C451E8B22B2007341EA /* GetCurrentUser.swift */,
 				A18F68B51ECDE37200407E89 /* GetStockImages.swift */,
 				A179996F1E82B67C0058A002 /* LoadICloudUser.swift */,
+				3608188E1F545C4C0013856C /* MigrateUsersToSeasons.swift */,
 				361B76C51F0AD2DA00CFC0DA /* Prefetch.swift */,
 				367D7DE81F4F2032003F7585 /* SaveGameStats.swift */,
 				A17999711E82B6930058A002 /* SaveNewUser.swift */,
@@ -954,6 +957,7 @@
 				A1F959341E8953440087B040 /* Season.swift in Sources */,
 				A1B65DC41EB018C6009983E1 /* Stat.swift in Sources */,
 				A11F0C801ED5C70100F716DA /* CheckEmailAvailability.swift in Sources */,
+				3608188F1F545C4C0013856C /* MigrateUsersToSeasons.swift in Sources */,
 				A1D8054C1E89870B0072AA49 /* NewUserViewController.swift in Sources */,
 				A1C7221D1EA5698C00A71C51 /* GamesViewController.swift in Sources */,
 				A1BA83BB1ED9F3480074A8DD /* TextEditViewController.swift in Sources */,

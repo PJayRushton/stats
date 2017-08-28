@@ -13,28 +13,48 @@ struct Player: Identifiable, Unmarshaling {
     
     var id: String
     var gender: Gender
-    var isSub: Bool
     var jerseyNumber: String?
     var name: String
     var order: Int
     var phone: String?
+    var seasons = [String: Bool]()
     var teamId: String
     
     var displayName: String {
-        guard isSub else { return name }
+        guard isSubForCurrentSeason else { return name }
         return "*\(name)"
     }
-    
     var phoneURL: URL? {
         guard let phone = phone, !phone.isEmpty else { return nil }
         return URL(string: "tel://\(phone.digits)")
     }
-    
+    var hasCellPhone: Bool {
+        return phone != nil && phone!.isValidPhoneNumber
+    }
+    var isInCurrentSeason: Bool {
+        guard let currentSeasonId = App.core.state.seasonState.currentSeasonId else { return false }
+        return seasons.keys.contains(currentSeasonId)
+    }
+    var isSubForCurrentSeason: Bool {
+        get {
+            guard let currentSeason = App.core.state.seasonState.currentSeason else { return false }
+            return isSub(for: currentSeason)
+        }
+        set {
+            guard let currentSeason = App.core.state.seasonState.currentSeason else { return }
+            seasons[currentSeason.id] = newValue
+        }
+    }
+
     init(id: String = "", name: String, jerseyNumber: String? = nil, isSub: Bool = false, phone: String? = nil, gender: Gender = .unspecified, teamId: String) {
         self.id = id
         self.name = name
         self.jerseyNumber = jerseyNumber
-        self.isSub = isSub
+        if let currentSeasonId = App.core.state.seasonState.currentSeasonId {
+            self.seasons = [currentSeasonId: isSub]
+        } else {
+            self.seasons = [:]
+        }
         self.phone = phone
         self.order = App.core.state.playerState.players(for: teamId).count
         self.gender = gender
@@ -44,11 +64,19 @@ struct Player: Identifiable, Unmarshaling {
     init(object: MarshaledObject) throws {
         id = try object.value(for: idKey)
         gender = try object.value(for: genderKey)
-        isSub = try object.value(for: isSubKey)
         jerseyNumber = try object.value(for: jerseyNumberKey)
         name = try object.value(for: nameKey)
         order = try object.value(for: orderKey)
         phone = try object.value(for: phoneKey)
+        if let seasonsObject: [String: Bool] = try object.value(for: seasonsRefKey) {
+            seasons = seasonsObject
+        } else {
+            seasons = [:]
+            UserDefaults.standard.needsUserSeasonsMigration = true
+            if let isSub: Bool = try object.value(for: isSubKey), isSub {
+                UserDefaults.standard.currentSeasonSubs.append(id)
+            }
+        }
         teamId = try object.value(for: teamIdKey)
     }
     
@@ -56,8 +84,8 @@ struct Player: Identifiable, Unmarshaling {
         return Stat(playerId: id, type: type, value: type.statValue(from: atBats))
     }
     
-    var hasCell: Bool {
-        return phone != nil && phone!.isValidPhoneNumber
+    func isSub(for season: Season) -> Bool {
+        return seasons[season.id] ?? false
     }
     
 }
@@ -68,7 +96,9 @@ extension Player: Marshaling {
         var json = JSONObject()
         json[idKey] = id
         json[genderKey] = gender.rawValue
-        json[isSubKey] = isSub
+        var seasonsJSON = JSONObject()
+        seasons.forEach { seasonsJSON[$0.key] = $0.value }
+        json[seasonsKey] = seasonsJSON
         json[jerseyNumberKey] = jerseyNumber ?? NSNull()
         json[nameKey] = name
         json[orderKey] = order
@@ -85,7 +115,7 @@ extension Player: Diffable {
     func isSame(as other: Player) -> Bool {
         return id == other.id &&
         gender == other.gender &&
-        isSub == other.isSub &&
+        seasons == other.seasons &&
         jerseyNumber == other.jerseyNumber &&
         name.lowercased() == other.name.lowercased() &&
         phone == other.phone
@@ -106,4 +136,30 @@ extension Player: Comparable { }
 
 func <(lhs: Player, rhs: Player) -> Bool {
     return lhs.name < rhs.name
+}
+
+extension UserDefaults {
+    
+    var needsUserSeasonsMigration: Bool {
+        get {
+            return bool(forKey: #function)
+        }
+        set {
+            set(newValue, forKey: #function)
+            synchronize()
+        }
+    }
+    var currentSeasonSubs: [String] {
+        get {
+            guard let subsDict = object(forKey: #function) as? [String: Any] else { return [] }
+            return Array(subsDict.keys)
+        }
+        set {
+            var object = [String: Any]()
+            newValue.forEach { object[$0] = true }
+            set(object, forKey: #function)
+            synchronize()
+        }
+        
+    }
 }

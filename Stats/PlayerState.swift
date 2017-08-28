@@ -11,11 +11,13 @@ import Foundation
 struct PlayerState: State {
     
     var allPlayersDict = [String: [Player]]()
+    var playersAreLoaded = false
     
     mutating func react(to event: Event) {
         switch event {
         case let event as TeamEntitiesUpdated<Player>:
             allPlayersDict[event.teamId] = event.entities
+            playersAreLoaded = true
         default:
             break
         }
@@ -29,7 +31,7 @@ struct PlayerState: State {
             var currentSeasonPlayers = currentSeasonPlayerIds.flatMap { player(withId: $0) }
             
             if !App.core.state.statState.includeSubs {
-                currentSeasonPlayers = currentSeasonPlayers.filter { !$0.isSub }
+                currentSeasonPlayers = currentSeasonPlayers.filter { !$0.isSubForCurrentSeason }
             }
             return currentSeasonPlayers
         }
@@ -42,6 +44,11 @@ struct PlayerState: State {
     func players(for teamId: String) -> [Player] {
         guard let teamPlayers = allPlayersDict[teamId] else { return [] }
         return teamPlayers.sorted(by: { $0.order < $1.order })
+    }
+    
+    func currentPlayers(for teamId: String) -> [Player] {
+        guard let teamPlayers = allPlayersDict[teamId] else { return [] }
+        return teamPlayers.filter { $0.isInCurrentSeason }.sorted(by: { $0.order < $1.order })
     }
     
     func player(withId id: String) -> Player? {

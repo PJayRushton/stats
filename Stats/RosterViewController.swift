@@ -30,10 +30,10 @@ class RosterViewController: Component, AutoStoryboardInitializable {
     fileprivate var orderedPlayers = [Player]()
     fileprivate var benchedPlayers = [Player]()
     fileprivate var orderedPlayersWithCell: [Player] {
-        return orderedPlayers.filter { $0.hasCell }
+        return orderedPlayers.filter { $0.hasCellPhone }
     }
     fileprivate var benchedPlayersWithCell: [Player] {
-        return benchedPlayers.filter { $0.hasCell }
+        return benchedPlayers.filter { $0.hasCellPhone }
     }
 
     fileprivate var playersToText = [Player]() {
@@ -53,7 +53,7 @@ class RosterViewController: Component, AutoStoryboardInitializable {
             }
             
             guard isTexting != oldValue else { return }
-            playersToText = orderedPlayers.filter { $0.hasCell }
+            playersToText = orderedPlayers.filter { $0.hasCellPhone }
             UIView.animate(withDuration: 0.25) {
                 self.textButton.isHidden = !self.isTexting
             }
@@ -63,7 +63,7 @@ class RosterViewController: Component, AutoStoryboardInitializable {
     
     fileprivate var allPlayers: [Player] {
         guard let currentTeam = currentTeam else { return [] }
-        return core.state.playerState.players(for: currentTeam).sorted(by: { $0.order < $1.order })
+        return core.state.playerState.currentPlayers(for: currentTeam.id).sorted(by: { $0.order < $1.order })
     }
     fileprivate var currentTeam: Team? {
         return core.state.teamState.currentTeam
@@ -78,10 +78,9 @@ class RosterViewController: Component, AutoStoryboardInitializable {
         tableView.isEditing = true
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 24, right: 0)
         
-        if let lineup = core.state.newGameState.lineup, isLineup {
+        if isLineup, let lineup = core.state.newGameState.lineup {
             orderedPlayers = lineup
-            guard let currentTeam = currentTeam else { orderedPlayers = allPlayers; return }
-            benchedPlayers = core.state.playerState.players(for: currentTeam).filter { !lineup.contains($0) }
+            benchedPlayers = allPlayers.filter { !lineup.contains($0) }
         } else {
             orderedPlayers = allPlayers.filter { $0.order >= 0 }.sorted { $0.order < $1.order }
             benchedPlayers = allPlayers.filter { $0.order < 0 }.sorted { $0.name < $1.name }
@@ -136,7 +135,7 @@ class RosterViewController: Component, AutoStoryboardInitializable {
             let newPlayers = state.playerState.players(for: team).filter { !orderedPlayers.contains($0) && !benchedPlayers.contains($0) }
             orderedPlayers.append(contentsOf: newPlayers)
         } else {
-            orderedPlayers = state.playerState.players(for: team).filter { !benchedPlayers.contains($0) }
+            orderedPlayers = state.playerState.currentPlayers(for: team.id).filter { !benchedPlayers.contains($0) }
             for (index, player) in benchedPlayers.enumerated() {
                 let teamPlayers = state.playerState.players(for: team)
                 if let statePlayerIndex = teamPlayers.index(of: player), case let statePlayer = teamPlayers[statePlayerIndex], !player.isSame(as: statePlayer) {

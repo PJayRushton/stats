@@ -66,7 +66,7 @@ extension AppState {
         if !statState.includeSubs {
             allAtBats = allAtBats.filter { atBat in
                 guard let atBatPlayer = playerState.player(withId: atBat.playerId) else { return false }
-                return !atBatPlayer.isSub
+                return !atBatPlayer.isSubForCurrentSeason
             }
         }
         

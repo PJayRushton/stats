@@ -56,10 +56,10 @@ struct StatState: State {
             
         case let event as Selected<Team>:
             currentGame = nil
-            currentSeasonId = event.item?.currentSeasonId
             allTrophySections = []
             gameTrophySections = [:]
             seasonStats = nil
+            currentSeasonId = event.item?.currentSeasonId
             
         case let event as StatGameUpdated:
             currentGame = event.game

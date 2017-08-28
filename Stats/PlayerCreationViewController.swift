@@ -148,7 +148,7 @@ extension PlayerCreationViewController {
         jerseyNumberTextField.text = player.jerseyNumber
         phoneTextField.text = player.phone
         try? genderSegControl.setIndex(UInt(player.gender.rawValue), animated: false)
-        subSwitch.isSelected = player.isSub
+        subSwitch.isSelected = player.isSubForCurrentSeason
         saveAddButton.isHidden = true
         deleteButton.isHidden = false
         updateSaveButtons()
@@ -197,7 +197,7 @@ extension PlayerCreationViewController {
             editingPlayer.jerseyNumber = jerseyNumber
             editingPlayer.phone = phone
             editingPlayer.gender = gender
-            editingPlayer.isSub = subSwitch.isSelected
+            editingPlayer.isSubForCurrentSeason = subSwitch.isSelected
             return editingPlayer
         } else {
             return Player(id: id, name: name, jerseyNumber: jerseyNumber, isSub: subSwitch.isSelected, phone: phone, gender: gender, teamId: team.id)

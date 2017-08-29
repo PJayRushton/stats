@@ -94,13 +94,13 @@ extension Player: Marshaling {
         var json = JSONObject()
         json[idKey] = id
         json[genderKey] = gender.rawValue
-        var seasonsJSON = JSONObject()
-        seasons.forEach { seasonsJSON[$0.key] = $0.value }
-        json[seasonsKey] = seasonsJSON
         json[jerseyNumberKey] = jerseyNumber ?? NSNull()
         json[nameKey] = name
         json[orderKey] = order
         json[phoneKey] = phone ?? NSNull()
+        var seasonsJSON = JSONObject()
+        seasons.forEach { seasonsJSON[$0.key] = $0.value }
+        json[seasonsKey] = seasonsJSON
         json[teamIdKey] = teamId
         
         return json

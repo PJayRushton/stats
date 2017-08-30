@@ -53,6 +53,7 @@ class HomeViewController: Component, AutoStoryboardInitializable {
         adapter.collectionView = collectionView
         adapter.dataSource = self
         feedbackGenerator.prepare()
+        core.fire(command: UpdateTrophies())
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -60,7 +61,7 @@ class HomeViewController: Component, AutoStoryboardInitializable {
         
         navigationController?.setNavigationBarHidden(true, animated: true)
         adapter.performUpdates(animated: true)
-        
+        core.fire(event: Updated<StatsViewType>(.trophies))
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {

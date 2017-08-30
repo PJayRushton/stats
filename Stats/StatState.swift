@@ -8,118 +8,106 @@
 
 import Foundation
 
+// MARK: - Events
+
 struct SubFilterUpdated: Event {
     var includeSubs: Bool
 }
 
+struct StatGameUpdated: Event {
+    var game: Game?
+}
+
+
 struct StatState: State {
     
     var currentViewType = StatsViewType.trophies
-    var currentStatType = StatType.battingAverage
     var includeSubs = false
     var currentGame: Game?
-    var currentSeasonId: String?
-    var allTrophySections = [TrophySection]()
-    var seasonStats: GameStats?
-    var gameStats = [String: GameStats]()
-    var gameTrophySections = [String: [TrophySection]]()
+    var allStats = [String: GameStats]()
+    var trophySections = [String: [TrophySection]]()
     
-    var currentTrophySections: [TrophySection] {
-        if let statGame = currentGame, let sections = gameTrophySections[statGame.id] {
-            return sections
-        } else {
-            return allTrophySections
-        }
-    }
-    var currentStats: GameStats? {
-        if let currentGame = currentGame {
-            return gameStats[currentGame.id]
-        } else if let seasonStats = seasonStats {
-            return seasonStats
-        }
-        
-        return nil
-    }
- 
     mutating func react(to event: Event) {
         switch event {
         case let event as Updated<StatsViewType>:
             currentViewType = event.payload
-        case let event as Updated<StatType>:
-            currentStatType = event.payload
+            
         case let event as SubFilterUpdated:
             includeSubs = event.includeSubs
+            
         case let event as StatGameUpdated:
             currentGame = event.game
-        case let event as Selected<Season>:
-            currentSeasonId = event.item?.id
             
         case let event as Selected<Team>:
+            currentViewType = .trophies
             currentGame = nil
-            allTrophySections = []
-            gameTrophySections = [:]
-            seasonStats = nil
-            currentSeasonId = event.item?.currentSeasonId
+            trophySections = [:]
+            includeSubs = false
+            guard let team = event.item else { return }
+            clearStats(team.id)
             
         case let event as StatGameUpdated:
             currentGame = event.game
             
         case let event as TeamObjectAdded<GameStats>:
-            let eventStats = event.object
-            if eventStats.isSeason, eventStats.gameId == App.core.state.seasonState.currentSeasonId {
-                seasonStats = eventStats
-            } else {
-                gameStats[eventStats.gameId] = eventStats
-            }
+            allStats[event.object.gameId] = event.object
             
         case let event as TeamObjectChanged<GameStats>:
-            let eventStats = event.object
-            if eventStats.isSeason, eventStats.gameId == App.core.state.seasonState.currentSeasonId {
-                seasonStats = eventStats
-            } else {
-                gameStats[eventStats.gameId] = eventStats
-            }
+            allStats[event.object.gameId] = event.object
             
         case let event as TeamObjectRemoved<GameStats>:
-            let eventStats = event.object
-            if eventStats.isSeason, eventStats.gameId == App.core.state.seasonState.currentSeasonId {
-                seasonStats = nil
-            } else {
-                gameStats[eventStats.gameId] = nil
-            }
+            allStats[event.object.gameId] = nil
             
         case let event as TrophySectionsUpdated:
-            if let game = event.game {
-                gameTrophySections[game.id] = event.sections
-            } else {
-                allTrophySections = event.sections
-            }
+            trophySections[event.gameId] = event.sections
             
         default:
             break
         }
     }
     
-    func stats(for game: Game) -> GameStats? {
-        return gameStats[game.id]
-    }
-    
-    func stats(for game: Game, ofType type: StatType) -> [Stat] {
-        guard let stats = stats(for: game) else { return [] }
-        return stats.allStats.filter { $0.type == type }.sorted(by: >)
-    }
-    
-    func allStats(ofType type: StatType) -> [Stat] {
-        if let statGame = currentGame, let gameStats = stats(for: statGame) {
-            return gameStats.allStats.filter { $0.type == type }
-        } else if let seasonStats = seasonStats {
-            return seasonStats.allStats.filter { $0.type == type }
-        } else {
-            return []
+    mutating func clearStats(_ teamId: String) {
+        allStats.forEach { key, statsValue in
+            if statsValue.teamId != teamId {
+                self.allStats[key] = nil
+            }
         }
     }
     
-    func playerStats(for player: Player, game: Game) -> [Stat] {
+    var currentTrophies: [TrophySection] {
+        if let statGame = currentGame, let sections = trophySections[statGame.id] {
+            return sections
+        } else if let currentSeasonId = App.core.state.seasonState.currentSeasonId, let sections = trophySections[currentSeasonId] {
+            return sections
+        }
+        return []
+    }
+    var currentStats: GameStats? {
+        if let currentGame = currentGame, case let gameStats = allStats[currentGame.id] {
+            return gameStats
+        } else if let currentSeasonId = App.core.state.seasonState.currentSeasonId, case let seasonStats = allStats[currentSeasonId] {
+            return seasonStats
+        }
+        
+        return nil
+    }
+    
+    func stats(for id: String) -> GameStats? {
+        return allStats[id]
+    }
+    
+    /// Calculates the stats for the object id passsed in `Game.id` or `Season.id`
+    ///
+    /// - Parameters:
+    ///   - id: Game.id or Season.id
+    ///   - type: StatType of all the stats returned
+    /// - Returns: Stats from the object passed in of the type passed in
+    func stats(for id: String, ofType type: StatType) -> [Stat] {
+        guard let stats = self.stats(for: id) else { return [] }
+        return stats.allStats.filter { $0.type == type }.sorted(by: >)
+    }
+    
+    func playerStats(for player: Player, game: Game? = nil) -> [Stat] {
         let playerAtBats = App.core.state.atBatState.atBats(for: player, in: game)
         return StatType.allValues.flatMap { type -> Stat? in
             let statValue = type.statValue(from: playerAtBats)
@@ -127,8 +115,4 @@ struct StatState: State {
         }
     }
     
-}
-
-struct StatGameUpdated: Event {
-    var game: Game?
 }

@@ -17,10 +17,16 @@ struct SaveGameStats: Command {
     }
     
     func execute(state: AppState, core: Core<AppState>) {
-        var stats = gameStats(from: game, state: state)
-        let ref = StatsRefs.gameStatsRef(teamId: stats.teamId).childByAutoId()
-        stats.id = ref.key
-        networkAccess.setValue(at: ref, parameters: stats.jsonObject())
+        DispatchQueue.global().async {
+            var stats = self.gameStats(from: self.game, state: state)
+            let ref = StatsRefs.gameStatsRef(teamId: stats.teamId).childByAutoId()
+            stats.id = ref.key
+            self.networkAccess.setValue(at: ref, parameters: stats.jsonObject(), completion: { result in
+                if case .success = result {
+                    core.fire(command: SaveSeasonStats())
+                }
+            })
+        }
     }
     
     func gameStats(from game: Game, state: AppState) -> GameStats {

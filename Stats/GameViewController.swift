@@ -267,7 +267,7 @@ extension GameViewController {
         game.isCompleted = isCompleted
         core.fire(command: UpdateObject(game))
         core.fire(command: SaveGameStats(for: game))
-        core.fire(command: UpdateStats(for: game))
+        core.fire(command: UpdateTrophies(for: game))
         
         if isCompleted {
             core.fire(event: UpdateRecentlyCompletedGame(game: game))

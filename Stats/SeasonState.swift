@@ -10,9 +10,7 @@ import Foundation
 
 struct SeasonState: State {
     
-    var currentSeasonId: String? {
-        return App.core.state.statState.currentSeasonId ?? App.core.state.teamState.currentTeam?.currentSeasonId
-    }
+    var currentSeasonId: String?
     var allSeasonsDict = [String: [Season]]()
     
     var currentSeason: Season? {
@@ -33,6 +31,10 @@ struct SeasonState: State {
         switch event {
         case let event as TeamEntitiesUpdated<Season>:
             allSeasonsDict[event.teamId] = event.entities
+        case let event as Selected<Season>:
+            currentSeasonId = event.item?.id
+        case let event as Selected<Team>:
+            currentSeasonId = event.item?.currentSeasonId
         default:
             break
         }

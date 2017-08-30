@@ -162,9 +162,9 @@ extension GamesViewController {
     }
     
     fileprivate func saveStatsIfNeeded(for game: Game) {
-        core.fire(command: UpdateStats(for: game))
+        core.fire(command: UpdateTrophies(for: game))
         
-        if core.state.statState.stats(for: game) == nil {
+        if core.state.statState.stats(for: game.id) == nil {
             core.fire(command: SaveGameStats(for: game))
         }
     }

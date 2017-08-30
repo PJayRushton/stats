@@ -27,6 +27,13 @@ struct GameStats {
         self.teamId = game.teamId
     }
     
+    init(_ season: Season) {
+        self.id = UUID().uuidString
+        self.gameId = season.id
+        self.isSeason = true
+        self.teamId = season.teamId
+    }
+    
 }
 
 

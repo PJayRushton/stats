@@ -17,6 +17,7 @@
 		367D7DE91F4F2032003F7585 /* SaveGameStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367D7DE81F4F2032003F7585 /* SaveGameStats.swift */; };
 		368350111F43C80700800B08 /* AddGamesToCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368350101F43C80700800B08 /* AddGamesToCalendar.swift */; };
 		369094291F2F78AA00D11D3F /* SaveSeasonStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369094281F2F78AA00D11D3F /* SaveSeasonStats.swift */; };
+		36976BC81F58582D00241D3D /* MainMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36976BC71F58582D00241D3D /* MainMiddleware.swift */; };
 		36AB0AAC1EB3CAA90058F0E4 /* SetObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AB0AAB1EB3CAA90058F0E4 /* SetObject.swift */; };
 		A10359991EAE4259009365F4 /* StatState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10359981EAE4259009365F4 /* StatState.swift */; };
 		A10AF81F1EEC969100A6E00E /* GamesHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10AF81E1EEC969100A6E00E /* GamesHeaderCell.swift */; };
@@ -191,6 +192,7 @@
 		367D7DE81F4F2032003F7585 /* SaveGameStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveGameStats.swift; sourceTree = "<group>"; };
 		368350101F43C80700800B08 /* AddGamesToCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddGamesToCalendar.swift; sourceTree = "<group>"; };
 		369094281F2F78AA00D11D3F /* SaveSeasonStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveSeasonStats.swift; sourceTree = "<group>"; };
+		36976BC71F58582D00241D3D /* MainMiddleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMiddleware.swift; sourceTree = "<group>"; };
 		36AB0AAB1EB3CAA90058F0E4 /* SetObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetObject.swift; sourceTree = "<group>"; };
 		3EB00BD85F52BB91F956360D /* Pods-Stats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stats.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stats/Pods-Stats.release.xcconfig"; sourceTree = "<group>"; };
 		A10359981EAE4259009365F4 /* StatState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatState.swift; sourceTree = "<group>"; };
@@ -418,6 +420,7 @@
 			isa = PBXGroup;
 			children = (
 				A1A451A21ED69E5F00965BE4 /* AnalyticsMiddleware.swift */,
+				36976BC71F58582D00241D3D /* MainMiddleware.swift */,
 			);
 			name = Middleware;
 			sourceTree = "<group>";
@@ -950,6 +953,7 @@
 				A18F68AD1ECD703A00407E89 /* PhotoPickerViewController.swift in Sources */,
 				A1B65DD61EB15EA0009983E1 /* TrophySectionController.swift in Sources */,
 				A17EF6CE1E94148300DEE4ED /* SubscribeToObject.swift in Sources */,
+				36976BC81F58582D00241D3D /* MainMiddleware.swift in Sources */,
 				A1DC99D31E7E3E4500C6FF8C /* AppDelegate.swift in Sources */,
 				A1A2C3751E8C135E0008274F /* SaveNewUser.swift in Sources */,
 				A14B64F21E8D696800CBDE92 /* AddTeamToUser.swift in Sources */,

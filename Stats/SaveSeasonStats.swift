@@ -8,19 +8,6 @@
 
 import Foundation
 
-struct TrophySectionsUpdated: Event {
-    
-    var sections: [TrophySection]
-    var gameId: String
-    
-    init(_ sections: [TrophySection], gameId: String) {
-        self.sections = sections
-        self.gameId = gameId
-    }
-    
-}
-
-
 struct SaveSeasonStats: Command {
     
     func execute(state: AppState, core: Core<AppState>) {
@@ -35,6 +22,7 @@ struct SaveSeasonStats: Command {
             }
             let ref = StatsRefs.gameStatsRef(teamId: currentSeason.teamId).child(currentSeason.id)
             seasonStats.id = ref.key
+            seasonStats.stats = stats
             self.networkAccess.setValue(at: ref, parameters: seasonStats.jsonObject())
         }
     }

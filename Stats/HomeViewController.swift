@@ -53,7 +53,6 @@ class HomeViewController: Component, AutoStoryboardInitializable {
         adapter.collectionView = collectionView
         adapter.dataSource = self
         feedbackGenerator.prepare()
-        core.fire(command: UpdateTrophies())
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -156,6 +155,9 @@ extension HomeViewController {
     fileprivate func pushStats() {
         let statsVC = StatsViewController.initializeFromStoryboard()
         navigationController?.pushViewController(statsVC, animated: true)
+        if core.state.statState.currentTrophies.isEmpty  {
+            core.fire(command: UpdateTrophies())
+        }
     }
     
     func pushRoster() {

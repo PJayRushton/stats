@@ -46,9 +46,6 @@ struct StatState: State {
             guard let team = event.item else { return }
             clearStats(team.id)
             
-        case let event as StatGameUpdated:
-            currentGame = event.game
-            
         case let event as TeamObjectAdded<GameStats>:
             allStats[event.object.gameId] = event.object
             

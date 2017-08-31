@@ -8,6 +8,18 @@
 
 import Foundation
 
+struct TrophySectionsUpdated: Event {
+    
+    var sections: [TrophySection]
+    var gameId: String
+    
+    init(_ sections: [TrophySection], gameId: String) {
+        self.sections = sections
+        self.gameId = gameId
+    }
+    
+}
+
 struct UpdateTrophies: Command {
     
     var game: Game?
@@ -30,7 +42,6 @@ struct UpdateTrophies: Command {
             }
             guard !sections.isEmpty else { return }
             core.fire(event: TrophySectionsUpdated(sections, gameId: id))
-            core.fire(command: UpdateTrophies())
         }
     }
     

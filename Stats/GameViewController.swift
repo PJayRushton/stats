@@ -53,11 +53,9 @@ class GameViewController: Component, AutoStoryboardInitializable {
         guard let player = currentPlayer, let game = game else { return [] }
         return core.state.atBatState.atBats(for: player, in: game).sorted(by: { $0.creationDate > $1.creationDate })
     }
-    
     var game: Game? {
         return core.state.gameState.currentGame
     }
-    
     var names = [String]() {
         didSet {
             if names != oldValue {
@@ -268,10 +266,10 @@ extension GameViewController {
         guard var game = game, hasEditRights else { return }
         game.isCompleted = isCompleted
         core.fire(command: UpdateObject(game))
-        core.fire(command: SaveGameStats(for: game))
-        core.fire(command: UpdateTrophies(for: game))
         
         if isCompleted {
+            core.fire(command: SaveGameStats(for: game))
+            core.fire(command: UpdateTrophies(for: game))
             core.fire(event: UpdateRecentlyCompletedGame(game: game))
             navigationController?.popViewController(animated: true)
         }

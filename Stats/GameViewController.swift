@@ -24,10 +24,11 @@ class GameViewController: Component, AutoStoryboardInitializable {
     @IBOutlet weak var playerHolderView: UIView!
     @IBOutlet weak var playerPickerView: AKPickerView!
     @IBOutlet weak var newAtBatView: UIView!
+    @IBOutlet weak var plusImageView: UIImageView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet var outButtons: [UIButton]!
-    
     @IBOutlet weak var emptyLineupView: UIView!
+    
     fileprivate lazy var adapter: ListAdapter = {
         return ListAdapter(updater: ListAdapterUpdater(), viewController: self, workingRangeSize: 0)
     }()
@@ -82,6 +83,7 @@ class GameViewController: Component, AutoStoryboardInitializable {
         }
         
         updateUI(with: game)
+        plusImageView.tintColor = .white
         scoreLabel.morphingEffect = .fall
         previousInningButton?.isHidden = game.isCompleted || !hasEditRights
         nextInningButton?.isHidden = game.isCompleted || !hasEditRights

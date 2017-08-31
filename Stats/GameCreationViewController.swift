@@ -53,7 +53,7 @@ class GameCreationViewController: Component, AutoStoryboardInitializable {
             core.fire(event: LineupUpdated(players: lineupPlayers))
         }
         if showLineup {
-            lineupViewPressed(animated: false)
+            pushLineup(animated: false)
         }
     }
     
@@ -71,10 +71,8 @@ class GameCreationViewController: Component, AutoStoryboardInitializable {
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func lineupViewPressed(animated: Bool = true) {
-        let rosterVC = RosterViewController.initializeFromStoryboard()
-        rosterVC.isLineup = true
-        navigationController?.pushViewController(rosterVC, animated: animated)
+    @IBAction func lineupViewPressed(_ sender: Any) {
+        pushLineup()
     }
     
     @IBAction func startButtonPressed(_ sender: UIButton) {
@@ -173,6 +171,12 @@ extension GameCreationViewController {
         if !game.lineupIds.isEmpty {
             
         }
+    }
+    
+    fileprivate func pushLineup(animated: Bool = true) {
+        let rosterVC = RosterViewController.initializeFromStoryboard()
+        rosterVC.isLineup = true
+        navigationController?.pushViewController(rosterVC, animated: animated)
     }
     
     fileprivate func updateSaveButton() {

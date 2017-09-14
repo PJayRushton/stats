@@ -77,6 +77,21 @@ struct AtBat: Identifiable, Unmarshaling {
     var seasonId: String
     var teamId: String
     
+    var sluggingValue: Double {
+        switch resultCode {
+        case .single:
+            return 1
+        case .double:
+            return 2
+        case .triple:
+            return 3
+        case .hr, .hrITP:
+            return 4
+        default:
+            return 0
+        }
+    }
+    
     init(id: String = "", creationDate: Date = Date(), gameId: String, playerId: String, rbis: Int = 0, resultCode: AtBatCode, seasonId: String, teamId: String) {
         self.id = id
         self.creationDate = creationDate

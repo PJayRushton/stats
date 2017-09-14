@@ -69,6 +69,9 @@ extension Array where Iterator.Element == AtBat {
     var battingAverageCount: Int {
         return self.filter { $0.resultCode.countsForBA }.count
     }
+    var sluggingCount: Double {
+        return reduce(0, { $0 + $1.sluggingValue })
+    }
     
 }
 
@@ -206,33 +209,6 @@ extension Array {
         return self[randomIndex]
     }
     
-}
-
-let array = [1,2,3,4,5,6]
-let steps = array.step(from: array.startIndex, to:array.endIndex, interval: 2)
-
-extension MutableCollection where Indices.Iterator.Element == Index {
-    
-    /// Shuffles the contents of this collection.
-    mutating func shuffle() {
-        guard count > 1 else { return }
-        
-        for (unshuffledCount, firstUnshuffled) in zip(stride(from: count, to: 1, by: -1), indices) {
-            let d: IndexDistance = numericCast(arc4random_uniform(numericCast(unshuffledCount)))
-            guard d != 0 else { continue }
-            let i = index(firstUnshuffled, offsetBy: d)
-            swap(&self[firstUnshuffled], &self[i])
-        }
-    }
-}
-
-extension Sequence {
-    /// Returns an array with the contents of this sequence, shuffled.
-    func shuffled() -> [Iterator.Element] {
-        var result = Array(self)
-        result.shuffle()
-        return result
-    }
 }
 
 extension Int {

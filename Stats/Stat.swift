@@ -25,7 +25,7 @@ struct Stat {
     
     var displayString: String {
         switch type {
-        case .battingAverage, .onBasePercentage:
+        case .battingAverage, .onBasePercentage, .slugging:
             return value.displayString
         default:
             return "\(Int(value))"

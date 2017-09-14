@@ -82,8 +82,8 @@ struct StatState: State {
     var currentStats: GameStats? {
         if let currentGame = currentGame, case let gameStats = allStats[currentGame.id] {
             return gameStats
-        } else if let currentSeasonId = App.core.state.seasonState.currentSeasonId, case let seasonStats = allStats[currentSeasonId] {
-            return seasonStats
+        } else if let currentSeasonId = App.core.state.seasonState.currentSeasonId {
+            return allStats[currentSeasonId]
         }
         
         return nil

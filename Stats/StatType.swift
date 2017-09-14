@@ -23,11 +23,12 @@ enum StatType: String {
     case rbis
     case reachOnError
     case singles
+    case slugging
     case strikeOuts
     case triples
     case walks
     
-    static let allValues = [StatType.battingAverage, .onBasePercentage, .hits, .atBats, .plateAppearances, .singles, .doubles, .triples, .homeRuns, .itpHRs, .grandSlams, .rbis, .walks, .strikeOuts, .reachOnError]
+    static let allValues = [StatType.battingAverage, .slugging, .onBasePercentage, .hits, .atBats, .plateAppearances, .singles, .doubles, .triples, .homeRuns, .itpHRs, .grandSlams, .rbis, .walks, .strikeOuts, .reachOnError]
     
     var abbreviation: String {
         switch self {
@@ -59,6 +60,8 @@ enum StatType: String {
             return "ROE"
         case .singles:
             return "1B"
+        case .slugging:
+            return "SLG"
         case .strikeOuts:
             return "K"
         case .triples:
@@ -72,8 +75,8 @@ enum StatType: String {
         switch self {
         case .atBats:
             return isSingular ? "At Bat" : "At Bats"
-        case .battingAverage:
-            return "BA"
+        case .battingAverage, .onBasePercentage, .reachOnError, .slugging:
+            return abbreviation
         case .doubles:
             return isSingular ? "Double" : "Doubles"
         case .gamesPlayed:
@@ -88,14 +91,10 @@ enum StatType: String {
             return isSingular ? "Home Run" : "Home Runs"
         case .itpHRs:
             return isSingular ? "HR-ITP" : "HRs-ITP"
-        case .onBasePercentage:
-            return "OBP"
         case .plateAppearances:
             return isSingular ? "Plate Appearance" : "Plate Appearances"
         case .rbis:
             return isSingular ? "RBI" : "RBIs"
-        case .reachOnError:
-            return "ROE"
         case .singles:
             return isSingular ? "Single" : "Singles"
         case .strikeOuts:
@@ -142,6 +141,9 @@ enum StatType: String {
             return atBats.withResult(.roe).count.doubleValue
         case .singles:
             return atBats.withResult(.single).count.doubleValue
+        case .slugging:
+            guard atBats.sluggingCount > 0 else { return 0 }
+            return atBats.sluggingCount / atBats.battingAverageCount.doubleValue
         case .strikeOuts:
             return atBats.withResult(.k).count.doubleValue
         case .triples:

@@ -12,6 +12,7 @@ enum Trophy: Int {
     
     case battingAverage
     case hits
+    case slugger
     case homeRuns
     case inTheParkers
     case grandSlams
@@ -20,11 +21,12 @@ enum Trophy: Int {
     case hitByPitches
     case onBasePercentage
     case reachedOnErrors
+    case singles
     case doubles
     case triples
     case worseBattingAverage
     
-    static let allValues = [Trophy.battingAverage, .hits, .homeRuns, .inTheParkers, .grandSlams, .rbis, .walks, .onBasePercentage, .reachedOnErrors, .doubles, .triples, .worseBattingAverage]
+    static let allValues = [Trophy.battingAverage, .hits, .slugger, .homeRuns, .inTheParkers, .grandSlams, .rbis, .walks, .onBasePercentage, .reachedOnErrors, .singles, .doubles, .triples, .worseBattingAverage]
     
     var displayName: String {
         switch self {
@@ -32,6 +34,8 @@ enum Trophy: Int {
             return "🏆 MVP 🏆"
         case .hits:
             return "☠️ HITMAN ☠️"
+        case .slugger:
+            return "💪 LOUSVILLE SLUGGER 💪"
         case .homeRuns:
             return "💣 LONG BOMBER 💣"
         case .inTheParkers:
@@ -48,6 +52,8 @@ enum Trophy: Int {
             return "😎 MR(S). RELIABLE 😎"
         case .reachedOnErrors:
             return "🦆 LUCKY DUCK 🦆"
+        case .singles:
+            return "💍 ALL YOU SINGLE LADIES 💍"
         case .doubles:
             return "💥💥 DOUBLE TROUBLE 💥💥"
         case .triples:
@@ -63,6 +69,8 @@ enum Trophy: Int {
             return "(Best Batting Average)"
         case .hits:
             return "(Most Hits)"
+        case .slugger:
+            return "(Best Slugging Percentage)"
         case .homeRuns:
             return "(Most Home Runs)"
         case .inTheParkers:
@@ -79,6 +87,8 @@ enum Trophy: Int {
             return "(Best On-Base Percentage)"
         case .reachedOnErrors:
             return "(Most Bases Reached On Errors)"
+        case .singles:
+            return "(Most Singles)"
         case .doubles:
             return "(Most Doubles)"
         case .triples:
@@ -91,31 +101,35 @@ enum Trophy: Int {
     var backgroundColor: UIColor {
         switch self {
         case .battingAverage:
-            return UIColor.mainAppColor
+            return .mainAppColor
         case .hits:
-            return UIColor.flatBlack
+            return .flatBlack
+        case .slugger:
+            return .flatSkyBlue
         case .homeRuns:
-            return UIColor.flatSkyBlue
+            return .flatRed
         case .inTheParkers:
-            return UIColor.flatRed
+            return .flatTeal
         case .grandSlams:
-            return UIColor.flatTeal
+            return .flatOrange
         case .rbis:
-            return UIColor.flatOrange
+            return .mainAppColor
         case .walks:
-            return UIColor.mainAppColor
+            return .flatBlack
         case .hitByPitches:
-            return UIColor.flatBlack
+            return .flatSkyBlue
         case .onBasePercentage:
-            return UIColor.flatSkyBlue
+            return .flatRed
         case .reachedOnErrors:
-            return UIColor.flatRed
+            return .flatTeal
+        case .singles:
+            return .flatOrange
         case .doubles:
-            return UIColor.flatTeal
+            return .mainAppColor
         case .triples:
-            return UIColor.flatOrange
+            return .flatBlack
         case .worseBattingAverage:
-            return UIColor.mainAppColor
+            return .flatSkyBlue
         }
     }
     
@@ -125,6 +139,8 @@ enum Trophy: Int {
             return .battingAverage
         case .hits:
             return .hits
+        case .slugger:
+            return .slugging
         case .homeRuns:
             return .homeRuns
         case .inTheParkers:
@@ -141,6 +157,8 @@ enum Trophy: Int {
             return .onBasePercentage
         case .reachedOnErrors:
             return .reachOnError
+        case .singles:
+            return .singles
         case .doubles:
             return .doubles
         case .triples:

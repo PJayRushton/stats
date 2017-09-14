@@ -17,7 +17,7 @@ class StatsNumbersViewController: Component, AutoStoryboardInitializable {
     fileprivate let selectedBackground = UIColor.mainAppColor.withAlphaComponent(0.2)
 
     fileprivate var allStats: [Stat] {
-        return App.core.state.statState.currentStats?.stats.values.flatMap { $0 } ?? []
+        return core.state.statState.currentStats?.stats.values.flatMap { $0 } ?? []
     }
     
     fileprivate var currentPlayers = [Player]() {
@@ -60,7 +60,8 @@ extension StatsNumbersViewController {
         let selectedStatType = statType(for: sortSection)
         var selectedStats = stats(ofType: selectedStatType)
         selectedStats.sort(by: >)
-        currentPlayers = selectedStats.flatMap { $0.player }
+        let idOrder = selectedStats.flatMap { $0.playerId }
+        currentPlayers.sort { idOrder.index(of: $0.id)! < idOrder.index(of: $1.id)! }
     }
     
     fileprivate func stats(ofType type: StatType) -> [Stat] {

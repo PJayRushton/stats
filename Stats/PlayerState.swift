@@ -36,6 +36,9 @@ struct PlayerState: State {
             return currentSeasonPlayers
         }
     }
+    var currentStatPlayerIds: [String] {
+        return currentStatPlayers.map { $0.id }
+    }
     
     func players(for team: Team) -> [Player] {
         return players(for: team.id).sorted(by: { $0.order < $1.order })

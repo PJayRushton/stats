@@ -12,10 +12,12 @@ class TeamActionSection: ListDiffable {
     
     var team: Team
     var menuItem: HomeMenuItem
+    var badgeCount: Int?
     
-    init(team: Team, menuItem: HomeMenuItem) {
+    init(team: Team, menuItem: HomeMenuItem, badgeCount: Int? = nil) {
         self.team = team
         self.menuItem = menuItem
+        self.badgeCount = badgeCount
     }
     
     func diffIdentifier() -> NSObjectProtocol {
@@ -24,7 +26,7 @@ class TeamActionSection: ListDiffable {
     
     func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
         guard let other = object as? TeamActionSection else { return false }
-        return team == other.team && menuItem.title == other.menuItem.title
+        return team == other.team && menuItem.title == other.menuItem.title && badgeCount == other.badgeCount
     }
     
 }
@@ -56,7 +58,7 @@ extension TeamActionSectionController {
     
     override func cellForItem(at index: Int) -> UICollectionViewCell {
         let cell = collectionContext?.dequeueReusableCellFromStoryboard(withIdentifier: HomeCollectionViewCell.reuseIdentifier, for: self, at: index) as! HomeCollectionViewCell
-        cell.update(with: actionSection.menuItem)
+        cell.update(with: actionSection.menuItem, badgeCount: actionSection.badgeCount)
         
         return cell
     }

@@ -16,7 +16,6 @@ class HomeViewController: Component, AutoStoryboardInitializable {
     // MARK: - IBOutlets
 
     @IBOutlet weak var collectionView: UICollectionView!
-    
     @IBOutlet var emptyStateView: UIView!
     @IBOutlet weak var topImageView: UIImageView!
     @IBOutlet weak var bottomImageView: UIImageView!
@@ -228,7 +227,17 @@ extension HomeViewController: ListAdapterDataSource {
         let items = HomeMenuItem.allValues
         
         items.forEach { item in
-            objects.append(TeamActionSection(team: currentTeam, menuItem: item))
+            var section = TeamActionSection(team: currentTeam, menuItem: item)
+            switch item {
+            case .stats:
+                section.badgeCount = 1
+            case .games:
+                let count = core.state.gameState.currentOngoingGames.count
+                section.badgeCount = count == 0 ? nil : count
+            default:
+                break
+            }
+            objects.append(section)
         }
         return objects
     }

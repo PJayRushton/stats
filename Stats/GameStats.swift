@@ -12,23 +12,25 @@ import Marshal
 struct GameStats {
     
     var id: String
+    var creationDate: Date?
     var gameId: String
     var isSeason = false
     var teamId: String
     var stats = [String: [Stat]]()
-    
     var allStats: [Stat] {
         return stats.values.joined().flatMap { $0 }
     }
     
     init(_ game: Game) {
         self.id = UUID().uuidString
+        self.creationDate = Date()
         self.gameId = game.id
         self.teamId = game.teamId
     }
     
     init(_ season: Season) {
         self.id = UUID().uuidString
+        self.creationDate = Date()
         self.gameId = season.id
         self.isSeason = true
         self.teamId = season.teamId
@@ -43,6 +45,7 @@ extension GameStats: Unmarshaling {
     
     init(object: MarshaledObject) throws {
         id = try object.value(for: idKey)
+        creationDate = try object.value(for: creationDateKey)
         gameId = try object.value(for: gameIdKey)
         isSeason = try object.value(for: isSeasonKey) ?? false
         teamId = try object.value(for: teamIdKey)
@@ -65,6 +68,7 @@ extension GameStats: JSONMarshaling {
     func jsonObject() -> JSONObject {
         var object = JSONObject()
         object[idKey] = id
+        object[creationDateKey] = creationDate?.iso8601String
         object[gameIdKey] = gameId
         object[isSeasonKey] = isSeason
         object[teamIdKey] = teamId

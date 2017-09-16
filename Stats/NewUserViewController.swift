@@ -12,22 +12,15 @@ import TextFieldEffects
 
 class NewUserViewController: Component, AutoStoryboardInitializable {
     
-    @IBOutlet weak var usernameTextField: UITextField!
-    @IBOutlet weak var usernameLabel: UILabel!
-    @IBOutlet weak var usernameErrorLabel: UILabel!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var emailErrorLabel: UILabel!
     @IBOutlet weak var doneButton: CustomButton!
 
-    
-    
     fileprivate let disabledColor = UIColor.flatGray.withAlphaComponent(0.5)
     fileprivate let enabledColor = UIColor.secondaryAppColor
     fileprivate let thumbsUp = "👍"
     fileprivate let redX = "❌"
-    fileprivate let glasses = "😎"
-    fileprivate var hasTypedUsername = false
     fileprivate var formIsComplete: Bool {
         guard let username = usernameTextField.text, !username.isEmpty else { return false }
         guard let _ = core.state.newUserState.username, core.state.newUserState.usernameIsAvailable else { return false }

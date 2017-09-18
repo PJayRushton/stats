@@ -6,8 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -28,37 +26,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Lhl-3Z-31s">
-                                <rect key="frame" x="10" y="100.5" width="355" height="466.5"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x2L-I7-fAc" customClass="GradientView" customModule="Stats" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                        <color key="value" red="0.65098039220000004" green="0.77647058820000003" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                        <color key="value" red="0.5568627451" green="0.68627450980000004" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Lhl-3Z-31s">
+                                <rect key="frame" x="16" y="20" width="343" height="631"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Welcome to St@s" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JPc-Xd-hzU">
-                                        <rect key="frame" x="60.5" y="0.0" width="234" height="32.5"/>
-                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="24"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Lets get some info from you before we get started" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v0a-WV-VmJ">
-                                        <rect key="frame" x="35.5" y="48.5" width="284" height="40.5"/>
-                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="15"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <view contentMode="scaleToFill" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="dCh-0s-bMg" userLabel="Spacer view">
-                                        <rect key="frame" x="57.5" y="105" width="240" height="84"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="0.0"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" id="pGg-Sg-xe7"/>
+                                        </constraints>
                                     </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="FOH-va-8WA" userLabel="Email stack">
-                                        <rect key="frame" x="0.0" y="205" width="355" height="50"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="AjM-xA-d3Y">
+                                        <rect key="frame" x="-16" y="121.5" width="0.0" height="66.5"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Osb-oo-Tla">
-                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            </view>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="email" textAlignment="center" minimumFontSize="10" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="3aV-JT-0Z8" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                                <rect key="frame" x="66" y="28" width="240" height="22"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Welcome to St@s" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JPc-Xd-hzU">
+                                                <rect key="frame" x="93.5" y="0.0" width="188.5" height="33"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="32.5" id="zbX-Mx-RXU"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="24"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Lets get some info from you before we get started" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v0a-WV-VmJ">
+                                                <rect key="frame" x="0.0" y="49" width="0.0" height="17.5"/>
+                                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="15"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Mye-sb-2JY" userLabel="Email + Error Stack">
+                                        <rect key="frame" x="0.0" y="269" width="343" height="80"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="email" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="7" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="3aV-JT-0Z8" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="uXF-oS-puy"/>
+                                                </constraints>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="15"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" textContentType="email"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
                                                         <color key="value" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -72,75 +92,63 @@
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="textFieldEditingChanged:" destination="BPI-i3-d1f" eventType="editingChanged" id="Ggr-ZZ-Otu"/>
+                                                    <outlet property="delegate" destination="BPI-i3-d1f" id="hkf-u3-qGH"/>
                                                 </connections>
                                             </textField>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check" translatesAutoresizingMaskIntoConstraints="NO" id="Ksx-FN-Q4g">
-                                                <rect key="frame" x="322" y="18" width="33" height="32"/>
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6lz-Zf-IZK">
+                                                <rect key="frame" x="0.0" y="60" width="343" height="20"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="32" id="I2p-Ml-8gV"/>
-                                                    <constraint firstAttribute="width" secondItem="Ksx-FN-Q4g" secondAttribute="height" constant="1" id="XyR-63-c4d"/>
+                                                    <constraint firstAttribute="height" constant="20" id="aWM-Ib-cYi"/>
                                                 </constraints>
-                                            </imageView>
+                                                <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="12"/>
+                                                <color key="textColor" red="0.90747958419999997" green="0.29695275430000001" blue="0.23558339480000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6lz-Zf-IZK">
-                                        <rect key="frame" x="0.0" y="271" width="355" height="20"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="aWM-Ib-cYi"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="12"/>
-                                        <color key="textColor" red="0.90747958419999997" green="0.29695275430000001" blue="0.23558339480000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a4Z-UM-Jx3">
-                                        <rect key="frame" x="0.0" y="307" width="355" height="0.0"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" id="lm9-sx-Qsm"/>
-                                        </constraints>
-                                    </view>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Nh-22-sv0" customClass="CustomButton" customModule="Stats" customModuleProvider="target">
-                                        <rect key="frame" x="77.5" y="323" width="200" height="44"/>
+                                        <rect key="frame" x="112" y="441.5" width="119" height="44"/>
                                         <color key="backgroundColor" red="0.5568627451" green="0.44705882349999998" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="200" id="jHm-1I-5On"/>
                                             <constraint firstAttribute="height" constant="44" id="tOR-58-DkP"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
-                                        <state key="normal" title="Let's get started">
+                                        <inset key="contentEdgeInsets" minX="32" minY="0.0" maxX="32" maxY="0.0"/>
+                                        <state key="normal" title="Submit">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="disabledBackgroundColor">
-                                                <color key="value" red="0.58431372549019611" green="0.64313725490196072" blue="0.6470588235294118" alpha="0.6992307323619632" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="doneButtonPressed:" destination="BPI-i3-d1f" eventType="touchUpInside" id="NEm-yt-rSI"/>
                                         </connections>
                                     </button>
-                                    <view contentMode="scaleToFill" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="kuU-rr-oAp" userLabel="Spacer view">
-                                        <rect key="frame" x="57.5" y="383" width="240" height="83.5"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    </view>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rAM-g3-oxD" customClass="CustomButton" customModule="Stats" customModuleProvider="target">
+                                        <rect key="frame" x="109.5" y="605" width="124" height="26"/>
+                                        <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="12"/>
+                                        <state key="normal" title="Continue without email">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="doneButtonPressed:" destination="BPI-i3-d1f" eventType="touchUpInside" id="VmB-UR-qPp"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="6lz-Zf-IZK" firstAttribute="width" secondItem="Lhl-3Z-31s" secondAttribute="width" id="JUY-S0-2EZ"/>
-                                    <constraint firstItem="FOH-va-8WA" firstAttribute="width" secondItem="Lhl-3Z-31s" secondAttribute="width" id="JZ3-sK-aEn"/>
-                                    <constraint firstItem="a4Z-UM-Jx3" firstAttribute="width" secondItem="Lhl-3Z-31s" secondAttribute="width" id="KgR-cl-cur"/>
-                                    <constraint firstItem="v0a-WV-VmJ" firstAttribute="width" secondItem="Lhl-3Z-31s" secondAttribute="width" multiplier="0.8" id="PiN-3z-rww"/>
-                                    <constraint firstItem="kuU-rr-oAp" firstAttribute="height" secondItem="dCh-0s-bMg" secondAttribute="height" id="arN-Pb-k5R"/>
+                                    <constraint firstItem="Mye-sb-2JY" firstAttribute="width" secondItem="Lhl-3Z-31s" secondAttribute="width" id="DPq-3P-ybT"/>
+                                    <constraint firstItem="dCh-0s-bMg" firstAttribute="width" secondItem="Lhl-3Z-31s" secondAttribute="width" id="ytW-mD-xzo"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.5568627451" green="0.68627450980000004" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="Lhl-3Z-31s" firstAttribute="height" secondItem="ucg-aa-pxz" secondAttribute="height" multiplier="0.7" id="9KA-Us-jUD"/>
-                            <constraint firstAttribute="trailing" secondItem="Lhl-3Z-31s" secondAttribute="trailing" constant="10" id="HRn-1U-8qT"/>
-                            <constraint firstItem="Lhl-3Z-31s" firstAttribute="centerY" secondItem="ucg-aa-pxz" secondAttribute="centerY" id="OMV-Ww-f6w"/>
-                            <constraint firstItem="Lhl-3Z-31s" firstAttribute="leading" secondItem="ucg-aa-pxz" secondAttribute="leading" constant="10" id="nj4-2A-kUL"/>
+                            <constraint firstItem="ZGx-BQ-qUY" firstAttribute="top" secondItem="x2L-I7-fAc" secondAttribute="bottom" id="7bh-IH-lcn"/>
+                            <constraint firstAttribute="trailing" secondItem="x2L-I7-fAc" secondAttribute="trailing" id="F25-BL-w8J"/>
+                            <constraint firstAttribute="trailing" secondItem="Lhl-3Z-31s" secondAttribute="trailing" constant="16" id="HRn-1U-8qT"/>
+                            <constraint firstItem="x2L-I7-fAc" firstAttribute="top" secondItem="ucg-aa-pxz" secondAttribute="top" id="fup-K2-CyS"/>
+                            <constraint firstItem="ZGx-BQ-qUY" firstAttribute="top" secondItem="Lhl-3Z-31s" secondAttribute="bottom" constant="16" id="j9F-Yw-aqN"/>
+                            <constraint firstItem="Lhl-3Z-31s" firstAttribute="leading" secondItem="ucg-aa-pxz" secondAttribute="leading" constant="16" id="nj4-2A-kUL"/>
+                            <constraint firstItem="x2L-I7-fAc" firstAttribute="leading" secondItem="ucg-aa-pxz" secondAttribute="leading" id="piu-pU-iib"/>
+                            <constraint firstItem="Lhl-3Z-31s" firstAttribute="top" secondItem="rlO-4s-H2Q" secondAttribute="bottom" id="yNm-hG-24O"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="lxx-1n-1p8" appends="YES" id="z9S-4m-gBF"/>
@@ -150,9 +158,40 @@
                         <outlet property="doneButton" destination="7Nh-22-sv0" id="C6m-xn-7OT"/>
                         <outlet property="emailErrorLabel" destination="6lz-Zf-IZK" id="Atn-8F-fBb"/>
                         <outlet property="emailTextField" destination="3aV-JT-0Z8" id="AqU-1w-f6i"/>
+                        <outlet property="keyboardSubmitButton" destination="2Gm-Yx-yaP" id="fXK-yq-Ge2"/>
+                        <outlet property="keyboardView" destination="0FX-el-P7i" id="XcD-4n-5zi"/>
+                        <outlet property="topSpacerView" destination="dCh-0s-bMg" id="LsN-fU-8HX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gCC-qm-9iC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="0FX-el-P7i">
+                    <rect key="frame" x="0.0" y="0.0" width="370" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Gm-Yx-yaP" customClass="CustomButton" customModule="Stats" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="370" height="44"/>
+                            <color key="backgroundColor" red="0.5568627451" green="0.44705882349999998" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="O7S-DC-oWk"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="LemonMilk" family="Lemon/Milk" pointSize="17"/>
+                            <inset key="contentEdgeInsets" minX="32" minY="0.0" maxX="32" maxY="0.0"/>
+                            <state key="normal" title="Submit">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="doneButtonPressed:" destination="BPI-i3-d1f" eventType="touchUpInside" id="SS9-KB-alr"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="2Gm-Yx-yaP" firstAttribute="leading" secondItem="0FX-el-P7i" secondAttribute="leading" id="9TE-Uk-OJY"/>
+                        <constraint firstAttribute="bottom" secondItem="2Gm-Yx-yaP" secondAttribute="bottom" id="Kct-iq-Hkw"/>
+                        <constraint firstItem="2Gm-Yx-yaP" firstAttribute="top" secondItem="0FX-el-P7i" secondAttribute="top" id="Wpv-sD-JN2"/>
+                        <constraint firstAttribute="trailing" secondItem="2Gm-Yx-yaP" secondAttribute="trailing" id="Y5R-4b-H7u"/>
+                    </constraints>
+                </view>
                 <tapGestureRecognizer id="lxx-1n-1p8">
                     <connections>
                         <action selector="viewTapped:" destination="BPI-i3-d1f" id="59n-O6-hJX"/>
@@ -162,7 +201,4 @@
             <point key="canvasLocation" x="305" y="96"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="check" width="60" height="46"/>
-    </resources>
 </document>

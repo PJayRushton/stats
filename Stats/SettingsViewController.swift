@@ -19,7 +19,7 @@ class SettingsViewController: Component, AutoStoryboardInitializable {
         var rows: [SettingsRow] {
             switch self {
             case .profile:
-                return [.username, .email]
+                return [.email]
             case .teams:
                 return [.manageTeams, .switchTeam, .seasons]
             }
@@ -37,7 +37,6 @@ class SettingsViewController: Component, AutoStoryboardInitializable {
     }
     
     enum SettingsRow: Int {
-        case username
         case email
         case manageTeams
         case switchTeam
@@ -45,8 +44,6 @@ class SettingsViewController: Component, AutoStoryboardInitializable {
         
         var title: String {
             switch self {
-            case .username:
-                return NSLocalizedString("Username", comment: "")
             case .email:
                 return NSLocalizedString("Email", comment: "")
             case .manageTeams:
@@ -59,7 +56,7 @@ class SettingsViewController: Component, AutoStoryboardInitializable {
         }
         var accessory: UITableViewCellAccessoryType {
             switch self {
-            case .username, .email:
+            case .email:
                 return .none
             case .manageTeams, .switchTeam, .seasons:
                 return .disclosureIndicator
@@ -162,8 +159,6 @@ extension SettingsViewController: UITableViewDataSource {
     
     fileprivate func detail(for row: SettingsRow) -> String? {
         switch row {
-        case .username:
-            return core.state.userState.currentUser?.username
         case .email:
             return core.state.userState.currentUser?.email
         case .manageTeams:
@@ -194,8 +189,8 @@ extension SettingsViewController: UITableViewDelegate {
         let theRow = section.rows[indexPath.row]
         
         switch theRow {
-        case .username, .email:
-        return // FIXME:
+        case .email:
+        break // TODO: edit email
         case .manageTeams:
             let teamManagerVC = TeamListViewController.initializeFromStoryboard()
             teamManagerVC.isDismissable = false

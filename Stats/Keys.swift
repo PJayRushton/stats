@@ -55,7 +55,6 @@ let sportKey = "sport"
 let statsKey = "stats"
 let teamIdKey = "teamId"
 let textKey = "text"
-let usernameKey = "username"
 
 // Refs
 let atBatsRefKey = "atBats"

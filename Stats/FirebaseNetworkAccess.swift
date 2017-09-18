@@ -72,8 +72,8 @@ struct FirebaseNetworkAccess {
     
     func getKeys(at ref: DatabaseReference, completion: @escaping ((Result<[String]>) -> Void)) {
         ref.observeSingleEvent(of: .value, with: { snap in
-            if let usernames = (snap.value as AnyObject).allKeys as? [String] , snap.exists() {
-                completion(Result.success(usernames))
+            if let snapKeys = (snap.value as AnyObject).allKeys as? [String] , snap.exists() {
+                completion(Result.success(snapKeys))
             } else {
                 completion(Result.failure(FirebaseError.incorrectlyFormedData))
             }
@@ -82,8 +82,8 @@ struct FirebaseNetworkAccess {
     
     func getKeys(at query: DatabaseQuery, completion: @escaping ((Result<[String]>) -> Void)) {
         query.observeSingleEvent(of: .value, with: { snap in
-            if let usernames = (snap.value as AnyObject).allKeys as? [String] , snap.exists() {
-                completion(Result.success(usernames))
+            if let snapKeys = (snap.value as AnyObject).allKeys as? [String] , snap.exists() {
+                completion(Result.success(snapKeys))
             } else {
                 completion(Result.failure(FirebaseError.incorrectlyFormedData))
             }

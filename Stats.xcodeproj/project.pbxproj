@@ -22,6 +22,7 @@
 		36B6FEE81F6FF9DA00274D0A /* MarkTeamStatsViewed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B6FEE71F6FF9DA00274D0A /* MarkTeamStatsViewed.swift */; };
 		36B6FEEA1F703AF000274D0A /* UpdateBadgeCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B6FEE91F703AF000274D0A /* UpdateBadgeCount.swift */; };
 		36B6FEEC1F703F1000274D0A /* AppBadgeMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B6FEEB1F703F1000274D0A /* AppBadgeMiddleware.swift */; };
+		36B6FEEE1F7045CF00274D0A /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B6FEED1F7045CF00274D0A /* NotificationController.swift */; };
 		36D237051F6E3F4A009AB360 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D237041F6E3F49009AB360 /* CustomButton.swift */; };
 		A10359991EAE4259009365F4 /* StatState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10359981EAE4259009365F4 /* StatState.swift */; };
 		A10AF81F1EEC969100A6E00E /* GamesHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10AF81E1EEC969100A6E00E /* GamesHeaderCell.swift */; };
@@ -199,6 +200,7 @@
 		36B6FEE71F6FF9DA00274D0A /* MarkTeamStatsViewed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkTeamStatsViewed.swift; sourceTree = "<group>"; };
 		36B6FEE91F703AF000274D0A /* UpdateBadgeCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateBadgeCount.swift; sourceTree = "<group>"; };
 		36B6FEEB1F703F1000274D0A /* AppBadgeMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBadgeMiddleware.swift; sourceTree = "<group>"; };
+		36B6FEED1F7045CF00274D0A /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		36D237041F6E3F49009AB360 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		3EB00BD85F52BB91F956360D /* Pods-Stats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stats.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stats/Pods-Stats.release.xcconfig"; sourceTree = "<group>"; };
 		A10359981EAE4259009365F4 /* StatState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatState.swift; sourceTree = "<group>"; };
@@ -449,7 +451,7 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		A179997E1E82B9540058A002 /* Helpers */ = {
+		A179997E1E82B9540058A002 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
 				368350101F43C80700800B08 /* AddGamesToCalendar.swift */,
@@ -468,6 +470,7 @@
 				A1CD599E1EC9F2D100D26FD8 /* GradientView.swift */,
 				A1CD9A0D1E89D05E00D3C8F7 /* Keys.swift */,
 				A1A451A01ED69D0400965BE4 /* LogAnalyticsEvent.swift */,
+				36B6FEED1F7045CF00274D0A /* NotificationController.swift */,
 				A179997C1E82B8BD0058A002 /* NSDate+ValueType.swift */,
 				A16F500E1F01413B0049FE77 /* Platform.swift */,
 				A17999831E82B9860058A002 /* SegueHandlerType.swift */,
@@ -479,7 +482,7 @@
 				A128E8E21EC4172100D4CA6D /* UIView+Designable.swift */,
 				A14B64DE1E8D3EC200CBDE92 /* UIViewControllerExtensions.swift */,
 			);
-			name = Helpers;
+			name = Infrastructure;
 			sourceTree = "<group>";
 		};
 		A17999941E82DFF00058A002 /* Base.lproj */ = {
@@ -658,7 +661,7 @@
 				A1DC99D21E7E3E4500C6FF8C /* AppDelegate.swift */,
 				A1CD9A081E89C25300D3C8F7 /* AppState */,
 				A17999941E82DFF00058A002 /* Base.lproj */,
-				A179997E1E82B9540058A002 /* Helpers */,
+				A179997E1E82B9540058A002 /* Infrastructure */,
 				A1868F981E802C1F00C191EC /* Misc */,
 				A1868F9B1E802C5200C191EC /* Networking */,
 				A179997B1E82B8260058A002 /* Model */,
@@ -717,7 +720,7 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
-								enabled = 0;
+								enabled = 1;
 							};
 							com.apple.iCloud = {
 								enabled = 1;
@@ -967,6 +970,7 @@
 				36D237051F6E3F4A009AB360 /* CustomButton.swift in Sources */,
 				3622C68D1F45D9C200BBCD9E /* CalendarService.swift in Sources */,
 				A1F959341E8953440087B040 /* Season.swift in Sources */,
+				36B6FEEE1F7045CF00274D0A /* NotificationController.swift in Sources */,
 				A1B65DC41EB018C6009983E1 /* Stat.swift in Sources */,
 				A11F0C801ED5C70100F716DA /* CheckEmailAvailability.swift in Sources */,
 				A1D8054C1E89870B0072AA49 /* NewUserViewController.swift in Sources */,

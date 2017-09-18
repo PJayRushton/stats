@@ -25,7 +25,8 @@ class HomeViewController: Component, AutoStoryboardInitializable {
     fileprivate let gridLayout = ListCollectionViewLayout(stickyHeaders: false, topContentInset: 0, stretchToEdge: false)
     fileprivate let feedbackGenerator = UISelectionFeedbackGenerator()
     
-    var isPresentingOnboarding = false
+    fileprivate var isPresentingOnboarding = false
+    fileprivate var hasSeenNotificationPrompt = false
     
     var currentTeam: Team? {
         return core.state.teamState.currentTeam
@@ -105,6 +106,11 @@ class HomeViewController: Component, AutoStoryboardInitializable {
         
         if state.stockImageURLs.isEmpty {
             core.fire(command: GetStockImages())
+        }
+        
+        if let _ = state.teamState.currentTeam, !hasSeenNotificationPrompt {
+            hasSeenNotificationPrompt = true
+            NotificationController.shared.requestAccessIfNeeded(from: self)
         }
         
         adapter.performUpdates(animated: true)

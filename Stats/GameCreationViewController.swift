@@ -62,6 +62,7 @@ class GameCreationViewController: Component, AutoStoryboardInitializable {
         
         navigationController?.navigationBar.barTintColor = .mainAppColor
         updateSaveButton()
+        view.endEditing(false)
     }
     
     

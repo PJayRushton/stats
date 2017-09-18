@@ -58,6 +58,7 @@ class HomeViewController: Component, AutoStoryboardInitializable {
         navigationController?.setNavigationBarHidden(true, animated: true)
         adapter.performUpdates(animated: true)
         core.fire(event: Updated<StatsViewType>(.trophies))
+        core.fire(command: UpdateBadgeCount())
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {

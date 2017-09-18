@@ -27,7 +27,6 @@ class OpponentScoreViewController: Component, AutoStoryboardInitializable {
         textField.inputAccessoryView = accessoryView
         plusButton.cornerRadius = 5
         minusButton.cornerRadius = 5
-        minusButton.disabledBackgroundColor = UIColor.secondaryAppColor.withAlphaComponent(0.5)
     }
     
     @IBAction func plusButtonPressed(_ sender: UIButton) {

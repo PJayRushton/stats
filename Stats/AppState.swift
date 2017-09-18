@@ -9,7 +9,7 @@
 import Foundation
 
 enum App {
-    static let core = Core(state: AppState(), middlewares: [MainMiddleware(), AnalyticsMiddleware()])
+    static let core = Core(state: AppState(), middlewares: [AppBadgeMiddleware(), MainMiddleware(), AnalyticsMiddleware()])
 }
 
 
@@ -59,7 +59,15 @@ struct AppState: State {
 
 extension AppState {
 
-    
+    var hasSeenLatestStats: Bool {
+        guard
+            let currentUser = userState.currentUser,
+            let currentTeam = teamState.currentTeam,
+            let lastSeenDate = currentUser.statViewDate(forTeam: currentTeam.id),
+            let seasonStats = statState.currentSeasonStats
+            else { return true }
+        return lastSeenDate > seasonStats.creationDate ?? Date.distantPast
+    }
     var currentAtBats: [AtBat] {
         var allAtBats = atBatState.atBats
         

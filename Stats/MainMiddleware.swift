@@ -6,7 +6,7 @@
 //  Copyright © 2017 AppsByPJ. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct MainMiddleware: Middleware {
     

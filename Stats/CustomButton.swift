@@ -1,9 +1,9 @@
 //
 //  CustomButton.swift
-//  Stats
+//  kadence
 //
-//  Created by Parker Rushton on 4/18/17.
-//  Copyright © 2017 AppsByPJ. All rights reserved.
+//  Created by Parker Rushton on 9/6/17.
+//  Copyright © 2017 Kadence. All rights reserved.
 //
 
 import UIKit

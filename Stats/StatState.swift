@@ -88,7 +88,10 @@ struct StatState: State {
         
         return nil
     }
-    
+    var currentSeasonStats: GameStats? {
+        guard let currentSeasonId = App.core.state.seasonState.currentSeasonId else { return nil }
+        return allStats[currentSeasonId]
+    }
     func stats(for id: String) -> GameStats? {
         return allStats[id]
     }

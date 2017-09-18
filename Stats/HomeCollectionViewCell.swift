@@ -18,7 +18,7 @@ class HomeCollectionViewCell: UICollectionViewCell, AutoReuseIdentifiable {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        colorView.layer.cornerRadius = colorView.frame.size.height / 2
+        badgeView.layer.cornerRadius = badgeView.frame.size.height / 2
     }
     
     func update(with menuItem: HomeMenuItem, badgeCount: Int? = nil) {

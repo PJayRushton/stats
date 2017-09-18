@@ -18,18 +18,25 @@ struct SaveNewUser: Command {
     }
     
     func execute(state: AppState, core: Core<AppState>) {
-        guard let newUser = newUser(state: state) else { return }
+        guard let newUser = newUser(state: state) else {
+            completion(false)
+            return
+        }
         networkAccess.setValue(at: newUser.ref, parameters: newUser.marshaled()) { result in
-            if case .success = result {
+            switch result {
+            case .success:
+                self.completion(true)
                 core.fire(command: SubscribeToCurrentUser(id: newUser.id))
+            case .failure:
+                self.completion(false)
             }
         }
     }
     
     private func newUser(state: AppState) -> User? {
-        guard let iCloudId = state.userState.iCloudId, let username = state.newUserState.username else { return nil }
+        guard let iCloudId = state.userState.iCloudId else { return nil }
         let email = state.newUserState.email
-        return User(id: iCloudId, username: username, email: email)
+        return User(id: iCloudId, email: email)
     }
     
 }

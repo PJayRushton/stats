@@ -46,6 +46,10 @@ class StatsViewController: Component, AutoStoryboardInitializable {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
         navigationController?.navigationBar.barTintColor = UIColor.mainNavBarColor
+        
+        if core.state.statState.currentGame == nil {
+            core.fire(command: MarkTeamStatsViewed())
+        }
     }
     
     @IBAction func viewTypeChanged(_ sender: BetterSegmentedControl) {

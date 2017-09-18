@@ -17,8 +17,6 @@ class HomeViewController: Component, AutoStoryboardInitializable {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet var emptyStateView: UIView!
-    @IBOutlet weak var topImageView: UIImageView!
-    @IBOutlet weak var bottomImageView: UIImageView!
     @IBOutlet weak var newGameButton: UIButton!
 
     
@@ -94,14 +92,20 @@ class HomeViewController: Component, AutoStoryboardInitializable {
     override func update(with state: AppState) {
         if state.userState.currentUser == nil, state.userState.isLoaded, !isPresentingOnboarding {
             isPresentingOnboarding = true
-            let usernameVC = NewUserViewController.initializeFromStoryboard().embededInNavigationController
-            usernameVC.modalPresentationStyle = .overFullScreen
-            present(usernameVC, animated: true)
+            let newUserVC = NewUserViewController.initializeFromStoryboard().embededInNavigationController
+            newUserVC.modalPresentationStyle = .overFullScreen
+            present(newUserVC, animated: true)
         }
         
-        if let user = state.userState.currentUser, let currentTeam = currentTeam {
-            newGameButton.isHidden = !user.isOwnerOrManager(of: currentTeam)
+        if let user = state.userState.currentUser {
+            let currentTeam = state.teamState.currentTeam
+            newGameButton.isHidden = currentTeam == nil || !user.isOwnerOrManager(of: currentTeam!)
         }
+        
+        if state.stockImageURLs.isEmpty {
+            core.fire(command: GetStockImages())
+        }
+        
         adapter.performUpdates(animated: true)
     }
     
@@ -227,10 +231,10 @@ extension HomeViewController: ListAdapterDataSource {
         let items = HomeMenuItem.allValues
         
         items.forEach { item in
-            var section = TeamActionSection(team: currentTeam, menuItem: item)
+            let section = TeamActionSection(team: currentTeam, menuItem: item)
             switch item {
             case .stats:
-                section.badgeCount = 1
+                section.badgeCount = core.state.hasSeenLatestStats ? nil : 0
             case .games:
                 let count = core.state.gameState.currentOngoingGames.count
                 section.badgeCount = count == 0 ? nil : count

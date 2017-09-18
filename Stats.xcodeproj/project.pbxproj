@@ -19,6 +19,10 @@
 		369094291F2F78AA00D11D3F /* SaveSeasonStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369094281F2F78AA00D11D3F /* SaveSeasonStats.swift */; };
 		36976BC81F58582D00241D3D /* MainMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36976BC71F58582D00241D3D /* MainMiddleware.swift */; };
 		36AB0AAC1EB3CAA90058F0E4 /* SetObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AB0AAB1EB3CAA90058F0E4 /* SetObject.swift */; };
+		36B6FEE81F6FF9DA00274D0A /* MarkTeamStatsViewed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B6FEE71F6FF9DA00274D0A /* MarkTeamStatsViewed.swift */; };
+		36B6FEEA1F703AF000274D0A /* UpdateBadgeCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B6FEE91F703AF000274D0A /* UpdateBadgeCount.swift */; };
+		36B6FEEC1F703F1000274D0A /* AppBadgeMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B6FEEB1F703F1000274D0A /* AppBadgeMiddleware.swift */; };
+		36D237051F6E3F4A009AB360 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D237041F6E3F49009AB360 /* CustomButton.swift */; };
 		A10359991EAE4259009365F4 /* StatState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10359981EAE4259009365F4 /* StatState.swift */; };
 		A10AF81F1EEC969100A6E00E /* GamesHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10AF81E1EEC969100A6E00E /* GamesHeaderCell.swift */; };
 		A11B4D8F1EAEC3D800798D52 /* StatsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B4D8E1EAEC3D800798D52 /* StatsPageViewController.swift */; };
@@ -35,7 +39,6 @@
 		A1398B431EA6F4B600A4B830 /* NewGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1398B421EA6F4B600A4B830 /* NewGameState.swift */; };
 		A1398B451EA707F500A4B830 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1398B441EA707F500A4B830 /* GameViewController.swift */; };
 		A1398B481EA7081F00A4B830 /* GameViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1398B461EA7081F00A4B830 /* GameViewController.storyboard */; };
-		A1398B4A1EA7097700A4B830 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1398B491EA7097700A4B830 /* CustomButton.swift */; };
 		A13AAFE81EE59ACD007D41C3 /* Diffable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AAFE71EE59ACD007D41C3 /* Diffable.swift */; };
 		A1426B9D1EA8586E00AAABB3 /* AKPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1426B9C1EA8586E00AAABB3 /* AKPickerView.swift */; };
 		A1426B9F1EA85E5500AAABB3 /* AtBatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1426B9E1EA85E5500AAABB3 /* AtBatCell.swift */; };
@@ -153,7 +156,6 @@
 		A1CD9A141E8A9C6000D3C8F7 /* PlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD9A131E8A9C6000D3C8F7 /* PlayerState.swift */; };
 		A1CD9A171E8AA2F000D3C8F7 /* NewUserViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1CD9A151E8AA2F000D3C8F7 /* NewUserViewController.storyboard */; };
 		A1CD9A191E8AA83D00D3C8F7 /* NewUserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD9A181E8AA83D00D3C8F7 /* NewUserState.swift */; };
-		A1CD9A1B1E8AACAB00D3C8F7 /* CheckUsernameAvailability.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD9A1A1E8AACAB00D3C8F7 /* CheckUsernameAvailability.swift */; };
 		A1CD9A1E1E8ABBBC00D3C8F7 /* SharedExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A179997F1E82B95E0058A002 /* SharedExtensions.swift */; };
 		A1D67D381E8F081A00200B65 /* TeamActionSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D67D371E8F081A00200B65 /* TeamActionSectionController.swift */; };
 		A1D67D3F1E8F253F00200B65 /* TeamSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D67D3E1E8F253F00200B65 /* TeamSelectionCell.swift */; };
@@ -194,6 +196,10 @@
 		369094281F2F78AA00D11D3F /* SaveSeasonStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveSeasonStats.swift; sourceTree = "<group>"; };
 		36976BC71F58582D00241D3D /* MainMiddleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMiddleware.swift; sourceTree = "<group>"; };
 		36AB0AAB1EB3CAA90058F0E4 /* SetObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetObject.swift; sourceTree = "<group>"; };
+		36B6FEE71F6FF9DA00274D0A /* MarkTeamStatsViewed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkTeamStatsViewed.swift; sourceTree = "<group>"; };
+		36B6FEE91F703AF000274D0A /* UpdateBadgeCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateBadgeCount.swift; sourceTree = "<group>"; };
+		36B6FEEB1F703F1000274D0A /* AppBadgeMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBadgeMiddleware.swift; sourceTree = "<group>"; };
+		36D237041F6E3F49009AB360 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		3EB00BD85F52BB91F956360D /* Pods-Stats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stats.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stats/Pods-Stats.release.xcconfig"; sourceTree = "<group>"; };
 		A10359981EAE4259009365F4 /* StatState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatState.swift; sourceTree = "<group>"; };
 		A10AF81E1EEC969100A6E00E /* GamesHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamesHeaderCell.swift; sourceTree = "<group>"; };
@@ -211,7 +217,6 @@
 		A1398B421EA6F4B600A4B830 /* NewGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGameState.swift; sourceTree = "<group>"; };
 		A1398B441EA707F500A4B830 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		A1398B471EA7081F00A4B830 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = GameViewController.storyboard; sourceTree = "<group>"; };
-		A1398B491EA7097700A4B830 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		A13AAFE71EE59ACD007D41C3 /* Diffable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Diffable.swift; sourceTree = "<group>"; };
 		A1426B9C1EA8586E00AAABB3 /* AKPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKPickerView.swift; sourceTree = "<group>"; };
 		A1426B9E1EA85E5500AAABB3 /* AtBatCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtBatCell.swift; sourceTree = "<group>"; };
@@ -331,7 +336,6 @@
 		A1CD9A131E8A9C6000D3C8F7 /* PlayerState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerState.swift; sourceTree = "<group>"; };
 		A1CD9A161E8AA2F000D3C8F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = NewUserViewController.storyboard; sourceTree = "<group>"; };
 		A1CD9A181E8AA83D00D3C8F7 /* NewUserState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserState.swift; sourceTree = "<group>"; };
-		A1CD9A1A1E8AACAB00D3C8F7 /* CheckUsernameAvailability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckUsernameAvailability.swift; sourceTree = "<group>"; };
 		A1D67D371E8F081A00200B65 /* TeamActionSectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamActionSectionController.swift; sourceTree = "<group>"; };
 		A1D67D3E1E8F253F00200B65 /* TeamSelectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamSelectionCell.swift; sourceTree = "<group>"; };
 		A1D67D401E8FE24C00200B65 /* BasicHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicHeaderCell.swift; sourceTree = "<group>"; };
@@ -385,7 +389,6 @@
 				A14B64F11E8D696800CBDE92 /* AddTeamToUser.swift */,
 				A17694A81F3A791700043DAE /* ChangeSeason.swift */,
 				A11F0C7F1ED5C70100F716DA /* CheckEmailAvailability.swift */,
-				A1CD9A1A1E8AACAB00D3C8F7 /* CheckUsernameAvailability.swift */,
 				A1398B401EA6EB3400A4B830 /* CreateGame.swift */,
 				A16D417F1E98171600DE01D4 /* CreatePlayer.swift */,
 				A17EF6C71E93FC6D00DEE4ED /* CreateSeason.swift */,
@@ -412,6 +415,8 @@
 				369094281F2F78AA00D11D3F /* SaveSeasonStats.swift */,
 				A183B44C1F57110000FEA3D2 /* UpdateTrophies.swift */,
 				A17EF6C51E93EDEC00DEE4ED /* UploadToStorage.swift */,
+				36B6FEE71F6FF9DA00274D0A /* MarkTeamStatsViewed.swift */,
+				36B6FEE91F703AF000274D0A /* UpdateBadgeCount.swift */,
 			);
 			name = Commands;
 			sourceTree = "<group>";
@@ -421,6 +426,7 @@
 			children = (
 				A1A451A21ED69E5F00965BE4 /* AnalyticsMiddleware.swift */,
 				36976BC71F58582D00241D3D /* MainMiddleware.swift */,
+				36B6FEEB1F703F1000274D0A /* AppBadgeMiddleware.swift */,
 			);
 			name = Middleware;
 			sourceTree = "<group>";
@@ -455,7 +461,7 @@
 				A1E5AE5C1EAA59C70046131B /* Chameleon.swift */,
 				A1A2C35D1E8BF3680008274F /* Component.swift */,
 				A16CA85C1EE301FB002AABBF /* ContactsHelper.swift */,
-				A1398B491EA7097700A4B830 /* CustomButton.swift */,
+				36D237041F6E3F49009AB360 /* CustomButton.swift */,
 				A17999811E82B9780058A002 /* DateHelper.swift */,
 				A13AAFE71EE59ACD007D41C3 /* Diffable.swift */,
 				364FFAED1EA9A15600CD26F9 /* EventBetterSegmentedControl.swift */,
@@ -886,8 +892,8 @@
 				A1C7621F1EBF95CA00F94E45 /* StatFilterViewController.swift in Sources */,
 				A1A451A11ED69D0400965BE4 /* LogAnalyticsEvent.swift in Sources */,
 				A1B41C2A1E85A4E300FAC930 /* AtBat.swift in Sources */,
+				36B6FEEC1F703F1000274D0A /* AppBadgeMiddleware.swift in Sources */,
 				364FFAEE1EA9A15600CD26F9 /* EventBetterSegmentedControl.swift in Sources */,
-				A1398B4A1EA7097700A4B830 /* CustomButton.swift in Sources */,
 				A1398B431EA6F4B600A4B830 /* NewGameState.swift in Sources */,
 				A1B41C261E85A4C400FAC930 /* Player.swift in Sources */,
 				A17999931E82DF300058A002 /* HomeViewController.swift in Sources */,
@@ -917,7 +923,6 @@
 				A1868F9D1E802DDD00C191EC /* Result.swift in Sources */,
 				A1D67D411E8FE24C00200B65 /* BasicHeaderCell.swift in Sources */,
 				A1BF9C461E8B22B2007341EA /* GetCurrentUser.swift in Sources */,
-				A1CD9A1B1E8AACAB00D3C8F7 /* CheckUsernameAvailability.swift in Sources */,
 				A11B4D931EAEC4DF00798D52 /* StatsTrophiesViewController.swift in Sources */,
 				A17999841E82B9860058A002 /* SegueHandlerType.swift in Sources */,
 				A14B64FA1E8EB95600CBDE92 /* Firebase+St@ts.swift in Sources */,
@@ -944,6 +949,7 @@
 				A17EF6BE1E931A0300DEE4ED /* TeamListViewController.swift in Sources */,
 				A1D67D431E8FE3A000200B65 /* Appearance.swift in Sources */,
 				A16D417B1E97FF6000DE01D4 /* PlayerCreationViewController.swift in Sources */,
+				36B6FEEA1F703AF000274D0A /* UpdateBadgeCount.swift in Sources */,
 				A17EF6CA1E94040D00DEE4ED /* DeleteObject.swift in Sources */,
 				A11B4D911EAEC4D000798D52 /* StatsNumbersViewController.swift in Sources */,
 				A1D67D3F1E8F253F00200B65 /* TeamSelectionCell.swift in Sources */,
@@ -958,6 +964,7 @@
 				A1A2C3751E8C135E0008274F /* SaveNewUser.swift in Sources */,
 				A14B64F21E8D696800CBDE92 /* AddTeamToUser.swift in Sources */,
 				364FFAF01EA9F1B000CD26F9 /* DeleteGame.swift in Sources */,
+				36D237051F6E3F4A009AB360 /* CustomButton.swift in Sources */,
 				3622C68D1F45D9C200BBCD9E /* CalendarService.swift in Sources */,
 				A1F959341E8953440087B040 /* Season.swift in Sources */,
 				A1B65DC41EB018C6009983E1 /* Stat.swift in Sources */,
@@ -983,6 +990,7 @@
 				A10AF81F1EEC969100A6E00E /* GamesHeaderCell.swift in Sources */,
 				369094291F2F78AA00D11D3F /* SaveSeasonStats.swift in Sources */,
 				A17EF6C41E93E8D200DEE4ED /* NewTeamState.swift in Sources */,
+				36B6FEE81F6FF9DA00274D0A /* MarkTeamStatsViewed.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

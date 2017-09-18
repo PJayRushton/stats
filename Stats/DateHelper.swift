@@ -20,7 +20,11 @@ import Foundation
 
 enum DateHelper {
     static fileprivate let formatter = DateFormatter()
-    static fileprivate let isoFormatter = ISO8601DateFormatter()
+    static fileprivate var isoFormatter: ISO8601DateFormatter = {
+        let formatter = ISO8601DateFormatter()
+        formatter.timeZone = TimeZone.autoupdatingCurrent
+        return formatter
+    }()
     static fileprivate let componentsFormatter = DateComponentsFormatter()
     static fileprivate let mediumStyleDateFormat = "MMM d"
     static fileprivate let eventListStyleDateFormat = "MMM d '@' h:mma"

@@ -86,6 +86,9 @@ struct GameState: State {
         return seasonGames.filter { $0.isRegularSeason == regularSeason && $0.isCompleted == true }.sorted(by: >)
     }
     
+    func order(of game: Game) -> Int? {
+        return teamGames.sorted().index(of: game)
+    }
     
     func index(of game: Game) -> Int? {
         return teamGames.index(of: game)
@@ -94,6 +97,10 @@ struct GameState: State {
     func games(of season: Season) -> [Game] {
         guard let gamesOfTeam = allGamesDict[season.teamId] else { return [] }
         return gamesOfTeam.filter { $0.seasonId == season.id }.sorted(by: >)
+    }
+    
+    func game(withId id: String) -> Game? {
+        return teamGames.first(where: { $0.id == id})
     }
     
 }

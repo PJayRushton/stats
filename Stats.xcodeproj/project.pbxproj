@@ -59,6 +59,7 @@
 		A14B64FC1E8EB99B00CBDE92 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B64FB1E8EB99B00CBDE92 /* Identifiable.swift */; };
 		A15ACF861EAE3AFA00091F9E /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15ACF851EAE3AFA00091F9E /* StatsViewController.swift */; };
 		A15ACF891EAE3B2200091F9E /* StatsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A15ACF871EAE3B2200091F9E /* StatsViewController.storyboard */; };
+		A162A4081F7944C0000167B0 /* CSVExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A162A4071F7944C0000167B0 /* CSVExporter.swift */; };
 		A16CA85D1EE301FB002AABBF /* ContactsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16CA85C1EE301FB002AABBF /* ContactsHelper.swift */; };
 		A16D416D1E97364300DE01D4 /* DeleteTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16D416C1E97364300DE01D4 /* DeleteTeam.swift */; };
 		A16D416F1E97D08F00DE01D4 /* RosterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16D416E1E97D08F00DE01D4 /* RosterViewController.swift */; };
@@ -238,6 +239,7 @@
 		A14B64FB1E8EB99B00CBDE92 /* Identifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
 		A15ACF851EAE3AFA00091F9E /* StatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
 		A15ACF881EAE3B2200091F9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = StatsViewController.storyboard; sourceTree = "<group>"; };
+		A162A4071F7944C0000167B0 /* CSVExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVExporter.swift; sourceTree = "<group>"; };
 		A16CA85C1EE301FB002AABBF /* ContactsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsHelper.swift; sourceTree = "<group>"; };
 		A16D416C1E97364300DE01D4 /* DeleteTeam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteTeam.swift; sourceTree = "<group>"; };
 		A16D416E1E97D08F00DE01D4 /* RosterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosterViewController.swift; sourceTree = "<group>"; };
@@ -463,6 +465,7 @@
 				A1E5AE5C1EAA59C70046131B /* Chameleon.swift */,
 				A1A2C35D1E8BF3680008274F /* Component.swift */,
 				A16CA85C1EE301FB002AABBF /* ContactsHelper.swift */,
+				A162A4071F7944C0000167B0 /* CSVExporter.swift */,
 				36D237041F6E3F49009AB360 /* CustomButton.swift */,
 				A17999811E82B9780058A002 /* DateHelper.swift */,
 				A13AAFE71EE59ACD007D41C3 /* Diffable.swift */,
@@ -942,6 +945,7 @@
 				A1ABAFF91EA9420F00B28A46 /* AtBatCreationViewController.swift in Sources */,
 				A17DC2431EAC90DD00597063 /* Gender.swift in Sources */,
 				A17999881E82B9A60058A002 /* UIColorExtension.swift in Sources */,
+				A162A4081F7944C0000167B0 /* CSVExporter.swift in Sources */,
 				3622C68B1F45D7E000BBCD9E /* UpdateGame.swift in Sources */,
 				A1CD9A141E8A9C6000D3C8F7 /* PlayerState.swift in Sources */,
 				A1426B9D1EA8586E00AAABB3 /* AKPickerView.swift in Sources */,

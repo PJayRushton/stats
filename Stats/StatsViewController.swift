@@ -8,6 +8,7 @@
 
 import Foundation
 import BetterSegmentedControl
+import QuickLook
 
 enum StatsViewType: Int {
     case trophies
@@ -32,14 +33,20 @@ class StatsViewController: Component, AutoStoryboardInitializable {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet var filterBarButton: UIBarButtonItem!
     
-    
-    var currentViewType: StatsViewType {
+    fileprivate let qlController = QLPreviewController()
+    fileprivate var csvPaths = [URL]()
+    fileprivate var currentViewType: StatsViewType {
         return core.state.statState.currentViewType
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         segmentedControl.setUp(with: StatsViewType.allValues.map { $0.title }, indicatorColor: UIColor.mainAppColor)
+        qlController.dataSource = self
+        
+        if core.state.statState.currentCSVPath == nil {
+            core.fire(command: SaveCurrentCSV())
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,6 +64,16 @@ class StatsViewController: Component, AutoStoryboardInitializable {
         core.fire(event: Updated<StatsViewType>(newViewType))
     }
     
+    @IBAction func filterButtonPressed(_ sender: UIBarButtonItem) {
+        let filterVC = StatFilterViewController.initializeFromStoryboard().embededInNavigationController
+        filterVC.modalPresentationStyle = .popover
+        present(filterVC, animated: true, completion: nil)
+    }
+    
+    @IBAction func exportButtonPressed(_ sender: Any) {
+        showExportPreview()
+    }
+    
     override func update(with state: AppState) {
         topLabel.isHidden = false
         if let currentStatGame = state.statState.currentGame {
@@ -66,17 +83,37 @@ class StatsViewController: Component, AutoStoryboardInitializable {
         } else {
             topLabel.isHidden = true
         }
-        
+        csvPaths = Array(state.statState.statPaths.values)
         try? segmentedControl.setIndex(UInt(state.statState.currentViewType.rawValue))
         let atBatsAreEmpty = state.atBatState.atBats.isEmpty
         segmentedControl.isHidden = atBatsAreEmpty
         navigationItem.rightBarButtonItem = state.statState.currentGame == nil ? filterBarButton : nil
     }
     
-    @IBAction func filterButtonPressed(_ sender: UIBarButtonItem) {
-        let filterVC = StatFilterViewController.initializeFromStoryboard().embededInNavigationController
-        filterVC.modalPresentationStyle = .popover
-        present(filterVC, animated: true, completion: nil)
+}
+
+
+// MARK: - Internal
+
+extension StatsViewController {
+    
+    fileprivate func showExportPreview() {
+        navigationController?.pushViewController(qlController, animated: true)
+    }
+    
+}
+
+
+// MARK: - QLPreview
+
+extension StatsViewController: QLPreviewControllerDataSource {
+    
+    func numberOfPreviewItems(in controller: QLPreviewController) -> Int {
+        return csvPaths.count
+    }
+    
+    func previewController(_ controller: QLPreviewController, previewItemAt index: Int) -> QLPreviewItem {
+        return csvPaths[index] as QLPreviewItem
     }
     
 }

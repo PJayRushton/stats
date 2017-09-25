@@ -8,45 +8,57 @@
 
 import Foundation
 
-struct CSVExporter {
+struct SaveCurrentCSV: Command {
     
-    static func csvDataPath(from stats: GameStats, state: AppState) -> String? {
-        guard let team = state.teamState.currentTeam, let currentSeason = state.seasonState.currentSeason else { return nil }
+    func execute(state: AppState, core: Core<AppState>) {
+        guard let stats = state.statState.currentStats, let team = state.teamState.currentTeam, let currentSeason = state.seasonState.currentSeason else { return }
         let csvText = csvString(from: stats, state: state)
-        let path = NSTemporaryDirectory().appending("\(team.name)_Stats-\(currentSeason.name).csv")
-        guard let pathURL = URL(fileURLWithPath: path) else { return nil }
+        let path = NSTemporaryDirectory().appending("\(team.name)--Stats-\(currentSeason.name).csv")
+        let pathURL = URL(fileURLWithPath: path)
+        guard let objectId = state.statState.currentObjectId else { return }
         do {
             try csvText.write(to: pathURL, atomically: true, encoding: .utf8)
+            core.fire(event: StatCSVPathUpdated(objectId: objectId, path: pathURL))
         } catch {
-            return nil
+            core.fire(event: StatCSVPathUpdated(objectId: objectId, path: nil))
+            dump(error)
         }
     }
     
-    private static func csvString(from stats: GameStats, state: AppState) -> String {
-        guard let team = state.teamState.currentTeam, let currentSeason = state.seasonState.currentSeason else { return "" }
-        let gameCount = state.gameState.games(of: currentSeason).count
-        var csv = "Team:,\(team.name)"
+    private func csvString(from stats: GameStats, state: AppState) -> String {
+        guard let team = state.teamState.currentTeam, let season = state.seasonState.currentSeason else { return "" }
+        let gameCount = state.gameState.games(of: season).count
+        var csv = "Team:,\(team.name)\n"
         if stats.isSeason {
-            csv += "Season:,\(season.name)"
-            csv += "Games Played:,\(gameCount)"
+            csv += "Season:,\(season.name)\n"
+            csv += "Games Played:,\(gameCount)\n"
         } else if let game = state.gameState.game(withId: stats.gameId) {
             var gameDescription = "Game:,"
             if let index = state.gameState.order(of: game) {
-                gameDescription += "\(index)"
+                gameDescription += "\(index)\n"
             }
-            gameDescription += " vs. \(game.opponent)--\(game.date.longStyleDateString)"
+            gameDescription += " vs. \(game.opponent)--\(game.date.mediumStyleDateString)\n"
             csv += gameDescription
         }
-        csv += "Exported:,\(Date().longStyleDateString)"
-        csv += "\n\n"
+        csv += "Exported:,\(Date().mediumStyleDateString)\n"
+        csv += "\n\n\n"
+        csv += " , \n" // Empty Line
         let abbreviations = StatType.allValues.map { $0.abbreviation }.joined(separator: ",")
-        csv += "Player,\(abbreviations)"
+        csv += "Player,\(abbreviations)\n"
+        
+        let includeSubs = state.statState.includeSubs
         
         stats.stats.forEach { key, stats in
             guard let player = state.playerState.player(withId: key) else { return }
-            var playerString = "\(player.name),"
-            stats.forEach( { playerString += ", \($0.displayString)"})
+            if player.isSub(for: season) && !includeSubs {
+                return
+            }
+            let playerString = "\(player.name),"
+            let sortedStats = stats.customSorted()
+            let sortedStatsString = sortedStats.map { $0.displayString}.joined(separator: ",")
             csv += playerString
+            csv += sortedStatsString
+            csv += "\n"
         }
         
         return csv

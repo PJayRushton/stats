@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Stat {
+struct Stat: StatSortable {
     
     var playerId: String
     var type: StatType
@@ -19,6 +19,7 @@ struct Stat {
         self.type = type
         self.value = value
     }
+    
     var player: Player? {
         return App.core.state.playerState.player(withId: playerId)
     }

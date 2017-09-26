@@ -57,7 +57,7 @@ struct SaveCurrentTrophiesCSV: Command {
             csv += ",1. \(trophy.displayString(stat: trophy.firstStat))"
             csv += "\n"
             guard let secondStat = trophy.secondStat else { return }
-            csv += "2. \(trophy.displayString(stat: secondStat))"
+            csv += ",2. \(trophy.displayString(stat: secondStat))"
             csv += "\n"
         }
         

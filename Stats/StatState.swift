@@ -21,6 +21,11 @@ struct StatCSVPathUpdated: Event {
     var objectId: String
     var path: URL?
 }
+struct TrophyCSVPathUpdated: Event {
+    var objectId: String
+    var path: URL?
+}
+
 
 
 struct StatState: State {
@@ -31,7 +36,7 @@ struct StatState: State {
     var allStats = [String: GameStats]()
     var trophySections = [String: [TrophySection]]()
     var statPaths = [String: URL]()
-    var currentSeasonStatPath: String?
+    var trophyPaths = [String: URL]()
     
     mutating func react(to event: Event) {
         switch event {
@@ -49,6 +54,7 @@ struct StatState: State {
             currentGame = nil
             trophySections = [:]
             includeSubs = false
+            statPaths = [:]
             guard let team = event.item else { return }
             clearStats(team.id)
             
@@ -66,6 +72,9 @@ struct StatState: State {
             
         case let event as StatCSVPathUpdated:
             statPaths[event.objectId] = event.path
+            
+        case let event as TrophyCSVPathUpdated:
+            trophyPaths[event.objectId] = event.path
             
         default:
             break
@@ -97,9 +106,16 @@ struct StatState: State {
         
         return nil
     }
-    var currentCSVPath: URL? {
+    var currentCSVPaths: [URL] {
+        return [currentNumbersCSVPath, currentTrophyCSVPath].flatMap { $0 }
+    }
+    var currentNumbersCSVPath: URL? {
         guard let objectId = currentObjectId else { return nil }
         return statPaths[objectId]
+    }
+    var currentTrophyCSVPath: URL? {
+        guard let objectId = currentObjectId else { return nil }
+        return trophyPaths[objectId]
     }
     var currentObjectId: String? {
         return currentGame?.id ?? App.core.state.seasonState.currentSeasonId

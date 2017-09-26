@@ -59,8 +59,9 @@
 		A14B64FC1E8EB99B00CBDE92 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B64FB1E8EB99B00CBDE92 /* Identifiable.swift */; };
 		A15ACF861EAE3AFA00091F9E /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15ACF851EAE3AFA00091F9E /* StatsViewController.swift */; };
 		A15ACF891EAE3B2200091F9E /* StatsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A15ACF871EAE3B2200091F9E /* StatsViewController.storyboard */; };
-		A162A4081F7944C0000167B0 /* CSVExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A162A4071F7944C0000167B0 /* CSVExporter.swift */; };
+		A162A4081F7944C0000167B0 /* SaveCurrentNumbersCSV.swift in Sources */ = {isa = PBXBuildFile; fileRef = A162A4071F7944C0000167B0 /* SaveCurrentNumbersCSV.swift */; };
 		A162A40A1F79AEA1000167B0 /* SortHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A162A4091F79AEA1000167B0 /* SortHelper.swift */; };
+		A162A40C1F79C998000167B0 /* SaveCurrentTrophiesCSV.swift in Sources */ = {isa = PBXBuildFile; fileRef = A162A40B1F79C998000167B0 /* SaveCurrentTrophiesCSV.swift */; };
 		A16CA85D1EE301FB002AABBF /* ContactsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16CA85C1EE301FB002AABBF /* ContactsHelper.swift */; };
 		A16D416D1E97364300DE01D4 /* DeleteTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16D416C1E97364300DE01D4 /* DeleteTeam.swift */; };
 		A16D416F1E97D08F00DE01D4 /* RosterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16D416E1E97D08F00DE01D4 /* RosterViewController.swift */; };
@@ -240,8 +241,9 @@
 		A14B64FB1E8EB99B00CBDE92 /* Identifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
 		A15ACF851EAE3AFA00091F9E /* StatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
 		A15ACF881EAE3B2200091F9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = StatsViewController.storyboard; sourceTree = "<group>"; };
-		A162A4071F7944C0000167B0 /* CSVExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVExporter.swift; sourceTree = "<group>"; };
+		A162A4071F7944C0000167B0 /* SaveCurrentNumbersCSV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveCurrentNumbersCSV.swift; sourceTree = "<group>"; };
 		A162A4091F79AEA1000167B0 /* SortHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortHelper.swift; sourceTree = "<group>"; };
+		A162A40B1F79C998000167B0 /* SaveCurrentTrophiesCSV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveCurrentTrophiesCSV.swift; sourceTree = "<group>"; };
 		A16CA85C1EE301FB002AABBF /* ContactsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsHelper.swift; sourceTree = "<group>"; };
 		A16D416C1E97364300DE01D4 /* DeleteTeam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteTeam.swift; sourceTree = "<group>"; };
 		A16D416E1E97D08F00DE01D4 /* RosterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosterViewController.swift; sourceTree = "<group>"; };
@@ -398,7 +400,6 @@
 				A1398B401EA6EB3400A4B830 /* CreateGame.swift */,
 				A16D417F1E98171600DE01D4 /* CreatePlayer.swift */,
 				A17EF6C71E93FC6D00DEE4ED /* CreateSeason.swift */,
-				A162A4071F7944C0000167B0 /* CSVExporter.swift */,
 				364FFAEF1EA9F1B000CD26F9 /* DeleteGame.swift */,
 				A17EF6D81E954A6500DEE4ED /* DeleteImage.swift */,
 				A17EF6C91E94040D00DEE4ED /* DeleteObject.swift */,
@@ -409,6 +410,8 @@
 				A179996F1E82B67C0058A002 /* LoadICloudUser.swift */,
 				36B6FEE71F6FF9DA00274D0A /* MarkTeamStatsViewed.swift */,
 				361B76C51F0AD2DA00CFC0DA /* Prefetch.swift */,
+				A162A4071F7944C0000167B0 /* SaveCurrentNumbersCSV.swift */,
+				A162A40B1F79C998000167B0 /* SaveCurrentTrophiesCSV.swift */,
 				367D7DE81F4F2032003F7585 /* SaveGameStats.swift */,
 				A17999711E82B6930058A002 /* SaveNewUser.swift */,
 				369094281F2F78AA00D11D3F /* SaveSeasonStats.swift */,
@@ -911,6 +914,7 @@
 				A1CD599D1EC9EBEC00D26FD8 /* UIImageView+URL.swift in Sources */,
 				A1EC56F61ED3248900A9B592 /* SeasonTableCell.swift in Sources */,
 				A1B65DCA1EB077A2009983E1 /* TrophyHeaderCell.swift in Sources */,
+				A162A40C1F79C998000167B0 /* SaveCurrentTrophiesCSV.swift in Sources */,
 				A14B64F61E8E0E5400CBDE92 /* FirebaseNetworkAccess.swift in Sources */,
 				A14B64EE1E8D662900CBDE92 /* TeamCreationViewController.swift in Sources */,
 				A1C722101EA0F71700A71C51 /* ShareTeamRolesViewController.swift in Sources */,
@@ -949,7 +953,7 @@
 				A1ABAFF91EA9420F00B28A46 /* AtBatCreationViewController.swift in Sources */,
 				A17DC2431EAC90DD00597063 /* Gender.swift in Sources */,
 				A17999881E82B9A60058A002 /* UIColorExtension.swift in Sources */,
-				A162A4081F7944C0000167B0 /* CSVExporter.swift in Sources */,
+				A162A4081F7944C0000167B0 /* SaveCurrentNumbersCSV.swift in Sources */,
 				3622C68B1F45D7E000BBCD9E /* UpdateGame.swift in Sources */,
 				A1CD9A141E8A9C6000D3C8F7 /* PlayerState.swift in Sources */,
 				A1426B9D1EA8586E00AAABB3 /* AKPickerView.swift in Sources */,

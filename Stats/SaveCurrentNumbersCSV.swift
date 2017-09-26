@@ -1,5 +1,5 @@
 //
-//  CSVExporter.swift
+//  SaveCurrentNumbersCSV.swift
 //  Stats
 //
 //  Created by Parker Rushton on 9/25/17.
@@ -8,20 +8,22 @@
 
 import Foundation
 
-struct SaveCurrentCSV: Command {
+struct SaveCurrentNumbersCSV: Command {
     
     func execute(state: AppState, core: Core<AppState>) {
-        guard let stats = state.statState.currentStats, let team = state.teamState.currentTeam, let currentSeason = state.seasonState.currentSeason else { return }
-        let csvText = csvString(from: stats, state: state)
-        let path = NSTemporaryDirectory().appending("\(team.name)--Stats-\(currentSeason.name).csv")
-        let pathURL = URL(fileURLWithPath: path)
-        guard let objectId = state.statState.currentObjectId else { return }
-        do {
-            try csvText.write(to: pathURL, atomically: true, encoding: .utf8)
-            core.fire(event: StatCSVPathUpdated(objectId: objectId, path: pathURL))
-        } catch {
-            core.fire(event: StatCSVPathUpdated(objectId: objectId, path: nil))
-            dump(error)
+        DispatchQueue.main.async {
+            guard let stats = state.statState.currentStats, let team = state.teamState.currentTeam, let currentSeason = state.seasonState.currentSeason else { return }
+            let csvText = self.csvString(from: stats, state: state)
+            let path = NSTemporaryDirectory().appending("\(team.name)--Stats-\(currentSeason.name).csv")
+            let pathURL = URL(fileURLWithPath: path)
+            guard let objectId = state.statState.currentObjectId else { return }
+            do {
+                try csvText.write(to: pathURL, atomically: true, encoding: .utf8)
+                core.fire(event: StatCSVPathUpdated(objectId: objectId, path: pathURL))
+            } catch {
+                core.fire(event: StatCSVPathUpdated(objectId: objectId, path: nil))
+                dump(error)
+            }
         }
     }
     
@@ -40,7 +42,7 @@ struct SaveCurrentCSV: Command {
             gameDescription += " vs. \(game.opponent)--\(game.date.mediumStyleDateString)\n"
             csv += gameDescription
         }
-        csv += "Exported:,\(Date().mediumStyleDateString)\n"
+        csv += "Exported:,\(Date().mediumStyleDateString)👍\n"
         csv += "\n\n\n"
         csv += " , \n" // Empty Line
         let abbreviations = StatType.allValues.map { $0.abbreviation }.joined(separator: ",")

@@ -31,6 +31,11 @@ class TrophySection: ListDiffable {
         secondStat == other.secondStat
     }
     
+    func displayString(stat: Stat) -> String {
+        let format = NSLocalizedString("%@ (%@ %@)", comment: "Player name ({Stat Number} Stat Type) e.g Parker (0.785 BA)")
+        return String.localizedStringWithFormat(format, stat.player!.name, stat.displayString, statType.displayString(isSingular: stat.value == 1))
+    }
+    
 }
 
 class TrophySectionController: ListSectionController {

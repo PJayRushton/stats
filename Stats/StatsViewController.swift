@@ -44,8 +44,11 @@ class StatsViewController: Component, AutoStoryboardInitializable {
         segmentedControl.setUp(with: StatsViewType.allValues.map { $0.title }, indicatorColor: UIColor.mainAppColor)
         qlController.dataSource = self
         
-        if core.state.statState.currentCSVPath == nil {
-            core.fire(command: SaveCurrentCSV())
+        if core.state.statState.currentNumbersCSVPath == nil {
+            core.fire(command: SaveCurrentNumbersCSV())
+        }
+        if core.state.statState.currentTrophyCSVPath == nil {
+            core.fire(command: SaveCurrentTrophiesCSV())
         }
     }
     
@@ -83,7 +86,7 @@ class StatsViewController: Component, AutoStoryboardInitializable {
         } else {
             topLabel.isHidden = true
         }
-        csvPaths = Array(state.statState.statPaths.values)
+        csvPaths = state.statState.currentCSVPaths
         try? segmentedControl.setIndex(UInt(state.statState.currentViewType.rawValue))
         let atBatsAreEmpty = state.atBatState.atBats.isEmpty
         segmentedControl.isHidden = atBatsAreEmpty

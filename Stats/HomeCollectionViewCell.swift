@@ -15,9 +15,9 @@ class HomeCollectionViewCell: UICollectionViewCell, AutoReuseIdentifiable {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var badgeView: UIView!
     @IBOutlet weak var badgeLabel: UILabel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
         badgeView.layer.cornerRadius = badgeView.frame.size.height / 2
     }
     

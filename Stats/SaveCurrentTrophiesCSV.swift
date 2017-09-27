@@ -54,11 +54,15 @@ struct SaveCurrentTrophiesCSV: Command {
         trophies.forEach { trophy in
             csv += trophy.trophy.displayName
             csv += "\n"
-            csv += ",1. \(trophy.displayString(stat: trophy.firstStat))"
-            csv += "\n"
-            guard let secondStat = trophy.secondStat else { return }
-            csv += ",2. \(trophy.displayString(stat: secondStat))"
-            csv += "\n"
+            csv += "1. \(trophy.displayString(stat: trophy.firstStat))"
+            if let secondStat = trophy.secondStat {
+                csv += ","
+                csv += "2. \(trophy.displayString(stat: secondStat))"
+                csv += "\n"
+            } else {
+                csv += "\n"
+                return
+            }
         }
         
         return csv

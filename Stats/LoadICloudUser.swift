@@ -17,7 +17,6 @@ struct LoadICloudUser: Command {
             if let recordID = recordID, error == nil {
                 let id = recordID.recordName
                 core.fire(event: ICloudUserLoaded(id: id))
-                core.fire(command: GetCurrentUser(iCloudId: id))
             } else {
                 core.fire(event: ICloudUserLoaded(id: nil))
                 core.fire(event: ErrorEvent(error: error, message: nil))

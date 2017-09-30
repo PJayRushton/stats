@@ -15,6 +15,7 @@ class MainViewController: Component {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .mainAppColor
     }
     
     

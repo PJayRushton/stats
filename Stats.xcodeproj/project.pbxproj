@@ -15,6 +15,7 @@
 		364FFAF01EA9F1B000CD26F9 /* DeleteGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364FFAEF1EA9F1B000CD26F9 /* DeleteGame.swift */; };
 		367D7DE71F4F1909003F7585 /* GameStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367D7DE61F4F1909003F7585 /* GameStats.swift */; };
 		367D7DE91F4F2032003F7585 /* SaveGameStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367D7DE81F4F2032003F7585 /* SaveGameStats.swift */; };
+		3680B5431F7FD72200B28237 /* AppEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3680B5421F7FD72200B28237 /* AppEvents.swift */; };
 		368350111F43C80700800B08 /* AddGamesToCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368350101F43C80700800B08 /* AddGamesToCalendar.swift */; };
 		369094291F2F78AA00D11D3F /* SaveSeasonStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369094281F2F78AA00D11D3F /* SaveSeasonStats.swift */; };
 		36976BC81F58582D00241D3D /* MainMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36976BC71F58582D00241D3D /* MainMiddleware.swift */; };
@@ -196,6 +197,7 @@
 		364FFAEF1EA9F1B000CD26F9 /* DeleteGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteGame.swift; sourceTree = "<group>"; };
 		367D7DE61F4F1909003F7585 /* GameStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameStats.swift; sourceTree = "<group>"; };
 		367D7DE81F4F2032003F7585 /* SaveGameStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveGameStats.swift; sourceTree = "<group>"; };
+		3680B5421F7FD72200B28237 /* AppEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEvents.swift; sourceTree = "<group>"; };
 		368350101F43C80700800B08 /* AddGamesToCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddGamesToCalendar.swift; sourceTree = "<group>"; };
 		369094281F2F78AA00D11D3F /* SaveSeasonStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveSeasonStats.swift; sourceTree = "<group>"; };
 		36976BC71F58582D00241D3D /* MainMiddleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMiddleware.swift; sourceTree = "<group>"; };
@@ -610,8 +612,9 @@
 			isa = PBXGroup;
 			children = (
 				A1868FA11E802F5C00C191EC /* Reactor.swift */,
-				A179997A1E82B77B0058A002 /* Middleware */,
+				3680B5421F7FD72200B28237 /* AppEvents.swift */,
 				A17999771E82B7210058A002 /* Commands */,
+				A179997A1E82B77B0058A002 /* Middleware */,
 			);
 			name = Reactor;
 			sourceTree = "<group>";
@@ -1007,6 +1010,7 @@
 				A1B65DD61EB15EA0009983E1 /* TrophySectionController.swift in Sources */,
 				A17EF6CE1E94148300DEE4ED /* SubscribeToObject.swift in Sources */,
 				36976BC81F58582D00241D3D /* MainMiddleware.swift in Sources */,
+				3680B5431F7FD72200B28237 /* AppEvents.swift in Sources */,
 				A1DC99D31E7E3E4500C6FF8C /* AppDelegate.swift in Sources */,
 				A1A2C3751E8C135E0008274F /* SaveNewUser.swift in Sources */,
 				A14B64F21E8D696800CBDE92 /* AddTeamToUser.swift in Sources */,

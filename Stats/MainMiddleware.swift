@@ -29,9 +29,6 @@ struct MainMiddleware: Middleware {
             guard event.object.isSeason && event.object.gameId == state.seasonState.currentSeasonId else { return }
             App.core.fire(command: UpdateTrophies())
             
-        case let event as TeamObjectAdded<AtBat>:
-            print("👉\(state.atBatState.atBats.count)")
-
         default:
             break
         }

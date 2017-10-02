@@ -16,7 +16,6 @@ struct PlayerState: State {
         switch event {
         case let event as TeamObjectAdded<Player>:
             allPlayers.update(with: event.object)
-            print("Player added Count: \(allPlayers.count)")
         case let event as TeamObjectChanged<Player>:
             allPlayers.update(with: event.object)
         case let event as TeamObjectRemoved<Player>:

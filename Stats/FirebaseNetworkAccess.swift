@@ -193,6 +193,11 @@ struct FirebaseNetworkAccess {
         ref.removeAllObservers()
     }
     
+    func unsubscribe(from query: DatabaseQuery) {
+        query.removeAllObservers()
+    }
+    
+    
     // MARK: Storage
     
     func uploadData(_ data: Data, toRef ref: StorageReference, with metadata: StorageMetadata? = nil, completion: @escaping (Result<URL>) -> Void) {

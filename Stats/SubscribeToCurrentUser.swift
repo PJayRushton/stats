@@ -8,23 +8,12 @@
 
 import Foundation
 
-struct Subscribed<T: Identifiable>: Event {
-    
-    var item: T?
-    
-    init(_ item: T?) {
-        self.item = item
-    }
-    
-}
-
 struct SubscribeToCurrentUser: Command {
     
     var id: String
     
     func execute(state: AppState, core: Core<AppState>) {
         let ref = StatsRefs.userRef(id: id)
-        networkAccess.unsubscribe(from: ref)
         
         networkAccess.subscribe(to: ref) { result in
             let userResult = result.map(User.init)

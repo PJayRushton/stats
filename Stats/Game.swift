@@ -90,9 +90,9 @@ struct Game: Identifiable, Unmarshaling, DateComparable {
     
 }
 
-extension Game: Marshaling {
+extension Game: JSONMarshaling {
     
-    func marshaled() ->JSONObject {
+    func jsonObject() -> JSONObject {
         var json = JSONObject()
         json[idKey] = id
         json[calendarIdKey] = calendarId

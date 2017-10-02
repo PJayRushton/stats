@@ -33,7 +33,7 @@ struct StatState: State {
     var currentViewType = StatsViewType.trophies
     var includeSubs = false
     var currentGame: Game?
-    var allStats = [String: GameStats]()
+    var allStats = Set<GameStats>()
     var trophySections = [String: [TrophySection]]()
     var statPaths = [String: URL]()
     var trophyPaths = [String: URL]()
@@ -49,23 +49,20 @@ struct StatState: State {
         case let event as StatGameUpdated:
             currentGame = event.game
             
-        case let event as Selected<Team>:
+        case _ as Selected<Team>:
             currentViewType = .trophies
             currentGame = nil
-            trophySections = [:]
             includeSubs = false
             statPaths = [:]
-            guard let team = event.item else { return }
-            clearStats(team.id)
             
         case let event as TeamObjectAdded<GameStats>:
-            allStats[event.object.gameId] = event.object
+            allStats.update(with: event.object)
             
         case let event as TeamObjectChanged<GameStats>:
-            allStats[event.object.gameId] = event.object
+            allStats.update(with: event.object)
             
         case let event as TeamObjectRemoved<GameStats>:
-            allStats[event.object.gameId] = nil
+            allStats.remove(event.object)
             
         case let event as TrophySectionsUpdated:
             trophySections[event.gameId] = event.sections
@@ -82,9 +79,9 @@ struct StatState: State {
     }
     
     mutating func clearStats(_ teamId: String) {
-        allStats.forEach { key, statsValue in
-            if statsValue.teamId != teamId {
-                self.allStats[key] = nil
+        allStats.forEach { stat in
+            if stat.teamId == teamId {
+                self.allStats.remove(stat)
             }
         }
     }
@@ -98,10 +95,10 @@ struct StatState: State {
         return []
     }
     var currentStats: GameStats? {
-        if let currentGame = currentGame, case let gameStats = allStats[currentGame.id] {
+        if let currentGame = currentGame, let gameStats = allStats.first(where: { $0.gameId == currentGame.id }) {
             return gameStats
         } else if let currentSeasonId = App.core.state.seasonState.currentSeasonId {
-            return allStats[currentSeasonId]
+            return allStats.first(where: { $0.isSeason && $0.gameId == currentSeasonId })
         }
         
         return nil
@@ -125,10 +122,10 @@ struct StatState: State {
     }
     var currentSeasonStats: GameStats? {
         guard let currentSeasonId = App.core.state.seasonState.currentSeasonId else { return nil }
-        return allStats[currentSeasonId]
+        return stats(for: currentSeasonId)
     }
     func stats(for id: String) -> GameStats? {
-        return allStats[id]
+        return allStats.first(where: { $0.gameId == id })
     }
     
     /// Calculates the stats for the object id passsed in `Game.id` or `Season.id`

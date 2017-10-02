@@ -9,7 +9,7 @@
 import Foundation
 
 enum App {
-    static let core = Core(state: AppState(), middlewares: [AppBadgeMiddleware(), MainMiddleware(), AnalyticsMiddleware()])
+    static let core = Core(state: AppState(), middlewares: [AnalyticsMiddleware(), AppBadgeMiddleware(), MainMiddleware()])
 }
 
 
@@ -36,6 +36,7 @@ struct AppState: State {
             currentMenuItem = event.item
         case let event as Updated<[URL]>:
             stockImageURLs = event.payload
+            
         default:
             break
         }

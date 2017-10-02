@@ -10,19 +10,18 @@ import Foundation
 
 struct SubscribeToAtBats: Command {
     
-    var team: Team
+    var teamId: String
     var newSeasonId: String
     var previousSeasonId: String?
     
-    init(of team: Team, newSeasonId: String, previousSeasonId: String? = nil) {
-        self.team = team
+    init(of teamId: String, newSeasonId: String, previousSeasonId: String? = nil) {
+        self.teamId = teamId
         self.newSeasonId = newSeasonId
         self.previousSeasonId = previousSeasonId
     }
     
     func execute(state: AppState, core: Core<AppState>) {
-        core.fire(event: ClearAtBats())
-        let atBatRef = StatsRefs.atBatsRef(teamId: team.id)
+        let atBatRef = StatsRefs.atBatsRef(teamId: teamId)
         
         if let oldSeason = previousSeasonId {
             atBatRef.queryOrdered(byChild: seasonIdKey).queryEqual(toValue: oldSeason).removeAllObservers()
@@ -36,11 +35,11 @@ struct SubscribeToAtBats: Command {
             case let .success(atBat):
                 switch eventType {
                 case .childAdded:
-                    core.fire(event: TeamObjectAdded<AtBat>(object: atBat, teamId: self.team.id))
+                    core.fire(event: TeamObjectAdded<AtBat>(object: atBat, teamId: self.teamId))
                 case .childChanged:
-                    core.fire(event: TeamObjectChanged<AtBat>(object: atBat, teamId: self.team.id))
+                    core.fire(event: TeamObjectChanged<AtBat>(object: atBat, teamId: self.teamId))
                 case .childRemoved:
-                    core.fire(event: TeamObjectRemoved<AtBat>(object: atBat, teamId: self.team.id))
+                    core.fire(event: TeamObjectRemoved<AtBat>(object: atBat, teamId: self.teamId))
                 default:
                     fatalError()
                 }

@@ -25,21 +25,11 @@ class GamesViewController: Component, AutoStoryboardInitializable {
     fileprivate var isReadyToShowNewGame = true
     fileprivate var isReadytoShowStats = true
     
-    fileprivate var ongoingGames: [Game] {
-        return core.state.gameState.currentOngoingGames
-    }
-    fileprivate var regularSeasonGames: [Game] {
-        return core.state.gameState.currentGames(regularSeason: true)
-    }
-    fileprivate var postSeasonGames: [Game] {
-        return core.state.gameState.currentGames(regularSeason: false)
-    }
-    fileprivate var tableIsEmpty: Bool {
-        return core.state.gameState.currentGames.isEmpty
-    }
-    fileprivate var hasPostSeason: Bool {
-        return core.state.gameState.currentGames(regularSeason: false).count > 0
-    }
+    fileprivate var ongoingGames = [Game]()
+    fileprivate var regularSeasonGames = [Game]()
+    fileprivate var postSeasonGames = [Game]()
+    fileprivate var tableIsEmpty = false
+    fileprivate var hasPostSeason = false
     fileprivate let tapper = UISelectionFeedbackGenerator()
     
     
@@ -105,6 +95,13 @@ class GamesViewController: Component, AutoStoryboardInitializable {
     // MARK: - Subscriber
     
     override func update(with state: AppState) {
+        let gameState = state.gameState
+        ongoingGames = gameState.currentOngoingGames
+        regularSeasonGames = gameState.currentGames(regularSeason: true)
+        postSeasonGames = gameState.currentGames(regularSeason: false)
+        hasPostSeason = !postSeasonGames.isEmpty
+        tableIsEmpty = gameState.currentGames.isEmpty
+        
         let hasCalendarAction = !CalendarService.hasCalendarPermission || state.gameState.processedGames?.hasSavableGames == true
         navigationItem.rightBarButtonItem = hasCalendarAction ? calendarButton : nil
         tableView.backgroundView = tableIsEmpty ? emptyStateView : nil

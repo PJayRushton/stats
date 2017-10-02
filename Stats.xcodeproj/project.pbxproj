@@ -16,6 +16,9 @@
 		367D7DE71F4F1909003F7585 /* GameStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367D7DE61F4F1909003F7585 /* GameStats.swift */; };
 		367D7DE91F4F2032003F7585 /* SaveGameStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367D7DE81F4F2032003F7585 /* SaveGameStats.swift */; };
 		3680B5431F7FD72200B28237 /* AppEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3680B5421F7FD72200B28237 /* AppEvents.swift */; };
+		3680B5451F7FE05100B28237 /* SelectTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3680B5441F7FE05100B28237 /* SelectTeam.swift */; };
+		3680B5471F7FE5A000B28237 /* TeamOwnershipType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3680B5461F7FE5A000B28237 /* TeamOwnershipType.swift */; };
+		3680B5491F8076A600B28237 /* UnsubscribeFromAtBats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3680B5481F8076A600B28237 /* UnsubscribeFromAtBats.swift */; };
 		368350111F43C80700800B08 /* AddGamesToCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368350101F43C80700800B08 /* AddGamesToCalendar.swift */; };
 		369094291F2F78AA00D11D3F /* SaveSeasonStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369094281F2F78AA00D11D3F /* SaveSeasonStats.swift */; };
 		36976BC81F58582D00241D3D /* MainMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36976BC71F58582D00241D3D /* MainMiddleware.swift */; };
@@ -198,6 +201,9 @@
 		367D7DE61F4F1909003F7585 /* GameStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameStats.swift; sourceTree = "<group>"; };
 		367D7DE81F4F2032003F7585 /* SaveGameStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveGameStats.swift; sourceTree = "<group>"; };
 		3680B5421F7FD72200B28237 /* AppEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEvents.swift; sourceTree = "<group>"; };
+		3680B5441F7FE05100B28237 /* SelectTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTeam.swift; sourceTree = "<group>"; };
+		3680B5461F7FE5A000B28237 /* TeamOwnershipType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamOwnershipType.swift; sourceTree = "<group>"; };
+		3680B5481F8076A600B28237 /* UnsubscribeFromAtBats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsubscribeFromAtBats.swift; sourceTree = "<group>"; };
 		368350101F43C80700800B08 /* AddGamesToCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddGamesToCalendar.swift; sourceTree = "<group>"; };
 		369094281F2F78AA00D11D3F /* SaveSeasonStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveSeasonStats.swift; sourceTree = "<group>"; };
 		36976BC71F58582D00241D3D /* MainMiddleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMiddleware.swift; sourceTree = "<group>"; };
@@ -418,12 +424,14 @@
 				A17999711E82B6930058A002 /* SaveNewUser.swift */,
 				369094281F2F78AA00D11D3F /* SaveSeasonStats.swift */,
 				A14B64EF1E8D67A100CBDE92 /* SaveTeam.swift */,
+				3680B5441F7FE05100B28237 /* SelectTeam.swift */,
 				36AB0AAB1EB3CAA90058F0E4 /* SetObject.swift */,
 				A1ABAFFC1EA97AF900B28A46 /* ShowMessage.swift */,
 				A17694AA1F3A79F900043DAE /* SubscribeToAtBats.swift */,
 				A131CC8D1E8EEE6600A5D66B /* SubscribeToCurrentUser.swift */,
 				A17EF6CD1E94148300DEE4ED /* SubscribeToObject.swift */,
 				A17EF6CF1E941D8700DEE4ED /* SubscribeToTeam.swift */,
+				3680B5481F8076A600B28237 /* UnsubscribeFromAtBats.swift */,
 				36B6FEE91F703AF000274D0A /* UpdateBadgeCount.swift */,
 				3622C68A1F45D7E000BBCD9E /* UpdateGame.swift */,
 				A17EF6CB1E94044E00DEE4ED /* UpdateObject.swift */,
@@ -455,6 +463,7 @@
 				A1B65DC31EB018C6009983E1 /* Stat.swift */,
 				A1B65DBC1EAF9AF9009983E1 /* StatType.swift */,
 				A1B41C231E85A4B300FAC930 /* Team.swift */,
+				3680B5461F7FE5A000B28237 /* TeamOwnershipType.swift */,
 				A1B65DD31EB0FB0E009983E1 /* Trophy.swift */,
 				A179996D1E82B64A0058A002 /* User.swift */,
 			);
@@ -934,6 +943,7 @@
 				A16F500F1F01413B0049FE77 /* Platform.swift in Sources */,
 				A16D41841E9838FD00DE01D4 /* ApplyShadow.swift in Sources */,
 				A17999911E82DF300058A002 /* HomeCollectionViewCell.swift in Sources */,
+				3680B5451F7FE05100B28237 /* SelectTeam.swift in Sources */,
 				A1D67D541E9097E100200B65 /* SettingsViewController.swift in Sources */,
 				36AB0AAC1EB3CAA90058F0E4 /* SetObject.swift in Sources */,
 				361B76C61F0AD2DA00CFC0DA /* Prefetch.swift in Sources */,
@@ -961,6 +971,7 @@
 				A1CD9A141E8A9C6000D3C8F7 /* PlayerState.swift in Sources */,
 				A1426B9D1EA8586E00AAABB3 /* AKPickerView.swift in Sources */,
 				A1ABAFFD1EA97AF900B28A46 /* ShowMessage.swift in Sources */,
+				3680B5471F7FE5A000B28237 /* TeamOwnershipType.swift in Sources */,
 				A17EF6CC1E94044E00DEE4ED /* UpdateObject.swift in Sources */,
 				A1CD9A0A1E89C26200D3C8F7 /* TeamState.swift in Sources */,
 				A1868F9F1E802E1600C191EC /* AppState.swift in Sources */,
@@ -1006,6 +1017,7 @@
 				A18F68B41ECD726D00407E89 /* PhotoCell.swift in Sources */,
 				A1CD599B1EC6678B00D26FD8 /* OpponentScoreViewController.swift in Sources */,
 				A14B64F01E8D67A100CBDE92 /* SaveTeam.swift in Sources */,
+				3680B5491F8076A600B28237 /* UnsubscribeFromAtBats.swift in Sources */,
 				A18F68AD1ECD703A00407E89 /* PhotoPickerViewController.swift in Sources */,
 				A1B65DD61EB15EA0009983E1 /* TrophySectionController.swift in Sources */,
 				A17EF6CE1E94148300DEE4ED /* SubscribeToObject.swift in Sources */,

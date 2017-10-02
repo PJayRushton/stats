@@ -11,26 +11,16 @@ import Foundation
 struct SeasonState: State {
     
     var currentSeasonId: String?
-    var allSeasonsDict = [String: [Season]]()
-    
-    var currentSeason: Season? {
-        return allSeasons.first(where: { $0.id == currentSeasonId })
-    }
-    fileprivate var allSeasons: [Season] {
-        return Array(allSeasonsDict.values.joined())
-    }
-    
-    func seasons(for team: Team) -> [Season] {
-        return allSeasonsDict[team.id] ?? []
-    }
-    func seasons(for teamId: String) -> [Season] {
-        return allSeasonsDict[teamId] ?? []
-    }
+    var allSeasons = Set<Season>()
     
     mutating func react(to event: Event) {
         switch event {
-        case let event as TeamEntitiesUpdated<Season>:
-            allSeasonsDict[event.teamId] = event.entities
+        case let event as TeamObjectAdded<Season>:
+            allSeasons.update(with: event.object)
+        case let event as TeamObjectChanged<Season>:
+            allSeasons.update(with: event.object)
+        case let event as TeamObjectRemoved<Season>:
+            allSeasons.remove(event.object)
         case let event as Selected<Season>:
             currentSeasonId = event.item?.id
         case let event as Selected<Team>:
@@ -38,6 +28,20 @@ struct SeasonState: State {
         default:
             break
         }
+    }
+    
+    
+    // MARK: - Accessors
+    
+    var currentSeason: Season? {
+        return allSeasons.first(where: { $0.id == currentSeasonId })
+    }
+    
+    func seasons(for team: Team) -> [Season] {
+        return seasons(for: team.id)
+    }
+    func seasons(for teamId: String) -> [Season] {
+        return allSeasons.filter { $0.teamId == teamId }
     }
     
 }

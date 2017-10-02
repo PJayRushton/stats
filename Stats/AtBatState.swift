@@ -13,8 +13,42 @@ struct ClearAtBats: Event { }
 struct AtBatState: State {
     
     var atBats = [AtBat]()
-    var currentAtBat: AtBat?
+    var currentAtBatId: String?
     var currentResult = AtBatCode.single
+    
+    mutating func react(to event: Event) {
+        switch event {
+        case let event as TeamObjectAdded<AtBat>:
+            atBats.append(event.object)
+            
+        case let event as TeamObjectChanged<AtBat>:
+            guard let index = atBats.index(of: event.object) else { return }
+            atBats[index] = event.object
+            
+        case let event as TeamObjectRemoved<AtBat>:
+            guard let index = atBats.index(of: event.object) else { return }
+            atBats.remove(at: index)
+            
+        case _ as ClearAtBats:
+            atBats = []
+            currentAtBatId = nil
+            currentResult = .single
+            
+        case let event as Selected<AtBatCode>:
+            currentResult = event.item ?? .single
+            
+        default:
+            break
+        }
+    }
+
+    
+    // MARK: - Accessors
+
+    var currentAtBat: AtBat? {
+        guard let id = currentAtBatId else { return nil }
+        return atBats.first(where: { $0.id == id })
+    }
     
     func atBats(for game: Game) -> [AtBat] {
         return atBats.filter { $0.gameId == game.id }
@@ -34,37 +68,6 @@ struct AtBatState: State {
             return allPlayerAtBats
         }
     }
-    
-    mutating func react(to event: Event) {
-        switch event {
-        case let event as TeamObjectAdded<AtBat>:
-            atBats.append(event.object)
-            
-        case let event as TeamObjectChanged<AtBat>:
-            guard let index = atBats.index(of: event.object) else { return }
-            atBats[index] = event.object
-            
-            if let current = currentAtBat, current == event.object {
-                currentAtBat = event.object
-            }
 
-        case let event as TeamObjectRemoved<AtBat>:
-            guard let index = atBats.index(of: event.object) else { return }
-            atBats.remove(at: index)
-            
-            if let current = currentAtBat, current == event.object {
-             currentAtBat = nil
-            }
-
-        case _ as ClearAtBats:
-            atBats = []
-            currentAtBat = nil
-            currentResult = .single
-        case let event as Selected<AtBatCode>:
-            currentResult = event.item ?? .single
-        default:
-            break
-        }
-    }
     
 }

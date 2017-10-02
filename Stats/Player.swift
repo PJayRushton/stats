@@ -88,9 +88,9 @@ struct Player: Identifiable, Unmarshaling {
     
 }
 
-extension Player: Marshaling {
+extension Player: JSONMarshaling {
     
-    func marshaled() -> JSONObject {
+    func jsonObject() -> JSONObject {
         var json = JSONObject()
         json[idKey] = id
         json[genderKey] = gender.rawValue

@@ -10,48 +10,52 @@ import Foundation
 
 struct TeamState: State {
     
-    var currentTeam: Team?
     var allTeams = Set<Team>()
     var isSubscribed = false
+    var currentTeamId: String? {
+        didSet {
+            guard let newTeamId = currentTeamId else { return }
+            if newTeamId != oldValue, let team = team(withId: newTeamId), let seasonId = team.currentSeasonId {
+                App.core.fire(command: SubscribeToAtBats(of: newTeamId, newSeasonId: seasonId))
+            }
+        }
+    }
     
     mutating func react(to event: Event) {
         switch event {
+        case let event as Selected<User>:
+            currentTeamId = event.item?.currentTeamId
+            
         case let event as Selected<Team>:
-            currentTeam = event.item
+            currentTeamId = event.item?.id
             isSubscribed = true
             
-            if let selectedTeam = event.item {
-                UserDefaults.standard.lastUsedTeamId = selectedTeam.id
-            }
         case let event as Updated<Team>:
-            allTeams.remove(event.payload)
-            allTeams.insert(event.payload)
+            allTeams.update(with: event.payload)
             isSubscribed = true
             
-            if event.payload == currentTeam {
-                currentTeam = event.payload
-            }
-            if let lastUsedId = UserDefaults.standard.lastUsedTeamId, event.payload.id == lastUsedId {
-                currentTeam = event.payload
-            }
-            if let currentUser = App.core.state.userState.currentUser, allTeams.count == currentUser.allTeamIds.count, currentTeam == nil { // Data migration. Switched from using touch date to defaults. First launch didn't select a team.
-                currentTeam = event.payload
-            }
         case _ as Subscribed<Team>:
             isSubscribed = true
+            
         case let event as Delete<Team>:
             allTeams.remove(event.object)
+            currentTeamId = allTeams.first?.id
             
-            if currentTeam == event.object {
-                currentTeam = nil
-                
-                if let first = allTeams.first {
-                    currentTeam = first
-                }
-            }
         default:
             break
         }
+    }
+    
+    
+    // MARK: - Accessors
+    
+    var currentTeam: Team? {
+        guard let currentTeamId = currentTeamId else { return nil }
+        return allTeams.first(where: { $0.id == currentTeamId })
+    }
+    
+    func team(withId id: String) -> Team? {
+        return allTeams.first(where: { $0.id == id })
     }
     
     func currentUserTeams(forType type: TeamOwnershipType) -> [Team] {
@@ -63,20 +67,6 @@ struct TeamState: State {
             return allTeams.filter { currentUser.managedTeamIds.contains($0.id) }.sorted(by: { $0.name < $1.name })
         case .fan:
             return allTeams.filter { currentUser.fanTeamIds.contains($0.id) }.sorted(by: { $0.name < $1.name })
-        }
-    }
-    
-}
-
-extension UserDefaults {
-    
-    var lastUsedTeamId: String? {
-        get {
-            return string(forKey: #function)
-        }
-        set {
-            set(newValue, forKey: #function)
-            synchronize()
         }
     }
     

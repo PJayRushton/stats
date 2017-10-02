@@ -10,18 +10,24 @@ import Foundation
 
 struct PlayerState: State {
     
-    var allPlayersDict = [String: [Player]]()
-    var playersAreLoaded = false
+    var allPlayers = Set<Player>()
     
     mutating func react(to event: Event) {
         switch event {
-        case let event as TeamEntitiesUpdated<Player>:
-            allPlayersDict[event.teamId] = event.entities
-            playersAreLoaded = true
+        case let event as TeamObjectAdded<Player>:
+            allPlayers.update(with: event.object)
+            print("Player added Count: \(allPlayers.count)")
+        case let event as TeamObjectChanged<Player>:
+            allPlayers.update(with: event.object)
+        case let event as TeamObjectRemoved<Player>:
+            allPlayers.remove(event.object)
         default:
             break
         }
     }
+    
+    
+    // MARK: - Accessors
     
     var currentStatPlayers: [Player] {
         if let currentGame = App.core.state.statState.currentGame {
@@ -45,12 +51,12 @@ struct PlayerState: State {
     }
     
     func players(for teamId: String) -> [Player] {
-        guard let teamPlayers = allPlayersDict[teamId] else { return [] }
+        let teamPlayers = allPlayers.filter { $0.teamId == teamId }
         return teamPlayers.sorted(by: { $0.order < $1.order })
     }
     
     func currentPlayers(for teamId: String) -> [Player] {
-        guard let teamPlayers = allPlayersDict[teamId] else { return [] }
+        let teamPlayers = players(for: teamId)
         return teamPlayers.filter { $0.isInCurrentSeason }.sorted(by: { $0.order < $1.order })
     }
     

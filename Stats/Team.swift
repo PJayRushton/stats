@@ -85,9 +85,9 @@ struct Team: Identifiable, Unmarshaling {
     
 }
 
-extension Team: Marshaling {
-    
-    func marshaled() -> JSONObject {
+extension Team: JSONMarshaling {
+
+    func jsonObject() -> JSONObject {
         var json = JSONObject()
         json[idKey] = id
         json[currentSeasonIdKey] = currentSeasonId

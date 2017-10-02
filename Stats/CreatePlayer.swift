@@ -17,7 +17,7 @@ struct CreatePlayer: Command {
     }
     
     func execute(state: AppState, core: Core<AppState>) {
-        networkAccess.addObject(at: player.ref, parameters: player.marshaled()) { result in
+        networkAccess.addObject(at: player.ref, parameters: player.jsonObject()) { result in
             switch result {
             case .success:
                 break

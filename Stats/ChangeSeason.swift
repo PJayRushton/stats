@@ -18,7 +18,7 @@ struct ChangeSeason: Command {
         team.currentSeasonId = newSeasonId
         core.fire(command: UpdateObject(team, completion: { success in
             if success {
-                core.fire(command: SubscribeToAtBats(of: team, newSeasonId: self.newSeasonId, previousSeasonId: oldSeason))
+                core.fire(command: SubscribeToAtBats(of: team.id, newSeasonId: self.newSeasonId, previousSeasonId: oldSeason))
             }
         }))
     }

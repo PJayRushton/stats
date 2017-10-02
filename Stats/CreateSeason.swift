@@ -16,7 +16,7 @@ struct CreateSeason: Command {
     func execute(state: AppState, core: Core<AppState>) {
         let ref = StatsRefs.seasonsRef(teamId: teamId).childByAutoId()
         let season = Season(id: ref.key, isCompleted: false, name: name, teamId: teamId)
-        networkAccess.updateObject(at: ref, parameters: season.marshaled()) { result in
+        networkAccess.updateObject(at: ref, parameters: season.jsonObject()) { result in
             switch result {
             case .success:
                 self.saveSeasonToPlayers(seasonId: season.id, core: core)

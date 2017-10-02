@@ -20,7 +20,7 @@ struct UpdateObject<T: Identifiable>: Command {
     }
     
     func execute(state: AppState, core: Core<AppState>) {
-        networkAccess.updateObject(at: object.ref, parameters: object.marshaled() as! JSONObject) { result in
+        networkAccess.updateObject(at: object.ref, parameters: object.jsonObject()) { result in
             switch result {
             case .success:
                 core.fire(event: Updated(self.object))

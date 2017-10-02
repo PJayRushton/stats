@@ -42,7 +42,7 @@ struct SaveCurrentNumbersCSV: Command {
             gameDescription += " vs. \(game.opponent)--\(game.date.mediumStyleDateString)\n"
             csv += gameDescription
         }
-        csv += "Exported:,\(Date().mediumStyleDateString)👍\n"
+        csv += "Exported:,\(Date().mediumStyleDateString)\n"
         csv += "\n\n\n"
         csv += " , \n" // Empty Line
         let abbreviations = StatType.allValues.map { $0.abbreviation }.joined(separator: ",")

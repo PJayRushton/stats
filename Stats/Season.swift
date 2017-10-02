@@ -32,9 +32,9 @@ struct Season: Identifiable, Unmarshaling {
     
 }
 
-extension Season: Marshaling {
+extension Season: JSONMarshaling {
     
-    func marshaled() -> JSONObject {
+    func jsonObject() -> JSONObject {
         var json = JSONObject()
         json[idKey] = id
         json[isCompletedKey] = isCompleted

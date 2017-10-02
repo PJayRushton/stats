@@ -8,7 +8,35 @@
 
 import Foundation
 
+// GameState
+
+struct UpdateRecentlyCompletedGame: Event {
+    var game: Game?
+}
+
+struct CalendarGames {
+    var gamesToSave = [Game]()
+    var gamesToEdit = [Game]()
+    
+    var hasSavableGames: Bool {
+        return !gamesToSave.isEmpty || !gamesToEdit.isEmpty
+    }
+}
+
+
+// MARK: - Generic
+
 struct Selected<T>: Event {
+    var item: T?
+    
+    init(_ item: T?) {
+        self.item = item
+    }
+    
+}
+
+struct Subscribed<T: Identifiable>: Event {
+    
     var item: T?
     
     init(_ item: T?) {

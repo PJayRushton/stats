@@ -104,10 +104,6 @@ class HomeViewController: Component, AutoStoryboardInitializable {
             newGameButton.isHidden = currentTeam == nil || !user.isOwnerOrManager(of: currentTeam!)
         }
         
-        if state.stockImageURLs.isEmpty {
-            core.fire(command: GetStockImages())
-        }
-        
         if let _ = state.teamState.currentTeam, !hasSeenNotificationPrompt {
             hasSeenNotificationPrompt = true
             NotificationController.shared.requestAccessIfNeeded(from: self)

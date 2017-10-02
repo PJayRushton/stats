@@ -8,50 +8,6 @@
 
 import Foundation
 
-enum TeamOwnershipType: String {
-    case owned
-    case managed
-    case fan
-    
-    init(hashValue value: Int) {
-        switch value {
-        case 0:
-            self = .owned
-        case 1:
-            self = .managed
-        default:
-            self = .fan
-        }
-    }
-    
-    var hashValue: Int {
-        switch self {
-        case .owned:
-            return 0
-        case .managed:
-            return 1
-        case .fan:
-            return 2
-        }
-    }
-    var firstCharacter: String {
-        return String(rawValue.characters.first!)
-    }
-    
-    var sectionTitle: String {
-        switch self {
-        case .owned:
-            return NSLocalizedString("Coach", comment: "")
-        case .managed:
-            return NSLocalizedString("St@ Keeper", comment: "")
-        case .fan:
-            return NSLocalizedString("Player", comment: "")
-        }
-    }
-    
-    static let allValues = [TeamOwnershipType.owned, .managed, .fan]
-}
-
 struct AddTeamToUser: Command {
     
     var team: Team
@@ -72,8 +28,8 @@ struct AddTeamToUser: Command {
         case .fan:
             currentUser.fanTeamIds.insert(team.id)
         }
-        let ref = StatsRefs.userRef(id: currentUser.id)
-        networkAccess.updateObject(at: ref, parameters: currentUser.marshaled(), completion: nil)
+        currentUser.currentTeamId = team.id
+        core.fire(command: UpdateObject(currentUser))
     }
     
 }

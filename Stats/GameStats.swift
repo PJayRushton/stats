@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Firebase
 import Marshal
 
 struct GameStats {
@@ -81,6 +82,22 @@ extension GameStats: JSONMarshaling {
         object[statsKey] = statsObject
         
         return object
+    }
+    
+}
+
+extension GameStats: Identifiable {
+    
+    var ref: DatabaseReference {
+        return StatsRefs.gameStatsRef(teamId: teamId).child(id)
+    }
+    
+}
+
+extension GameStats: Hashable {
+    
+    var hashValue: Int {
+        return id.hashValue
     }
     
 }

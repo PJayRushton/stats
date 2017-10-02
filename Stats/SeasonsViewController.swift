@@ -79,9 +79,7 @@ extension SeasonsViewController {
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         let viewAction = UIAlertAction(title: "View season", style: .default) { _ in
-            guard let currentTeam = self.currentTeam else { return }
-            self.core.fire(event: Selected<Season>(season))
-            self.core.fire(command: SubscribeToAtBats(of: currentTeam, newSeasonId: season.id, previousSeasonId: currentTeam.currentSeasonId))
+            self.viewSeason(season)
         }
         let setCurrentAction = UIAlertAction(title: "Set as current", style: .default) { _ in
             self.setCurrentSeason(season)
@@ -114,6 +112,13 @@ extension SeasonsViewController {
         guard var currentTeam = core.state.teamState.currentTeam else { return }
         currentTeam.currentSeasonId = season.id
         core.fire(command: UpdateObject(currentTeam))
+    }
+    
+    fileprivate func viewSeason(_ season: Season) {
+        guard let currentTeam = self.currentTeam else { return }
+        core.fire(event: Selected<Season>(season))
+        core.fire(event: ClearAtBats())
+        core.fire(command: SubscribeToAtBats(of: currentTeam.id, newSeasonId: season.id, previousSeasonId: currentTeam.currentSeasonId))
     }
     
     fileprivate func createSeason() {

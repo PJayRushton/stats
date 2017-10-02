@@ -22,7 +22,7 @@ struct SaveNewUser: Command {
             completion(false)
             return
         }
-        networkAccess.setValue(at: newUser.ref, parameters: newUser.marshaled()) { result in
+        networkAccess.setValue(at: newUser.ref, parameters: newUser.jsonObject()) { result in
             switch result {
             case .success:
                 self.completion(true)

@@ -10,7 +10,7 @@ import Foundation
 import Firebase
 import Marshal
 
-protocol Identifiable: Marshaling, Unmarshaling, Hashable {
+protocol Identifiable: JSONMarshaling, Unmarshaling, Hashable {
     var id: String { get set }
     var ref: DatabaseReference { get }
 }

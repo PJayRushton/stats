@@ -20,6 +20,7 @@ struct User: Identifiable, Unmarshaling {
     var ownedTeamIds = Set<String>()
     var managedTeamIds = Set<String>()
     var fanTeamIds = Set<String>()
+    var currentTeamId: String?
     
     var allTeamIds: [String] {
         return [ownedTeamIds, managedTeamIds, fanTeamIds].flatMap { $0 }
@@ -55,6 +56,7 @@ struct User: Identifiable, Unmarshaling {
         if let fanTeamsObject: JSONObject = try object.value(for: fanTeamIdsKey) {
             fanTeamIds = Set(fanTeamsObject.keys)
         }
+        currentTeamId = try object.value(for: currentTeamIdKey)
     }
     
     
@@ -77,9 +79,9 @@ struct User: Identifiable, Unmarshaling {
 
 // MARK: - Marshaling
 
-extension User: Marshaling {
+extension User: JSONMarshaling {
     
-    func marshaled() -> JSONObject {
+    func jsonObject() -> JSONObject {
         var json = JSONObject()
         json[avatarKey] = avatarURLString
         json[creationDateKey] = creationDate.iso8601String
@@ -93,7 +95,8 @@ extension User: Marshaling {
         json[ownedTeamIdsKey] = ownedTeamIds.marshaled()
         json[managedTeamIdsKey] = managedTeamIds.marshaled()
         json[fanTeamIdsKey] = fanTeamIds.marshaled()
-        
+        json[currentTeamIdKey] = currentTeamId ?? NSNull()
+
         return json
     }
     

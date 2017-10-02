@@ -116,9 +116,9 @@ struct AtBat: Identifiable, Unmarshaling {
     
 }
 
-extension AtBat: Marshaling {
+extension AtBat: JSONMarshaling {
     
-    func marshaled() -> JSONObject {
+    func jsonObject() -> JSONObject {
         var json = JSONObject()
         json[idKey] = id
         json[creationDateKey] = creationDate.iso8601String

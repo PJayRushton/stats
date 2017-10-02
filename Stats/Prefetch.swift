@@ -18,8 +18,10 @@ struct Prefetch: Command {
     }
     
     func execute(state: AppState, core: Core<AppState>) {
-        let fetcher = ImagePrefetcher(urls: urls)
-        fetcher.start()
+        DispatchQueue.main.async {
+            let fetcher = ImagePrefetcher(urls: self.urls)
+            fetcher.start()
+        }
     }
     
 }

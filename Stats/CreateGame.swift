@@ -17,7 +17,7 @@ struct CreateGame: Command {
     var game: Game
     
     func execute(state: AppState, core: Core<AppState>) {
-        networkAccess.addObject(at: game.ref, parameters: game.marshaled()) { result in
+        networkAccess.addObject(at: game.ref, parameters: game.jsonObject()) { result in
             switch result {
             case .success:
                 core.fire(event: NewGameReadyToShow(ready: true))

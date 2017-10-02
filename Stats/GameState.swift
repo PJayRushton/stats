@@ -8,48 +8,36 @@
 
 import Foundation
 
-struct UpdateRecentlyCompletedGame: Event {
-    var game: Game?
-}
-
-struct CalendarGames {
-    var gamesToSave = [Game]()
-    var gamesToEdit = [Game]()
-    
-    var hasSavableGames: Bool {
-        return !gamesToSave.isEmpty || !gamesToEdit.isEmpty
-    }
-}
-
 struct GameState: State {
     
-    var currentPlayer: Player?
-    var currentGame: Game?
-    var allGamesDict = [String: [Game]]()
+    var currentPlayerId: String?
+    var currentGameId: String?
+    var allGames = Set<Game>()
     var recentlyCompletedGame: Game?
     var processedGames: CalendarGames?
     
     mutating func react(to event: Event) {
         switch event {
-        case let event as Selected<Game>:
-            currentGame = event.item
-        case let event as TeamEntitiesUpdated<Game>:
-            allGamesDict[event.teamId] = event.entities
+        case let event as TeamObjectAdded<Game>:
+            allGames.update(with: event.object)
+            print("Games 🤝 \(allGames.count)")
+        case let event as TeamObjectChanged<Game>:
+            allGames.update(with: event.object)
+        case let event as TeamObjectRemoved<Game>:
+            allGames.remove(event.object)
             
-            if let game = currentGame, let index = event.entities.index(of: game) {
-                currentGame = event.entities[index]
-            }
+        case let event as Selected<Game>:
+            currentGameId = event.item?.id
+            
         case let event as Updated<Game>:
-            let game = event.payload
-            guard var teamGames = allGamesDict[game.teamId], let index = teamGames.index(of: game) else { return }
-            teamGames[index] = game
-            allGamesDict[game.teamId] = teamGames
+            allGames.update(with: event.payload)
         case let event as Updated<CalendarGames>:
             processedGames = event.payload
         case let event as Selected<Player>:
-            currentPlayer = event.item
+            currentPlayerId = event.item?.id
         case let event as UpdateRecentlyCompletedGame:
             recentlyCompletedGame = event.game
+            
         default:
             break
         }
@@ -57,11 +45,20 @@ struct GameState: State {
     
     
     // MARK: - Helpers
+    var currentGame: Game? {
+        guard let currentGameId = currentGameId else { return nil }
+        return allGames.first(where: { $0.id == currentGameId })
+    }
+    var currentPlayer: Player? {
+        guard let id = currentPlayerId else { return nil }
+        return App.core.state.playerState.player(withId: id)
+    }
     
     /// All games of the current team regardless of season
     var teamGames: [Game] {
-        guard let currentTeam = App.core.state.teamState.currentTeam, let currentGames = allGamesDict[currentTeam.id] else { return [] }
-        return currentGames.sorted(by: >)
+        guard let currentTeamId = App.core.state.teamState.currentTeamId else { return [] }
+        let games = allGames.filter { $0.teamId == currentTeamId }
+        return games.sorted(by: >)
     }
     
     /// Games of the current team scoped to the current season
@@ -95,8 +92,7 @@ struct GameState: State {
     }
     
     func games(of season: Season) -> [Game] {
-        guard let gamesOfTeam = allGamesDict[season.teamId] else { return [] }
-        return gamesOfTeam.filter { $0.seasonId == season.id }.sorted(by: >)
+        return allGames.filter { $0.seasonId == season.id }.sorted(by: >)
     }
     
     func game(withId id: String) -> Game? {

@@ -20,7 +20,7 @@ struct SetObject<T: Identifiable>: Command {
     }
     
     func execute(state: AppState, core: Core<AppState>) {
-        networkAccess.setValue(at: object.ref, parameters: object.marshaled() as! JSONObject) { result in
+        networkAccess.setValue(at: object.ref, parameters: object.jsonObject()) { result in
             switch result {
             case .success:
                 core.fire(event: Updated(self.object))

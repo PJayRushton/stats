@@ -34,13 +34,10 @@ struct SubscribeToTeam: Command {
             case let .success(team):
                 core.fire(event: Updated<Team>(team))
                 
-                if let newSeasonId = team.currentSeasonId {
-                    core.fire(command: SubscribeToAtBats(of: team, newSeasonId: newSeasonId))
+                if let currentTeamId = core.state.teamState.currentTeamId, self.teamId == currentTeamId, let seasonId = team.currentSeasonId {
+                    core.fire(command: SubscribeToAtBats(of: team.id, newSeasonId: seasonId))
                 }
 
-                if let lastUsedId = UserDefaults.standard.lastUsedTeamId, team.id == lastUsedId {
-                    core.fire(event: Selected<Team>(team))
-                }
             case let .failure(error):
                 core.fire(event: ErrorEvent(error: error, message: nil))
             }
@@ -49,14 +46,21 @@ struct SubscribeToTeam: Command {
     
     private func subscribeToSeasons(core: Core<AppState>) {
         let ref = StatsRefs.seasonsRef(teamId: self.teamId)
-        networkAccess.subscribe(to: ref) { result in
-            let seasonsResult = result.map { (json: JSONObject) -> [Season] in
-                return json.parsedObjects()
-            }
+        networkAccess.fullySubscribe(to: ref) { result, eventType in
+            let seasonResult = result.map(Season.init)
             
-            switch seasonsResult {
-            case let .success(seasons):
-                core.fire(event: TeamEntitiesUpdated<Season>(teamId: self.teamId, entities: seasons))
+            switch seasonResult {
+            case let .success(season):
+                switch eventType {
+                case .childAdded:
+                    core.fire(event: TeamObjectAdded<Season>(object: season, teamId: self.teamId))
+                case .childChanged:
+                    core.fire(event: TeamObjectChanged<Season>(object: season, teamId: self.teamId))
+                case .childRemoved:
+                    core.fire(event: TeamObjectRemoved<Season>(object: season, teamId: self.teamId))
+                default:
+                    break
+                }
             case let .failure(error):
                 core.fire(event: ErrorEvent(error: error, message: nil))
             }
@@ -64,14 +68,22 @@ struct SubscribeToTeam: Command {
     }
 
     private func subscribeToPlayers(core: Core<AppState>) {
-        networkAccess.subscribe(to: StatsRefs.playersRef(teamId: self.teamId)) { result in
-            let playersResult = result.map { (json: JSONObject) -> [Player] in
-                return json.parsedObjects()
-            }
+        let ref = StatsRefs.playersRef(teamId: self.teamId)
+        networkAccess.fullySubscribe(to: ref) { result, eventType in
+            let playerResult = result.map(Player.init)
 
-            switch playersResult {
-            case let .success(players):
-                core.fire(event: TeamEntitiesUpdated<Player>(teamId: self.teamId, entities: players))
+            switch playerResult {
+            case let .success(player):
+                switch eventType {
+                case .childAdded:
+                    core.fire(event: TeamObjectAdded<Player>(object: player, teamId: self.teamId))
+                case .childChanged:
+                    core.fire(event: TeamObjectChanged<Player>(object: player, teamId: self.teamId))
+                case .childRemoved:
+                    core.fire(event: TeamObjectRemoved<Player>(object: player, teamId: self.teamId))
+                default:
+                    break
+                }
             case let .failure(error):
                 core.fire(event: ErrorEvent(error: error, message: nil))
             }
@@ -79,14 +91,22 @@ struct SubscribeToTeam: Command {
     }
     
     private func subscribeToGames(core: Core<AppState>) {
-        networkAccess.subscribe(to: StatsRefs.gamesRef(teamId: self.teamId)) { result in
-            let gamesResult = result.map { (json: JSONObject) -> [Game] in
-                return json.parsedObjects()
-            }
+        let ref = StatsRefs.gamesRef(teamId: self.teamId)
+        networkAccess.fullySubscribe(to: ref) { result, eventType in
+            let gameResult = result.map(Game.init)
             
-            switch gamesResult {
-            case let .success(games):
-                core.fire(event: TeamEntitiesUpdated<Game>(teamId: self.teamId, entities: games))
+            switch gameResult {
+            case let .success(game):
+                switch eventType {
+                case .childAdded:
+                    core.fire(event: TeamObjectAdded<Game>(object: game, teamId: self.teamId))
+                case .childChanged:
+                    core.fire(event: TeamObjectChanged<Game>(object: game, teamId: self.teamId))
+                case .childRemoved:
+                    core.fire(event: TeamObjectRemoved<Game>(object: game, teamId: self.teamId))
+                default:
+                    break
+                }
             case let .failure(error):
                 core.fire(event: ErrorEvent(error: error, message: nil))
             }
@@ -106,7 +126,8 @@ struct SubscribeToTeam: Command {
                     core.fire(event: TeamObjectChanged<GameStats>(object: gameStats, teamId: self.teamId))
                 case .childRemoved:
                     core.fire(event: TeamObjectRemoved<GameStats>(object: gameStats, teamId: self.teamId))
-                default: break
+                default:
+                    break
                 }
             case let .failure(error):
                 core.fire(event: ErrorEvent(error: error, message: nil))

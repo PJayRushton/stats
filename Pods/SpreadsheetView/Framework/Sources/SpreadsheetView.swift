@@ -16,7 +16,7 @@ public class SpreadsheetView: UIView {
     public weak var dataSource: SpreadsheetViewDataSource? {
         didSet {
             resetTouchHandlers(to: [tableView, columnHeaderView, rowHeaderView, cornerView])
-            reloadData()
+            setNeedsReload()
         }
     }
     /// The object that acts as the delegate of the spreadsheet view.
@@ -128,10 +128,23 @@ public class SpreadsheetView: UIView {
             if let backgroundView = backgroundView {
                 backgroundView.frame = bounds
                 backgroundView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-                super.insertSubview(backgroundView, at: 0)
+                guard #available(iOS 11.0, *) else {
+                    super.insertSubview(backgroundView, at: 0)
+                    return
+                }
             }
         }
     }
+
+    #if swift(>=3.2)
+    @available(iOS 11.0, *)
+    public override func safeAreaInsetsDidChange() {
+        if let backgroundView = backgroundView {
+            backgroundView.removeFromSuperview()
+            super.insertSubview(backgroundView, at: 0)
+        }
+    }
+    #endif
 
     /// Returns an array of visible cells currently displayed by the spreadsheet view.
     ///
@@ -219,14 +232,13 @@ public class SpreadsheetView: UIView {
             tableView.alwaysBounceHorizontal = newValue
         }
     }
-    
+
     /// A Boolean value that determines wheather the row header always sticks to the top.
     /// - Note: `bounces` has to be `true` and there has to be at least one `frozenRow`.
     /// The default value is `false`.
     ///
     /// - SeeAlso: `stickyColumnHeader`
     public var stickyRowHeader: Bool = false
-    
     /// A Boolean value that determines wheather the column header always sticks to the top.
     /// - Note: `bounces` has to be `true` and there has to be at least one `frozenColumn`.
     /// The default value is `false`.
@@ -297,18 +309,23 @@ public class SpreadsheetView: UIView {
     public var mergedCells: [CellRange] {
         return layoutProperties.mergedCells
     }
+
+    public var scrollView: UIScrollView {
+        return overlayView
+    }
+
     var layoutProperties = LayoutProperties()
 
     let rootView = UIScrollView()
     let overlayView = UIScrollView()
 
-    let rowHeaderView = ScrollView()
     let columnHeaderView = ScrollView()
+    let rowHeaderView = ScrollView()
     let cornerView = ScrollView()
     let tableView = ScrollView()
 
-    var cellClasses = [String: Cell.Type]()
-    var cellNibs = [String: UINib]()
+    private var cellClasses = [String: Cell.Type]()
+    private var cellNibs = [String: UINib]()
     var cellReuseQueues = [String: ReuseQueue<Cell>]()
     let blankCellReuseIdentifier = UUID().uuidString
 
@@ -321,8 +338,7 @@ public class SpreadsheetView: UIView {
     var pendingSelectionIndexPath: IndexPath?
     var currentTouch: UITouch?
 
-    var needsReload = true
-    var isAutomaticContentOffsetAdjustmentEnabled = true
+    private var needsReload = true
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -384,6 +400,11 @@ public class SpreadsheetView: UIView {
 
         [tableView, columnHeaderView, rowHeaderView, cornerView, overlayView].forEach {
             addGestureRecognizer($0.panGestureRecognizer)
+            #if swift(>=3.2)
+            if #available(iOS 11.0, *) {
+                $0.contentInsetAdjustmentBehavior = .never
+            }
+            #endif
         }
     }
 
@@ -398,21 +419,6 @@ public class SpreadsheetView: UIView {
     }
 
     public func reloadData() {
-        setNeedsReload()
-    }
-
-    func reloadDataIfNeeded() {
-        if needsReload {
-            refreshData()
-        }
-    }
-
-    func setNeedsReload() {
-        needsReload = true
-        setNeedsLayout()
-    }
-
-    func refreshData() {
         layoutProperties = resetLayoutProperties()
         circularScrollScalingFactor = determineCircularScrollScalingFactor()
         centerOffset = calculateCenterOffset()
@@ -432,18 +438,29 @@ public class SpreadsheetView: UIView {
         resetContentSize(of: rowHeaderView)
         resetContentSize(of: tableView)
 
-        cornerView.frame = .zero
-        columnHeaderView.frame = CGRect(x: 0, y: 0, width: 0, height: rootView.frame.height)
-        rowHeaderView.frame = CGRect(x: 0, y: 0, width: rootView.frame.width, height: 0)
-        tableView.frame = CGRect(origin: .zero, size: rootView.frame.size)
+        resetScrollViewFrame()
+        resetScrollViewArrangement()
 
-        cornerView.frame.size = cornerView.contentSize
-        columnHeaderView.frame.size.width = columnHeaderView.contentSize.width
-        rowHeaderView.frame.size.height = rowHeaderView.contentSize.height
-        if frozenColumns > 0 && frozenRows > 0 {
-            columnHeaderView.frame.size.height -= cornerView.frame.height - intercellSpacing.height
-            rowHeaderView.frame.size.width -= cornerView.frame.width - intercellSpacing.width
+        if circularScrollingOptions.direction.contains(.horizontally) && tableView.contentOffset.x == 0 {
+            scrollToHorizontalCenter()
         }
+        if circularScrollingOptions.direction.contains(.vertically) && tableView.contentOffset.y == 0 {
+            scrollToVerticalCenter()
+        }
+
+        needsReload = false
+        setNeedsLayout()
+    }
+
+    func reloadDataIfNeeded() {
+        if needsReload {
+            reloadData()
+        }
+    }
+
+    private func setNeedsReload() {
+        needsReload = true
+        setNeedsLayout()
     }
 
     public func dequeueReusableCell(withReuseIdentifier identifier: String, for indexPath: IndexPath) -> Cell {
@@ -493,18 +510,6 @@ public class SpreadsheetView: UIView {
                 $0.touchesCancelled = nil
             }
         }
-    }
-
-    public func flashScrollIndicators() {
-        overlayView.flashScrollIndicators()
-    }
-
-    public func setContentOffset(_ contentOffset: CGPoint, animated: Bool) {
-        tableView.setContentOffset(contentOffset, animated: animated)
-    }
-
-    public func scrollRectToVisible(_ rect: CGRect, animated: Bool) {
-        tableView.scrollRectToVisible(rect, animated: animated)
     }
 
     public func scrollToItem(at indexPath: IndexPath, at scrollPosition: ScrollPosition, animated: Bool) {

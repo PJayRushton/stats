@@ -8,7 +8,7 @@
 
 import UIKit
 
-public typealias AlertActionHandler = (() -> Void)
+public typealias AlertActionHandler = ((AlertAction) -> Void)
 
 /// Describes each action that is going to be shown in the 'AlertViewController'
 public class AlertAction {
@@ -82,8 +82,8 @@ private enum Font: String {
 private struct ColorPalette {
 
     static let grayColor = UIColor(red: 151.0/255.0, green: 151.0/255.0, blue: 151.0/255.0, alpha: 1)
-    static let greenColor = UIColor(red: 165.0/255.0, green: 198.0/255.0, blue: 59.0/255.0, alpha: 1)
-    static let redColor = UIColor(red: 231.0/255.0, green: 76.0/255.0, blue: 60.0/255.0, alpha: 1)
+    static let greenColor = UIColor(red: 58.0/255.0, green: 213.0/255.0, blue: 91.0/255.0, alpha: 1)
+    static let redColor = UIColor(red: 255.0/255.0, green: 103.0/255.0, blue: 100.0/255.0, alpha: 1)
 
 }
 
@@ -204,7 +204,7 @@ public class AlertViewController: UIViewController {
     @IBAction func didSelectFirstAction(_ sender: AnyObject) {
         guard let firstAction = actions.first else { return }
         if let handler = firstAction.handler {
-            handler()
+            handler(firstAction)
         }
         dismiss()
     }
@@ -212,7 +212,7 @@ public class AlertViewController: UIViewController {
     @IBAction func didSelectSecondAction(_ sender: AnyObject) {
         guard let secondAction = actions.last, actions.count == 2 else { return }
         if let handler = secondAction.handler {
-            handler()
+            handler(secondAction)
         }
         dismiss()
     }
@@ -242,12 +242,12 @@ extension AlertViewController {
         let bundle = Bundle(for: self)
         guard let fontPath = bundle.path(forResource: name, ofType: "ttf"),
             let data = try? Data(contentsOf: URL(fileURLWithPath: fontPath)),
-            let provider = CGDataProvider(data: data as CFData)
+            let provider = CGDataProvider(data: data as CFData),
+            let font = CGFont(provider)
         else {
             return false
         }
 
-        let font = CGFont(provider)
         var error: Unmanaged<CFError>?
 
         let success = CTFontManagerRegisterGraphicsFont(font, &error)

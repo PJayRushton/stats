@@ -168,16 +168,16 @@ extension Date {
         return weekDay.abbreviation
     }
     
-    var startOfDay: Date {
-        return Calendar.current.startOfDay(for: self)
-    }
-    
-    var endOfDay: Date? {
-        var components = DateComponents()
-        components.day = 1
-        components.second = -1
-        return (Calendar.current as NSCalendar).date(byAdding: components, to: startOfDay, options: NSCalendar.Options())
-    }
+//    var startOfDay: Date {
+//        return Calendar.current.startOfDay(for: self)
+//    }
+//    
+//    var endOfDay: Date? {
+//        var components = DateComponents()
+//        components.day = 1
+//        components.second = -1
+//        return (Calendar.current as NSCalendar).date(byAdding: components, to: startOfDay, options: NSCalendar.Options())
+//    }
     
     fileprivate var isInTomorrow: Bool {
         return Calendar.current.isDateInTomorrow(self)

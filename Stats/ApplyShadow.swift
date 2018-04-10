@@ -19,7 +19,7 @@ import UIKit
 
 extension CALayer {
     
-    func applyShadow(_ color: CGColor = UIColor.gray400.cgColor, opacity: Float = 0.24, offset: CGSize = CGSize(width: 0, height: 2), radius: CGFloat = 2) {
+    func applyShadow(_ color: CGColor = UIColor.gray2.cgColor, opacity: Float = 0.24, offset: CGSize = CGSize(width: 0, height: 2), radius: CGFloat = 2) {
         shadowColor = color
         shadowOffset = offset
         shadowOpacity = opacity

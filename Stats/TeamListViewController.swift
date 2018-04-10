@@ -43,7 +43,7 @@ class TeamListViewController: Component, AutoStoryboardInitializable {
         currentTypes = TeamOwnershipType.allValues.filter { !core.state.teamState.currentUserTeams(forType: $0).isEmpty }
     }
     
-    func close() {
+    @objc func close() {
         if isDismissable {
             dismiss(animated: true, completion: nil)
         } else {
@@ -76,18 +76,18 @@ extension TeamListViewController {
         return core.state.teamState.currentUserTeams(forType: type)
     }
     
-    func showAddTeamOptionsAlert() {
+    @objc func showAddTeamOptionsAlert() {
         let alert = Presentr.alertViewController(title: "New Team", body: "What would you like to do?")
-        alert.addAction(AlertAction(title: "Create a team", style: .default, handler: { 
+        alert.addAction(AlertAction(title: "Create a team", style: .default) { _ in
             self.dismiss(animated: true, completion: { 
                 self.pushTeamCreation()
             })
-        }))
-        alert.addAction(AlertAction(title: "Add a team", style: .default, handler: { 
+        })
+        alert.addAction(AlertAction(title: "Add a team", style: .default) { _ in
             self.dismiss(animated: true, completion: {
                 self.presentAddTeam()
             })
-        }))
+        })
         customPresentViewController(alertPresenter, viewController: alert, animated: true, completion: nil)
     }
     

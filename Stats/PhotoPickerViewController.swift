@@ -50,8 +50,8 @@ class PhotoPickerViewController: Component, AutoStoryboardInitializable {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        gridBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "grid"), style: .plain, target: self, action: #selector(flipLayout(_:)))
-        linesBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "lines"), style: .plain, target: self, action: #selector(flipLayout(_:)))
+        gridBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "grid"), style: .plain, target: self, action: #selector(flipLayout))
+        linesBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "lines"), style: .plain, target: self, action: #selector(flipLayout))
         
         layout.minimumLineSpacing = 1
         layout.minimumInteritemSpacing = 1
@@ -73,7 +73,7 @@ class PhotoPickerViewController: Component, AutoStoryboardInitializable {
         collectionView.reloadData()
     }
     
-    func flipLayout(_ sender: UIBarButtonItem) {
+    @objc func flipLayout(_ sender: UIBarButtonItem) {
         viewMode = viewMode == .grid ? .list : .grid
         core.fire(event: LogAnalyticsAction(action: .stockPhotoLayoutChanged))
     }

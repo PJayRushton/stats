@@ -67,7 +67,7 @@ struct Game: Identifiable, Unmarshaling, DateComparable {
         }
     }
     var lineup: [Player] {
-        return lineupIds.flatMap { App.core.state.playerState.player(withId: $0) }
+        return lineupIds.compactMap { App.core.state.playerState.player(withId: $0) }
     }
     
     init(object: MarshaledObject) throws {

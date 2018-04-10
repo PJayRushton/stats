@@ -30,7 +30,7 @@ class NotificationController: NSObject, UNUserNotificationCenterDelegate {
     
     func requestAccessIfNeeded(from: UIViewController) {
         getNotificationCenterAccessStatus { granted in
-            if let accessGranted = granted {
+            if let _ = granted {
                 return
             } else {
                 DispatchQueue.main.async {

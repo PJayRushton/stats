@@ -47,7 +47,7 @@ class GameViewController: Component, AutoStoryboardInitializable {
     }
     var gamePlayers: [Player] {
         guard let game = game else { return [] }
-        return game.lineupIds.flatMap { core.state.playerState.player(withId: $0) }
+        return game.lineupIds.compactMap { core.state.playerState.player(withId: $0) }
     }
     var currentAtBats: [AtBat] {
         guard let player = currentPlayer, let game = game else { return [] }
@@ -85,8 +85,8 @@ class GameViewController: Component, AutoStoryboardInitializable {
         scoreLabel.morphingEffect = .fall
         previousInningButton?.isHidden = game.isCompleted || !hasEditRights
         nextInningButton?.isHidden = game.isCompleted || !hasEditRights
-        previousInningButton?.tintColor = .gray400
-        nextInningButton?.tintColor = .gray400
+        previousInningButton?.tintColor = .icon
+        nextInningButton?.tintColor = .icon
         inningLabel.morphingEffect = .scale
         setUpPickerView()
     }
@@ -185,7 +185,7 @@ extension GameViewController {
         inningOutStack.isHidden = game.isCompleted
         newAtBatView.isHidden = game.isCompleted || !hasLineupPlayers
         inningLabel.text = game.status
-        previousInningButton?.tintColor = game.inning == 1 ? .white : .gray400
+        previousInningButton?.tintColor = game.inning == 1 ? .white : .icon
         previousInningButton?.isEnabled = game.inning > 1
         playerHolderView.isHidden = !hasLineupPlayers
         emptyLineupView.isHidden = hasLineupPlayers
@@ -196,7 +196,7 @@ extension GameViewController {
         guard let currentPlayer = core.state.gameState.currentPlayer,
             let index = game.lineupIds.index(of: currentPlayer.id),
             playerPickerView.selectedItem != index else { return }
-        playerPickerView.selectItem(index, animated: true, notifySelection: true)
+        playerPickerView.selectItem(index, animated: true)
     }
     
     fileprivate func updateInning(_ inning: Int? = nil) {
@@ -284,11 +284,11 @@ extension GameViewController {
     fileprivate func presentConfirmationAlert() {
         let alert = Presentr.alertViewController(title: "Are you sure?", body: "This cannot be undone")
         alert.addAction(AlertAction(title: "Cancel 😳", style: .cancel, handler: nil))
-        alert.addAction(AlertAction(title: "☠️", style: .destructive, handler: {
+        alert.addAction(AlertAction(title: "☠️", style: .destructive) { _ in
             guard let game = self.game, self.hasEditRights else { return }
             self.core.fire(command: DeleteGame(game))
             _ = self.navigationController?.popToRootViewController(animated: true)
-        }))
+        })
         customPresentViewController(alertPresenter, viewController: alert, animated: true, completion: nil)
     }
     
@@ -349,7 +349,7 @@ extension GameViewController: AKPickerViewDelegate, AKPickerViewDataSource {
     
     func pickerView(_ pickerView: AKPickerView, didSelectItem item: Int) {
         if item == gamePlayers.count {
-            pickerView.selectItem(0, animated: true, notifySelection: true)
+            pickerView.selectItem(0, animated: true)
         } else {
             core.fire(event: Selected<Player>(gamePlayers[item]))
         }

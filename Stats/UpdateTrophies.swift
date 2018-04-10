@@ -32,7 +32,7 @@ struct UpdateTrophies: Command {
         DispatchQueue.global().async {
             let objectId = self.game?.id ?? state.seasonState.currentSeasonId
             guard let id = objectId else { return }
-            let sections = Trophy.allValues.flatMap { trophy -> TrophySection? in
+            let sections = Trophy.allValues.compactMap { trophy -> TrophySection? in
                 let trophyStats = state.statState.stats(for: id, ofType: trophy.statType)
                 let isWorst = trophy == Trophy.worseBattingAverage
                 let winners = self.winningStats(from: trophyStats, isWorst: isWorst)

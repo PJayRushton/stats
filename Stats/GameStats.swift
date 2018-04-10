@@ -19,7 +19,7 @@ struct GameStats {
     var teamId: String
     var stats = [String: [Stat]]()
     var allStats: [Stat] {
-        return stats.values.joined().flatMap { $0 }
+        return stats.values.joined().compactMap { $0 }
     }
     
     init(_ game: Game) {
@@ -54,7 +54,7 @@ extension GameStats: Unmarshaling {
         let statsJSON: JSONObject = try object.value(for: statsKey)
         statsJSON.keys.forEach { playerId in
             guard let statsDict: [String: Double] = try? statsJSON.value(for: playerId) else { return }
-            let stats = statsDict.flatMap { Stat(playerId: playerId, type: StatType(rawValue: $0.key)!, value: $0.value) }
+            let stats = statsDict.compactMap { Stat(playerId: playerId, type: StatType(rawValue: $0.key)!, value: $0.value) }
             self.stats[playerId] = stats
         }
     }

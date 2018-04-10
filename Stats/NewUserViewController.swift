@@ -36,8 +36,8 @@ class NewUserViewController: Component, AutoStoryboardInitializable {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(respondToKeyboard(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(respondToKeyboard(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(respondToKeyboard), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(respondToKeyboard), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
 
         navigationController?.setNavigationBarHidden(true, animated: true)
         doneButton.layer.cornerRadius = 5
@@ -76,7 +76,7 @@ class NewUserViewController: Component, AutoStoryboardInitializable {
 
 extension NewUserViewController {
     
-    func respondToKeyboard(_ notification: NSNotification) {
+    @objc func respondToKeyboard(_ notification: NSNotification) {
         var isHidden: Bool
         if notification.name == .UIKeyboardWillShow {
             isHidden = true

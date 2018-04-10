@@ -49,7 +49,7 @@ class GameCreationViewController: Component, AutoStoryboardInitializable {
         
         updateUI(with: editingGame)
         if let editingGame = editingGame {
-            let lineupPlayers = editingGame.lineupIds.flatMap { core.state.playerState.player(withId: $0) }
+            let lineupPlayers = editingGame.lineupIds.compactMap { core.state.playerState.player(withId: $0) }
             core.fire(event: LineupUpdated(players: lineupPlayers))
         }
         if showLineup {
@@ -122,7 +122,7 @@ class GameCreationViewController: Component, AutoStoryboardInitializable {
         updateSaveButton()
     }
     
-    func dateChanged(_ sender: UIDatePicker) {
+    @objc func dateChanged(_ sender: UIDatePicker) {
         date = sender.date
     }
     
@@ -151,7 +151,7 @@ extension GameCreationViewController {
     fileprivate func setUpDatePicker() {
         datePicker.datePickerMode = .dateAndTime
         datePicker.minuteInterval = 15
-        datePicker.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
+       datePicker.addTarget(self, action: #selector(dateChanged), for: .valueChanged)
         dateTextField.inputAccessoryView = keyboardAccessoryView
         dateTextField.inputView = datePicker
     }
@@ -202,7 +202,7 @@ extension GameCreationViewController {
         
         let isHome = homeAwaySegControl.index == 0
         let isRegularSeason = regSeasonSegControl.index == 0
-        let lineupIds = core.state.newGameState.lineup?.flatMap { $0.id } ?? []
+        let lineupIds = core.state.newGameState.lineup?.map { $0.id } ?? []
         
         if var editingGame = editingGame {
             editingGame.opponent = opponentText

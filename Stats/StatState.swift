@@ -104,7 +104,7 @@ struct StatState: State {
         return nil
     }
     var currentCSVPaths: [URL] {
-        return [currentNumbersCSVPath, currentTrophyCSVPath].flatMap { $0 }
+        return [currentNumbersCSVPath, currentTrophyCSVPath].compactMap { $0 }
     }
     var currentNumbersCSVPath: URL? {
         guard let objectId = currentObjectId else { return nil }
@@ -141,7 +141,7 @@ struct StatState: State {
     
     func playerStats(for player: Player, game: Game? = nil) -> [Stat] {
         let playerAtBats = App.core.state.atBatState.atBats(for: player, in: game)
-        return StatType.allValues.flatMap { type -> Stat? in
+        return StatType.allValues.compactMap { type -> Stat? in
             let statValue = type.statValue(from: playerAtBats)
             return Stat(playerId: player.id, type: type, value: statValue)
         }

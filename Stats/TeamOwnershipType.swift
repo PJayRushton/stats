@@ -35,7 +35,7 @@ enum TeamOwnershipType: String {
         }
     }
     var firstCharacter: String {
-        return String(rawValue.characters.first!)
+        return String(rawValue.first!)
     }
     
     var sectionTitle: String {

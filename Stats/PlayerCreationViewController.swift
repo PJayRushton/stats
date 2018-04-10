@@ -159,9 +159,7 @@ extension PlayerCreationViewController {
         let font = FontType.lemonMilk.font(withSize: 13)
         genderSegControl.titleFont = font
         genderSegControl.selectedTitleFont = font
-        genderSegControl.titleColor = .gray400
-        genderSegControl.indicatorViewBackgroundColor = .secondaryAppColor
-        genderSegControl.cornerRadius = 5
+        genderSegControl.options = [.titleColor(.icon), .indicatorViewBackgroundColor(.secondaryAppColor), .cornerRadius(5)]
     }
     
     fileprivate func updateSaveButtons() {
@@ -243,12 +241,12 @@ extension PlayerCreationViewController {
         guard let editingPlayer = editingPlayer else { return }
         let alert = Presentr.alertViewController(title: "Delete \(editingPlayer.name)?", body: "This cannot be undone")
         alert.addAction(AlertAction(title: "Cancel 😳", style: .cancel, handler: nil))
-        alert.addAction(AlertAction(title: "☠️", style: .destructive, handler: {
+        alert.addAction(AlertAction(title: "☠️", style: .destructive) { _ in
             self.core.fire(command: DeleteObject(editingPlayer))
             self.dismiss(animated: true, completion: { 
                 self.dismiss(animated: true, completion: nil)
             })
-        }))
+        })
         customPresentViewController(alertPresenter, viewController: alert, animated: true, completion: nil)
     }
     

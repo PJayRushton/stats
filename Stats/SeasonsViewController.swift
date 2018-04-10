@@ -154,9 +154,9 @@ extension SeasonsViewController {
     fileprivate func showDeleteConfirmation(for season: Season) {
         let alert = Presentr.alertViewController(title: "ARE YOU SURE??", body: "This will delete all the GAMES & STATS for this season! 😱")
         alert.addAction(AlertAction(title: "Cancel 😳", style: .cancel, handler: nil))
-        alert.addAction(AlertAction(title: "☠️", style: .destructive, handler: {
+        alert.addAction(AlertAction(title: "☠️", style: .destructive) { _ in
             self.core.fire(command: DeleteSeason(season))
-        }))
+        })
         customPresentViewController(alertPresenter, viewController: alert, animated: true, completion: nil)
     }
     

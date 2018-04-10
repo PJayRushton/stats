@@ -13,12 +13,12 @@ enum Appearance {
     static let backButtonImage = #imageLiteral(resourceName: "leftChevronWhite").withRenderingMode(.alwaysTemplate)
     
     static func setUp(navTextColor: UIColor = UIColor.white) {
-        let navTitleAttributes = [NSFontAttributeName: FontType.lemonMilk.font(withSize: 20), NSForegroundColorAttributeName: navTextColor]
+        let navTitleAttributes = [NSAttributedStringKey.font: FontType.lemonMilk.font(withSize: 20), NSAttributedStringKey.foregroundColor: navTextColor]
         UINavigationBar.appearance().titleTextAttributes = navTitleAttributes
         UINavigationBar.appearance().backIndicatorImage = backButtonImage
         UINavigationBar.appearance().backIndicatorTransitionMaskImage = backButtonImage
         UINavigationBar.appearance(whenContainedInInstancesOf: [UINavigationController.self]).tintColor = navTextColor
-        UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: FontType.lemonMilk.font(withSize: 15)], for: .normal)
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedStringKey.font: FontType.lemonMilk.font(withSize: 15)], for: .normal)
         UINavigationBar.appearance().isTranslucent = false
         UIApplication.shared.statusBarStyle = .lightContent
 //        

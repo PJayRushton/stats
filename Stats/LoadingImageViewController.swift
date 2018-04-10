@@ -50,12 +50,12 @@ extension LoadingImageViewController {
     
     fileprivate func presentICloudError() {
         let alert = Presentr.alertViewController(title: "iCloud Error", body: "St@ syncs your data over iCloud. Check your phone's iCloud settings to continue")
-        alert.addAction(AlertAction(title: "Open Settings", style: .cancel, handler: {
+        alert.addAction(AlertAction(title: "Open Settings", style: .cancel) { _ in
             self.openSettings()
-        }))
-        alert.addAction(AlertAction(title: "Try Again", style: .destructive, handler: {
+        })
+        alert.addAction(AlertAction(title: "Try Again", style: .destructive) { _ in
             self.core.fire(command: LoadICloudUser())
-        }))
+        })
         customPresentViewController(alertPresenter, viewController: alert, animated: true, completion: nil)
     }
     

@@ -183,17 +183,17 @@ extension HomeViewController {
     
     fileprivate func presentShareRoles() {
         let alert = Presentr.alertViewController(title: "Share Team", body: "Which would you like to add?")
-        alert.addAction(AlertAction(title: "St@ Keeper", style: .default, handler: {
+        alert.addAction(AlertAction(title: "St@ Keeper", style: .default) { _ in
             self.dismiss(animated: true, completion: { 
                 self.presentTeamShare(withType: .managed)
             })
-        }))
+        })
         
-        alert.addAction(AlertAction(title: "Player/Fan", style: .default, handler: {
+        alert.addAction(AlertAction(title: "Player/Fan", style: .default) { _ in
             self.dismiss(animated: true, completion: { 
                 self.presentTeamShare(withType: .fan)
             })
-        }))
+        })
         customPresentViewController(alertPresenter, viewController: alert, animated: true, completion: nil)
     }
     

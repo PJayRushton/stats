@@ -158,7 +158,7 @@ class AtBatCreationViewController: Component, AutoStoryboardInitializable {
         // Player labels
         guard let game = state.gameState.currentGame else { return }
         currentPlayerLabel.text = currentPlayer?.name
-        let lineup =  game.lineupIds.flatMap { state.playerState.player(withId: $0) }
+        let lineup =  game.lineupIds.compactMap { state.playerState.player(withId: $0) }
         previousPlayerLabel.text = ""
         nextPlayerLabel.text = ""
         
@@ -330,13 +330,13 @@ extension AtBatCreationViewController {
         guard let editingAtBat = editingAtBat else { return }
         let alert = Presentr.alertViewController(title: "Delete this at bat?", body: "This cannot be undone")
         alert.addAction(AlertAction(title: "Cancel 😳", style: .cancel, handler: nil))
-        alert.addAction(AlertAction(title: "☠️", style: .destructive, handler: {
+        alert.addAction(AlertAction(title: "☠️", style: .destructive) { _ in
             self.core.fire(command: DeleteObject(editingAtBat))
             self.updateGameScore(atBat: editingAtBat, delete: true)
             self.dismiss(animated: true, completion: {
                 self.dismiss(animated: true, completion: nil)
             })
-        }))
+        })
         customPresentViewController(alertPresenter, viewController: alert, animated: true, completion: nil)
     }
     

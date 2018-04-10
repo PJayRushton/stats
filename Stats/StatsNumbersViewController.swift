@@ -60,7 +60,7 @@ extension StatsNumbersViewController {
         let selectedStatType = statType(for: sortSection)
         var selectedStats = stats(ofType: selectedStatType)
         selectedStats.sort(by: >)
-        let idOrder = selectedStats.flatMap { $0.playerId }
+        let idOrder = selectedStats.map { $0.playerId }
         currentPlayers.sort { idOrder.index(of: $0.id)! < idOrder.index(of: $1.id)! }
     }
     

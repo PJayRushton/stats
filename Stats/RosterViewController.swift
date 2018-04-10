@@ -122,7 +122,7 @@ class RosterViewController: Component, AutoStoryboardInitializable {
     
     @IBAction func launchTextButtonPressed(_ sender: UIButton) {
         feedbackGenerator.selectionChanged()
-        textPhoneNumbers(playersToText.flatMap { $0.phone })
+        textPhoneNumbers(playersToText.compactMap { $0.phone })
     }
     
     

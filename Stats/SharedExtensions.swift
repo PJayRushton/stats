@@ -24,8 +24,8 @@ extension Collection where Self: ExpressibleByDictionaryLiteral, Self.Key == Str
     func parsedObjects<T: Identifiable>() -> [T] {
         guard let json = self as? JSONObject else { return [] }
         let keys = Array(json.keys)
-        let objects: [JSONObject] = keys.flatMap { try? json.value(for: $0) }
-        return objects.flatMap { try? T(object: $0) }
+        let objects: [JSONObject] = keys.compactMap { try? json.value(for: $0) }
+        return objects.compactMap { try? T(object: $0) }
     }
     
 }
@@ -35,8 +35,8 @@ extension Optional where Wrapped: MarshaledObject {
     func parsedObjects<T: Identifiable>() -> [T] {
         guard let json = self as? JSONObject else { return [] }
         let keys = Array(json.keys)
-        let objects: [JSONObject] = keys.flatMap { try? json.value(for: $0) }
-        return objects.flatMap { try? T(object: $0) }
+        let objects: [JSONObject] = keys.compactMap { try? json.value(for: $0) }
+        return objects.compactMap { try? T(object: $0) }
     }
     
 }
@@ -44,7 +44,7 @@ extension Optional where Wrapped: MarshaledObject {
 extension Array where Iterator.Element == Game {
     
     var record: TeamRecord {
-        let wasWonBools = self.flatMap { $0.wasWon }
+        let wasWonBools = self.compactMap { $0.wasWon }
         let winCount = wasWonBools.filter { $0 == true }.count
         let lostCount = wasWonBools.filter { $0 == false }.count
         return TeamRecord(gamesWon: winCount, gamesLost: lostCount)
@@ -98,7 +98,7 @@ extension String {
     subscript(r: Range<Int>) -> String {
         let start = index(startIndex, offsetBy: r.lowerBound)
         let end = index(startIndex, offsetBy: r.upperBound - r.lowerBound)
-        return self[Range(start ..< end)]
+        return String(self[Range(start ..< end)])
     }
     
     var firstLetter: String {
@@ -118,9 +118,9 @@ extension String {
     var isValidPhoneNumber: Bool {
         do {
             let detector = try NSDataDetector(types: NSTextCheckingResult.CheckingType.phoneNumber.rawValue)
-            let matches = detector.matches(in: self, options: [], range: NSMakeRange(0, self.characters.count))
+            let matches = detector.matches(in: self, options: [], range: NSMakeRange(0, self.count))
             if let res = matches.first {
-                return res.resultType == .phoneNumber && res.range.location == 0 && res.range.length == self.characters.count
+                return res.resultType == .phoneNumber && res.range.location == 0 && res.range.length == self.count
             } else {
                 return false
             }
@@ -151,36 +151,20 @@ extension String {
         return "\(season) \(currentYear)"
     }
     
-    var attributedNumberFontString: NSAttributedString {
-        let components = self.characters.flatMap { String($0) }
-        let numbers = components.filter { Int($0) != nil }
-        guard !numbers.isEmpty else { return NSAttributedString(string: self) }
-        
-        let nsSelf = self as NSString
-        let ranges = numbers.flatMap { nsSelf.range(of: $0) }
-        
-        let attributedString = NSMutableAttributedString(string: self)
-        ranges.forEach { range in
-            attributedString.addAttributes([NSFontAttributeName: FontType.jersey.font(withSize: 22)], range: range)
-        }
-        
-        return attributedString
-    }
-    
-    var jerseyNumberFontString: NSAttributedString {
-        let nsSelf = self as NSString
-        let firstRange = nsSelf.localizedStandardRange(of: "(")
-        let secondRange = nsSelf.localizedStandardRange(of: ")")
-        guard firstRange.length == 1 && secondRange.length == 1 else { return NSAttributedString(string: self) }
-        
-        let length = secondRange.location - (firstRange.location + 1)
-        guard length > 0 else { return NSAttributedString(string: self) }
-        let numbersRange = NSRange(location: firstRange.location + 1, length: length)
-        let attributedString = NSMutableAttributedString(string: self)
-        attributedString.addAttributes([NSFontAttributeName: FontType.jersey.font(withSize: 22)], range: numbersRange)
-        
-        return attributedString
-    }
+//    var jerseyNumberFontString: NSAttributedString {
+//        let nsSelf = self as NSString
+//        let firstRange = nsSelf.localizedStandardRange(of: "(")
+//        let secondRange = nsSelf.localizedStandardRange(of: ")")
+//        guard firstRange.length == 1 && secondRange.length == 1 else { return NSAttributedString(string: self) }
+//
+//        let length = secondRange.location - (firstRange.location + 1)
+//        guard length > 0 else { return NSAttributedString(string: self) }
+//        let numbersRange = NSRange(location: firstRange.location + 1, length: length)
+//        let attributedString = NSMutableAttributedString(string: self)
+//        attributedString.addAttributes([: FontType.jersey.font(withSize: 22)], range: numbersRange)
+//
+//        return attributedString
+//    }
     
 }
 

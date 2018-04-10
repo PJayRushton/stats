@@ -15,9 +15,7 @@ extension BetterSegmentedControl {
         self.titles = titles
         titleFont = FontType.lemonMilk.font(withSize: fontSize)
         selectedTitleFont = FontType.lemonMilk.font(withSize: fontSize + 2)
-        titleColor = .gray400
-        selectedTitleColor = .white
-        indicatorViewBackgroundColor = indicatorColor
+        options = [.titleColor(.gray2), .selectedTitleColor(.white), .indicatorViewBackgroundColor(indicatorColor)]
         cornerRadius = 5
     }
     

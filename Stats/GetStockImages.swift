@@ -15,7 +15,7 @@ struct GetStockImages: Command {
         let ref = StatsRefs.stockRef
         ref.observeSingleEvent(of: .value, with: { snap in
             if let urlStrings = snap.value as? [String] {
-                let urls = urlStrings.flatMap(URL.init)
+                let urls = urlStrings.compactMap(URL.init)
                 core.fire(event: Updated<[URL]>(urls))
                 core.fire(command: Prefetch(urls))
             }

@@ -90,7 +90,7 @@ extension AppState {
     
     fileprivate func allPlayerStats(from atBats: [AtBat]) -> [Stat] {
         guard let playerId = atBats.first?.playerId, let player = playerState.player(withId: playerId) else { return [] }
-        return StatType.allValues.flatMap({ type -> Stat? in
+        return StatType.allValues.compactMap({ type -> Stat? in
             let statValue = type.statValue(from: atBats)
             return Stat(playerId: player.id, type: type, value: statValue)
         })

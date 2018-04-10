@@ -26,7 +26,7 @@ class AddTeamViewController: Component, AutoStoryboardInitializable {
     fileprivate var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     fileprivate var qrCodeFrameView: UIView?
     
-    fileprivate let supportedBarCodes = [AVMetadataObjectTypeQRCode]
+    fileprivate let supportedBarCodes = [AVMetadataObject.ObjectType]()
     fileprivate let networkAccess = FirebaseNetworkAccess()
     
     fileprivate var allTextFields: [UITextField] {
@@ -69,7 +69,7 @@ class AddTeamViewController: Component, AutoStoryboardInitializable {
 extension AddTeamViewController {
     
     fileprivate func setUpCaptureSession() {
-        let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
+        guard let captureDevice = AVCaptureDevice.default(for: .video) else { return }
         
         do {
             let input = try AVCaptureDeviceInput(device: captureDevice)
@@ -81,8 +81,9 @@ extension AddTeamViewController {
             captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
             captureMetadataOutput.metadataObjectTypes = supportedBarCodes
             
+            guard let captureSession = captureSession else { return }
             videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-            videoPreviewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
+            videoPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
             videoPreviewLayer?.frame = view.layer.bounds
             view.layer.addSublayer(videoPreviewLayer!)
             view.bringSubview(toFront: topStack)
@@ -128,7 +129,7 @@ extension AddTeamViewController {
 
     fileprivate func processedCode(_ code: String) -> (code: String, type: TeamOwnershipType)? {
         var updatedCode = code
-        guard updatedCode.characters.count == 5 else { return nil }
+        guard updatedCode.count == 5 else { return nil }
         let lastChar = updatedCode.remove(at: updatedCode.index(before: updatedCode.endIndex))
         guard case let lastNumber = String(lastChar), let ownershipInt = Int(lastNumber) else { return nil }
         let ownershipType = TeamOwnershipType(hashValue: ownershipInt)
@@ -227,13 +228,13 @@ extension AddTeamViewController: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let text = textField.text else { return true }
-        let newLength = text.characters.count + string.characters.count - range.length
+        let newLength = text.count + string.count - range.length
         return newLength <= 1
         
     }
     
     @IBAction func textFieldChanged(_ sender: UITextField) {
-        if let text = sender.text, text.characters.count == 1 {
+        if let text = sender.text, text.count == 1 {
             _ = textFieldShouldReturn(sender)
         }
     }
@@ -248,7 +249,7 @@ extension AddTeamViewController: UITextFieldDelegate {
         } else if textField == textField4 {
             textField5.becomeFirstResponder()
         } else {
-            let shareCode = allTextFields.flatMap( { $0.text?.uppercased() }).joined()
+            let shareCode = allTextFields.compactMap( { $0.text?.uppercased() }).joined()
             searchForTeam(withCode: shareCode)
         }
         

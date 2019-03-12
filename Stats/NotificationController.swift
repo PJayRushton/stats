@@ -18,7 +18,7 @@ class NotificationController: NSObject, UNUserNotificationCenterDelegate {
     func getNotificationCenterAccessStatus(completion: @escaping (Bool?) -> Void) {
         currentCenter.getNotificationSettings { settings in
             switch settings.authorizationStatus {
-            case .authorized:
+            case .authorized, .provisional:
                 completion(true)
             case .denied:
                 completion(false)

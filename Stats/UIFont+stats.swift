@@ -111,7 +111,7 @@ extension UIFont {
 
     /// Default Size: 34B
     static var largeTitle: UIFont {
-        return UIFont.appFont.preferredFont(forTextStyle: .largeTitle )
+        return UIFont.appFont.preferredFont(forTextStyle: .largeTitle)
     }
     
     /// Default Size: 28B

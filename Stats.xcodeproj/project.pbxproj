@@ -93,7 +93,7 @@
 		A13224AB207BDBB30026F952 /* UIColor+stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13224AA207BDBB30026F952 /* UIColor+stats.swift */; };
 		A13224B5207BEC340026F952 /* StyledViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13224B4207BEC340026F952 /* StyledViews.swift */; };
 		A13224B7207BEC7E0026F952 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13224B6207BEC7D0026F952 /* CustomButton.swift */; };
-		A13224B9207C26690026F952 /* UIFont+Align.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13224B8207C26680026F952 /* UIFont+Align.swift */; };
+		A13224B9207C26690026F952 /* UIFont+stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13224B8207C26680026F952 /* UIFont+stats.swift */; };
 		A13224BB207C267C0026F952 /* UIAlertAction+Cancel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13224BA207C267C0026F952 /* UIAlertAction+Cancel.swift */; };
 		A1398B3F1EA6D3DF00A4B830 /* GameCreationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1398B3D1EA6D3DF00A4B830 /* GameCreationViewController.storyboard */; };
 		A1398B411EA6EB3400A4B830 /* CreateGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1398B401EA6EB3400A4B830 /* CreateGame.swift */; };
@@ -334,7 +334,7 @@
 		A13224AA207BDBB30026F952 /* UIColor+stats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+stats.swift"; sourceTree = "<group>"; };
 		A13224B4207BEC340026F952 /* StyledViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyledViews.swift; sourceTree = "<group>"; };
 		A13224B6207BEC7D0026F952 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
-		A13224B8207C26680026F952 /* UIFont+Align.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Align.swift"; sourceTree = "<group>"; };
+		A13224B8207C26680026F952 /* UIFont+stats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+stats.swift"; sourceTree = "<group>"; };
 		A13224BA207C267C0026F952 /* UIAlertAction+Cancel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertAction+Cancel.swift"; sourceTree = "<group>"; };
 		A1398B3E1EA6D3DF00A4B830 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = GameCreationViewController.storyboard; sourceTree = "<group>"; };
 		A1398B401EA6EB3400A4B830 /* CreateGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGame.swift; sourceTree = "<group>"; };
@@ -667,7 +667,7 @@
 				A162A4091F79AEA1000167B0 /* SortHelper.swift */,
 				A17999851E82B98E0058A002 /* StoryboardInitializable.swift */,
 				A13224B4207BEC340026F952 /* StyledViews.swift */,
-				A13224B8207C26680026F952 /* UIFont+Align.swift */,
+				A13224B8207C26680026F952 /* UIFont+stats.swift */,
 				A1CD599C1EC9EBEC00D26FD8 /* UIImageView+URL.swift */,
 				A13224AA207BDBB30026F952 /* UIColor+stats.swift */,
 				A14B64DE1E8D3EC200CBDE92 /* UIViewControllerExtensions.swift */,
@@ -1226,7 +1226,7 @@
 				A11B4D911EAEC4D000798D52 /* StatsNumbersViewController.swift in Sources */,
 				A1D67D3F1E8F253F00200B65 /* TeamSelectionCell.swift in Sources */,
 				A18F68B41ECD726D00407E89 /* PhotoCell.swift in Sources */,
-				A13224B9207C26690026F952 /* UIFont+Align.swift in Sources */,
+				A13224B9207C26690026F952 /* UIFont+stats.swift in Sources */,
 				A132249A207BD9460026F952 /* SwipeTransitionDelegate.swift in Sources */,
 				A1322478207BD9460026F952 /* CustomView.swift in Sources */,
 				A1CD599B1EC6678B00D26FD8 /* OpponentScoreViewController.swift in Sources */,
@@ -1666,7 +1666,7 @@
 				DEVELOPMENT_TEAM = WK6LDT652Z;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Stats/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.AppsByPJ.Stats;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1688,7 +1688,7 @@
 				DEVELOPMENT_TEAM = WK6LDT652Z;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Stats/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.AppsByPJ.Stats;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -96,9 +96,9 @@ class GamesViewController: Component, AutoStoryboardInitializable {
     
     override func update(with state: AppState) {
         let gameState = state.gameState
-        ongoingGames = gameState.currentOngoingGames
-        regularSeasonGames = gameState.currentGames(regularSeason: true)
-        postSeasonGames = gameState.currentGames(regularSeason: false)
+        ongoingGames = gameState.currentOngoingGames.sortedByDate()
+        regularSeasonGames = gameState.currentGames(regularSeason: true).sortedByDate()
+        postSeasonGames = gameState.currentGames(regularSeason: false).sortedByDate()
         hasPostSeason = !postSeasonGames.isEmpty
         tableIsEmpty = gameState.currentGames.isEmpty
         

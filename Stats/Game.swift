@@ -133,6 +133,18 @@ extension Game: Diffable {
 }
 
 
+// MARK: - Date Sortable
+
+extension Game: DateSortable {
+    
+    var sortDate: Date {
+        return date
+    }
+    
+    
+}
+
+
 // MARK: - Identifiable
 
 extension Game {

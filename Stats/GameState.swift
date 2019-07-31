@@ -69,7 +69,7 @@ struct GameState: State {
     /// Games of the current team scoped to the current seasons that are net yet completed
     var currentOngoingGames: [Game] {
         let seasonGames = teamGames.filter { $0.seasonId == App.core.state.seasonState.currentSeason?.id }
-        return seasonGames.filter { $0.isCompleted == false }.sorted(by: >)
+        return seasonGames.filter { $0.isCompleted == false }.sorted(by: <)
     }
 
 
@@ -79,7 +79,7 @@ struct GameState: State {
     /// - Returns: an array of games from either the regular or post season
     func currentGames(regularSeason: Bool) -> [Game] {
         let seasonGames = teamGames.filter { $0.seasonId == App.core.state.seasonState.currentSeason?.id }
-        return seasonGames.filter { $0.isRegularSeason == regularSeason && $0.isCompleted == true }.sorted(by: >)
+        return seasonGames.filter { $0.isRegularSeason == regularSeason && $0.isCompleted == true }.sorted(by: <)
     }
     
     func order(of game: Game) -> Int? {
